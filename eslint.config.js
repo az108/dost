@@ -10,7 +10,7 @@ export default tseslint.config(
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       globals: globals.browser,
     },
     plugins: {
@@ -23,6 +23,12 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['**/*.test.{ts,tsx}', 'src/test/**'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.vitest },
     },
   },
 )
