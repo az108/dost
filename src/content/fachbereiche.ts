@@ -1,5 +1,14 @@
 import type { TopicEntry } from "./types"
 
+import allgemeinmedizinImg from "@/assets/topics/allgemeinmedizin.jpg"
+import notfallmedizinImg from "@/assets/topics/notfallmedizin.jpg"
+import naturheilverfahrenImg from "@/assets/topics/naturheilverfahren.jpg"
+import akupunkturUndTcmImg from "@/assets/topics/akupunktur-und-tcm.jpg"
+import homoeopathieImg from "@/assets/topics/homoeopathie.jpg"
+import aesthetischeMedizinImg from "@/assets/topics/aesthetische-medizin.jpg"
+import sportmedizinImg from "@/assets/topics/sportmedizin.jpg"
+import besondereUntersuchungenImg from "@/assets/topics/besondere-untersuchungen-und-behandlungsmethoden.jpg"
+
 export const fachbereiche: TopicEntry[] = [
   {
     slug: "allgemeinmedizin",
@@ -16,7 +25,8 @@ export const fachbereiche: TopicEntry[] = [
       "Ultraschalluntersuchungen der Schilddrüse und der Bauchorgane",
       "Individuelle Gesundheitsleistungen (IGEL / Selbstzahlerleistungen)",
     ],
-    imageAlt: "Hausarzt misst den Blutdruck einer Patientin",
+    image: allgemeinmedizinImg,
+    imageAlt: "Hausarzt im Beratungsgespräch mit einer Patientin",
   },
   {
     slug: "notfallmedizin",
@@ -49,7 +59,8 @@ export const fachbereiche: TopicEntry[] = [
       "Als Notdienst und naturheilkundliche Praxis in Landshut bietet die Notfallpraxis Dr. Dost Mohammad seinen Patienten selbstverständlich auch Notdienste an, welche auf Naturheilverfahren basieren. Ein homöopathischer Notfalldienst kann daher ebenfalls in Anspruch genommen werden. Viele Patienten fühlen sich durch diesen Notfalldienst in Landshut sehr gut betreut, da ihnen zusätzlich zur Schulmedizin alternative Behandlungsmethoden aufgezeigt werden. Da das Vertrauen in diesen Notfalldienst groß ist, bleiben Sie oftmals auch nach dem Notfall weiterhin in Behandlung des fachlich kompetenten Arztes. So kann sich nahtlos die bereits eingeleitete Therapie fortsetzen. In den meisten Fällen verkürzt sich dadurch die Zeit der Behandlung bzw. Patienten können sich individuell auf die notwendigen Medikamente einstellen.",
       "Alle Bewohner in und um Landshut können sich bei einem Notfall vertrauensvoll an Dr. med. Dost Mohammad wenden, wenn keine kurzfristigen Termine bei einem jeweiligen Facharzt zu vergeben sind. Durch die günstigen Öffnungszeiten und die gute Erreichbarkeit können Sie sicher sein, den richtigen Ansprechpartner für das jeweilige Problem gefunden zu haben.",
     ],
-    imageAlt: "Notfallkoffer und Stethoskop in der Praxis",
+    image: notfallmedizinImg,
+    imageAlt: "Rettungswagen im Einsatz auf der Straße",
   },
   {
     slug: "naturheilverfahren",
@@ -71,7 +82,8 @@ export const fachbereiche: TopicEntry[] = [
       "Unter dem Begriff Eigenbluttherapie versteht man ein Verfahren, bei dem Patienten zunächst eine bestimmte Menge Blut entnommen wird, um es anschließend wieder zu injizieren, wobei es vorher auf verschiedene Weise behandelt bzw. angereichert wird.",
       "Beim Schröpfen werden in der Praxis für Naturheilkunde, Dr. med. Dost Mohammad in Landshut glockenförmige Gefäße aus Glas oder Kunststoff, die sogenannten Schröpfgläser auf die nackte Haut des Patienten gesetzt. Mittels einer Absaugvorrichtung, wie z.B. Pumpspritzen wird Luft aus dem Gefäß gesaugt. Auf dem behandelten Hautareal entsteht infolgedessen ein starker Unterdruck. Er führt dazu, dass die Haut vom Glas angesogen wird. Dadurch wird die Haut besser durchblutet.",
     ],
-    imageAlt: "Heilpflanzen, Mörser und Kräuterextrakte auf einem Holztisch",
+    image: naturheilverfahrenImg,
+    imageAlt: "Getrocknete Heilkräuter in Gläsern auf einem Holzregal",
   },
   {
     slug: "akupunktur-und-tcm",
@@ -103,6 +115,7 @@ export const fachbereiche: TopicEntry[] = [
       "Das Schröpfen ist eine althergebrachte Technik, die nicht nur in China, sondern auch seit dem Mittelalter in Europa bekannt ist. Dabei werden mit Schröpfköpfen bestimmte Hautareale angesaugt und dadurch entsprechend aktiviert. Das Schröpfen steigert die Durchblutung und wirkt auf das Schmerzempfinden ein. Sowohl Neuraltherapie als auch Schröpfen eignen sich besonders gut bei Schmerzzuständen. Schröpfen entspannt und vitalisiert gleichzeitig.",
       "Die chinesische Medizin ergänzt komplementär medizinisch die Bemühungen der Schulmedizin um die menschliche Gesundheit. In unserer Praxis setzen wir die chinesische Medizin entsprechend ein. In unseren Behandlungsbereichen Akupunktur Landshut und TCM Landshut bieten wir unseren Patienten eine Fülle von alternativen medizinischen Anwendungen und Behandlungen. Gern informieren wir Sie über die Akupunktur, mit den Teilbereichen Körperakupunktur, Ohrakupunktur und Schädelakupunktur sowie über weitere Maßnahmen der TCM Landshut. Lernen Sie Qigong Gymnastik, die Grundsätze der TCM Ernährung und die positiven Effekte der Tui Na Massage sowie das Schröpfen oder die Neuraltherapie bei uns kennen. Wir informieren Sie gern und ausführlich zur TCM und zur Akupunktur.",
     ],
+    image: akupunkturUndTcmImg,
     imageAlt: "Feine Akupunkturnadeln auf dem Rücken eines Patienten",
   },
   {
@@ -135,6 +148,7 @@ export const fachbereiche: TopicEntry[] = [
       "Sie suchen ganzheitliche Medizin in Landshut um sich einer Allergietherapie zu unterziehen? Wir wenden natürliche Allergietherapien gegen Heuschnupfen, Lebensmittelunverträglichkeiten und andere Arten von Allergien an. Natürlich, sanft und nachhaltig wirksam, wird die Verträglichkeit gegen unterschiedliche Allergene wieder hergestellt.",
       "Vitamin C übernimmt im Körper viele verschiedene Aufgaben. Krankheiten können jedoch dazu führen, dass der Körper mit Vitamin C unterversorgt ist. Ist der Mangel so stark, dass er nicht mehr über die Nahrung oder die Einnahme von Vitamin C-Präparaten gedeckt werden kann, kann unsere Praxis in Landshut den Körper mit einer Vitamin C-Infusion unterstützen.",
     ],
+    image: homoeopathieImg,
     imageAlt: "Globuli-Fläschchen und Heilkräuter der Homöopathie",
   },
   {
@@ -167,7 +181,8 @@ export const fachbereiche: TopicEntry[] = [
       "Das Straffungstoxin eignet sich besonders zur Behandlung dynamischer (mimischer) Falten. Diese entstehen durch Schrumpfung der Gesichtsmuskeln, die sich im Laufe der Jahre verfestigen können. Eine lebhafte Mimik begünstigt dynamische Falten.",
       "Statische Falten sind auch bei entspannter Gesichtsmuskulatur erkennbar. Zu den statischen Falten gehören z. B. die Nasolabialfalte. Statische Falten entwickeln sich bereits ab dem 30.Lebensjahr und zeigen sich verstärkt ab einem Alter von ungefähr 40 Jahren. Für die statischen Falten sind Hyaluronsäurefiller die ideale Therapie.",
     ],
-    imageAlt: "Kosmetische Unterspritzung im Gesicht einer Patientin",
+    image: aesthetischeMedizinImg,
+    imageAlt: "Kosmetische Gesichtsbehandlung einer Patientin",
   },
   {
     slug: "sportmedizin",
@@ -181,7 +196,8 @@ export const fachbereiche: TopicEntry[] = [
       "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
       "Unser Arzt befasst sich nicht nur mit Präventionsmaßnahmen, sondern auch mit den Spätfolgen zu hoher körperlicher Belastung.",
     ],
-    imageAlt: "Läufer beim Training, Arzt untersucht ein Knie",
+    image: sportmedizinImg,
+    imageAlt: "Läufer beim Training im Park",
   },
   {
     slug: "besondere-untersuchungen-und-behandlungsmethoden",
@@ -203,6 +219,7 @@ export const fachbereiche: TopicEntry[] = [
       "In Deutschland sind Herz-Kreislauferkrankungen die häufigste Todesursache",
       "Ursache hierfür ist zum einen in den Lebensumständen zu finden, zum anderen aber in genetisch determinierten Faktoren wie hohen Cholesterinwerten, hohem Blutdruck und Zuckerkrankheit. Ziel der Diagnostik unserer Praxis, Dr. med. Dost Mohammad, ist es, diese Risikofaktoren früh zu erkennen und ihnen, wenn möglich gegenzusteuern. Ein EKG, das die elektrische Aktivität des Herzens aufzeichnet, lässt Rückschlüsse auf die Durchblutungssituation in Ruhe oder Herzrhythmusstörungen zu. Ein Belastungs- EKG ermöglicht eine genaue Aussage über eine eventuelle Minderdurchblutung des Herzens. Beide EKG-Arten können bei Ihrem Arzt in Landshut durchgeführt werden.",
     ],
-    imageAlt: "Ultraschalluntersuchung der Bauchorgane in der Praxis",
+    image: besondereUntersuchungenImg,
+    imageAlt: "Arzt führt eine Ultraschalluntersuchung in der Praxis durch",
   },
 ]

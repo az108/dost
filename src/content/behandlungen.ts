@@ -1,5 +1,17 @@
 import type { TopicEntry } from "./types"
 
+import allergiebehandlungImg from "@/assets/topics/allergiebehandlung.jpg"
+import borrelioseTherapieImg from "@/assets/topics/borreliose-therapie.jpg"
+import burnouttherapieImg from "@/assets/topics/burnouttherapie.jpg"
+import eigenbluttherapieImg from "@/assets/topics/eigenbluttherapie.jpg"
+import hormontherapieImg from "@/assets/topics/hormontherapie.jpg"
+import immuntherapieImg from "@/assets/topics/immuntherapie.jpg"
+import krebstherapieImg from "@/assets/topics/krebstherapie.jpg"
+import kryolipolyseImg from "@/assets/topics/kryolipolyse.jpg"
+import lichttherapieImg from "@/assets/topics/lichttherapie.jpg"
+import schmerztherapieImg from "@/assets/topics/schmerztherapie.jpg"
+import vitamintherapieImg from "@/assets/topics/vitamintherapie.jpg"
+
 export const behandlungen: TopicEntry[] = [
   {
     slug: "allergiebehandlung",
@@ -20,7 +32,8 @@ export const behandlungen: TopicEntry[] = [
       "Die Erfolgsquote ist vom Alter des Patienten, der Dauer der Erkrankung und der Art der Allergie abhängig. Die Hyposensibilisierung wirkt am besten, wenn sie regelmäßig über einen Zeitraum von mehreren Monaten im Jahr und in mehreren aufeinanderfolgenden Jahren durchgeführt wird.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Blühende Gräser und Pollen im Gegenlicht",
+    image: allergiebehandlungImg,
+    imageAlt: "Blühende Blumenwiese vor Bergkulisse",
   },
   {
     slug: "borreliose-therapie",
@@ -50,7 +63,8 @@ export const behandlungen: TopicEntry[] = [
       "Eine Borreliose-Impfung zum Schutz vor Zecken gibt es für Menschen noch nicht; für Tiere ist die Borreliose-Impfung bereits im Einsatz. Da eine Immunisierung noch nicht möglich ist, empfiehlt sich zur Vorbeugung der Krankheit und zum Schutz vor Zecken und einem Zeckenbiss lange Kleidung, vor allem bei Spaziergängen im Sommer. Auch ohne eine Borreliose-Impfung können somit wirkungsvolle Vorsichtsmaßnahmen gegen Zecken getroffen werden. Es gibt Hoffnung: Die Forschung an einer wirksamen Borreliose-Impfung für den Menschen läuft auf Hochtouren.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Zecke auf einem grünen Blatt in Nahaufnahme",
+    image: borrelioseTherapieImg,
+    imageAlt: "Sonniger Waldweg durch dichten grünen Wald",
   },
   {
     slug: "burnouttherapie",
@@ -82,6 +96,7 @@ export const behandlungen: TopicEntry[] = [
       "Diese und weitere Methoden stehen uns zur Verfügung, wenn Sie unsere Praxis mit einem Burnout oder einer Depression aufsuchen. Zu einer ganzheitlichen Behandlung gehört zusätzlich eine genaue Betrachtung des Speiseplans. Mit kleinen Anpassungen der Essgewohnheiten kann auch bei psychischen Erkrankungen eine Menge erreicht werden. Ergänzend werden speziell auf den Einzelfall abgestimmte Kräuter verschrieben. Diese unterstützen den Heilungsprozess effektiv.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
+    image: burnouttherapieImg,
     imageAlt: "Person blickt entspannt in die aufgehende Sonne",
   },
   {
@@ -98,7 +113,8 @@ export const behandlungen: TopicEntry[] = [
       "Die orale Eigenblutbehandlung ist besonders geeignet für Kinder. Ein Tropfen Blut aus der Fingerbeere wird homöopathisch potenziert und dann als Tropfen tgl. über eine gewisse Zeit eingenommen.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Blutröhrchen und Spritze auf weißem Behandlungstisch",
+    image: eigenbluttherapieImg,
+    imageAlt: "Blutröhrchen in einem Probenständer im Labor",
   },
   {
     slug: "hormontherapie",
@@ -118,7 +134,8 @@ export const behandlungen: TopicEntry[] = [
       "Bitte wenden Sie sich bei allen Fragen zur Hormontherapie Landshut an die Allgemeinarztpraxis, Praxis für Innere Medizin und Naturheilkunde Dr. med. Dost Mohammad in Landshut.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Laboranalyse einer Blutprobe zur Hormonbestimmung",
+    image: hormontherapieImg,
+    imageAlt: "Mikroskop bei der Laboranalyse zur Hormonbestimmung",
   },
   {
     slug: "immuntherapie",
@@ -137,7 +154,8 @@ export const behandlungen: TopicEntry[] = [
       "Manchmal lässt sich das Immunsystem mit ganz einfachen Mitteln auf Trab bringen. Kneippsche Güsse, Saunagänge, tägliche Bürstenmassagen oder Wassertreten sind einfache Dinge, die jeder selbst durchführen kann. Darüber hinaus gibt es pflanzliche Immunmodulatoren wie Echinacea (Sonnenhut), Taigawurzel (sibirischer Ginseng), Lebensbaum oder Mistel. Diese Pflanzen müssen jedoch in der richtigen Dosierung und unter ärztlicher Aufsicht eingesetzt werden, weshalb eine vorige Anamnese und Beratung wichtig ist. Tees aus Linden-, Holunderblüten oder Hagebutten können bei einer Erkältung unterstützend wirken. Eine weitere Möglichkeit bietet die Eigenbluttherapie. Lassen Sie sich einfach von Dr. med. Dost Mohammad in Landshut individuell über Ihre Heilungsmöglichkeiten beraten.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Abwehrzellen-Illustration in Blautönen",
+    image: immuntherapieImg,
+    imageAlt: "Frische Zitrusfrüchte als Vitaminquelle für das Immunsystem",
   },
   {
     slug: "krebstherapie",
@@ -154,7 +172,8 @@ export const behandlungen: TopicEntry[] = [
       "Zeigen sich bei Ihnen Beschwerden, die auf Krebs-Symptome hinweisen könnten? Dann vereinbaren Sie einen Termin mit uns – wir sind an sieben Tagen der Woche in unserer Praxis in Landshut für Sie da. Herr Dr. med. Mohammad nimmt sich Zeit für ein ausführliches Erstgespräch und bespricht mit Ihnen die bestmögliche Vorgehensweise. Das Praxisteam und Dr. med. Dost Mohammad kümmern sich persönlich um Ihr Wohl, denn in dieser Praxis steht der Patient an erster Stelle.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Arzt im vertrauensvollen Beratungsgespräch mit Patientin",
+    image: krebstherapieImg,
+    imageAlt: "Fürsorglich gehaltene Hände einer Patientin",
   },
   {
     slug: "kryolipolyse",
@@ -176,7 +195,8 @@ export const behandlungen: TopicEntry[] = [
       "Ob die Kryolipolyse auch für Sie in Frage kommt lässt sich nicht pauschal beantworten. In einem persönlichen Beratungsgespräch werden Sie über alle Risiken und Nebenwirkungen aufgeklärt.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Kryolipolyse-Applikator bei einer kosmetischen Behandlung",
+    image: kryolipolyseImg,
+    imageAlt: "Entspannende kosmetische Körperbehandlung im Spa",
   },
   {
     slug: "lichttherapie",
@@ -195,7 +215,8 @@ export const behandlungen: TopicEntry[] = [
       "Die Wirkung der Lichttherapie wird vor allem durch ein Frequenzband im Blaulichtbereich von weißem Licht gegeben. Dieses wirkt auf das blaulichtempfindliche Photopigment Melanopsin ein, welches sich in den Ganglienzellen der Netzhaut befindet. Melanopsin beeinflusst die Ausschüttung von Melatonin, welches nur bei Dunkelheit produziert und bei einer Lichttherapie sinnvoll gebremst wird. Melatonin ist auch bekannt als Schlafhormon, da es für den Schlaf-Wach-Rhythmus zuständig ist. Bei einer Lichttherapie, die bei einer Winterdepression durchgeführt wird, sitzt ein Patient in einem Abstand von etwa 80 Zentimetern vor der Leuchte, die 10.000 Lux stark sein sollte. Dabei muss der Patient nicht direkt in die Lampe blicken; es genügt auch, in die Richtung der Lichtquelle zu schauen.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
-    imageAlt: "Warmes farbiges Licht einer Therapielampe",
+    image: lichttherapieImg,
+    imageAlt: "Warmes orangefarbenes Licht fällt durch eine Jalousie",
   },
   {
     slug: "schmerztherapie",
@@ -219,6 +240,7 @@ export const behandlungen: TopicEntry[] = [
       "Schröpfen wird unter anderem angewendet bei Migräne, rheumatischen Beschwerden, Hexenschuss sowie Bluthochdruck. Dabei wird mithilfe eines sogenannten Schröpfglases oder Silikonapplikationen auf der Haut ein Unterdruck erzeugt, um muskuläre Verhärtungen zu beseitigen. Ist dies erreicht, gehen auch die damit einhergehenden Krankheiten zurück. In unserer Hausarztpraxis in Landshut wenden wir das Schröpfen für eine Vielzahl von Beschwerden für diejenigen an, die auf der Suche nach Naturheilmedizin in Landshut sind.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
+    image: schmerztherapieImg,
     imageAlt: "Behandlung einer schmerzenden Schulter durch den Arzt",
   },
   {
@@ -239,6 +261,7 @@ export const behandlungen: TopicEntry[] = [
       "Die Vitamin Infusion enthält eine ausgewogene Mischung an Vitaminen und eine hochdosierte Menge an Zink. Auch zur Vorbeugung vor Grippewellen ist die Vitamin-Infusion für Ihre Gesundheit zu empfehlen.",
       "Hierbei handelt es sich um zusätzliche Leistungen die i.d.R. nicht von gesetzlichen Krankenkassen oder anderen Kostenträgern übernommen werden und somit vom Patienten selbst zu tragen sind.",
     ],
+    image: vitamintherapieImg,
     imageAlt: "Frisches Obst und Gemüse als Vitaminquelle",
   },
 ]
