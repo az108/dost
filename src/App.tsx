@@ -3,9 +3,9 @@ import { ScrollManager } from "@/components/site/ScrollManager"
 import Home from "@/pages/Home"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
+import NotFound from "@/pages/NotFound"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
-import { praxis } from "@/content/praxis"
 
 export function AppRoutes() {
   return (
@@ -23,7 +23,7 @@ export function AppRoutes() {
         />
         <Route path="/impressum" element={<Legal title="Impressum" />} />
         <Route path="/datenschutz" element={<Legal title="Datenschutz" />} />
-        <Route path="*" element={<TopicDetail entries={[]} sectionLabel={praxis.brand} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )

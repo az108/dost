@@ -40,7 +40,22 @@ describe("routes", () => {
   })
 
   it("renders Impressum and Datenschutz", () => {
-    renderAt("/impressum")
+    const { unmount } = renderAt("/impressum")
     expect(screen.getByRole("heading", { name: /Impressum/i })).toBeInTheDocument()
+    unmount()
+    renderAt("/datenschutz")
+    expect(screen.getByRole("heading", { name: /Datenschutz/i })).toBeInTheDocument()
+  })
+
+  it("renders a 404 page for unknown paths", () => {
+    const { unmount } = renderAt("/gibt-es-nicht")
+    expect(
+      screen.getByRole("heading", { name: /Seite nicht gefunden/i }),
+    ).toBeInTheDocument()
+    unmount()
+    renderAt("/behandlungen/unbekannter-slug")
+    expect(
+      screen.getByRole("heading", { name: /Seite nicht gefunden/i }),
+    ).toBeInTheDocument()
   })
 })

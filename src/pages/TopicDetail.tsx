@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import type { TopicEntry } from "@/content/types"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import NotFound from "@/pages/NotFound"
 
 export default function TopicDetail({
   entries,
@@ -13,14 +14,7 @@ export default function TopicDetail({
   const { slug } = useParams()
   const entry = entries.find((e) => e.slug === slug)
   if (!entry) {
-    return (
-      <main className="mx-auto max-w-3xl px-6 py-32">
-        <h1 className="font-display text-4xl">Seite nicht gefunden</h1>
-        <Link to="/" className={cn(buttonVariants(), "mt-8")}>
-          Zurück zur Startseite
-        </Link>
-      </main>
-    )
+    return <NotFound />
   }
   return (
     <main className="mx-auto max-w-3xl px-6 py-28">
