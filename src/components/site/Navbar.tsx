@@ -13,7 +13,7 @@ const links = [
 export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200/60 bg-white/70 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav aria-label="Hauptnavigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="font-display text-xl font-semibold tracking-tight">
           {praxis.brand}
         </Link>
