@@ -32,7 +32,7 @@ export function Kontakt() {
           </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <Card className="mt-12 border-white/10 bg-white/5 backdrop-blur">
+          <Card className="mt-12 bg-white/5 ring-white/10 backdrop-blur">
             <CardContent className="grid gap-x-12 gap-y-8 p-8 sm:grid-cols-2 lg:grid-cols-3">
               {rows.map((r) => (
                 <div key={r.label}>
