@@ -1,5 +1,6 @@
 import { Hero } from "@/sections/Hero"
 import { TopicGrid } from "@/sections/TopicGrid"
+import { Arzt } from "@/sections/Arzt"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
 
@@ -23,6 +24,7 @@ export default function Home() {
         basePath="/fachbereiche"
         tinted
       />
+      <Arzt />
     </main>
   )
 }
