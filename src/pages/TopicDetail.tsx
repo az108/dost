@@ -44,7 +44,7 @@ export default function TopicDetail({
               className="mt-10 aspect-[2/1] w-full rounded-2xl object-cover shadow-xl"
             />
           )}
-          <div className="mt-10 max-w-2xl space-y-6 text-lg leading-relaxed text-neutral-700">
+          <div className="mt-10 space-y-6 text-lg leading-relaxed text-neutral-700">
             {entry.body.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
