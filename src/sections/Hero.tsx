@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { motion } from "motion/react"
+import { motion, useReducedMotion } from "motion/react"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
@@ -8,6 +8,7 @@ import { arzt } from "@/content/arzt"
 import arztFoto from "@/assets/arzt.png"
 
 export function Hero() {
+  const reduce = useReducedMotion()
   return (
     <section className="relative overflow-hidden pt-32 pb-24">
       <GradientBackdrop />
@@ -59,14 +60,14 @@ export function Hero() {
           />
           <motion.div
             className="absolute -left-10 top-8 rounded-2xl bg-white/85 px-4 py-3 text-sm shadow-xl backdrop-blur"
-            animate={{ y: [0, -8, 0] }}
+            animate={reduce ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             🌿 Naturheilverfahren &amp; Akupunktur
           </motion.div>
           <motion.div
             className="absolute -right-6 bottom-10 rounded-2xl bg-brand-green/80 px-4 py-3 text-sm font-medium text-emerald-950 shadow-xl"
-            animate={{ y: [0, 8, 0] }}
+            animate={reduce ? undefined : { y: [0, 8, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             ⚕️ Notfallmedizin

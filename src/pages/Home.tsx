@@ -4,8 +4,10 @@ import { Arzt } from "@/sections/Arzt"
 import { Kontakt } from "@/sections/Kontakt"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
+import { useDocumentTitle } from "@/lib/useDocumentTitle"
 
 export default function Home() {
+  useDocumentTitle()
   return (
     <main>
       <h1 className="sr-only">Dr. Dost – Ihr Hausarzt in Landshut</h1>

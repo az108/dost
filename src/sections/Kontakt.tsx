@@ -41,7 +41,10 @@ export function Kontakt() {
                   </p>
                   <p className="mt-2 whitespace-pre-line text-lg text-white">
                     {r.label === "E-Mail" ? (
-                      <a href={`mailto:${r.value}`} className="underline decoration-brand underline-offset-4">
+                      <a
+                        href={`mailto:${r.value}`}
+                        className="rounded-sm underline decoration-brand underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                      >
                         {r.value}
                       </a>
                     ) : (

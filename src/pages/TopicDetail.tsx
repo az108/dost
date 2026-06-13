@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import type { TopicEntry } from "@/content/types"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useDocumentTitle } from "@/lib/useDocumentTitle"
 import NotFound from "@/pages/NotFound"
 
 export default function TopicDetail({
@@ -13,6 +14,7 @@ export default function TopicDetail({
 }) {
   const { slug } = useParams()
   const entry = entries.find((e) => e.slug === slug)
+  useDocumentTitle(entry?.title, entry?.excerpt)
   if (!entry) {
     return <NotFound />
   }

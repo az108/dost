@@ -19,7 +19,11 @@ export function Navbar() {
         </Link>
         <div className="hidden items-center gap-8 text-sm text-neutral-600 md:flex">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className="transition-colors hover:text-neutral-900">
+            <Link
+              key={l.to}
+              to={l.to}
+              className="rounded-sm transition-colors hover:text-neutral-900 focus-visible:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+            >
               {l.label}
             </Link>
           ))}

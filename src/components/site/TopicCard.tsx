@@ -19,7 +19,7 @@ export function TopicCard({
   return (
     <Link
       to={`${basePath}/${entry.slug}`}
-      className="group block h-full overflow-hidden rounded-3xl border border-neutral-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+      className="group block h-full overflow-hidden rounded-3xl border border-neutral-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl focus-visible:-translate-y-1.5 focus-visible:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
     >
       <div className="aspect-[16/10] overflow-hidden">
         {entry.image ? (
