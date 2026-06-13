@@ -12,14 +12,14 @@ const rows = [
 
 export function Kontakt() {
   return (
-    <section id="kontakt" className="relative scroll-mt-20 overflow-hidden bg-neutral-50 py-24">
+    <section id="kontakt" className="relative scroll-mt-20 overflow-hidden bg-white py-24">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-brand/10 blur-3xl"
+        className="pointer-events-none absolute top-1/2 -left-40 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full bg-brand-green/40 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 left-0 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl"
+        className="pointer-events-none absolute top-1/2 -right-40 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full bg-brand/25 blur-3xl"
       />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal>
