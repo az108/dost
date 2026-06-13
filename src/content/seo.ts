@@ -5,18 +5,21 @@
 // more than the keywords meta — keep the verbatim copy keyword-rich too.
 
 export const siteKeywords = [
-  "Hausarzt Landshut",
+  "Hausarzt Magersdorf",
   "Arzt Magersdorf",
   "Dr. Dost Mohammad",
-  "Praktischer Arzt Landshut",
-  "Naturheilverfahren Landshut",
-  "Akupunktur Landshut",
-  "TCM Landshut",
-  "Homöopathie Landshut",
-  "Notfallmedizin Landshut",
-  "ästhetische Medizin Landshut",
-  "Privatpraxis Landshut",
-  "Hausarztpraxis Landshut",
+  "Praktischer Arzt Magersdorf",
+  "Naturheilverfahren Magersdorf",
+  "Akupunktur Magersdorf",
+  "TCM Magersdorf",
+  "Homöopathie Magersdorf",
+  "Notfallmedizin Magersdorf",
+  "ästhetische Medizin Magersdorf",
+  "Privatpraxis Magersdorf",
+  "Hausarztpraxis Magersdorf",
+  // Regionale Begriffe (Magersdorf liegt im Raum Landshut)
+  "Hausarzt Raum Landshut",
+  "Arzt Landshut Umgebung",
 ]
 
 export function buildKeywords(extra: string[] = []) {

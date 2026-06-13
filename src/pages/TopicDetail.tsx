@@ -20,7 +20,7 @@ export default function TopicDetail({
   useSeo({
     title: entry?.title,
     description: entry?.excerpt,
-    keywords: entry ? [`${entry.title} Landshut`, ...(entry.keywords ?? [])] : undefined,
+    keywords: entry ? [`${entry.title} Magersdorf`, ...(entry.keywords ?? [])] : undefined,
   })
   if (!entry) {
     return <NotFound />
