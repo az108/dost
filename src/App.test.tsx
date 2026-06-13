@@ -39,6 +39,15 @@ describe("routes", () => {
     }
   })
 
+  it("offers links to sibling topics on a detail page", () => {
+    const current = behandlungen[0]
+    const sibling = behandlungen[1]
+    renderAt(`/behandlungen/${current.slug}`)
+    const links = screen.getAllByRole("link", { name: new RegExp(sibling.title, "i") })
+    expect(links.length).toBeGreaterThan(0)
+    expect(links[0]).toHaveAttribute("href", `/behandlungen/${sibling.slug}`)
+  })
+
   it("renders Impressum and Datenschutz", () => {
     const { unmount } = renderAt("/impressum")
     expect(screen.getByRole("heading", { name: /Impressum/i })).toBeInTheDocument()

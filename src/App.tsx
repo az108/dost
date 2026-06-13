@@ -18,11 +18,23 @@ export function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route
           path="/behandlungen/:slug"
-          element={<TopicDetail entries={behandlungen} sectionLabel="Behandlungen" />}
+          element={
+            <TopicDetail
+              entries={behandlungen}
+              sectionLabel="Behandlungen"
+              basePath="/behandlungen"
+            />
+          }
         />
         <Route
           path="/fachbereiche/:slug"
-          element={<TopicDetail entries={fachbereiche} sectionLabel="Fachbereiche" />}
+          element={
+            <TopicDetail
+              entries={fachbereiche}
+              sectionLabel="Fachbereiche"
+              basePath="/fachbereiche"
+            />
+          }
         />
         <Route path="/impressum" element={<Legal title="Impressum" />} />
         <Route path="/datenschutz" element={<Legal title="Datenschutz" />} />
