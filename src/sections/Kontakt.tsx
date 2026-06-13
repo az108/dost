@@ -22,7 +22,7 @@ export function Kontakt() {
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-32 left-0 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl"
       />
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <h2 className="font-display text-4xl font-semibold md:text-5xl">
             Termin vereinbaren

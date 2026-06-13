@@ -44,7 +44,7 @@ export function TopicCard({
         <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600">
           {entry.excerpt}
         </p>
-        <span className="mt-4 inline-block text-sm font-medium text-amber-700">
+        <span className="mt-4 inline-block text-sm font-medium text-brand-ink">
           Mehr erfahren →
         </span>
       </div>

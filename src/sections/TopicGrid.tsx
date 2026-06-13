@@ -19,7 +19,7 @@ export function TopicGrid({
 }) {
   return (
     <section id={id} className={`scroll-mt-20 py-24 ${tinted ? "bg-orange-50/40" : ""}`}>
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <h2 className="font-display text-4xl font-semibold md:text-5xl">{title}</h2>
           <p className="mt-4 max-w-2xl text-lg text-neutral-600">{intro}</p>

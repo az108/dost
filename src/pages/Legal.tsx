@@ -1,7 +1,7 @@
-import { useDocumentTitle } from "@/lib/useDocumentTitle"
+import { useSeo } from "@/lib/useSeo"
 
 export default function Legal({ title }: { title: string }) {
-  useDocumentTitle(title)
+  useSeo({ title })
   return (
     <main className="mx-auto max-w-3xl px-6 py-28">
       <h1 className="font-display text-5xl">{title}</h1>

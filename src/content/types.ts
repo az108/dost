@@ -8,4 +8,6 @@ export interface TopicEntry {
   /** Optional image under src/assets/topics/<slug>.jpg; gradient fallback if absent */
   image?: string
   imageAlt?: string
+  /** Page-specific SEO keywords. Merged with the site-wide defaults in seo.ts. */
+  keywords?: string[]
 }

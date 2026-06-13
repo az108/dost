@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import type { TopicEntry } from "@/content/types"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useDocumentTitle } from "@/lib/useDocumentTitle"
+import { useSeo } from "@/lib/useSeo"
 import NotFound from "@/pages/NotFound"
 
 export default function TopicDetail({
@@ -14,7 +14,11 @@ export default function TopicDetail({
 }) {
   const { slug } = useParams()
   const entry = entries.find((e) => e.slug === slug)
-  useDocumentTitle(entry?.title, entry?.excerpt)
+  useSeo({
+    title: entry?.title,
+    description: entry?.excerpt,
+    keywords: entry ? [`${entry.title} Landshut`, ...(entry.keywords ?? [])] : undefined,
+  })
   if (!entry) {
     return <NotFound />
   }
@@ -38,7 +42,7 @@ export default function TopicDetail({
         to="/#kontakt"
         className={cn(
           buttonVariants({ size: "lg" }),
-          "mt-12 rounded-full bg-brand text-neutral-900 hover:bg-brand/80",
+          "mt-12 rounded-full bg-brand text-white hover:bg-brand/90",
         )}
       >
         Termin buchen

@@ -7,7 +7,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand: #ffb266;
+  --color-brand: #ee3d11;
+  --color-brand-ink: #b8300d;
   --color-brand-green: #99ff99;
   --font-display: "Fraunces Variable", Georgia, serif;
   --font-sans: "Inter Variable", system-ui, sans-serif;

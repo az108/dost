@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden pt-32 pb-24">
       <GradientBackdrop />
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-[1.2fr_1fr]">
+      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-[1.2fr_1fr]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function Hero() {
             {praxis.tagline}
           </p>
           <h2 className="font-display mt-4 text-5xl leading-[1.05] font-semibold md:text-7xl">
-            Medizin, die <em className="text-amber-600 italic">zuhört</em>.
+            Medizin, die <em className="text-brand italic">zuhört</em>.
           </h2>
           <p className="mt-6 max-w-xl text-lg text-neutral-600">
             Schulmedizin und Naturheilverfahren Hand in Hand – {arzt.name},{" "}
@@ -33,7 +33,7 @@ export function Hero() {
               to="/#kontakt"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "rounded-full bg-brand px-8 text-neutral-900 hover:bg-brand/80",
+                "rounded-full bg-brand px-8 text-white hover:bg-brand/90",
               )}
             >
               Termin buchen

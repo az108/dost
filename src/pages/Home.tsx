@@ -4,10 +4,13 @@ import { Arzt } from "@/sections/Arzt"
 import { Kontakt } from "@/sections/Kontakt"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
-import { useDocumentTitle } from "@/lib/useDocumentTitle"
+import { useSeo } from "@/lib/useSeo"
 
 export default function Home() {
-  useDocumentTitle()
+  useSeo({
+    description:
+      "Dr. med. univ. Dost Mohammad – Ihr Hausarzt in Landshut. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
+  })
   return (
     <main>
       <h1 className="sr-only">Dr. Dost – Ihr Hausarzt in Landshut</h1>

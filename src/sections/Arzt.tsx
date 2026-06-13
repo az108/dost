@@ -5,7 +5,7 @@ import arztFoto from "@/assets/arzt.png"
 export function Arzt() {
   return (
     <section id="arzt" className="relative scroll-mt-20 overflow-hidden py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-[1fr_1.2fr]">
+      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-[1fr_1.2fr]">
         <Reveal className="relative">
           <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand/25 to-brand-green/25 blur-2xl" />
           <img
@@ -17,12 +17,12 @@ export function Arzt() {
         <div>
           <Reveal>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-              Unser Arzt in Landshut
+              Unser Arzt in Magersdorf
             </p>
             <h2 className="font-display mt-3 text-4xl font-semibold md:text-5xl">
               {arzt.name}
             </h2>
-            <p className="mt-2 text-lg text-amber-700">{arzt.qualifications}</p>
+            <p className="mt-2 text-lg text-brand-ink">{arzt.qualifications}</p>
           </Reveal>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-neutral-600">
             {[...arzt.intro, ...arzt.bio].map((p, i) => (
