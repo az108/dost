@@ -9,11 +9,11 @@ import { useSeo } from "@/lib/useSeo"
 export default function Home() {
   useSeo({
     description:
-      "Dr. med. univ. Dost Mohammad – Ihr Hausarzt in Magersdorf. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
+      "Dr. med. univ. Dost Mohammad – Ihr Privatarzt in Magersdorf. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
   })
   return (
     <main>
-      <h1 className="sr-only">Dr. Dost – Ihr Hausarzt in Magersdorf</h1>
+      <h1 className="sr-only">Dr. Dost – Ihr Privatarzt in Magersdorf</h1>
       <Hero />
       <TopicGrid
         id="behandlungen"

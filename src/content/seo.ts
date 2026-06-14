@@ -5,7 +5,7 @@
 // more than the keywords meta — keep the verbatim copy keyword-rich too.
 
 export const siteKeywords = [
-  "Hausarzt Magersdorf",
+  "Privatarzt Magersdorf",
   "Arzt Magersdorf",
   "Dr. Dost Mohammad",
   "Praktischer Arzt Magersdorf",
@@ -16,9 +16,9 @@ export const siteKeywords = [
   "Notfallmedizin Magersdorf",
   "ästhetische Medizin Magersdorf",
   "Privatpraxis Magersdorf",
-  "Hausarztpraxis Magersdorf",
+  "Privatarztpraxis Magersdorf",
   // Regionale Begriffe (Magersdorf liegt im Raum Landshut)
-  "Hausarzt Raum Landshut",
+  "Privatarzt Raum Landshut",
   "Arzt Landshut Umgebung",
 ]
 

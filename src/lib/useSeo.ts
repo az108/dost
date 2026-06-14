@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { buildKeywords } from "@/content/seo"
 
-const SUFFIX = "Dr. Dost – Hausarzt in Magersdorf"
+const SUFFIX = "Dr. Dost – Privatarzt in Magersdorf"
 
 function setMeta(name: string, content: string) {
   let tag = document.querySelector(`meta[name="${name}"]`)

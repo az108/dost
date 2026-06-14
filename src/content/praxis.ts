@@ -1,6 +1,6 @@
 export const praxis = {
   brand: "Dr. Dost",
-  tagline: "Ihr Hausarzt in Magersdorf",
+  tagline: "Ihr Privatarzt in Magersdorf",
   // Platzhalter – finale Kontaktdaten werden vom Praxisinhaber bereitgestellt.
   address: "Adresse folgt",
   phone: "Telefonnummer folgt",
