@@ -4,7 +4,10 @@ import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 
-export default defineConfig({
+// Served from https://az108.github.io/dost/ on GitHub Pages, so the production
+// build needs the "/dost/" base. Dev keeps "/" for a clean localhost.
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/dost/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
@@ -15,4 +18,4 @@ export default defineConfig({
     globals: true,
     passWithNoTests: true,
   },
-})
+}))

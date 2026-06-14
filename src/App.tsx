@@ -45,9 +45,12 @@ export function AppRoutes() {
   )
 }
 
+// import.meta.env.BASE_URL is "/dost/" in the GitHub Pages build, "/" in dev.
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/"
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AppRoutes />
     </BrowserRouter>
   )
