@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
 import { praxis } from "@/content/praxis"
 import { arzt } from "@/content/arzt"
-import arztFoto from "@/assets/arzt.png"
+import arztFoto from "@/assets/arzt-portrait.jpg"
 
 export function Hero() {
   const reduce = useReducedMotion()

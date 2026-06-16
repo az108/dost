@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/Footer"
 import Home from "@/pages/Home"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
+import Galerie from "@/pages/Galerie"
 import NotFound from "@/pages/NotFound"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
@@ -36,6 +37,7 @@ export function AppRoutes() {
             />
           }
         />
+        <Route path="/galerie" element={<Galerie />} />
         <Route path="/impressum" element={<Legal title="Impressum" />} />
         <Route path="/datenschutz" element={<Legal title="Datenschutz" />} />
         <Route path="*" element={<NotFound />} />

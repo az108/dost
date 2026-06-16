@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/site/Reveal"
 import { arzt } from "@/content/arzt"
-import arztFoto from "@/assets/arzt.png"
+import arztFoto from "@/assets/arzt-portrait.jpg"
 
 export function Arzt() {
   return (

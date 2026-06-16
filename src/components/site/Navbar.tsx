@@ -6,6 +6,7 @@ import { praxis } from "@/content/praxis"
 const links = [
   { to: "/#behandlungen", label: "Behandlungen" },
   { to: "/#fachbereiche", label: "Fachbereiche" },
+  { to: "/galerie", label: "Galerie" },
   { to: "/#arzt", label: "Arzt" },
   { to: "/#kontakt", label: "Kontakt" },
 ]
