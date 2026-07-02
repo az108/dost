@@ -46,11 +46,3 @@ struct RootView: View {
         }
     }
 }
-
-// Stub — replaced by the real tab UI in the next task.
-struct MainTabView: View {
-    let content: SiteContent
-    var body: some View {
-        Text(content.praxis.brand)
-    }
-}
