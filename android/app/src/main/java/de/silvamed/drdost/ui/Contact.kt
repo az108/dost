@@ -22,15 +22,15 @@ import de.silvamed.drdost.content.ContactValue
 
 fun Context.dial(number: String) {
     val digits = number.filter { it.isDigit() || it == '+' }
-    startActivity(Intent(Intent.ACTION_DIAL, "tel:$digits".toUri()))
+    runCatching { startActivity(Intent(Intent.ACTION_DIAL, "tel:$digits".toUri())) }
 }
 
 fun Context.emailTo(address: String) {
-    startActivity(Intent(Intent.ACTION_SENDTO, "mailto:$address".toUri()))
+    runCatching { startActivity(Intent(Intent.ACTION_SENDTO, "mailto:$address".toUri())) }
 }
 
 fun Context.openMaps(query: String) {
-    startActivity(Intent(Intent.ACTION_VIEW, ("geo:0,0?q=" + Uri.encode(query)).toUri()))
+    runCatching { startActivity(Intent(Intent.ACTION_VIEW, ("geo:0,0?q=" + Uri.encode(query)).toUri())) }
 }
 
 /** A labelled contact row that is tappable only for real (non-placeholder) values. */
