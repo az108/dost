@@ -9,6 +9,7 @@ import Galerie from "@/pages/Galerie"
 import NotFound from "@/pages/NotFound"
 import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
+import { legal } from "@/content/legal"
 
 export function AppRoutes() {
   return (
@@ -38,8 +39,8 @@ export function AppRoutes() {
           }
         />
         <Route path="/galerie" element={<Galerie />} />
-        <Route path="/impressum" element={<Legal title="Impressum" />} />
-        <Route path="/datenschutz" element={<Legal title="Datenschutz" />} />
+        <Route path="/impressum" element={<Legal title="Impressum" paragraphs={legal.impressum} />} />
+        <Route path="/datenschutz" element={<Legal title="Datenschutz" paragraphs={legal.datenschutz} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
