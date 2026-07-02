@@ -43,8 +43,11 @@ paths keep working.
 
 ## iOS app (`ios/`)
 
-- SwiftUI, minimum iOS 17. Project generated with **XcodeGen**
-  (`project.yml` committed; `.xcodeproj` generated, not hand-maintained).
+- SwiftUI, minimum iOS 17. Minimal hand-authored `.xcodeproj` using Xcode 16+
+  filesystem-synchronized groups, so source files sync automatically and the
+  pbxproj never lists individual files (XcodeGen is not installed and isn't
+  needed). Model/loading logic lives in a local Swift package `ios/DrDostKit`
+  so unit tests run on macOS via `swift test` without a simulator.
 - Tab bar with five destinations:
   1. **Start** — hero, doctor intro (arzt), contact card (praxis)
   2. **Behandlungen** — list → detail
