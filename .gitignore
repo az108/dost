@@ -23,3 +23,6 @@ dist-ssr
 
 .idea/
 .superpowers/
+
+# Superpowers working documents (specs/plans) stay local
+docs/superpowers/
