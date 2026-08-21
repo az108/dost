@@ -1,0 +1,75 @@
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* ── Palette: four colours, one role each ────────────────────────────── */
+  /* Site theme: nav, dark sections, heading accents, links, focus rings */
+  --color-brand: #053AA3;
+  /* Primary CTA only. Nothing else uses this, so "book" is unmistakable. */
+  --color-action: #E8137C;
+  /* Icons, eyebrows, chips, gradients. Never a button, never body text. */
+  --color-accent: #DD1188;
+  /* Proof and reassurance: checkmarks, inclusion badges, trust marks. */
+  --color-success: #306934;
+  /* RESERVED for the future subscription tier. Used nowhere in v1. */
+  --color-premium: #D7A01C;
+
+  /* ── Neutrals: tints and shades of brand, not a separate grey hue ────── */
+  --color-brand-50: #f2f6fd;
+  --color-brand-100: #e3ecfa;
+  --color-brand-200: #cadcf6;
+  --color-brand-300: #a3c1ef;
+  --color-brand-400: #6f9ce5;
+  --color-brand-500: #4278d8;
+  --color-brand-600: #2a5bc4;
+  --color-brand-700: #1d46a4;
+  --color-brand-800: #0d3d87;
+  --color-brand-900: #053AA3;
+  --color-brand-950: #04204f;
+
+  /* ── Type ────────────────────────────────────────────────────────────── */
+  --font-display: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+
+  /* ── Radii ───────────────────────────────────────────────────────────── */
+  --radius-card: 1rem;
+  --radius-pill: 62.4375rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-brand-950 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-extrabold tracking-tight text-balance;
+  }
+
+  /* Visible focus, brand-coloured, on every interactive element. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+
+  /* Media never overflows its container. */
+  img, svg, video {
+    @apply block max-w-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
