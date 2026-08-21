@@ -20,7 +20,7 @@ export function Hero({
       {/* Decorative gradient wash — a genuine overlay, not layout. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,var(--color-accent)/0.18,transparent),radial-gradient(50rem_30rem_at_0%_110%,var(--color-action)/0.12,transparent)]"
+        className="absolute inset-0 -z-10 hero-wash"
       />
       <Container className="flex flex-col gap-8 py-20 sm:py-28 lg:py-32">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>

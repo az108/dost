@@ -63,4 +63,15 @@ describe("design tokens", () => {
       ).toBeLessThan(lums[i - 1].lum)
     }
   })
+
+  it("defines the hero wash with a valid colour-mix gradient", () => {
+    // The previous version used `var(--color-accent)/0.18`, which is invalid
+    // CSS — slash-alpha only works inside a colour function — so the browser
+    // silently dropped the declaration and the hero rendered flat.
+    expect(css).toContain(".hero-wash")
+    expect(css).toContain("color-mix(in oklab, var(--color-accent)")
+    expect(css).toContain("color-mix(in oklab, var(--color-action)")
+    // The invalid shorthand must never come back.
+    expect(css).not.toMatch(/var\(--color-[a-z-]+\)\s*\/\s*[\d.]+/)
+  })
 })

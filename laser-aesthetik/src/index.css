@@ -65,6 +65,31 @@
   }
 }
 
+@layer components {
+  /*
+   * Decorative hero wash. Written as real CSS rather than a Tailwind
+   * arbitrary value because the arbitrary-value version appended a
+   * slash-alpha suffix directly onto a bare `var(--color-accent)` call,
+   * which is invalid — the shorthand only works inside a colour function,
+   * so the browser silently dropped the whole declaration and the hero
+   * rendered flat. color-mix() is the correct way to take a token to
+   * partial opacity.
+   */
+  .hero-wash {
+    background-image:
+      radial-gradient(
+        60rem 40rem at 80% -10%,
+        color-mix(in oklab, var(--color-accent) 18%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        50rem 30rem at 0% 110%,
+        color-mix(in oklab, var(--color-action) 12%, transparent),
+        transparent
+      );
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
