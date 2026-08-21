@@ -12,6 +12,7 @@ export const pillars: PillarInfo[] = [
     intro: [
       "Moderne Lasertechnologie arbeitet gezielt: Das Licht wird nur dort aufgenommen, wo es wirken soll — im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
       "Jede Behandlung beginnt bei uns mit einem ärztlichen Gespräch. Wir bestimmen Ihren Hauttyp, prüfen Kontraindikationen und legen gemeinsam fest, wie viele Sitzungen realistisch nötig sind.",
+      "Fachlich korrekt spricht man von dauerhafter Haarreduktion: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Wie viele Sitzungen nötig sind und wie vollständig das Ergebnis ausfällt, hängt von Haut- und Haartyp ab.",
     ],
     icon: "Zap",
   },

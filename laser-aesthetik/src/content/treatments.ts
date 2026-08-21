@@ -46,7 +46,7 @@ const laser: Treatment[] = [
     pillar: "laser",
     title: "Kinn",
     headline: { lead: "Kinn", accent: "endlich ruhig" },
-    excerpt: "Einzelne kräftige Härchen am Kinn verschwinden dauerhaft — statt täglich nachzuzupfen.",
+    excerpt: "Einzelne kräftige Härchen am Kinn werden dauerhaft reduziert — statt täglich nachzuzupfen.",
     body: [
       "Am Kinn wachsen Härchen oft besonders kräftig und einzeln. Zupfen reizt die Haut und regt den Follikel zusätzlich an — der Laser unterbricht diesen Kreislauf.",
       "Nach etwa acht bis zehn Sitzungen ist der Haarwuchs in der Regel deutlich reduziert. Wie viele Sitzungen Sie brauchen, hängt von Hauttyp und Hormonlage ab.",
@@ -134,7 +134,7 @@ const laser: Treatment[] = [
     benefits: [
       "Schultern, Rücken und Lendenbereich in einem Termin",
       "Die Lösung für eine Zone, die man selbst nicht erreicht",
-      "Dauerhaft, statt alle paar Wochen erneut",
+      "Dauerhafte Reduktion statt alle paar Wochen erneut",
     ],
     durationMin: 30,
     sessions: "8 – 12 Sitzungen",
@@ -146,13 +146,13 @@ const laser: Treatment[] = [
     pillar: "laser",
     title: "Bikinizone",
     headline: { lead: "Bikinizone", accent: "schonend" },
-    excerpt: "Schonend lasern statt rasieren — keine Erdbeerhaut, keine eingewachsenen Haare.",
+    excerpt: "Schonend lasern statt rasieren — weniger Erdbeerhaut, weniger eingewachsene Haare.",
     body: [
       "Die Bikinizone reagiert auf Rasur und Wachs besonders empfindlich: Rötungen, Pickelchen und eingewachsene Haare sind die Regel, nicht die Ausnahme.",
       "Der Laser arbeitet an der Haarwurzel und umgeht dieses Problem vollständig. Behandelt wird der seitlich sichtbare Bereich; für den gesamten Intimbereich gibt es eine eigene Zone.",
     ],
     benefits: [
-      "Keine eingewachsenen Haare, keine Erdbeerhaut",
+      "Weniger eingewachsene Haare, weniger Erdbeerhaut",
       "Diskrete, ruhige Behandlungsräume",
       "Ärztlich durchgeführt",
     ],
@@ -206,7 +206,7 @@ const laser: Treatment[] = [
     pillar: "laser",
     title: "Unterschenkel",
     headline: { lead: "Unterschenkel", accent: "glatt" },
-    excerpt: "Die Zone, die man am häufigsten rasiert — dauerhaft erledigt in 20 Minuten pro Sitzung.",
+    excerpt: "Die Zone, die man am häufigsten rasiert — dauerhaft reduziert in 20 Minuten pro Sitzung.",
     body: [
       "Unterschenkel sind die Zone, die die meisten Menschen am häufigsten rasieren. Entsprechend deutlich ist der Unterschied im Alltag, sobald die Behandlung greift.",
       "Behandelt werden Unterschenkel und Knie. Die Füße können auf Wunsch einbezogen werden — sprechen Sie uns im Termin darauf an.",
@@ -466,7 +466,7 @@ const physio: Treatment[] = [
       "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite.",
     body: [
       "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite. Der Fokus liegt bei uns auf der körperlichen Aktivität an und für sich, die der Gesundheit dienen soll.",
-      "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Magersdorf mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziener und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+      "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
       "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
     ],
     benefits: [
@@ -483,11 +483,11 @@ const physio: Treatment[] = [
     title: "Akupunktur & TCM",
     headline: { lead: "Akupunktur", accent: "und TCM" },
     excerpt:
-      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Magersdorf bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
+      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
     body: [
-      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Magersdorf bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an. Mit den variablen Methoden der Akupunktur Magersdorf und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
-      "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM Magersdorf an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM  stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
-      "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Magersdorf bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+      "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
+      "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
+      "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Köning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
     ],
     benefits: [
       "Ärztlich durchgeführte Akupunktur",
@@ -592,7 +592,7 @@ const aesthetik: Treatment[] = [
       "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
     body: [
       "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
-      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. Dost Mohammad Magersdorf bieten wir Ihnen Lichttherapie an.",
+      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
       "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
     ],
     benefits: [
