@@ -12,12 +12,12 @@ Nachvollziehbarkeit.
 | src/assets/laser/gesicht-und-kopf.webp | https://unsplash.com/photos/w2zkMmyMyc4 | Ace Maxwell | Unsplash License |
 | src/assets/laser/achseln.webp | https://unsplash.com/photos/IgAa6frsVyQ | Sam Moghadam | Unsplash License |
 | src/assets/laser/arme-komplett.webp | https://unsplash.com/photos/cZQetI50v7Q | Sum Sum | Unsplash License |
-| src/assets/laser/ruecken-komplett.webp | https://unsplash.com/photos/Pdea8oxLHkU | Katherine Hanlon | Unsplash License |
+| src/assets/laser/ruecken-komplett.webp | https://unsplash.com/photos/ENMjfGTcLHM | DIEGO SÁNCHEZ | Unsplash License |
 | src/assets/laser/bikinizone.webp | https://unsplash.com/photos/2mzUaunCeI4 | Mathaus Heringer | Unsplash License |
 | src/assets/laser/intim-komplett.webp | https://unsplash.com/photos/7GCHCT-y1HI | Murat Ts. | Unsplash License |
 | src/assets/laser/oberschenkel.webp | https://unsplash.com/photos/_A0jYQvTm9M | Farhad Ibrahimzade | Unsplash License |
 | src/assets/laser/unterschenkel.webp | https://unsplash.com/photos/szpFxaqS658 | Farhad Ibrahimzade | Unsplash License |
-| src/assets/laser/beine-komplett.webp | https://unsplash.com/photos/aQgyFIAXUrE | Julius Toltesi | Unsplash License |
+| src/assets/laser/beine-komplett.webp | https://unsplash.com/photos/wgSoYEdlVQE | P Shakoori | Unsplash License |
 | src/assets/laser/achseln-intim.webp | https://unsplash.com/photos/upw_biZkIKU | Jason Briscoe | Unsplash License |
 | src/assets/laser/achseln-intim-unterschenkel.webp | https://unsplash.com/photos/npE_I2GzpHY | Sherzod Gulomov | Unsplash License |
 | src/assets/laser/achseln-intim-beine.webp | https://unsplash.com/photos/6xlyKFFvufg | Atikah Akhtar | Unsplash License |
