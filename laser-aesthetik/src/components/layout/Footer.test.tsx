@@ -43,10 +43,13 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz")
   })
 
-  it("hides the phone row while no number has been supplied", () => {
-    // practice.phone is still the TODO sentinel, so no phone line should
-    // render at all — better an absent number than a placeholder one.
-    renderFooter()
+  it("renders no phone affordance at all while no number has been supplied", () => {
+    // The invariant is not "the sentinel string is hidden" — it is that there
+    // is no phone link whatsoever. A future edit rendering "Telefonnummer
+    // folgt" instead would pass a string check but still show patients a
+    // placeholder where they expect a number.
+    const { container } = renderFooter()
     expect(screen.queryByText(/TODO/i)).toBeNull()
+    expect(container.querySelector('a[href^="tel:"]')).toBeNull()
   })
 })
