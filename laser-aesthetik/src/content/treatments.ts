@@ -416,7 +416,217 @@ const laser: Treatment[] = [
   },
 ]
 
-export const treatments: Treatment[] = [...laser]
+const physio: Treatment[] = [
+  {
+    slug: "schmerztherapie",
+    pillar: "physio",
+    title: "Schmerztherapie",
+    headline: { lead: "Schmerz", accent: "an der Ursache" },
+    excerpt:
+      "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper.",
+    body: [
+      "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen",
+      "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper. Sie haben eine eindeutige Ursache. Eine Behandlung, die die Ursachen des Schmerzes berücksichtigt, führt meist dazu, dass die Schmerzen nachlassen und nach einem gewissen Zeitraum verschwinden.",
+      "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
+    ],
+    benefits: [
+      "Ursachensuche statt reiner Symptomdämpfung",
+      "Schulmedizin und Naturheilverfahren kombiniert",
+      "Individueller Behandlungsplan nach gründlicher Untersuchung",
+    ],
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "manuelle-therapie",
+    pillar: "physio",
+    title: "Manuelle Therapie",
+    headline: { lead: "Blockaden", accent: "gelöst" },
+    excerpt:
+      "Gezielte Handgriffe an Gelenken, Muskeln und Faszien — für Beweglichkeit ohne Schmerz.",
+    body: [
+      "In der manuellen Therapie arbeiten wir ausschließlich mit den Händen: Wir ertasten Blockaden in Gelenken, verspannte Muskulatur und verklebte Faszien und lösen sie gezielt.",
+      "Der Vorteil gegenüber apparativen Verfahren ist die unmittelbare Rückmeldung — wir spüren, wie das Gewebe reagiert, und passen die Behandlung im selben Moment an.",
+      "Nach der Sitzung erhalten Sie Übungen für zu Hause. Ohne diese hält das Ergebnis meist nicht lange an.",
+    ],
+    benefits: [
+      "Unmittelbare Anpassung während der Behandlung",
+      "Übungen für zu Hause inklusive",
+      "Ohne Medikamente und ohne Geräte",
+    ],
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "sportmedizin",
+    pillar: "physio",
+    title: "Sportmedizin",
+    headline: { lead: "Zurück", accent: "in Bewegung" },
+    excerpt:
+      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite.",
+    body: [
+      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite. Der Fokus liegt bei uns auf der körperlichen Aktivität an und für sich, die der Gesundheit dienen soll.",
+      "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Magersdorf mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziener und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+      "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
+    ],
+    benefits: [
+      "Betreuung bei Sportverletzungen und Beschwerden des Bewegungsapparats",
+      "Wiederaufbau statt Schonhaltung",
+      "Ärztlich begleiteter Wiedereinstieg ins Training",
+    ],
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "akupunktur-tcm",
+    pillar: "physio",
+    title: "Akupunktur & TCM",
+    headline: { lead: "Akupunktur", accent: "und TCM" },
+    excerpt:
+      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Magersdorf bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
+    body: [
+      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Magersdorf bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an. Mit den variablen Methoden der Akupunktur Magersdorf und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
+      "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM Magersdorf an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM  stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
+      "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Magersdorf bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+    ],
+    benefits: [
+      "Ärztlich durchgeführte Akupunktur",
+      "Ergänzend zur schulmedizinischen Behandlung",
+      "Zusatzqualifikation Naturheilverfahren und Akupunktur",
+    ],
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "stosswellentherapie",
+    pillar: "physio",
+    title: "Stoßwellentherapie",
+    headline: { lead: "Stoßwellen", accent: "gegen Verkalkung" },
+    excerpt:
+      "Bei Fersensporn, Tennisellenbogen und Kalkschulter — energiereiche Druckwellen statt Operation.",
+    body: [
+      "Energiereiche Druckwellen werden von außen gezielt auf das schmerzende Gewebe gerichtet. Sie regen den Stoffwechsel an und können Verkalkungen lösen.",
+      "Typische Anwendungsgebiete sind Fersensporn, Tennis- und Golferellenbogen sowie die Kalkschulter — also Beschwerden, bei denen konservative Behandlung oft lange dauert.",
+      "Eine Sitzung dauert wenige Minuten. Meist sind drei bis fünf Sitzungen im Abstand von einer Woche nötig.",
+    ],
+    benefits: [
+      "Ohne Operation und ohne Narkose",
+      "Wenige Minuten pro Sitzung",
+      "Meist drei bis fünf Sitzungen",
+    ],
+    sessions: "3 – 5 Sitzungen",
+    pricing: { kind: "onRequest" },
+  },
+]
+
+const aesthetik: Treatment[] = [
+  {
+    slug: "faltenbehandlung",
+    pillar: "aesthetik",
+    title: "Faltenbehandlung",
+    headline: { lead: "Falten", accent: "zurückhaltend behandelt" },
+    excerpt:
+      "Zurückhaltend dosiertes Botulinumtoxin gegen Zornes-, Stirn- und Lachfalten — die Mimik bleibt erhalten.",
+    body: [
+      "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
+      "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend — Sie sollen weiterhin lachen und die Stirn runzeln können.",
+      "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
+    ],
+    benefits: [
+      "Bewusst zurückhaltende Dosierung",
+      "Mimik bleibt erhalten",
+      "Persönlich durchgeführt von Dr. med. univ. Dost Mohammad",
+    ],
+    durationMin: 20,
+    sessions: "Wiederholung nach 3 – 6 Monaten",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "hyaluron",
+    pillar: "aesthetik",
+    title: "Hyaluron & Filler",
+    headline: { lead: "Volumen", accent: "wo es fehlt" },
+    excerpt:
+      "Hyaluronsäure für Lippen, Wangen und Nasolabialfalten — aufbauend statt auffallend.",
+    body: [
+      "Hyaluronsäure ist ein körpereigener Stoff, der Wasser bindet und dem Gewebe Volumen gibt. Mit den Jahren nimmt sie ab, das Gesicht wirkt eingefallener.",
+      "Wir setzen Filler dort ein, wo tatsächlich Volumen fehlt — an Wangen, Nasolabialfalten oder Lippen. Das Ziel ist ein natürliches Ergebnis, das niemandem als Behandlung auffällt.",
+      "Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten. Nicht jeder Wunsch lässt sich verantwortungsvoll umsetzen.",
+    ],
+    benefits: [
+      "Körpereigener Stoff, gut verträglich",
+      "Ergebnis unmittelbar sichtbar",
+      "Offene Beratung, auch gegen eine Behandlung",
+    ],
+    durationMin: 30,
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "kryolipolyse",
+    pillar: "aesthetik",
+    title: "Kryolipolyse",
+    headline: { lead: "Fettpolster", accent: "ohne Operation" },
+    excerpt:
+      "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
+    body: [
+      "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
+      "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
+      "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
+    ],
+    benefits: [
+      "Minimal-invasiv, ohne Operation",
+      "Geringe Ausfallzeit",
+      "Gezielt gegen hartnäckige Fettpölsterchen",
+    ],
+    durationMin: 60,
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "farblichttherapie",
+    pillar: "aesthetik",
+    title: "Farblichttherapie",
+    headline: { lead: "Licht", accent: "als Therapie" },
+    excerpt:
+      "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
+    body: [
+      "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
+      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. Dost Mohammad Magersdorf bieten wir Ihnen Lichttherapie an.",
+      "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
+    ],
+    benefits: [
+      "Farbe wird gemeinsam von Arzt und Patient ausgewählt",
+      "Sanftes, nicht-invasives Verfahren",
+      "Ergänzend zu anderen Behandlungen einsetzbar",
+    ],
+    durationMin: 30,
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: "aesthetische-medizin",
+    pillar: "aesthetik",
+    title: "Ästhetische Medizin",
+    headline: { lead: "Ästhetische", accent: "Medizin" },
+    excerpt:
+      "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
+    body: [
+      "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
+      "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
+      "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
+    ],
+    benefits: [
+      "Ärztlich durchgeführt, nicht kosmetisch",
+      "Ausführliche Beratung vor jeder Behandlung",
+      "Zurückhaltender, natürlicher Ansatz",
+    ],
+    sessions: "Nach Befund",
+    pricing: { kind: "onRequest" },
+  },
+]
+
+export const treatments: Treatment[] = [...laser, ...physio, ...aesthetik]
 
 export function treatmentsByPillar(pillar: Pillar): Treatment[] {
   return treatments.filter((t) => t.pillar === pillar)
