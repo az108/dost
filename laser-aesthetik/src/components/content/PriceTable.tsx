@@ -68,7 +68,10 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       </td>
                       {tiers.map((tier) => (
                         <td key={tier.sessions} className="px-4 py-4 text-brand-800">
-                          <span className="font-semibold">{formatEuro(tier.perSession)}</span>
+                          <span className="font-semibold">
+                            {formatEuro(tier.perSession)}
+                            <span className="text-xs font-normal text-brand-600">/Sitzung</span>
+                          </span>
                           <span className="block text-xs text-brand-600">
                             gesamt {formatEuro(tier.total)}
                           </span>
