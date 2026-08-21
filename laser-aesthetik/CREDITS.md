@@ -12,12 +12,12 @@ Nachvollziehbarkeit.
 | src/assets/laser/gesicht-und-kopf.webp | https://unsplash.com/photos/w2zkMmyMyc4 | Ace Maxwell | Unsplash License |
 | src/assets/laser/achseln.webp | https://unsplash.com/photos/IgAa6frsVyQ | Sam Moghadam | Unsplash License |
 | src/assets/laser/arme-komplett.webp | https://unsplash.com/photos/cZQetI50v7Q | Sum Sum | Unsplash License |
-| src/assets/laser/ruecken-komplett.webp | https://unsplash.com/photos/nmN0MAHoFjQ | Judy Beth Morris | Unsplash License |
+| src/assets/laser/ruecken-komplett.webp | https://unsplash.com/photos/Pdea8oxLHkU | Katherine Hanlon | Unsplash License |
 | src/assets/laser/bikinizone.webp | https://unsplash.com/photos/2mzUaunCeI4 | Mathaus Heringer | Unsplash License |
 | src/assets/laser/intim-komplett.webp | https://unsplash.com/photos/7GCHCT-y1HI | Murat Ts. | Unsplash License |
 | src/assets/laser/oberschenkel.webp | https://unsplash.com/photos/_A0jYQvTm9M | Farhad Ibrahimzade | Unsplash License |
 | src/assets/laser/unterschenkel.webp | https://unsplash.com/photos/szpFxaqS658 | Farhad Ibrahimzade | Unsplash License |
-| src/assets/laser/beine-komplett.webp | https://unsplash.com/photos/quaIM4h-u5E | Farhad Ibrahimzade | Unsplash License |
+| src/assets/laser/beine-komplett.webp | https://unsplash.com/photos/aQgyFIAXUrE | Julius Toltesi | Unsplash License |
 | src/assets/laser/achseln-intim.webp | https://unsplash.com/photos/upw_biZkIKU | Jason Briscoe | Unsplash License |
 | src/assets/laser/achseln-intim-unterschenkel.webp | https://unsplash.com/photos/npE_I2GzpHY | Sherzod Gulomov | Unsplash License |
 | src/assets/laser/achseln-intim-beine.webp | https://unsplash.com/photos/6xlyKFFvufg | Atikah Akhtar | Unsplash License |
@@ -36,7 +36,6 @@ Nachvollziehbarkeit.
 | src/assets/aesthetik/farblichttherapie.webp | https://unsplash.com/photos/BqEvVaqcLXc | Imran Ali | Unsplash License |
 | src/assets/aesthetik/aesthetische-medizin.webp | https://unsplash.com/photos/xREEa0dZmLY | Sum Sum | Unsplash License |
 | public/og-image.jpg | https://unsplash.com/photos/ECBg5FQkBXI | 何青蓝 | Unsplash License |
-| public/arzt-portrait.jpg | https://unsplash.com/photos/AZDVF4fEcY4 | Muhammad Hicham | Unsplash License |
 
 <!-- Eine Zeile pro Bild. Keine Zeile darf leer bleiben. -->
 
@@ -49,3 +48,9 @@ abgeleitet. Rechte liegen bei der Praxis.
 
 `public/favicon.svg` ist ein eigens erstelltes Monogramm in Markenblau
 (`#053AA3`), da das detaillierte Wappen bei 16 px nicht mehr lesbar ist.
+
+## Noch offen
+
+Ein echtes Porträt von Dr. med. univ. Dost Mohammad fehlt. Die Arztvorstellung
+zeigt bis dahin bewusst kein Foto, sondern das Praxiswappen — ein Stockfoto mit
+dem Namen eines realen Arztes zu beschriften wäre eine Falschdarstellung.
