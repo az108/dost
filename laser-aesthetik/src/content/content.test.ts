@@ -127,6 +127,16 @@ describe("treatments", () => {
       }
     }
   })
+
+  it("gives every treatment a reachable FAQ, its own or its pillar's", () => {
+    // The accordion was fully built and tested against synthetic data while
+    // nothing populated `faq`, so it rendered on none of the 32 pages and no
+    // test noticed. This asserts the rendered result, not the raw field.
+    for (const t of treatments) {
+      const faq = t.faq ?? pillarById(t.pillar).faq
+      expect(faq?.length, `${t.slug} would render an empty FAQ`).toBeGreaterThan(0)
+    }
+  })
 })
 
 describe("claims awaiting legal sign-off", () => {

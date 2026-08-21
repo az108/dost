@@ -38,6 +38,13 @@ export default function TreatmentDetail() {
     .filter((t) => t.slug !== treatment.slug)
     .slice(0, 3)
 
+  // Treatments may carry their own FAQ, but none does today and the questions
+  // patients ask are pillar-level rather than per-zone. Falling back to the
+  // pillar's vetted FAQ keeps every detail page useful without writing 29
+  // more sets of answers, each of which would be a fresh medical-claim
+  // surface needing legal review.
+  const faq = treatment.faq ?? pillar.faq ?? []
+
   const specs = [
     treatment.durationMin ? { label: "Dauer", value: `${treatment.durationMin} Min.` } : null,
     treatment.sessions ? { label: "Sitzungen", value: treatment.sessions } : null,
@@ -161,11 +168,11 @@ export default function TreatmentDetail() {
         </Container>
       </Section>
 
-      {treatment.faq?.length ? (
+      {faq.length ? (
         <Section>
           <Container className="flex max-w-3xl flex-col gap-8">
             <SectionHeader eyebrow="Häufige Fragen" title="Gut zu" accent="wissen" />
-            <FaqAccordion items={treatment.faq} />
+            <FaqAccordion items={faq} />
           </Container>
         </Section>
       ) : null}
