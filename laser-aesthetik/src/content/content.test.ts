@@ -111,3 +111,22 @@ describe("treatments", () => {
     }
   })
 })
+
+describe("treatment imagery", () => {
+  it("gives every treatment an image and non-empty alt text", () => {
+    for (const t of treatments) {
+      expect(t.image, `${t.slug} has no image`).toBeTruthy()
+      expect(t.imageAlt?.trim().length, `${t.slug} has no alt text`).toBeGreaterThan(5)
+    }
+  })
+
+  it("writes alt text that does not claim a treatment result", () => {
+    const banned = ["ergebnis", "vorher", "nachher", "erfolg", "garantiert"]
+    for (const t of treatments) {
+      const alt = (t.imageAlt ?? "").toLowerCase()
+      for (const word of banned) {
+        expect(alt, `${t.slug} alt text claims a result`).not.toContain(word)
+      }
+    }
+  })
+})

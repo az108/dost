@@ -1,9 +1,40 @@
 import type { Pillar, Treatment } from "./types"
+import oberlippeImg from "@/assets/laser/oberlippe.webp"
+import wangenImg from "@/assets/laser/wangen.webp"
+import kinnImg from "@/assets/laser/kinn.webp"
+import gesichtUndKopfImg from "@/assets/laser/gesicht-und-kopf.webp"
+import achselnImg from "@/assets/laser/achseln.webp"
+import armeKomplettImg from "@/assets/laser/arme-komplett.webp"
+import rueckenKomplettImg from "@/assets/laser/ruecken-komplett.webp"
+import bikinizoneImg from "@/assets/laser/bikinizone.webp"
+import intimKomplettImg from "@/assets/laser/intim-komplett.webp"
+import oberschenkelImg from "@/assets/laser/oberschenkel.webp"
+import unterschenkelImg from "@/assets/laser/unterschenkel.webp"
+import beineKomplettImg from "@/assets/laser/beine-komplett.webp"
+import achselnIntimImg from "@/assets/laser/achseln-intim.webp"
+import achselnIntimUnterschenkelImg from "@/assets/laser/achseln-intim-unterschenkel.webp"
+import achselnIntimBeineImg from "@/assets/laser/achseln-intim-beine.webp"
+import ganzkoerperImg from "@/assets/laser/ganzkoerper.webp"
+import gefaessbehandlungImg from "@/assets/laser/gefaessbehandlung.webp"
+import pigmentfleckenImg from "@/assets/laser/pigmentflecken.webp"
+import aknenarbenImg from "@/assets/laser/aknenarben.webp"
+import schmerztherapieImg from "@/assets/physio/schmerztherapie.webp"
+import manuelleTherapieImg from "@/assets/physio/manuelle-therapie.webp"
+import sportmedizinImg from "@/assets/physio/sportmedizin.webp"
+import akupunkturTcmImg from "@/assets/physio/akupunktur-tcm.webp"
+import stosswellentherapieImg from "@/assets/physio/stosswellentherapie.webp"
+import faltenbehandlungImg from "@/assets/aesthetik/faltenbehandlung.webp"
+import hyaluronImg from "@/assets/aesthetik/hyaluron.webp"
+import kryolipolyseImg from "@/assets/aesthetik/kryolipolyse.webp"
+import farblichttherapieImg from "@/assets/aesthetik/farblichttherapie.webp"
+import aesthetischeMedizinImg from "@/assets/aesthetik/aesthetische-medizin.webp"
 
 const laser: Treatment[] = [
   {
     slug: "oberlippe",
     pillar: "laser",
+    image: oberlippeImg,
+    imageAlt: "Kosmetisches Handgerät wird nah am Gesicht angewendet",
     title: "Oberlippe",
     headline: { lead: "Oberlippe", accent: "dauerhaft glatt" },
     excerpt: "Die schnellste Zone überhaupt — fünf Minuten pro Sitzung, kein Rasieren mehr.",
@@ -25,6 +56,8 @@ const laser: Treatment[] = [
   {
     slug: "wangen",
     pillar: "laser",
+    image: wangenImg,
+    imageAlt: "Kosmetische Behandlung im seitlichen Gesichtsbereich mit Handschuhen",
     title: "Wangen",
     headline: { lead: "Wangen", accent: "sichtbar glatter" },
     excerpt: "Feiner Flaum und kräftige Härchen an den Wangen — in fünf Minuten behandelt.",
@@ -45,6 +78,8 @@ const laser: Treatment[] = [
   {
     slug: "kinn",
     pillar: "laser",
+    image: kinnImg,
+    imageAlt: "Laserbehandlung am unteren Gesichtsbereich mit Schutzbrille",
     title: "Kinn",
     headline: { lead: "Kinn", accent: "endlich ruhig" },
     excerpt: "Einzelne kräftige Härchen am Kinn werden dauerhaft reduziert — statt täglich nachzuzupfen.",
@@ -65,6 +100,8 @@ const laser: Treatment[] = [
   {
     slug: "gesicht-und-kopf",
     pillar: "laser",
+    image: gesichtUndKopfImg,
+    imageAlt: "Fachkraft behandelt die Gesichtspartie eines Patienten",
     title: "Gesicht & Kopf",
     headline: { lead: "Gesicht & Kopf", accent: "komplett" },
     excerpt: "Alle Gesichtszonen in einer Sitzung — Oberlippe, Kinn, Wangen und Kieferlinie.",
@@ -85,6 +122,8 @@ const laser: Treatment[] = [
   {
     slug: "achseln",
     pillar: "laser",
+    image: achselnImg,
+    imageAlt: "Laser-Handstück mit Zielstrahl auf der Haut",
     title: "Achseln",
     headline: { lead: "Achseln", accent: "dauerhaft glatt" },
     excerpt: "Die beliebteste Zone. Zehn Minuten pro Termin — ohne Pickel, Brand und dunkle Schatten.",
@@ -105,6 +144,8 @@ const laser: Treatment[] = [
   {
     slug: "arme-komplett",
     pillar: "laser",
+    image: armeKomplettImg,
+    imageAlt: "Laserbehandlung am Unterarm in einem Behandlungsstudio",
     title: "Arme komplett",
     headline: { lead: "Arme", accent: "komplett" },
     excerpt: "Ober- und Unterarme in einer Sitzung — 25 Minuten für glatte Haut bis zur Schulter.",
@@ -125,6 +166,8 @@ const laser: Treatment[] = [
   {
     slug: "ruecken-komplett",
     pillar: "laser",
+    image: rueckenKomplettImg,
+    imageAlt: "Behandlungsgerät wird mit blauem Handschuh auf der Haut geführt",
     title: "Rücken komplett",
     headline: { lead: "Rücken", accent: "komplett" },
     excerpt: "Die größte Einzelzone am Oberkörper — Schultern, Rücken und Lendenbereich.",
@@ -145,6 +188,8 @@ const laser: Treatment[] = [
   {
     slug: "bikinizone",
     pillar: "laser",
+    image: bikinizoneImg,
+    imageAlt: "Nahaufnahme glatter Hautstruktur",
     title: "Bikinizone",
     headline: { lead: "Bikinizone", accent: "schonend" },
     excerpt: "Schonend lasern statt rasieren — weniger Erdbeerhaut, weniger eingewachsene Haare.",
@@ -165,6 +210,8 @@ const laser: Treatment[] = [
   {
     slug: "intim-komplett",
     pillar: "laser",
+    image: intimKomplettImg,
+    imageAlt: "Gestapelte Handtücher in einem diskreten Behandlungsraum",
     title: "Intim komplett",
     headline: { lead: "Intim", accent: "komplett" },
     excerpt: "Der gesamte Intimbereich in einer Sitzung — für Damen und Herren.",
@@ -185,6 +232,8 @@ const laser: Treatment[] = [
   {
     slug: "oberschenkel",
     pillar: "laser",
+    image: oberschenkelImg,
+    imageAlt: "Laserbehandlung am Bein, mit Handtuch abgedeckt",
     title: "Oberschenkel",
     headline: { lead: "Oberschenkel", accent: "glatt" },
     excerpt: "Oberschenkel einzeln behandeln — 20 Minuten, wenn die kompletten Beine zu viel sind.",
@@ -205,6 +254,8 @@ const laser: Treatment[] = [
   {
     slug: "unterschenkel",
     pillar: "laser",
+    image: unterschenkelImg,
+    imageAlt: "Behandlungsgerät wird am Unterschenkel angesetzt",
     title: "Unterschenkel",
     headline: { lead: "Unterschenkel", accent: "glatt" },
     excerpt: "Die Zone, die man am häufigsten rasiert — dauerhaft reduziert in 20 Minuten pro Sitzung.",
@@ -225,6 +276,8 @@ const laser: Treatment[] = [
   {
     slug: "beine-komplett",
     pillar: "laser",
+    image: beineKomplettImg,
+    imageAlt: "Nahaufnahme eines Laser-Handstücks während der Anwendung",
     title: "Beine komplett",
     headline: { lead: "Beine", accent: "komplett" },
     excerpt: "Die Premium-Zone — 35 Minuten, Ober- und Unterschenkel in einer Sitzung.",
@@ -245,6 +298,8 @@ const laser: Treatment[] = [
   {
     slug: "achseln-intim",
     pillar: "laser",
+    image: achselnIntimImg,
+    imageAlt: "Ruhiger Wartebereich der Praxis",
     title: "Achseln + Intim komplett",
     headline: { lead: "Achseln + Intim", accent: "komplett" },
     excerpt: "Die beiden meistgebuchten Zonen im Paket — 30 Minuten pro Sitzung.",
@@ -273,6 +328,8 @@ const laser: Treatment[] = [
   {
     slug: "achseln-intim-unterschenkel",
     pillar: "laser",
+    image: achselnIntimUnterschenkelImg,
+    imageAlt: "Loungebereich mit Blick in einen Behandlungsraum",
     title: "Achseln + Intim + Unterschenkel",
     headline: { lead: "Drei Zonen", accent: "ein Termin" },
     excerpt: "Achseln, Intimbereich und Unterschenkel im Paket — 40 Minuten pro Sitzung.",
@@ -301,6 +358,8 @@ const laser: Treatment[] = [
   {
     slug: "achseln-intim-beine",
     pillar: "laser",
+    image: achselnIntimBeineImg,
+    imageAlt: "Eingerichteter Behandlungsraum mit Liege",
     title: "Achseln + Intim + Beine",
     headline: { lead: "Achseln, Intim", accent: "und Beine" },
     excerpt: "Achseln, Intimbereich und komplette Beine — 45 Minuten pro Sitzung.",
@@ -329,6 +388,8 @@ const laser: Treatment[] = [
   {
     slug: "ganzkoerper",
     pillar: "laser",
+    image: ganzkoerperImg,
+    imageAlt: "Patientin sitzt in einem schlichten Behandlungsraum neben einem Gerät",
     title: "Ganzkörper",
     headline: { lead: "Ganzkörper", accent: "in einer Stunde" },
     excerpt:
@@ -358,6 +419,8 @@ const laser: Treatment[] = [
   {
     slug: "gefaessbehandlung",
     pillar: "laser",
+    image: gefaessbehandlungImg,
+    imageAlt: "Nahaufnahme der Hautoberfläche",
     title: "Gefäßbehandlung & Couperose",
     headline: { lead: "Rötungen", accent: "gezielt behandelt" },
     excerpt:
@@ -378,6 +441,8 @@ const laser: Treatment[] = [
   {
     slug: "pigmentflecken",
     pillar: "laser",
+    image: pigmentfleckenImg,
+    imageAlt: "Nahaufnahme einer Schulter mit sichtbaren Pigmentflecken",
     title: "Pigmentflecken",
     headline: { lead: "Pigmentflecken", accent: "aufgehellt" },
     excerpt:
@@ -398,6 +463,8 @@ const laser: Treatment[] = [
   {
     slug: "aknenarben",
     pillar: "laser",
+    image: aknenarbenImg,
+    imageAlt: "Nahaufnahme der Halspartie mit unebener Hautstruktur",
     title: "Aknenarben",
     headline: { lead: "Aknenarben", accent: "geglättet" },
     excerpt:
@@ -421,6 +488,8 @@ const physio: Treatment[] = [
   {
     slug: "schmerztherapie",
     pillar: "physio",
+    image: schmerztherapieImg,
+    imageAlt: "Manuelle Unterstützung bei einer Rückenübung im Freien",
     title: "Schmerztherapie",
     headline: { lead: "Schmerz", accent: "an der Ursache" },
     excerpt:
@@ -441,6 +510,8 @@ const physio: Treatment[] = [
   {
     slug: "manuelle-therapie",
     pillar: "physio",
+    image: manuelleTherapieImg,
+    imageAlt: "Therapeut behandelt Schulter und Arm einer Patientin auf der Liege",
     title: "Manuelle Therapie",
     headline: { lead: "Blockaden", accent: "gelöst" },
     excerpt:
@@ -461,6 +532,8 @@ const physio: Treatment[] = [
   {
     slug: "sportmedizin",
     pillar: "physio",
+    image: sportmedizinImg,
+    imageAlt: "Trainer und Athletin beim Training mit einem Medizinball",
     title: "Sportmedizin",
     headline: { lead: "Zurück", accent: "in Bewegung" },
     excerpt:
@@ -481,6 +554,8 @@ const physio: Treatment[] = [
   {
     slug: "akupunktur-tcm",
     pillar: "physio",
+    image: akupunkturTcmImg,
+    imageAlt: "Nahaufnahme von Akupunkturnadeln auf der Haut",
     title: "Akupunktur & TCM",
     headline: { lead: "Akupunktur", accent: "und TCM" },
     excerpt:
@@ -501,6 +576,8 @@ const physio: Treatment[] = [
   {
     slug: "stosswellentherapie",
     pillar: "physio",
+    image: stosswellentherapieImg,
+    imageAlt: "Behandlungsgerät wird an der Ferse angesetzt",
     title: "Stoßwellentherapie",
     headline: { lead: "Stoßwellen", accent: "gegen Verkalkung" },
     excerpt:
@@ -524,6 +601,8 @@ const aesthetik: Treatment[] = [
   {
     slug: "faltenbehandlung",
     pillar: "aesthetik",
+    image: faltenbehandlungImg,
+    imageAlt: "Fachkraft setzt eine Injektion im Stirnbereich",
     title: "Faltenbehandlung",
     headline: { lead: "Falten", accent: "zurückhaltend behandelt" },
     excerpt:
@@ -545,6 +624,8 @@ const aesthetik: Treatment[] = [
   {
     slug: "hyaluron",
     pillar: "aesthetik",
+    image: hyaluronImg,
+    imageAlt: "Nahaufnahme einer Lippenbehandlung mit feiner Nadel",
     title: "Hyaluron & Filler",
     headline: { lead: "Volumen", accent: "wo es fehlt" },
     excerpt:
@@ -566,6 +647,8 @@ const aesthetik: Treatment[] = [
   {
     slug: "kryolipolyse",
     pillar: "aesthetik",
+    image: kryolipolyseImg,
+    imageAlt: "Behandlungsgerät wird auf dem Bauch angewendet",
     title: "Kryolipolyse",
     headline: { lead: "Fettpolster", accent: "ohne Operation" },
     excerpt:
@@ -587,6 +670,8 @@ const aesthetik: Treatment[] = [
   {
     slug: "farblichttherapie",
     pillar: "aesthetik",
+    image: farblichttherapieImg,
+    imageAlt: "Violett leuchtende LED-Lichtquellen im Nahbereich",
     title: "Farblichttherapie",
     headline: { lead: "Licht", accent: "als Therapie" },
     excerpt:
@@ -608,6 +693,8 @@ const aesthetik: Treatment[] = [
   {
     slug: "aesthetische-medizin",
     pillar: "aesthetik",
+    image: aesthetischeMedizinImg,
+    imageAlt: "Beratungsgespräch in einem ruhigen Behandlungszimmer",
     title: "Ästhetische Medizin",
     headline: { lead: "Ästhetische", accent: "Medizin" },
     excerpt:
