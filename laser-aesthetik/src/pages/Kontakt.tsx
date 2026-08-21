@@ -39,7 +39,7 @@ export default function Kontakt() {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 self-start font-semibold text-action hover:underline"
+              className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand"
             >
               Auf der Karte ansehen
               <ExternalLink className="size-4" aria-hidden="true" />
