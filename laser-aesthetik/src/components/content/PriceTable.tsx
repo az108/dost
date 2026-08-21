@@ -80,7 +80,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       <td className="px-4 py-4">
                         <Link
                           to={`/behandlungen/${t.slug}`}
-                          className="font-semibold text-action hover:underline"
+                          className="font-semibold text-brand hover:underline"
                         >
                           Details
                         </Link>

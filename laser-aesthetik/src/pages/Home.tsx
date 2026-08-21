@@ -84,7 +84,7 @@ export default function Home() {
           </div>
           <Link
             to="/preise"
-            className="flex items-center gap-2 self-start font-semibold text-action hover:underline"
+            className="flex items-center gap-2 self-start font-semibold text-brand hover:text-action"
           >
             Zur vollständigen Preisliste
             <ArrowRight className="size-4" aria-hidden="true" />
