@@ -16,8 +16,8 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
         <img
           src={treatment.image}
           alt={treatment.imageAlt ?? ""}
-          width={640}
-          height={420}
+          width={1400}
+          height={933}
           loading="lazy"
           className="aspect-[3/2] w-full object-cover"
         />

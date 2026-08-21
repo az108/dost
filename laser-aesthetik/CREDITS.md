@@ -44,7 +44,11 @@ Nachvollziehbarkeit.
 `public/logo.png` ist das Wappen der Praxis Dr. Dost, entnommen von
 drdosthealth.com und für diese Website aufbereitet (Alphakanal bereinigt,
 auf 512 px skaliert). `public/apple-touch-icon.png` (180 px) wurde daraus
-abgeleitet. Rechte liegen bei der Praxis.
+abgeleitet. `public/logo-80.webp` (80 px) und `public/logo-320.webp`
+(320 px) sind verkleinerte WebP-Exporte desselben Wappens, erzeugt aus
+`public/logo.png` für die Navbar- bzw. die Arztvorstellungs-Anzeige —
+kein neues Bildmaterial, gleiche Herkunft wie der Master. Rechte liegen
+bei der Praxis.
 
 `public/favicon.svg` ist ein eigens erstelltes Monogramm in Markenblau
 (`#053AA3`), da das detaillierte Wappen bei 16 px nicht mehr lesbar ist.

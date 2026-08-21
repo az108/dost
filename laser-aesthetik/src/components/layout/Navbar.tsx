@@ -49,10 +49,10 @@ export function Navbar() {
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Hauptnavigation">
           <Link to="/" aria-label="Zur Startseite" className="flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="/logo-80.webp"
               alt=""
-              width={40}
-              height={40}
+              width={80}
+              height={80}
               className="size-10 shrink-0"
             />
             <span className="flex flex-col leading-tight">

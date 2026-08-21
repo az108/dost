@@ -14,10 +14,10 @@ export function DoctorIntro() {
             supplied. See DEPLOY.md's go-live list. */}
         <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-6 rounded-card bg-gradient-to-br from-brand via-brand-900 to-brand-950 p-10 text-center">
           <img
-            src="/logo.png"
+            src="/logo-320.webp"
             alt=""
-            width={160}
-            height={160}
+            width={320}
+            height={320}
             loading="lazy"
             className="size-40 max-w-full"
           />

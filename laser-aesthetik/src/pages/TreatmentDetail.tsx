@@ -80,14 +80,14 @@ export default function TreatmentDetail() {
               <img
                 src={treatment.image}
                 alt={treatment.imageAlt ?? ""}
-                width={960}
-                height={720}
+                width={1400}
+                height={933}
                 loading="eager"
                 fetchPriority="high"
-                className="aspect-[4/3] w-full rounded-card object-cover"
+                className="aspect-[3/2] w-full rounded-card object-cover"
               />
             ) : (
-              <div className="aspect-[4/3] w-full rounded-card bg-gradient-to-br from-brand-200 via-brand-100 to-white" />
+              <div className="aspect-[3/2] w-full rounded-card bg-gradient-to-br from-brand-200 via-brand-100 to-white" />
             )}
           </div>
         </Container>
