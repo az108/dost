@@ -95,4 +95,19 @@ describe("treatments", () => {
       expect(text).not.toContain(marker)
     }
   })
+
+  it("never repeats a treatment's excerpt inside its own body", () => {
+    // A ported excerpt that is also body[0] renders the same paragraph twice
+    // on the detail page. Catch the pattern, not one instance of it.
+    const norm = (s: string) => s.replace(/\s+/g, " ").trim()
+    for (const t of treatments) {
+      const excerpt = norm(t.excerpt)
+      for (const [i, para] of t.body.entries()) {
+        expect(
+          norm(para).includes(excerpt),
+          `${t.slug}: body[${i}] contains the excerpt verbatim`,
+        ).toBe(false)
+      }
+    }
+  })
 })

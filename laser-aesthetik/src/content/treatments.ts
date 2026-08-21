@@ -10,6 +10,7 @@ const laser: Treatment[] = [
     body: [
       "Härchen an der Oberlippe reagieren besonders gut auf Laserlicht, weil sie meist dunkel und kräftig sind. Genau dieses Pigment nimmt die Energie auf und leitet sie an die Haarwurzel weiter.",
       "Die Behandlung dauert nur wenige Minuten. Die meisten Patientinnen beschreiben sie als kurzes, warmes Prickeln — eine Betäubung ist nicht nötig.",
+      "Wie viele Sitzungen nötig sind, hängt von Haar- und Hauttyp ab. Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten — fachlich spricht man deshalb von dauerhafter Haarreduktion.",
     ],
     benefits: [
       "Nur fünf Minuten pro Sitzung",
@@ -426,8 +427,8 @@ const physio: Treatment[] = [
       "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper.",
     body: [
       "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen",
-      "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper. Sie haben eine eindeutige Ursache. Eine Behandlung, die die Ursachen des Schmerzes berücksichtigt, führt meist dazu, dass die Schmerzen nachlassen und nach einem gewissen Zeitraum verschwinden.",
       "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
+      "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. Dost Mohammad.",
     ],
     benefits: [
       "Ursachensuche statt reiner Symptomdämpfung",
@@ -465,9 +466,9 @@ const physio: Treatment[] = [
     excerpt:
       "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite.",
     body: [
-      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite. Der Fokus liegt bei uns auf der körperlichen Aktivität an und für sich, die der Gesundheit dienen soll.",
       "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
       "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
+      "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
     ],
     benefits: [
       "Betreuung bei Sportverletzungen und Beschwerden des Bewegungsapparats",
@@ -570,9 +571,9 @@ const aesthetik: Treatment[] = [
     excerpt:
       "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
     body: [
-      "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
       "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
       "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
+      "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können:",
     ],
     benefits: [
       "Minimal-invasiv, ohne Operation",
@@ -591,9 +592,9 @@ const aesthetik: Treatment[] = [
     excerpt:
       "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
     body: [
-      "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
       "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
       "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
+      "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
     ],
     benefits: [
       "Farbe wird gemeinsam von Arzt und Patient ausgewählt",
@@ -612,9 +613,9 @@ const aesthetik: Treatment[] = [
     excerpt:
       "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
     body: [
-      "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
       "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
       "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
+      "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. Dost Mohammad in Köning.",
     ],
     benefits: [
       "Ärztlich durchgeführt, nicht kosmetisch",

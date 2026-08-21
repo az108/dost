@@ -8,7 +8,7 @@ export const pillars: PillarInfo[] = [
     title: "Laser-Behandlungen",
     headline: { lead: "Laser, der", accent: "wirklich wirkt" },
     excerpt:
-      "Dauerhafte Haarentfernung, Gefäße, Pigmentflecken und Aknenarben — medizinisch geführt, mit transparenten Preisen.",
+      "Dauerhafte Haarreduktion, Gefäße, Pigmentflecken und Aknenarben — medizinisch geführt, mit transparenten Preisen.",
     intro: [
       "Moderne Lasertechnologie arbeitet gezielt: Das Licht wird nur dort aufgenommen, wo es wirken soll — im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
       "Jede Behandlung beginnt bei uns mit einem ärztlichen Gespräch. Wir bestimmen Ihren Hauttyp, prüfen Kontraindikationen und legen gemeinsam fest, wie viele Sitzungen realistisch nötig sind.",
