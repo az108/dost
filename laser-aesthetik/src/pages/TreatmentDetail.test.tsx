@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter, Route, Routes } from "react-router-dom"
 import TreatmentDetail from "./TreatmentDetail"
@@ -50,7 +50,11 @@ describe("TreatmentDetail", () => {
 
   it("shows 'Preis auf Anfrage' and no package tiers for on-request treatments", () => {
     renderAt("/behandlungen/faltenbehandlung")
-    expect(screen.getByText("Preis auf Anfrage")).toBeInTheDocument()
+    // Scoped to the pricing panel: related-treatment cards for other
+    // on-request treatments render the same string, so an unscoped query
+    // matches several and throws.
+    const pricing = screen.getByTestId("pricing-block")
+    expect(within(pricing).getByText("Preis auf Anfrage")).toBeInTheDocument()
     expect(screen.queryByText(/3er/)).toBeNull()
   })
 
@@ -77,5 +81,18 @@ describe("TreatmentDetail", () => {
     renderAt("/behandlungen/achseln")
     const booking = screen.getAllByRole("link", { name: /Termin/ })
     expect(booking.length).toBeGreaterThan(0)
+  })
+
+  it("still suggests related treatments when every sibling is on-request", () => {
+    // Regression guard: filtering related treatments by whether they have a
+    // displayable price silently removed this section from all 10 physio and
+    // Ästhetik pages. Cross-linking must not depend on pricing.
+    renderAt("/behandlungen/faltenbehandlung")
+    const links = screen
+      .getAllByRole("link")
+      .map((l) => l.getAttribute("href"))
+      .filter((h) => h?.startsWith("/behandlungen/"))
+    expect(links.length).toBeGreaterThan(0)
+    expect(links).not.toContain("/behandlungen/faltenbehandlung")
   })
 })

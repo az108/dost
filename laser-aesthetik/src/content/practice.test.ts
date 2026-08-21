@@ -26,11 +26,27 @@ describe("practice data", () => {
   })
 
   it("lists opening hours for all three day groups", () => {
-    expect(practice.hours).toEqual([
-      { days: "Mo – Fr", time: "9:00 – 20:00 Uhr" },
-      { days: "Samstag", time: "10:00 – 18:00 Uhr" },
-      { days: "Sonntag", time: "Geschlossen" },
+    expect(practice.hours.map((h) => [h.days, h.time])).toEqual([
+      ["Mo – Fr", "9:00 – 20:00 Uhr"],
+      ["Samstag", "10:00 – 18:00 Uhr"],
+      ["Sonntag", "Geschlossen"],
     ])
+  })
+
+  it("carries machine-readable hours for the two open day groups", () => {
+    // The schema.org form must stay in step with the display strings above —
+    // that is the whole reason it lives in the same objects.
+    expect(practice.hours[0].schema).toEqual({
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "20:00",
+    })
+    expect(practice.hours[1].schema).toEqual({
+      dayOfWeek: ["Saturday"],
+      opens: "10:00",
+      closes: "18:00",
+    })
+    expect(practice.hours[2].schema).toBeUndefined()
   })
 
   // ── Go-live guard ─────────────────────────────────────────────────────

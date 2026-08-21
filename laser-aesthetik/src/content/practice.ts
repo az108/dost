@@ -27,8 +27,20 @@ export const practice: Practice = {
   email: "info@drdosthealth.com",
   phone: PHONE_TODO,
   hours: [
-    { days: "Mo – Fr", time: "9:00 – 20:00 Uhr" },
-    { days: "Samstag", time: "10:00 – 18:00 Uhr" },
+    {
+      days: "Mo – Fr",
+      time: "9:00 – 20:00 Uhr",
+      schema: {
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "20:00",
+      },
+    },
+    {
+      days: "Samstag",
+      time: "10:00 – 18:00 Uhr",
+      schema: { dayOfWeek: ["Saturday"], opens: "10:00", closes: "18:00" },
+    },
     { days: "Sonntag", time: "Geschlossen" },
   ],
   social: {

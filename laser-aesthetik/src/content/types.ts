@@ -68,8 +68,17 @@ export interface PillarInfo {
 }
 
 export interface OpeningHours {
+  /** Display label, e.g. "Mo – Fr" */
   days: string
+  /** Display value, e.g. "9:00 – 20:00 Uhr" */
   time: string
+  /**
+   * Machine-readable equivalent for schema.org JSON-LD, in schema.org's own
+   * vocabulary (English day names, 24-hour times). Omitted for closed days.
+   * It lives beside the display strings deliberately: the two cannot drift
+   * because you cannot edit one without seeing the other.
+   */
+  schema?: { dayOfWeek: string[]; opens: string; closes: string }
 }
 
 export interface Practice {

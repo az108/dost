@@ -22,23 +22,19 @@ export function medicalClinicJsonLd(): string {
     },
     email: practice.email,
     sameAs: [practice.social.facebook, practice.social.linkedin],
-    openingHoursSpecification: [
-      {
+    openingHoursSpecification: practice.hours
+      .filter((h) => h.schema)
+      .map((h) => ({
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "20:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday"],
-        opens: "10:00",
-        closes: "18:00",
-      },
-    ],
+        dayOfWeek: h.schema!.dayOfWeek,
+        opens: h.schema!.opens,
+        closes: h.schema!.closes,
+      })),
   }
 
   if (hasPhone()) data.telephone = practice.phone
 
-  return JSON.stringify(data)
+  // `<` is escaped so this string cannot terminate the <script> tag it is
+  // injected into. Still valid JSON — < parses back to "<".
+  return JSON.stringify(data).replace(/</g, "\\u003c")
 }

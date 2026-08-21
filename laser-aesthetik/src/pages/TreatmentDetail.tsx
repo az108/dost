@@ -34,12 +34,8 @@ export default function TreatmentDetail() {
   const pillar = pillarById(treatment.pillar)
   const tiers = packageTiers(treatment.pricing)
   const from = priceFrom(treatment.pricing)
-  // Only recommend treatments with a displayable price. Beyond being weak
-  // UX (an "ask us" card next to an "ask us" pricing panel adds nothing),
-  // this keeps "Preis auf Anfrage" rendered exactly once on this page — the
-  // pricing panel below is the only place it can appear.
   const related = treatmentsByPillar(treatment.pillar)
-    .filter((t) => t.slug !== treatment.slug && priceFrom(t.pricing) !== null)
+    .filter((t) => t.slug !== treatment.slug)
     .slice(0, 3)
 
   const specs = [
@@ -118,7 +114,10 @@ export default function TreatmentDetail() {
         <Container className="flex flex-col gap-8">
           <SectionHeader eyebrow="Preise" title="Was diese Behandlung" accent="kostet" />
           {treatment.pricing.kind === "onRequest" ? (
-            <div className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8">
+            <div
+              data-testid="pricing-block"
+              className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
+            >
               <p className="font-display text-2xl font-extrabold text-brand">
                 Preis auf Anfrage
               </p>
