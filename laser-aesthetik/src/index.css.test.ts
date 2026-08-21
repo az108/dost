@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs"
+import { execSync } from "node:child_process"
 import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
 
@@ -21,6 +22,23 @@ describe("design tokens", () => {
     // var(--color-premium) — means the reserved token leaked into the UI.
     const mentions = css.match(/premium/g) ?? []
     expect(mentions.length).toBe(1)
+  })
+
+  it("never uses the reserved premium token in a component", () => {
+    // The count check above only reads index.css. A `bg-premium` class would
+    // live in a .tsx file it never opens — so the guard it describes needs
+    // to actually scan the source. Matched on the utility pattern, not the
+    // bare word, because "Premium-Zone" appears legitimately in German
+    // marketing copy and is unrelated to the CSS token.
+    // Scoped to .tsx: that is where Tailwind classes actually appear in this
+    // codebase, and it keeps this test's own comment above (which names the
+    // pattern it is looking for) from matching itself.
+    const srcRoot = resolve(__dirname)
+    const hits = execSync(
+      `grep -rEl --include='*.tsx' '(bg|text|border|from|via|to|ring|outline|fill|stroke)-premium' ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    ).trim()
+    expect(hits).toBe("")
   })
 
   it("declares a brand-derived neutral ramp rather than a separate grey hue", () => {

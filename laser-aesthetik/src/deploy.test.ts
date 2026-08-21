@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest"
 import { treatments } from "@/content/treatments"
 import { pillars } from "@/content/pillars"
 import { SITE_URL } from "@/content/seo"
+import { datenschutz, impressum } from "@/content/legal"
 
 const pub = (f: string) => readFileSync(resolve(__dirname, "../public", f), "utf8")
 
@@ -48,5 +49,18 @@ describe("go-live guards", () => {
   // ── Fails until the real domain is set ──────────────────────────────
   it("FAILS UNTIL SITE_URL is the real domain", () => {
     expect(SITE_URL).not.toContain("example-domain")
+  })
+})
+
+describe("legal go-live guard", () => {
+  // ── Go-live guard ────────────────────────────────────────────────────
+  // The Impressum and Datenschutz are scaffolds. Paragraphs marked PRÜFEN
+  // name facts only the practice can supply — the responsible medical
+  // chamber, the hosting provider. §5 TMG and DSGVO Art. 13 make this
+  // content legally consequential, so it must not ship as scaffolding.
+  // To fix: have a lawyer complete both documents, then delete this test.
+  it("FAILS UNTIL the legal scaffolds have been reviewed", () => {
+    const text = JSON.stringify([impressum, datenschutz])
+    expect(text).not.toContain("PRÜFEN")
   })
 })

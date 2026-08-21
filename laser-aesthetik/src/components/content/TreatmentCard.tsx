@@ -35,7 +35,12 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
               {treatment.durationMin} Min.
             </StatChip>
           ) : null}
-          {from !== null ? <StatChip>ab {formatEuro(from)}</StatChip> : null}
+          {from !== null ? (
+            <StatChip>
+              ab {formatEuro(from)}
+              <span className="text-xs font-normal text-brand-600">/Sitzung im 10er-Paket</span>
+            </StatChip>
+          ) : null}
         </div>
 
         <p className="flex items-center gap-2 font-semibold text-action">

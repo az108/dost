@@ -41,10 +41,13 @@ describe("TreatmentCard", () => {
     expect(screen.getByText("10 Min.")).toBeInTheDocument()
   })
 
-  it("shows the lowest per-session price as an 'ab' figure", () => {
-    // 69 € single, 45% off in the 10er tier => 38 €
+  it("shows the lowest per-session price with its unit and condition", () => {
+    // 69 € single, 45% off in the 10er tier => 38 €. The figure must never
+    // appear bare: 38 € is one session inside a 380 € prepaid package, and an
+    // unqualified "ab 38 €" reads as the price of the whole course.
     renderCard(base)
-    expect(screen.getByText(/ab 38 €/)).toBeInTheDocument()
+    const chip = screen.getByText(/ab 38 €/)
+    expect(chip).toHaveTextContent("/Sitzung im 10er-Paket")
   })
 
   it("shows 'Preis auf Anfrage' for on-request pricing, and no euro figure", () => {

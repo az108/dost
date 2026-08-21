@@ -300,7 +300,7 @@ const laser: Treatment[] = [
     slug: "achseln-intim",
     pillar: "laser",
     image: achselnIntimImg,
-    imageAlt: "Ruhiger Wartebereich der Praxis",
+    imageAlt: "Ruhiger Wartebereich",
     title: "Achseln + Intim komplett",
     headline: { lead: "Achseln + Intim", accent: "komplett" },
     excerpt: "Die beiden meistgebuchten Zonen im Paket — 30 Minuten pro Sitzung.",
@@ -397,11 +397,11 @@ const laser: Treatment[] = [
       "Bikinizone, große Schamlippen, Schambereich, Pofalte und Achseln — fünf Premium-Zonen, 60 Minuten.",
     body: [
       "Das umfassendste Paket: Bikinizone, große Schamlippen, Schambereich, Pofalte und Achseln in einer einzigen Sitzung.",
-      "Eine Stunde pro Termin. Für viele Patientinnen ist das die wirtschaftlichste Variante, weil der Preis pro Zone hier am niedrigsten liegt.",
+      "Eine Stunde pro Termin. Alle enthaltenen Zonen werden in einer Sitzung behandelt, sodass nur ein Termin nötig ist.",
     ],
     benefits: [
       "Fünf Premium-Zonen in einer Sitzung",
-      "Niedrigster Preis pro Zone",
+      "Alle enthaltenen Zonen in einem Termin",
       "Ein Termin statt fünf",
     ],
     durationMin: 60,
@@ -496,9 +496,9 @@ const physio: Treatment[] = [
     excerpt:
       "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper.",
     body: [
-      "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen",
+      "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
       "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
-      "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. Dost Mohammad.",
+      "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. univ. Dost Mohammad.",
     ],
     benefits: [
       "Ursachensuche statt reiner Symptomdämpfung",
@@ -538,7 +538,7 @@ const physio: Treatment[] = [
     title: "Sportmedizin",
     headline: { lead: "Zurück", accent: "in Bewegung" },
     excerpt:
-      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zu Seite.",
+      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zur Seite.",
     body: [
       "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
       "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
@@ -560,7 +560,7 @@ const physio: Treatment[] = [
     title: "Akupunktur & TCM",
     headline: { lead: "Akupunktur", accent: "und TCM" },
     excerpt:
-      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
+      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
     body: [
       "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
       "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
@@ -657,7 +657,7 @@ const aesthetik: Treatment[] = [
     body: [
       "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
       "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
-      "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können:",
+      "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können.",
     ],
     benefits: [
       "Minimal-invasiv, ohne Operation",
@@ -678,7 +678,7 @@ const aesthetik: Treatment[] = [
     excerpt:
       "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
     body: [
-      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
+      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
       "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
       "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
     ],
@@ -703,7 +703,7 @@ const aesthetik: Treatment[] = [
     body: [
       "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
       "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
-      "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. Dost Mohammad in Köning.",
+      "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Köning.",
     ],
     benefits: [
       "Ärztlich durchgeführt, nicht kosmetisch",

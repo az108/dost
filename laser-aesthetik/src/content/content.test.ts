@@ -90,10 +90,18 @@ describe("treatments", () => {
   // Heilmittelwerbegesetz restricts before/after imagery for aesthetic
   // procedures. No content may promise or depict one.
   it("makes no before/after claims", () => {
-    const text = JSON.stringify(treatments).toLowerCase()
-    for (const marker of ["vorher-nachher", "vorher/nachher", "before/after"]) {
-      expect(text).not.toContain(marker)
+    const text = JSON.stringify([treatments, pillars]).toLowerCase()
+    for (const marker of ["vorher", "nachher", "before/after"]) {
+      expect(text, `before/after language found: "${marker}"`).not.toContain(marker)
     }
+  })
+
+  it("names the doctor consistently with practice.ts", () => {
+    // A previous fix normalised .tsx components but stopped at the file
+    // extension; the ported copy lives in .ts content files and drifted.
+    const text = JSON.stringify([treatments, pillars])
+    const wrong = text.match(/Dr\. med\. (?!univ\.)/g) ?? []
+    expect(wrong, "found 'Dr. med.' without 'univ.'").toHaveLength(0)
   })
 
   it("never repeats a treatment's excerpt inside its own body", () => {
@@ -109,6 +117,58 @@ describe("treatments", () => {
         ).toBe(false)
       }
     }
+  })
+})
+
+describe("claims awaiting legal sign-off", () => {
+  // ── Go-live guard ────────────────────────────────────────────────────
+  // These three phrases are inherited verbatim from the practice's own
+  // existing website and are stronger than German Heilmittelwerbegesetz
+  // comfortably allows: an explicit healing claim naming depression, and an
+  // efficacy claim for TCM. Softening a client's medical claim is not ours
+  // to do unilaterally — but shipping it unreviewed is not either.
+  // To fix: have a lawyer approve or reword each, then delete this test.
+  it("FAILS UNTIL a lawyer has cleared the inherited medical claims", () => {
+    const text = JSON.stringify(treatments)
+    for (const phrase of ["zu heilen", "heilsam", "wissenschaftlich nachgewiesener Wirksamkeit"]) {
+      expect(text, `unreviewed claim still present: "${phrase}"`).not.toContain(phrase)
+    }
+  })
+})
+
+describe("published prices", () => {
+  // These are the clinic's real published figures. A transposed digit is a
+  // wrong price on a live website, so they are pinned here rather than only
+  // living in the content file.
+  const SINGLE: Record<string, number> = {
+    oberlippe: 39, wangen: 39, kinn: 49, "gesicht-und-kopf": 109,
+    achseln: 69, "arme-komplett": 209, "ruecken-komplett": 259,
+    bikinizone: 89, "intim-komplett": 139,
+    oberschenkel: 169, unterschenkel: 169, "beine-komplett": 309,
+    "achseln-intim": 139, "achseln-intim-unterschenkel": 249,
+    "achseln-intim-beine": 289, ganzkoerper: 649,
+  }
+
+  it.each(Object.entries(SINGLE))("%s costs %i € per single session", (slug, single) => {
+    const t = treatmentBySlug(slug)
+    expect(t, `no treatment with slug ${slug}`).toBeDefined()
+    expect(t!.pricing.kind).toBe("fixed")
+    expect(t!.pricing.kind === "fixed" && t!.pricing.single).toBe(single)
+  })
+
+  // Kombi-Pakete use shallower, non-derivable discounts supplied as overrides.
+  const OVERRIDES: Record<string, [number, number, number]> = {
+    "achseln-intim": [129, 119, 109],
+    "achseln-intim-unterschenkel": [239, 219, 199],
+    "achseln-intim-beine": [269, 249, 229],
+    ganzkoerper: [599, 549, 509],
+  }
+
+  it.each(Object.entries(OVERRIDES))("%s has the agreed 3er/5er/10er package prices", (slug, expected) => {
+    const p = treatmentBySlug(slug)!.pricing
+    expect(p.kind).toBe("fixed")
+    if (p.kind !== "fixed") return
+    expect(p.overrides?.map((o) => o.perSession)).toEqual(expected)
   })
 })
 
