@@ -8,7 +8,7 @@ export function DoctorIntro() {
   return (
     <Section>
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        {/* No portrait of the doctor exists yet. A stock face capitioned with
+        {/* No portrait of the doctor exists yet. A stock face captioned with
             a real physician's name would misrepresent them to patients, so
             this slot deliberately claims nothing until a real photograph is
             supplied. See DEPLOY.md's go-live list. */}

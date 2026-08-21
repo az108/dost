@@ -255,7 +255,7 @@ const laser: Treatment[] = [
     slug: "unterschenkel",
     pillar: "laser",
     image: unterschenkelImg,
-    imageAlt: "Behandlungsgerät wird am Unterschenkel angesetzt",
+    imageAlt: "Behandlungsgerät wird an der Wade angesetzt",
     title: "Unterschenkel",
     headline: { lead: "Unterschenkel", accent: "glatt" },
     excerpt: "Die Zone, die man am häufigsten rasiert — dauerhaft reduziert in 20 Minuten pro Sitzung.",
@@ -442,7 +442,7 @@ const laser: Treatment[] = [
     slug: "pigmentflecken",
     pillar: "laser",
     image: pigmentfleckenImg,
-    imageAlt: "Nahaufnahme einer Schulter mit sichtbaren Pigmentflecken",
+    imageAlt: "Nahaufnahme einer Schulter mit vereinzelten dunklen Hautstellen",
     title: "Pigmentflecken",
     headline: { lead: "Pigmentflecken", accent: "aufgehellt" },
     excerpt:

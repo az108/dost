@@ -129,4 +129,16 @@ describe("treatment imagery", () => {
       }
     }
   })
+
+  it("writes alt text that does not repeat the treatment title verbatim", () => {
+    // The heading already announces the title. Repeating it in the alt text
+    // makes a screen reader say the same word twice in a row.
+    for (const t of treatments) {
+      const alt = (t.imageAlt ?? "").toLowerCase()
+      expect(
+        alt.includes(t.title.toLowerCase()),
+        `${t.slug}: alt text repeats the title "${t.title}"`,
+      ).toBe(false)
+    }
+  })
 })
