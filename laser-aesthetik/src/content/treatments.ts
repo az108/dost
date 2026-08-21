@@ -130,6 +130,7 @@ const laser: Treatment[] = [
     body: [
       "Die Achseln sind der Klassiker der Laser-Haarentfernung: kleine Fläche, kräftige Haare, schnelle Sichtbarkeit des Ergebnisses.",
       "Nach durchschnittlich acht bis zwölf Sitzungen ist das Thema Rasur für die meisten Patientinnen und Patienten erledigt — ohne Rasurbrand, eingewachsene Haare oder den dunklen Schatten unter der Haut.",
+      "Vollständig haarfrei wird dabei kaum jemand: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Fachlich spricht man deshalb von dauerhafter Haarreduktion — wie ausgeprägt das Ergebnis ausfällt, hängt von Haar- und Hauttyp ab.",
     ],
     benefits: [
       "Kein Rasurbrand, keine eingewachsenen Haare",
