@@ -16,18 +16,21 @@
   /* RESERVED for the future subscription tier. Used nowhere in v1. */
   --color-premium: #D7A01C;
 
-  /* ── Neutrals: tints and shades of brand, not a separate grey hue ────── */
-  --color-brand-50: #f2f6fd;
-  --color-brand-100: #e3ecfa;
-  --color-brand-200: #cadcf6;
-  --color-brand-300: #a3c1ef;
-  --color-brand-400: #6f9ce5;
-  --color-brand-500: #4278d8;
-  --color-brand-600: #2a5bc4;
-  --color-brand-700: #1d46a4;
-  --color-brand-800: #0d3d87;
+  /* ── Neutrals: tints and shades of brand, not a separate grey hue ────────
+     Monotonically darkening by WCAG relative luminance, verified. 900 is
+     anchored to the brand hex itself. 600-950 all clear AA for body text on
+     white; 500 is large-text/non-text only. */
+  --color-brand-50: #F2F6FD;
+  --color-brand-100: #E3ECFA;
+  --color-brand-200: #CADCF6;
+  --color-brand-300: #A3C1EF;
+  --color-brand-400: #6F9CE5;
+  --color-brand-500: #4278D8;
+  --color-brand-600: #2A5BC4;
+  --color-brand-700: #1D46A4;
+  --color-brand-800: #1440A4;
   --color-brand-900: #053AA3;
-  --color-brand-950: #04204f;
+  --color-brand-950: #04204F;
 
   /* ── Type ────────────────────────────────────────────────────────────── */
   --font-display: "Plus Jakarta Sans Variable", system-ui, sans-serif;

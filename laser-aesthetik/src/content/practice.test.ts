@@ -9,6 +9,9 @@ describe("practice data", () => {
   })
 
   it("carries the agreed contact details", () => {
+    // The doctor's name appears in the Impressum, where §5 TMG makes it
+    // legally consequential. A one-character typo must not pass silently.
+    expect(practice.doctor).toBe("Dr. med. univ. Dost Mohammad")
     expect(practice.email).toBe("info@drdosthealth.com")
     expect(practice.social.facebook).toBe("https://www.facebook.com/drdostmohammad")
     expect(practice.social.linkedin).toBe(

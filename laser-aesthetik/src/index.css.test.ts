@@ -39,4 +39,28 @@ describe("design tokens", () => {
   it("respects prefers-reduced-motion", () => {
     expect(css).toContain("prefers-reduced-motion: reduce")
   })
+
+  it("keeps the neutral ramp monotonically darkening", () => {
+    // A ramp that gets lighter at one step silently inverts visual hierarchy:
+    // a component reaching for brand-800 to be "darker than brand-900" would
+    // get the opposite. Computed, not eyeballed.
+    const relLum = (hex: string) => {
+      const c = hex.replace("#", "")
+      const [r, g, b] = [0, 2, 4].map((i) => parseInt(c.slice(i, i + 2), 16) / 255)
+      const f = (v: number) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)
+      return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b)
+    }
+    const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
+    const lums = steps.map((step) => {
+      const hex = css.match(new RegExp(`--color-brand-${step}:\\s*(#[0-9a-fA-F]{6})`))?.[1]
+      expect(hex, `--color-brand-${step} missing or malformed`).toBeTruthy()
+      return { step, lum: relLum(hex!) }
+    })
+    for (let i = 1; i < lums.length; i++) {
+      expect(
+        lums[i].lum,
+        `brand-${lums[i].step} is lighter than brand-${lums[i - 1].step}`,
+      ).toBeLessThan(lums[i - 1].lum)
+    }
+  })
 })
