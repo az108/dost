@@ -2,12 +2,13 @@ import { HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
+import { practice } from "@/content/practice"
 
 const points = [
   {
     icon: Stethoscope,
     title: "Ärztlich durchgeführt",
-    body: "Jede Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch — keine kosmetische Anwendung ohne ärztliche Aufsicht.",
+    body: `Jede Behandlung führt ${practice.doctor} persönlich durch — keine kosmetische Anwendung ohne ärztliche Aufsicht.`,
   },
   {
     icon: ShieldCheck,

@@ -17,7 +17,11 @@ export function DoctorIntro() {
           className="aspect-[4/5] w-full rounded-card object-cover"
         />
         <div className="flex flex-col gap-6">
-          <SectionHeader eyebrow="Ihr Arzt" title="Dr. med. univ." accent="Dost Mohammad" />
+          <SectionHeader
+            eyebrow="Ihr Arzt"
+            title={practice.doctorLockup.lead}
+            accent={practice.doctorLockup.accent}
+          />
           <p className="text-lg leading-relaxed text-brand-800">
             Praktischer Arzt mit Zusatzqualifikationen in Notfallmedizin, Naturheilverfahren
             und Akupunktur. Diese Kombination prägt unseren Ansatz: schulmedizinisch fundiert,
@@ -25,9 +29,7 @@ export function DoctorIntro() {
           </p>
           <FeatureList
             items={[
-              "Praktischer Arzt",
-              "Notfallmedizin",
-              "Naturheilverfahren und Akupunktur",
+              ...practice.qualifications.split(" · "),
               "Alle ästhetischen Eingriffe persönlich durchgeführt",
             ]}
           />

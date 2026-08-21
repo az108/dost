@@ -49,6 +49,14 @@ describe("practice data", () => {
     expect(practice.hours[2].schema).toBeUndefined()
   })
 
+  it("keeps the doctor display lockup in step with the canonical name", () => {
+    // The lockup exists so a heading can emphasise the surname. If it ever
+    // stops concatenating back to `doctor`, the homepage bio and the
+    // Impressum would show different names for the same person.
+    const { lead, accent } = practice.doctorLockup
+    expect(`${lead} ${accent}`).toBe(practice.doctor)
+  })
+
   // ── Go-live guard ─────────────────────────────────────────────────────
   // The clinic has not published a phone number. This test fails on purpose
   // until someone supplies one, so the site cannot ship with a placeholder

@@ -20,6 +20,7 @@ export const practice: Practice = {
   brand: "Dr. Dost — Laser, Physio & Ästhetik",
   shortBrand: "Dr. Dost",
   doctor: "Dr. med. univ. Dost Mohammad",
+  doctorLockup: { lead: "Dr. med. univ.", accent: "Dost Mohammad" },
   qualifications: "Praktischer Arzt · Notfallmedizin · Naturheilverfahren und Akupunktur",
   street: "Weiher 3",
   postalCode: "84166",

@@ -87,6 +87,12 @@ export interface Practice {
   /** Short brand for tight spaces */
   shortBrand: string
   doctor: string
+  /**
+   * The doctor's name split for display lockups that emphasise the surname.
+   * Its two halves must concatenate back to `doctor` — practice.test.ts
+   * asserts this, so the split cannot drift from the canonical string.
+   */
+  doctorLockup: { lead: string; accent: string }
   qualifications: string
   street: string
   postalCode: string
