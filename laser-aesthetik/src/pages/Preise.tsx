@@ -34,6 +34,12 @@ export default function Preise() {
 
       <Section>
         <Container className="flex flex-col gap-12">
+          <SectionHeader
+            eyebrow="Laser"
+            title="Alle Zonen im"
+            accent="Überblick"
+            lead="Paketpreise gelten bei Vorauszahlung des Gesamtpakets. Alle Preise inkl. MwSt."
+          />
           <PriceTable treatments={laser} />
         </Container>
       </Section>

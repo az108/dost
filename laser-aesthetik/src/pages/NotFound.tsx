@@ -15,7 +15,7 @@ export default function NotFound() {
         </p>
         <Link
           to="/"
-          className="font-semibold text-action hover:underline"
+          className="font-semibold text-action-ink hover:underline"
         >
           Zur Startseite
         </Link>

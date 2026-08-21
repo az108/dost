@@ -9,6 +9,14 @@
   --color-brand: #053AA3;
   /* Primary CTA only. Nothing else uses this, so "book" is unmistakable. */
   --color-action: #E8137C;
+  /*
+   * Derived accessible shade of `action`. #E8137C is 4.36:1 on white, which
+   * fails WCAG AA for body text and passes only as large text. This shade is
+   * 5.11:1, so a white label on it and this colour as text on white both
+   * clear AA at any size. Same pink family — the difference is barely
+   * perceptible. `action` itself remains the declared brand colour.
+   */
+  --color-action-ink: #D41071;
   /* Icons, eyebrows, chips, gradients. Never a button, never body text. */
   --color-accent: #DD1188;
   /* Proof and reassurance: checkmarks, inclusion badges, trust marks. */

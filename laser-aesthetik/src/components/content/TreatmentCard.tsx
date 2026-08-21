@@ -43,7 +43,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
           ) : null}
         </div>
 
-        <p className="flex items-center gap-2 font-semibold text-action">
+        <p className="flex items-center gap-2 font-semibold text-action-ink">
           {from === null ? "Preis auf Anfrage" : "Details & buchen"}
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-1"

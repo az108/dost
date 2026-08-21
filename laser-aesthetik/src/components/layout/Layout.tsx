@@ -10,7 +10,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <ScrollToTop />
       <Navbar />
       {/* pb-24 clears the sticky mobile CTA so it never covers content. */}
-      <main id="hauptinhalt" className="flex-1 pb-24 sm:pb-0">
+      <main id="hauptinhalt" tabIndex={-1} className="flex-1 pb-24 sm:pb-0">
         {children}
       </main>
       <Footer />

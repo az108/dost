@@ -23,7 +23,7 @@ export default function TreatmentDetail() {
   // Hooks must run unconditionally, so useSeo is called before the early
   // return, with fallbacks for the not-found case.
   useSeo({
-    title: treatment?.title,
+    title: treatment?.title ?? "Seite nicht gefunden",
     description: treatment?.excerpt,
     keywords: treatment?.keywords,
     canonicalPath: treatment ? `/behandlungen/${treatment.slug}` : undefined,

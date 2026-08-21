@@ -82,6 +82,25 @@ describe("design tokens", () => {
     }
   })
 
+  it("keeps every text-bearing token above WCAG AA on white", () => {
+    // Computed, not asserted from memory: the spec originally claimed action
+    // passed and accent failed. Both claims were inverted — action is 4.36:1
+    // (fails body text) and accent is 4.66:1 (passes). That is why
+    // --color-action-ink exists.
+    const relLum = (hex: string) => {
+      const c = hex.replace("#", "")
+      const [r, g, b] = [0, 2, 4].map((i) => parseInt(c.slice(i, i + 2), 16) / 255)
+      const f = (v: number) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)
+      return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b)
+    }
+    const onWhite = (hex: string) => 1.05 / (relLum(hex) + 0.05)
+    for (const token of ["action-ink", "brand", "success"]) {
+      const hex = css.match(new RegExp(`--color-${token}:\\s*(#[0-9a-fA-F]{6})`))?.[1]
+      expect(hex, `--color-${token} missing`).toBeTruthy()
+      expect(onWhite(hex!), `--color-${token} fails AA on white`).toBeGreaterThanOrEqual(4.5)
+    }
+  })
+
   it("defines the hero wash with a valid colour-mix gradient", () => {
     // The previous version used `var(--color-accent)/0.18`, which is invalid
     // CSS — slash-alpha only works inside a colour function — so the browser

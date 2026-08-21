@@ -7,6 +7,7 @@ import { SITE_URL } from "@/content/seo"
 import { datenschutz, impressum } from "@/content/legal"
 
 const pub = (f: string) => readFileSync(resolve(__dirname, "../public", f), "utf8")
+const root = (f: string) => readFileSync(resolve(__dirname, "..", f), "utf8")
 
 describe(".htaccess", () => {
   it("rewrites unknown paths to index.html so deep links survive a refresh", () => {
@@ -35,6 +36,16 @@ describe("sitemap.xml", () => {
       expect(sitemap, `missing ${t.slug}`).toContain(`${SITE_URL}/behandlungen/${t.slug}`)
     }
   })
+
+  it("has no stale URLs beyond the static routes and current treatments", () => {
+    // The check above is subset-only: it proves nothing expected is missing,
+    // but a removed treatment would leave a stale <loc> that nothing catches.
+    // 9 static routes: "/", the 3 pillar pages, "/preise", "/praxis",
+    // "/kontakt", "/impressum", "/datenschutz".
+    const sitemap = pub("sitemap.xml")
+    const locCount = (sitemap.match(/<loc>/g) ?? []).length
+    expect(locCount).toBe(9 + treatments.length)
+  })
 })
 
 describe("robots.txt", () => {
@@ -47,8 +58,12 @@ describe("robots.txt", () => {
 
 describe("go-live guards", () => {
   // ── Fails until the real domain is set ──────────────────────────────
+  // index.html's static og:image URL deliberately carries the same
+  // example-domain.de placeholder as SITE_URL, so both must change together
+  // — one guard blocks go-live until neither placeholder remains.
   it("FAILS UNTIL SITE_URL is the real domain", () => {
     expect(SITE_URL).not.toContain("example-domain")
+    expect(root("index.html")).not.toContain("example-domain")
   })
 })
 

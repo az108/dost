@@ -32,6 +32,19 @@ describe("routing", () => {
     expect(h1s[0].textContent).toMatch(pattern)
   })
 
+  it.each(routes)("renders %s with no skipped heading level", (path) => {
+    renderAt(path)
+    const levels = screen
+      .getAllByRole("heading")
+      .map((h) => Number(h.tagName[1]))
+    for (let i = 1; i < levels.length; i++) {
+      expect(
+        levels[i] - levels[i - 1],
+        `heading jumped from h${levels[i - 1]} to h${levels[i]} on ${path}`,
+      ).toBeLessThanOrEqual(1)
+    }
+  })
+
   it("renders NotFound for an unknown path", () => {
     renderAt("/gibt-es-nicht")
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/nicht gefunden/i)

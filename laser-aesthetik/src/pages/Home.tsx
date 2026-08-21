@@ -15,7 +15,7 @@ import { ProcessSteps } from "@/sections/ProcessSteps"
 import { DoctorIntro } from "@/sections/DoctorIntro"
 import { useSeo } from "@/lib/useSeo"
 
-const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
+export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
 export default function Home() {
   useSeo({
@@ -39,7 +39,7 @@ export default function Home() {
       >
         <Link
           to="/preise"
-          className="flex items-center gap-2 font-semibold text-brand hover:text-action"
+          className="flex items-center gap-2 font-semibold text-brand hover:text-action-ink"
         >
           Preise ansehen
           <ArrowRight className="size-4" aria-hidden="true" />
@@ -84,7 +84,7 @@ export default function Home() {
           </div>
           <Link
             to="/preise"
-            className="flex items-center gap-2 self-start font-semibold text-brand hover:text-action"
+            className="flex items-center gap-2 self-start font-semibold text-brand hover:text-action-ink"
           >
             Zur vollständigen Preisliste
             <ArrowRight className="size-4" aria-hidden="true" />

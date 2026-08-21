@@ -54,6 +54,9 @@ export function useSeo(
     if (description) {
       setMeta("description", description)
       setOg("og:description", description)
+    } else {
+      document.head.querySelector('meta[name="description"]')?.remove()
+      document.head.querySelector('meta[property="og:description"]')?.remove()
     }
     setMeta("keywords", buildKeywords(keywords))
 
@@ -75,6 +78,9 @@ export function useSeo(
         href,
       )
       setOg("og:url", href)
+    } else {
+      document.head.querySelector('link[rel="canonical"]')?.remove()
+      document.head.querySelector('meta[property="og:url"]')?.remove()
     }
   }, [title, description, keywords, canonicalPath])
 }

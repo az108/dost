@@ -12,7 +12,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        action: "bg-action text-white shadow-sm hover:bg-action/90 active:bg-action/95",
+        action: "bg-action-ink text-white shadow-sm hover:bg-action-ink/90 active:bg-action-ink/95",
         outline: "border border-brand-200 bg-white text-brand-900 hover:bg-brand-50",
         ghost: "text-brand-900 hover:bg-brand-50",
       },

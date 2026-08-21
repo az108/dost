@@ -22,6 +22,15 @@ describe("pillars", () => {
   it("looks a pillar up by id", () => {
     expect(pillarById("laser").path).toBe("/laser")
   })
+
+  it("gives every pillar a non-empty FAQ", () => {
+    // The FAQ components were fully built and tested against synthetic data
+    // while no pillar or treatment defined `faq`, so the section rendered on
+    // none of the 32 pages and nothing noticed.
+    for (const p of pillars) {
+      expect(p.faq?.length, `${p.id} has no FAQ`).toBeGreaterThan(0)
+    }
+  })
 })
 
 describe("treatments", () => {

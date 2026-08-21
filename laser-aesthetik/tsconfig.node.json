@@ -13,7 +13,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] },
+    "types": ["vite/client"]
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "scripts/generate-sitemap.ts"]
 }
