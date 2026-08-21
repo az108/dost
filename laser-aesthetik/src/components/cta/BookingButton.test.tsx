@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs"
-import { resolve } from "node:path"
+import { relative, resolve } from "node:path"
 import { execSync } from "node:child_process"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
@@ -39,18 +39,30 @@ describe("BookingButton", () => {
 })
 
 describe("Doctolib URL containment", () => {
-  // Changing the booking destination must be a one-line change. If the URL
-  // appears anywhere other than practice.ts, that guarantee is gone.
-  it("appears only in src/content/practice.ts", () => {
-    const hits = execSync(
-      "grep -rl 'doctolib.de' src --include='*.ts' --include='*.tsx' || true",
-      { encoding: "utf8" },
-    )
+  // Changing the booking destination must be a one-line change. This asserts
+  // the EXACT set of files containing the URL — an allowlist, not a denylist.
+  //
+  // Two things this shape deliberately avoids:
+  //  - Excluding files by a `.test.ts` suffix would let a production file with
+  //    that name hide a leak.
+  //  - Restricting grep to --include='*.ts,*.tsx' would miss a URL hardcoded
+  //    into a .json, .mdx or any other file type under src/.
+  // Scanning everything and pinning the result set closes both.
+  it("appears only in practice.ts and the two tests that assert it", () => {
+    const srcRoot = resolve(__dirname, "../..")
+    const hits = execSync(`grep -rl 'doctolib.de' ${JSON.stringify(srcRoot)} || true`, {
+      encoding: "utf8",
+    })
       .split("\n")
       .map((s) => s.trim())
       .filter(Boolean)
-      .filter((f) => !f.endsWith(".test.ts") && !f.endsWith(".test.tsx"))
+      .map((f) => relative(srcRoot, f))
+      .sort()
 
-    expect(hits).toEqual(["src/content/practice.ts"])
+    expect(hits).toEqual([
+      "components/cta/BookingButton.test.tsx",
+      "content/practice.test.ts",
+      "content/practice.ts",
+    ])
   })
 })
