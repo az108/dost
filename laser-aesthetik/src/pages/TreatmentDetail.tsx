@@ -105,8 +105,8 @@ export default function TreatmentDetail() {
             </div>
 
             <div className="order-1 flex flex-col gap-12 lg:order-2">
-              <div className="grid gap-12 lg:grid-cols-2">
-                <Reveal className="flex flex-col gap-5">
+              <div className="flex flex-col gap-8">
+                <Reveal className="flex max-w-prose flex-col gap-5">
                   <SectionHeader
                     eyebrow="So funktioniert's"
                     title="Ihre Behandlung"
@@ -143,7 +143,7 @@ export default function TreatmentDetail() {
                     <BookingButton>Beratungstermin buchen</BookingButton>
                   </div>
                 ) : (
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
                       <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
                         Einzelsitzung
