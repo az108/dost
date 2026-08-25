@@ -59,8 +59,8 @@ export default function Praxis() {
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow="Einblicke"
-            title="Unsere"
-            accent="Räume und Technik"
+            title="Räume und Technik"
+            accent="im Überblick"
             lead="Die Aufnahmen zeigen Beispielbilder aus vergleichbaren Praxen — sie geben einen Eindruck von Ausstattung und Atmosphäre."
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
