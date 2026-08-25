@@ -22,7 +22,7 @@ export function Hero({
         aria-hidden="true"
         className="absolute inset-0 -z-10 hero-wash"
       />
-      <Container className="flex flex-col gap-8 py-20 sm:py-28 lg:py-32">
+      <Container className="flex flex-col gap-5 py-12 sm:py-16 lg:py-20">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
         <h1 className="max-w-4xl text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
           {lead} <em className="font-display italic text-accent">{accent}</em>

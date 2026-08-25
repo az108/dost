@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { treatmentBySlug, treatmentsByPillar } from "@/content/treatments"
+import { treatmentBySlug } from "@/content/treatments"
 import { pillarById } from "@/content/pillars"
 import { formatEuro, packageTiers, priceFrom } from "@/content/pricing"
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs"
@@ -10,7 +10,7 @@ import { Reveal } from "@/components/motion/Reveal"
 import { FeatureList } from "@/components/content/FeatureList"
 import { FaqAccordion } from "@/components/content/FaqAccordion"
 import { SpecRow } from "@/components/content/SpecRow"
-import { TreatmentCard } from "@/components/content/TreatmentCard"
+import { TreatmentSidebar } from "@/components/content/TreatmentSidebar"
 import { BookingButton } from "@/components/cta/BookingButton"
 import { CtaBanner } from "@/components/cta/CtaBanner"
 import { useSeo } from "@/lib/useSeo"
@@ -34,9 +34,6 @@ export default function TreatmentDetail() {
   const pillar = pillarById(treatment.pillar)
   const tiers = packageTiers(treatment.pricing)
   const from = priceFrom(treatment.pricing)
-  const related = treatmentsByPillar(treatment.pillar)
-    .filter((t) => t.slug !== treatment.slug)
-    .slice(0, 3)
 
   // Treatments may carry their own FAQ, but none does today and the questions
   // patients ask are pillar-level rather than per-zone. Falling back to the
@@ -101,98 +98,93 @@ export default function TreatmentDetail() {
       </Section>
 
       <Section>
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-5">
-            <SectionHeader eyebrow="So funktioniert's" title="Ihre Behandlung" accent="im Detail" />
-            {treatment.body.map((p, i) => (
-              <p key={i} className="text-lg leading-relaxed text-brand-800">
-                {p}
-              </p>
-            ))}
-          </Reveal>
-          <Reveal delay={0.1} className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
-            <h2 className="font-display text-2xl font-extrabold text-brand">Ihre Vorteile</h2>
-            <FeatureList items={treatment.benefits} />
-          </Reveal>
-        </Container>
-      </Section>
-
-      <Section tone="tint">
-        <Container className="flex flex-col gap-8">
-          <SectionHeader eyebrow="Preise" title="Was diese Behandlung" accent="kostet" />
-          {treatment.pricing.kind === "onRequest" ? (
-            <div
-              data-testid="pricing-block"
-              className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
-            >
-              <p className="font-display text-2xl font-extrabold text-brand">
-                Preis auf Anfrage
-              </p>
-              <p className="max-w-xl leading-relaxed text-brand-700">
-                Der Preis hängt vom Befund und vom Behandlungsumfang ab. Wir besprechen ihn
-                im Erstgespräch — verbindlich und bevor eine Behandlung beginnt.
-              </p>
-              <BookingButton>Beratungstermin buchen</BookingButton>
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[16rem_1fr]">
+            <div className="order-2 lg:order-1">
+              <TreatmentSidebar pillar={pillar} currentSlug={treatment.slug} />
             </div>
-          ) : (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
-                  Einzelsitzung
-                </p>
-                <p className="font-display text-3xl font-extrabold text-brand">
-                  {formatEuro(treatment.pricing.single)}
+
+            <div className="order-1 flex flex-col gap-12 lg:order-2">
+              <div className="grid gap-12 lg:grid-cols-2">
+                <Reveal className="flex flex-col gap-5">
+                  <SectionHeader
+                    eyebrow="So funktioniert's"
+                    title="Ihre Behandlung"
+                    accent="im Detail"
+                  />
+                  {treatment.body.map((p, i) => (
+                    <p key={i} className="text-lg leading-relaxed text-brand-800">
+                      {p}
+                    </p>
+                  ))}
+                </Reveal>
+                <Reveal delay={0.1} className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
+                  <h2 className="font-display text-2xl font-extrabold text-brand">
+                    Ihre Vorteile
+                  </h2>
+                  <FeatureList items={treatment.benefits} />
+                </Reveal>
+              </div>
+
+              <div className="flex flex-col gap-8">
+                <SectionHeader eyebrow="Preise" title="Was diese Behandlung" accent="kostet" />
+                {treatment.pricing.kind === "onRequest" ? (
+                  <div
+                    data-testid="pricing-block"
+                    className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
+                  >
+                    <p className="font-display text-2xl font-extrabold text-brand">
+                      Preis auf Anfrage
+                    </p>
+                    <p className="max-w-xl leading-relaxed text-brand-700">
+                      Der Preis hängt vom Befund und vom Behandlungsumfang ab. Wir besprechen ihn
+                      im Erstgespräch — verbindlich und bevor eine Behandlung beginnt.
+                    </p>
+                    <BookingButton>Beratungstermin buchen</BookingButton>
+                  </div>
+                ) : (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
+                      <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                        Einzelsitzung
+                      </p>
+                      <p className="font-display text-3xl font-extrabold text-brand">
+                        {formatEuro(treatment.pricing.single)}
+                      </p>
+                    </div>
+                    {tiers.map((tier) => (
+                      <div
+                        key={tier.sessions}
+                        className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6"
+                      >
+                        <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                          {tier.sessions}er-Paket{" "}
+                          <span className="text-accent">−{tier.discountPct} %</span>
+                        </p>
+                        <p className="font-display text-3xl font-extrabold text-brand">
+                          {formatEuro(tier.perSession)}
+                          <span className="text-sm font-semibold text-brand-600">/Sitzung</span>
+                        </p>
+                        <p className="text-sm text-brand-600">gesamt {formatEuro(tier.total)}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <p className="text-sm text-brand-600">
+                  Alle Preise inkl. MwSt. Paketpreise gelten bei Vorauszahlung des Gesamtpakets.
                 </p>
               </div>
-              {tiers.map((tier) => (
-                <div
-                  key={tier.sessions}
-                  className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6"
-                >
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
-                    {tier.sessions}er-Paket{" "}
-                    <span className="text-accent">−{tier.discountPct} %</span>
-                  </p>
-                  <p className="font-display text-3xl font-extrabold text-brand">
-                    {formatEuro(tier.perSession)}
-                    <span className="text-sm font-semibold text-brand-600">/Sitzung</span>
-                  </p>
-                  <p className="text-sm text-brand-600">gesamt {formatEuro(tier.total)}</p>
+
+              {faq.length ? (
+                <div className="flex max-w-3xl flex-col gap-8">
+                  <SectionHeader eyebrow="Häufige Fragen" title="Gut zu" accent="wissen" />
+                  <FaqAccordion items={faq} />
                 </div>
-              ))}
+              ) : null}
             </div>
-          )}
-          <p className="text-sm text-brand-600">
-            Alle Preise inkl. MwSt. Paketpreise gelten bei Vorauszahlung des Gesamtpakets.
-          </p>
+          </div>
         </Container>
       </Section>
-
-      {faq.length ? (
-        <Section>
-          <Container className="flex max-w-3xl flex-col gap-8">
-            <SectionHeader eyebrow="Häufige Fragen" title="Gut zu" accent="wissen" />
-            <FaqAccordion items={faq} />
-          </Container>
-        </Section>
-      ) : null}
-
-      {related.length > 0 ? (
-        <Section tone="tint">
-          <Container className="flex flex-col gap-8">
-            <SectionHeader
-              eyebrow={pillar.label}
-              title="Weitere Behandlungen"
-              accent="in diesem Bereich"
-            />
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((t) => (
-                <TreatmentCard key={t.slug} treatment={t} />
-              ))}
-            </div>
-          </Container>
-        </Section>
-      ) : null}
 
       <CtaBanner />
     </>

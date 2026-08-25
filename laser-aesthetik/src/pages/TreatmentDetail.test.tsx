@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest"
 import { MemoryRouter, Route, Routes } from "react-router-dom"
 import TreatmentDetail from "./TreatmentDetail"
 import NotFound from "./NotFound"
+import { treatmentsByPillar } from "@/content/treatments"
 
 function renderAt(path: string) {
   return render(
@@ -65,11 +66,20 @@ describe("TreatmentDetail", () => {
 
   it("suggests other treatments from the same pillar, never itself", () => {
     renderAt("/behandlungen/achseln")
-    const related = screen.getAllByRole("link", { name: /Details & buchen|Preis auf Anfrage/ })
+    const nav = screen.getByRole("navigation", { name: "Weitere Behandlungen" })
+    const related = within(nav).getAllByRole("link")
     expect(related.length).toBeGreaterThan(0)
     expect(
       related.every((l) => l.getAttribute("href") !== "/behandlungen/achseln"),
     ).toBe(true)
+  })
+
+  it("lists every sibling treatment in the sidebar, excluding the current one", () => {
+    renderAt("/behandlungen/achseln")
+    const nav = screen.getByRole("navigation", { name: "Weitere Behandlungen" })
+    const links = within(nav).getAllByRole("link")
+    expect(links.length).toBe(treatmentsByPillar("laser").length - 1)
+    expect(links.map((l) => l.getAttribute("href"))).not.toContain("/behandlungen/achseln")
   })
 
   it("renders NotFound for an unknown slug instead of crashing", () => {
@@ -88,7 +98,8 @@ describe("TreatmentDetail", () => {
     // displayable price silently removed this section from all 10 physio and
     // Ästhetik pages. Cross-linking must not depend on pricing.
     renderAt("/behandlungen/faltenbehandlung")
-    const links = screen
+    const nav = screen.getByRole("navigation", { name: "Weitere Behandlungen" })
+    const links = within(nav)
       .getAllByRole("link")
       .map((l) => l.getAttribute("href"))
       .filter((h) => h?.startsWith("/behandlungen/"))
