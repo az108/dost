@@ -1,8 +1,7 @@
 import { useEffect } from "react"
-import type { Locale } from "@/content/types"
-import { buildKeywords, SITE_URL } from "@/content/seo"
+import { buildKeywords } from "@/content/seo"
 import { practice } from "@/content/practice"
-import { counterpartPath, hasCounterpart } from "@/lib/routes"
+import { seoForRoute } from "@/lib/seoForRoute"
 
 function upsert(selector: string, create: () => HTMLElement, attr: string, value: string) {
   let tag = document.head.querySelector(selector) as HTMLElement | null
@@ -57,16 +56,6 @@ function removeAlternates() {
   document.head.querySelectorAll('link[rel="alternate"]').forEach((el) => el.remove())
 }
 
-/**
- * Derived from the canonical path rather than from useLocale(), so this hook
- * never needs a Router context — it stays callable (and testable) on its
- * own, the way useSeo.test.tsx already does.
- */
-function localeOf(path: string | undefined): Locale {
-  if (!path) return "de"
-  return path === "/en" || path.startsWith("/en/") ? "en" : "de"
-}
-
 export function useSeo(
   opts: {
     title?: string
@@ -76,7 +65,14 @@ export function useSeo(
   } = {},
 ) {
   const { title, description, keywords, canonicalPath } = opts
-  const locale = localeOf(canonicalPath)
+
+  // seoForRoute() is the single source for everything derived from the path
+  // itself — canonical URL, hreflang alternates, og:image and locale — so
+  // this hook and scripts/prerender.ts cannot silently diverge. title and
+  // description stay explicit params: they vary per call site (e.g. the
+  // not-found fallback on TreatmentDetail) in ways a path alone can't tell.
+  const seo = canonicalPath ? seoForRoute(canonicalPath) : null
+  const locale = seo ? seo.locale : "de"
 
   useEffect(() => {
     const fullTitle = title ? `${title} | ${practice.brand}` : practice.brand
@@ -97,8 +93,7 @@ export function useSeo(
     setOg("og:site_name", practice.brand)
     setOg("og:locale", locale === "en" ? "en_GB" : "de_DE")
 
-    if (canonicalPath) {
-      const href = `${SITE_URL}${canonicalPath}`
+    if (seo) {
       upsert(
         'link[rel="canonical"]',
         () => {
@@ -107,27 +102,24 @@ export function useSeo(
           return el
         },
         "href",
-        href,
+        seo.canonical,
       )
-      setOg("og:url", href)
+      setOg("og:url", seo.canonical)
+      setOg("og:image", seo.ogImage)
 
       // Pages with no counterpart (the German-only legal pages) must emit no
       // hreflang pair at all — claiming an English alternate that does not
       // exist is worse than omitting it.
-      if (hasCounterpart(canonicalPath)) {
-        const dePath = locale === "de" ? canonicalPath : counterpartPath(canonicalPath, "de")
-        const enPath = locale === "en" ? canonicalPath : counterpartPath(canonicalPath, "en")
-        setAlternate("de", `${SITE_URL}${dePath}`)
-        setAlternate("en", `${SITE_URL}${enPath}`)
-        // x-default points at German — the primary market.
-        setAlternate("x-default", `${SITE_URL}${dePath}`)
+      if (seo.alternates.length > 0) {
+        for (const alt of seo.alternates) setAlternate(alt.hreflang, alt.href)
       } else {
         removeAlternates()
       }
     } else {
       document.head.querySelector('link[rel="canonical"]')?.remove()
       document.head.querySelector('meta[property="og:url"]')?.remove()
+      document.head.querySelector('meta[property="og:image"]')?.remove()
       removeAlternates()
     }
-  }, [title, description, keywords, canonicalPath, locale])
+  }, [title, description, keywords, canonicalPath, locale, seo])
 }

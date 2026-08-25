@@ -1,5 +1,11 @@
-import { useLayoutEffect } from "react"
+import { useEffect, useLayoutEffect } from "react"
 import { useLocation } from "react-router-dom"
+
+// useLayoutEffect warns when it runs during server rendering (there is no
+// paint to run "before"). The standard isomorphic shim: use the real thing
+// in the browser, fall back to useEffect (a silent no-op on the server,
+// since window.scrollTo below never executes there) everywhere else.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect
 
 /**
  * Resets scroll on navigation.
@@ -16,7 +22,7 @@ import { useLocation } from "react-router-dom"
 export function ScrollToTop() {
   const { pathname, state } = useLocation()
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if ((state as { preserveScroll?: boolean } | null)?.preserveScroll) return
     window.scrollTo(0, 0)
   }, [pathname, state])
