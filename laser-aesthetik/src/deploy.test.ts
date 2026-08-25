@@ -79,3 +79,14 @@ describe("legal go-live guard", () => {
     expect(text).not.toContain("PRÜFEN")
   })
 })
+
+describe("contact form go-live guard", () => {
+  // ── Go-live guard ────────────────────────────────────────────────────
+  // contact.php has no recipient until the practice supplies one. Shipping
+  // it unset means every message a patient sends is silently lost.
+  // To fix: set RECIPIENT in public/contact.php, then delete this test.
+  it("FAILS UNTIL the contact form recipient is set", () => {
+    const php = readFileSync(resolve(__dirname, "../public/contact.php"), "utf8")
+    expect(php).not.toContain("TODO_EMPFAENGER_ADRESSE")
+  })
+})

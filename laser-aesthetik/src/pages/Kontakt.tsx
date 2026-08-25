@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { BookingButton } from "@/components/cta/BookingButton"
+import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
 
@@ -76,6 +77,20 @@ export default function Kontakt() {
               ))}
             </dl>
             <BookingButton />
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="tint">
+        <Container>
+          <div className="mx-auto flex max-w-2xl flex-col gap-8">
+            <SectionHeader
+              eyebrow="Nachricht"
+              title="Schreiben Sie"
+              accent="uns"
+              lead="Termine buchen Sie am schnellsten online über die Terminbuchung oben. Für Rückfragen, einen Rückruf oder ein allgemeines Anliegen nutzen Sie stattdessen dieses Formular."
+            />
+            <ContactForm />
           </div>
         </Container>
       </Section>

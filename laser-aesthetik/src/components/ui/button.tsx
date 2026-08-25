@@ -3,9 +3,10 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * `action` (#E8137C) is reserved for primary calls to action. BookingButton
- * is the only component in this codebase permitted to use it — everything
- * else picks `outline` or `ghost`.
+ * `action` renders in `action-ink`, the accessible derived shade of the
+ * reserved `action` brand colour. It is reserved for the primary affordance
+ * of a given surface — BookingButton site-wide, and ContactForm's submit
+ * button on the contact form. Everything else picks `outline` or `ghost`.
  */
 export const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill text-sm font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",

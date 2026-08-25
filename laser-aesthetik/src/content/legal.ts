@@ -63,6 +63,14 @@ export const datenschutz: LegalDocument = {
       ],
     },
     {
+      heading: "Kontaktformular",
+      paragraphs: [
+        "Wenn Sie uns über das Kontaktformular schreiben, verarbeiten wir die von Ihnen angegebenen Daten — Name, E-Mail-Adresse, optional Ihre Telefonnummer sowie Ihre Nachricht — ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit für die Zukunft widerrufen können.",
+        "Das Formular wird auf unserem eigenen Webspace verarbeitet; es werden keine Daten an Dritte übermittelt. Wir bitten Sie ausdrücklich, über das Formular keine Gesundheitsdaten zu übermitteln. Für medizinische Anliegen vereinbaren Sie bitte einen Termin.",
+        "PRÜFEN: Die Speicherdauer der über das Formular eingegangenen Nachrichten sowie das Löschkonzept müssen vor Veröffentlichung ergänzt werden.",
+      ],
+    },
+    {
       heading: "Terminbuchung",
       paragraphs: [
         "Die Terminbuchung erfolgt über den externen Dienst Doctolib. Wenn Sie auf eine Schaltfläche zur Terminbuchung klicken, verlassen Sie diese Website. Für die dortige Datenverarbeitung gilt die Datenschutzerklärung von Doctolib.",

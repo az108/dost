@@ -50,6 +50,13 @@ Run `npm test`. Every failing test is a go-live blocker by design:
 - **`PRÜFEN:` markers in `src/content/legal.ts`** — Impressum and
   Datenschutz are scaffolds. Both must be reviewed by a lawyer; §5 TMG and
   DSGVO Art. 13 make their content legally consequential.
+- **`deploy.test.ts` contact form recipient guard** — `public/contact.php`
+  has `RECIPIENT` set to a placeholder until the practice supplies a real
+  mailbox. Test mail delivery on the live host after upload: `mail()`
+  behaves differently per host — ALL-INKL works out of the box, Namecheap
+  sometimes needs SMTP credentials instead. If delivery ever fails, the
+  visitor sees a visible error plus a `mailto:` fallback rather than the
+  message being silently lost.
 - **Physio and Ästhetik prices** — every treatment in those two pillars
   carries `pricing: { kind: "onRequest" }`; only Laser has fixed prices.
   The client must supply real prices (or confirm "on request" is
@@ -87,6 +94,10 @@ config. Outstanding before go-live, in priority order:
 6. **Stock photography** — the 29 treatment images are licensed Unsplash
    stock standing in for photos of the actual practice. Per-image sources
    are in `CREDITS.md`.
+7. **Contact form recipient** — `public/contact.php` has `RECIPIENT` set to
+   a placeholder; `deploy.test.ts` fails until a real mailbox is supplied.
+   Also test an actual submission on the live host after upload, since
+   `mail()` behaves differently per host.
 
 ### Claims flagged for legal review
 
