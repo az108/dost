@@ -30,11 +30,10 @@ import kryolipolyseImg from "@/assets/aesthetik/kryolipolyse.webp"
 import farblichttherapieImg from "@/assets/aesthetik/farblichttherapie.webp"
 import aesthetischeMedizinImg from "@/assets/aesthetik/aesthetische-medizin.webp"
 
-// The 19 laser zones — bilingual. See `LocalizedTreatment` in types.ts: this
-// is the target shape for every treatment, but only laser has been converted
-// so far. English slugs are deliberately keyword-bearing rather than
-// transliterations (e.g. "achseln" -> "underarms", not "achseln-en") — that
-// is the entire reason English gets its own URLs.
+// The 19 laser zones — bilingual. See `LocalizedTreatment` in types.ts.
+// English slugs are deliberately keyword-bearing rather than transliterations
+// (e.g. "achseln" -> "underarms", not "achseln-en") — that is the entire
+// reason English gets its own URLs.
 const LASER: LocalizedTreatment[] = [
   {
     slug: { de: "oberlippe", en: "upper-lip" },
@@ -895,239 +894,475 @@ const LASER: LocalizedTreatment[] = [
   },
 ]
 
-// Physio and Ästhetik — German-only for now (converted in a later step).
-const PHYSIO: Treatment[] = [
+// Physio — bilingual.
+const PHYSIO: LocalizedTreatment[] = [
   {
-    slug: "schmerztherapie",
+    slug: { de: "schmerztherapie", en: "pain-management" },
     pillar: "physio",
     image: schmerztherapieImg,
-    imageAlt: "Manuelle Unterstützung bei einer Rückenübung im Freien",
-    title: "Schmerztherapie",
-    headline: { lead: "Schmerz", accent: "an der Ursache" },
-    excerpt:
-      "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper.",
-    body: [
-      "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
-      "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
-      "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. univ. Dost Mohammad.",
-    ],
-    benefits: [
-      "Ursachensuche statt reiner Symptomdämpfung",
-      "Schulmedizin und Naturheilverfahren kombiniert",
-      "Individueller Behandlungsplan nach gründlicher Untersuchung",
-    ],
-    sessions: "Nach Befund",
+    imageAlt: {
+      de: "Manuelle Unterstützung bei einer Rückenübung im Freien",
+      en: "Hands providing support during an outdoor back exercise",
+    },
+    title: { de: "Schmerztherapie", en: "Pain Management" },
+    headline: {
+      de: { lead: "Schmerz", accent: "an der Ursache" },
+      en: { lead: "Pain", accent: "treated at the source" },
+    },
+    excerpt: {
+      de: "Akute Schmerzen haben eine Warnfunktion und sind deshalb eine wichtige Reaktion für den Körper.",
+      en: "Acute pain has a warning function and is therefore an important response for the body.",
+    },
+    body: {
+      de: [
+        "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
+        "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
+        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. univ. Dost Mohammad.",
+      ],
+      en: [
+        "A distinction is made between acute pain and chronic pain.",
+        "When pain persists for a long time, it loses this warning function and becomes a condition in its own right – chronic pain.",
+        "Please feel free to get in touch with our pain therapy service – Praxis Dr. med. univ. Dost Mohammad.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Ursachensuche statt reiner Symptomdämpfung",
+        "Schulmedizin und Naturheilverfahren kombiniert",
+        "Individueller Behandlungsplan nach gründlicher Untersuchung",
+      ],
+      en: [
+        "Looking for the cause, not just dulling the symptom",
+        "Conventional medicine combined with naturopathic methods",
+        "An individual treatment plan after a thorough examination",
+      ],
+    },
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "manuelle-therapie",
+    slug: { de: "manuelle-therapie", en: "manual-therapy" },
     pillar: "physio",
     image: manuelleTherapieImg,
-    imageAlt: "Therapeut behandelt Schulter und Arm einer Patientin auf der Liege",
-    title: "Manuelle Therapie",
-    headline: { lead: "Blockaden", accent: "gelöst" },
-    excerpt:
-      "Gezielte Handgriffe an Gelenken, Muskeln und Faszien — für Beweglichkeit ohne Schmerz.",
-    body: [
-      "In der manuellen Therapie arbeiten wir ausschließlich mit den Händen: Wir ertasten Blockaden in Gelenken, verspannte Muskulatur und verklebte Faszien und lösen sie gezielt.",
-      "Der Vorteil gegenüber apparativen Verfahren ist die unmittelbare Rückmeldung — wir spüren, wie das Gewebe reagiert, und passen die Behandlung im selben Moment an.",
-      "Nach der Sitzung erhalten Sie Übungen für zu Hause. Ohne diese hält das Ergebnis meist nicht lange an.",
-    ],
-    benefits: [
-      "Unmittelbare Anpassung während der Behandlung",
-      "Übungen für zu Hause inklusive",
-      "Ohne Medikamente und ohne Geräte",
-    ],
-    sessions: "Nach Befund",
+    imageAlt: {
+      de: "Therapeut behandelt Schulter und Arm einer Patientin auf der Liege",
+      en: "Therapist treating a patient's shoulder and arm on a treatment table",
+    },
+    title: { de: "Manuelle Therapie", en: "Manual Therapy" },
+    headline: {
+      de: { lead: "Blockaden", accent: "gelöst" },
+      en: { lead: "Blockages", accent: "released" },
+    },
+    excerpt: {
+      de: "Gezielte Handgriffe an Gelenken, Muskeln und Faszien — für Beweglichkeit ohne Schmerz.",
+      en: "Targeted hands-on techniques for joints, muscles and fascia — for movement without pain.",
+    },
+    body: {
+      de: [
+        "In der manuellen Therapie arbeiten wir ausschließlich mit den Händen: Wir ertasten Blockaden in Gelenken, verspannte Muskulatur und verklebte Faszien und lösen sie gezielt.",
+        "Der Vorteil gegenüber apparativen Verfahren ist die unmittelbare Rückmeldung — wir spüren, wie das Gewebe reagiert, und passen die Behandlung im selben Moment an.",
+        "Nach der Sitzung erhalten Sie Übungen für zu Hause. Ohne diese hält das Ergebnis meist nicht lange an.",
+      ],
+      en: [
+        "In manual therapy, we work exclusively with our hands: we feel for restrictions in joints, tense muscles and adhered fascia, and release them in a targeted way.",
+        "The advantage over equipment-based methods is immediate feedback — we feel how the tissue responds and adjust the treatment in the same moment.",
+        "After the session, you'll receive exercises to do at home. Without them, the result usually doesn't last long.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Unmittelbare Anpassung während der Behandlung",
+        "Übungen für zu Hause inklusive",
+        "Ohne Medikamente und ohne Geräte",
+      ],
+      en: [
+        "Immediate adjustments during treatment",
+        "Take-home exercises included",
+        "No medication, no equipment",
+      ],
+    },
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "sportmedizin",
+    slug: { de: "sportmedizin", en: "sports-medicine" },
     pillar: "physio",
     image: sportmedizinImg,
-    imageAlt: "Trainer und Athletin beim Training mit einem Medizinball",
-    title: "Sportmedizin",
-    headline: { lead: "Zurück", accent: "in Bewegung" },
-    excerpt:
-      "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zur Seite.",
-    body: [
-      "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
-      "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
-      "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
-    ],
-    benefits: [
-      "Betreuung bei Sportverletzungen und Beschwerden des Bewegungsapparats",
-      "Wiederaufbau statt Schonhaltung",
-      "Ärztlich begleiteter Wiedereinstieg ins Training",
-    ],
-    sessions: "Nach Befund",
+    imageAlt: {
+      de: "Trainer und Athletin beim Training mit einem Medizinball",
+      en: "Coach and athlete training together with a medicine ball",
+    },
+    title: { de: "Sportmedizin", en: "Sports Medicine" },
+    headline: {
+      de: { lead: "Zurück", accent: "in Bewegung" },
+      en: { lead: "Back", accent: "in motion" },
+    },
+    excerpt: {
+      de: "Auch bei Sportverletzungen oder Problemen mit dem Bewegungsapparat stehen wir Ihnen stets zur Seite.",
+      en: "We're also here for you with sports injuries or issues affecting the musculoskeletal system.",
+    },
+    body: {
+      de: [
+        "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+        "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
+        "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
+      ],
+      en: [
+        "For the diagnosis and treatment of sports injuries, our physician in Köning works together with nearby radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals, to offer you the best possible service.",
+        "Our practice gives every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
+        "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact our practice promptly.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Betreuung bei Sportverletzungen und Beschwerden des Bewegungsapparats",
+        "Wiederaufbau statt Schonhaltung",
+        "Ärztlich begleiteter Wiedereinstieg ins Training",
+      ],
+      en: [
+        "Support for sports injuries and musculoskeletal complaints",
+        "Rebuilding strength, not just resting the injury",
+        "Medically supervised return to training",
+      ],
+    },
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "akupunktur-tcm",
+    slug: { de: "akupunktur-tcm", en: "acupuncture-and-tcm" },
     pillar: "physio",
     image: akupunkturTcmImg,
-    imageAlt: "Nahaufnahme von Akupunkturnadeln auf der Haut",
-    title: "Akupunktur & TCM",
-    headline: { lead: "Akupunktur", accent: "und TCM" },
-    excerpt:
-      "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
-    body: [
-      "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
-      "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
-      "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Köning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
-    ],
-    benefits: [
-      "Ärztlich durchgeführte Akupunktur",
-      "Ergänzend zur schulmedizinischen Behandlung",
-      "Zusatzqualifikation Naturheilverfahren und Akupunktur",
-    ],
-    sessions: "Nach Befund",
+    imageAlt: {
+      de: "Nahaufnahme von Akupunkturnadeln auf der Haut",
+      en: "Close-up of acupuncture needles on the skin",
+    },
+    title: { de: "Akupunktur & TCM", en: "Acupuncture & TCM" },
+    headline: {
+      de: { lead: "Akupunktur", accent: "und TCM" },
+      en: { lead: "Acupuncture", accent: "and TCM" },
+    },
+    excerpt: {
+      de: "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
+      en: "As part of the private medical care provided by Praxis Dr. med. univ. Dost Mohammad in Köning, we also offer alternative treatment methods such as TCM and acupuncture.",
+    },
+    // Two paragraphs below reuse copy verbatim from the practice's own
+    // existing website, including an efficacy claim ("vielfach
+    // wissenschaftlich nachgewiesener Wirksamkeit" / "scientifically proven
+    // in many cases") stronger than the Heilmittelwerbegesetz comfortably
+    // allows. Translated faithfully, not softened — see the go-live guard in
+    // content.test.ts, which blocks both the German and English wording
+    // until a lawyer clears it.
+    body: {
+      de: [
+        "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
+        "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
+        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Köning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+      ],
+      en: [
+        "With the varied methods of acupuncture and TCM, our patients benefit from Far Eastern treatment methods with a very long tradition and effectiveness that has been scientifically proven in many cases.",
+        "Many acute and chronic complaints respond well to acupuncture and TCM measures. Compared with conventional medicine, acupuncture and TCM always pursue a holistic treatment goal. In TCM's therapeutic approach, the person is understood as a whole – physically and mentally.",
+        "TCM complements the conventional medical treatment of many complaints. Our private physician in Köning offers many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Ärztlich durchgeführte Akupunktur",
+        "Ergänzend zur schulmedizinischen Behandlung",
+        "Zusatzqualifikation Naturheilverfahren und Akupunktur",
+      ],
+      en: [
+        "Acupuncture carried out by a physician",
+        "Complementary to conventional medical treatment",
+        "Additional qualification in naturopathy and acupuncture",
+      ],
+    },
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "stosswellentherapie",
+    slug: { de: "stosswellentherapie", en: "shockwave-therapy" },
     pillar: "physio",
     image: stosswellentherapieImg,
-    imageAlt: "Behandlungsgerät wird an der Ferse angesetzt",
-    title: "Stoßwellentherapie",
-    headline: { lead: "Stoßwellen", accent: "gegen Verkalkung" },
-    excerpt:
-      "Bei Fersensporn, Tennisellenbogen und Kalkschulter — energiereiche Druckwellen statt Operation.",
-    body: [
-      "Energiereiche Druckwellen werden von außen gezielt auf das schmerzende Gewebe gerichtet. Sie regen den Stoffwechsel an und können Verkalkungen lösen.",
-      "Typische Anwendungsgebiete sind Fersensporn, Tennis- und Golferellenbogen sowie die Kalkschulter — also Beschwerden, bei denen konservative Behandlung oft lange dauert.",
-      "Eine Sitzung dauert wenige Minuten. Meist sind drei bis fünf Sitzungen im Abstand von einer Woche nötig.",
-    ],
-    benefits: [
-      "Ohne Operation und ohne Narkose",
-      "Wenige Minuten pro Sitzung",
-      "Meist drei bis fünf Sitzungen",
-    ],
-    sessions: "3 – 5 Sitzungen",
+    imageAlt: {
+      de: "Behandlungsgerät wird an der Ferse angesetzt",
+      en: "Treatment device applied to the heel",
+    },
+    title: { de: "Stoßwellentherapie", en: "Shockwave Therapy" },
+    headline: {
+      de: { lead: "Stoßwellen", accent: "gegen Verkalkung" },
+      en: { lead: "Shockwaves", accent: "against calcification" },
+    },
+    excerpt: {
+      de: "Bei Fersensporn, Tennisellenbogen und Kalkschulter — energiereiche Druckwellen statt Operation.",
+      en: "For heel spurs, tennis elbow and calcific shoulder — high-energy pressure waves instead of surgery.",
+    },
+    body: {
+      de: [
+        "Energiereiche Druckwellen werden von außen gezielt auf das schmerzende Gewebe gerichtet. Sie regen den Stoffwechsel an und können Verkalkungen lösen.",
+        "Typische Anwendungsgebiete sind Fersensporn, Tennis- und Golferellenbogen sowie die Kalkschulter — also Beschwerden, bei denen konservative Behandlung oft lange dauert.",
+        "Eine Sitzung dauert wenige Minuten. Meist sind drei bis fünf Sitzungen im Abstand von einer Woche nötig.",
+      ],
+      en: [
+        "High-energy pressure waves are directed from outside precisely onto the painful tissue. They stimulate metabolism and can help break down calcification.",
+        "Typical areas of use are heel spurs, tennis and golfer's elbow, and calcific shoulder — conditions where conservative treatment often takes a long time.",
+        "A session takes just a few minutes. Usually three to five sessions, spaced a week apart, are needed.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Ohne Operation und ohne Narkose",
+        "Wenige Minuten pro Sitzung",
+        "Meist drei bis fünf Sitzungen",
+      ],
+      en: [
+        "No surgery, no anaesthesia",
+        "Just a few minutes per session",
+        "Usually three to five sessions",
+      ],
+    },
+    sessions: { de: "3 – 5 Sitzungen", en: "3 – 5 sessions" },
     pricing: { kind: "onRequest" },
   },
 ]
 
-const AESTHETIK: Treatment[] = [
+// Ästhetik — bilingual.
+const AESTHETIK: LocalizedTreatment[] = [
   {
-    slug: "faltenbehandlung",
+    slug: { de: "faltenbehandlung", en: "wrinkle-treatment" },
     pillar: "aesthetik",
     image: faltenbehandlungImg,
-    imageAlt: "Fachkraft setzt eine Injektion im Stirnbereich",
-    title: "Faltenbehandlung",
-    headline: { lead: "Falten", accent: "zurückhaltend behandelt" },
-    excerpt:
-      "Zurückhaltend dosiertes Botulinumtoxin gegen Zornes-, Stirn- und Lachfalten — die Mimik bleibt erhalten.",
-    body: [
-      "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
-      "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend — Sie sollen weiterhin lachen und die Stirn runzeln können.",
-      "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
-    ],
-    benefits: [
-      "Bewusst zurückhaltende Dosierung",
-      "Mimik bleibt erhalten",
-      "Persönlich durchgeführt von Dr. med. univ. Dost Mohammad",
-    ],
+    imageAlt: {
+      de: "Fachkraft setzt eine Injektion im Stirnbereich",
+      en: "Practitioner administering an injection to the forehead area",
+    },
+    title: { de: "Faltenbehandlung", en: "Wrinkle Treatment" },
+    headline: {
+      de: { lead: "Falten", accent: "zurückhaltend behandelt" },
+      en: { lead: "Wrinkles", accent: "treated conservatively" },
+    },
+    excerpt: {
+      de: "Zurückhaltend dosiertes Botulinumtoxin gegen Zornes-, Stirn- und Lachfalten — die Mimik bleibt erhalten.",
+      en: "Conservatively dosed botulinum toxin for frown lines, forehead lines and crow's feet — your natural expression is preserved.",
+    },
+    body: {
+      de: [
+        "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
+        "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend — Sie sollen weiterhin lachen und die Stirn runzeln können.",
+        "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
+      ],
+      en: [
+        "Botulinum toxin selectively relaxes the muscles that create a wrinkle. We mainly treat the frown line, forehead lines and the fine lines around the eyes.",
+        "Our aim is a rested face, not a treated one. That's why we deliberately dose conservatively — you should still be able to laugh and furrow your brow.",
+        "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out personally by Dr. med. univ. Dost Mohammad.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Bewusst zurückhaltende Dosierung",
+        "Mimik bleibt erhalten",
+        "Persönlich durchgeführt von Dr. med. univ. Dost Mohammad",
+      ],
+      en: [
+        "Deliberately conservative dosing",
+        "Natural expression is preserved",
+        "Carried out personally by Dr. med. univ. Dost Mohammad",
+      ],
+    },
     durationMin: 20,
-    sessions: "Wiederholung nach 3 – 6 Monaten",
+    sessions: { de: "Wiederholung nach 3 – 6 Monaten", en: "Repeated every 3 – 6 months" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "hyaluron",
+    slug: { de: "hyaluron", en: "dermal-fillers" },
     pillar: "aesthetik",
     image: hyaluronImg,
-    imageAlt: "Nahaufnahme einer Lippenbehandlung mit feiner Nadel",
-    title: "Hyaluron & Filler",
-    headline: { lead: "Volumen", accent: "wo es fehlt" },
-    excerpt:
-      "Hyaluronsäure für Lippen, Wangen und Nasolabialfalten — aufbauend statt auffallend.",
-    body: [
-      "Hyaluronsäure ist ein körpereigener Stoff, der Wasser bindet und dem Gewebe Volumen gibt. Mit den Jahren nimmt sie ab, das Gesicht wirkt eingefallener.",
-      "Wir setzen Filler dort ein, wo tatsächlich Volumen fehlt — an Wangen, Nasolabialfalten oder Lippen. Das Ziel ist ein natürliches Ergebnis, das niemandem als Behandlung auffällt.",
-      "Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten. Nicht jeder Wunsch lässt sich verantwortungsvoll umsetzen.",
-    ],
-    benefits: [
-      "Körpereigener Stoff, gut verträglich",
-      "Ergebnis unmittelbar sichtbar",
-      "Offene Beratung, auch gegen eine Behandlung",
-    ],
+    imageAlt: {
+      de: "Nahaufnahme einer Lippenbehandlung mit feiner Nadel",
+      en: "Close-up of a lip treatment with a fine needle",
+    },
+    title: { de: "Hyaluron & Filler", en: "Dermal Fillers" },
+    headline: {
+      de: { lead: "Volumen", accent: "wo es fehlt" },
+      en: { lead: "Volume", accent: "where it's missing" },
+    },
+    excerpt: {
+      de: "Hyaluronsäure für Lippen, Wangen und Nasolabialfalten — aufbauend statt auffallend.",
+      en: "Hyaluronic acid for lips, cheeks and nasolabial folds — restorative rather than noticeable.",
+    },
+    body: {
+      de: [
+        "Hyaluronsäure ist ein körpereigener Stoff, der Wasser bindet und dem Gewebe Volumen gibt. Mit den Jahren nimmt sie ab, das Gesicht wirkt eingefallener.",
+        "Wir setzen Filler dort ein, wo tatsächlich Volumen fehlt — an Wangen, Nasolabialfalten oder Lippen. Das Ziel ist ein natürliches Ergebnis, das niemandem als Behandlung auffällt.",
+        "Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten. Nicht jeder Wunsch lässt sich verantwortungsvoll umsetzen.",
+      ],
+      en: [
+        "Hyaluronic acid is a substance the body produces naturally that binds water and gives tissue volume. It decreases over the years, which is why the face can look more sunken.",
+        "We use fillers only where volume is genuinely missing — in the cheeks, nasolabial folds or lips. The aim is a natural result that no one recognises as a treatment.",
+        "Before every treatment, we discuss openly what makes medical sense and what we'd advise against. Not every wish can be responsibly fulfilled.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Körpereigener Stoff, gut verträglich",
+        "Ergebnis unmittelbar sichtbar",
+        "Offene Beratung, auch gegen eine Behandlung",
+      ],
+      en: [
+        "A substance the body produces naturally, well tolerated",
+        "Result visible immediately",
+        "Open advice, even if that means advising against treatment",
+      ],
+    },
     durationMin: 30,
-    sessions: "Nach Befund",
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "kryolipolyse",
+    slug: { de: "kryolipolyse", en: "cryolipolysis" },
     pillar: "aesthetik",
     image: kryolipolyseImg,
-    imageAlt: "Behandlungsgerät wird auf dem Bauch angewendet",
-    title: "Kryolipolyse",
-    headline: { lead: "Fettpolster", accent: "ohne Operation" },
-    excerpt:
-      "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
-    body: [
-      "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
-      "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
-      "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können.",
-    ],
-    benefits: [
-      "Minimal-invasiv, ohne Operation",
-      "Geringe Ausfallzeit",
-      "Gezielt gegen hartnäckige Fettpölsterchen",
-    ],
+    imageAlt: {
+      de: "Behandlungsgerät wird auf dem Bauch angewendet",
+      en: "Treatment device applied to the abdomen",
+    },
+    title: { de: "Kryolipolyse", en: "Cryolipolysis" },
+    headline: {
+      de: { lead: "Fettpolster", accent: "ohne Operation" },
+      en: { lead: "Fat pockets", accent: "without surgery" },
+    },
+    excerpt: {
+      de: "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
+      en: "Reducing unwanted fat pockets is one of the most common concerns among patients at aesthetic clinics – often in areas that cannot be reduced even with strict diets and exercise.",
+    },
+    // Dense clinical German with a Greek etymology aside — translated
+    // plainly rather than elegantly, per the source material.
+    body: {
+      de: [
+        "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
+        "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
+        "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können.",
+      ],
+      en: [
+        "It's therefore no surprise that there is a wide variety of techniques and methods for surgical fat reduction: liposuction under tumescent local anaesthesia, ultrasound, radio waves, fat-dissolving injections, and more – to name just a few.",
+        "In this field too, the focus is increasingly shifting toward minimally invasive methods with as little downtime for patients as possible – cryolipolysis is one such minimally invasive method.",
+        "Cryolipolysis (from Ancient Greek κρύος [kryos], \"frost\", \"ice\", λίπα [lipa], \"fat\", and λύσις [lysis], \"dissolution\", \"breakdown\") is a relatively new method of fat reduction. It targets mainly small fat pockets that are difficult to reduce effectively through diet or physical exercise.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Minimal-invasiv, ohne Operation",
+        "Geringe Ausfallzeit",
+        "Gezielt gegen hartnäckige Fettpölsterchen",
+      ],
+      en: [
+        "Minimally invasive, no surgery",
+        "Little downtime",
+        "Targets stubborn fat pockets",
+      ],
+    },
     durationMin: 60,
-    sessions: "Nach Befund",
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "farblichttherapie",
+    slug: { de: "farblichttherapie", en: "light-therapy" },
     pillar: "aesthetik",
     image: farblichttherapieImg,
-    imageAlt: "Violett leuchtende LED-Lichtquellen im Nahbereich",
-    title: "Farblichttherapie",
-    headline: { lead: "Licht", accent: "als Therapie" },
-    excerpt:
-      "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
-    body: [
-      "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
-      "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
-      "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
-    ],
-    benefits: [
-      "Farbe wird gemeinsam von Arzt und Patient ausgewählt",
-      "Sanftes, nicht-invasives Verfahren",
-      "Ergänzend zu anderen Behandlungen einsetzbar",
-    ],
+    imageAlt: {
+      de: "Violett leuchtende LED-Lichtquellen im Nahbereich",
+      en: "Violet LED light sources glowing at close range",
+    },
+    title: { de: "Farblichttherapie", en: "Light Therapy" },
+    headline: {
+      de: { lead: "Licht", accent: "als Therapie" },
+      en: { lead: "Light", accent: "as therapy" },
+    },
+    excerpt: {
+      de: "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
+      en: "Colour light therapy uses the energy of coloured light, chosen together by physician and patient, to support metabolism and emotional balance.",
+    },
+    // Reuses copy verbatim from the practice's own existing website,
+    // including an explicit cure claim naming depression ("zu heilen" /
+    // "to cure", "heilsam" / "healing") stronger than the
+    // Heilmittelwerbegesetz comfortably allows. Translated faithfully, not
+    // softened — see the go-live guard in content.test.ts, which blocks
+    // both the German and English wording until a lawyer clears it.
+    body: {
+      de: [
+        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
+        "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
+        "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
+      ],
+      en: [
+        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At the private practice of Dr. med. univ. Dost Mohammad in Köning, we offer light therapy.",
+        "In connection with depression that does not follow a seasonal pattern, colour light therapy can be healing.",
+        "Depression is also often accompanied by sleep disturbances, which in turn cause stress for those affected. Light therapy can also be helpful for these disturbances.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Farbe wird gemeinsam von Arzt und Patient ausgewählt",
+        "Sanftes, nicht-invasives Verfahren",
+        "Ergänzend zu anderen Behandlungen einsetzbar",
+      ],
+      en: [
+        "Colour is chosen together by physician and patient",
+        "A gentle, non-invasive procedure",
+        "Can be used alongside other treatments",
+      ],
+    },
     durationMin: 30,
-    sessions: "Nach Befund",
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
   {
-    slug: "aesthetische-medizin",
+    slug: { de: "aesthetische-medizin", en: "aesthetic-medicine" },
     pillar: "aesthetik",
     image: aesthetischeMedizinImg,
-    imageAlt: "Beratungsgespräch in einem ruhigen Behandlungszimmer",
-    title: "Ästhetische Medizin",
-    headline: { lead: "Ästhetische", accent: "Medizin" },
-    excerpt:
-      "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
-    body: [
-      "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
-      "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
-      "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Köning.",
-    ],
-    benefits: [
-      "Ärztlich durchgeführt, nicht kosmetisch",
-      "Ausführliche Beratung vor jeder Behandlung",
-      "Zurückhaltender, natürlicher Ansatz",
-    ],
-    sessions: "Nach Befund",
+    imageAlt: {
+      de: "Beratungsgespräch in einem ruhigen Behandlungszimmer",
+      en: "Consultation taking place in a calm treatment room",
+    },
+    title: { de: "Ästhetische Medizin", en: "Aesthetic Medicine" },
+    headline: {
+      de: { lead: "Ästhetische", accent: "Medizin" },
+      en: { lead: "Aesthetic", accent: "Medicine" },
+    },
+    excerpt: {
+      de: "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
+      en: "Aesthetic medicine is a field of medicine concerned with changing a person's outward appearance.",
+    },
+    body: {
+      de: [
+        "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
+        "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
+        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Köning.",
+      ],
+      en: [
+        "For most people, beauty matters because it helps them feel confident and attractive. People who see themselves as attractive tend to come across more positively.",
+        "Over time, however, the skin changes, and so does one's appearance. Lines around the mouth, eyes and nose, or on the forehead, can make a face look older.",
+        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact the practice for Aesthetic Medicine, Dr. med. univ. Dost Mohammad, in Köning.",
+      ],
+    },
+    benefits: {
+      de: [
+        "Ärztlich durchgeführt, nicht kosmetisch",
+        "Ausführliche Beratung vor jeder Behandlung",
+        "Zurückhaltender, natürlicher Ansatz",
+      ],
+      en: [
+        "Carried out by a physician, not a beautician",
+        "Detailed consultation before every treatment",
+        "A conservative, natural approach",
+      ],
+    },
+    sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
 ]
 
 export function treatments(locale: Locale): Treatment[] {
-  return [...LASER.map((t) => resolveTreatment(t, locale)), ...PHYSIO, ...AESTHETIK]
+  return [...LASER, ...PHYSIO, ...AESTHETIK].map((t) => resolveTreatment(t, locale))
 }
 
 export function treatmentsByPillar(pillar: Pillar, locale: Locale): Treatment[] {

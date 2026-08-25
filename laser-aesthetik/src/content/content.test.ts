@@ -227,13 +227,23 @@ describe("treatments", () => {
     }
   })
 
-  it("gives every laser treatment non-empty German and English copy for every localized field", () => {
+  it("keeps English slugs from colliding with German slugs", () => {
+    // Each locale resolves treatments against its own slug set (see the
+    // lookup test above); if an English slug ever matched a German one, a
+    // link built for one locale could silently resolve in the other.
+    const de = new Set(treatments("de").map((t) => t.slug))
+    for (const slug of treatments("en").map((t) => t.slug)) {
+      expect(de.has(slug), `English slug "${slug}" collides with a German slug`).toBe(false)
+    }
+  })
+
+  it("gives every treatment non-empty German and English copy for every localized field", () => {
     // Guards the shape resolveTreatment() depends on, mirroring the pillar
     // equivalent above: any missing `de`/`en` slot would resolve to
-    // undefined copy on a live page rather than fail loudly here. Scoped to
-    // laser because physio/Ästhetik are still German-only (next step).
-    const de = treatmentsByPillar("laser", "de")
-    const en = treatmentsByPillar("laser", "en")
+    // undefined copy on a live page rather than fail loudly here. Covers
+    // every treatment — laser, physio and Ästhetik alike are localized.
+    const de = treatments("de")
+    const en = treatments("en")
     expect(en.length).toBe(de.length)
     for (let i = 0; i < de.length; i++) {
       const dt = de[i]
@@ -265,10 +275,18 @@ describe("claims awaiting legal sign-off", () => {
   // comfortably allows: an explicit healing claim naming depression, and an
   // efficacy claim for TCM. Softening a client's medical claim is not ours
   // to do unilaterally — but shipping it unreviewed is not either.
-  // To fix: have a lawyer approve or reword each, then delete this test.
+  //
+  // Translating them for the English treatments created English copies of
+  // the same claims, so the guard covers both languages — a German-only
+  // check would have let the English ship. To fix: have a lawyer approve or
+  // reword each, then delete this test.
   it("FAILS UNTIL a lawyer has cleared the inherited medical claims", () => {
-    const text = JSON.stringify(treatments("de"))
-    for (const phrase of ["zu heilen", "heilsam", "wissenschaftlich nachgewiesener Wirksamkeit"]) {
+    const text = JSON.stringify([treatments("de"), treatments("en")])
+    for (const phrase of [
+      "zu heilen", "heilsam", "wissenschaftlich nachgewiesener Wirksamkeit",
+      // English equivalents — match whatever wording you actually used
+      "to cure", "healing", "scientifically proven",
+    ]) {
       expect(text, `unreviewed claim still present: "${phrase}"`).not.toContain(phrase)
     }
   })

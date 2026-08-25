@@ -59,13 +59,8 @@ export interface Treatment {
 /**
  * What a content file holds for a treatment whose copy has been localized —
  * mirrors `LocalizedPillarInfo`. `resolveTreatment()` (src/content/localize.ts)
- * turns this into the flat `Treatment` components consume.
- *
- * Transitional: today only the 19 laser treatments use this shape. The 10
- * physio/Ästhetik treatments are still plain `Treatment` (German-only) and
- * are combined with the resolved laser entries in treatments.ts. A later
- * step converts them to `LocalizedTreatment` too, at which point the plain
- * `Treatment[]` arrays in treatments.ts go away.
+ * turns this into the flat `Treatment` components consume. Every treatment
+ * (laser, physio and Ästhetik) is defined in this shape.
  */
 export interface LocalizedTreatment {
   slug: Localized<string>
