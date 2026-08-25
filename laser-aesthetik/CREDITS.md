@@ -36,6 +36,12 @@ Nachvollziehbarkeit.
 | src/assets/aesthetik/farblichttherapie.webp | https://unsplash.com/photos/BqEvVaqcLXc | Imran Ali | Unsplash License |
 | src/assets/aesthetik/aesthetische-medizin.webp | https://unsplash.com/photos/xREEa0dZmLY | Sum Sum | Unsplash License |
 | public/og-image.jpg | https://unsplash.com/photos/ECBg5FQkBXI | 何青蓝 | Unsplash License |
+| src/assets/praxis/laser-konsole.webp | https://unsplash.com/photos/4BO_MSTEmL8 | Sam Moghadam | Unsplash License |
+| src/assets/praxis/laser-handstueck.webp | https://unsplash.com/photos/JaL1PZq-gHE | Mélyna Côté | Unsplash License |
+| src/assets/praxis/behandlungsgeraet.webp | https://unsplash.com/photos/628BFPTXBtE | Mélyna Côté | Unsplash License |
+| src/assets/praxis/behandlungsraum.webp | https://unsplash.com/photos/o4OJfrmMC0o | Kimiya Sabbaghan | Unsplash License |
+| src/assets/praxis/wartebereich.webp | https://unsplash.com/photos/VBzRklOb7JA | Amelia Lowell | Unsplash License |
+| src/assets/praxis/beratungsecke.webp | https://unsplash.com/photos/sgD7KEe9Zs8 | Franco Debartolo | Unsplash License |
 
 <!-- Eine Zeile pro Bild. Keine Zeile darf leer bleiben. -->
 

@@ -6,9 +6,10 @@
  * beside index.html and is reachable at /contact.php in production. The
  * form in src/components/content/ContactForm.tsx POSTs FormData here.
  *
- * BEFORE GO-LIVE: the practice must set RECIPIENT below to a real mailbox.
- * The placeholder is deliberate — src/deploy.test.ts fails until it is
- * changed, so an unset recipient physically cannot ship.
+ * BEFORE GO-LIVE: the practice must set RECIPIENT below to a real mailbox,
+ * and SENDER_DOMAIN to the live domain. Both placeholders are deliberate —
+ * src/deploy.test.ts fails until they are changed, so an unset recipient or
+ * sender domain physically cannot ship.
  *
  * Hosting notes (see DEPLOY.md):
  *   - ALL-INKL.COM: mail() works out of the box, no extra configuration.
@@ -22,6 +23,12 @@ declare(strict_types=1);
 
 // The practice must replace this with their real inbox before go-live.
 define("RECIPIENT", "TODO_EMPFAENGER_ADRESSE");
+
+// Sender domain for the From header. Deliberately a constant and NOT derived
+// from $_SERVER["HTTP_HOST"], which a client controls: a spoofed Host would
+// put a foreign domain in From and get the mail spam-filtered. Must match the
+// domain the site is actually served from, or SPF/DKIM will fail.
+define("SENDER_DOMAIN", "TODO_DOMAIN");
 
 header("Content-Type: application/json; charset=utf-8");
 
@@ -91,14 +98,7 @@ $topicForSubject = stripHeaderInjection($topic);
 // address in From gets the mail rejected by the recipient's SPF/DKIM checks
 // (it did not originate from that domain). Reply-To carries the visitor's
 // address instead, so replying still reaches them.
-$host = stripHeaderInjection((string) ($_SERVER["HTTP_HOST"] ?? $_SERVER["SERVER_NAME"] ?? "localhost"));
-$host = preg_replace('/:\d+$/', "", $host);
-$host = preg_replace('/[^a-zA-Z0-9.\-]/', "", $host ?? "");
-$host = preg_replace('/^www\./i', "", $host ?? "");
-if ($host === null || $host === "") {
-    $host = "localhost";
-}
-$fromEmail = "webseite@" . $host;
+$fromEmail = "webseite@" . SENDER_DOMAIN;
 
 function mimeEncodeHeader(string $value): string
 {

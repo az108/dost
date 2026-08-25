@@ -82,11 +82,16 @@ describe("legal go-live guard", () => {
 
 describe("contact form go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
-  // contact.php has no recipient until the practice supplies one. Shipping
-  // it unset means every message a patient sends is silently lost.
-  // To fix: set RECIPIENT in public/contact.php, then delete this test.
-  it("FAILS UNTIL the contact form recipient is set", () => {
+  // contact.php has no recipient and no real sender domain until the
+  // practice supplies them. Shipping RECIPIENT unset means every message a
+  // patient sends is silently lost. Shipping SENDER_DOMAIN unset means the
+  // From header carries a placeholder domain, which fails SPF/DKIM and gets
+  // the mail spam-filtered even though RECIPIENT is correct.
+  // To fix: set RECIPIENT and SENDER_DOMAIN in public/contact.php, then
+  // delete this test.
+  it("FAILS UNTIL the contact form recipient and sender domain are set", () => {
     const php = readFileSync(resolve(__dirname, "../public/contact.php"), "utf8")
     expect(php).not.toContain("TODO_EMPFAENGER_ADRESSE")
+    expect(php).not.toContain("TODO_DOMAIN")
   })
 })
