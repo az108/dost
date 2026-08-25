@@ -21,9 +21,9 @@ import NotFound from "./NotFound"
 
 export default function TreatmentDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const treatment = slug ? treatmentBySlug(slug) : undefined
   const t = useT()
   const locale = useLocale()
+  const treatment = slug ? treatmentBySlug(slug, locale) : undefined
 
   // Hooks must run unconditionally, so useSeo is called before the early
   // return, with fallbacks for the not-found case.

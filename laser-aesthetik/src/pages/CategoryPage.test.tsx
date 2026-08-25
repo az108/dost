@@ -22,7 +22,7 @@ describe("CategoryPage", () => {
 
   it("renders a card for every treatment in the pillar", () => {
     renderPage("physio")
-    for (const t of treatmentsByPillar("physio")) {
+    for (const t of treatmentsByPillar("physio", "de")) {
       expect(screen.getByRole("heading", { level: 3, name: t.title })).toBeInTheDocument()
     }
   })

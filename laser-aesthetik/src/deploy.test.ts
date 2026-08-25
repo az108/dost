@@ -32,7 +32,7 @@ describe("sitemap.xml", () => {
     for (const p of pillars("de")) {
       expect(sitemap, `missing ${p.path}`).toContain(`${SITE_URL}${p.path}`)
     }
-    for (const t of treatments) {
+    for (const t of treatments("de")) {
       expect(sitemap, `missing ${t.slug}`).toContain(`${SITE_URL}/behandlungen/${t.slug}`)
     }
   })
@@ -44,7 +44,7 @@ describe("sitemap.xml", () => {
     // "/kontakt", "/impressum", "/datenschutz".
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
-    expect(locCount).toBe(9 + treatments.length)
+    expect(locCount).toBe(9 + treatments("de").length)
   })
 })
 

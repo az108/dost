@@ -30,7 +30,7 @@ export default function Home() {
     canonicalPath: homePath(locale),
   })
 
-  const popular = POPULAR.map(treatmentBySlug).filter(
+  const popular = POPULAR.map((slug) => treatmentBySlug(slug, locale)).filter(
     (treatment): treatment is NonNullable<typeof treatment> => Boolean(treatment),
   )
 

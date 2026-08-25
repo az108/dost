@@ -17,7 +17,7 @@ import { useSeo } from "@/lib/useSeo"
 export default function CategoryPage({ pillar }: { pillar: Pillar }) {
   const locale = useLocale()
   const info = pillarById(pillar, locale)
-  const treatments = treatmentsByPillar(pillar)
+  const treatments = treatmentsByPillar(pillar, locale)
   const tr = useT()
 
   useSeo({

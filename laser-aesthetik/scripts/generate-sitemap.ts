@@ -11,7 +11,7 @@ const paths = [
   "/kontakt",
   "/impressum",
   "/datenschutz",
-  ...treatments.map((t) => `/behandlungen/${t.slug}`),
+  ...treatments("de").map((t) => `/behandlungen/${t.slug}`),
 ]
 
 const urls = paths

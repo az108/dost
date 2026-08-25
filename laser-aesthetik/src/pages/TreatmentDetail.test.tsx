@@ -78,7 +78,7 @@ describe("TreatmentDetail", () => {
     renderAt("/behandlungen/achseln")
     const nav = screen.getByRole("navigation", { name: "Weitere Behandlungen" })
     const links = within(nav).getAllByRole("link")
-    expect(links.length).toBe(treatmentsByPillar("laser").length - 1)
+    expect(links.length).toBe(treatmentsByPillar("laser", "de").length - 1)
     expect(links.map((l) => l.getAttribute("href"))).not.toContain("/behandlungen/achseln")
   })
 

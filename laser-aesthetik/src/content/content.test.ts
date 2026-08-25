@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest"
 import { pillars, pillarById } from "./pillars"
 import { treatments, treatmentsByPillar, treatmentBySlug } from "./treatments"
+import { ui } from "./ui"
 import type { Pillar } from "./types"
 
 const PILLAR_IDS: Pillar[] = ["laser", "physio", "aesthetik"]
@@ -67,57 +68,90 @@ describe("pillars", () => {
       }
     }
   })
-
-  it("never claims permanent hair removal in English", () => {
-    // German law treats this as permanent hair REDUCTION. The German copy is
-    // careful about it; the English must be too.
-    const text = JSON.stringify(pillars("en")).toLowerCase()
-    expect(text).not.toContain("permanent hair removal")
-    expect(text).not.toContain("permanently remove")
-  })
 })
+
+it("never claims permanent hair removal in any English copy", () => {
+  // German law treats this as permanent hair REDUCTION. A previous guard
+  // scanned only the pillars, and a claim in the UI dictionary slipped past
+  // it — so this scans every English surface, not one of them.
+  const english = JSON.stringify([
+    pillars("en"),
+    treatments("en"),
+    Object.values(ui).map((v) => v.en),
+  ]).toLowerCase()
+  for (const banned of ["permanent hair removal", "permanently remove", "permanently removes"]) {
+    expect(english, `banned claim present: "${banned}"`).not.toContain(banned)
+  }
+})
+
+const LOCALES = ["de", "en"] as const
 
 describe("treatments", () => {
   it("has treatments for every pillar", () => {
-    for (const id of PILLAR_IDS) {
-      expect(treatmentsByPillar(id).length).toBeGreaterThan(0)
+    for (const locale of LOCALES) {
+      for (const id of PILLAR_IDS) {
+        expect(treatmentsByPillar(id, locale).length).toBeGreaterThan(0)
+      }
     }
   })
 
   it("gives every treatment a kebab-case slug, title, excerpt and body", () => {
-    for (const t of treatments) {
-      expect(t.slug).toMatch(/^[a-z0-9-]+$/)
-      expect(t.title.length).toBeGreaterThan(2)
-      expect(t.excerpt.length).toBeGreaterThan(10)
-      expect(t.body.length).toBeGreaterThan(0)
-      expect(t.body.every((p) => p.trim().length > 0)).toBe(true)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        expect(t.slug).toMatch(/^[a-z0-9-]+$/)
+        expect(t.title.length).toBeGreaterThan(2)
+        expect(t.excerpt.length).toBeGreaterThan(10)
+        expect(t.body.length).toBeGreaterThan(0)
+        expect(t.body.every((p) => p.trim().length > 0)).toBe(true)
+      }
     }
   })
 
   it("gives every treatment a headline with a lead and an accent word", () => {
-    for (const t of treatments) {
-      expect(t.headline.lead.trim().length).toBeGreaterThan(0)
-      expect(t.headline.accent.trim().length).toBeGreaterThan(0)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        expect(t.headline.lead.trim().length).toBeGreaterThan(0)
+        expect(t.headline.accent.trim().length).toBeGreaterThan(0)
+      }
     }
   })
 
   it("gives every treatment at least two benefits", () => {
-    for (const t of treatments) {
-      expect(t.benefits.length).toBeGreaterThanOrEqual(2)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        expect(t.benefits.length).toBeGreaterThanOrEqual(2)
+      }
     }
   })
 
   it("has unique slugs", () => {
-    expect(new Set(treatments.map((t) => t.slug)).size).toBe(treatments.length)
+    for (const locale of LOCALES) {
+      const list = treatments(locale)
+      expect(new Set(list.map((t) => t.slug)).size).toBe(list.length)
+    }
+  })
+
+  it("gives every English treatment a keyword-bearing, kebab-case slug", () => {
+    // English gets its own URLs specifically to carry search keywords, not
+    // transliterations of the German slug — that is the entire reason the
+    // locale gets separate routes at all.
+    for (const t of treatments("en")) {
+      expect(t.slug, `"${t.title}" slug "${t.slug}"`).toMatch(/^[a-z0-9-]+$/)
+    }
   })
 
   it("looks a treatment up by slug and returns undefined for unknown slugs", () => {
-    expect(treatmentBySlug("achseln")?.title).toBe("Achseln")
-    expect(treatmentBySlug("gibt-es-nicht")).toBeUndefined()
+    expect(treatmentBySlug("achseln", "de")?.title).toBe("Achseln")
+    expect(treatmentBySlug("gibt-es-nicht", "de")).toBeUndefined()
+    // Each locale resolves against its own slug — "achseln" is German,
+    // "underarms" is English, and neither locale answers to the other's slug.
+    expect(treatmentBySlug("underarms", "en")?.title).toBe("Underarms")
+    expect(treatmentBySlug("achseln", "en")).toBeUndefined()
+    expect(treatmentBySlug("underarms", "de")).toBeUndefined()
   })
 
   it("prices every fixed-price treatment above zero", () => {
-    for (const t of treatments) {
+    for (const t of treatments("de")) {
       if (t.pricing.kind === "fixed") {
         expect(t.pricing.single).toBeGreaterThan(0)
       }
@@ -125,15 +159,17 @@ describe("treatments", () => {
   })
 
   it("gives every laser zone a price-table group", () => {
-    for (const t of treatmentsByPillar("laser")) {
-      if (t.pricing.kind === "fixed") expect(t.group).toBeTruthy()
+    for (const locale of LOCALES) {
+      for (const t of treatmentsByPillar("laser", locale)) {
+        if (t.pricing.kind === "fixed") expect(t.group).toBeTruthy()
+      }
     }
   })
 
   // ── Go-live guard ────────────────────────────────────────────────────
   // Catches leftover scaffolding copy reaching patients.
   it("ships no placeholder copy", () => {
-    const text = JSON.stringify(treatments).toLowerCase()
+    const text = JSON.stringify([treatments("de"), treatments("en")]).toLowerCase()
     for (const marker of ["todo", "tbd", "lorem ipsum", "platzhalter", "folgt noch"]) {
       expect(text).not.toContain(marker)
     }
@@ -143,7 +179,12 @@ describe("treatments", () => {
   // Heilmittelwerbegesetz restricts before/after imagery for aesthetic
   // procedures. No content may promise or depict one.
   it("makes no before/after claims", () => {
-    const text = JSON.stringify([treatments, pillars("de")]).toLowerCase()
+    const text = JSON.stringify([
+      treatments("de"),
+      treatments("en"),
+      pillars("de"),
+      pillars("en"),
+    ]).toLowerCase()
     for (const marker of ["vorher", "nachher", "before/after"]) {
       expect(text, `before/after language found: "${marker}"`).not.toContain(marker)
     }
@@ -152,7 +193,7 @@ describe("treatments", () => {
   it("names the doctor consistently with practice.ts", () => {
     // A previous fix normalised .tsx components but stopped at the file
     // extension; the ported copy lives in .ts content files and drifted.
-    const text = JSON.stringify([treatments, pillars("de")])
+    const text = JSON.stringify([treatments("de"), treatments("en"), pillars("de"), pillars("en")])
     const wrong = text.match(/Dr\. med\. (?!univ\.)/g) ?? []
     expect(wrong, "found 'Dr. med.' without 'univ.'").toHaveLength(0)
   })
@@ -161,13 +202,15 @@ describe("treatments", () => {
     // A ported excerpt that is also body[0] renders the same paragraph twice
     // on the detail page. Catch the pattern, not one instance of it.
     const norm = (s: string) => s.replace(/\s+/g, " ").trim()
-    for (const t of treatments) {
-      const excerpt = norm(t.excerpt)
-      for (const [i, para] of t.body.entries()) {
-        expect(
-          norm(para).includes(excerpt),
-          `${t.slug}: body[${i}] contains the excerpt verbatim`,
-        ).toBe(false)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        const excerpt = norm(t.excerpt)
+        for (const [i, para] of t.body.entries()) {
+          expect(
+            norm(para).includes(excerpt),
+            `${locale}/${t.slug}: body[${i}] contains the excerpt verbatim`,
+          ).toBe(false)
+        }
       }
     }
   })
@@ -176,9 +219,41 @@ describe("treatments", () => {
     // The accordion was fully built and tested against synthetic data while
     // nothing populated `faq`, so it rendered on none of the 32 pages and no
     // test noticed. This asserts the rendered result, not the raw field.
-    for (const t of treatments) {
-      const faq = t.faq ?? pillarById(t.pillar, "de").faq
-      expect(faq?.length, `${t.slug} would render an empty FAQ`).toBeGreaterThan(0)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        const faq = t.faq ?? pillarById(t.pillar, locale).faq
+        expect(faq?.length, `${locale}/${t.slug} would render an empty FAQ`).toBeGreaterThan(0)
+      }
+    }
+  })
+
+  it("gives every laser treatment non-empty German and English copy for every localized field", () => {
+    // Guards the shape resolveTreatment() depends on, mirroring the pillar
+    // equivalent above: any missing `de`/`en` slot would resolve to
+    // undefined copy on a live page rather than fail loudly here. Scoped to
+    // laser because physio/Ästhetik are still German-only (next step).
+    const de = treatmentsByPillar("laser", "de")
+    const en = treatmentsByPillar("laser", "en")
+    expect(en.length).toBe(de.length)
+    for (let i = 0; i < de.length; i++) {
+      const dt = de[i]
+      const et = en[i]
+      expect(dt.slug.trim().length, `${dt.title} de slug`).toBeGreaterThan(0)
+      expect(et.slug.trim().length, `${dt.title} en slug`).toBeGreaterThan(0)
+      expect(dt.title.trim().length, `${dt.title} de title`).toBeGreaterThan(0)
+      expect(et.title.trim().length, `${dt.title} en title`).toBeGreaterThan(0)
+      expect(dt.headline.lead.trim().length, `${dt.title} de headline.lead`).toBeGreaterThan(0)
+      expect(dt.headline.accent.trim().length, `${dt.title} de headline.accent`).toBeGreaterThan(0)
+      expect(et.headline.lead.trim().length, `${dt.title} en headline.lead`).toBeGreaterThan(0)
+      expect(et.headline.accent.trim().length, `${dt.title} en headline.accent`).toBeGreaterThan(0)
+      expect(dt.excerpt.trim().length, `${dt.title} de excerpt`).toBeGreaterThan(0)
+      expect(et.excerpt.trim().length, `${dt.title} en excerpt`).toBeGreaterThan(0)
+      expect(dt.body.length, `${dt.title} de body`).toBeGreaterThan(0)
+      expect(dt.body.every((p) => p.trim().length > 0), `${dt.title} de body paragraph empty`).toBe(true)
+      expect(et.body.length, `${dt.title} en body`).toBeGreaterThan(0)
+      expect(et.body.every((p) => p.trim().length > 0), `${dt.title} en body paragraph empty`).toBe(true)
+      expect(dt.benefits.length, `${dt.title} de benefits`).toBeGreaterThan(0)
+      expect(et.benefits.length, `${dt.title} en benefits`).toBeGreaterThan(0)
     }
   })
 })
@@ -192,7 +267,7 @@ describe("claims awaiting legal sign-off", () => {
   // to do unilaterally — but shipping it unreviewed is not either.
   // To fix: have a lawyer approve or reword each, then delete this test.
   it("FAILS UNTIL a lawyer has cleared the inherited medical claims", () => {
-    const text = JSON.stringify(treatments)
+    const text = JSON.stringify(treatments("de"))
     for (const phrase of ["zu heilen", "heilsam", "wissenschaftlich nachgewiesener Wirksamkeit"]) {
       expect(text, `unreviewed claim still present: "${phrase}"`).not.toContain(phrase)
     }
@@ -213,7 +288,7 @@ describe("published prices", () => {
   }
 
   it.each(Object.entries(SINGLE))("%s costs %i € per single session", (slug, single) => {
-    const t = treatmentBySlug(slug)
+    const t = treatmentBySlug(slug, "de")
     expect(t, `no treatment with slug ${slug}`).toBeDefined()
     expect(t!.pricing.kind).toBe("fixed")
     expect(t!.pricing.kind === "fixed" && t!.pricing.single).toBe(single)
@@ -228,7 +303,7 @@ describe("published prices", () => {
   }
 
   it.each(Object.entries(OVERRIDES))("%s has the agreed 3er/5er/10er package prices", (slug, expected) => {
-    const p = treatmentBySlug(slug)!.pricing
+    const p = treatmentBySlug(slug, "de")!.pricing
     expect(p.kind).toBe("fixed")
     if (p.kind !== "fixed") return
     expect(p.overrides?.map((o) => o.perSession)).toEqual(expected)
@@ -237,18 +312,25 @@ describe("published prices", () => {
 
 describe("treatment imagery", () => {
   it("gives every treatment an image and non-empty alt text", () => {
-    for (const t of treatments) {
-      expect(t.image, `${t.slug} has no image`).toBeTruthy()
-      expect(t.imageAlt?.trim().length, `${t.slug} has no alt text`).toBeGreaterThan(5)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        expect(t.image, `${locale}/${t.slug} has no image`).toBeTruthy()
+        expect(t.imageAlt?.trim().length, `${locale}/${t.slug} has no alt text`).toBeGreaterThan(5)
+      }
     }
   })
 
-  it("writes alt text that does not claim a treatment result", () => {
-    const banned = ["ergebnis", "vorher", "nachher", "erfolg", "garantiert"]
-    for (const t of treatments) {
-      const alt = (t.imageAlt ?? "").toLowerCase()
-      for (const word of banned) {
-        expect(alt, `${t.slug} alt text claims a result`).not.toContain(word)
+  it("writes alt text that does not claim a treatment result or attribute the photo to this practice", () => {
+    const banned: Record<(typeof LOCALES)[number], string[]> = {
+      de: ["ergebnis", "vorher", "nachher", "erfolg", "garantiert", "unsere praxis", "diese praxis"],
+      en: ["result", "before", "after", "success", "guaranteed", "our practice", "this practice"],
+    }
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        const alt = (t.imageAlt ?? "").toLowerCase()
+        for (const word of banned[locale]) {
+          expect(alt, `${locale}/${t.slug} alt text claims a result`).not.toContain(word)
+        }
       }
     }
   })
@@ -256,12 +338,14 @@ describe("treatment imagery", () => {
   it("writes alt text that does not repeat the treatment title verbatim", () => {
     // The heading already announces the title. Repeating it in the alt text
     // makes a screen reader say the same word twice in a row.
-    for (const t of treatments) {
-      const alt = (t.imageAlt ?? "").toLowerCase()
-      expect(
-        alt.includes(t.title.toLowerCase()),
-        `${t.slug}: alt text repeats the title "${t.title}"`,
-      ).toBe(false)
+    for (const locale of LOCALES) {
+      for (const t of treatments(locale)) {
+        const alt = (t.imageAlt ?? "").toLowerCase()
+        expect(
+          alt.includes(t.title.toLowerCase()),
+          `${locale}/${t.slug}: alt text repeats the title "${t.title}"`,
+        ).toBe(false)
+      }
     }
   })
 })

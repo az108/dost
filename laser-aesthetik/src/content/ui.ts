@@ -91,7 +91,7 @@ export const ui = {
   homeHeroAccent: { de: "sichtbar wirkt", en: "delivers visible results" },
   homeHeroDescription: {
     de: "Dauerhafte Laser-Haarentfernung, Physiotherapie und ästhetische Medizin — ärztlich durchgeführt, in Köning bei Landshut.",
-    en: "Permanent laser hair removal, physiotherapy and aesthetic medicine — carried out by a physician, in Köning near Landshut.",
+    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine — carried out by a physician, in Köning near Landshut.",
   },
   homeMetaDescription: {
     de: "Privatärztliche Praxis für Laser-Behandlungen, Physiotherapie und ästhetische Medizin in Köning. Ärztlich durchgeführt, mit transparenten Preisen.",

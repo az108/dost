@@ -72,7 +72,7 @@ export function TreatmentSidebar({
 }) {
   const t = useT()
   const locale = useLocale()
-  const { named, ungrouped } = groupTreatments(treatmentsByPillar(pillar.id))
+  const { named, ungrouped } = groupTreatments(treatmentsByPillar(pillar.id, locale))
 
   return (
     <nav

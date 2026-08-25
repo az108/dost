@@ -21,10 +21,10 @@ export default function Preise() {
     canonicalPath: pagePath("prices", locale),
   })
 
-  const laser = treatmentsByPillar("laser")
+  const laser = treatmentsByPillar("laser", locale)
   const onRequest = [
-    ...treatmentsByPillar("physio"),
-    ...treatmentsByPillar("aesthetik"),
+    ...treatmentsByPillar("physio", locale),
+    ...treatmentsByPillar("aesthetik", locale),
     ...laser.filter((treatment) => treatment.pricing.kind === "onRequest"),
   ]
 
