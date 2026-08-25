@@ -43,17 +43,20 @@ describe("routing (English)", () => {
     }
   })
 
-  it("renders NotFound for an unknown English path", () => {
+  it("renders NotFound in English for an unknown English path", () => {
     renderAt("/en/gibt-es-nicht")
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/nicht gefunden/i)
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/page not found/i)
   })
 
-  it("404s a German slug requested on the English treatment route", () => {
+  it("404s a German slug requested on the English treatment route, in English", () => {
     // "achseln" is the German slug for the "underarms" treatment.
     // treatmentBySlug() matches per-locale, so an English route must not
-    // resolve a German slug — it should fall through to NotFound.
+    // resolve a German slug — it should fall through to NotFound. The 404
+    // itself must render in English too: an English visitor who mistypes a
+    // URL must not be shown German copy or sent back to the German home.
     renderAt("/en/treatments/achseln")
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/nicht gefunden/i)
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/page not found/i)
+    expect(screen.getByRole("link", { name: /go to the homepage/i })).toHaveAttribute("href", "/en")
   })
 
   it("renders the navigation and footer landmarks on every English page", () => {

@@ -1,3 +1,5 @@
+import type { Localized } from "@/content/types"
+import type { UiKey } from "@/content/ui"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { pagePath } from "@/lib/routes"
@@ -17,14 +19,27 @@ import behandlungsraum from "@/assets/praxis/behandlungsraum.webp"
 import wartebereich from "@/assets/praxis/wartebereich.webp"
 import beratungsecke from "@/assets/praxis/beratungsecke.webp"
 
-const galleryImages = [
-  { src: laserKonsole, alt: "Bedienfeld eines Lasergeräts mit angeschlossenen Handstücken" },
-  { src: laserHandstueck, alt: "Laser-Handstück in der Hand einer Fachkraft" },
-  { src: behandlungsgeraet, alt: "Bedienung eines Behandlungsgeräts per Touchscreen, mit Handschuhen" },
-  { src: behandlungsraum, alt: "Behandlungsliege in einem hellen Behandlungsraum" },
-  { src: wartebereich, alt: "Heller Wartebereich mit Sitzgelegenheiten und Pflanzen" },
-  { src: beratungsecke, alt: "Ruhige Sitzecke für Beratungsgespräche" },
+const galleryImages: { src: string; altKey: UiKey }[] = [
+  { src: laserKonsole, altKey: "praxisAltLaserConsole" },
+  { src: laserHandstueck, altKey: "praxisAltLaserHandpiece" },
+  { src: behandlungsgeraet, altKey: "praxisAltTreatmentDeviceTouch" },
+  { src: behandlungsraum, altKey: "praxisAltTreatmentRoom" },
+  { src: wartebereich, altKey: "praxisAltWaitingArea" },
+  { src: beratungsecke, altKey: "praxisAltConsultationCorner" },
 ]
+
+/**
+ * Content, not chrome: names a treatment-efficacy-adjacent benefit ("often
+ * benefits from a combination of manual therapy and acupuncture"), so it
+ * lives here as a Localized value rather than in ui.ts. The English wording
+ * is held to the same discipline as pillars.ts/treatments.ts — it hedges at
+ * least as much as the German ("oft" / "often"), makes no guaranteed-outcome
+ * claim, and does not name any condition the German does not already name.
+ */
+const pillarSynergyIntro: Localized = {
+  de: "Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt, profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung, ob sie medizinisch sinnvoll ist.",
+  en: "Our three areas work together: patients who come to us for chronic pain often benefit from a combination of manual therapy and acupuncture. Patients who want an aesthetic treatment first receive an honest assessment of whether it makes medical sense.",
+}
 
 export default function Praxis() {
   const t = useT()
@@ -49,16 +64,7 @@ export default function Praxis() {
         <Container>
           <div className="flex max-w-3xl flex-col gap-5">
             <p className="text-lg leading-relaxed text-brand-800">{t("praxisIntro1")}</p>
-            {/* This paragraph makes a treatment-efficacy-adjacent claim
-                ("often benefits from a combination of manual therapy and
-                acupuncture"), so it stays out of the UI dictionary and out
-                of this step's scope — see the phase report. */}
-            <p className="text-lg leading-relaxed text-brand-800">
-              Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt,
-              profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer
-              eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung,
-              ob sie medizinisch sinnvoll ist.
-            </p>
+            <p className="text-lg leading-relaxed text-brand-800">{pillarSynergyIntro[locale]}</p>
           </div>
         </Container>
       </Section>
@@ -76,7 +82,7 @@ export default function Praxis() {
               <Reveal key={image.src} delay={(i % 3) * 0.06}>
                 <img
                   src={image.src}
-                  alt={image.alt}
+                  alt={t(image.altKey)}
                   width={1400}
                   height={933}
                   loading="lazy"

@@ -207,6 +207,30 @@ export const ui = {
     de: "Die Aufnahmen zeigen Beispielbilder aus vergleichbaren Praxen — sie geben einen Eindruck von Ausstattung und Atmosphäre.",
     en: "These are example images from comparable practices — they give an impression of the setting and atmosphere.",
   },
+  praxisAltLaserConsole: {
+    de: "Bedienfeld eines Lasergeräts mit angeschlossenen Handstücken",
+    en: "Control panel of a laser device with connected handpieces",
+  },
+  praxisAltLaserHandpiece: {
+    de: "Laser-Handstück in der Hand einer Fachkraft",
+    en: "Laser handpiece held by a member of staff",
+  },
+  praxisAltTreatmentDeviceTouch: {
+    de: "Bedienung eines Behandlungsgeräts per Touchscreen, mit Handschuhen",
+    en: "Operating a treatment device via touchscreen, wearing gloves",
+  },
+  praxisAltTreatmentRoom: {
+    de: "Behandlungsliege in einem hellen Behandlungsraum",
+    en: "Treatment couch in a bright treatment room",
+  },
+  praxisAltWaitingArea: {
+    de: "Heller Wartebereich mit Sitzgelegenheiten und Pflanzen",
+    en: "Bright waiting area with seating and plants",
+  },
+  praxisAltConsultationCorner: {
+    de: "Ruhige Sitzecke für Beratungsgespräche",
+    en: "Quiet seating corner for consultations",
+  },
   praxisMetaDescription: {
     de: "Privatärztliche Praxis in Köning — ärztlich geführte Laser-, Physio- und Ästhetikbehandlungen.",
     en: "Private medical practice in Köning — physician-led laser, physiotherapy and aesthetic treatments.",
@@ -228,6 +252,14 @@ export const ui = {
     de: "Alle Laser-Behandlungszonen mit festen Preisen und Paketrabatten von bis zu 45 %.",
     en: "Every laser treatment zone at a fixed price, with package discounts of up to 45%.",
   },
+
+  // ── 404 page ─────────────────────────────────────────────────────────
+  notFoundTitle: { de: "Seite nicht gefunden", en: "Page not found" },
+  notFoundBody: {
+    de: "Diese Seite gibt es nicht — oder nicht mehr. Vielleicht finden Sie über die Startseite, was Sie suchen.",
+    en: "This page doesn't exist — or not anymore. You might find what you're looking for on the homepage.",
+  },
+  notFoundHomeLink: { de: "Zur Startseite", en: "Go to the homepage" },
 
   // ── Treatment detail page ───────────────────────────────────────────
   breadcrumbHome: { de: "Start", en: "Home" },
