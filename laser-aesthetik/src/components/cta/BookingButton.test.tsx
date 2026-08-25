@@ -1,33 +1,41 @@
 import { readFileSync } from "node:fs"
 import { relative, resolve } from "node:path"
 import { execSync } from "node:child_process"
+import type { ReactNode } from "react"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
+import { MemoryRouter } from "react-router-dom"
 import { BookingButton } from "./BookingButton"
 
 const DOCTOLIB =
   "https://www.doctolib.de/privatpraxis/landshut/dr-med-univ-dost-mohammad-city-center-landshut/booking?profile_skipped=true&source=external_referral"
 
+// BookingButton reads the current locale (useT -> useLocale -> useLocation),
+// so it needs a Router in scope even when rendered on its own.
+function renderButton(children?: ReactNode) {
+  return render(<BookingButton>{children}</BookingButton>, { wrapper: MemoryRouter })
+}
+
 describe("BookingButton", () => {
   it("links to the Doctolib booking page", () => {
-    render(<BookingButton />)
+    renderButton()
     expect(screen.getByRole("link")).toHaveAttribute("href", DOCTOLIB)
   })
 
   it("opens in a new tab without leaking the referrer opener", () => {
-    render(<BookingButton />)
+    renderButton()
     const link = screen.getByRole("link")
     expect(link).toHaveAttribute("target", "_blank")
     expect(link).toHaveAttribute("rel", "noopener noreferrer")
   })
 
   it("uses a default German label", () => {
-    render(<BookingButton />)
+    renderButton()
     expect(screen.getByRole("link")).toHaveTextContent("Termin buchen")
   })
 
   it("accepts a custom label", () => {
-    render(<BookingButton>Jetzt Termin sichern</BookingButton>)
+    renderButton("Jetzt Termin sichern")
     expect(screen.getByRole("link")).toHaveTextContent("Jetzt Termin sichern")
   })
 

@@ -1,4 +1,7 @@
 import { treatmentsByPillar } from "@/content/treatments"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { pagePath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -9,36 +12,38 @@ import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
 
 export default function Preise() {
+  const t = useT()
+  const locale = useLocale()
+
   useSeo({
-    title: "Preise",
-    description:
-      "Alle Laser-Behandlungszonen mit festen Preisen und Paketrabatten von bis zu 45 %.",
-    canonicalPath: "/preise",
+    title: t("prices"),
+    description: t("pricesMetaDescription"),
+    canonicalPath: pagePath("prices", locale),
   })
 
   const laser = treatmentsByPillar("laser")
   const onRequest = [
     ...treatmentsByPillar("physio"),
     ...treatmentsByPillar("aesthetik"),
-    ...laser.filter((t) => t.pricing.kind === "onRequest"),
+    ...laser.filter((treatment) => treatment.pricing.kind === "onRequest"),
   ]
 
   return (
     <>
       <Hero
-        eyebrow="Preise"
-        lead="Preise, die"
-        accent="niemanden überraschen"
-        description="Alle Laser-Zonen mit festen Preisen. Paketrabatte: 20 % im 3er, 40 % im 5er, 45 % im 10er."
+        eyebrow={t("prices")}
+        lead={t("pricesHeroLead")}
+        accent={t("pricesHeroAccent")}
+        description={t("pricesHeroDescription")}
       />
 
       <Section>
         <Container className="flex flex-col gap-12">
           <SectionHeader
             eyebrow="Laser"
-            title="Alle Zonen im"
-            accent="Überblick"
-            lead="Paketpreise gelten bei Vorauszahlung des Gesamtpakets. Alle Preise inkl. MwSt."
+            title={t("allZonesTitle")}
+            accent={t("allZonesAccent")}
+            lead={t("packagePricesLead")}
           />
           <PriceTable treatments={laser} />
         </Container>
@@ -47,14 +52,14 @@ export default function Preise() {
       <Section tone="tint">
         <Container className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="Individuell"
-            title="Behandlungen auf"
-            accent="Anfrage"
-            lead="Bei diesen Behandlungen hängt der Preis vom Befund ab. Wir nennen ihn verbindlich im Erstgespräch, bevor eine Behandlung beginnt."
+            eyebrow={t("individualEyebrow")}
+            title={t("treatmentsOnRequestTitle")}
+            accent={t("treatmentsOnRequestAccent")}
+            lead={t("onRequestLead")}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {onRequest.map((t) => (
-              <TreatmentCard key={t.slug} treatment={t} />
+            {onRequest.map((treatment) => (
+              <TreatmentCard key={treatment.slug} treatment={treatment} />
             ))}
           </div>
         </Container>

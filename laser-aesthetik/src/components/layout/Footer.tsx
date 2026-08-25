@@ -2,9 +2,15 @@ import { Link } from "react-router-dom"
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
 import { pillars } from "@/content/pillars"
 import { formatAddress, hasPhone, practice } from "@/content/practice"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { legalPath, pagePath, pillarPath } from "@/lib/routes"
 import { Container } from "./Container"
 
 export function Footer() {
+  const t = useT()
+  const locale = useLocale()
+
   return (
     <footer className="border-t border-brand-100 bg-brand-50 py-14 text-brand-900">
       <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -14,20 +20,20 @@ export function Footer() {
           <p className="text-sm leading-relaxed text-brand-700">{practice.qualifications}</p>
         </div>
 
-        <nav className="flex flex-col gap-2" aria-label="Behandlungen">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Behandlungen</p>
+        <nav className="flex flex-col gap-2" aria-label={t("treatmentsLabel")}>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("treatmentsLabel")}</p>
           {pillars.map((p) => (
-            <Link key={p.path} to={p.path} className="text-sm text-brand-800 hover:text-brand">
+            <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand">
               {p.title}
             </Link>
           ))}
-          <Link to="/preise" className="text-sm text-brand-800 hover:text-brand">
-            Preise
+          <Link to={pagePath("prices", locale)} className="text-sm text-brand-800 hover:text-brand">
+            {t("prices")}
           </Link>
         </nav>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Kontakt</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
             {formatAddress()}
@@ -71,7 +77,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Öffnungszeiten</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("openingHours")}</p>
           <dl className="flex flex-col gap-1 text-sm">
             {practice.hours.map((h) => (
               <div key={h.days} className="flex justify-between gap-4">
@@ -84,10 +90,16 @@ export function Footer() {
       </Container>
 
       <Container className="mt-10 flex flex-col gap-3 border-t border-brand-200 pt-6 text-sm text-brand-700 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} {practice.shortBrand}. Alle Rechte vorbehalten.</p>
-        <nav className="flex gap-4" aria-label="Rechtliches">
-          <Link to="/impressum" className="hover:text-brand">Impressum</Link>
-          <Link to="/datenschutz" className="hover:text-brand">Datenschutz</Link>
+        <p>
+          © {new Date().getFullYear()} {practice.shortBrand}. {t("allRightsReserved")}
+        </p>
+        <nav className="flex gap-4" aria-label={t("legalNavLabel")}>
+          <Link to={legalPath("impressum")} className="hover:text-brand">
+            {t("legalImprint")}
+          </Link>
+          <Link to={legalPath("datenschutz")} className="hover:text-brand">
+            {t("legalPrivacy")}
+          </Link>
         </nav>
       </Container>
     </footer>

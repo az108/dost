@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import { CalendarCheck } from "lucide-react"
 import { practice } from "@/content/practice"
+import { useT } from "@/content/ui"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -14,7 +15,7 @@ export function BookingButton({
   variant = "action",
   size = "lg",
   className,
-  children = "Termin buchen",
+  children,
   showIcon = true,
 }: {
   variant?: "action" | "outline" | "ghost"
@@ -23,6 +24,8 @@ export function BookingButton({
   children?: ReactNode
   showIcon?: boolean
 }) {
+  const t = useT()
+
   return (
     <a
       href={practice.bookingUrl}
@@ -31,7 +34,7 @@ export function BookingButton({
       className={cn(buttonVariants({ variant, size }), "gap-2 font-semibold", className)}
     >
       {showIcon ? <CalendarCheck className="size-5 shrink-0" aria-hidden="true" /> : null}
-      {children}
+      {children ?? t("bookAppointment")}
     </a>
   )
 }

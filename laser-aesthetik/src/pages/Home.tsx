@@ -2,6 +2,9 @@ import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { pillars } from "@/content/pillars"
 import { treatmentBySlug } from "@/content/treatments"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { homePath, pagePath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -18,30 +21,32 @@ import { useSeo } from "@/lib/useSeo"
 export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
 export default function Home() {
+  const t = useT()
+  const locale = useLocale()
+
   useSeo({
     title: undefined,
-    description:
-      "Privatärztliche Praxis für Laser-Behandlungen, Physiotherapie und ästhetische Medizin in Köning. Ärztlich durchgeführt, mit transparenten Preisen.",
-    canonicalPath: "/",
+    description: t("homeMetaDescription"),
+    canonicalPath: homePath(locale),
   })
 
   const popular = POPULAR.map(treatmentBySlug).filter(
-    (t): t is NonNullable<typeof t> => Boolean(t),
+    (treatment): treatment is NonNullable<typeof treatment> => Boolean(treatment),
   )
 
   return (
     <>
       <Hero
         eyebrow="Laser · Physio · Ästhetik"
-        lead="Medizin, die"
-        accent="sichtbar wirkt"
-        description="Dauerhafte Laser-Haarentfernung, Physiotherapie und ästhetische Medizin — ärztlich durchgeführt, in Köning bei Landshut."
+        lead={t("homeHeroLead")}
+        accent={t("homeHeroAccent")}
+        description={t("homeHeroDescription")}
       >
         <Link
-          to="/preise"
+          to={pagePath("prices", locale)}
           className="flex items-center gap-2 font-semibold text-brand hover:text-action-ink"
         >
-          Preise ansehen
+          {t("viewPrices")}
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
       </Hero>
@@ -49,9 +54,9 @@ export default function Home() {
       <Section tone="tint">
         <Container className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="Drei Bereiche"
-            title="Wobei können wir"
-            accent="helfen?"
+            eyebrow={t("threeAreas")}
+            title={t("homePillarsTitle")}
+            accent={t("homePillarsAccent")}
             align="center"
             className="items-center"
           />
@@ -70,23 +75,23 @@ export default function Home() {
       <Section tone="tint">
         <Container className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="Beliebt"
-            title="Häufig gebuchte"
-            accent="Behandlungen"
-            lead="Ein Auszug. Alle Behandlungen und Preise finden Sie in der vollständigen Preisliste."
+            eyebrow={t("popularEyebrow")}
+            title={t("popularTreatmentsTitle")}
+            accent={t("popularTreatmentsAccent")}
+            lead={t("popularTreatmentsLead")}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {popular.map((t, i) => (
-              <Reveal key={t.slug} delay={(i % 3) * 0.06}>
-                <TreatmentCard treatment={t} />
+            {popular.map((treatment, i) => (
+              <Reveal key={treatment.slug} delay={(i % 3) * 0.06}>
+                <TreatmentCard treatment={treatment} />
               </Reveal>
             ))}
           </div>
           <Link
-            to="/preise"
+            to={pagePath("prices", locale)}
             className="flex items-center gap-2 self-start font-semibold text-brand hover:text-action-ink"
           >
-            Zur vollständigen Preisliste
+            {t("viewFullPriceList")}
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </Container>

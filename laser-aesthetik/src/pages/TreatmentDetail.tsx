@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom"
 import { treatmentBySlug } from "@/content/treatments"
 import { pillarById } from "@/content/pillars"
 import { formatEuro, packageTiers, priceFrom } from "@/content/pricing"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { homePath, pillarPath, treatmentPath } from "@/lib/routes"
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
@@ -19,6 +22,8 @@ import NotFound from "./NotFound"
 export default function TreatmentDetail() {
   const { slug } = useParams<{ slug: string }>()
   const treatment = slug ? treatmentBySlug(slug) : undefined
+  const t = useT()
+  const locale = useLocale()
 
   // Hooks must run unconditionally, so useSeo is called before the early
   // return, with fallbacks for the not-found case.
@@ -26,7 +31,7 @@ export default function TreatmentDetail() {
     title: treatment?.title ?? "Seite nicht gefunden",
     description: treatment?.excerpt,
     keywords: treatment?.keywords,
-    canonicalPath: treatment ? `/behandlungen/${treatment.slug}` : undefined,
+    canonicalPath: treatment ? treatmentPath(treatment.slug, locale) : undefined,
   })
 
   if (!treatment) return <NotFound />
@@ -43,13 +48,18 @@ export default function TreatmentDetail() {
   const faq = treatment.faq ?? pillar.faq ?? []
 
   const specs = [
-    treatment.durationMin ? { label: "Dauer", value: `${treatment.durationMin} Min.` } : null,
-    treatment.sessions ? { label: "Sitzungen", value: treatment.sessions } : null,
+    treatment.durationMin
+      ? { label: t("duration"), value: `${treatment.durationMin} ${t("minutesSuffix")}` }
+      : null,
+    treatment.sessions ? { label: t("sessions"), value: treatment.sessions } : null,
     // "Auf Anfrage" (not "Preis auf Anfrage") on purpose: the pricing section
     // below already renders the exact string "Preis auf Anfrage" once, and
     // TreatmentDetail.test.tsx asserts on that single occurrence with an
     // unscoped getByText. Repeating it here would make the match ambiguous.
-    { label: "Preis", value: from === null ? "Auf Anfrage" : `ab ${formatEuro(from)}` },
+    {
+      label: t("price"),
+      value: from === null ? t("onRequestShort") : `${t("fromPricePrefix")} ${formatEuro(from)}`,
+    },
   ].filter(Boolean) as { label: string; value: string }[]
 
   return (
@@ -58,8 +68,8 @@ export default function TreatmentDetail() {
         <Container className="flex flex-col gap-8">
           <Breadcrumbs
             trail={[
-              { label: "Start", to: "/" },
-              { label: pillar.label, to: pillar.path },
+              { label: t("breadcrumbHome"), to: homePath(locale) },
+              { label: pillar.label, to: pillarPath(pillar.id, locale) },
               { label: treatment.title },
             ]}
           />
@@ -108,9 +118,9 @@ export default function TreatmentDetail() {
               <div className="flex flex-col gap-8">
                 <Reveal className="flex max-w-prose flex-col gap-5">
                   <SectionHeader
-                    eyebrow="So funktioniert's"
-                    title="Ihre Behandlung"
-                    accent="im Detail"
+                    eyebrow={t("howItWorksEyebrow")}
+                    title={t("yourTreatmentTitle")}
+                    accent={t("inDetailAccent")}
                   />
                   {treatment.body.map((p, i) => (
                     <p key={i} className="text-lg leading-relaxed text-brand-800">
@@ -120,33 +130,32 @@ export default function TreatmentDetail() {
                 </Reveal>
                 <Reveal delay={0.1} className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
                   <h2 className="font-display text-2xl font-extrabold text-brand">
-                    Ihre Vorteile
+                    {t("yourBenefits")}
                   </h2>
                   <FeatureList items={treatment.benefits} />
                 </Reveal>
               </div>
 
               <div className="flex flex-col gap-8">
-                <SectionHeader eyebrow="Preise" title="Was diese Behandlung" accent="kostet" />
+                <SectionHeader eyebrow={t("prices")} title={t("whatItCostsTitle")} accent={t("costsAccent")} />
                 {treatment.pricing.kind === "onRequest" ? (
                   <div
                     data-testid="pricing-block"
                     className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
                   >
                     <p className="font-display text-2xl font-extrabold text-brand">
-                      Preis auf Anfrage
+                      {t("priceOnRequest")}
                     </p>
                     <p className="max-w-xl leading-relaxed text-brand-700">
-                      Der Preis hängt vom Befund und vom Behandlungsumfang ab. Wir besprechen ihn
-                      im Erstgespräch — verbindlich und bevor eine Behandlung beginnt.
+                      {t("priceDependsOnAssessment")}
                     </p>
-                    <BookingButton>Beratungstermin buchen</BookingButton>
+                    <BookingButton>{t("bookConsultation")}</BookingButton>
                   </div>
                 ) : (
                   <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
                       <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
-                        Einzelsitzung
+                        {t("singleSession")}
                       </p>
                       <p className="font-display text-3xl font-extrabold text-brand">
                         {formatEuro(treatment.pricing.single)}
@@ -158,26 +167,26 @@ export default function TreatmentDetail() {
                         className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6"
                       >
                         <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
-                          {tier.sessions}er-Paket{" "}
-                          <span className="text-accent">−{tier.discountPct} %</span>
+                          {tier.sessions}
+                          {t("packageTierSuffix")} <span className="text-accent">−{tier.discountPct} %</span>
                         </p>
                         <p className="font-display text-3xl font-extrabold text-brand">
                           {formatEuro(tier.perSession)}
-                          <span className="text-sm font-semibold text-brand-600">/Sitzung</span>
+                          <span className="text-sm font-semibold text-brand-600">{t("perSession")}</span>
                         </p>
-                        <p className="text-sm text-brand-600">gesamt {formatEuro(tier.total)}</p>
+                        <p className="text-sm text-brand-600">
+                          {t("totalLabel")} {formatEuro(tier.total)}
+                        </p>
                       </div>
                     ))}
                   </div>
                 )}
-                <p className="text-sm text-brand-600">
-                  Alle Preise inkl. MwSt. Paketpreise gelten bei Vorauszahlung des Gesamtpakets.
-                </p>
+                <p className="text-sm text-brand-600">{t("pricesIncludeVatNote")}</p>
               </div>
 
               {faq.length ? (
                 <div className="flex max-w-3xl flex-col gap-8">
-                  <SectionHeader eyebrow="Häufige Fragen" title="Gut zu" accent="wissen" />
+                  <SectionHeader eyebrow={t("faqEyebrow")} title={t("goodToKnowTitle")} accent={t("goodToKnowAccent")} />
                   <FaqAccordion items={faq} />
                 </div>
               ) : null}

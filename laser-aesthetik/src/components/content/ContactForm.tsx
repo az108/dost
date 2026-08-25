@@ -2,10 +2,10 @@ import { useId, useState, type ChangeEvent, type FormEvent } from "react"
 import { Link } from "react-router-dom"
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react"
 import { practice } from "@/content/practice"
+import { useT, type T } from "@/content/ui"
+import { legalPath } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-
-const TOPIC_OPTIONS = ["Terminanfrage", "Rückruf erbeten", "Allgemeine Frage"] as const
 
 // Mirrors the server-side caps in public/contact.php — keeping them in step
 // means a visitor sees the limit before submitting, not after.
@@ -37,21 +37,21 @@ type Status = "idle" | "submitting" | "success" | "error"
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-function validate(values: FormValues): FieldErrors {
+function validate(values: FormValues, t: T): FieldErrors {
   const errors: FieldErrors = {}
   if (!values.name.trim()) {
-    errors.name = "Bitte geben Sie Ihren Namen an."
+    errors.name = t("nameRequired")
   }
   if (!values.email.trim()) {
-    errors.email = "Bitte geben Sie Ihre E-Mail-Adresse an."
+    errors.email = t("emailRequired")
   } else if (!EMAIL_PATTERN.test(values.email.trim())) {
-    errors.email = "Bitte geben Sie eine gültige E-Mail-Adresse an."
+    errors.email = t("emailInvalid")
   }
   if (!values.message.trim()) {
-    errors.message = "Bitte geben Sie eine Nachricht ein."
+    errors.message = t("messageRequired")
   }
   if (!values.consent) {
-    errors.consent = "Bitte stimmen Sie der Datenverarbeitung zu."
+    errors.consent = t("consentRequired")
   }
   return errors
 }
@@ -70,9 +70,16 @@ const errorInputClass = "border-red-400"
  */
 export function ContactForm() {
   const uid = useId()
+  const t = useT()
   const [values, setValues] = useState<FormValues>(initialValues)
   const [errors, setErrors] = useState<FieldErrors>({})
   const [status, setStatus] = useState<Status>("idle")
+
+  const topicOptions = [
+    t("topicAppointmentRequest"),
+    t("topicCallbackRequested"),
+    t("topicGeneralQuestion"),
+  ]
 
   const ids = {
     name: `${uid}-name`,
@@ -94,7 +101,7 @@ export function ContactForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const validationErrors = validate(values)
+    const validationErrors = validate(values, t)
     setErrors(validationErrors)
     if (Object.keys(validationErrors).length > 0) {
       return
@@ -136,7 +143,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <label htmlFor={ids.name} className="text-sm font-semibold text-brand-900">
-          Name
+          {t("nameLabel")}
         </label>
         <input
           id={ids.name}
@@ -160,7 +167,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={ids.email} className="text-sm font-semibold text-brand-900">
-          E-Mail
+          {t("emailLabel")}
         </label>
         <input
           id={ids.email}
@@ -184,7 +191,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={ids.phone} className="text-sm font-semibold text-brand-900">
-          Telefon (optional)
+          {t("phoneLabel")}
         </label>
         <input
           id={ids.phone}
@@ -200,7 +207,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={ids.topic} className="text-sm font-semibold text-brand-900">
-          Anliegen
+          {t("topicLabel")}
         </label>
         <select
           id={ids.topic}
@@ -209,8 +216,8 @@ export function ContactForm() {
           onChange={updateField("topic")}
           className={inputClass}
         >
-          <option value="">Bitte wählen</option>
-          {TOPIC_OPTIONS.map((option) => (
+          <option value="">{t("pleaseSelect")}</option>
+          {topicOptions.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
@@ -220,7 +227,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={ids.message} className="text-sm font-semibold text-brand-900">
-          Nachricht
+          {t("messageLabel")}
         </label>
         <textarea
           id={ids.message}
@@ -235,8 +242,7 @@ export function ContactForm() {
           className={cn(inputClass, errors.message && errorInputClass)}
         />
         <p id={`${ids.message}-helper`} className="text-sm text-brand-600">
-          Bitte senden Sie uns keine Angaben zu Beschwerden oder Diagnosen. Für alles Medizinische
-          vereinbaren Sie bitte einen Termin.
+          {t("messageHelper")}
         </p>
         {errors.message ? (
           <p id={`${ids.message}-error`} className="text-sm text-red-600">
@@ -259,10 +265,9 @@ export function ContactForm() {
             className="mt-1 size-4 shrink-0 accent-action-ink"
           />
           <label htmlFor={ids.consent} className="text-sm leading-relaxed text-brand-700">
-            Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage
-            gespeichert werden. Weitere Informationen finden Sie in der{" "}
-            <Link to="/datenschutz" className="font-semibold text-brand underline">
-              Datenschutzerklärung
+            {t("consentPrefix")}{" "}
+            <Link to={legalPath("datenschutz")} className="font-semibold text-brand underline">
+              {t("consentLinkText")}
             </Link>
             .
           </label>
@@ -279,7 +284,7 @@ export function ContactForm() {
           in the DOM will fill this one too, and contact.php treats a
           non-empty value here as a bot submission. */}
       <div className="sr-only" aria-hidden="true">
-        <label htmlFor={ids.website}>Webseite</label>
+        <label htmlFor={ids.website}>{t("honeypotLabel")}</label>
         <input
           id={ids.website}
           name="website"
@@ -302,10 +307,10 @@ export function ContactForm() {
         {status === "submitting" ? (
           <>
             <Loader2 className="size-5 shrink-0 animate-spin" aria-hidden="true" />
-            Wird gesendet…
+            {t("sending")}
           </>
         ) : (
-          "Nachricht senden"
+          t("sendMessage")
         )}
       </Button>
 
@@ -313,17 +318,17 @@ export function ContactForm() {
         {status === "success" ? (
           <p className="flex items-center gap-2 text-success">
             <CheckCircle2 className="size-5 shrink-0" aria-hidden="true" />
-            Vielen Dank für Ihre Nachricht. Wir melden uns so bald wie möglich bei Ihnen.
+            {t("submitSuccess")}
           </p>
         ) : null}
         {status === "error" ? (
           <p className="flex flex-col gap-2 text-red-600">
             <span className="flex items-center gap-2">
               <AlertCircle className="size-5 shrink-0" aria-hidden="true" />
-              Ihre Nachricht konnte leider nicht gesendet werden.
+              {t("submitError")}
             </span>
             <span className="text-brand-700">
-              Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an{" "}
+              {t("submitErrorFallbackPrefix")}{" "}
               <a href={`mailto:${practice.email}`} className="font-semibold text-brand underline">
                 {practice.email}
               </a>

@@ -3,20 +3,25 @@ import { Link, NavLink, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { pillars } from "@/content/pillars"
 import { practice } from "@/content/practice"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { homePath, pagePath, pillarPath } from "@/lib/routes"
 import { BookingButton } from "@/components/cta/BookingButton"
 import { Container } from "./Container"
 import { cn } from "@/lib/utils"
 
-const links = [
-  ...pillars.map((p) => ({ to: p.path, label: p.label })),
-  { to: "/preise", label: "Preise" },
-  { to: "/praxis", label: "Praxis" },
-  { to: "/kontakt", label: "Kontakt" },
-]
-
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const t = useT()
+  const locale = useLocale()
+
+  const links = [
+    ...pillars.map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
+    { to: pagePath("prices", locale), label: t("prices") },
+    { to: pagePath("practice", locale), label: t("practice") },
+    { to: pagePath("contact", locale), label: t("contact") },
+  ]
 
   // Close the menu on navigation, so a link tap does not leave it open.
   useEffect(() => setOpen(false), [pathname])
@@ -43,11 +48,11 @@ export function Navbar() {
         href="#hauptinhalt"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
       >
-        Zum Inhalt springen
+        {t("skipToContent")}
       </a>
       <Container>
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Hauptnavigation">
-          <Link to="/" aria-label="Zur Startseite" className="flex items-center gap-3">
+          <Link to={homePath(locale)} aria-label={t("homeAriaLabel")} className="flex items-center gap-3">
             <img
               src="/logo-80.webp"
               alt=""
@@ -74,9 +79,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:block">
-            <BookingButton size="default" showIcon={false}>
-              Termin buchen
-            </BookingButton>
+            <BookingButton size="default" showIcon={false} />
           </div>
 
           <button
@@ -84,7 +87,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-label={open ? t("menuClose") : t("menuOpen")}
             className="rounded-md p-2 text-brand lg:hidden"
           >
             {open ? <X className="size-6" aria-hidden="true" /> : <Menu className="size-6" aria-hidden="true" />}

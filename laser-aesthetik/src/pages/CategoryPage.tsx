@@ -1,6 +1,9 @@
 import type { Pillar } from "@/content/types"
 import { pillarById } from "@/content/pillars"
 import { treatmentsByPillar } from "@/content/treatments"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { pillarPath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -14,11 +17,13 @@ import { useSeo } from "@/lib/useSeo"
 export default function CategoryPage({ pillar }: { pillar: Pillar }) {
   const info = pillarById(pillar)
   const treatments = treatmentsByPillar(pillar)
+  const tr = useT()
+  const locale = useLocale()
 
   useSeo({
     title: info.title,
     description: info.excerpt,
-    canonicalPath: info.path,
+    canonicalPath: pillarPath(pillar, locale),
   })
 
   return (
@@ -31,27 +36,29 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
       />
 
       <Section>
-        <Container className="flex max-w-3xl flex-col gap-5">
-          {info.intro.map((p) => (
-            <p key={p.slice(0, 40)} className="text-lg leading-relaxed text-brand-800">
-              {p}
-            </p>
-          ))}
+        <Container>
+          <div className="flex max-w-3xl flex-col gap-5">
+            {info.intro.map((p) => (
+              <p key={p.slice(0, 40)} className="text-lg leading-relaxed text-brand-800">
+                {p}
+              </p>
+            ))}
+          </div>
         </Container>
       </Section>
 
       <Section tone="tint">
         <Container className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="Behandlungen"
-            title="Alles in diesem"
-            accent="Bereich"
-            lead={`${treatments.length} Behandlungen — jede mit ärztlicher Beratung vorab.`}
+            eyebrow={tr("treatmentsLabel")}
+            title={tr("allInThisTitle")}
+            accent={tr("allInThisAccent")}
+            lead={`${treatments.length} ${tr("categoryTreatmentsCountSuffix")}`}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {treatments.map((t, i) => (
-              <Reveal key={t.slug} delay={(i % 3) * 0.06}>
-                <TreatmentCard treatment={t} />
+            {treatments.map((treatment, i) => (
+              <Reveal key={treatment.slug} delay={(i % 3) * 0.06}>
+                <TreatmentCard treatment={treatment} />
               </Reveal>
             ))}
           </div>
@@ -60,9 +67,11 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
 
       {info.faq?.length ? (
         <Section>
-          <Container className="flex max-w-3xl flex-col gap-8">
-            <SectionHeader eyebrow="Häufige Fragen" title="Gut zu" accent="wissen" />
-            <FaqAccordion items={info.faq} />
+          <Container>
+            <div className="flex max-w-3xl flex-col gap-8">
+              <SectionHeader eyebrow={tr("faqEyebrow")} title={tr("goodToKnowTitle")} accent={tr("goodToKnowAccent")} />
+              <FaqAccordion items={info.faq} />
+            </div>
           </Container>
         </Section>
       ) : null}

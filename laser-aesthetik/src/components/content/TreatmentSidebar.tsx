@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
-import type { PillarInfo, Treatment } from "@/content/types"
+import type { Locale, PillarInfo, Treatment } from "@/content/types"
 import { treatmentsByPillar } from "@/content/treatments"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { treatmentPath } from "@/lib/routes"
 
 /**
  * Splits a pillar's treatments into named groups (first-appearance order,
@@ -28,9 +31,11 @@ function groupTreatments(items: Treatment[]) {
 function TreatmentList({
   items,
   currentSlug,
+  locale,
 }: {
   items: Treatment[]
   currentSlug: string
+  locale: Locale
 }) {
   return (
     <ul className="flex flex-col gap-1">
@@ -45,7 +50,7 @@ function TreatmentList({
             </span>
           ) : (
             <Link
-              to={`/behandlungen/${treatment.slug}`}
+              to={treatmentPath(treatment.slug, locale)}
               state={{ preserveScroll: true }}
               className="block rounded-lg px-3 py-2 text-brand-700 transition-colors hover:bg-brand-50 hover:text-brand"
             >
@@ -65,11 +70,13 @@ export function TreatmentSidebar({
   pillar: PillarInfo
   currentSlug: string
 }) {
+  const t = useT()
+  const locale = useLocale()
   const { named, ungrouped } = groupTreatments(treatmentsByPillar(pillar.id))
 
   return (
     <nav
-      aria-label="Weitere Behandlungen"
+      aria-label={t("otherTreatments")}
       className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto"
     >
       <div className="flex flex-col gap-6">
@@ -78,11 +85,11 @@ export function TreatmentSidebar({
             <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
               {group.name}
             </p>
-            <TreatmentList items={group.items} currentSlug={currentSlug} />
+            <TreatmentList items={group.items} currentSlug={currentSlug} locale={locale} />
           </div>
         ))}
         {ungrouped.length > 0 ? (
-          <TreatmentList items={ungrouped} currentSlug={currentSlug} />
+          <TreatmentList items={ungrouped} currentSlug={currentSlug} locale={locale} />
         ) : null}
       </div>
     </nav>

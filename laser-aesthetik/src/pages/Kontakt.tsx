@@ -1,5 +1,8 @@
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
 import { formatAddress, hasPhone, practice } from "@/content/practice"
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { pagePath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -13,25 +16,28 @@ const mapsUrl = `https://www.openstreetmap.org/search?query=${encodeURIComponent
 )}`
 
 export default function Kontakt() {
+  const t = useT()
+  const locale = useLocale()
+
   useSeo({
-    title: "Kontakt",
-    description: `Praxis ${practice.shortBrand}, ${formatAddress()}. Termine online über Doctolib.`,
-    canonicalPath: "/kontakt",
+    title: t("contact"),
+    description: `${t("practice")} ${practice.shortBrand}, ${formatAddress()}. ${t("contactMetaDescriptionSuffix")}`,
+    canonicalPath: pagePath("contact", locale),
   })
 
   return (
     <>
       <Hero
-        eyebrow="Kontakt"
-        lead="So erreichen"
-        accent="Sie uns"
-        description="Termine buchen Sie am schnellsten online. Für alles andere schreiben Sie uns einfach."
+        eyebrow={t("contact")}
+        lead={t("contactHeroLead")}
+        accent={t("contactHeroAccent")}
+        description={t("contactHeroDescription")}
       />
 
       <Section>
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
-            <SectionHeader eyebrow="Praxis" title="Adresse &" accent="Anfahrt" />
+            <SectionHeader eyebrow={t("practice")} title={t("addressTitle")} accent={t("addressAccent")} />
             <p className="flex items-start gap-3 text-lg text-brand-800">
               <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
               {formatAddress()}
@@ -42,7 +48,7 @@ export default function Kontakt() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand"
             >
-              Auf der Karte ansehen
+              {t("viewOnMap")}
               <ExternalLink className="size-4" aria-hidden="true" />
             </a>
             <a
@@ -64,7 +70,7 @@ export default function Kontakt() {
           </div>
 
           <div className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
-            <SectionHeader eyebrow="Öffnungszeiten" title="Wann wir" accent="da sind" />
+            <SectionHeader eyebrow={t("openingHours")} title={t("whenWereThereTitle")} accent={t("whenWereThereAccent")} />
             <dl className="flex flex-col gap-3">
               {practice.hours.map((h) => (
                 <div
@@ -85,10 +91,10 @@ export default function Kontakt() {
         <Container>
           <div className="mx-auto flex max-w-2xl flex-col gap-8">
             <SectionHeader
-              eyebrow="Nachricht"
-              title="Schreiben Sie"
-              accent="uns"
-              lead="Termine buchen Sie am schnellsten online über die Terminbuchung oben. Für Rückfragen, einen Rückruf oder ein allgemeines Anliegen nutzen Sie stattdessen dieses Formular."
+              eyebrow={t("messageEyebrow")}
+              title={t("writeToUsTitle")}
+              accent={t("writeToUsAccent")}
+              lead={t("contactFormLead")}
             />
             <ContactForm />
           </div>

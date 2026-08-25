@@ -3,26 +3,32 @@ import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
 import { practice } from "@/content/practice"
+import { useT, type T } from "@/content/ui"
 
-const points = [
-  {
-    icon: Stethoscope,
-    title: "Ärztlich durchgeführt",
-    body: `Jede Behandlung führt ${practice.doctor} persönlich durch — keine kosmetische Anwendung ohne ärztliche Aufsicht.`,
-  },
-  {
-    icon: ShieldCheck,
-    title: "Beratung vor Behandlung",
-    body: "Vor jedem Eingriff klären wir Hauttyp, Kontraindikationen und realistische Erwartungen. Auch wenn das heißt, von einer Behandlung abzuraten.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Transparente Preise",
-    body: "Alle Laser-Zonen mit festen Preisen und Paketrabatten. Keine versteckten Kosten, keine Überraschung am Empfang.",
-  },
-]
+function buildPoints(t: T) {
+  return [
+    {
+      icon: Stethoscope,
+      title: t("physicianLed"),
+      body: `${t("trustDoctorPrefix")} ${practice.doctor} ${t("trustDoctorSuffix")}`,
+    },
+    {
+      icon: ShieldCheck,
+      title: t("consultBeforeTreatment"),
+      body: t("consultBeforeTreatmentBody"),
+    },
+    {
+      icon: HeartHandshake,
+      title: t("transparentPricing"),
+      body: t("transparentPricingBody"),
+    },
+  ]
+}
 
 export function TrustRow() {
+  const t = useT()
+  const points = buildPoints(t)
+
   return (
     <Section>
       <Container className="grid gap-10 sm:grid-cols-3">

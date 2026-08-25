@@ -1,5 +1,14 @@
 export type Pillar = "laser" | "physio" | "aesthetik"
 
+export type Locale = "de" | "en"
+
+/**
+ * A value that exists in both languages. Deliberately inline rather than in
+ * parallel per-language files: you cannot add or edit content without seeing
+ * both slots, so the two cannot silently drift apart.
+ */
+export type Localized<T = string> = { de: T; en: T }
+
 export interface FaqItem {
   question: string
   answer: string

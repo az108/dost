@@ -1,3 +1,6 @@
+import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { pagePath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -24,44 +27,49 @@ const galleryImages = [
 ]
 
 export default function Praxis() {
+  const t = useT()
+  const locale = useLocale()
+
   useSeo({
-    title: "Praxis",
-    description:
-      "Privatärztliche Praxis in Köning — ärztlich geführte Laser-, Physio- und Ästhetikbehandlungen.",
-    canonicalPath: "/praxis",
+    title: t("practice"),
+    description: t("praxisMetaDescription"),
+    canonicalPath: pagePath("practice", locale),
   })
 
   return (
     <>
       <Hero
-        eyebrow="Die Praxis"
-        lead="Medizin mit"
-        accent="Zeit für Sie"
-        description="Eine privatärztliche Praxis, in der ein Termin ein Termin ist — und kein Fünf-Minuten-Fenster zwischen zwei anderen."
+        eyebrow={t("thePracticeEyebrow")}
+        lead={t("praxisHeroLead")}
+        accent={t("praxisHeroAccent")}
+        description={t("praxisHeroDescription")}
       />
 
       <Section>
-        <Container className="flex max-w-3xl flex-col gap-5">
-          <p className="text-lg leading-relaxed text-brand-800">
-            Als Privatpraxis planen wir bewusst längere Termine. Das gibt uns Raum für eine
-            gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.
-          </p>
-          <p className="text-lg leading-relaxed text-brand-800">
-            Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt,
-            profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer
-            eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung,
-            ob sie medizinisch sinnvoll ist.
-          </p>
+        <Container>
+          <div className="flex max-w-3xl flex-col gap-5">
+            <p className="text-lg leading-relaxed text-brand-800">{t("praxisIntro1")}</p>
+            {/* This paragraph makes a treatment-efficacy-adjacent claim
+                ("often benefits from a combination of manual therapy and
+                acupuncture"), so it stays out of the UI dictionary and out
+                of this step's scope — see the phase report. */}
+            <p className="text-lg leading-relaxed text-brand-800">
+              Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt,
+              profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer
+              eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung,
+              ob sie medizinisch sinnvoll ist.
+            </p>
+          </div>
         </Container>
       </Section>
 
       <Section tone="tint">
         <Container className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="Einblicke"
-            title="Räume und Technik"
-            accent="im Überblick"
-            lead="Die Aufnahmen zeigen Beispielbilder aus vergleichbaren Praxen — sie geben einen Eindruck von Ausstattung und Atmosphäre."
+            eyebrow={t("insightsEyebrow")}
+            title={t("roomsAndTechTitle")}
+            accent={t("roomsAndTechAccent")}
+            lead={t("galleryDisclaimer")}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {galleryImages.map((image, i) => (
