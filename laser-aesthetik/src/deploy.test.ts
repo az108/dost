@@ -21,6 +21,21 @@ describe(".htaccess", () => {
     expect(htaccess).toContain("RewriteCond %{REQUEST_FILENAME} !-f")
     expect(htaccess).toContain("RewriteCond %{REQUEST_FILENAME} !-d")
   })
+
+  it("serves pre-rendered pages internally instead of letting mod_dir redirect them", () => {
+    const htaccess = pub(".htaccess")
+    expect(htaccess).toContain("RewriteCond %{REQUEST_FILENAME}/index.html -f")
+    expect(htaccess).toContain("DirectorySlash Off")
+  })
+
+  it("serves pre-rendered pages before falling back to the SPA shell", () => {
+    const htaccess = pub(".htaccess")
+    const prerenderIdx = htaccess.indexOf("RewriteCond %{REQUEST_FILENAME}/index.html -f")
+    const fallbackIdx = htaccess.indexOf("RewriteRule . /index.html [L]")
+    expect(prerenderIdx, "pre-render rule missing").toBeGreaterThan(-1)
+    expect(fallbackIdx, "SPA fallback missing").toBeGreaterThan(-1)
+    expect(prerenderIdx).toBeLessThan(fallbackIdx)
+  })
 })
 
 describe("sitemap.xml", () => {

@@ -28,8 +28,15 @@ most FTP clients skip dotfiles by default.
    host's control panel. Pick one and redirect the other.
 2. Visit `https://<domain>/behandlungen/achseln` and **refresh**. A 404
    means `.htaccess` is missing or `mod_rewrite` is off.
-3. Check `https://<domain>/sitemap.xml` loads.
-4. Submit the sitemap in Google Search Console.
+3. Request a deep page **without** a trailing slash, e.g.
+   `https://<domain>/behandlungen/achseln`, and confirm it returns **200
+   directly, not a 301**. If it redirects to the trailing-slash URL,
+   `DirectorySlash Off` is not taking effect — some shared hosts disallow
+   overriding `DirectorySlash` from `.htaccess`. This cannot be verified
+   before go-live; if it happens, the fallback is to switch the canonical
+   URLs to trailing-slash form instead.
+4. Check `https://<domain>/sitemap.xml` loads.
+5. Submit the sitemap in Google Search Console.
 
 ## Subdirectory hosting
 

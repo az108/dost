@@ -6,10 +6,29 @@
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+
+  # Pre-rendered pages live at dist/<path>/index.html. Serve them internally at
+  # their canonical extensionless URL. Without this, mod_dir would 301-redirect
+  # /laser to /laser/, adding a hop to every page and leaving the URL disagreeing
+  # with the canonical the page itself declares.
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+
+# mod_dir would 301 /laser to /laser/ before mod_rewrite gets a chance. The rule
+# above serves the file directly instead, so the redirect is unwanted.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
+# DirectorySlash Off can expose a directory listing if a directory ever lacks an
+# index file. Every pre-rendered directory has one, but this makes it safe
+# regardless.
+Options -Indexes
 
 # Hashed asset filenames make a long cache safe.
 <IfModule mod_expires.c>
