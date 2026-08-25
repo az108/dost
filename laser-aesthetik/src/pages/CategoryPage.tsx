@@ -15,10 +15,10 @@ import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
 
 export default function CategoryPage({ pillar }: { pillar: Pillar }) {
-  const info = pillarById(pillar)
+  const locale = useLocale()
+  const info = pillarById(pillar, locale)
   const treatments = treatmentsByPillar(pillar)
   const tr = useT()
-  const locale = useLocale()
 
   useSeo({
     title: info.title,

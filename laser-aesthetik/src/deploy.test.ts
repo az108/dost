@@ -29,7 +29,7 @@ describe("sitemap.xml", () => {
     for (const path of ["/", "/preise", "/praxis", "/kontakt", "/impressum", "/datenschutz"]) {
       expect(sitemap, `missing ${path}`).toContain(`${SITE_URL}${path}`)
     }
-    for (const p of pillars) {
+    for (const p of pillars("de")) {
       expect(sitemap, `missing ${p.path}`).toContain(`${SITE_URL}${p.path}`)
     }
     for (const t of treatments) {

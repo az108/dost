@@ -7,11 +7,11 @@ const PILLAR_IDS: Pillar[] = ["laser", "physio", "aesthetik"]
 
 describe("pillars", () => {
   it("defines exactly the three pillars", () => {
-    expect(pillars.map((p) => p.id).sort()).toEqual([...PILLAR_IDS].sort())
+    expect(pillars("de").map((p) => p.id).sort()).toEqual([...PILLAR_IDS].sort())
   })
 
   it("gives every pillar a route path, label and intro", () => {
-    for (const p of pillars) {
+    for (const p of pillars("de")) {
       expect(p.path).toMatch(/^\/[a-z]+$/)
       expect(p.label.length).toBeGreaterThan(2)
       expect(p.intro.length).toBeGreaterThan(0)
@@ -20,16 +20,60 @@ describe("pillars", () => {
   })
 
   it("looks a pillar up by id", () => {
-    expect(pillarById("laser").path).toBe("/laser")
+    expect(pillarById("laser", "de").path).toBe("/laser")
   })
 
   it("gives every pillar a non-empty FAQ", () => {
     // The FAQ components were fully built and tested against synthetic data
     // while no pillar or treatment defined `faq`, so the section rendered on
     // none of the 32 pages and nothing noticed.
-    for (const p of pillars) {
+    for (const p of pillars("de")) {
       expect(p.faq?.length, `${p.id} has no FAQ`).toBeGreaterThan(0)
     }
+  })
+
+  it("gives every pillar non-empty German and English copy for every localized field", () => {
+    // Guards the shape the resolver depends on: resolvePillar() is dumb and
+    // total, so any missing `de` or `en` slot would resolve to undefined
+    // copy on a live page rather than fail loudly here.
+    const de = pillars("de")
+    const en = pillars("en")
+    for (let i = 0; i < de.length; i++) {
+      const dp = de[i]
+      const ep = en[i]
+      expect(dp.label.trim().length, `${dp.id} de label`).toBeGreaterThan(0)
+      expect(ep.label.trim().length, `${dp.id} en label`).toBeGreaterThan(0)
+      expect(dp.title.trim().length, `${dp.id} de title`).toBeGreaterThan(0)
+      expect(ep.title.trim().length, `${dp.id} en title`).toBeGreaterThan(0)
+      expect(dp.headline.lead.trim().length, `${dp.id} de headline.lead`).toBeGreaterThan(0)
+      expect(dp.headline.accent.trim().length, `${dp.id} de headline.accent`).toBeGreaterThan(0)
+      expect(ep.headline.lead.trim().length, `${dp.id} en headline.lead`).toBeGreaterThan(0)
+      expect(ep.headline.accent.trim().length, `${dp.id} en headline.accent`).toBeGreaterThan(0)
+      expect(dp.excerpt.trim().length, `${dp.id} de excerpt`).toBeGreaterThan(0)
+      expect(ep.excerpt.trim().length, `${dp.id} en excerpt`).toBeGreaterThan(0)
+      expect(dp.intro.length, `${dp.id} de intro`).toBeGreaterThan(0)
+      expect(dp.intro.every((s) => s.trim().length > 0), `${dp.id} de intro paragraph empty`).toBe(true)
+      expect(ep.intro.length, `${dp.id} en intro`).toBeGreaterThan(0)
+      expect(ep.intro.every((s) => s.trim().length > 0), `${dp.id} en intro paragraph empty`).toBe(true)
+      expect(dp.faq?.length, `${dp.id} de faq`).toBeGreaterThan(0)
+      expect(ep.faq?.length, `${dp.id} en faq`).toBeGreaterThan(0)
+      for (const item of dp.faq ?? []) {
+        expect(item.question.trim().length, `${dp.id} de faq question`).toBeGreaterThan(0)
+        expect(item.answer.trim().length, `${dp.id} de faq answer`).toBeGreaterThan(0)
+      }
+      for (const item of ep.faq ?? []) {
+        expect(item.question.trim().length, `${dp.id} en faq question`).toBeGreaterThan(0)
+        expect(item.answer.trim().length, `${dp.id} en faq answer`).toBeGreaterThan(0)
+      }
+    }
+  })
+
+  it("never claims permanent hair removal in English", () => {
+    // German law treats this as permanent hair REDUCTION. The German copy is
+    // careful about it; the English must be too.
+    const text = JSON.stringify(pillars("en")).toLowerCase()
+    expect(text).not.toContain("permanent hair removal")
+    expect(text).not.toContain("permanently remove")
   })
 })
 
@@ -99,7 +143,7 @@ describe("treatments", () => {
   // Heilmittelwerbegesetz restricts before/after imagery for aesthetic
   // procedures. No content may promise or depict one.
   it("makes no before/after claims", () => {
-    const text = JSON.stringify([treatments, pillars]).toLowerCase()
+    const text = JSON.stringify([treatments, pillars("de")]).toLowerCase()
     for (const marker of ["vorher", "nachher", "before/after"]) {
       expect(text, `before/after language found: "${marker}"`).not.toContain(marker)
     }
@@ -108,7 +152,7 @@ describe("treatments", () => {
   it("names the doctor consistently with practice.ts", () => {
     // A previous fix normalised .tsx components but stopped at the file
     // extension; the ported copy lives in .ts content files and drifted.
-    const text = JSON.stringify([treatments, pillars])
+    const text = JSON.stringify([treatments, pillars("de")])
     const wrong = text.match(/Dr\. med\. (?!univ\.)/g) ?? []
     expect(wrong, "found 'Dr. med.' without 'univ.'").toHaveLength(0)
   })
@@ -133,7 +177,7 @@ describe("treatments", () => {
     // nothing populated `faq`, so it rendered on none of the 32 pages and no
     // test noticed. This asserts the rendered result, not the raw field.
     for (const t of treatments) {
-      const faq = t.faq ?? pillarById(t.pillar).faq
+      const faq = t.faq ?? pillarById(t.pillar, "de").faq
       expect(faq?.length, `${t.slug} would render an empty FAQ`).toBeGreaterThan(0)
     }
   })

@@ -17,7 +17,7 @@ export function Navbar() {
   const locale = useLocale()
 
   const links = [
-    ...pillars.map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
+    ...pillars(locale).map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
     { to: pagePath("prices", locale), label: t("prices") },
     { to: pagePath("practice", locale), label: t("practice") },
     { to: pagePath("contact", locale), label: t("contact") },

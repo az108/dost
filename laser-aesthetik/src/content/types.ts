@@ -71,9 +71,26 @@ export interface PillarInfo {
   intro: string[]
   /** lucide-react icon name, e.g. "Zap" */
   icon: string
-  image?: string
-  imageAlt?: string
   faq?: FaqItem[]
+}
+
+/**
+ * What a content file holds for a pillar: every language-bearing field
+ * carries both locales side by side, so content cannot be added or edited
+ * without seeing both. `resolvePillar()` (src/content/localize.ts) turns
+ * this into the flat `PillarInfo` components consume — `path` is not
+ * stored here at all, it is computed from `pillarPath(id, locale)`.
+ */
+export interface LocalizedPillarInfo {
+  id: Pillar
+  label: Localized<string>
+  title: Localized<string>
+  headline: Localized<{ lead: string; accent: string }>
+  excerpt: Localized<string>
+  intro: Localized<string[]>
+  /** lucide-react icon name, e.g. "Zap" — not localized */
+  icon: string
+  faq?: Localized<FaqItem[]>
 }
 
 export interface OpeningHours {

@@ -36,7 +36,7 @@ export default function TreatmentDetail() {
 
   if (!treatment) return <NotFound />
 
-  const pillar = pillarById(treatment.pillar)
+  const pillar = pillarById(treatment.pillar, locale)
   const tiers = packageTiers(treatment.pricing)
   const from = priceFrom(treatment.pricing)
 

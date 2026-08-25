@@ -5,7 +5,7 @@ import { SITE_URL } from "../src/content/seo"
 
 const paths = [
   "/",
-  ...pillars.map((p) => p.path),
+  ...pillars("de").map((p) => p.path),
   "/preise",
   "/praxis",
   "/kontakt",

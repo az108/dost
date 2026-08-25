@@ -61,7 +61,7 @@ export default function Home() {
             className="items-center"
           />
           <div className="grid gap-6 lg:grid-cols-3">
-            {pillars.map((p, i) => (
+            {pillars(locale).map((p, i) => (
               <Reveal key={p.id} delay={i * 0.08}>
                 <PillarCard pillar={p} />
               </Reveal>

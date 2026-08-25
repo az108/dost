@@ -22,7 +22,7 @@ export function Footer() {
 
         <nav className="flex flex-col gap-2" aria-label={t("treatmentsLabel")}>
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("treatmentsLabel")}</p>
-          {pillars.map((p) => (
+          {pillars(locale).map((p) => (
             <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand">
               {p.title}
             </Link>
