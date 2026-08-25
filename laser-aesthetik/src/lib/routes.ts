@@ -1,4 +1,5 @@
 import type { Locale, Localized, Pillar } from "@/content/types"
+import { treatments } from "@/content/treatments"
 
 /**
  * Every route helper a component should use instead of building a path by
@@ -46,4 +47,52 @@ export function pagePath(page: Page, locale: Locale): string {
 
 export function legalPath(page: "impressum" | "datenschutz"): string {
   return `/${page}`
+}
+
+const LEGAL_PATHS: readonly string[] = ["/impressum", "/datenschutz"]
+
+/**
+ * True when `pathname` has an equivalent page in the other language. Only
+ * the legal pages (Impressum, Datenschutz) do not — they stay German-only.
+ */
+export function hasCounterpart(pathname: string): boolean {
+  return !LEGAL_PATHS.includes(pathname)
+}
+
+function localeOf(pathname: string): Locale {
+  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "de"
+}
+
+/**
+ * Maps the current path to its equivalent in the other language. Falls back
+ * to that language's home page when there is no counterpart — the legal
+ * pages are German-only, so switching to English from /impressum has nowhere
+ * specific to land.
+ */
+export function counterpartPath(pathname: string, target: Locale): string {
+  const source = localeOf(pathname)
+  if (source === target) return pathname
+  if (!hasCounterpart(pathname)) return homePath(target)
+
+  if (pathname === homePath(source)) return homePath(target)
+
+  for (const id of Object.keys(PILLAR_PATHS) as Pillar[]) {
+    if (PILLAR_PATHS[id][source] === pathname) return PILLAR_PATHS[id][target]
+  }
+
+  for (const page of Object.keys(PAGE_PATHS) as Page[]) {
+    if (PAGE_PATHS[page][source] === pathname) return PAGE_PATHS[page][target]
+  }
+
+  const treatmentPrefix = source === "en" ? "/en/treatments/" : "/behandlungen/"
+  if (pathname.startsWith(treatmentPrefix)) {
+    const slug = pathname.slice(treatmentPrefix.length)
+    const sourceList = treatments(source)
+    const index = sourceList.findIndex((t) => t.slug === slug)
+    if (index !== -1) {
+      return treatmentPath(treatments(target)[index].slug, target)
+    }
+  }
+
+  return homePath(target)
 }

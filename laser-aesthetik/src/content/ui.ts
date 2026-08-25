@@ -84,6 +84,11 @@ export const ui = {
   legalNavLabel: { de: "Rechtliches", en: "Legal" },
   legalImprint: { de: "Impressum", en: "Imprint" },
   legalPrivacy: { de: "Datenschutz", en: "Privacy policy" },
+  // The legal pages stay German-only (E4) — these footer labels tell English
+  // readers honestly what they're about to click into, instead of quietly
+  // landing them on a German page they didn't expect.
+  legalImprintGermanOnly: { de: "Impressum", en: "Imprint (auf Deutsch)" },
+  legalPrivacyGermanOnly: { de: "Datenschutz", en: "Privacy policy (auf Deutsch)" },
   allRightsReserved: { de: "Alle Rechte vorbehalten.", en: "All rights reserved." },
 
   // ── Home page ────────────────────────────────────────────────────────

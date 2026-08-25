@@ -37,14 +37,34 @@ describe("sitemap.xml", () => {
     }
   })
 
+  it("lists every English route and every English treatment (no English legal pages)", () => {
+    const sitemap = pub("sitemap.xml")
+    for (const path of ["/en", "/en/prices", "/en/practice", "/en/contact"]) {
+      expect(sitemap, `missing ${path}`).toContain(`${SITE_URL}${path}`)
+    }
+    for (const p of pillars("en")) {
+      expect(sitemap, `missing ${p.path}`).toContain(`${SITE_URL}${p.path}`)
+    }
+    for (const t of treatments("en")) {
+      expect(sitemap, `missing ${t.slug}`).toContain(`${SITE_URL}/en/treatments/${t.slug}`)
+    }
+    // A concrete sample, so this test fails loudly (not just via count) if
+    // English treatment URLs are ever dropped from the generator.
+    expect(sitemap).toContain(`${SITE_URL}/en/treatments/underarms`)
+  })
+
   it("has no stale URLs beyond the static routes and current treatments", () => {
     // The check above is subset-only: it proves nothing expected is missing,
     // but a removed treatment would leave a stale <loc> that nothing catches.
-    // 9 static routes: "/", the 3 pillar pages, "/preise", "/praxis",
-    // "/kontakt", "/impressum", "/datenschutz".
+    // 9 static German routes: "/", the 3 pillar pages, "/preise", "/praxis",
+    // "/kontakt", "/impressum", "/datenschutz". 7 static English routes: the
+    // same set minus the German-only Impressum and Datenschutz (there is no
+    // English legal page at all, not even one pointing back to German — a
+    // sitemap should only list a page's own canonical URL). Each treatment
+    // appears once per language: 29 + 29.
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
-    expect(locCount).toBe(9 + treatments("de").length)
+    expect(locCount).toBe(9 + 7 + treatments("de").length + treatments("en").length)
   })
 })
 

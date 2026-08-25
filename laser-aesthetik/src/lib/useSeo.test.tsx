@@ -8,6 +8,11 @@ function Page({ title, description }: { title?: string; description?: string }) 
   return null
 }
 
+function PageAt({ canonicalPath }: { canonicalPath?: string }) {
+  useSeo({ title: "Titel", canonicalPath })
+  return null
+}
+
 describe("useSeo", () => {
   beforeEach(() => {
     document.head.innerHTML = ""
@@ -52,6 +57,57 @@ describe("useSeo", () => {
     render(<Page title="Eins" description="A" />)
     render(<Page title="Zwei" description="B" />)
     expect(document.querySelectorAll('meta[name="description"]')).toHaveLength(1)
+  })
+
+  it("emits de/en/x-default hreflang alternates for a German page with an English counterpart", () => {
+    render(<PageAt canonicalPath="/laser" />)
+    expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
+      "href",
+      "https://www.example-domain.de/laser",
+    )
+    expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
+      "href",
+      "https://www.example-domain.de/en/laser",
+    )
+    // x-default points at German — the primary market.
+    expect(document.querySelector('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
+      "href",
+      "https://www.example-domain.de/laser",
+    )
+  })
+
+  it("emits the same alternate pair from the English side of a page", () => {
+    render(<PageAt canonicalPath="/en/laser" />)
+    expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
+      "href",
+      "https://www.example-domain.de/laser",
+    )
+    expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
+      "href",
+      "https://www.example-domain.de/en/laser",
+    )
+  })
+
+  it("emits no hreflang alternates for a German-only legal page", () => {
+    render(<PageAt canonicalPath="/impressum" />)
+    expect(document.querySelectorAll('link[rel="alternate"]')).toHaveLength(0)
+  })
+
+  it("removes stale hreflang alternates when navigating to a page with no counterpart", () => {
+    const { rerender } = render(<PageAt canonicalPath="/laser" />)
+    expect(document.querySelectorAll('link[rel="alternate"]').length).toBeGreaterThan(0)
+    rerender(<PageAt canonicalPath="/impressum" />)
+    expect(document.querySelectorAll('link[rel="alternate"]')).toHaveLength(0)
+  })
+
+  it("sets og:locale and <html lang> from the canonical path's language", () => {
+    render(<PageAt canonicalPath="/laser" />)
+    expect(document.querySelector('meta[property="og:locale"]')).toHaveAttribute("content", "de_DE")
+    expect(document.documentElement.lang).toBe("de")
+
+    render(<PageAt canonicalPath="/en/laser" />)
+    expect(document.querySelector('meta[property="og:locale"]')).toHaveAttribute("content", "en_GB")
+    expect(document.documentElement.lang).toBe("en")
   })
 })
 

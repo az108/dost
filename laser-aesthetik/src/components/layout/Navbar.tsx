@@ -8,6 +8,7 @@ import { useLocale } from "@/lib/locale"
 import { homePath, pagePath, pillarPath } from "@/lib/routes"
 import { BookingButton } from "@/components/cta/BookingButton"
 import { Container } from "./Container"
+import { LanguageSwitch } from "./LanguageSwitch"
 import { cn } from "@/lib/utils"
 
 export function Navbar() {
@@ -78,7 +79,8 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-3 lg:flex">
+            <LanguageSwitch />
             <BookingButton size="default" showIcon={false} />
           </div>
 
@@ -101,6 +103,7 @@ export function Navbar() {
                 {l.label}
               </NavLink>
             ))}
+            <LanguageSwitch className="mt-2" />
             <BookingButton className="mt-2 w-full" />
           </div>
         ) : null}

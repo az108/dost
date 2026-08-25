@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest"
 import {
+  counterpartPath,
   homePath,
   legalPath,
   pagePath,
@@ -60,5 +61,43 @@ describe("routes — English (new keyword-bearing paths)", () => {
     // assert here beyond the type signature, which the German suite above
     // already exercises. This test documents the omission.
     expect(legalPath("impressum")).toBe("/impressum")
+  })
+})
+
+describe("counterpartPath", () => {
+  it("maps the German home page to the English home page and back", () => {
+    expect(counterpartPath("/", "en")).toBe("/en")
+    expect(counterpartPath("/en", "de")).toBe("/")
+  })
+
+  it("maps a pillar page to its English counterpart and back", () => {
+    const en = counterpartPath("/laser", "en")
+    expect(en).toBe("/en/laser")
+    expect(counterpartPath(en, "de")).toBe("/laser")
+  })
+
+  it("maps a treatment detail page to its English counterpart and back", () => {
+    // "achseln" (de) and "underarms" (en) are the same treatment, but the
+    // slugs are unrelated strings — this is the whole point of the mapping.
+    const en = counterpartPath("/behandlungen/achseln", "en")
+    expect(en).toBe("/en/treatments/underarms")
+    expect(counterpartPath(en, "de")).toBe("/behandlungen/achseln")
+  })
+
+  it("round-trips a static page (prices) from German through English and back", () => {
+    const de = pagePath("prices", "de")
+    const en = counterpartPath(de, "en")
+    expect(en).toBe(pagePath("prices", "en"))
+    expect(counterpartPath(en, "de")).toBe(de)
+  })
+
+  it("falls back to the target language's home page for the German-only legal pages", () => {
+    expect(counterpartPath(legalPath("impressum"), "en")).toBe("/en")
+    expect(counterpartPath(legalPath("datenschutz"), "en")).toBe("/en")
+  })
+
+  it("falls back to the target language's home page for an unknown path", () => {
+    expect(counterpartPath("/this-page-does-not-exist", "en")).toBe("/en")
+    expect(counterpartPath("/en/this-page-does-not-exist", "de")).toBe("/")
   })
 })

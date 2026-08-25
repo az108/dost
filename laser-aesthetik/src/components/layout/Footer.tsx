@@ -95,10 +95,10 @@ export function Footer() {
         </p>
         <nav className="flex gap-4" aria-label={t("legalNavLabel")}>
           <Link to={legalPath("impressum")} className="hover:text-brand">
-            {t("legalImprint")}
+            {locale === "en" ? t("legalImprintGermanOnly") : t("legalImprint")}
           </Link>
           <Link to={legalPath("datenschutz")} className="hover:text-brand">
-            {t("legalPrivacy")}
+            {locale === "en" ? t("legalPrivacyGermanOnly") : t("legalPrivacy")}
           </Link>
         </nav>
       </Container>

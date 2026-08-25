@@ -9,6 +9,13 @@
   <url><loc>https://www.example-domain.de/kontakt</loc></url>
   <url><loc>https://www.example-domain.de/impressum</loc></url>
   <url><loc>https://www.example-domain.de/datenschutz</loc></url>
+  <url><loc>https://www.example-domain.de/en</loc></url>
+  <url><loc>https://www.example-domain.de/en/laser</loc></url>
+  <url><loc>https://www.example-domain.de/en/physio</loc></url>
+  <url><loc>https://www.example-domain.de/en/aesthetics</loc></url>
+  <url><loc>https://www.example-domain.de/en/prices</loc></url>
+  <url><loc>https://www.example-domain.de/en/practice</loc></url>
+  <url><loc>https://www.example-domain.de/en/contact</loc></url>
   <url><loc>https://www.example-domain.de/behandlungen/oberlippe</loc></url>
   <url><loc>https://www.example-domain.de/behandlungen/wangen</loc></url>
   <url><loc>https://www.example-domain.de/behandlungen/kinn</loc></url>
@@ -38,4 +45,33 @@
   <url><loc>https://www.example-domain.de/behandlungen/kryolipolyse</loc></url>
   <url><loc>https://www.example-domain.de/behandlungen/farblichttherapie</loc></url>
   <url><loc>https://www.example-domain.de/behandlungen/aesthetische-medizin</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/upper-lip</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/cheeks</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/chin</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/face-and-head</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/underarms</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/full-arms</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/full-back</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/bikini-line</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/full-intimate-area</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/thighs</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/lower-legs</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/full-legs</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/underarms-and-intimate-area</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/underarms-intimate-lower-legs</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/underarms-intimate-full-legs</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/full-body</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/vascular-treatment</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/pigmentation</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/acne-scars</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/pain-management</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/manual-therapy</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/sports-medicine</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/acupuncture-and-tcm</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/shockwave-therapy</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/wrinkle-treatment</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/dermal-fillers</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/cryolipolysis</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/light-therapy</loc></url>
+  <url><loc>https://www.example-domain.de/en/treatments/aesthetic-medicine</loc></url>
 </urlset>

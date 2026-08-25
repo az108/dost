@@ -15,7 +15,10 @@ function renderNav() {
 describe("Navbar", () => {
   it("renders a navigation landmark", () => {
     renderNav()
-    expect(screen.getByRole("navigation")).toBeInTheDocument()
+    // Scoped by name: the language switch (E2) adds its own
+    // aria-label="Sprache / Language" nav landmark alongside this one, so an
+    // unscoped query would no longer be unambiguous.
+    expect(screen.getByRole("navigation", { name: "Hauptnavigation" })).toBeInTheDocument()
   })
 
   it("links to all three pillars", () => {
