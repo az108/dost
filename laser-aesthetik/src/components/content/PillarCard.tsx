@@ -38,10 +38,10 @@ export function PillarCard({ pillar }: { pillar: PillarInfo }) {
             single column nothing stretches, so this has to be a set size or
             the cards come out ragged.
 
-            Four lines, where a treatment card gets three. There are only three
-            pillar teasers and all of them run 106–115 characters, which is
-            just over three lines on a phone — clamping to three cut the last
-            line off every one of them. Four clears all three with room. */}
+            Four lines, the same as a treatment card. Three clipped the last
+            line off copy that is genuinely teaser-length: the pillar teasers
+            run 106-115 characters and several treatment teasers 94-100, all
+            of which overflow three lines somewhere between 320 and 390px. */}
         <p className="line-clamp-4 min-h-[calc(4*1.625rem)] flex-1 leading-relaxed text-brand-700">
           {pillar.excerpt}
         </p>

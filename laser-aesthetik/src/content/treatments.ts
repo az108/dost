@@ -1042,8 +1042,8 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Acupuncture", accent: "and TCM" },
     },
     excerpt: {
-      de: "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Kröning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
-      en: "As part of the private medical care provided by Praxis Dr. med. univ. Dost Mohammad in Kröning, we also offer alternative treatment methods such as TCM and acupuncture.",
+      de: "Akupunktur und TCM, ärztlich durchgeführt. Eine Ergänzung zur Schulmedizin, kein Ersatz.",
+      en: "Acupuncture and TCM, physician-led. A complement to conventional medicine, not a replacement.",
     },
     // Two paragraphs below reuse copy verbatim from the practice's own
     // existing website, including an efficacy claim ("vielfach
@@ -1231,8 +1231,8 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Fat pockets", accent: "without surgery" },
     },
     excerpt: {
-      de: "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken. Oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
-      en: "Reducing unwanted fat pockets is one of the most common concerns among patients at aesthetic clinics, often in areas that cannot be reduced even with strict diets and exercise.",
+      de: "Gezielte Behandlung hartnäckiger Fettpolster, die auf Diät und Training nicht ansprechen.",
+      en: "A targeted treatment for stubborn fat pockets that do not respond to diet or exercise.",
     },
     // Dense clinical German with a Greek etymology aside — translated
     // plainly rather than elegantly, per the source material.
@@ -1278,8 +1278,8 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Light", accent: "as therapy" },
     },
     excerpt: {
-      de: "Die Farblichttherapie nutzt die Energie farbigen Lichts, das Arzt und Patient gemeinsam auswählen, um den Stoffwechsel und das seelische Gleichgewicht zu fördern.",
-      en: "Colour light therapy uses the energy of coloured light, chosen together by physician and patient, to support metabolism and emotional balance.",
+      de: "Farbiges Licht, von Arzt und Patient gemeinsam gewählt, für Stoffwechsel und Wohlbefinden.",
+      en: "Coloured light, chosen by physician and patient together, for metabolism and wellbeing.",
     },
     // Reuses copy verbatim from the practice's own existing website,
     // including an explicit cure claim naming depression ("zu heilen" /
@@ -1329,8 +1329,8 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Aesthetic", accent: "Medicine" },
     },
     excerpt: {
-      de: "Die ästhetische Medizin ist ein Teilbereich der Medizin, der sich mit der Veränderung des äußeren Erscheinungsbildes von Menschen beschäftigt.",
-      en: "Aesthetic medicine is a field of medicine concerned with changing a person's outward appearance.",
+      de: "Behandlungen für das äußere Erscheinungsbild, ärztlich und zurückhaltend dosiert.",
+      en: "Physician-led treatments for your outward appearance, conservatively dosed.",
     },
     body: {
       de: [

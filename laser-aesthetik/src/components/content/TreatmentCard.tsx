@@ -33,14 +33,20 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
       <div className="flex flex-1 flex-col gap-4 p-6">
         <h3 className="font-display text-xl font-extrabold">{treatment.title}</h3>
         {/*
-          Three lines, always. Excerpts run from two lines to seven, and the
-          longest one used to set the height of every card in its row. min-h
-          matters as much as the clamp: in a single column — every phone —
-          there is no row to stretch to, so without it short cards collapse and
-          the stack still looks ragged. 1.625rem is leading-relaxed at this
-          size.
+          Four lines, always — the same box PillarCard uses. Excerpts ran from
+          two lines to seven, and the longest one used to set the height of
+          every card in its row. min-h matters as much as the clamp: in a
+          single column — every phone — there is no row to stretch to, so
+          without it the short cards collapse and the stack is ragged again.
+          1.625rem is leading-relaxed at this size.
+
+          Four rather than three because three clipped the tail off real
+          excerpts at 360-390px, which is most phones: measured, a three-line
+          box fits about 90 characters at 360px and several teasers run 94-100.
+          Four fits every excerpt on the site down to 320px, at the cost of
+          26px of card height.
         */}
-        <p className="line-clamp-3 min-h-[calc(3*1.625rem)] flex-1 leading-relaxed text-brand-700">
+        <p className="line-clamp-4 min-h-[calc(4*1.625rem)] flex-1 leading-relaxed text-brand-700">
           {treatment.excerpt}
         </p>
 

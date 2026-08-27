@@ -69,14 +69,15 @@ describe("TreatmentCard", () => {
     expect(screen.getByRole("link").className).toContain("h-full")
   })
 
-  it("clamps the excerpt to a fixed three lines", () => {
+  it("clamps the excerpt to a fixed four lines", () => {
     // Excerpts run anywhere from two to seven lines. Left alone, the longest
-    // one sets the height of every card beside it; reserving three lines as
-    // well as capping them keeps short cards from collapsing in a single
-    // column, where there is no row to stretch to.
+    // one sets the height of every card beside it; reserving the lines as well
+    // as capping them keeps short cards from collapsing in a single column,
+    // where there is no row to stretch to. Four, not three: a three-line box
+    // fits ~90 characters at 360px and several teasers run 94-100.
     renderCard({ ...base, excerpt: "Ein sehr langer Auszug. ".repeat(20) })
     const excerpt = screen.getByText(/Ein sehr langer Auszug/)
-    expect(excerpt.className).toContain("line-clamp-3")
+    expect(excerpt.className).toContain("line-clamp-4")
     expect(excerpt.className).toMatch(/min-h-/)
   })
 

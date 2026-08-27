@@ -35,14 +35,14 @@ describe("PillarCard", () => {
     // stretches to match anything. Both variable blocks are therefore given a
     // fixed size: the title reserves the two lines that "Physiotherapie &
     // Schmerzmedizin" needs and the other two pillars do not, and the excerpt
-    // reserves three whether it fills them or not.
+    // reserves its lines whether it fills them or not.
     renderCard(laser)
     expect(screen.getByRole("link").className).toContain("h-full")
     expect(screen.getByRole("heading", { level: 3 }).className).toMatch(/min-h-/)
 
-    // Four lines here against a treatment card's three: all three pillar
-    // teasers run just over three lines on a phone, so a three-line box
-    // clipped the last line off every one of them.
+    // Four lines, matching TreatmentCard. All three pillar teasers run
+    // 106-115 characters, which is more than three lines on a phone, so a
+    // three-line box clipped the last line off every one of them.
     const excerpt = screen.getByText(/Dauerhafte Haarreduktion/)
     expect(excerpt.className).toContain("line-clamp-4")
     expect(excerpt.className).toMatch(/min-h-/)
