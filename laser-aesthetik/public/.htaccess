@@ -5,6 +5,22 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Canonical scheme and host, in a single hop. This lives here rather than in
+  # the hosting panel so it is version-controlled, cannot silently drift from
+  # the canonical URLs the pages themselves declare, and survives a move to
+  # another Apache host.
+  #
+  # www.laserhaarentfernung-landshut.de resolves to the same server as the
+  # apex, so without this rule both hostnames serve all 74 pages and search
+  # engines index two copies of the site.
+  #
+  # The [OR] pair means one redirect, not two: http://www/x goes straight to
+  # https://apex/x instead of bouncing through an intermediate hop.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://laserhaarentfernung-landshut.de%{REQUEST_URI} [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
 
   # Pre-rendered pages live at dist/<path>/index.html. Serve them internally at

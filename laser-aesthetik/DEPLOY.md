@@ -126,12 +126,14 @@ config. Outstanding before go-live, in priority order:
    is the vhost KAS actually has configured, with the document root and the
    SSL certificate on it.
 
-   Two things in KAS must be made to agree with that, or Google sees two
-   copies of all 74 pages:
-   - redirect `www` → apex (KAS → Domain → edit the domain);
-   - the separate domain `laser-haarentfernung-landshut.de` (note the extra
-     hyphen) currently redirects to `https://www.laserhaarentfernung-landshut.de/`.
-     Retarget it at the apex so it does not bounce visitors through `www`.
+   `www` resolves to the same server, so it would otherwise serve a second
+   copy of all 74 pages. The `www` → apex and http → https redirects are
+   handled in `public/.htaccess`, not in the hosting panel, so they are
+   version-controlled and deploy with the site. Nothing to configure in KAS.
+
+   (The similarly-named `laser-haarentfernung-landshut.de`, with the extra
+   hyphen, has no DNS A record at all — its KAS entry is an orphaned config
+   that no request can reach. Nothing to do there either.)
 3. **Legal review** — Impressum and Datenschutz are scaffolds carrying
    `PRÜFEN:` markers for the responsible medical chamber and the hosting
    provider. §5 TMG and DSGVO Art. 13 make this content legally
