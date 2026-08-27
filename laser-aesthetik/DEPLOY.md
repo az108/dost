@@ -19,14 +19,23 @@ and on manual dispatch. It requires three repository **secrets**:
 
 | Secret | Value |
 |---|---|
-| `ALLINKL_FTP_SERVER` | FTP host from KAS, e.g. `w01abcde.kasserver.com` |
-| `ALLINKL_FTP_USERNAME` | the FTP user KAS shows for that account |
+| `ALLINKL_FTP_SERVER` | `w0112dd4.kasserver.com` (KAS account `w0112dd4`, "Silvatel") |
+| `ALLINKL_FTP_USERNAME` | a **dedicated** FTP user, see below |
 | `ALLINKL_FTP_PASSWORD` | that user's password |
 
-Two optional repository **variables** cover the cases where the defaults are
-wrong: `ALLINKL_SERVER_DIR` (default `/`; set it if the FTP user is not
-chrooted to its own htdocs) and `ALLINKL_FTP_PROTOCOL` (default `ftps`; set
-to `ftp` only if the FTPS handshake fails).
+**Create a dedicated FTP user, do not reuse the main one.** This webspace
+hosts ~61 domains; KAS shows this site's document root as
+`/laserhaarentfernung-landshut.de/`. In KAS → FTP, add a user whose home
+directory is exactly that path. The FTP user is then locked to this site, so
+a mistake in the workflow cannot reach any of the other sites on the account
+— and `ALLINKL_SERVER_DIR` can stay at its `/` default.
+
+If instead you reuse an FTP user whose home is the webspace root, you must
+set the `ALLINKL_SERVER_DIR` repository variable to
+`/laserhaarentfernung-landshut.de/`, or the build lands in the wrong place.
+
+The other optional **variable** is `ALLINKL_FTP_PROTOCOL` (default `ftps`;
+set to `ftp` only if the FTPS handshake fails).
 
 The workflow fails before uploading if `.htaccess`, `index.html`,
 `sitemap.xml` or `contact.php` is missing from `dist/`. It does **not** run
@@ -113,9 +122,16 @@ config. Outstanding before go-live, in priority order:
    supplied.
 2. **Real domain** — done. `laserhaarentfernung-landshut.de`, **without**
    `www`, is set in `src/content/seo.ts`, `public/robots.txt`, the
-   `og:image` URL and the generated sitemap. The host must redirect
-   `www` → apex to match, or every canonical URL points at a hostname that
-   serves a duplicate of the site.
+   `og:image` URL and the generated sitemap. The apex was chosen because it
+   is the vhost KAS actually has configured, with the document root and the
+   SSL certificate on it.
+
+   Two things in KAS must be made to agree with that, or Google sees two
+   copies of all 74 pages:
+   - redirect `www` → apex (KAS → Domain → edit the domain);
+   - the separate domain `laser-haarentfernung-landshut.de` (note the extra
+     hyphen) currently redirects to `https://www.laserhaarentfernung-landshut.de/`.
+     Retarget it at the apex so it does not bounce visitors through `www`.
 3. **Legal review** — Impressum and Datenschutz are scaffolds carrying
    `PRÜFEN:` markers for the responsible medical chamber and the hosting
    provider. §5 TMG and DSGVO Art. 13 make this content legally
