@@ -37,7 +37,7 @@ export default function Kontakt() {
         imageAlt={t("doctorAltInConsultingRoom")}
       />
 
-      <Section>
+      <Section overlap flank="left" flankTone="blush">
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <SectionHeader eyebrow={t("practice")} title={t("addressTitle")} accent={t("addressAccent")} />
@@ -90,7 +90,7 @@ export default function Kontakt() {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section tone="tint" overlap flank="right" flankTone="blue">
         <Container>
           <div className="mx-auto flex max-w-2xl flex-col gap-8">
             <SectionHeader

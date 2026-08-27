@@ -9,7 +9,10 @@ export function PillarCard({ pillar }: { pillar: PillarInfo }) {
   return (
     <Link
       to={pillar.path}
-      className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-100 bg-white transition-shadow hover:shadow-lg"
+      // Depth at rest, not only on hover: a card that is flat until you touch
+      // it reads as part of the band behind it, which undoes the layering the
+      // page spends its whole scroll building.
+      className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {pillar.image ? (
         <img

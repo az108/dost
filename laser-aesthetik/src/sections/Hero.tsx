@@ -1,6 +1,8 @@
-import type { ReactNode } from "react"
+import { useRef, type ReactNode } from "react"
+import { motion } from "motion/react"
 import { Container } from "@/components/layout/Container"
 import { BookingButton } from "@/components/cta/BookingButton"
+import { useDrift } from "@/lib/useDrift"
 import { cn } from "@/lib/utils"
 
 export function Hero({
@@ -24,12 +26,24 @@ export function Hero({
   imageAlt?: string
   children?: ReactNode
 }) {
+  const ref = useRef<HTMLElement>(null)
+  // "start start" rather than "start end": the hero is already at the top of
+  // the page on arrival, so progress has to be measured from the page's own
+  // scroll position, not from the section entering the viewport.
+  const y = useDrift(ref, 48, ["start start", "end start"])
+
   return (
-    <section className="relative isolate overflow-hidden bg-brand-50">
-      {/* Decorative gradient wash — a genuine overlay, not layout. */}
-      <div
+    <section ref={ref} className="relative isolate overflow-hidden bg-brand-50">
+      {/*
+        Decorative gradient wash — a genuine overlay, not layout. It drifts
+        down as the hero scrolls away, which is the one piece of background
+        movement everybody sees. -inset-y-16 gives it room to move without
+        exposing a bare edge of brand-50 at the bottom of the band.
+      */}
+      <motion.div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 hero-wash"
+        style={{ y }}
+        className="absolute -inset-y-16 inset-x-0 -z-10 hero-wash"
       />
       <Container className="py-12 sm:py-16 lg:py-20">
         {/* Full width, above the split: breadcrumbs belong to the page, not

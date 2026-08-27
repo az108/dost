@@ -15,7 +15,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
   return (
     <Link
       to={treatmentPath(treatment.slug, locale)}
-      className="group flex flex-col overflow-hidden rounded-card border border-brand-100 bg-white transition-shadow hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-card border border-brand-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {treatment.image ? (
         <img

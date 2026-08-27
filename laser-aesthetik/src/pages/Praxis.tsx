@@ -60,7 +60,7 @@ export default function Praxis() {
         imageAlt={t("praxisAltDoctorWithHandpiece")}
       />
 
-      <Section>
+      <Section overlap flank="left" flankTone="blush">
         <Container>
           <div className="flex max-w-3xl flex-col gap-5">
             <p className="text-lg leading-relaxed text-brand-800">{t("praxisIntro1")}</p>
@@ -69,7 +69,7 @@ export default function Praxis() {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section tone="tint" overlap flank="right" flankTone="blue">
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("insightsEyebrow")}
@@ -97,9 +97,9 @@ export default function Praxis() {
       {/* Tones alternate down the page: light intro, tint gallery, light
           bio, tint trust row, then the dark CTA. Two neighbours sharing a
           tone read as one long section with a gap in the middle. */}
-      <DoctorIntro tone="light" />
-      <TrustRow tone="tint" />
-      <CtaBanner />
+      <DoctorIntro tone="light" overlap flank="left" flankTone="accent" />
+      <TrustRow tone="tint" overlap />
+      <CtaBanner overlap />
     </>
   )
 }

@@ -37,7 +37,7 @@ export default function Preise() {
         description={t("pricesHeroDescription")}
       />
 
-      <Section>
+      <Section overlap flank="left" flankTone="blush">
         <Container className="flex flex-col gap-12">
           <SectionHeader
             eyebrow="Laser"
@@ -49,7 +49,7 @@ export default function Preise() {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section tone="tint" overlap flank="right" flankTone="blue">
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("individualEyebrow")}
@@ -65,7 +65,7 @@ export default function Preise() {
         </Container>
       </Section>
 
-      <CtaBanner />
+      <CtaBanner overlap />
     </>
   )
 }

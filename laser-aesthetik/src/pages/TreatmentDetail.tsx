@@ -107,7 +107,7 @@ export default function TreatmentDetail() {
         </Container>
       </Section>
 
-      <Section>
+      <Section overlap>
         <Container>
           <div className="grid gap-10 lg:grid-cols-[16rem_1fr]">
             <div className="order-2 lg:order-1">
@@ -195,7 +195,7 @@ export default function TreatmentDetail() {
         </Container>
       </Section>
 
-      <CtaBanner />
+      <CtaBanner overlap />
     </>
   )
 }

@@ -48,7 +48,7 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
         }
       />
 
-      <Section>
+      <Section overlap flank="left" flankTone="blush">
         <Container>
           <div className="flex max-w-3xl flex-col gap-5">
             {info.intro.map((p) => (
@@ -60,7 +60,7 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section tone="tint" overlap flank="right" flankTone="blue">
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={tr("treatmentsLabel")}
@@ -79,7 +79,7 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
       </Section>
 
       {info.faq?.length ? (
-        <Section>
+        <Section overlap>
           <Container>
             <div className="flex max-w-3xl flex-col gap-8">
               <SectionHeader eyebrow={tr("faqEyebrow")} title={tr("goodToKnowTitle")} accent={tr("goodToKnowAccent")} />
@@ -89,7 +89,7 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
         </Section>
       ) : null}
 
-      <CtaBanner />
+      <CtaBanner overlap />
     </>
   )
 }

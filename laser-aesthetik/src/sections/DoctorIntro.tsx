@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container"
+import type { FlankSide, FlankTone } from "@/components/layout/Flank"
 import { Section, type SectionTone } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { FeatureList } from "@/components/content/FeatureList"
@@ -6,11 +7,21 @@ import { practice } from "@/content/practice"
 import { useT } from "@/content/ui"
 import doctorPortrait from "@/assets/praxis/dr-dost-portrait.webp"
 
-export function DoctorIntro({ tone = "light" }: { tone?: SectionTone } = {}) {
+export function DoctorIntro({
+  tone = "light",
+  overlap = false,
+  flank,
+  flankTone,
+}: {
+  tone?: SectionTone
+  overlap?: boolean
+  flank?: FlankSide
+  flankTone?: FlankTone
+} = {}) {
   const t = useT()
 
   return (
-    <Section tone={tone}>
+    <Section tone={tone} overlap={overlap} flank={flank} flankTone={flankTone}>
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
         {/* A real photograph of the doctor in his own practice, so this slot
             can finally name him. The caption sits over the image rather than

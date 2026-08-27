@@ -135,4 +135,39 @@ describe("design tokens", () => {
     // The invalid shorthand must never come back.
     expect(css).not.toMatch(/var\(--color-[a-z-]+\)\s*\/\s*[\d.]+/)
   })
+
+  it("declares the blush tint used by the soft flanks", () => {
+    expect(css).toContain("--color-blush:")
+  })
+
+  it("keeps blush decoration-only, like fresh", () => {
+    // It is accent at roughly 5% on white — nowhere near a contrast ratio that
+    // could carry a glyph or a border. Backgrounds and gradient stops only, so
+    // it never acquires a contrast obligation it cannot meet.
+    const srcRoot = resolve(__dirname)
+    const hits = execSync(
+      `grep -rEl --include='*.tsx' '(text|border|ring|outline|fill|stroke|divide)-blush' ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    ).trim()
+    expect(hits).toBe("")
+  })
+
+  it("declares a sheet radius distinct from the card radius", () => {
+    // Bands and cards round at different scales: a full-bleed band needs a
+    // bigger radius than a 20rem card to read as the same curvature.
+    expect(css).toContain("--radius-sheet:")
+    const sheet = css.match(/--radius-sheet:\s*([\d.]+)rem/)?.[1]
+    const card = css.match(/--radius-card:\s*([\d.]+)rem/)?.[1]
+    expect(sheet, "--radius-sheet missing or not in rem").toBeTruthy()
+    expect(Number(sheet)).toBeGreaterThan(Number(card))
+  })
+
+  it("casts the seam shadow upward, so a sheet reads as in front of the band above", () => {
+    // A positive y-offset would read as the band ABOVE floating over the
+    // sheet — backwards from the stacking the layout actually builds, and the
+    // single detail that makes the overlap legible rather than just rounded.
+    const rule = css.match(/\.sheet\s*\{[^}]*\}/)?.[0]
+    expect(rule, ".sheet rule missing").toBeTruthy()
+    expect(rule).toMatch(/box-shadow:\s*0\s+-/)
+  })
 })

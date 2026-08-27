@@ -48,6 +48,18 @@
    * that one is a dark, muted green that turns olive at wash opacity.
    */
   --color-fresh: #34A853;
+  /*
+   * Decoration only, on the same contract as `fresh`. The soft flanks needed a
+   * warm tint to alternate against the blue ramp, or the whole page reads as
+   * one blue wash with the odd magenta heading in it. This is `accent` at
+   * roughly 12% on white — far too pale to carry a glyph or a border, which is
+   * exactly why index.css.test.ts forbids it from ever being one.
+   *
+   * It sits on the brand-50 tint band as often as on white, and two pale
+   * washes one step apart cancel out: at 5% this was invisible against the
+   * tint and the left half of the page just looked slightly dirty.
+   */
+  --color-blush: #FAE6F1;
   /* RESERVED for the future subscription tier. Used nowhere in v1. */
   --color-premium: #D7A01C;
 
@@ -76,6 +88,13 @@
 
   /* ── Radii ───────────────────────────────────────────────────────────── */
   --radius-card: 1rem;
+  /*
+   * The top corners of a full-bleed band that overlaps the one above it. It
+   * has to be larger than --radius-card: curvature reads by its ratio to the
+   * width of the thing it is rounding, so 1rem on a 72rem band looks like a
+   * rendering artefact where it looks generous on a 20rem card.
+   */
+  --radius-sheet: 2rem;
   --radius-pill: 62.4375rem;
 }
 
@@ -132,6 +151,28 @@
    * and sits underneath, with the two radial blooms on top anchoring each
    * hue to its own corner so the handoff has somewhere to start and end.
    */
+  /*
+   * A band that sits IN FRONT of the band above it rather than beside it.
+   * Section.tsx pairs this with the negative top margin that does the pulling;
+   * this class is only the two decorative halves of the effect.
+   *
+   * The shadow is cast UPWARD — negative y-offset. That is the whole trick.
+   * A conventional downward shadow here would read as the band above floating
+   * over this one, which is backwards, and without any shadow at all the
+   * rounded corners just look like a mistake in the background colour.
+   *
+   * Real CSS rather than a Tailwind arbitrary value for the same reason
+   * .hero-wash is: an arbitrary value containing commas and a color-mix()
+   * call has to survive Tailwind's class parser, and it does not survive it
+   * intact.
+   */
+  .sheet {
+    border-top-left-radius: var(--radius-sheet);
+    border-top-right-radius: var(--radius-sheet);
+    box-shadow: 0 -1.5rem 3rem -1.25rem
+      color-mix(in oklab, var(--color-brand-950) 22%, transparent);
+  }
+
   .hero-wash {
     background-image:
       radial-gradient(

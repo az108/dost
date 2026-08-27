@@ -27,14 +27,23 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
           <h3 className="font-display text-2xl font-extrabold">{group}</h3>
 
           {/* The table is wider than a phone. It scrolls inside this wrapper
-              so the page body never scrolls horizontally. */}
-          <div className="overflow-x-auto rounded-card border border-brand-100">
+              so the page body never scrolls horizontally.
+
+              bg-white is load-bearing, not decoration. The pricing sections
+              carry a background flank, and a transparent table lets that
+              colour through its own rows: the header's tint reads as a
+              gradient across its width and the row rules vanish into the
+              wash. The table owns its surface. */}
+          <div className="overflow-x-auto rounded-card border border-brand-100 bg-white">
             <table className="w-full min-w-[42rem] border-collapse text-left">
               <caption className="sr-only">
                 {tr("pricesForCaption")} {group}
               </caption>
+              {/* The header is a band, so it needs a bottom edge of its own —
+                  otherwise it runs straight into the first row and the two
+                  read as one. */}
               <thead className="bg-brand-50">
-                <tr>
+                <tr className="border-b border-brand-200">
                   <th scope="col" className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-700">
                     {tr("zone")}
                   </th>
@@ -64,7 +73,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                   const tiers = packageTiers(treatment.pricing)
                   const single = treatment.pricing.kind === "fixed" ? treatment.pricing.single : 0
                   return (
-                    <tr key={treatment.slug} className="border-t border-brand-100">
+                    <tr key={treatment.slug} className="border-t border-brand-200">
                       <th scope="row" className="px-4 py-4 font-display font-bold text-brand-ink">
                         {treatment.title}
                       </th>

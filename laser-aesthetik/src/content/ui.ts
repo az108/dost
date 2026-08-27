@@ -295,6 +295,17 @@ export const ui = {
   },
 
   // ── Trust row ────────────────────────────────────────────────────────
+  /*
+   * Names the three trust points as one group. Never shown: the panel is
+   * read visually as three items under the hero and a visible heading would
+   * only repeat what the items already say. It exists because the three
+   * point titles are h3s, and an h3 with no h2 above it leaves anyone
+   * navigating by heading unable to tell where this group begins.
+   */
+  trustGroupTitle: {
+    de: "Wofür diese Praxis steht",
+    en: "What this practice stands for",
+  },
   physicianLed: { de: "Ärztlich durchgeführt", en: "Physician-led" },
   trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out by" },
   trustDoctorSuffix: {
