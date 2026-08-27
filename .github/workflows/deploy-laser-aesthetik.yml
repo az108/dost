@@ -33,39 +33,38 @@ jobs:
       # "Input required and not supplied: server". Only emptiness is tested;
       # no secret value is ever printed.
       - name: Check deployment credentials are set
+        # Overrides the job-wide `laser-aesthetik` working directory. This step
+        # runs before checkout, so that path does not exist yet and bash cannot
+        # start in it. The workspace root does exist from the outset.
+        working-directory: ${{ github.workspace }}
         env:
-          # Secret first, variable as fallback, so the workflow runs whichever
-          # tab the value was put in. An unset secret expands to "", which is
-          # falsy, so `||` reaches the variable.
-          #
-          # Prefer the Secrets tab for all three. This repository is PUBLIC,
-          # which makes its Actions logs world-readable, and GitHub masks
-          # secrets in logs but prints variables verbatim. A leaked host and
-          # username leave only the password between a stranger and write
-          # access to a webspace serving ~61 domains over a protocol with no
-          # MFA and no rate limiting.
-          FTP_SERVER: ${{ secrets.ALLINKL_FTP_SERVER || vars.ALLINKL_FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.ALLINKL_FTP_USERNAME || vars.ALLINKL_FTP_USERNAME }}
+          # These must read the SAME sources as the Deploy step below. If the
+          # two ever disagree, this check passes and the upload then fails with
+          # an empty input — exactly the confusing failure it exists to prevent.
+          # Move a value between the Secrets and Variables tabs and you must
+          # change it in both places.
+          FTP_SERVER: ${{ vars.ALLINKL_FTP_SERVER }}
+          FTP_USERNAME: ${{ vars.ALLINKL_FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
-          SERVER_IS_VAR: ${{ vars.ALLINKL_FTP_SERVER != '' }}
-          USERNAME_IS_VAR: ${{ vars.ALLINKL_FTP_USERNAME != '' }}
         run: |
           missing=""
-          [ -n "$FTP_SERVER" ]   || missing="$missing ALLINKL_FTP_SERVER"
-          [ -n "$FTP_USERNAME" ] || missing="$missing ALLINKL_FTP_USERNAME"
-          [ -n "$FTP_PASSWORD" ] || missing="$missing ALLINKL_FTP_PASSWORD"
+          [ -n "$FTP_SERVER" ]   || missing="$missing ALLINKL_FTP_SERVER(variable)"
+          [ -n "$FTP_USERNAME" ] || missing="$missing ALLINKL_FTP_USERNAME(variable)"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing ALLINKL_FTP_PASSWORD(secret)"
           if [ -n "$missing" ]; then
             echo "::error::Missing credential(s):$missing"
-            echo "Set them under Settings -> Secrets and variables -> Actions."
-            echo "The password MUST be a Secret. Host and username work as either,"
-            echo "but belong in Secrets too while this repository is public."
+            echo "Settings -> Secrets and variables -> Actions."
+            echo "Host and username are read from the Variables tab, password from Secrets."
             exit 1
           fi
-          if [ "$SERVER_IS_VAR" = "true" ] || [ "$USERNAME_IS_VAR" = "true" ]; then
-            echo "::warning::FTP host and/or username are repository Variables, not Secrets."
-            echo "::warning::This repo is public, so Variables appear verbatim in these logs."
-            echo "::warning::Move them to the Secrets tab to have them masked as ***."
-          fi
+          # Standing hygiene note, not a failure. This repository is public,
+          # so these logs are world-readable, and GitHub prints Variables
+          # verbatim while masking Secrets as ***. Publishing the host and
+          # username leaves only the password guarding write access to a
+          # webspace serving ~61 domains over a protocol with no MFA and no
+          # rate limiting. Moving both to Secrets means editing this step and
+          # the Deploy step together.
+          echo "::warning::FTP host and username are Variables, so they appear verbatim in this public log."
           echo "All three FTP credentials are present."
 
       - name: Checkout
@@ -111,8 +110,8 @@ jobs:
         # warn about. Input names are identical between the two.
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ${{ secrets.ALLINKL_FTP_SERVER || vars.ALLINKL_FTP_SERVER }}
-          username: ${{ secrets.ALLINKL_FTP_USERNAME || vars.ALLINKL_FTP_USERNAME }}
+          server: ${{ vars.ALLINKL_FTP_SERVER }}
+          username: ${{ vars.ALLINKL_FTP_USERNAME }}
           password: ${{ secrets.ALLINKL_FTP_PASSWORD }}
           # ALL-INKL supports explicit FTPS. If the handshake fails, set the
           # ALLINKL_FTP_PROTOCOL variable to `ftp` to fall back.
