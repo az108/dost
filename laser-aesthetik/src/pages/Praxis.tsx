@@ -12,20 +12,18 @@ import { DoctorIntro } from "@/sections/DoctorIntro"
 import { TrustRow } from "@/sections/TrustRow"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
-import laserKonsole from "@/assets/praxis/laser-konsole.webp"
-import laserHandstueck from "@/assets/praxis/laser-handstueck.webp"
-import behandlungsgeraet from "@/assets/praxis/behandlungsgeraet.webp"
-import behandlungsraum from "@/assets/praxis/behandlungsraum.webp"
-import wartebereich from "@/assets/praxis/wartebereich.webp"
-import beratungsecke from "@/assets/praxis/beratungsecke.webp"
+import laserGeraet from "@/assets/praxis/laser-geraet.webp"
+import laserHandstueckArzt from "@/assets/praxis/laser-handstueck-arzt.webp"
+import sprechzimmer from "@/assets/praxis/sprechzimmer.webp"
+import drDostSchreibtisch from "@/assets/praxis/dr-dost-schreibtisch.webp"
 
+// All real photographs of this practice. laserHandstueckArzt is absent
+// because it greets visitors in the hero above; repeating it a screen later
+// reads as padding rather than as a second thing worth seeing.
 const galleryImages: { src: string; altKey: UiKey }[] = [
-  { src: laserKonsole, altKey: "praxisAltLaserConsole" },
-  { src: laserHandstueck, altKey: "praxisAltLaserHandpiece" },
-  { src: behandlungsgeraet, altKey: "praxisAltTreatmentDeviceTouch" },
-  { src: behandlungsraum, altKey: "praxisAltTreatmentRoom" },
-  { src: wartebereich, altKey: "praxisAltWaitingArea" },
-  { src: beratungsecke, altKey: "praxisAltConsultationCorner" },
+  { src: laserGeraet, altKey: "praxisAltLaserDevice" },
+  { src: sprechzimmer, altKey: "praxisAltConsultingRoom" },
+  { src: drDostSchreibtisch, altKey: "doctorAltAtDesk" },
 ]
 
 /**
@@ -58,6 +56,8 @@ export default function Praxis() {
         lead={t("praxisHeroLead")}
         accent={t("praxisHeroAccent")}
         description={t("praxisHeroDescription")}
+        image={laserHandstueckArzt}
+        imageAlt={t("praxisAltDoctorWithHandpiece")}
       />
 
       <Section>
@@ -75,7 +75,7 @@ export default function Praxis() {
             eyebrow={t("insightsEyebrow")}
             title={t("roomsAndTechTitle")}
             accent={t("roomsAndTechAccent")}
-            lead={t("galleryDisclaimer")}
+            lead={t("galleryLead")}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {galleryImages.map((image, i) => (
@@ -94,8 +94,11 @@ export default function Praxis() {
         </Container>
       </Section>
 
-      <DoctorIntro />
-      <TrustRow />
+      {/* Tones alternate down the page: light intro, tint gallery, light
+          bio, tint trust row, then the dark CTA. Two neighbours sharing a
+          tone read as one long section with a gap in the middle. */}
+      <DoctorIntro tone="light" />
+      <TrustRow tone="tint" />
       <CtaBanner />
     </>
   )

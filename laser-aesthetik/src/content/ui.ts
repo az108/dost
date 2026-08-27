@@ -40,8 +40,8 @@ export const ui = {
     en: "Package prices apply when the full package is paid upfront. All prices include VAT.",
   },
   priceDependsOnAssessment: {
-    de: "Der Preis hängt vom Befund und vom Behandlungsumfang ab. Wir besprechen ihn im Erstgespräch — verbindlich und bevor eine Behandlung beginnt.",
-    en: "The price depends on the assessment and scope of treatment. We'll discuss it in the initial consultation — bindingly, and before any treatment begins.",
+    de: "Der Preis hängt vom Befund und vom Behandlungsumfang ab. Wir besprechen ihn im Erstgespräch und legen ihn dort verbindlich fest, bevor eine Behandlung beginnt.",
+    en: "The price depends on the assessment and scope of treatment. We'll discuss it in the initial consultation and agree a binding price there, before any treatment begins.",
   },
   onRequestLead: {
     de: "Bei diesen Behandlungen hängt der Preis vom Befund ab. Wir nennen ihn verbindlich im Erstgespräch, bevor eine Behandlung beginnt.",
@@ -54,6 +54,7 @@ export const ui = {
   pricesForCaption: { de: "Preise für", en: "Prices for" },
   detailsLink: { de: "Details", en: "View details" },
   detailsAndBook: { de: "Details & buchen", en: "Details & booking" },
+  learnMore: { de: "Mehr erfahren", en: "Learn more" },
   minutesSuffix: { de: "Min.", en: "min" },
   zone: { de: "Zone", en: "Area" },
   duration: { de: "Dauer", en: "Duration" },
@@ -68,8 +69,8 @@ export const ui = {
   allInThisTitle: { de: "Alles in diesem", en: "Everything in this" },
   allInThisAccent: { de: "Bereich", en: "area" },
   categoryTreatmentsCountSuffix: {
-    de: "Behandlungen — jede mit ärztlicher Beratung vorab.",
-    en: "treatments — each with a medical consultation beforehand.",
+    de: "Behandlungen, jede mit ärztlicher Beratung vorab.",
+    en: "treatments, each preceded by a medical consultation.",
   },
 
   // ── Navigation & footer ──────────────────────────────────────────────
@@ -95,12 +96,12 @@ export const ui = {
   homeHeroLead: { de: "Medizin, die", en: "Medicine that" },
   homeHeroAccent: { de: "sichtbar wirkt", en: "delivers visible results" },
   homeHeroDescription: {
-    de: "Dauerhafte Laser-Haarentfernung, Physiotherapie und ästhetische Medizin — ärztlich durchgeführt, in Köning bei Landshut.",
-    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine — carried out by a physician, in Köning near Landshut.",
+    de: "Dauerhafte Laserhaarentfernung, Physiotherapie und ästhetische Medizin. Ärztlich durchgeführt, in Kröning bei Landshut.",
+    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine, all carried out by a physician in Kröning near Landshut.",
   },
   homeMetaDescription: {
-    de: "Privatärztliche Praxis für Laser-Behandlungen, Physiotherapie und ästhetische Medizin in Köning. Ärztlich durchgeführt, mit transparenten Preisen.",
-    en: "Private medical practice for laser treatments, physiotherapy and aesthetic medicine in Köning. Physician-led, with transparent pricing.",
+    de: "Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning. Ärztlich durchgeführt, mit transparenten Preisen.",
+    en: "Private medical practice for laser treatments, physiotherapy and aesthetic medicine in Kröning. Physician-led, with transparent pricing.",
   },
   viewPrices: { de: "Preise ansehen", en: "View prices" },
   threeAreas: { de: "Drei Bereiche", en: "Three areas" },
@@ -193,8 +194,8 @@ export const ui = {
   praxisHeroLead: { de: "Medizin mit", en: "Medicine that" },
   praxisHeroAccent: { de: "Zeit für Sie", en: "takes its time" },
   praxisHeroDescription: {
-    de: "Eine privatärztliche Praxis, in der ein Termin ein Termin ist — und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
-    en: "A private practice where an appointment is an appointment — not a five-minute slot squeezed between two others.",
+    de: "Eine privatärztliche Praxis, in der ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
+    en: "A private practice where an appointment is an appointment, not a five-minute slot squeezed between two others.",
   },
   praxisIntro1: {
     de: "Als Privatpraxis planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
@@ -203,44 +204,43 @@ export const ui = {
   insightsEyebrow: { de: "Einblicke", en: "Insights" },
   roomsAndTechTitle: { de: "Räume und Technik", en: "Rooms and technology" },
   roomsAndTechAccent: { de: "im Überblick", en: "at a glance" },
-  galleryDisclaimer: {
-    de: "Die Aufnahmen zeigen Beispielbilder aus vergleichbaren Praxen — sie geben einen Eindruck von Ausstattung und Atmosphäre.",
-    en: "These are example images from comparable practices — they give an impression of the setting and atmosphere.",
+  galleryLead: {
+    de: "Aufnahmen aus unseren eigenen Räumen in Kröning, einschließlich des Lasers, mit dem wir tatsächlich arbeiten.",
+    en: "Photographs of our own rooms in Kröning, including the laser we actually work with.",
   },
-  praxisAltLaserConsole: {
-    de: "Bedienfeld eines Lasergeräts mit angeschlossenen Handstücken",
-    en: "Control panel of a laser device with connected handpieces",
+  // Every image below is a real photograph of this practice, so these alt
+  // texts may describe the actual equipment and name the doctor. Nothing
+  // here is a stand-in from a stock library any more.
+  doctorAltAtDesk: {
+    de: "Dr. med. univ. Dost Mohammad an seinem Schreibtisch im Sprechzimmer",
+    en: "Dr. med. univ. Dost Mohammad at his desk in the consulting room",
   },
-  praxisAltLaserHandpiece: {
-    de: "Laser-Handstück in der Hand einer Fachkraft",
-    en: "Laser handpiece held by a member of staff",
+  doctorAltInConsultingRoom: {
+    de: "Dr. med. univ. Dost Mohammad im Sprechzimmer der Praxis",
+    en: "Dr. med. univ. Dost Mohammad in the practice's consulting room",
   },
-  praxisAltTreatmentDeviceTouch: {
-    de: "Bedienung eines Behandlungsgeräts per Touchscreen, mit Handschuhen",
-    en: "Operating a treatment device via touchscreen, wearing gloves",
+  praxisAltLaserDevice: {
+    de: "Lasergerät der Praxis im Behandlungsraum, daneben der Schreibtisch",
+    en: "The practice's laser device in the treatment room, beside the desk",
   },
-  praxisAltTreatmentRoom: {
-    de: "Behandlungsliege in einem hellen Behandlungsraum",
-    en: "Treatment couch in a bright treatment room",
+  praxisAltDoctorWithHandpiece: {
+    de: "Dr. med. univ. Dost Mohammad mit dem Laserhandstück neben Lasergerät und Ultraschall",
+    en: "Dr. med. univ. Dost Mohammad holding the laser handpiece beside the laser and ultrasound units",
   },
-  praxisAltWaitingArea: {
-    de: "Heller Wartebereich mit Sitzgelegenheiten und Pflanzen",
-    en: "Bright waiting area with seating and plants",
-  },
-  praxisAltConsultationCorner: {
-    de: "Ruhige Sitzecke für Beratungsgespräche",
-    en: "Quiet seating corner for consultations",
+  praxisAltConsultingRoom: {
+    de: "Sprechzimmer der Praxis mit Schreibtisch, Stethoskop und Blutdruckmessgerät",
+    en: "The practice's consulting room with desk, stethoscope and blood pressure monitor",
   },
   praxisMetaDescription: {
-    de: "Privatärztliche Praxis in Köning — ärztlich geführte Laser-, Physio- und Ästhetikbehandlungen.",
-    en: "Private medical practice in Köning — physician-led laser, physiotherapy and aesthetic treatments.",
+    de: "Privatärztliche Praxis in Kröning mit ärztlich geführten Laser-, Physio- und Ästhetikbehandlungen.",
+    en: "Private medical practice in Kröning offering physician-led laser, physiotherapy and aesthetic treatments.",
   },
 
   // ── Prices page ──────────────────────────────────────────────────────
   pricesHeroLead: { de: "Preise, die", en: "Prices that" },
   pricesHeroAccent: { de: "niemanden überraschen", en: "surprise no one" },
   pricesHeroDescription: {
-    de: "Alle Laser-Zonen mit festen Preisen. Paketrabatte: 20 % im 3er, 40 % im 5er, 45 % im 10er.",
+    de: "Alle Laserzonen mit festen Preisen. Paketrabatte: 20 % im 3er, 40 % im 5er, 45 % im 10er.",
     en: "All laser zones have fixed prices. Package discounts: 20% on 3 sessions, 40% on 5, 45% on 10.",
   },
   allZonesTitle: { de: "Alle Zonen im", en: "All zones at a" },
@@ -249,15 +249,15 @@ export const ui = {
   treatmentsOnRequestTitle: { de: "Behandlungen auf", en: "Treatments on" },
   treatmentsOnRequestAccent: { de: "Anfrage", en: "request" },
   pricesMetaDescription: {
-    de: "Alle Laser-Behandlungszonen mit festen Preisen und Paketrabatten von bis zu 45 %.",
+    de: "Alle Laserbehandlungszonen mit festen Preisen und Paketrabatten von bis zu 45 %.",
     en: "Every laser treatment zone at a fixed price, with package discounts of up to 45%.",
   },
 
   // ── 404 page ─────────────────────────────────────────────────────────
   notFoundTitle: { de: "Seite nicht gefunden", en: "Page not found" },
   notFoundBody: {
-    de: "Diese Seite gibt es nicht — oder nicht mehr. Vielleicht finden Sie über die Startseite, was Sie suchen.",
-    en: "This page doesn't exist — or not anymore. You might find what you're looking for on the homepage.",
+    de: "Diese Seite gibt es nicht oder nicht mehr. Vielleicht finden Sie über die Startseite, was Sie suchen.",
+    en: "This page doesn't exist, or it isn't here anymore. You might find what you're looking for on the homepage.",
   },
   notFoundHomeLink: { de: "Zur Startseite", en: "Go to the homepage" },
 
@@ -290,25 +290,25 @@ export const ui = {
   },
   aftercare: { de: "Nachsorge", en: "Aftercare" },
   aftercareBody: {
-    de: "Sie erhalten konkrete Pflegehinweise für die Tage danach — und einen Folgetermin, wenn sinnvoll.",
-    en: "You'll get concrete aftercare instructions for the days that follow — and a follow-up appointment if it makes sense.",
+    de: "Sie erhalten konkrete Pflegehinweise für die Tage danach und, wenn sinnvoll, einen Folgetermin.",
+    en: "You'll get concrete aftercare instructions for the days that follow, plus a follow-up appointment if it makes sense.",
   },
 
   // ── Trust row ────────────────────────────────────────────────────────
   physicianLed: { de: "Ärztlich durchgeführt", en: "Physician-led" },
-  trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out personally by" },
+  trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out by" },
   trustDoctorSuffix: {
-    de: "persönlich durch — keine kosmetische Anwendung ohne ärztliche Aufsicht.",
-    en: "— no cosmetic procedure takes place without medical supervision.",
+    de: "persönlich durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
+    en: "personally. No cosmetic procedure takes place without medical supervision.",
   },
   consultBeforeTreatment: { de: "Beratung vor Behandlung", en: "Consultation before treatment" },
   consultBeforeTreatmentBody: {
     de: "Vor jedem Eingriff klären wir Hauttyp, Kontraindikationen und realistische Erwartungen. Auch wenn das heißt, von einer Behandlung abzuraten.",
-    en: "Before every procedure we assess skin type, check for contraindications, and set realistic expectations — even if that means advising against a treatment.",
+    en: "Before every procedure we assess skin type, check for contraindications, and set realistic expectations. Even if that means advising against a treatment.",
   },
   transparentPricing: { de: "Transparente Preise", en: "Transparent pricing" },
   transparentPricingBody: {
-    de: "Alle Laser-Zonen mit festen Preisen und Paketrabatten. Keine versteckten Kosten, keine Überraschung am Empfang.",
+    de: "Alle Laserzonen mit festen Preisen und Paketrabatten. Keine versteckten Kosten, keine Überraschung am Empfang.",
     en: "All laser zones have fixed prices with package discounts. No hidden costs, no surprises at the front desk.",
   },
 
@@ -316,8 +316,8 @@ export const ui = {
   ctaTitle: { de: "Bereit für Ihren", en: "Ready for your" },
   ctaAccent: { de: "Termin?", en: "appointment?" },
   ctaLead: {
-    de: "Buchen Sie online in unter einer Minute — Sie werden direkt zu Doctolib weitergeleitet.",
-    en: "Book online in under a minute — you'll be redirected straight to Doctolib.",
+    de: "Buchen Sie online in unter einer Minute. Sie werden direkt zu Doctolib weitergeleitet.",
+    en: "Book online in under a minute. You'll be redirected straight to Doctolib.",
   },
 } as const satisfies Record<string, Localized>
 

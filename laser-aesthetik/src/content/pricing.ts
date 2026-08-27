@@ -11,7 +11,7 @@ export const PACKAGE_DISCOUNTS: { sessions: 3 | 5 | 10; discountPct: number }[] 
 ]
 
 /**
- * Derives package tiers from the single-session price. Kombi-Pakete use
+ * Derives package tiers from the single-session price. Kombipakete use
  * shallower, non-derivable discounts and supply `overrides` instead.
  */
 export function packageTiers(pricing: Pricing): PackageTier[] {

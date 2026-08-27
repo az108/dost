@@ -13,13 +13,15 @@ export default function NotFound() {
   useSeo({ title: t("notFoundTitle") })
 
   return (
-    <Section>
+    // Tinted for the same reason as the legal pages: no CtaBanner below, so
+    // the white footer needs something other than white above it.
+    <Section tone="tint">
       <Container className="flex flex-col items-center gap-6 text-center">
         <h1 className="text-4xl sm:text-5xl">{t("notFoundTitle")}</h1>
         <p className="max-w-md text-lg text-brand-700">{t("notFoundBody")}</p>
         <Link
           to={homePath(locale)}
-          className="font-semibold text-action-ink hover:underline"
+          className="font-semibold text-brand-ink hover:underline"
         >
           {t("notFoundHomeLink")}
         </Link>

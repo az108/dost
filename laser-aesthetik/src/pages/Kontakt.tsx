@@ -10,6 +10,7 @@ import { BookingButton } from "@/components/cta/BookingButton"
 import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/praxis/dr-dost-sprechzimmer.webp"
 
 const mapsUrl = `https://www.openstreetmap.org/search?query=${encodeURIComponent(
   `${practice.street}, ${practice.postalCode} ${practice.city}`,
@@ -32,6 +33,8 @@ export default function Kontakt() {
         lead={t("contactHeroLead")}
         accent={t("contactHeroAccent")}
         description={t("contactHeroDescription")}
+        image={heroImage}
+        imageAlt={t("doctorAltInConsultingRoom")}
       />
 
       <Section>

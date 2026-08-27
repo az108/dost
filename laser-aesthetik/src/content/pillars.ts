@@ -1,32 +1,39 @@
-import type { Locale, LocalizedPillarInfo, Pillar, PillarInfo } from "./types"
+import type { FaqItem, Locale, LocalizedPillarInfo, Pillar, PillarInfo } from "./types"
 import { resolvePillar } from "./localize"
+import laserImg from "@/assets/praxis/laser-geraet.webp"
+import physioImg from "@/assets/physio/schmerztherapie.webp"
+import aesthetikImg from "@/assets/aesthetik/aesthetische-medizin.webp"
 
 const PILLARS: LocalizedPillarInfo[] = [
   {
     id: "laser",
     label: { de: "Laser", en: "Laser" },
-    title: { de: "Laser-Behandlungen", en: "Laser Treatments" },
+    title: { de: "Laserbehandlungen", en: "Laser Treatments" },
     headline: {
       de: { lead: "Laser, der", accent: "wirklich wirkt" },
       en: { lead: "Laser that", accent: "actually works" },
     },
     excerpt: {
-      de: "Dauerhafte Haarreduktion, Gefäße, Pigmentflecken und Aknenarben — medizinisch geführt, mit transparenten Preisen.",
-      en: "Permanent hair reduction, vascular lesions, pigmentation and acne scars — physician-led, with transparent pricing.",
+      de: "Dauerhafte Haarreduktion, Gefäße, Pigmentflecken und Aknenarben, medizinisch geführt und mit transparenten Preisen.",
+      en: "Permanent hair reduction, vascular lesions, pigmentation and acne scars, physician-led and transparently priced.",
     },
     intro: {
       de: [
-        "Moderne Lasertechnologie arbeitet gezielt: Das Licht wird nur dort aufgenommen, wo es wirken soll — im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
+        "Moderne Lasertechnologie arbeitet gezielt. Das Licht wird nur dort aufgenommen, wo es wirken soll: im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
         "Jede Behandlung beginnt bei uns mit einem ärztlichen Gespräch. Wir bestimmen Ihren Hauttyp, prüfen Kontraindikationen und legen gemeinsam fest, wie viele Sitzungen realistisch nötig sind.",
         "Fachlich korrekt spricht man von dauerhafter Haarreduktion: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Wie viele Sitzungen nötig sind und wie vollständig das Ergebnis ausfällt, hängt von Haut- und Haartyp ab.",
       ],
       en: [
-        "Modern laser technology works with precision: the light is absorbed only where it needs to act — in the hair follicle, the dilated vessel, or the pigment. The surrounding tissue is left unaffected.",
+        "Modern laser technology works with precision. The light is absorbed only where it needs to act: in the hair follicle, the dilated vessel, or the pigment. The surrounding tissue is left unaffected.",
         "Every treatment with us begins with a medical consultation. We assess your skin type, check for contraindications, and agree together on how many sessions are realistically needed.",
         "The medically correct term is permanent hair reduction: in most patients, a small proportion of hair remains. How many sessions are needed, and how complete the result is, depends on skin and hair type.",
       ],
     },
-    icon: "Zap",
+    image: laserImg,
+    imageAlt: {
+      de: "Lasergerät der Praxis im Behandlungsraum",
+      en: "The practice's laser device in the treatment room",
+    },
     faq: {
       de: [
         {
@@ -83,20 +90,24 @@ const PILLARS: LocalizedPillarInfo[] = [
       en: { lead: "Move", accent: "pain-free" },
     },
     excerpt: {
-      de: "Schmerztherapie, manuelle Therapie, Sportmedizin und Akupunktur — ärztlich begleitet, individuell geplant.",
-      en: "Pain therapy, manual therapy, sports medicine and acupuncture — medically supervised, individually planned.",
+      de: "Schmerztherapie, manuelle Therapie, Sportmedizin und Akupunktur, ärztlich begleitet und individuell geplant.",
+      en: "Pain therapy, manual therapy, sports medicine and acupuncture, medically supervised and individually planned.",
     },
     intro: {
       de: [
-        "Schmerz ist ein Signal, kein Schicksal. Wir suchen die Ursache, statt nur das Symptom zu dämpfen — und kombinieren dafür schulmedizinische und naturheilkundliche Verfahren.",
+        "Schmerz ist ein Signal, kein Schicksal. Wir suchen die Ursache, statt nur das Symptom zu dämpfen, und kombinieren dafür schulmedizinische und naturheilkundliche Verfahren.",
         "Ob nach einer Sportverletzung, bei chronischen Rückenbeschwerden oder Problemen mit dem Bewegungsapparat: Ihr Behandlungsplan entsteht nach einer gründlichen Untersuchung, nicht nach Schema F.",
       ],
       en: [
-        "Pain is a signal, not fate. We look for the cause instead of merely dampening the symptom — combining conventional medicine with naturopathic methods to do so.",
+        "Pain is a signal, not fate. We look for the cause instead of merely dampening the symptom, combining conventional medicine with naturopathic methods to do so.",
         "Whether after a sports injury, with chronic back pain, or issues with the musculoskeletal system: your treatment plan is developed after a thorough examination, not from a standard template.",
       ],
     },
-    icon: "Activity",
+    image: physioImg,
+    imageAlt: {
+      de: "Sportler greift sich an den schmerzenden Oberschenkel",
+      en: "Athlete gripping a painful thigh",
+    },
     faq: {
       de: [
         {
@@ -143,20 +154,24 @@ const PILLARS: LocalizedPillarInfo[] = [
       en: { lead: "Naturally", accent: "yourself" },
     },
     excerpt: {
-      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster — zurückhaltend dosiert, ärztlich durchgeführt.",
-      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters — dosed conservatively, carried out by a physician.",
+      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und ärztlich durchgeführt.",
+      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by a physician.",
     },
     intro: {
       de: [
-        "Ästhetische Medizin soll nicht auffallen. Unser Anspruch ist ein Ergebnis, das ausgeruht wirkt und Ihre Mimik erhält — nicht ein Gesicht, das behandelt aussieht.",
+        "Ästhetische Medizin soll nicht auffallen. Unser Anspruch ist ein Ergebnis, das ausgeruht wirkt und Ihre Mimik erhält, nicht ein Gesicht, das behandelt aussieht.",
         "Alle Eingriffe führt Dr. med. univ. Dost Mohammad persönlich durch. Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten.",
       ],
       en: [
-        "Aesthetic medicine shouldn't be noticeable. Our aim is a result that looks well-rested and preserves your natural expression — not a face that looks treated.",
-        "Every procedure is carried out personally by Dr. med. univ. Dost Mohammad. Before each treatment, we discuss openly what makes medical sense — and what we would advise against.",
+        "Aesthetic medicine shouldn't be noticeable. Our aim is a result that looks well-rested and preserves your natural expression, not a face that looks treated.",
+        "Every procedure is carried out personally by Dr. med. univ. Dost Mohammad. Before each treatment, we discuss openly what makes medical sense and what we would advise against.",
       ],
     },
-    icon: "Sparkles",
+    image: aesthetikImg,
+    imageAlt: {
+      de: "Beratungsgespräch mit einer Patientin vor einer ästhetischen Behandlung",
+      en: "Consultation with a patient before an aesthetic treatment",
+    },
     faq: {
       de: [
         {
@@ -171,7 +186,7 @@ const PILLARS: LocalizedPillarInfo[] = [
         {
           question: "Was passiert im Erstgespräch?",
           answer:
-            "Wir besprechen Ihren Wunsch, sehen uns die betreffende Region an und sagen offen, was medizinisch sinnvoll ist — und wovon wir abraten.",
+            "Wir besprechen Ihren Wunsch, sehen uns die betreffende Region an und sagen offen, was medizinisch sinnvoll ist und wovon wir abraten.",
         },
       ],
       en: [
@@ -187,7 +202,7 @@ const PILLARS: LocalizedPillarInfo[] = [
         {
           question: "What happens at the initial consultation?",
           answer:
-            "We discuss what you'd like, examine the area in question, and tell you openly what makes medical sense — and what we'd advise against.",
+            "We discuss what you'd like, examine the area in question, and tell you openly what makes medical sense and what we'd advise against.",
         },
       ],
     },
@@ -202,4 +217,35 @@ export function pillarById(id: Pillar, locale: Locale): PillarInfo {
   const found = PILLARS.find((p) => p.id === id)
   if (!found) throw new Error(`Unbekannte Kategorie: ${id}`)
   return resolvePillar(found, locale)
+}
+
+/**
+ * The home page's FAQ. Deliberately assembled from questions the pillars
+ * already answer rather than written fresh: every line of medical-adjacent
+ * copy on this site is a claim surface, and these four are reused verbatim
+ * from entries that have already been through review.
+ *
+ * The four chosen are the practice-level ones — referral, first appointment,
+ * who treats you, reimbursement — rather than anything zone-specific, since a
+ * visitor on the home page has not picked a treatment yet.
+ *
+ * Selected by their German question text, not by index, so reordering a
+ * pillar's FAQ cannot silently swap a question here. A question that no
+ * longer exists throws instead of resolving to undefined.
+ */
+const HOME_FAQ: { pillar: Pillar; question: string }[] = [
+  { pillar: "physio", question: "Brauche ich eine Überweisung?" },
+  { pillar: "aesthetik", question: "Was passiert im Erstgespräch?" },
+  { pillar: "aesthetik", question: "Wer führt die Behandlung durch?" },
+  { pillar: "physio", question: "Übernimmt meine Versicherung die Kosten?" },
+]
+
+export function homeFaq(locale: Locale): FaqItem[] {
+  return HOME_FAQ.map(({ pillar, question }) => {
+    const found = PILLARS.find((p) => p.id === pillar)
+    if (!found?.faq) throw new Error(`Kategorie ohne FAQ: ${pillar}`)
+    const index = found.faq.de.findIndex((item) => item.question === question)
+    if (index === -1) throw new Error(`FAQ-Frage nicht mehr vorhanden: ${question}`)
+    return found.faq[locale][index]
+  })
 }

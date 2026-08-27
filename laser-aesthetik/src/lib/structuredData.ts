@@ -12,7 +12,7 @@ export function medicalClinicJsonLd(): string {
     "@type": "MedicalClinic",
     name: practice.brand,
     description:
-      "Privatärztliche Praxis für Laser-Behandlungen, Physiotherapie und ästhetische Medizin.",
+      "Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin.",
     address: {
       "@type": "PostalAddress",
       streetAddress: practice.street,

@@ -16,7 +16,8 @@ export function resolvePillar(p: LocalizedPillarInfo, locale: Locale): PillarInf
     headline: p.headline[locale],
     excerpt: p.excerpt[locale],
     intro: p.intro[locale],
-    icon: p.icon,
+    image: p.image,
+    imageAlt: p.imageAlt?.[locale],
     faq: p.faq?.[locale],
   }
 }

@@ -72,9 +72,11 @@ Run `npm test`. Every failing test is a go-live blocker by design:
   carries `pricing: { kind: "onRequest" }`; only Laser has fixed prices.
   The client must supply real prices (or confirm "on request" is
   intentional) before go-live.
-- **Doctor portrait** — the bio panel (`src/sections/DoctorIntro.tsx`)
-  deliberately shows the practice logo rather than a stock face; a real
-  portrait of Dr. med. univ. Dost Mohammad is still needed.
+- **Practice imagery** — done. The Praxis gallery, both category and page
+  heroes and the bio panel all use real photographs of the practice and of
+  Dr. med. univ. Dost Mohammad (`src/assets/praxis/`), so the "Beispielbilder
+  aus vergleichbaren Praxen" disclaimer is gone. Unsplash stock now only
+  illustrates individual treatments, never the practice itself.
 
 The site sets no cookies and loads no third-party resources, which is why it
 ships without a consent banner. Adding analytics, embedded maps or hosted
@@ -94,18 +96,15 @@ config. Outstanding before go-live, in priority order:
    `PRÜFEN:` markers for the responsible medical chamber and the hosting
    provider. §5 TMG and DSGVO Art. 13 make this content legally
    consequential; a lawyer must review both.
-4. **A real portrait of the doctor** — the bio panel deliberately shows the
-   practice crest and his name as text, because a stock photo captioned
-   with a real physician's name would misrepresent him to patients.
-5. **Physio and Ästhetik prices** — currently "Preis auf Anfrage", the
+4. **Physio and Ästhetik prices** — currently "Preis auf Anfrage", the
    pricing field is wired, so supplying numbers is a data edit. Note this
    also covers three Laser treatments that carry the same
    `{ kind: "onRequest" }` pricing — Gefäßbehandlung, Pigmentflecken and
    Aknenarben — not only the Physio and Ästhetik pillars.
-6. **Stock photography** — the 29 treatment images are licensed Unsplash
-   stock standing in for photos of the actual practice. Per-image sources
-   are in `CREDITS.md`.
-7. **Contact form recipient and sender domain** — `public/contact.php` has
+5. **Stock photography** — the 29 *treatment* images are licensed Unsplash
+   stock. The practice itself and the doctor are shown only with the
+   practice's own photographs. Per-image sources are in `CREDITS.md`.
+6. **Contact form recipient and sender domain** — `public/contact.php` has
    `RECIPIENT` and `SENDER_DOMAIN` set to placeholders; `deploy.test.ts`
    fails until both are supplied. `SENDER_DOMAIN` must match the live
    domain or the `From` header fails SPF/DKIM and the mail is

@@ -86,15 +86,16 @@ export interface PillarInfo {
   path: string
   /** Short nav label, e.g. "Laser" */
   label: string
-  /** Page title, e.g. "Laser-Behandlungen" */
+  /** Page title, e.g. "Laserbehandlungen" */
   title: string
   headline: { lead: string; accent: string }
   /** One-line teaser for the home-page pillar card */
   excerpt: string
   /** Intro paragraphs for the category page */
   intro: string[]
-  /** lucide-react icon name, e.g. "Zap" */
-  icon: string
+  /** Shown on the home-page pillar card and in the category-page hero */
+  image?: string
+  imageAlt?: string
   faq?: FaqItem[]
 }
 
@@ -112,8 +113,9 @@ export interface LocalizedPillarInfo {
   headline: Localized<{ lead: string; accent: string }>
   excerpt: Localized<string>
   intro: Localized<string[]>
-  /** lucide-react icon name, e.g. "Zap" — not localized */
-  icon: string
+  /** Imported asset URL — not localized; only its alt text is */
+  image?: string
+  imageAlt?: Localized<string>
   faq?: Localized<FaqItem[]>
 }
 

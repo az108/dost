@@ -26,7 +26,7 @@ describe("TreatmentDetail", () => {
 
   it("renders every body paragraph", () => {
     renderAt("/behandlungen/achseln")
-    expect(screen.getByText(/Klassiker der Laser-Haarentfernung/)).toBeInTheDocument()
+    expect(screen.getByText(/Klassiker der Laserhaarentfernung/)).toBeInTheDocument()
   })
 
   it("renders the benefit checklist", () => {

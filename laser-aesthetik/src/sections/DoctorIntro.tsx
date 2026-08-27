@@ -1,33 +1,40 @@
 import { Container } from "@/components/layout/Container"
-import { Section } from "@/components/layout/Section"
+import { Section, type SectionTone } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { FeatureList } from "@/components/content/FeatureList"
 import { practice } from "@/content/practice"
+import { useT } from "@/content/ui"
+import doctorPortrait from "@/assets/praxis/dr-dost-portrait.webp"
 
-export function DoctorIntro() {
+export function DoctorIntro({ tone = "light" }: { tone?: SectionTone } = {}) {
+  const t = useT()
+
   return (
-    <Section>
+    <Section tone={tone}>
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        {/* No portrait of the doctor exists yet. A stock face captioned with
-            a real physician's name would misrepresent them to patients, so
-            this slot deliberately claims nothing until a real photograph is
-            supplied. See DEPLOY.md's go-live list. */}
-        <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-6 rounded-card bg-gradient-to-br from-brand via-brand-900 to-brand-950 p-10 text-center">
+        {/* A real photograph of the doctor in his own practice, so this slot
+            can finally name him. The caption sits over the image rather than
+            beside it, so the name and the face are never separated. */}
+        <figure className="relative aspect-[4/5] w-full overflow-hidden rounded-card">
           <img
-            src="/logo-320.webp"
-            alt=""
-            width={320}
-            height={320}
+            src={doctorPortrait}
+            alt={t("doctorAltAtDesk")}
+            width={900}
+            height={1125}
             loading="lazy"
-            className="size-40 max-w-full"
+            className="size-full object-cover"
           />
-          <p className="font-display text-2xl font-extrabold text-white">
-            {practice.doctor}
-          </p>
-          <p className="text-sm leading-relaxed text-brand-200">
-            {practice.qualifications}
-          </p>
-        </div>
+          {/* Scrim, not decoration: the caption sits on a photograph whose
+              lower half is a light desk, so the text needs its own contrast. */}
+          <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-1 bg-gradient-to-t from-brand-950/90 via-brand-950/70 to-transparent p-6 pt-16">
+            <p className="font-display text-2xl font-extrabold text-white">
+              {practice.doctor}
+            </p>
+            <p className="text-sm leading-relaxed text-brand-100">
+              {practice.qualifications}
+            </p>
+          </figcaption>
+        </figure>
         <div className="flex flex-col gap-6">
           <SectionHeader
             eyebrow="Ihr Arzt"

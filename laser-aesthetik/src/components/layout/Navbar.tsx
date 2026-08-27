@@ -47,7 +47,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-brand-100 bg-white/90 backdrop-blur">
       <a
         href="#hauptinhalt"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white"
       >
         {t("skipToContent")}
       </a>
@@ -62,7 +62,9 @@ export function Navbar() {
               className="size-10 shrink-0"
             />
             <span className="flex flex-col leading-tight">
-              <span className="font-display text-base font-extrabold text-brand">
+              {/* brand-900, not brand: 16px bold sits under the large-text
+                  threshold, so the display blue would be below AA here. */}
+              <span className="font-display text-base font-extrabold text-brand-900">
                 {practice.shortBrand}
               </span>
               <span className="text-xs font-medium text-brand-600">

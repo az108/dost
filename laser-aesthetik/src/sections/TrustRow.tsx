@@ -1,6 +1,6 @@
 import { HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react"
 import { Container } from "@/components/layout/Container"
-import { Section } from "@/components/layout/Section"
+import { Section, type SectionTone } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
 import { practice } from "@/content/practice"
 import { useT, type T } from "@/content/ui"
@@ -25,19 +25,19 @@ function buildPoints(t: T) {
   ]
 }
 
-export function TrustRow() {
+export function TrustRow({ tone = "light" }: { tone?: SectionTone } = {}) {
   const t = useT()
   const points = buildPoints(t)
 
   return (
-    <Section>
+    <Section tone={tone}>
       <Container className="grid gap-10 sm:grid-cols-3">
         {points.map((p, i) => (
-          <Reveal key={p.title} delay={i * 0.08} className="flex flex-col gap-4">
+          <Reveal key={p.title} delay={i * 0.08} className="flex flex-col items-center gap-4 text-center">
             <span className="flex size-12 items-center justify-center rounded-card bg-brand-50">
               <p.icon className="size-6 text-success" aria-hidden="true" />
             </span>
-            <h3 className="font-display text-xl font-extrabold text-brand">{p.title}</h3>
+            <h3 className="font-display text-xl font-extrabold">{p.title}</h3>
             <p className="leading-relaxed text-brand-700">{p.body}</p>
           </Reveal>
         ))}

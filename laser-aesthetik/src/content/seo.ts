@@ -4,7 +4,7 @@ const DEFAULT_KEYWORDS = [
   "Laser Haarentfernung",
   "Physiotherapie",
   "Ästhetische Medizin",
-  "Köning",
+  "Kröning",
   "Landshut",
   "Privatpraxis",
   "Dr. Dost",

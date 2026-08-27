@@ -1,8 +1,9 @@
 # Bildnachweise
 
-Alle Fotos stammen von Unsplash und sind für die kommerzielle Nutzung
-freigegeben (Unsplash License). Die Nennung erfolgt freiwillig zur
-Nachvollziehbarkeit.
+Die Behandlungsbilder stammen von Unsplash und sind für die kommerzielle
+Nutzung freigegeben (Unsplash License). Die Nennung erfolgt freiwillig zur
+Nachvollziehbarkeit. Die Praxis selbst und der Arzt werden ausschließlich mit
+eigenen Aufnahmen gezeigt (siehe unten), nie mit Stockfotos.
 
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
@@ -36,12 +37,6 @@ Nachvollziehbarkeit.
 | src/assets/aesthetik/farblichttherapie.webp | https://unsplash.com/photos/BqEvVaqcLXc | Imran Ali | Unsplash License |
 | src/assets/aesthetik/aesthetische-medizin.webp | https://unsplash.com/photos/xREEa0dZmLY | Sum Sum | Unsplash License |
 | public/og-image.jpg | https://unsplash.com/photos/ECBg5FQkBXI | 何青蓝 | Unsplash License |
-| src/assets/praxis/laser-konsole.webp | https://unsplash.com/photos/4BO_MSTEmL8 | Sam Moghadam | Unsplash License |
-| src/assets/praxis/laser-handstueck.webp | https://unsplash.com/photos/JaL1PZq-gHE | Mélyna Côté | Unsplash License |
-| src/assets/praxis/behandlungsgeraet.webp | https://unsplash.com/photos/628BFPTXBtE | Mélyna Côté | Unsplash License |
-| src/assets/praxis/behandlungsraum.webp | https://unsplash.com/photos/o4OJfrmMC0o | Kimiya Sabbaghan | Unsplash License |
-| src/assets/praxis/wartebereich.webp | https://unsplash.com/photos/VBzRklOb7JA | Amelia Lowell | Unsplash License |
-| src/assets/praxis/beratungsecke.webp | https://unsplash.com/photos/sgD7KEe9Zs8 | Franco Debartolo | Unsplash License |
 
 <!-- Eine Zeile pro Bild. Keine Zeile darf leer bleiben. -->
 
@@ -59,8 +54,23 @@ bei der Praxis.
 `public/favicon.svg` ist ein eigens erstelltes Monogramm in Markenblau
 (`#053AA3`), da das detaillierte Wappen bei 16 px nicht mehr lesbar ist.
 
+## Eigene Aufnahmen der Praxis
+
+Die folgenden Bilder sind keine Stockfotos, sondern eigene Aufnahmen der
+Praxis. Sie zeigen Dr. med. univ. Dost Mohammad in seinen eigenen Räumen und
+dürfen deshalb als Einzige mit seinem Namen beschriftet werden.
+
+| Datei | Quelle | Zugeschnitten aus | Lizenz |
+|---|---|---|---|
+| src/assets/praxis/dr-dost-schreibtisch.webp | Eigene Aufnahme der Praxis | figures/galerie/arzt-am-schreibtisch-01.jpg | Rechte bei der Praxis |
+| src/assets/praxis/dr-dost-portrait.webp | Eigene Aufnahme der Praxis | figures/galerie/sprechzimmer-04.jpg | Rechte bei der Praxis |
+| src/assets/praxis/dr-dost-sprechzimmer.webp | Eigene Aufnahme der Praxis | figures/galerie/arzt-am-schreibtisch-02.jpg | Rechte bei der Praxis |
+| src/assets/praxis/laser-geraet.webp | Eigene Aufnahme der Praxis | figures/galerie/behandlungsraum-01.jpg | Rechte bei der Praxis |
+| src/assets/praxis/laser-handstueck-arzt.webp | Eigene Aufnahme der Praxis | figures/galerie/behandlungsraum-02.jpg | Rechte bei der Praxis |
+| src/assets/praxis/sprechzimmer.webp | Eigene Aufnahme der Praxis | figures/galerie/sprechzimmer-02.jpg | Rechte bei der Praxis |
+
 ## Noch offen
 
-Ein echtes Porträt von Dr. med. univ. Dost Mohammad fehlt. Die Arztvorstellung
-zeigt bis dahin bewusst kein Foto, sondern das Praxiswappen — ein Stockfoto mit
-dem Namen eines realen Arztes zu beschriften wäre eine Falschdarstellung.
+Nichts. Alle Aufnahmen der Praxis und des Arztes sind eigene Bilder. Die
+Unsplash-Fotos oben illustrieren ausschließlich einzelne Behandlungen, nicht
+die Praxis selbst.

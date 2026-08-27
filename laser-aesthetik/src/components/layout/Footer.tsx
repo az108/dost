@@ -11,11 +11,17 @@ export function Footer() {
   const t = useT()
   const locale = useLocale()
 
+  // White on every page, deliberately. It used to be bg-brand-50, which is
+  // exactly a `tint` section, so it merged into whatever sat above it.
+  //
+  // White only works because no page ends on a white section: pages either
+  // close with the CtaBanner's blue band or with a tint section. Legal pages
+  // and the 404 are tinted for that reason alone — see their `tone` props.
   return (
-    <footer className="border-t border-brand-100 bg-brand-50 py-14 text-brand-900">
+    <footer className="border-t border-brand-100 bg-white py-14 text-brand-900">
       <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-3">
-          <p className="font-display text-lg font-extrabold text-brand">{practice.brand}</p>
+          <p className="font-display text-lg font-extrabold text-brand-900">{practice.brand}</p>
           <p className="text-sm leading-relaxed text-brand-700">{practice.doctor}</p>
           <p className="text-sm leading-relaxed text-brand-700">{practice.qualifications}</p>
         </div>
@@ -94,10 +100,10 @@ export function Footer() {
           © {new Date().getFullYear()} {practice.shortBrand}. {t("allRightsReserved")}
         </p>
         <nav className="flex gap-4" aria-label={t("legalNavLabel")}>
-          <Link to={legalPath("impressum")} className="hover:text-brand">
+          <Link to={legalPath("impressum")} className="hover:text-brand-900">
             {locale === "en" ? t("legalImprintGermanOnly") : t("legalImprint")}
           </Link>
-          <Link to={legalPath("datenschutz")} className="hover:text-brand">
+          <Link to={legalPath("datenschutz")} className="hover:text-brand-900">
             {locale === "en" ? t("legalPrivacyGermanOnly") : t("legalPrivacy")}
           </Link>
         </nav>

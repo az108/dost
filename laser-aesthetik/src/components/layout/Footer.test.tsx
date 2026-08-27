@@ -19,7 +19,7 @@ describe("Footer", () => {
 
   it("shows the practice address", () => {
     renderFooter()
-    expect(screen.getByText(/Weiher 3, 84166 Köning/)).toBeInTheDocument()
+    expect(screen.getByText(/Weiher 3, 84178 Kröning/)).toBeInTheDocument()
   })
 
   it("links the email as a mailto", () => {

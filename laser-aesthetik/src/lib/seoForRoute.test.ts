@@ -6,7 +6,7 @@ describe("seoForRoute", () => {
   it("resolves title, canonical and hreflang alternates for a German page", () => {
     const seo = seoForRoute("/laser")
     expect(seo.locale).toBe("de")
-    expect(seo.title).toBe("Laser-Behandlungen | Dr. Dost — Laser, Physio & Ästhetik")
+    expect(seo.title).toBe("Laserbehandlungen | Dr. Dost — Laser, Physio & Ästhetik")
     expect(seo.canonical).toBe(`${SITE_URL}/laser`)
     expect(seo.alternates).toEqual([
       { hreflang: "de", href: `${SITE_URL}/laser` },

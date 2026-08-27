@@ -20,8 +20,8 @@ describe("useSeo", () => {
   })
 
   it("suffixes the brand onto the page title", () => {
-    render(<Page title="Laser-Behandlungen" />)
-    expect(document.title).toBe("Laser-Behandlungen | Dr. Dost — Laser, Physio & Ästhetik")
+    render(<Page title="Laserbehandlungen" />)
+    expect(document.title).toBe("Laserbehandlungen | Dr. Dost — Laser, Physio & Ästhetik")
   })
 
   it("uses the brand alone when no title is given", () => {
@@ -116,8 +116,8 @@ describe("medicalClinicJsonLd", () => {
     const data = JSON.parse(medicalClinicJsonLd())
     expect(data["@type"]).toBe("MedicalClinic")
     expect(data.address.streetAddress).toBe("Weiher 3")
-    expect(data.address.postalCode).toBe("84166")
-    expect(data.address.addressLocality).toBe("Köning")
+    expect(data.address.postalCode).toBe("84178")
+    expect(data.address.addressLocality).toBe("Kröning")
     expect(data.address.addressCountry).toBe("DE")
   })
 

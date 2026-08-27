@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
-import { pillars } from "@/content/pillars"
+import { homeFaq, pillars } from "@/content/pillars"
 import { treatmentBySlug } from "@/content/treatments"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
@@ -11,12 +11,14 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Reveal } from "@/components/motion/Reveal"
 import { PillarCard } from "@/components/content/PillarCard"
 import { TreatmentCard } from "@/components/content/TreatmentCard"
+import { FaqAccordion } from "@/components/content/FaqAccordion"
 import { CtaBanner } from "@/components/cta/CtaBanner"
 import { Hero } from "@/sections/Hero"
 import { TrustRow } from "@/sections/TrustRow"
 import { ProcessSteps } from "@/sections/ProcessSteps"
 import { DoctorIntro } from "@/sections/DoctorIntro"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/praxis/dr-dost-schreibtisch.webp"
 
 export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
@@ -41,10 +43,12 @@ export default function Home() {
         lead={t("homeHeroLead")}
         accent={t("homeHeroAccent")}
         description={t("homeHeroDescription")}
+        image={heroImage}
+        imageAlt={t("doctorAltAtDesk")}
       >
         <Link
           to={pagePath("prices", locale)}
-          className="flex items-center gap-2 font-semibold text-brand hover:text-action-ink"
+          className="flex items-center gap-2 font-semibold text-brand-ink hover:text-brand-900"
         >
           {t("viewPrices")}
           <ArrowRight className="size-4" aria-hidden="true" />
@@ -89,7 +93,7 @@ export default function Home() {
           </div>
           <Link
             to={pagePath("prices", locale)}
-            className="flex items-center gap-2 self-start font-semibold text-brand hover:text-action-ink"
+            className="flex items-center gap-2 self-start font-semibold text-brand-ink hover:text-brand-900"
           >
             {t("viewFullPriceList")}
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -97,8 +101,26 @@ export default function Home() {
         </Container>
       </Section>
 
-      <ProcessSteps />
-      <DoctorIntro />
+      {/* Tones alternate all the way down: tint pillars, light trust row,
+          tint popular, light process, tint bio, light FAQ, blue CTA.
+          "Beliebt" and "Ablauf" were both tint, so they ran together into
+          one long band. */}
+      <ProcessSteps tone="light" />
+      <DoctorIntro tone="tint" />
+
+      <Section>
+        <Container>
+          <div className="flex max-w-3xl flex-col gap-8">
+            <SectionHeader
+              eyebrow={t("faqEyebrow")}
+              title={t("goodToKnowTitle")}
+              accent={t("goodToKnowAccent")}
+            />
+            <FaqAccordion items={homeFaq(locale)} />
+          </div>
+        </Container>
+      </Section>
+
       <CtaBanner />
     </>
   )

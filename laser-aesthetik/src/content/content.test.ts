@@ -312,7 +312,7 @@ describe("published prices", () => {
     expect(t!.pricing.kind === "fixed" && t!.pricing.single).toBe(single)
   })
 
-  // Kombi-Pakete use shallower, non-derivable discounts supplied as overrides.
+  // Kombipakete use shallower, non-derivable discounts supplied as overrides.
   const OVERRIDES: Record<string, [number, number, number]> = {
     "achseln-intim": [129, 119, 109],
     "achseln-intim-unterschenkel": [239, 219, 199],

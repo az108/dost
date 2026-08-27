@@ -7,7 +7,7 @@ export function SpecRow({ items }: { items: { label: string; value: string }[] }
           <dt className="text-xs font-bold uppercase tracking-widest text-brand-600">
             {item.label}
           </dt>
-          <dd className="font-display text-xl font-extrabold text-brand">{item.value}</dd>
+          <dd className="font-display text-xl font-extrabold text-brand-ink">{item.value}</dd>
         </div>
       ))}
     </dl>

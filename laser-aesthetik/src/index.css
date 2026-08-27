@@ -4,9 +4,19 @@
 @import "tw-animate-css";
 
 @theme {
-  /* ── Palette: four colours, one role each ────────────────────────────── */
-  /* Site theme: nav, dark sections, heading accents, links, focus rings */
-  --color-brand: #053AA3;
+  /* ── Palette: five colours, one role each ────────────────────────────── */
+  /*
+   * Site theme: headings, icons, links, focus rings, borders.
+   *
+   * DISPLAY COLOUR, NOT A BODY-TEXT COLOUR. #4285F4 is 3.56:1 on white: it
+   * clears WCAG AA for large text (>=3:1) and for UI components, but not the
+   * 4.5:1 that body copy needs. That is a deliberate, signed-off trade to
+   * match the brand icon exactly. Anything set at body size reaches for the
+   * brand-700..950 ramp below instead, which does clear 4.5:1, and the dark
+   * `brand` section tone is anchored to brand-900 so white text on it stays
+   * legible. index.css.test.ts enforces both halves of that split.
+   */
+  --color-brand: #4285F4;
   /* Primary CTA only. Nothing else uses this, so "book" is unmistakable. */
   --color-action: #E8137C;
   /*
@@ -17,17 +27,37 @@
    * perceptible. `action` itself remains the declared brand colour.
    */
   --color-action-ink: #D41071;
+  /*
+   * Blue TEXT: eyebrows, secondary links, "Mehr erfahren". Same relationship
+   * to `brand` that `action-ink` has to `action`. #4285F4 is 3.56:1 on white,
+   * fine for a heading or an icon but below AA for the 14-16px secondary text
+   * this role covers; #1A73E8 is 4.505:1, so it clears AA at any size and as
+   * a background for white. The two are barely distinguishable side by side.
+   * `brand` remains the declared brand colour and still paints icons, focus
+   * rings and anything large.
+   */
+  --color-brand-ink: #1A73E8;
   /* Icons, eyebrows, chips, gradients. Never a button, never body text. */
   --color-accent: #DD1188;
   /* Proof and reassurance: checkmarks, inclusion badges, trust marks. */
   --color-success: #306934;
+  /*
+   * Decoration only: the second hue in the hero wash, so the band reads as a
+   * transition rather than one magenta blob. Never text, never a surface, so
+   * it carries no contrast obligation. Distinct from `success` on purpose —
+   * that one is a dark, muted green that turns olive at wash opacity.
+   */
+  --color-fresh: #34A853;
   /* RESERVED for the future subscription tier. Used nowhere in v1. */
   --color-premium: #D7A01C;
 
   /* ── Neutrals: tints and shades of brand, not a separate grey hue ────────
-     Monotonically darkening by WCAG relative luminance, verified. 900 is
-     anchored to the brand hex itself. 600-950 all clear AA for body text on
-     white; 500 is large-text/non-text only. */
+     Monotonically darkening by WCAG relative luminance, verified. 600-950 all
+     clear AA for body text on white; 500 is large-text/non-text only. This
+     ramp carries every body-size string on the site, which is what lets
+     --color-brand itself be the bright display blue. 900 (#053AA3) is the old
+     brand navy and is now the anchor for dark surfaces: the `brand` section
+     tone uses it so white text on that band stays at 9.8:1. */
   --color-brand-50: #F2F6FD;
   --color-brand-100: #E3ECFA;
   --color-brand-200: #CADCF6;
@@ -58,8 +88,18 @@
     @apply bg-white font-sans text-brand-950 antialiased;
   }
 
+  /*
+   * Headings are magenta, whole. They used to be blue with a magenta italic
+   * tail, which split one sentence across two colours; the accent `em` inside
+   * a heading now differs by style alone. Blue moved to the secondary layer
+   * (eyebrows, links) so the two roles never mix inside one line.
+   *
+   * Sections with a dark background put this back to white (see the `brand`
+   * tone in Section.tsx) — without that override the CTA banner's heading
+   * would be magenta on navy.
+   */
   h1, h2, h3, h4 {
-    @apply font-display font-extrabold tracking-tight text-balance;
+    @apply font-display font-extrabold tracking-tight text-balance text-accent;
   }
 
   /* Visible focus, brand-coloured, on every interactive element. */
@@ -83,17 +123,32 @@
    * rendered flat. color-mix() is the correct way to take a token to
    * partial opacity.
    */
+  /*
+   * Two hues, not one. The previous version mixed `accent` (#DD1188) with
+   * `action` (#E8137C) — both magenta — so the band read as a single colour
+   * with a bright corner. Magenta now hands off to green across the diagonal.
+   *
+   * Layer order matters: the linear gradient carries the actual transition
+   * and sits underneath, with the two radial blooms on top anchoring each
+   * hue to its own corner so the handoff has somewhere to start and end.
+   */
   .hero-wash {
     background-image:
       radial-gradient(
-        60rem 40rem at 80% -10%,
-        color-mix(in oklab, var(--color-accent) 18%, transparent),
+        60rem 40rem at 82% -12%,
+        color-mix(in oklab, var(--color-accent) 20%, transparent),
         transparent
       ),
       radial-gradient(
-        50rem 30rem at 0% 110%,
-        color-mix(in oklab, var(--color-action) 12%, transparent),
+        52rem 34rem at -2% 108%,
+        color-mix(in oklab, var(--color-fresh) 20%, transparent),
         transparent
+      ),
+      linear-gradient(
+        115deg,
+        color-mix(in oklab, var(--color-fresh) 12%, transparent) 0%,
+        transparent 46%,
+        color-mix(in oklab, var(--color-accent) 14%, transparent) 100%
       );
   }
 }

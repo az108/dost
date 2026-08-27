@@ -28,7 +28,9 @@ export function LanguageSwitch({ className }: { className?: string }) {
             aria-label={LABEL[loc]}
             className={cn(
               "rounded-md px-2 py-1 text-xs font-bold uppercase tracking-wider transition-colors",
-              isActive ? "bg-brand text-white" : "text-brand-600 hover:text-brand",
+              // brand-ink, not brand: the label is 12px, so the pill needs the
+              // AA-safe blue behind white rather than the display blue.
+              isActive ? "bg-brand-ink text-white" : "text-brand-600 hover:text-brand-ink",
             )}
           >
             {loc}

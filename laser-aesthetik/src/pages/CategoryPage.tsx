@@ -3,7 +3,8 @@ import { pillarById } from "@/content/pillars"
 import { treatmentsByPillar } from "@/content/treatments"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
-import { pillarPath } from "@/lib/routes"
+import { homePath, pillarPath } from "@/lib/routes"
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -33,6 +34,18 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
         lead={info.headline.lead}
         accent={info.headline.accent}
         description={info.excerpt}
+        image={info.image}
+        imageAlt={info.imageAlt}
+        breadcrumbs={
+          // Matches the trail on treatment pages minus its last crumb, so
+          // Start › Physio › Schmerztherapie stays consistent one level up.
+          <Breadcrumbs
+            trail={[
+              { label: tr("breadcrumbHome"), to: homePath(locale) },
+              { label: info.label },
+            ]}
+          />
+        }
       />
 
       <Section>

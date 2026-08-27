@@ -266,7 +266,7 @@ export function ContactForm() {
           />
           <label htmlFor={ids.consent} className="text-sm leading-relaxed text-brand-700">
             {t("consentPrefix")}{" "}
-            <Link to={legalPath("datenschutz")} className="font-semibold text-brand underline">
+            <Link to={legalPath("datenschutz")} className="font-semibold text-brand-ink underline">
               {t("consentLinkText")}
             </Link>
             .
@@ -329,7 +329,7 @@ export function ContactForm() {
             </span>
             <span className="text-brand-700">
               {t("submitErrorFallbackPrefix")}{" "}
-              <a href={`mailto:${practice.email}`} className="font-semibold text-brand underline">
+              <a href={`mailto:${practice.email}`} className="font-semibold text-brand-ink underline">
                 {practice.email}
               </a>
               .

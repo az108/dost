@@ -45,7 +45,7 @@ describe("packageTiers derivation", () => {
     ])
   })
 
-  it("lets overrides win, for Kombi-Pakete whose discounts are shallower", () => {
+  it("lets overrides win, for Kombipakete whose discounts are shallower", () => {
     const tiers = packageTiers({
       kind: "fixed",
       single: 139,

@@ -49,19 +49,19 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Upper lip", accent: "permanently smooth" },
     },
     excerpt: {
-      de: "Die schnellste Zone überhaupt — fünf Minuten pro Sitzung, kein Rasieren mehr.",
-      en: "The fastest zone by far — five minutes per session, no more shaving.",
+      de: "Die schnellste Zone überhaupt. Fünf Minuten pro Sitzung, kein Rasieren mehr.",
+      en: "The fastest zone by far: five minutes per session, no more shaving.",
     },
     body: {
       de: [
         "Härchen an der Oberlippe reagieren besonders gut auf Laserlicht, weil sie meist dunkel und kräftig sind. Genau dieses Pigment nimmt die Energie auf und leitet sie an die Haarwurzel weiter.",
-        "Die Behandlung dauert nur wenige Minuten. Die meisten Patientinnen beschreiben sie als kurzes, warmes Prickeln — eine Betäubung ist nicht nötig.",
-        "Wie viele Sitzungen nötig sind, hängt von Haar- und Hauttyp ab. Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten — fachlich spricht man deshalb von dauerhafter Haarreduktion.",
+        "Die Behandlung dauert nur wenige Minuten. Die meisten Patientinnen beschreiben sie als kurzes, warmes Prickeln. Eine Betäubung ist nicht nötig.",
+        "Wie viele Sitzungen nötig sind, hängt von Haar- und Hauttyp ab. Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Fachlich spricht man deshalb von dauerhafter Haarreduktion.",
       ],
       en: [
         "Hair on the upper lip responds particularly well to laser light, because it's usually dark and coarse. That pigment is exactly what absorbs the energy and carries it down to the hair root.",
-        "The treatment takes only a few minutes. Most patients describe it as a brief, warm tingling sensation — anaesthesia isn't necessary.",
-        "How many sessions you need depends on your hair and skin type. In most patients, a small proportion of hair remains — the medically correct term is therefore permanent hair reduction.",
+        "The treatment takes only a few minutes. Most patients describe it as a brief, warm tingling sensation, and anaesthesia isn't necessary.",
+        "How many sessions you need depends on your hair and skin type. In most patients, a small proportion of hair remains, which is why the medically correct term is permanent hair reduction.",
       ],
     },
     benefits: {
@@ -95,8 +95,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Cheeks", accent: "visibly smoother" },
     },
     excerpt: {
-      de: "Feiner Flaum und kräftige Härchen an den Wangen — in fünf Minuten behandelt.",
-      en: "Fine down and coarser hairs on the cheeks — treated in five minutes.",
+      de: "Feiner Flaum und kräftige Härchen an den Wangen sind in fünf Minuten behandelt.",
+      en: "Fine down and coarser hairs on the cheeks, treated in five minutes.",
     },
     body: {
       de: [
@@ -139,16 +139,16 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Chin", accent: "finally calm" },
     },
     excerpt: {
-      de: "Einzelne kräftige Härchen am Kinn werden dauerhaft reduziert — statt täglich nachzuzupfen.",
-      en: "Individual coarse hairs on the chin are permanently reduced — instead of plucking them out every day.",
+      de: "Einzelne kräftige Härchen am Kinn werden dauerhaft reduziert, statt täglich nachzuzupfen.",
+      en: "Individual coarse hairs on the chin are permanently reduced, instead of being plucked out every day.",
     },
     body: {
       de: [
-        "Am Kinn wachsen Härchen oft besonders kräftig und einzeln. Zupfen reizt die Haut und regt den Follikel zusätzlich an — der Laser unterbricht diesen Kreislauf.",
+        "Am Kinn wachsen Härchen oft besonders kräftig und einzeln. Zupfen reizt die Haut und regt den Follikel zusätzlich an. Der Laser unterbricht diesen Kreislauf.",
         "Nach etwa acht bis zehn Sitzungen ist der Haarwuchs in der Regel deutlich reduziert. Wie viele Sitzungen Sie brauchen, hängt von Hauttyp und Hormonlage ab.",
       ],
       en: [
-        "Hair on the chin often grows particularly coarse and in isolated spots. Plucking irritates the skin and stimulates the follicle further — the laser breaks that cycle.",
+        "Hair on the chin often grows particularly coarse and in isolated spots. Plucking irritates the skin and stimulates the follicle further, and the laser breaks that cycle.",
         "After roughly eight to ten sessions, hair growth is usually noticeably reduced. How many sessions you'll need depends on your skin type and hormonal profile.",
       ],
     },
@@ -183,8 +183,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Face & Head", accent: "all in one" },
     },
     excerpt: {
-      de: "Alle Gesichtszonen in einer Sitzung — Oberlippe, Kinn, Wangen und Kieferlinie.",
-      en: "Every facial zone in a single session — upper lip, chin, cheeks and jawline.",
+      de: "Alle Gesichtszonen in einer Sitzung: Oberlippe, Kinn, Wangen und Kieferlinie.",
+      en: "Every facial zone in a single session, covering the upper lip, chin, cheeks and jawline.",
     },
     body: {
       de: [
@@ -218,7 +218,7 @@ const LASER: LocalizedTreatment[] = [
     pillar: "laser",
     image: achselnImg,
     imageAlt: {
-      de: "Laser-Handstück mit Zielstrahl auf der Haut",
+      de: "Laserhandstück mit Zielstrahl auf der Haut",
       en: "Laser handpiece with a targeting beam on the skin",
     },
     title: { de: "Achseln", en: "Underarms" },
@@ -227,19 +227,19 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Underarms", accent: "permanently smooth" },
     },
     excerpt: {
-      de: "Die beliebteste Zone. Zehn Minuten pro Termin — ohne Pickel, Brand und dunkle Schatten.",
-      en: "The most popular zone. Ten minutes per appointment — no bumps, razor burn or dark shadowing.",
+      de: "Die beliebteste Zone. Zehn Minuten pro Termin, ohne Pickel, Brand und dunkle Schatten.",
+      en: "The most popular zone. Ten minutes per appointment, with no bumps, razor burn or dark shadowing.",
     },
     body: {
       de: [
-        "Die Achseln sind der Klassiker der Laser-Haarentfernung: kleine Fläche, kräftige Haare, schnelle Sichtbarkeit des Ergebnisses.",
-        "Nach durchschnittlich acht bis zwölf Sitzungen ist das Thema Rasur für die meisten Patientinnen und Patienten erledigt — ohne Rasurbrand, eingewachsene Haare oder den dunklen Schatten unter der Haut.",
-        "Vollständig haarfrei wird dabei kaum jemand: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Fachlich spricht man deshalb von dauerhafter Haarreduktion — wie ausgeprägt das Ergebnis ausfällt, hängt von Haar- und Hauttyp ab.",
+        "Die Achseln sind der Klassiker der Laserhaarentfernung: kleine Fläche, kräftige Haare, schnelle Sichtbarkeit des Ergebnisses.",
+        "Nach durchschnittlich acht bis zwölf Sitzungen ist das Thema Rasur für die meisten Patientinnen und Patienten erledigt, und zwar ohne Rasurbrand, eingewachsene Haare oder den dunklen Schatten unter der Haut.",
+        "Vollständig haarfrei wird dabei kaum jemand: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Fachlich spricht man deshalb von dauerhafter Haarreduktion. Wie ausgeprägt das Ergebnis ausfällt, hängt von Haar- und Hauttyp ab.",
       ],
       en: [
         "The underarms are the classic laser hair removal zone: a small area, coarse hair, and results that become visible quickly.",
-        "After eight to twelve sessions on average, shaving is a thing of the past for most patients — no more razor burn, ingrown hairs, or the dark shadow beneath the skin.",
-        "Almost no one ends up completely hair-free: in most patients, a small proportion of hair remains. The medically correct term is therefore permanent hair reduction — how pronounced the result is depends on hair and skin type.",
+        "After eight to twelve sessions on average, shaving is a thing of the past for most patients, with no more razor burn, ingrown hairs, or the dark shadow beneath the skin.",
+        "Almost no one ends up completely hair-free: in most patients, a small proportion of hair remains. The medically correct term is therefore permanent hair reduction. How pronounced the result is depends on hair and skin type.",
       ],
     },
     benefits: {
@@ -273,8 +273,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Arms", accent: "complete" },
     },
     excerpt: {
-      de: "Ober- und Unterarme in einer Sitzung — 25 Minuten für glatte Haut bis zur Schulter.",
-      en: "Upper and lower arms in one session — 25 minutes for smooth skin all the way to the shoulder.",
+      de: "Ober- und Unterarme in einer Sitzung: 25 Minuten für glatte Haut bis zur Schulter.",
+      en: "Upper and lower arms in one session, giving you smooth skin all the way to the shoulder in 25 minutes.",
     },
     body: {
       de: [
@@ -317,16 +317,16 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Back", accent: "complete" },
     },
     excerpt: {
-      de: "Die größte Einzelzone am Oberkörper — Schultern, Rücken und Lendenbereich.",
-      en: "The largest single zone on the upper body — shoulders, back and lower back.",
+      de: "Die größte Einzelzone am Oberkörper: Schultern, Rücken und Lendenbereich.",
+      en: "The largest single zone on the upper body, covering shoulders, back and lower back.",
     },
     body: {
       de: [
-        "Starker Haarwuchs am Rücken lässt sich allein kaum sinnvoll behandeln — rasieren funktioniert nicht, Wachsen ist schmerzhaft und kurzlebig.",
+        "Starker Haarwuchs am Rücken lässt sich allein kaum sinnvoll behandeln: Rasieren funktioniert nicht, Wachsen ist schmerzhaft und kurzlebig.",
         "Wir behandeln Schultern, Rücken und Lendenbereich in einem Durchgang. Wegen der Größe der Fläche planen wir dafür eine halbe Stunde ein.",
       ],
       en: [
-        "Heavy hair growth on the back is hard to manage well on your own — shaving doesn't work, and waxing is painful and short-lived.",
+        "Heavy hair growth on the back is hard to manage well on your own. Shaving doesn't work, and waxing is painful and short-lived.",
         "We treat the shoulders, back and lower back in one pass. Because of the size of the area, we allow half an hour for the session.",
       ],
     },
@@ -361,8 +361,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Bikini line", accent: "gently treated" },
     },
     excerpt: {
-      de: "Schonend lasern statt rasieren — weniger Erdbeerhaut, weniger eingewachsene Haare.",
-      en: "A gentler alternative to shaving or waxing — less irritation, fewer ingrown hairs.",
+      de: "Schonend lasern statt rasieren, für weniger Erdbeerhaut und weniger eingewachsene Haare.",
+      en: "A gentler alternative to shaving or waxing, with less irritation and fewer ingrown hairs.",
     },
     body: {
       de: [
@@ -405,8 +405,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Intimate area", accent: "complete" },
     },
     excerpt: {
-      de: "Der gesamte Intimbereich in einer Sitzung — für Damen und Herren.",
-      en: "The entire intimate area in a single session — for women and men.",
+      de: "Der gesamte Intimbereich in einer Sitzung, für Damen und Herren.",
+      en: "The entire intimate area treated in a single session, for women and men alike.",
     },
     body: {
       de: [
@@ -449,8 +449,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Thighs", accent: "smooth" },
     },
     excerpt: {
-      de: "Oberschenkel einzeln behandeln — 20 Minuten, wenn die kompletten Beine zu viel sind.",
-      en: "Treat the thighs on their own — 20 minutes, when the full legs are more than you need.",
+      de: "Oberschenkel einzeln behandeln: 20 Minuten, wenn die kompletten Beine zu viel sind.",
+      en: "Treat the thighs on their own in 20 minutes, when the full legs are more than you need.",
     },
     body: {
       de: [
@@ -493,17 +493,17 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Lower legs", accent: "smooth" },
     },
     excerpt: {
-      de: "Die Zone, die man am häufigsten rasiert — dauerhaft reduziert in 20 Minuten pro Sitzung.",
-      en: "The zone most people shave most often — permanently reduced in 20 minutes per session.",
+      de: "Die Zone, die man am häufigsten rasiert. Dauerhaft reduziert in 20 Minuten pro Sitzung.",
+      en: "The zone most people shave most often, permanently reduced in 20 minutes per session.",
     },
     body: {
       de: [
         "Unterschenkel sind die Zone, die die meisten Menschen am häufigsten rasieren. Entsprechend deutlich ist der Unterschied im Alltag, sobald die Behandlung greift.",
-        "Behandelt werden Unterschenkel und Knie. Die Füße können auf Wunsch einbezogen werden — sprechen Sie uns im Termin darauf an.",
+        "Behandelt werden Unterschenkel und Knie. Die Füße können auf Wunsch einbezogen werden. Sprechen Sie uns im Termin darauf an.",
       ],
       en: [
         "The lower legs are the zone most people shave most frequently. The everyday difference is correspondingly noticeable once the treatment takes effect.",
-        "Treatment covers the lower legs and knees. Feet can be included on request — just mention it at your appointment.",
+        "Treatment covers the lower legs and knees. Feet can be included on request, so just mention it at your appointment.",
       ],
     },
     benefits: {
@@ -537,8 +537,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Legs", accent: "complete" },
     },
     excerpt: {
-      de: "Die Premium-Zone — 35 Minuten, Ober- und Unterschenkel in einer Sitzung.",
-      en: "The premium zone — 35 minutes for both thighs and lower legs in one session.",
+      de: "Die Premiumzone: 35 Minuten, Ober- und Unterschenkel in einer Sitzung.",
+      en: "The premium zone, covering both thighs and lower legs in one 35-minute session.",
     },
     body: {
       de: [
@@ -581,17 +581,17 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Underarms + intimate area", accent: "complete" },
     },
     excerpt: {
-      de: "Die beiden meistgebuchten Zonen im Paket — 30 Minuten pro Sitzung.",
-      en: "The two most-booked zones in one package — 30 minutes per session.",
+      de: "Die beiden meistgebuchten Zonen im Paket, 30 Minuten pro Sitzung.",
+      en: "The two most-booked zones in one package, treated in 30 minutes per session.",
     },
     body: {
       de: [
-        "Achseln und Intimbereich werden am häufigsten zusammen gebucht. Im Kombi-Paket sparen Sie gegenüber den Einzelzonen und brauchen nur einen Termin.",
-        "Die Sitzungsanzahl entspricht der der Einzelzonen — beide Bereiche reagieren ähnlich auf die Behandlung.",
+        "Achseln und Intimbereich werden am häufigsten zusammen gebucht. Im Kombipaket sparen Sie gegenüber den Einzelzonen und brauchen nur einen Termin.",
+        "Die Sitzungsanzahl entspricht der der Einzelzonen, denn beide Bereiche reagieren ähnlich auf die Behandlung.",
       ],
       en: [
         "Underarms and the intimate area are most often booked together. This combination package saves you money compared to the individual zones and needs only one appointment.",
-        "The number of sessions matches that of the individual zones — both areas respond similarly to treatment.",
+        "The number of sessions matches that of the individual zones, since both areas respond similarly to treatment.",
       ],
     },
     benefits: {
@@ -613,7 +613,7 @@ const LASER: LocalizedTreatment[] = [
         { sessions: 10, perSession: 109 },
       ],
     },
-    group: { de: "Kombi-Pakete", en: "Combination Packages" },
+    group: { de: "Kombipakete", en: "Combination Packages" },
   },
   {
     slug: { de: "achseln-intim-unterschenkel", en: "underarms-intimate-lower-legs" },
@@ -629,8 +629,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Three zones", accent: "one appointment" },
     },
     excerpt: {
-      de: "Achseln, Intimbereich und Unterschenkel im Paket — 40 Minuten pro Sitzung.",
-      en: "Underarms, intimate area and lower legs in one package — 40 minutes per session.",
+      de: "Achseln, Intimbereich und Unterschenkel im Paket, 40 Minuten pro Sitzung.",
+      en: "Underarms, intimate area and lower legs in one package, at 40 minutes per session.",
     },
     body: {
       de: [
@@ -665,7 +665,7 @@ const LASER: LocalizedTreatment[] = [
         { sessions: 10, perSession: 199 },
       ],
     },
-    group: { de: "Kombi-Pakete", en: "Combination Packages" },
+    group: { de: "Kombipakete", en: "Combination Packages" },
   },
   {
     slug: { de: "achseln-intim-beine", en: "underarms-intimate-full-legs" },
@@ -681,8 +681,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Underarms, intimate area", accent: "and full legs" },
     },
     excerpt: {
-      de: "Achseln, Intimbereich und komplette Beine — 45 Minuten pro Sitzung.",
-      en: "Underarms, intimate area and full legs — 45 minutes per session.",
+      de: "Achseln, Intimbereich und komplette Beine in 45 Minuten pro Sitzung.",
+      en: "Underarms, intimate area and full legs, 45 minutes per session.",
     },
     body: {
       de: [
@@ -690,7 +690,7 @@ const LASER: LocalizedTreatment[] = [
         "Wegen des Umfangs planen wir 45 Minuten ein und legen die Termine so, dass Sie nicht unter Zeitdruck stehen.",
       ],
       en: [
-        "The three-zone package extended to the full legs — both thighs and lower legs. The largest package short of the full-body treatment.",
+        "The three-zone package extended to the full legs, meaning both thighs and lower legs. The largest package short of the full-body treatment.",
         "Because of the scope, we allow 45 minutes and schedule appointments so you're never rushed.",
       ],
     },
@@ -709,7 +709,7 @@ const LASER: LocalizedTreatment[] = [
         { sessions: 10, perSession: 229 },
       ],
     },
-    group: { de: "Kombi-Pakete", en: "Combination Packages" },
+    group: { de: "Kombipakete", en: "Combination Packages" },
   },
   {
     slug: { de: "ganzkoerper", en: "full-body" },
@@ -725,8 +725,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Full body", accent: "in one hour" },
     },
     excerpt: {
-      de: "Bikinizone, große Schamlippen, Schambereich, Pofalte und Achseln — fünf Premium-Zonen, 60 Minuten.",
-      en: "Bikini line, labia majora, pubic area, gluteal cleft and underarms — five premium zones, 60 minutes.",
+      de: "Bikinizone, große Schamlippen, Schambereich, Pofalte und Achseln. Fünf Premiumzonen, 60 Minuten.",
+      en: "Bikini line, labia majora, pubic area, gluteal cleft and underarms: five premium zones, 60 minutes.",
     },
     body: {
       de: [
@@ -740,7 +740,7 @@ const LASER: LocalizedTreatment[] = [
     },
     benefits: {
       de: [
-        "Fünf Premium-Zonen in einer Sitzung",
+        "Fünf Premiumzonen in einer Sitzung",
         "Alle enthaltenen Zonen in einem Termin",
         "Ein Termin statt fünf",
       ],
@@ -761,7 +761,7 @@ const LASER: LocalizedTreatment[] = [
         { sessions: 10, perSession: 509 },
       ],
     },
-    group: { de: "Kombi-Pakete", en: "Combination Packages" },
+    group: { de: "Kombipakete", en: "Combination Packages" },
   },
   {
     slug: { de: "gefaessbehandlung", en: "vascular-treatment" },
@@ -777,17 +777,17 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Redness", accent: "treated with precision" },
     },
     excerpt: {
-      de: "Erweiterte Äderchen und dauerhafte Rötungen im Gesicht — gezielt verschlossen statt überschminkt.",
-      en: "Dilated capillaries and persistent facial redness — closed off with precision, not just covered up with make-up.",
+      de: "Erweiterte Äderchen und dauerhafte Rötungen im Gesicht werden gezielt verschlossen statt überschminkt.",
+      en: "Dilated capillaries and persistent facial redness, closed off with precision rather than covered up with make-up.",
     },
     body: {
       de: [
         "Bei Couperose und Teleangiektasien sind kleine Gefäße dauerhaft erweitert und schimmern durch die Haut. Der Laser erhitzt gezielt das Blut in diesen Gefäßen, sodass sie sich verschließen und vom Körper abgebaut werden.",
-        "Wie viele Sitzungen nötig sind, hängt stark vom Befund ab. Wir schätzen das im Erstgespräch realistisch ein — und sagen Ihnen auch, wenn eine Behandlung wenig verspricht.",
+        "Wie viele Sitzungen nötig sind, hängt stark vom Befund ab. Wir schätzen das im Erstgespräch realistisch ein und sagen Ihnen auch, wenn eine Behandlung wenig verspricht.",
       ],
       en: [
         "In rosacea and telangiectasia, small vessels are permanently dilated and show through the skin. The laser precisely heats the blood inside these vessels, causing them to close and be broken down by the body.",
-        "How many sessions you need depends heavily on your individual findings. We give you a realistic estimate at your initial consultation — and will also tell you if a treatment isn't likely to help much.",
+        "How many sessions you need depends heavily on your individual findings. We give you a realistic estimate at your initial consultation, and we'll also tell you if a treatment isn't likely to help much.",
       ],
     },
     benefits: {
@@ -820,8 +820,8 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Pigmentation", accent: "visibly lightened" },
     },
     excerpt: {
-      de: "Altersflecken und Sonnenschäden gezielt aufhellen — nach ärztlicher Abklärung des Befunds.",
-      en: "Age spots and sun damage lightened with precision — after a medical assessment of the finding.",
+      de: "Altersflecken und Sonnenschäden gezielt aufhellen, nach ärztlicher Abklärung des Befunds.",
+      en: "Age spots and sun damage lightened with precision, once the finding has been medically assessed.",
     },
     body: {
       de: [
@@ -863,17 +863,17 @@ const LASER: LocalizedTreatment[] = [
       en: { lead: "Acne scars", accent: "visibly smoothed" },
     },
     excerpt: {
-      de: "Eingesunkene Narben und unebenes Hautbild — schrittweise geglättet über mehrere Sitzungen.",
-      en: "Sunken scars and uneven skin texture — gradually smoothed over several sessions.",
+      de: "Eingesunkene Narben und unebenes Hautbild werden über mehrere Sitzungen schrittweise geglättet.",
+      en: "Sunken scars and uneven skin texture, gradually smoothed over several sessions.",
     },
     body: {
       de: [
         "Die Laserbehandlung regt die Haut an, neues Kollagen zu bilden. Eingesunkene Narben füllen sich dadurch von innen auf und das Hautbild wird gleichmäßiger.",
-        "Das ist ein Prozess über Monate, kein einmaliger Eingriff. Wir besprechen vorab offen, welche Verbesserung realistisch ist — und welche nicht.",
+        "Das ist ein Prozess über Monate, kein einmaliger Eingriff. Wir besprechen vorab offen, welche Verbesserung realistisch ist und welche nicht.",
       ],
       en: [
         "The laser treatment stimulates the skin to produce new collagen. Sunken scars fill in from within as a result, and the skin's texture becomes more even.",
-        "This is a process that takes months, not a one-off procedure. We discuss openly beforehand what improvement is realistic — and what isn't.",
+        "This is a process that takes months, not a one-off procedure. We discuss openly beforehand what improvement is realistic and what isn't.",
       ],
     },
     benefits: {
@@ -916,13 +916,13 @@ const PHYSIO: LocalizedTreatment[] = [
     body: {
       de: [
         "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
-        "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung – der chronische Schmerz.",
-        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie – Praxis Dr. med. univ. Dost Mohammad.",
+        "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung: der chronische Schmerz.",
+        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie in der Praxis Dr. med. univ. Dost Mohammad.",
       ],
       en: [
         "A distinction is made between acute pain and chronic pain.",
-        "When pain persists for a long time, it loses this warning function and becomes a condition in its own right – chronic pain.",
-        "Please feel free to get in touch with our pain therapy service – Praxis Dr. med. univ. Dost Mohammad.",
+        "When pain persists for a long time, it loses this warning function and becomes a condition in its own right: chronic pain.",
+        "Please feel free to get in touch with our pain therapy service at Praxis Dr. med. univ. Dost Mohammad.",
       ],
     },
     benefits: {
@@ -954,18 +954,18 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Blockages", accent: "released" },
     },
     excerpt: {
-      de: "Gezielte Handgriffe an Gelenken, Muskeln und Faszien — für Beweglichkeit ohne Schmerz.",
-      en: "Targeted hands-on techniques for joints, muscles and fascia — for movement without pain.",
+      de: "Gezielte Handgriffe an Gelenken, Muskeln und Faszien, für Beweglichkeit ohne Schmerz.",
+      en: "Targeted hands-on techniques for joints, muscles and fascia, for movement without pain.",
     },
     body: {
       de: [
         "In der manuellen Therapie arbeiten wir ausschließlich mit den Händen: Wir ertasten Blockaden in Gelenken, verspannte Muskulatur und verklebte Faszien und lösen sie gezielt.",
-        "Der Vorteil gegenüber apparativen Verfahren ist die unmittelbare Rückmeldung — wir spüren, wie das Gewebe reagiert, und passen die Behandlung im selben Moment an.",
+        "Der Vorteil gegenüber apparativen Verfahren ist die unmittelbare Rückmeldung: Wir spüren, wie das Gewebe reagiert, und passen die Behandlung im selben Moment an.",
         "Nach der Sitzung erhalten Sie Übungen für zu Hause. Ohne diese hält das Ergebnis meist nicht lange an.",
       ],
       en: [
         "In manual therapy, we work exclusively with our hands: we feel for restrictions in joints, tense muscles and adhered fascia, and release them in a targeted way.",
-        "The advantage over equipment-based methods is immediate feedback — we feel how the tissue responds and adjust the treatment in the same moment.",
+        "The advantage over equipment-based methods is immediate feedback. We feel how the tissue responds and adjust the treatment in the same moment.",
         "After the session, you'll receive exercises to do at home. Without them, the result usually doesn't last long.",
       ],
     },
@@ -1003,12 +1003,12 @@ const PHYSIO: LocalizedTreatment[] = [
     },
     body: {
       de: [
-        "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Köning mit den umliegenden radiologischen Praxen (Röntgen, Kernspin-Untersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+        "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Kröning mit den umliegenden radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
         "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
         "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
       ],
       en: [
-        "For the diagnosis and treatment of sports injuries, our physician in Köning works together with nearby radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals, to offer you the best possible service.",
+        "For the diagnosis and treatment of sports injuries, our physician in Kröning works together with nearby radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals, to offer you the best possible service.",
         "Our practice gives every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
         "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact our practice promptly.",
       ],
@@ -1042,8 +1042,8 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Acupuncture", accent: "and TCM" },
     },
     excerpt: {
-      de: "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Köning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
-      en: "As part of the private medical care provided by Praxis Dr. med. univ. Dost Mohammad in Köning, we also offer alternative treatment methods such as TCM and acupuncture.",
+      de: "Im Rahmen der privatärztlichen Versorgung der Praxis Dr. med. univ. Dost Mohammad in Kröning bieten wir zusätzlich alternative Behandlungsmethoden, wie die TCM und Akupunktur an.",
+      en: "As part of the private medical care provided by Praxis Dr. med. univ. Dost Mohammad in Kröning, we also offer alternative treatment methods such as TCM and acupuncture.",
     },
     // Two paragraphs below reuse copy verbatim from the practice's own
     // existing website, including an efficacy claim ("vielfach
@@ -1055,13 +1055,13 @@ const PHYSIO: LocalizedTreatment[] = [
     body: {
       de: [
         "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
-        "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst – physisch wie psychisch.",
-        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Köning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+        "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst, physisch wie psychisch.",
+        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Kröning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
       ],
       en: [
         "With the varied methods of acupuncture and TCM, our patients benefit from Far Eastern treatment methods with a very long tradition and effectiveness that has been scientifically proven in many cases.",
-        "Many acute and chronic complaints respond well to acupuncture and TCM measures. Compared with conventional medicine, acupuncture and TCM always pursue a holistic treatment goal. In TCM's therapeutic approach, the person is understood as a whole – physically and mentally.",
-        "TCM complements the conventional medical treatment of many complaints. Our private physician in Köning offers many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
+        "Many acute and chronic complaints respond well to acupuncture and TCM measures. Compared with conventional medicine, acupuncture and TCM always pursue a holistic treatment goal. In TCM's therapeutic approach, the person is understood as a whole, physically and mentally.",
+        "TCM complements the conventional medical treatment of many complaints. Our private physician in Kröning offers many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
       ],
     },
     benefits: {
@@ -1093,18 +1093,18 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Shockwaves", accent: "against calcification" },
     },
     excerpt: {
-      de: "Bei Fersensporn, Tennisellenbogen und Kalkschulter — energiereiche Druckwellen statt Operation.",
-      en: "For heel spurs, tennis elbow and calcific shoulder — high-energy pressure waves instead of surgery.",
+      de: "Bei Fersensporn, Tennisellenbogen und Kalkschulter: energiereiche Druckwellen statt Operation.",
+      en: "High-energy pressure waves instead of surgery, for heel spurs, tennis elbow and calcific shoulder.",
     },
     body: {
       de: [
         "Energiereiche Druckwellen werden von außen gezielt auf das schmerzende Gewebe gerichtet. Sie regen den Stoffwechsel an und können Verkalkungen lösen.",
-        "Typische Anwendungsgebiete sind Fersensporn, Tennis- und Golferellenbogen sowie die Kalkschulter — also Beschwerden, bei denen konservative Behandlung oft lange dauert.",
+        "Typische Anwendungsgebiete sind Fersensporn, Tennis- und Golferellenbogen sowie die Kalkschulter, also Beschwerden, bei denen konservative Behandlung oft lange dauert.",
         "Eine Sitzung dauert wenige Minuten. Meist sind drei bis fünf Sitzungen im Abstand von einer Woche nötig.",
       ],
       en: [
         "High-energy pressure waves are directed from outside precisely onto the painful tissue. They stimulate metabolism and can help break down calcification.",
-        "Typical areas of use are heel spurs, tennis and golfer's elbow, and calcific shoulder — conditions where conservative treatment often takes a long time.",
+        "Typical areas of use are heel spurs, tennis and golfer's elbow, and calcific shoulder, all conditions where conservative treatment often takes a long time.",
         "A session takes just a few minutes. Usually three to five sessions, spaced a week apart, are needed.",
       ],
     },
@@ -1141,18 +1141,18 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Wrinkles", accent: "treated conservatively" },
     },
     excerpt: {
-      de: "Zurückhaltend dosiertes Botulinumtoxin gegen Zornes-, Stirn- und Lachfalten — die Mimik bleibt erhalten.",
-      en: "Conservatively dosed botulinum toxin for frown lines, forehead lines and crow's feet — your natural expression is preserved.",
+      de: "Zurückhaltend dosiertes Botulinumtoxin gegen Zornes-, Stirn- und Lachfalten. Die Mimik bleibt erhalten.",
+      en: "Conservatively dosed botulinum toxin for frown lines, forehead lines and crow's feet, so your natural expression is preserved.",
     },
     body: {
       de: [
         "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
-        "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend — Sie sollen weiterhin lachen und die Stirn runzeln können.",
+        "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend: Sie sollen weiterhin lachen und die Stirn runzeln können.",
         "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
       ],
       en: [
         "Botulinum toxin selectively relaxes the muscles that create a wrinkle. We mainly treat the frown line, forehead lines and the fine lines around the eyes.",
-        "Our aim is a rested face, not a treated one. That's why we deliberately dose conservatively — you should still be able to laugh and furrow your brow.",
+        "Our aim is a rested face, not a treated one. That's why we deliberately dose conservatively. You should still be able to laugh and furrow your brow.",
         "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out personally by Dr. med. univ. Dost Mohammad.",
       ],
     },
@@ -1186,18 +1186,18 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Volume", accent: "where it's missing" },
     },
     excerpt: {
-      de: "Hyaluronsäure für Lippen, Wangen und Nasolabialfalten — aufbauend statt auffallend.",
-      en: "Hyaluronic acid for lips, cheeks and nasolabial folds — restorative rather than noticeable.",
+      de: "Hyaluronsäure für Lippen, Wangen und Nasolabialfalten, aufbauend statt auffallend.",
+      en: "Hyaluronic acid for lips, cheeks and nasolabial folds: restorative rather than noticeable.",
     },
     body: {
       de: [
         "Hyaluronsäure ist ein körpereigener Stoff, der Wasser bindet und dem Gewebe Volumen gibt. Mit den Jahren nimmt sie ab, das Gesicht wirkt eingefallener.",
-        "Wir setzen Filler dort ein, wo tatsächlich Volumen fehlt — an Wangen, Nasolabialfalten oder Lippen. Das Ziel ist ein natürliches Ergebnis, das niemandem als Behandlung auffällt.",
+        "Wir setzen Filler dort ein, wo tatsächlich Volumen fehlt: an Wangen, Nasolabialfalten oder Lippen. Das Ziel ist ein natürliches Ergebnis, das niemandem als Behandlung auffällt.",
         "Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten. Nicht jeder Wunsch lässt sich verantwortungsvoll umsetzen.",
       ],
       en: [
         "Hyaluronic acid is a substance the body produces naturally that binds water and gives tissue volume. It decreases over the years, which is why the face can look more sunken.",
-        "We use fillers only where volume is genuinely missing — in the cheeks, nasolabial folds or lips. The aim is a natural result that no one recognises as a treatment.",
+        "We use fillers only where volume is genuinely missing, whether in the cheeks, nasolabial folds or lips. The aim is a natural result that no one recognises as a treatment.",
         "Before every treatment, we discuss openly what makes medical sense and what we'd advise against. Not every wish can be responsibly fulfilled.",
       ],
     },
@@ -1231,26 +1231,26 @@ const AESTHETIK: LocalizedTreatment[] = [
       en: { lead: "Fat pockets", accent: "without surgery" },
     },
     excerpt: {
-      de: "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken – oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
-      en: "Reducing unwanted fat pockets is one of the most common concerns among patients at aesthetic clinics – often in areas that cannot be reduced even with strict diets and exercise.",
+      de: "Die Reduktion unerwünschter Fettpolster gehört mit zu den häufigsten Anliegen der Patienten in den Schönheitskliniken. Oft sind es Areale, die selbst durch strenge Diäten und Trainingsübungen nicht abgebaut werden können.",
+      en: "Reducing unwanted fat pockets is one of the most common concerns among patients at aesthetic clinics, often in areas that cannot be reduced even with strict diets and exercise.",
     },
     // Dense clinical German with a Greek etymology aside — translated
     // plainly rather than elegantly, per the source material.
     body: {
       de: [
         "Da wundert es nicht, dass es eine ausgesprochene Vielfalt an Techniken und Methoden zur chirurgischen Fettreduktion gibt: Liposuktion in Tumeszenz-Lokalanästhesie, Ultraschall, Radiowellen, Fett-weg-Spritze, … – um nur ein paar zu nennen.",
-        "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimal-invasive Methoden mit möglichst geringer Ausfallzeit der Patienten – eine derartige minimal-invasive Methode ist auch die Kryolipolyse.",
+        "Auch auf diesem Gebiet fokussiert man sich mehr und mehr auf minimalinvasive Methoden mit möglichst geringer Ausfallzeit der Patienten. Eine derartige minimalinvasive Methode ist auch die Kryolipolyse.",
         "Die Kryolipolyse (von Altgriechisch κρύος [kryos] „Frost“, „Eis“, λίπα [lipa] „Fett“ und λύσις [lysis] „Lösung“, „Auflösung“) ist eine relativ neue Methode der Fettreduktion. Sie zielt vor allem auf Fettpölsterchen ab, die schwer mit Diäten oder körperlichem Training effektiv reduziert werden können.",
       ],
       en: [
-        "It's therefore no surprise that there is a wide variety of techniques and methods for surgical fat reduction: liposuction under tumescent local anaesthesia, ultrasound, radio waves, fat-dissolving injections, and more – to name just a few.",
-        "In this field too, the focus is increasingly shifting toward minimally invasive methods with as little downtime for patients as possible – cryolipolysis is one such minimally invasive method.",
+        "It's therefore no surprise that there is a wide variety of techniques and methods for surgical fat reduction: liposuction under tumescent local anaesthesia, ultrasound, radio waves, fat-dissolving injections and more, to name just a few.",
+        "In this field too, the focus is increasingly shifting toward minimally invasive methods with as little downtime for patients as possible. Cryolipolysis is one such minimally invasive method.",
         "Cryolipolysis (from Ancient Greek κρύος [kryos], \"frost\", \"ice\", λίπα [lipa], \"fat\", and λύσις [lysis], \"dissolution\", \"breakdown\") is a relatively new method of fat reduction. It targets mainly small fat pockets that are difficult to reduce effectively through diet or physical exercise.",
       ],
     },
     benefits: {
       de: [
-        "Minimal-invasiv, ohne Operation",
+        "Minimalinvasiv, ohne Operation",
         "Geringe Ausfallzeit",
         "Gezielt gegen hartnäckige Fettpölsterchen",
       ],
@@ -1289,12 +1289,12 @@ const AESTHETIK: LocalizedTreatment[] = [
     // both the German and English wording until a lawyer clears it.
     body: {
       de: [
-        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Köning bieten wir Ihnen Lichttherapie an.",
+        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Kröning bieten wir Ihnen Lichttherapie an.",
         "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
         "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
       ],
       en: [
-        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At the private practice of Dr. med. univ. Dost Mohammad in Köning, we offer light therapy.",
+        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At the private practice of Dr. med. univ. Dost Mohammad in Kröning, we offer light therapy.",
         "In connection with depression that does not follow a seasonal pattern, colour light therapy can be healing.",
         "Depression is also often accompanied by sleep disturbances, which in turn cause stress for those affected. Light therapy can also be helpful for these disturbances.",
       ],
@@ -1336,12 +1336,12 @@ const AESTHETIK: LocalizedTreatment[] = [
       de: [
         "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
         "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
-        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Köning.",
+        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Kröning.",
       ],
       en: [
         "For most people, beauty matters because it helps them feel confident and attractive. People who see themselves as attractive tend to come across more positively.",
         "Over time, however, the skin changes, and so does one's appearance. Lines around the mouth, eyes and nose, or on the forehead, can make a face look older.",
-        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact the practice for Aesthetic Medicine, Dr. med. univ. Dost Mohammad, in Köning.",
+        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact the practice for Aesthetic Medicine, Dr. med. univ. Dost Mohammad, in Kröning.",
       ],
     },
     benefits: {

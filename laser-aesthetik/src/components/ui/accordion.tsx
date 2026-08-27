@@ -7,6 +7,7 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -123,7 +124,12 @@ export function AccordionTrigger({
       >
         {children}
         <ChevronDown
-          className={cn("size-5 shrink-0 text-brand-600 transition-transform", open && "rotate-180")}
+          className={cn(
+            // Matched to the panel's height tween so the arrow and the answer
+            // finish together instead of the arrow snapping ahead of it.
+            "size-5 shrink-0 text-brand-600 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            open && "rotate-180",
+          )}
           aria-hidden="true"
         />
       </button>
@@ -141,18 +147,68 @@ export function AccordionContent({
 } & Omit<HTMLAttributes<HTMLDivElement>, "children">) {
   const { isOpen } = useAccordionContext()
   const { value, baseId } = useAccordionItemContext()
+  const reduced = useReducedMotion()
+  const open = isOpen(value)
 
-  if (!isOpen(value)) return null
+  // Reduced motion gets the old instant swap. Animating height is exactly the
+  // kind of movement the preference asks us not to make.
+  if (reduced) {
+    if (!open) return null
+    return (
+      <div
+        id={`${baseId}-content`}
+        role="region"
+        aria-labelledby={`${baseId}-trigger`}
+        className={cn("pb-4", className)}
+        {...rest}
+      >
+        {children}
+      </div>
+    )
+  }
 
   return (
-    <div
-      id={`${baseId}-content`}
-      role="region"
-      aria-labelledby={`${baseId}-trigger`}
-      className={cn("pb-4", className)}
-      {...rest}
-    >
-      {children}
-    </div>
+    <AnimatePresence initial={false}>
+      {open ? (
+        <motion.div
+          key="content"
+          id={`${baseId}-content`}
+          role="region"
+          aria-labelledby={`${baseId}-trigger`}
+          initial={{ height: 0, opacity: 0 }}
+          // Per-direction timing has to live on the variants, not on a shared
+          // `transition` prop: during exit this element is rendered by
+          // AnimatePresence from its last open-state props, so a prop-level
+          // ternary on `open` would always read `true` and the collapse would
+          // reuse the opening curve.
+          animate={{
+            height: "auto",
+            opacity: 1,
+            transition: {
+              height: { duration: 0.32, ease: [0.16, 1, 0.3, 1] },
+              // Delayed so the text arrives into an already-opening panel
+              // instead of sliding down with it.
+              opacity: { duration: 0.22, delay: 0.08 },
+            },
+          }}
+          exit={{
+            height: 0,
+            opacity: 0,
+            transition: {
+              height: { duration: 0.26, ease: [0.4, 0, 1, 1] },
+              // Text clears out first so the panel closes on empty space.
+              opacity: { duration: 0.14 },
+            },
+          }}
+          // Clipping is what makes the height tween read as a reveal rather
+          // than as text being squashed.
+          className="overflow-hidden"
+        >
+          <div className={cn("pb-4", className)} {...rest}>
+            {children}
+          </div>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
   )
 }

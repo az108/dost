@@ -12,7 +12,7 @@ export const PHONE_TODO = "TODO_TELEFONNUMMER"
  * Impressum and JSON-LD structured data all read from here — filling in the
  * phone number is a one-line change that propagates everywhere.
  *
- * Note the deliberate split: patients visit Köning, but booking runs through
+ * Note the deliberate split: patients visit Kröning, but booking runs through
  * the clinic's Doctolib profile in Landshut. This is intentional; do not
  * "correct" it.
  */
@@ -23,8 +23,8 @@ export const practice: Practice = {
   doctorLockup: { lead: "Dr. med. univ.", accent: "Dost Mohammad" },
   qualifications: "Praktischer Arzt · Notfallmedizin · Naturheilverfahren und Akupunktur",
   street: "Weiher 3",
-  postalCode: "84166",
-  city: "Köning",
+  postalCode: "84178",
+  city: "Kröning",
   email: "info@drdosthealth.com",
   phone: PHONE_TODO,
   hours: [
@@ -52,7 +52,7 @@ export const practice: Practice = {
     "https://www.doctolib.de/privatpraxis/landshut/dr-med-univ-dost-mohammad-city-center-landshut/booking?profile_skipped=true&source=external_referral",
 }
 
-/** "Weiher 3, 84166 Köning" — used in the footer and structured data. */
+/** "Weiher 3, 84178 Kröning" — used in the footer and structured data. */
 export function formatAddress(p: Practice = practice): string {
   return `${p.street}, ${p.postalCode} ${p.city}`
 }

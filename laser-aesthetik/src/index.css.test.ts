@@ -6,11 +6,14 @@ import { describe, expect, it } from "vitest"
 const css = readFileSync(resolve(__dirname, "./index.css"), "utf8")
 
 describe("design tokens", () => {
-  it("declares the four palette colours with their exact spec values", () => {
-    expect(css).toContain("--color-brand: #053AA3")
+  it("declares the palette colours with their exact spec values", () => {
+    // brand is the brand icon's blue, matched exactly on request.
+    expect(css).toContain("--color-brand: #4285F4")
     expect(css).toContain("--color-action: #E8137C")
     expect(css).toContain("--color-accent: #DD1188")
     expect(css).toContain("--color-success: #306934")
+    expect(css).toContain("--color-fresh: #34A853")
+    expect(css).toContain("--color-brand-ink: #1A73E8")
   })
 
   it("declares the reserved premium token", () => {
@@ -28,7 +31,7 @@ describe("design tokens", () => {
     // The count check above only reads index.css. A `bg-premium` class would
     // live in a .tsx file it never opens — so the guard it describes needs
     // to actually scan the source. Matched on the utility pattern, not the
-    // bare word, because "Premium-Zone" appears legitimately in German
+    // bare word, because "Premiumzone" appears legitimately in German
     // marketing copy and is unrelated to the CSS token.
     // Scoped to .tsx: that is where Tailwind classes actually appear in this
     // codebase, and it keeps this test's own comment above (which names the
@@ -94,11 +97,30 @@ describe("design tokens", () => {
       return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b)
     }
     const onWhite = (hex: string) => 1.05 / (relLum(hex) + 0.05)
-    for (const token of ["action-ink", "brand", "success"]) {
+    const hexOf = (token: string) => {
       const hex = css.match(new RegExp(`--color-${token}:\\s*(#[0-9a-fA-F]{6})`))?.[1]
       expect(hex, `--color-${token} missing`).toBeTruthy()
-      expect(onWhite(hex!), `--color-${token} fails AA on white`).toBeGreaterThanOrEqual(4.5)
+      return hex!
     }
+
+    // Body-size text. `brand` is deliberately NOT in this list any more, but
+    // `brand-ink` — the blue that actually paints eyebrows and links — is,
+    // and so is `accent`, which now carries every heading.
+    for (const token of ["action-ink", "brand-ink", "accent", "success", "brand-700", "brand-800"]) {
+      expect(onWhite(hexOf(token)), `--color-${token} fails AA on white`).toBeGreaterThanOrEqual(4.5)
+    }
+
+    // `brand` is now the display blue from the brand icon. It is allowed to
+    // sit below 4.5:1, but it still has to clear the 3:1 that large text and
+    // UI components require — so if someone "brightens" it further, this
+    // fails rather than the site quietly becoming unreadable.
+    expect(onWhite(hexOf("brand")), "--color-brand fails the 3:1 large-text floor")
+      .toBeGreaterThanOrEqual(3)
+
+    // The dark band's own anchor: white on it must clear AA at body size,
+    // which is the whole reason the `brand` section tone uses brand-900.
+    const onBrand900 = 1.05 / (relLum(hexOf("brand-900")) + 0.05)
+    expect(onBrand900, "white on the dark band fails AA").toBeGreaterThanOrEqual(4.5)
   })
 
   it("defines the hero wash with a valid colour-mix gradient", () => {
@@ -107,7 +129,9 @@ describe("design tokens", () => {
     // silently dropped the declaration and the hero rendered flat.
     expect(css).toContain(".hero-wash")
     expect(css).toContain("color-mix(in oklab, var(--color-accent)")
-    expect(css).toContain("color-mix(in oklab, var(--color-action)")
+    // Two distinct hues. The wash previously mixed accent with action, which
+    // are both magenta, so it read as one colour — hence `fresh` here.
+    expect(css).toContain("color-mix(in oklab, var(--color-fresh)")
     // The invalid shorthand must never come back.
     expect(css).not.toMatch(/var\(--color-[a-z-]+\)\s*\/\s*[\d.]+/)
   })

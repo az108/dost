@@ -4,8 +4,8 @@ import { practice, PHONE_TODO } from "./practice"
 describe("practice data", () => {
   it("carries the agreed address", () => {
     expect(practice.street).toBe("Weiher 3")
-    expect(practice.postalCode).toBe("84166")
-    expect(practice.city).toBe("Köning")
+    expect(practice.postalCode).toBe("84178")
+    expect(practice.city).toBe("Kröning")
   })
 
   it("carries the agreed contact details", () => {

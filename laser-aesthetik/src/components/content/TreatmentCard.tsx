@@ -31,7 +31,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
       )}
 
       <div className="flex flex-1 flex-col gap-4 p-6">
-        <h3 className="font-display text-xl font-extrabold text-brand">{treatment.title}</h3>
+        <h3 className="font-display text-xl font-extrabold">{treatment.title}</h3>
         <p className="flex-1 leading-relaxed text-brand-700">{treatment.excerpt}</p>
 
         <div className="flex flex-wrap gap-2">
@@ -48,7 +48,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
           ) : null}
         </div>
 
-        <p className="flex items-center gap-2 font-semibold text-action-ink">
+        <p className="flex items-center gap-2 font-semibold text-brand-ink">
           {from === null ? t("priceOnRequest") : t("detailsAndBook")}
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-1"

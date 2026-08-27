@@ -24,7 +24,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
     <div className="flex flex-col gap-12">
       {groups.map(([group, rows]) => (
         <div key={group} className="flex flex-col gap-4">
-          <h3 className="font-display text-2xl font-extrabold text-brand">{group}</h3>
+          <h3 className="font-display text-2xl font-extrabold">{group}</h3>
 
           {/* The table is wider than a phone. It scrolls inside this wrapper
               so the page body never scrolls horizontally. */}
@@ -65,7 +65,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                   const single = treatment.pricing.kind === "fixed" ? treatment.pricing.single : 0
                   return (
                     <tr key={treatment.slug} className="border-t border-brand-100">
-                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand">
+                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand-ink">
                         {treatment.title}
                       </th>
                       <td className="px-4 py-4 text-sm text-brand-700">
@@ -90,7 +90,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       <td className="px-4 py-4">
                         <Link
                           to={treatmentPath(treatment.slug, locale)}
-                          className="font-semibold text-brand hover:underline"
+                          className="font-semibold text-brand-ink hover:underline"
                         >
                           {tr("detailsLink")}
                         </Link>

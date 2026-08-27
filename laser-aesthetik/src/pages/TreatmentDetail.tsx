@@ -64,7 +64,7 @@ export default function TreatmentDetail() {
 
   return (
     <>
-      <Section tone="tint" className="pt-8">
+      <Section tone="wash" className="pt-8">
         <Container className="flex flex-col gap-8">
           <Breadcrumbs
             trail={[
@@ -76,7 +76,7 @@ export default function TreatmentDetail() {
 
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col gap-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-accent">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-ink">
                 {pillar.title}
               </p>
               <h1 className="text-4xl leading-tight sm:text-5xl lg:text-6xl">
@@ -129,7 +129,7 @@ export default function TreatmentDetail() {
                   ))}
                 </Reveal>
                 <Reveal delay={0.1} className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
-                  <h2 className="font-display text-2xl font-extrabold text-brand">
+                  <h2 className="font-display text-2xl font-extrabold">
                     {t("yourBenefits")}
                   </h2>
                   <FeatureList items={treatment.benefits} />
@@ -143,7 +143,7 @@ export default function TreatmentDetail() {
                     data-testid="pricing-block"
                     className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
                   >
-                    <p className="font-display text-2xl font-extrabold text-brand">
+                    <p className="font-display text-2xl font-extrabold text-brand-ink">
                       {t("priceOnRequest")}
                     </p>
                     <p className="max-w-xl leading-relaxed text-brand-700">
@@ -157,7 +157,7 @@ export default function TreatmentDetail() {
                       <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
                         {t("singleSession")}
                       </p>
-                      <p className="font-display text-3xl font-extrabold text-brand">
+                      <p className="font-display text-3xl font-extrabold text-brand-ink">
                         {formatEuro(treatment.pricing.single)}
                       </p>
                     </div>
@@ -170,7 +170,7 @@ export default function TreatmentDetail() {
                           {tier.sessions}
                           {t("packageTierSuffix")} <span className="text-accent">−{tier.discountPct} %</span>
                         </p>
-                        <p className="font-display text-3xl font-extrabold text-brand">
+                        <p className="font-display text-3xl font-extrabold text-brand-ink">
                           {formatEuro(tier.perSession)}
                           <span className="text-sm font-semibold text-brand-600">{t("perSession")}</span>
                         </p>
