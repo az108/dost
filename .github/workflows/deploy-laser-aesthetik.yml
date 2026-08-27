@@ -43,6 +43,16 @@ jobs:
             echo "Settings -> Secrets and variables -> Actions."
             exit 1
           fi
+          # A pasted value that picked up a space or newline still looks
+          # correct in the settings UI but fails as "530 Login incorrect".
+          for n in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
+            eval "v=\$$n"
+            case "$v" in
+              " "*|*" "|"	"*|*"	") echo "::error::$n has leading or trailing whitespace - re-enter it";
+                                      exit 1 ;;
+            esac
+          done
+          echo "Credentials present. Username: $FTP_USERNAME (length ${#FTP_USERNAME}), password length ${#FTP_PASSWORD}."
 
       - name: Checkout
         uses: actions/checkout@v4
