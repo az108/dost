@@ -3,15 +3,12 @@ name: Deploy laser-aesthetik to ALL-INKL
 on:
   push:
     branches: [main]
-    # Only the site's own files. A change to the root app or the mobile
-    # wrappers should not redeploy the practice website.
     paths:
       - "laser-aesthetik/**"
       - ".github/workflows/deploy-laser-aesthetik.yml"
   workflow_dispatch:
 
-# One deploy at a time. Two concurrent FTP uploads into the same web root
-# interleave files and can leave the site half-old, half-new.
+# Two concurrent uploads into one web root interleave files.
 concurrency:
   group: allinkl-laser-aesthetik
   cancel-in-progress: false
@@ -27,22 +24,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # First, before spending three minutes on a build that cannot ship.
-      # A missing secret expands to an empty string rather than failing, so
-      # without this the run dies at the very last step with the unhelpful
-      # "Input required and not supplied: server". Only emptiness is tested;
-      # no secret value is ever printed.
       - name: Check deployment credentials are set
-        # Overrides the job-wide `laser-aesthetik` working directory. This step
-        # runs before checkout, so that path does not exist yet and bash cannot
-        # start in it. The workspace root does exist from the outset.
+        # Runs before checkout, so laser-aesthetik/ does not exist yet.
         working-directory: ${{ github.workspace }}
+        # Must read the same sources as the Deploy step, or this passes and
+        # the upload then fails with an empty input.
         env:
-          # These must read the SAME sources as the Deploy step below. If the
-          # two ever disagree, this check passes and the upload then fails with
-          # an empty input — exactly the confusing failure it exists to prevent.
-          # Move a value between the Secrets and Variables tabs and you must
-          # change it in both places.
           FTP_SERVER: ${{ vars.ALLINKL_FTP_SERVER }}
           FTP_USERNAME: ${{ vars.ALLINKL_FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
@@ -54,18 +41,8 @@ jobs:
           if [ -n "$missing" ]; then
             echo "::error::Missing credential(s):$missing"
             echo "Settings -> Secrets and variables -> Actions."
-            echo "Host and username are read from the Variables tab, password from Secrets."
             exit 1
           fi
-          # Standing hygiene note, not a failure. This repository is public,
-          # so these logs are world-readable, and GitHub prints Variables
-          # verbatim while masking Secrets as ***. Publishing the host and
-          # username leaves only the password guarding write access to a
-          # webspace serving ~61 domains over a protocol with no MFA and no
-          # rate limiting. Moving both to Secrets means editing this step and
-          # the Deploy step together.
-          echo "::warning::FTP host and username are Variables, so they appear verbatim in this public log."
-          echo "All three FTP credentials are present."
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -73,8 +50,6 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          # 22 rather than 20: Node 20 is past end-of-life and GitHub is
-          # removing it from the runners.
           node-version: 22
           cache: npm
           cache-dependency-path: laser-aesthetik/package-lock.json
@@ -82,21 +57,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # `npm run build` already runs the sitemap generator and `tsc -b`, so a
-      # type error fails the deploy before anything reaches the server.
-      #
-      # `npm test` is deliberately NOT a gate yet: five tests fail by design as
-      # go-live guards (phone number, legal review, contact-form recipient,
-      # medical claims). Turn the step below on once those are resolved —
-      # until then it would block every deploy.
+      # Runs the sitemap generator and tsc, so a type error fails the deploy.
       - name: Build
         run: npm run build
 
+      # Not a gate yet: four tests fail by design as go-live guards (phone
+      # number, legal review, contact-form recipient, medical claims).
       # - name: Test
       #   run: npm test
 
-      # The classic ALL-INKL failure: .htaccess is a dotfile, and without it
-      # every deep link 404s. Fail here rather than discovering it live.
+      # .htaccess is a dotfile and is what makes deep links work; without it
+      # every route but the home page 404s.
       - name: Verify build output
         run: |
           test -f dist/.htaccess    || { echo "::error::dist/.htaccess missing - deep links would 404"; exit 1; }
@@ -106,24 +77,18 @@ jobs:
           echo "Pre-rendered pages: $(find dist -name index.html | wc -l)"
 
       - name: Deploy via FTPS
-        # v4.4.0 runs on node24; v4.3.5 declared node20, which the runners now
-        # warn about. Input names are identical between the two.
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ vars.ALLINKL_FTP_SERVER }}
           username: ${{ vars.ALLINKL_FTP_USERNAME }}
           password: ${{ secrets.ALLINKL_FTP_PASSWORD }}
-          # ALL-INKL supports explicit FTPS. If the handshake fails, set the
-          # ALLINKL_FTP_PROTOCOL variable to `ftp` to fall back.
+          # Set ALLINKL_FTP_PROTOCOL to `ftp` if the FTPS handshake fails.
           protocol: ${{ vars.ALLINKL_FTP_PROTOCOL || 'ftps' }}
           local-dir: ./laser-aesthetik/dist/
-          # Most ALL-INKL FTP users are chrooted to their own htdocs, so `/` is
-          # usually right. If yours lands you a level higher, set the
-          # ALLINKL_SERVER_DIR variable to e.g. /www/htdocs/w01abcde/
+          # `/` assumes the FTP user is rooted at the site's document root.
+          # Otherwise set ALLINKL_SERVER_DIR to /laserhaarentfernung-landshut.de/
           server-dir: ${{ vars.ALLINKL_SERVER_DIR || '/' }}
-          # Incremental: the action keeps a manifest on the server and uploads
-          # only what changed. It does NOT wipe the web root, so anything you
-          # placed there by hand survives.
+          # Incremental; does not wipe the web root.
           dangerous-clean-slate: false
           exclude: |
             **/.git*

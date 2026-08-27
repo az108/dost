@@ -15,13 +15,16 @@ Static site. Build locally, upload `dist/` to the host's web root.
 
 `.github/workflows/deploy-laser-aesthetik.yml` builds and uploads to
 ALL-INKL over FTPS on every push to `main` that touches `laser-aesthetik/`,
-and on manual dispatch. It requires three repository **secrets**:
+and on manual dispatch. Set these under Settings → Secrets and variables →
+Actions. Move one between the two tabs and you must change it in **both**
+the credential check and the Deploy step, or the check passes and the
+upload fails with an empty input.
 
-| Secret | Value |
-|---|---|
-| `ALLINKL_FTP_SERVER` | `w0112dd4.kasserver.com` (KAS account `w0112dd4`, "Silvatel") |
-| `ALLINKL_FTP_USERNAME` | a **dedicated** FTP user, see below |
-| `ALLINKL_FTP_PASSWORD` | that user's password |
+| Name | Tab | Value |
+|---|---|---|
+| `ALLINKL_FTP_SERVER` | Variables | `w0112dd4.kasserver.com` (KAS account `w0112dd4`, "Silvatel") |
+| `ALLINKL_FTP_USERNAME` | Variables | a **dedicated** FTP user, see below |
+| `ALLINKL_FTP_PASSWORD` | Secrets | that user's password |
 
 **Create a dedicated FTP user, do not reuse the main one.** This webspace
 hosts ~61 domains; KAS shows this site's document root as
