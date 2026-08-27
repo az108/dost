@@ -51,8 +51,12 @@ abgeleitet. `public/logo-80.webp` (80 px) und `public/logo-320.webp`
 kein neues Bildmaterial, gleiche Herkunft wie der Master. Rechte liegen
 bei der Praxis.
 
-`public/favicon.svg` ist ein eigens erstelltes Monogramm in Markenblau
-(`#053AA3`), da das detaillierte Wappen bei 16 px nicht mehr lesbar ist.
+`public/favicon.ico` (16/32/48 px), `public/favicon-192.png` und
+`public/apple-touch-icon.png` (180 px) sind aus `public/logo.png` erzeugt:
+transparenter Rand abgeschnitten, damit das Wappen die Icon-Flaeche
+ausfuellt. Das frueher hier genannte Monogramm `favicon.svg` ist entfallen,
+weil im Browser-Tab das echte Wappen gewuenscht ist. Das Apple-Icon hat
+einen weissen Hintergrund, da iOS Transparenz auf Schwarz rendert.
 
 ## Eigene Aufnahmen der Praxis
 

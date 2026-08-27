@@ -1,4 +1,4 @@
-export const SITE_URL = "https://www.example-domain.de"
+export const SITE_URL = "https://laserhaarentfernung-landshut.de"
 
 const DEFAULT_KEYWORDS = [
   "Laser Haarentfernung",

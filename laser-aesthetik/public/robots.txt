@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.example-domain.de/sitemap.xml
+Sitemap: https://laserhaarentfernung-landshut.de/sitemap.xml

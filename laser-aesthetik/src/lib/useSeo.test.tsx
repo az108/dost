@@ -63,16 +63,16 @@ describe("useSeo", () => {
     render(<PageAt canonicalPath="/laser" />)
     expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
     expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/en/laser",
+      "https://laserhaarentfernung-landshut.de/en/laser",
     )
     // x-default points at German — the primary market.
     expect(document.querySelector('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
   })
 
@@ -80,11 +80,11 @@ describe("useSeo", () => {
     render(<PageAt canonicalPath="/en/laser" />)
     expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
     expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/en/laser",
+      "https://laserhaarentfernung-landshut.de/en/laser",
     )
   })
 

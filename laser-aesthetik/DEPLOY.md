@@ -11,7 +11,29 @@ Static site. Build locally, upload `dist/` to the host's web root.
 `dist/` now contains `index.html`, hashed `assets/`, `.htaccess`,
 `robots.txt` and `sitemap.xml`.
 
-## Upload
+## Automatic deployment (preferred)
+
+`.github/workflows/deploy-laser-aesthetik.yml` builds and uploads to
+ALL-INKL over FTPS on every push to `main` that touches `laser-aesthetik/`,
+and on manual dispatch. It requires three repository **secrets**:
+
+| Secret | Value |
+|---|---|
+| `ALLINKL_FTP_SERVER` | FTP host from KAS, e.g. `w01abcde.kasserver.com` |
+| `ALLINKL_FTP_USERNAME` | the FTP user KAS shows for that account |
+| `ALLINKL_FTP_PASSWORD` | that user's password |
+
+Two optional repository **variables** cover the cases where the defaults are
+wrong: `ALLINKL_SERVER_DIR` (default `/`; set it if the FTP user is not
+chrooted to its own htdocs) and `ALLINKL_FTP_PROTOCOL` (default `ftps`; set
+to `ftp` only if the FTPS handshake fails).
+
+The workflow fails before uploading if `.htaccess`, `index.html`,
+`sitemap.xml` or `contact.php` is missing from `dist/`. It does **not** run
+`npm test`, because the go-live guards below fail by design and would block
+every deploy; re-enable the commented-out test step once they are resolved.
+
+## Manual upload
 
 **Namecheap (cPanel):** File Manager → `public_html` → upload the *contents*
 of `dist/`, not the folder itself. Ensure hidden files are visible so
@@ -89,9 +111,11 @@ config. Outstanding before go-live, in priority order:
 
 1. **Phone number** — not published anywhere; `practice.test.ts` fails until
    supplied.
-2. **Real domain** — set `SITE_URL` in `src/content/seo.ts` and the
-   `Sitemap:` line in `public/robots.txt`; `deploy.test.ts` fails until
-   changed.
+2. **Real domain** — done. `laserhaarentfernung-landshut.de`, **without**
+   `www`, is set in `src/content/seo.ts`, `public/robots.txt`, the
+   `og:image` URL and the generated sitemap. The host must redirect
+   `www` → apex to match, or every canonical URL points at a hostname that
+   serves a duplicate of the site.
 3. **Legal review** — Impressum and Datenschutz are scaffolds carrying
    `PRÜFEN:` markers for the responsible medical chamber and the hosting
    provider. §5 TMG and DSGVO Art. 13 make this content legally

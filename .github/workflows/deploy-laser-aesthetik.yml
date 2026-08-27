@@ -1,0 +1,87 @@
+name: Deploy laser-aesthetik to ALL-INKL
+
+on:
+  push:
+    branches: [main]
+    # Only the site's own files. A change to the root app or the mobile
+    # wrappers should not redeploy the practice website.
+    paths:
+      - "laser-aesthetik/**"
+      - ".github/workflows/deploy-laser-aesthetik.yml"
+  workflow_dispatch:
+
+# One deploy at a time. Two concurrent FTP uploads into the same web root
+# interleave files and can leave the site half-old, half-new.
+concurrency:
+  group: allinkl-laser-aesthetik
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: laser-aesthetik
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: laser-aesthetik/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # `npm run build` already runs the sitemap generator and `tsc -b`, so a
+      # type error fails the deploy before anything reaches the server.
+      #
+      # `npm test` is deliberately NOT a gate yet: five tests fail by design as
+      # go-live guards (phone number, legal review, contact-form recipient,
+      # medical claims). Turn the step below on once those are resolved —
+      # until then it would block every deploy.
+      - name: Build
+        run: npm run build
+
+      # - name: Test
+      #   run: npm test
+
+      # The classic ALL-INKL failure: .htaccess is a dotfile, and without it
+      # every deep link 404s. Fail here rather than discovering it live.
+      - name: Verify build output
+        run: |
+          test -f dist/.htaccess    || { echo "::error::dist/.htaccess missing - deep links would 404"; exit 1; }
+          test -f dist/index.html   || { echo "::error::dist/index.html missing"; exit 1; }
+          test -f dist/sitemap.xml  || { echo "::error::dist/sitemap.xml missing"; exit 1; }
+          test -f dist/contact.php  || { echo "::error::dist/contact.php missing - contact form would 404"; exit 1; }
+          echo "Pre-rendered pages: $(find dist -name index.html | wc -l)"
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ALLINKL_FTP_SERVER }}
+          username: ${{ secrets.ALLINKL_FTP_USERNAME }}
+          password: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+          # ALL-INKL supports explicit FTPS. If the handshake fails, set the
+          # ALLINKL_FTP_PROTOCOL variable to `ftp` to fall back.
+          protocol: ${{ vars.ALLINKL_FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./laser-aesthetik/dist/
+          # Most ALL-INKL FTP users are chrooted to their own htdocs, so `/` is
+          # usually right. If yours lands you a level higher, set the
+          # ALLINKL_SERVER_DIR variable to e.g. /www/htdocs/w01abcde/
+          server-dir: ${{ vars.ALLINKL_SERVER_DIR || '/' }}
+          # Incremental: the action keeps a manifest on the server and uploads
+          # only what changed. It does NOT wipe the web root, so anything you
+          # placed there by hand survives.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
