@@ -27,13 +27,38 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # First, before spending three minutes on a build that cannot ship.
+      # A missing secret expands to an empty string rather than failing, so
+      # without this the run dies at the very last step with the unhelpful
+      # "Input required and not supplied: server". Only emptiness is tested;
+      # no secret value is ever printed.
+      - name: Check deployment secrets are set
+        env:
+          FTP_SERVER: ${{ secrets.ALLINKL_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.ALLINKL_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$FTP_SERVER" ]   || missing="$missing ALLINKL_FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing ALLINKL_FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing ALLINKL_FTP_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secret(s):$missing"
+            echo "Add them under Settings -> Secrets and variables -> Actions -> Secrets tab."
+            echo "They must be repository *Secrets*, not *Variables* - the two tabs look alike."
+            exit 1
+          fi
+          echo "All three FTP secrets are present."
+
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 22 rather than 20: Node 20 is past end-of-life and GitHub is
+          # removing it from the runners.
+          node-version: 22
           cache: npm
           cache-dependency-path: laser-aesthetik/package-lock.json
 
@@ -64,7 +89,9 @@ jobs:
           echo "Pre-rendered pages: $(find dist -name index.html | wc -l)"
 
       - name: Deploy via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        # v4.4.0 runs on node24; v4.3.5 declared node20, which the runners now
+        # warn about. Input names are identical between the two.
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.ALLINKL_FTP_SERVER }}
           username: ${{ secrets.ALLINKL_FTP_USERNAME }}
