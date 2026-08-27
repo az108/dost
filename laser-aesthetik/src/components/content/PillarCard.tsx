@@ -28,8 +28,23 @@ export function PillarCard({ pillar }: { pillar: PillarInfo }) {
       )}
 
       <div className="flex flex-1 flex-col gap-4 p-8">
-        <h3 className="font-display text-2xl font-extrabold">{pillar.title}</h3>
-        <p className="flex-1 leading-relaxed text-brand-700">{pillar.excerpt}</p>
+        {/* Two lines reserved: "Physiotherapie & Schmerzmedizin" wraps where
+            the other two pillars do not, and that alone left one card taller
+            than its neighbours. 2rem is the line height at this size. */}
+        <h3 className="min-h-[calc(2*2rem)] font-display text-2xl font-extrabold">
+          {pillar.title}
+        </h3>
+        {/* A fixed text box for the same reason TreatmentCard has one: in a
+            single column nothing stretches, so this has to be a set size or
+            the cards come out ragged.
+
+            Four lines, where a treatment card gets three. There are only three
+            pillar teasers and all of them run 106–115 characters, which is
+            just over three lines on a phone — clamping to three cut the last
+            line off every one of them. Four clears all three with room. */}
+        <p className="line-clamp-4 min-h-[calc(4*1.625rem)] flex-1 leading-relaxed text-brand-700">
+          {pillar.excerpt}
+        </p>
         <span className="flex items-center gap-2 font-semibold text-brand-ink">
           {t("learnMore")}
           <ArrowRight

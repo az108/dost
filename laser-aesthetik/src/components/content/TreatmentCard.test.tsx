@@ -60,4 +60,42 @@ describe("TreatmentCard", () => {
     renderCard({ ...base, durationMin: undefined })
     expect(screen.queryByText(/Min\./)).toBeNull()
   })
+
+  it("fills the height of its grid cell", () => {
+    // Grid items stretch to the tallest in the row, but the card is a child
+    // of the Reveal wrapper that stretches — without h-full the card keeps its
+    // own content height and the row is visibly ragged.
+    renderCard(base)
+    expect(screen.getByRole("link").className).toContain("h-full")
+  })
+
+  it("clamps the excerpt to a fixed three lines", () => {
+    // Excerpts run anywhere from two to seven lines. Left alone, the longest
+    // one sets the height of every card beside it; reserving three lines as
+    // well as capping them keeps short cards from collapsing in a single
+    // column, where there is no row to stretch to.
+    renderCard({ ...base, excerpt: "Ein sehr langer Auszug. ".repeat(20) })
+    const excerpt = screen.getByText(/Ein sehr langer Auszug/)
+    expect(excerpt.className).toContain("line-clamp-3")
+    expect(excerpt.className).toMatch(/min-h-/)
+  })
+
+  it("reserves the chip row at two rows", () => {
+    // A duration and a price chip wrap onto two lines on a phone; a lone
+    // price chip stays on one. Reserving the taller case is what makes the
+    // last 36px of difference between two stacked cards go away.
+    renderCard(base)
+    const chipRow = screen.getByText("10 Min.").closest("div")
+    expect(chipRow?.className).toContain("min-h-16")
+  })
+
+  it("carries a price chip whether or not there is a figure", () => {
+    // The chip row is the other thing that changed height card to card: an
+    // on-request treatment used to render no price chip at all and hide the
+    // words down in the link. Same row on every card, and the price stops
+    // being the one fact you have to read the small print for.
+    renderCard({ ...base, pricing: { kind: "onRequest" } })
+    expect(screen.getByText("Preis auf Anfrage").className).toContain("rounded-pill")
+    expect(screen.getByRole("link")).toHaveTextContent("Details & buchen")
+  })
 })

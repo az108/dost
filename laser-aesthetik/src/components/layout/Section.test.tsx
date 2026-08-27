@@ -92,11 +92,22 @@ describe("Section", () => {
 })
 
 describe("SectionHeader", () => {
-  it("renders the title as a level-2 heading with the accent word inside it", () => {
+  it("renders the title and its accent as one level-2 heading", () => {
     render(<SectionHeader title="Unsere" accent="Behandlungen" />)
     const heading = screen.getByRole("heading", { level: 2 })
     expect(heading).toHaveTextContent("Unsere Behandlungen")
-    expect(heading.querySelector("em")).toHaveTextContent("Behandlungen")
+  })
+
+  it("does not set the accent apart typographically", () => {
+    // Italic used to mark the accent, but a section heading repeats four to
+    // six times a page and that made italic the loudest thing on the page.
+    // It now survives only in the two headings there is one of — the hero and
+    // the closing CTA. With nothing left to distinguish it, an <em> here would
+    // announce emphasis that nobody can see, so the heading is one phrase.
+    const { container } = render(<SectionHeader title="Unsere" accent="Behandlungen" />)
+    const heading = screen.getByRole("heading", { level: 2 })
+    expect(heading.querySelector("em")).toBeNull()
+    expect(container.querySelector(".italic")).toBeNull()
   })
 
   it("renders the eyebrow and lead when given", () => {
