@@ -91,6 +91,47 @@ describe("robots.txt", () => {
   })
 })
 
+describe("index.html template", () => {
+  // scripts/prerender.ts rewrites these tags in place — replaceAttr() is a
+  // no-op when the tag is absent, so a tag deleted from the template stops
+  // being emitted on all 82 pages without any error. og:site_name is here
+  // because it was exactly that: never rewritten, so every page shipped the
+  // template's static value while useSeo() only corrected it after
+  // hydration.
+  //
+  // Exactly once, not merely present: replaceAttr() and the <title> rewrite
+  // are regexes over the raw template, so a second literal occurrence —
+  // including one inside an HTML comment — is matched in preference to the
+  // real tag and the injected value lands in the wrong place.
+  it("carries exactly one static default for every tag the prerenderer rewrites", () => {
+    const html = root("index.html")
+    for (const tag of [
+      '<meta name="description"',
+      '<meta property="og:title"',
+      '<meta property="og:description"',
+      '<meta property="og:site_name"',
+      '<meta property="og:locale"',
+      '<meta property="og:image"',
+      "<title>",
+    ]) {
+      const count = html.split(tag).length - 1
+      expect(count, `index.html carries ${count} occurrences of ${tag}, expected exactly 1`).toBe(1)
+    }
+  })
+
+  it("names no person, practice or inherited brand in its fallback metadata", () => {
+    // These strings ship on every page that a crawler reads before any JS
+    // runs. The center is a separate business; the template must carry a
+    // category of business, never an identity.
+    const html = root("index.html")
+    for (const banned of ["Dost", "Privatpraxis", "Kröning", "drdosthealth"]) {
+      expect(html.toLowerCase(), `index.html still carries "${banned}"`).not.toContain(
+        banned.toLowerCase(),
+      )
+    }
+  })
+})
+
 describe("go-live guards", () => {
   // ── Fails until the real domain is set ──────────────────────────────
   // index.html's static og:image URL deliberately carries the same
