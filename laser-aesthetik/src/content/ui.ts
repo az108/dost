@@ -280,16 +280,27 @@ export const ui = {
   /*
    * One alt text per city card. Each names the city, because that is the
    * one thing the picture is there to say and a screen reader reaching the
-   * card has already heard the heading — "Giebelhäuser und Backsteinturm"
-   * alone would be three cards that all sound the same.
+   * card has already heard the heading — "Dächer und ein Kirchturm" alone
+   * would be three cards that all sound the same.
    *
    * Deliberately descriptive rather than promotional: these are stock
    * photographs of three German cities, not photographs of the center,
    * which has no premises to show in any of them yet.
+   *
+   * The Landshut photograph was replaced once already. The first one was a
+   * street-level crop that carried a rival café's gold wordmark across the
+   * bottom-left, a motorsport sponsor banner at the right edge and a lit
+   * red traffic light — on the one card whose whole job is to say "this is
+   * our city". It also showed no Landshut landmark and no sky. Its
+   * replacement is CC0, not Unsplash (see CREDITS.md), and is cropped to
+   * exclude a billboard at the left and a charity's name lettered across a
+   * facade at the bottom. A cityscape always contains signage somewhere:
+   * whoever swaps this next should open the candidate at full size and read
+   * the shopfronts before judging the light.
    */
   standortLandshutImageAlt: {
-    de: "Giebelhäuser und ein Backsteinturm in der Landshuter Altstadt",
-    en: "Gabled houses and a brick tower in Landshut's old town",
+    de: "Blick von oben über die Ziegeldächer der Landshuter Altstadt zum Backsteinturm von St. Martin",
+    en: "A view from above across the tiled roofs of Landshut's old town to the brick tower of St. Martin's",
   },
   standortMuenchenImageAlt: {
     de: "Der Münchner Marienplatz im Gegenlicht des frühen Morgens",

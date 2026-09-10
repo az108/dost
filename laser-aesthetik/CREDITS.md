@@ -1,8 +1,10 @@
 # Bildnachweise
 
-Die Bilder stammen von Unsplash und sind für die kommerzielle Nutzung
-freigegeben (Unsplash License). Die Nennung erfolgt freiwillig zur
-Nachvollziehbarkeit.
+Die meisten Bilder stammen von Unsplash und sind für die kommerzielle
+Nutzung freigegeben (Unsplash License). Einzelne Bilder kommen aus anderen
+Quellen; die Spalte „Lizenz" nennt sie jeweils. Bei Unsplash, Pexels und
+CC0 erfolgt die Nennung freiwillig zur Nachvollziehbarkeit — verpflichtend
+ist sie bei keiner der hier verwendeten Lizenzen.
 
 Alle Bilder auf dieser Seite sind Stockfotos. Sobald das Center in Landshut
 eröffnet ist, werden die Räume und das Team mit eigenen Aufnahmen gezeigt und
@@ -37,6 +39,29 @@ einem nahezu weißen Bild führt das Verhältnis R/B in die Irre — hier ist
 zusätzlich Grün leicht abgesenkt, sonst kippt die Wand ins Olivgrüne statt
 ins warme Creme der übrigen Serie.
 
+`standort-landshut.webp` ist ausgetauscht und stammt als einziges Bild
+dieser Serie von Wikimedia Commons (CC0, gemeinfrei, keine Namensnennung
+nötig). Das vorherige Bild war ein Straßenausschnitt, der den goldenen
+Schriftzug eines fremden Gastronomiebetriebs über das linke Fünftel der
+Karte trug, dazu ein Sponsorenbanner einer Segelsport-Serie am rechten Rand
+und eine rote Ampel — auf genau der Karte, die „das ist unsere Stadt" sagen
+soll. Ein Wahrzeichen war nicht zu sehen und Himmel auch nicht. Das neue
+Bild zeigt den Blick von der Burg Trausnitz über die Altstadt auf St.
+Martin, den höchsten Backsteinturm der Welt. Export:
+
+```
+-crop 2880x1920+480+0    # links eine Plakatwand, unten ein Fassadenname
+R ×1,105 / G ×1,02 / B ×0,855
+-modulate 104,62         # Sättigung runter: der Postkartenhimmel muss in
++level 10%,99.5%         # den Dunst von München und Stuttgart
+-resize 1200x800 -quality 55
+```
+
+Bei einer Stadtansicht führt das Verhältnis R/B ebenso in die Irre wie bei
+einem fast weißen Bild: Ein großer blauer Himmel drückt es unter 1,0, ohne
+dass das Bild kalt wirkt. Maßgeblich war der Blick auf die drei
+Standort-Karten nebeneinander, nicht die Zahl.
+
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
@@ -46,7 +71,7 @@ ins warme Creme der übrigen Serie.
 | src/assets/center/pillar-physio.webp | https://unsplash.com/photos/LRcPNV8HQ3Q | Maryjoy Caballero | Unsplash License |
 | src/assets/center/pillar-kosmetik.webp | https://unsplash.com/photos/16mHHrY3PUk | Ionela Mat | Unsplash License |
 | src/assets/center/ablauf.webp | https://unsplash.com/photos/7yeqemd-p90 | Jakub Klucký | Unsplash License |
-| src/assets/center/standort-landshut.webp | https://unsplash.com/photos/XBzhpoTHS2E | Jahanzeb Ahsan | Unsplash License |
+| src/assets/center/standort-landshut.webp | https://commons.wikimedia.org/wiki/File:Blick_Landshut_Trausnitz_02.jpg | Helmlechner | CC0 1.0 (Public Domain Dedication) |
 | src/assets/center/standort-muenchen.webp | https://unsplash.com/photos/ySICq4GkcsQ | Jan Antonin Kolar | Unsplash License |
 | src/assets/center/standort-stuttgart.webp | https://unsplash.com/photos/h05F6pnxedo | Fabian Kleiser | Unsplash License |
 | src/assets/laser/oberlippe.webp | https://unsplash.com/photos/hR3ecKHpq7k | Studio Michael França | Unsplash License |
