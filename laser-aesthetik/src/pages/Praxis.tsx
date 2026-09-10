@@ -23,7 +23,7 @@ export default function Praxis() {
   return (
     <>
       <Hero
-        eyebrow={t("thePracticeEyebrow")}
+        eyebrow={t("aboutUsEyebrow")}
         lead={t("praxisHeroLead")}
         accent={t("praxisHeroAccent")}
         description={t("praxisHeroDescription")}

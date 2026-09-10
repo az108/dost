@@ -192,9 +192,20 @@ export const ui = {
     de: "Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an",
     en: "Please try again or email us directly at",
   },
+  // Shown instead of the line above while center.email is still the
+  // EMAIL_TODO sentinel. The prefix ends mid-sentence on purpose — it only
+  // reads correctly with an address after it — so the no-address branch
+  // needs a sentence of its own rather than the prefix with the link cut off.
+  submitErrorRetry: {
+    de: "Bitte versuchen Sie es erneut.",
+    en: "Please try again.",
+  },
 
   // ── Practice page ────────────────────────────────────────────────────
-  thePracticeEyebrow: { de: "Die Praxis", en: "The practice" },
+  // Same words as the nav label `practice`, deliberately its own key: the
+  // eyebrow over the page's own hero and the label in the navbar are
+  // different surfaces and either may be reworded without the other.
+  aboutUsEyebrow: { de: "Über uns", en: "About us" },
   praxisHeroLead: { de: "Medizin mit", en: "Medicine that" },
   praxisHeroAccent: { de: "Zeit für Sie", en: "takes its time" },
   praxisHeroDescription: {

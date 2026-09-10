@@ -1004,13 +1004,13 @@ const PHYSIO: LocalizedTreatment[] = [
     body: {
       de: [
         "Bei der Therapie und Diagnostik von Sportverletzungen arbeiten wir mit radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmedizinern und den Krankenhäusern der Region zusammen, um Ihnen den bestmöglichen Service zu bieten.",
-        "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
-        "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
+        "Wir geben allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
+        "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an uns.",
       ],
       en: [
         "For the diagnosis and treatment of sports injuries, we work together with radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals in the region, to offer you the best possible service.",
-        "Our practice gives every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
-        "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact our practice promptly.",
+        "We give every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
+        "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact us promptly.",
       ],
     },
     benefits: {

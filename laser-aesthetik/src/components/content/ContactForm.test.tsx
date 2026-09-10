@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event"
 import { MemoryRouter } from "react-router-dom"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 import { ContactForm } from "./ContactForm"
-import { practice } from "@/content/practice"
 
 function renderForm() {
   return render(
@@ -75,7 +74,7 @@ describe("ContactForm", () => {
     expect(await screen.findByText(/Vielen Dank für Ihre Nachricht/)).toBeInTheDocument()
   })
 
-  it("renders the error state with a mailto fallback after a rejection", async () => {
+  it("renders the error state after a rejection", async () => {
     fetchMock.mockRejectedValue(new Error("network error"))
     const user = userEvent.setup()
     renderForm()
@@ -84,8 +83,61 @@ describe("ContactForm", () => {
     await user.click(screen.getByRole("button", { name: "Nachricht senden" }))
 
     expect(await screen.findByText(/konnte leider nicht gesendet werden/)).toBeInTheDocument()
-    const mailLink = screen.getByRole("link", { name: practice.email })
-    expect(mailLink).toHaveAttribute("href", `mailto:${practice.email}`)
+    expect(screen.getByText("Bitte versuchen Sie es erneut.")).toBeInTheDocument()
+  })
+
+  it("offers no mailto fallback while the center's email sentinel is unfilled", async () => {
+    // The address that used to be hard-wired here was the practice's own,
+    // info@drdosthealth.com, interpolated from practice.ts — invisible to a
+    // grep over src/ and shown to a visitor whose message had just failed.
+    // Until the center has a mailbox on its own domain there is nothing
+    // honest to offer, and a mailto to EMAIL_TODO would simply fail again in
+    // the visitor's mail client.
+    fetchMock.mockRejectedValue(new Error("network error"))
+    const user = userEvent.setup()
+    const { container } = renderForm()
+
+    await fillValidFields(user)
+    await user.click(screen.getByRole("button", { name: "Nachricht senden" }))
+
+    expect(await screen.findByText(/konnte leider nicht gesendet werden/)).toBeInTheDocument()
+    expect(container.querySelector('a[href^="mailto:"]')).toBeNull()
+    expect(screen.queryByText(/schreiben Sie uns direkt an/)).not.toBeInTheDocument()
+    expect(container.innerHTML).not.toContain("TODO_EMAIL")
+  })
+
+  it("offers the mailto fallback once the center has an address", async () => {
+    // The other half of the guard: the sentence and the link come back the
+    // moment center.email is real, so the branch above is a placeholder for
+    // a missing fact, not a removed feature.
+    vi.resetModules()
+    vi.doMock("@/content/center", async () => {
+      const actual = await vi.importActual<typeof import("@/content/center")>("@/content/center")
+      // hasEmail() defaults its argument to the module-local `center`, so
+      // swapping only the export would leave the guard reading the real
+      // sentinel. Both have to move together.
+      return {
+        ...actual,
+        center: { ...actual.center, email: "hallo@example.test" },
+        hasEmail: () => true,
+      }
+    })
+    const { ContactForm: Fresh } = await import("./ContactForm")
+    fetchMock.mockRejectedValue(new Error("network error"))
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <Fresh />
+      </MemoryRouter>,
+    )
+
+    await fillValidFields(user)
+    await user.click(screen.getByRole("button", { name: "Nachricht senden" }))
+
+    expect(await screen.findByText(/konnte leider nicht gesendet werden/)).toBeInTheDocument()
+    const mailLink = screen.getByRole("link", { name: "hallo@example.test" })
+    expect(mailLink).toHaveAttribute("href", "mailto:hallo@example.test")
+    vi.doUnmock("@/content/center")
   })
 
   it("requires the consent checkbox: submitting unchecked shows an error and does not POST", async () => {
