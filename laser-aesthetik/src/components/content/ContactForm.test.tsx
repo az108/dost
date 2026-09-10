@@ -29,6 +29,12 @@ describe("ContactForm", () => {
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    // In afterEach, not trailing the assertions inside the test that sets
+    // it up: a failing assertion throws before the cleanup line is reached
+    // and every later test in this file then runs against the mocked
+    // module, failing for a reason that has nothing to do with itself.
+    vi.doUnmock("@/content/center")
+    vi.resetModules()
   })
 
   it("blocks submission and shows per-field errors when required fields are empty", async () => {
@@ -137,7 +143,6 @@ describe("ContactForm", () => {
     expect(await screen.findByText(/konnte leider nicht gesendet werden/)).toBeInTheDocument()
     const mailLink = screen.getByRole("link", { name: "hallo@example.test" })
     expect(mailLink).toHaveAttribute("href", "mailto:hallo@example.test")
-    vi.doUnmock("@/content/center")
   })
 
   it("requires the consent checkbox: submitting unchecked shows an error and does not POST", async () => {

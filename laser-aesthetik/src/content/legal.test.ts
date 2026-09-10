@@ -37,7 +37,12 @@ describe("legal documents", () => {
     expect(JSON.stringify(datenschutz)).not.toContain("Doctolib")
   })
 
-  it("does not read the doctor's name from anywhere but this file", () => {
+  it("spells the operator's name literally in this file, not via an import", () => {
+    // The old name claimed this test proved the name appears nowhere else.
+    // It does not and cannot: that is content.test.ts's grep over src/.
+    // What this asserts is the other half of the boundary — legal.ts holds
+    // the string itself, so there is no shared constant for a component to
+    // reach for.
     const source = readFileSync(resolve(__dirname, "./legal.ts"), "utf8")
     expect(source).toContain("Dost Mohammad")
   })

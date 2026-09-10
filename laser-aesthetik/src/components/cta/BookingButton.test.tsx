@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
-import { describe, expect, it, vi } from "vitest"
+import { afterEach, describe, expect, it, vi } from "vitest"
 import { BookingButton } from "./BookingButton"
 
 const renderButton = () =>
@@ -11,6 +11,15 @@ const renderButton = () =>
   )
 
 describe("BookingButton", () => {
+  afterEach(() => {
+    // In afterEach, not trailing the assertions inside the test that sets
+    // it up: a failing assertion throws before the cleanup line is reached
+    // and every later test in this file then runs against the mocked
+    // module, failing for a reason that has nothing to do with itself.
+    vi.doUnmock("@/content/center")
+    vi.resetModules()
+  })
+
   it("routes to the contact page while the center has no booking profile", () => {
     // The old Doctolib URL belonged to Privatpraxis Dr. Dost. Until the
     // center has its own profile, the honest destination is our own form.
@@ -57,7 +66,6 @@ describe("BookingButton", () => {
     expect(link).toHaveAttribute("href", "https://booking.example.test/aurea")
     expect(link).toHaveAttribute("target", "_blank")
     expect(link).toHaveAttribute("rel", "noopener noreferrer")
-    vi.doUnmock("@/content/center")
   })
 
   it("renders nothing on the page its fallback would link to", () => {

@@ -59,8 +59,10 @@ describe("Footer", () => {
     expect(screen.queryByText("LinkedIn")).not.toBeInTheDocument()
   })
 
-  it("renders no email line while no address is supplied", () => {
-    renderFooter()
-    expect(screen.queryByText(/TODO_/)).not.toBeInTheDocument()
+  it("renders no TODO_ sentinel anywhere in the footer", () => {
+    // Named for what it checks. The old name promised an assertion about
+    // the email line, and about an address, and made neither.
+    const { container } = renderFooter()
+    expect(container.innerHTML).not.toMatch(/TODO_/)
   })
 })

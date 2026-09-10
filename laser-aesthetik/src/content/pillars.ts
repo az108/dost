@@ -33,8 +33,8 @@ const PILLARS: LocalizedPillarInfo[] = [
     },
     image: laserImg,
     imageAlt: {
-      de: "Lasergerät der Praxis im Behandlungsraum",
-      en: "The practice's laser device in the treatment room",
+      de: "Lasergerät im Behandlungsraum",
+      en: "Laser device in the treatment room",
     },
     faq: {
       de: [

@@ -146,7 +146,7 @@ describe("go-live guards", () => {
 describe("legal go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
   // The Impressum and Datenschutz are scaffolds. Paragraphs marked PRÜFEN
-  // name facts only the practice can supply — the responsible medical
+  // name facts only the center can supply — the responsible medical
   // chamber, the hosting provider. §5 TMG and DSGVO Art. 13 make this
   // content legally consequential, so it must not ship as scaffolding.
   // To fix: have a lawyer complete both documents, then delete this test.
@@ -159,7 +159,7 @@ describe("legal go-live guard", () => {
 describe("contact form go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
   // contact.php has no recipient and no real sender domain until the
-  // practice supplies them. Shipping RECIPIENT unset means every message a
+  // center supplies them. Shipping RECIPIENT unset means every message a
   // patient sends is silently lost. Shipping SENDER_DOMAIN unset means the
   // From header carries a placeholder domain, which fails SPF/DKIM and gets
   // the mail spam-filtered even though RECIPIENT is correct.
