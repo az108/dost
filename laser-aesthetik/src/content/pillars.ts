@@ -22,11 +22,13 @@ const PILLARS: LocalizedPillarInfo[] = [
         "Moderne Lasertechnologie arbeitet gezielt. Das Licht wird nur dort aufgenommen, wo es wirken soll: im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
         "Jede Behandlung beginnt bei uns mit einem ärztlichen Gespräch. Wir bestimmen Ihren Hauttyp, prüfen Kontraindikationen und legen gemeinsam fest, wie viele Sitzungen realistisch nötig sind.",
         "Fachlich korrekt spricht man von dauerhafter Haarreduktion: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Wie viele Sitzungen nötig sind und wie vollständig das Ergebnis ausfällt, hängt von Haut- und Haartyp ab.",
+        "Der Schwerpunkt liegt auf der dauerhaften Haarreduktion — vom Gesicht über die Achseln und die Bikinizone bis zum Ganzkörper. Jede Zone lässt sich einzeln oder im Paket buchen.",
       ],
       en: [
         "Modern laser technology works with precision. The light is absorbed only where it needs to act: in the hair follicle, the dilated vessel, or the pigment. The surrounding tissue is left unaffected.",
         "Every treatment with us begins with a medical consultation. We assess your skin type, check for contraindications, and agree together on how many sessions are realistically needed.",
         "The medically correct term is permanent hair reduction: in most patients, a small proportion of hair remains. How many sessions are needed, and how complete the result is, depends on skin and hair type.",
+        "The focus is permanent hair reduction — from the face through the underarms and bikini area to full-body treatment. Every zone can be booked individually or as a package.",
       ],
     },
     image: laserImg,
@@ -147,8 +149,8 @@ const PILLARS: LocalizedPillarInfo[] = [
   },
   {
     id: "aesthetik",
-    label: { de: "Ästhetik", en: "Aesthetics" },
-    title: { de: "Ästhetische Medizin", en: "Aesthetic Medicine" },
+    label: { de: "Kosmetik & Ästhetik", en: "Beauty & Aesthetics" },
+    title: { de: "Kosmetik & Ästhetische Medizin", en: "Beauty & Aesthetic Medicine" },
     headline: {
       de: { lead: "Natürlich", accent: "Sie selbst" },
       en: { lead: "Naturally", accent: "yourself" },
@@ -160,11 +162,11 @@ const PILLARS: LocalizedPillarInfo[] = [
     intro: {
       de: [
         "Ästhetische Medizin soll nicht auffallen. Unser Anspruch ist ein Ergebnis, das ausgeruht wirkt und Ihre Mimik erhält, nicht ein Gesicht, das behandelt aussieht.",
-        "Alle Eingriffe führt Dr. med. univ. Dost Mohammad persönlich durch. Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten.",
+        "Alle Eingriffe werden von ärztlich geprüften Fachkräften des Centers durchgeführt. Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten.",
       ],
       en: [
         "Aesthetic medicine shouldn't be noticeable. Our aim is a result that looks well-rested and preserves your natural expression, not a face that looks treated.",
-        "Every procedure is carried out personally by Dr. med. univ. Dost Mohammad. Before each treatment, we discuss openly what makes medical sense and what we would advise against.",
+        "Every procedure is carried out by the center's medically qualified practitioners. Before each treatment, we discuss openly what makes medical sense and what we would advise against.",
       ],
     },
     image: aesthetikImg,
@@ -181,7 +183,8 @@ const PILLARS: LocalizedPillarInfo[] = [
         },
         {
           question: "Wer führt die Behandlung durch?",
-          answer: "Alle ästhetischen Eingriffe führt Dr. med. univ. Dost Mohammad persönlich durch.",
+          answer:
+            "Alle ästhetischen Eingriffe führen ärztlich geprüfte Fachkräfte des Centers durch.",
         },
         {
           question: "Was passiert im Erstgespräch?",
@@ -197,7 +200,8 @@ const PILLARS: LocalizedPillarInfo[] = [
         },
         {
           question: "Who carries out the treatment?",
-          answer: "All aesthetic procedures are carried out personally by Dr. med. univ. Dost Mohammad.",
+          answer:
+            "All aesthetic procedures are carried out by the center's medically qualified practitioners.",
         },
         {
           question: "What happens at the initial consultation?",

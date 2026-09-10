@@ -26,7 +26,7 @@ describe("Navbar", () => {
     for (const [label, path] of [
       ["Laser", "/laser"],
       ["Physio", "/physio"],
-      ["Ästhetik", "/aesthetik"],
+      ["Kosmetik & Ästhetik", "/aesthetik"],
     ]) {
       const links = screen.getAllByRole("link", { name: label })
       expect(links.some((l) => l.getAttribute("href") === path)).toBe(true)
