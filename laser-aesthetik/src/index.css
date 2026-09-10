@@ -18,9 +18,12 @@
    */
   --color-brand: #0E8F8A;
   /*
-   * Primary CTA only. Nothing else uses this, so "buchen" is unmistakable.
-   * Same two-shade split: `action` is the declared brand magenta at 4.36:1,
-   * and the button actually renders in action-ink.
+   * Primary CTA only — apart from the interim `.hero-wash` reuse below,
+   * which Task 4 removes. Once it does, this is the CTA's colour and
+   * nothing else's, so "buchen" is unmistakable.
+   *
+   * Same two-shade split: `action` is the declared brand magenta at
+   * 4.36:1, and the button actually renders in action-ink.
    */
   --color-action: #E8137C;
   /*
@@ -32,7 +35,8 @@
   --color-action-ink: #D41071;
   /* Proof and reassurance: checkmarks, inclusion badges. Also the Physio
      pillar's mark — one green, used for both, rather than two that differ
-     by a hair and read as a mistake. 6.57:1. */
+     by a hair and read as a mistake — and, for now, the interim
+     `.hero-wash` reuse below, which Task 4 removes. 6.57:1. */
   --color-success: #306934;
   /* The Laser pillar's mark. Google blue, a colour the audience already
      recognises. 3.56:1 — icons and large text only, never body copy. */
