@@ -1359,6 +1359,126 @@ const AESTHETIK: LocalizedTreatment[] = [
     sessions: { de: "Nach Befund", en: "Based on assessment" },
     pricing: { kind: "onRequest" },
   },
+  {
+    slug: { de: "klassische-gesichtsbehandlung", en: "classic-facial" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Klassische Gesichtsbehandlung", en: "Classic Facial" },
+    headline: {
+      de: { lead: "Reinigung, die", accent: "spürbar ist" },
+      en: { lead: "A cleanse you", accent: "can feel" },
+    },
+    excerpt: {
+      de: "Reinigung, Peeling, Ausreinigung und Pflege, abgestimmt auf Ihren Hauttyp.",
+      en: "Cleansing, exfoliation, extraction and care, matched to your skin type.",
+    },
+    body: {
+      de: [
+        "Die klassische Gesichtsbehandlung ist die Grundlage jeder Hautpflege. Wir bestimmen zuerst Ihren Hauttyp und wählen danach Reinigung, Peeling und Pflege aus.",
+        "Die Behandlung eignet sich als einzelne Anwendung ebenso wie als regelmäßige Routine. Wie oft sie sinnvoll ist, besprechen wir im Anschluss mit Ihnen.",
+      ],
+      en: [
+        "The classic facial is the foundation of any skincare routine. We first assess your skin type and select the cleansing, exfoliation and care products accordingly.",
+        "The treatment works as a one-off as well as a regular routine. We will discuss with you afterwards how often it makes sense.",
+      ],
+    },
+    benefits: {
+      de: ["Auf den Hauttyp abgestimmt", "Ohne Ausfallzeit", "Auch als Routine geeignet"],
+      en: ["Matched to your skin type", "No downtime", "Suitable as a routine"],
+    },
+    durationMin: 60,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "fruchtsaeurepeeling", en: "chemical-peel" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Fruchtsäurepeeling", en: "Chemical Peel" },
+    headline: {
+      de: { lead: "Ein Peeling mit", accent: "Augenmaß" },
+      en: { lead: "A peel with", accent: "judgement" },
+    },
+    excerpt: {
+      de: "Sanfte Abtragung der obersten Hautschicht, in der Konzentration auf Ihre Haut abgestimmt.",
+      en: "Gentle removal of the outermost skin layer, at a concentration matched to your skin.",
+    },
+    body: {
+      de: [
+        "Fruchtsäuren lösen die Verbindungen zwischen den obersten Hornzellen, sodass sich die Haut leichter erneuert. Die Konzentration wählen wir nach Hauttyp und Vorbehandlung.",
+        "Vor der ersten Anwendung prüfen wir Ihre Haut und klären Gegenanzeigen ab. In den Tagen danach ist konsequenter Sonnenschutz nötig.",
+      ],
+      en: [
+        "Fruit acids loosen the bonds between the outermost skin cells so the skin renews more easily. We choose the concentration according to skin type and previous treatments.",
+        "Before the first application we examine your skin and check for contraindications. Consistent sun protection is necessary in the days that follow.",
+      ],
+    },
+    benefits: {
+      de: ["Konzentration individuell gewählt", "Ärztliche Einschätzung vorab", "Mehrere Sitzungen möglich"],
+      en: ["Individually chosen concentration", "Medical assessment beforehand", "Multiple sessions possible"],
+    },
+    durationMin: 45,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "microneedling", en: "microneedling-treatment" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Microneedling", en: "Microneedling" },
+    headline: {
+      de: { lead: "Die Haut", accent: "selbst anregen" },
+      en: { lead: "Prompting the skin", accent: "itself" },
+    },
+    excerpt: {
+      de: "Feine Mikroverletzungen regen die hauteigene Erneuerung an, ärztlich begleitet.",
+      en: "Fine micro-injuries prompt the skin's own renewal, under medical supervision.",
+    },
+    body: {
+      de: [
+        "Beim Microneedling setzen feine Nadeln kontrollierte Mikroverletzungen in der Haut. Der Körper reagiert darauf mit seiner eigenen Reparatur.",
+        "Wie viele Sitzungen sinnvoll sind und in welchem Abstand, hängt von Hautbild und Zielsetzung ab. Das besprechen wir im Erstgespräch.",
+      ],
+      en: [
+        "In microneedling, fine needles create controlled micro-injuries in the skin. The body responds with its own repair process.",
+        "How many sessions make sense, and at what intervals, depends on your skin and what you want to achieve. We discuss this at the initial consultation.",
+      ],
+    },
+    benefits: {
+      de: ["Ärztlich begleitet", "Sitzungszahl individuell", "Erstgespräch vorab"],
+      en: ["Medically supervised", "Individual number of sessions", "Initial consultation beforehand"],
+    },
+    durationMin: 60,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "apparative-kosmetik", en: "device-based-treatments" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Apparative Kosmetik", en: "Device-Based Treatments" },
+    headline: {
+      de: { lead: "Technik als", accent: "Ergänzung" },
+      en: { lead: "Technology as a", accent: "complement" },
+    },
+    excerpt: {
+      de: "Ultraschall und Radiofrequenz als Ergänzung zur manuellen Behandlung.",
+      en: "Ultrasound and radiofrequency as a complement to manual treatment.",
+    },
+    body: {
+      de: [
+        "Apparative Verfahren ergänzen die manuelle Kosmetik, sie ersetzen sie nicht. Wir setzen sie dort ein, wo sie einen Unterschied machen, und sagen es, wenn sie es nicht tun.",
+        "Welches Verfahren infrage kommt, hängt vom Hautbild ab. Im Erstgespräch sehen wir uns die Region an und schätzen offen ein, was zu erwarten ist.",
+      ],
+      en: [
+        "Device-based methods complement manual treatments rather than replacing them. We use them where they make a difference, and say so when they do not.",
+        "Which method is suitable depends on your skin. At the initial consultation we look at the area and give you an honest assessment of what to expect.",
+      ],
+    },
+    benefits: {
+      de: ["Ergänzend, nicht ersetzend", "Auswahl nach Hautbild", "Offene Einschätzung vorab"],
+      en: ["Complementary, not a replacement", "Chosen according to your skin", "An honest assessment beforehand"],
+    },
+    durationMin: 45,
+    pricing: { kind: "onRequest" },
+  },
 ]
 
 export function treatments(locale: Locale): Treatment[] {

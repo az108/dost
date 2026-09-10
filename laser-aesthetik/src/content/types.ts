@@ -54,6 +54,12 @@ export interface Treatment {
   imageAlt?: string
   faq?: FaqItem[]
   keywords?: string[]
+  /**
+   * Copy we drafted rather than the client supplying. content.test.ts
+   * fails while any treatment carries it, so unreviewed medical claims
+   * cannot ship.
+   */
+  draft?: boolean
 }
 
 /**
@@ -78,6 +84,12 @@ export interface LocalizedTreatment {
   image?: string
   imageAlt?: Localized<string>
   faq?: Localized<FaqItem[]>
+  /**
+   * Copy we drafted rather than the client supplying. content.test.ts
+   * fails while any treatment carries it, so unreviewed medical claims
+   * cannot ship.
+   */
+  draft?: boolean
 }
 
 export interface PillarInfo {

@@ -76,7 +76,7 @@ describe("sitemap.xml", () => {
     // same set minus the German-only Impressum and Datenschutz (there is no
     // English legal page at all, not even one pointing back to German — a
     // sitemap should only list a page's own canonical URL). Each treatment
-    // appears once per language: 29 + 29.
+    // appears once per language: 33 + 33.
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
     expect(locCount).toBe(9 + 7 + treatments("de").length + treatments("en").length)

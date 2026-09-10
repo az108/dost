@@ -292,6 +292,31 @@ describe("claims awaiting legal sign-off", () => {
   })
 })
 
+describe("draft content", () => {
+  // ── Go-live guard ─────────────────────────────────────────────────────
+  // The four Kosmetik treatments were drafted by us, not supplied by the
+  // client. Every line of treatment copy on this site is a claim surface,
+  // and these describe procedures and their effects. They must not reach
+  // production unreviewed.
+  // To fix: have the client review the copy, delete `draft: true` from
+  // each entry, then delete this test.
+  it("FAILS UNTIL the drafted Kosmetik copy is signed off", () => {
+    const drafts = treatments("de").filter((t) => t.draft)
+    expect(drafts.map((t) => t.slug)).toEqual([])
+  })
+
+  it("marks exactly the four new Kosmetik treatments as draft", () => {
+    // Guards the guard: if someone deletes `draft` from an entry without
+    // review, this fails too, so the flag cannot be quietly dropped.
+    expect(treatments("de").filter((t) => t.draft).map((t) => t.slug).sort()).toEqual([
+      "apparative-kosmetik",
+      "fruchtsaeurepeeling",
+      "klassische-gesichtsbehandlung",
+      "microneedling",
+    ])
+  })
+})
+
 describe("published prices", () => {
   // These are the clinic's real published figures. A transposed digit is a
   // wrong price on a live website, so they are pinned here rather than only
@@ -330,8 +355,15 @@ describe("published prices", () => {
 
 describe("treatment imagery", () => {
   it("gives every treatment an image and non-empty alt text", () => {
+    // Drafted treatments (see "draft content" above) have no client-approved
+    // photography yet — the copy itself is still awaiting sign-off, so
+    // there is nothing to source or clear an image against. Skipped here
+    // rather than given stock or reused imagery, which would be its own
+    // unreviewed claim about a procedure. Remove this guard once the draft
+    // treatments are signed off and photographed.
     for (const locale of LOCALES) {
       for (const t of treatments(locale)) {
+        if (t.draft) continue
         expect(t.image, `${locale}/${t.slug} has no image`).toBeTruthy()
         expect(t.imageAlt?.trim().length, `${locale}/${t.slug} has no alt text`).toBeGreaterThan(5)
       }
