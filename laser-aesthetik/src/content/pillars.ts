@@ -156,8 +156,8 @@ const PILLARS: LocalizedPillarInfo[] = [
       en: { lead: "Naturally", accent: "yourself" },
     },
     excerpt: {
-      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und ärztlich durchgeführt.",
-      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by a physician.",
+      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und von ärztlich geprüften Fachkräften durchgeführt.",
+      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by medically qualified practitioners.",
     },
     intro: {
       de: [
