@@ -1,15 +1,22 @@
 import type { ReactNode } from "react"
+import { Link } from "react-router-dom"
 import { CalendarCheck } from "lucide-react"
-import { practice } from "@/content/practice"
+import { hasBookingUrl, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
+import { useLocale } from "@/lib/locale"
+import { pagePath } from "@/lib/routes"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 /**
  * The single entry point to booking. Every CTA on the site renders through
- * this component, and the Doctolib URL lives only in practice.ts — so
- * changing the booking destination is a one-line change.
- * BookingButton.test.tsx enforces both properties.
+ * this component, so the destination is one edit in center.ts.
+ *
+ * It has two destinations, not one. The center has no booking profile of
+ * its own yet — the URL that used to live here was Privatpraxis Dr. Dost's
+ * Doctolib page, which this site is being separated from — so the button
+ * falls back to our own contact form. Filling in
+ * center.locations[0].bookingUrl restores the external link everywhere.
  */
 export function BookingButton({
   variant = "action",
@@ -25,16 +32,33 @@ export function BookingButton({
   showIcon?: boolean
 }) {
   const t = useT()
+  const locale = useLocale()
+  const location = openLocation()
 
-  return (
-    <a
-      href={practice.bookingUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(buttonVariants({ variant, size }), "gap-2 font-semibold", className)}
-    >
+  const classes = cn(buttonVariants({ variant, size }), "gap-2 font-semibold", className)
+  const label = (
+    <>
       {showIcon ? <CalendarCheck className="size-5 shrink-0" aria-hidden="true" /> : null}
       {children ?? t("bookAppointment")}
-    </a>
+    </>
+  )
+
+  if (hasBookingUrl(location)) {
+    return (
+      <a
+        href={location.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
+        {label}
+      </a>
+    )
+  }
+
+  return (
+    <Link to={pagePath("contact", locale)} className={classes}>
+      {label}
+    </Link>
   )
 }
