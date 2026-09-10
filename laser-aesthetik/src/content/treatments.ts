@@ -378,7 +378,7 @@ const LASER: LocalizedTreatment[] = [
       de: [
         "Weniger eingewachsene Haare, weniger Erdbeerhaut",
         "Diskrete, ruhige Behandlungsräume",
-        "Ärztlich durchgeführt",
+        "Ärztlich geführt",
       ],
       en: [
         "Fewer ingrown hairs, less irritation",

@@ -90,23 +90,36 @@ const LOCALES = ["de", "en"] as const
 
 describe("who performs the treatments", () => {
   /*
-   * Whether the center's Ästhetik is physician-performed is a business
-   * question for the client, and this test does not decide it. What it
-   * forbids is the site answering it two ways at once, which is a
-   * misleading-advertising exposure whichever way the answer lands.
+   * The site-wide baseline is ui.ts's `physicianLedBody`, rendered by
+   * TrustRow on the home page and on /praxis: "Jede Behandlung führen
+   * ärztlich geprüfte Fachkräfte des Centers durch." ("Every treatment is
+   * carried out by the center's medically qualified practitioners.") That
+   * is a claim about EVERY treatment, site-wide — so no pillar, and no
+   * treatment in any pillar, may say instead that a physician personally
+   * performs it. Either would still be a defensible business answer on its
+   * own; saying both is what creates the misleading-advertising exposure,
+   * whichever way the true answer lands.
    *
-   * That has now happened twice. pillars.ts says every aesthetic procedure
-   * is carried out by "ärztlich geprüfte Fachkräfte des Centers", while the
-   * aesthetische-medizin treatment sitting on that same pillar claimed
-   * "Ärztlich durchgeführt" and akupunktur-tcm claimed the same shape on
-   * physio. Both were resolved provisionally in the WEAKER direction —
-   * claiming physician-performed when it may not be is the riskier error —
-   * so the center-staff wording is the one the whole site now uses.
+   * This has now happened three times: pillars.ts's aesthetik copy says the
+   * center-staff line, while the aesthetische-medizin treatment on that same
+   * pillar claimed "Ärztlich durchgeführt", akupunktur-tcm claimed the same
+   * shape on physio, and bikinizone claimed it on laser. All were resolved
+   * in the weaker direction — claiming physician-performed when it may not
+   * be is the riskier error — so the center-staff wording is the one the
+   * whole site uses, and the assertion below is unconditional: it does not
+   * matter whether the pillar being scanned makes a center-staff claim of
+   * its own, because the claim it would contradict lives in ui.ts, not in
+   * the pillar. (An earlier version of this test compared each pillar's
+   * PHYSICIAN_PERSONALLY hits only against that same pillar's own
+   * CENTER_STAFF hits, so a pillar with no local staff claim — laser and
+   * physio both had none — could not fail no matter what its treatments
+   * said. bikinizone shipped "Ärztlich durchgeführt" on the laser pillar
+   * underneath that gap.)
    *
    * The surfaces scanned deliberately include each pillar's treatments, not
-   * just the pillar's own copy: both recurrences lived one file over from
-   * the pillar they contradicted, and a pillars-only guard would have
-   * passed through both of them.
+   * just the pillar's own copy: all three recurrences lived one file over
+   * from the pillar they contradicted, and a pillars-only guard would have
+   * passed through all of them.
    */
   const CENTER_STAFF: Record<(typeof LOCALES)[number], RegExp> = {
     de: /ärztlich geprüfte[nrms]* Fachkr/i,
@@ -139,32 +152,54 @@ describe("who performs the treatments", () => {
     return out
   }
 
-  it.each(PILLAR_IDS)("gives one answer, not two, on the %s pillar", (pillar) => {
+  it.each(PILLAR_IDS)("claims no physician personally performs a treatment on the %s pillar", (pillar) => {
     for (const locale of LOCALES) {
       const surfaces = surfacesFor(pillar, locale)
-      const staff = surfaces.filter(([, text]) => CENTER_STAFF[locale].test(text)).map(([w]) => w)
       const personally = surfaces
         .filter(([, text]) => PHYSICIAN_PERSONALLY[locale].some((re) => re.test(text)))
         .map(([w]) => w)
 
       expect(
         personally,
-        `${locale}/${pillar}: ${personally.join(", ")} claim a physician personally ` +
-          `performs the treatment, while ${staff.join(", ")} say the center's ` +
-          `medically qualified practitioners do`,
-      ).toEqual(staff.length > 0 ? [] : personally)
+        `${locale}/${pillar}: ${personally.join(", ")} claim a physician personally performs ` +
+          `the treatment, contradicting the site-wide baseline in ui.ts's physicianLedBody, ` +
+          `which says the center's medically qualified practitioners do ("Ärztlich geführt" / ` +
+          `"Physician-led" is the established weaker wording — use that instead)`,
+      ).toEqual([])
     }
   })
 
   it("still makes a who-claim at all on the aesthetik pillar", () => {
     // Guards the guard: the test above is satisfied trivially if every
-    // who-claim is deleted, and this pillar's is load-bearing — it is the
-    // answer to the home page's "Wer führt die Behandlung durch?".
+    // who-claim is deleted, and this pillar's own is load-bearing — it is
+    // the answer to its FAQ's "Wer führt die Behandlung durch?", a claim
+    // that lives in pillars.ts and is independent of the ui.ts baseline
+    // pinned below.
     for (const locale of LOCALES) {
       const claims = surfacesFor("aesthetik", locale).filter(([, text]) =>
         CENTER_STAFF[locale].test(text),
       )
       expect(claims.length, `${locale}/aesthetik states who performs treatments nowhere`).toBeGreaterThan(0)
+    }
+  })
+
+  it("still makes the center-staff claim in ui.ts's physicianLedBody", () => {
+    // Guards the OTHER guard: the unconditional assertion above forbids
+    // every surface from claiming a physician personally performs a
+    // treatment because ui.ts's physicianLedBody claims, site-wide, that the
+    // center's medically qualified practitioners do instead. If that string
+    // were ever deleted or reworded away from the center-staff claim, the
+    // assertion above would keep passing but would no longer be grounded in
+    // anything the site actually says — this pins the baseline it depends
+    // on, the same way the aesthetik test above pins pillars.ts's copy of
+    // it. Sits beside that test rather than replacing it: the two guard
+    // different surfaces (the sitewide trust row vs. the aesthetik FAQ) that
+    // happen to make the same claim in different places.
+    for (const locale of LOCALES) {
+      expect(
+        CENTER_STAFF[locale].test(ui.physicianLedBody[locale]),
+        `ui.ts physicianLedBody (${locale}) no longer makes the center-staff claim`,
+      ).toBe(true)
     }
   })
 })
