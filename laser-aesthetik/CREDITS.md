@@ -1,12 +1,30 @@
 # Bildnachweise
 
-Die Behandlungsbilder stammen von Unsplash und sind für die kommerzielle
-Nutzung freigegeben (Unsplash License). Die Nennung erfolgt freiwillig zur
-Nachvollziehbarkeit. Die Praxis selbst und der Arzt werden ausschließlich mit
-eigenen Aufnahmen gezeigt (siehe unten), nie mit Stockfotos.
+Die Bilder stammen von Unsplash und sind für die kommerzielle Nutzung
+freigegeben (Unsplash License). Die Nennung erfolgt freiwillig zur
+Nachvollziehbarkeit.
+
+Alle Bilder auf dieser Seite sind Stockfotos. Sobald das Center in Landshut
+eröffnet ist, werden die Räume und das Team mit eigenen Aufnahmen gezeigt und
+die entsprechenden Zeilen hier entfernt.
+
+Die zehn Dateien unter `src/assets/center/` und das og-Bild sind auf eine
+gemeinsame Bildsprache ausgewählt: warmes, gerichtetes Tageslicht, geringe
+Schärfentiefe, viel Fläche. Farbtemperatur und Sättigung sind beim Export
+angeglichen, damit sie als eine Serie zusammenfinden.
 
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
+| src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
+| src/assets/center/hero-about.webp | https://unsplash.com/photos/VRoK8MxTlHY | Maverick Frame | Unsplash License |
+| src/assets/center/hero-contact.webp | https://unsplash.com/photos/lwLreiMS25k | Franco Debartolo | Unsplash License |
+| src/assets/center/pillar-laser.webp | https://unsplash.com/photos/0nav_aD3YZ4 | ActionVance | Unsplash License |
+| src/assets/center/pillar-physio.webp | https://unsplash.com/photos/LRcPNV8HQ3Q | Maryjoy Caballero | Unsplash License |
+| src/assets/center/pillar-kosmetik.webp | https://unsplash.com/photos/16mHHrY3PUk | Ionela Mat | Unsplash License |
+| src/assets/center/ablauf.webp | https://unsplash.com/photos/7yeqemd-p90 | Jakub Klucký | Unsplash License |
+| src/assets/center/standort-landshut.webp | https://unsplash.com/photos/XBzhpoTHS2E | Jahanzeb Ahsan | Unsplash License |
+| src/assets/center/standort-muenchen.webp | https://unsplash.com/photos/ySICq4GkcsQ | Jan Antonin Kolar | Unsplash License |
+| src/assets/center/standort-stuttgart.webp | https://unsplash.com/photos/h05F6pnxedo | Fabian Kleiser | Unsplash License |
 | src/assets/laser/oberlippe.webp | https://unsplash.com/photos/hR3ecKHpq7k | Studio Michael França | Unsplash License |
 | src/assets/laser/wangen.webp | https://unsplash.com/photos/MrH55xfdLp4 | Ace Maxwell | Unsplash License |
 | src/assets/laser/kinn.webp | https://unsplash.com/photos/iN2ObRIy5Mc | Sum Sum | Unsplash License |
@@ -36,7 +54,7 @@ eigenen Aufnahmen gezeigt (siehe unten), nie mit Stockfotos.
 | src/assets/aesthetik/kryolipolyse.webp | https://unsplash.com/photos/FIkfmwPTKqM | Corinne Sawers | Unsplash License |
 | src/assets/aesthetik/farblichttherapie.webp | https://unsplash.com/photos/BqEvVaqcLXc | Imran Ali | Unsplash License |
 | src/assets/aesthetik/aesthetische-medizin.webp | https://unsplash.com/photos/xREEa0dZmLY | Sum Sum | Unsplash License |
-| public/og-image.jpg | https://unsplash.com/photos/ECBg5FQkBXI | 何青蓝 | Unsplash License |
+| public/og-image.jpg | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
 
 <!-- Eine Zeile pro Bild. Keine Zeile darf leer bleiben. -->
 
@@ -64,23 +82,18 @@ Damit gibt es bewusst keinen `.ico`-Fallback fuer sehr alte Browser und kein
 Apple-Touch-Icon mehr. Beides ist der ehrliche Preis des Zwischenzustands:
 kein Icon ist besser als das Icon einer fremden Praxis.
 
-## Eigene Aufnahmen der Praxis
-
-Die folgenden Bilder sind keine Stockfotos, sondern eigene Aufnahmen der
-Praxis. Sie zeigen Dr. med. univ. Dost Mohammad in seinen eigenen Räumen und
-dürfen deshalb als Einzige mit seinem Namen beschriftet werden.
-
-| Datei | Quelle | Zugeschnitten aus | Lizenz |
-|---|---|---|---|
-| src/assets/praxis/dr-dost-schreibtisch.webp | Eigene Aufnahme der Praxis | figures/galerie/arzt-am-schreibtisch-01.jpg | Rechte bei der Praxis |
-| src/assets/praxis/dr-dost-portrait.webp | Eigene Aufnahme der Praxis | figures/galerie/sprechzimmer-04.jpg | Rechte bei der Praxis |
-| src/assets/praxis/dr-dost-sprechzimmer.webp | Eigene Aufnahme der Praxis | figures/galerie/arzt-am-schreibtisch-02.jpg | Rechte bei der Praxis |
-| src/assets/praxis/laser-geraet.webp | Eigene Aufnahme der Praxis | figures/galerie/behandlungsraum-01.jpg | Rechte bei der Praxis |
-| src/assets/praxis/laser-handstueck-arzt.webp | Eigene Aufnahme der Praxis | figures/galerie/behandlungsraum-02.jpg | Rechte bei der Praxis |
-| src/assets/praxis/sprechzimmer.webp | Eigene Aufnahme der Praxis | figures/galerie/sprechzimmer-02.jpg | Rechte bei der Praxis |
-
 ## Noch offen
 
-Nichts. Alle Aufnahmen der Praxis und des Arztes sind eigene Bilder. Die
-Unsplash-Fotos oben illustrieren ausschließlich einzelne Behandlungen, nicht
-die Praxis selbst.
+Rechtlich nichts. Der Ordner `src/assets/praxis/` ist gelöscht. Er enthielt
+sechs eigene Aufnahmen der Praxis Dr. Dost — identifizierbare Bilder ihrer
+Räume und ihres Arztes, geführt unter „Rechte bei der Praxis“. Das Center ist
+ein anderes Unternehmen und durfte sie nicht zeigen; fünf davon waren nach
+Slice 1 unbenutzt, das sechste hing noch am Laser-Bereich.
+
+Offen bleibt eigenes Bildmaterial. Zwei der neuen Bilder zeigen Innenräume
+(`hero-about.webp`, `hero-contact.webp`), und ein Besucher wird sie für die
+Räume des Centers halten — sie sind es nicht. Deshalb behauptet kein Alt-Text
+und keine Bildunterschrift, dass hier das Center zu sehen ist; beschrieben
+wird nur, was im Bild steht. Sobald es das Center in Landshut wirklich gibt,
+gehören seine eigenen Räume und sein eigenes Team an diese Stellen, und diese
+beiden Zeilen verschwinden aus der Tabelle oben.

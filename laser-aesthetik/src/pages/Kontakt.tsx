@@ -10,6 +10,7 @@ import { BookingButton } from "@/components/cta/BookingButton"
 import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/center/hero-contact.webp"
 
 export default function Kontakt() {
   const t = useT()
@@ -42,6 +43,8 @@ export default function Kontakt() {
         lead={t("contactHeroLead")}
         accent={t("contactHeroAccent")}
         description={t("contactHeroDescription")}
+        image={heroImage}
+        imageAlt={t("contactHeroImageAlt")}
       />
 
       <Section>

@@ -1,8 +1,8 @@
 import type { FaqItem, Locale, LocalizedPillarInfo, Pillar, PillarInfo } from "./types"
 import { resolvePillar } from "./localize"
-import laserImg from "@/assets/praxis/laser-geraet.webp"
-import physioImg from "@/assets/physio/schmerztherapie.webp"
-import aesthetikImg from "@/assets/aesthetik/aesthetische-medizin.webp"
+import laserImg from "@/assets/center/pillar-laser.webp"
+import physioImg from "@/assets/center/pillar-physio.webp"
+import aesthetikImg from "@/assets/center/pillar-kosmetik.webp"
 
 const PILLARS: LocalizedPillarInfo[] = [
   {
@@ -32,9 +32,19 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: laserImg,
+    /*
+     * The photograph this replaced was a real shot of the Kröning practice's
+     * own laser device, and its alt text said so — "Lasergerät der Praxis im
+     * Behandlungsraum". The grep guard in content.test.ts could not see it:
+     * the wording is "Praxis", not "Privatpraxis", and the import path named
+     * nobody. It shipped on /laser and /en/laser through all of slice 1.
+     *
+     * What is here now is a person, not a machine: skin in soft window
+     * light, which is what a laser appointment is actually about.
+     */
     imageAlt: {
-      de: "Lasergerät im Behandlungsraum",
-      en: "Laser device in the treatment room",
+      de: "Frau im Profil, die Hand am Hals, weiches Fensterlicht",
+      en: "Woman in profile, a hand at her neck, soft window light",
     },
     faq: {
       de: [
@@ -106,9 +116,14 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: physioImg,
+    /*
+     * Movement, not pain. The previous photograph was someone gripping a
+     * hurting thigh — an illustration of the complaint rather than of what
+     * this pillar does about it.
+     */
     imageAlt: {
-      de: "Sportler greift sich an den schmerzenden Oberschenkel",
-      en: "Athlete gripping a painful thigh",
+      de: "Person auf einer Matte, gestreiftes Sonnenlicht auf dem Rücken",
+      en: "Person on a mat, striped sunlight falling across their back",
     },
     faq: {
       de: [
@@ -171,8 +186,8 @@ const PILLARS: LocalizedPillarInfo[] = [
     },
     image: aesthetikImg,
     imageAlt: {
-      de: "Beratungsgespräch mit einer Patientin vor einer ästhetischen Behandlung",
-      en: "Consultation with a patient before an aesthetic treatment",
+      de: "Hände bei einer Gesichtsmassage, die Augen geschlossen",
+      en: "Hands giving a facial massage, the eyes closed",
     },
     faq: {
       de: [

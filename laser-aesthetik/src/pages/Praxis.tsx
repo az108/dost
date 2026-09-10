@@ -9,6 +9,7 @@ import { Standorte } from "@/sections/Standorte"
 import { TrustRow } from "@/sections/TrustRow"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/center/hero-about.webp"
 
 export default function Praxis() {
   const t = useT()
@@ -27,6 +28,8 @@ export default function Praxis() {
         lead={t("praxisHeroLead")}
         accent={t("praxisHeroAccent")}
         description={t("praxisHeroDescription")}
+        image={heroImage}
+        imageAlt={t("praxisHeroImageAlt")}
       />
 
       <Section>

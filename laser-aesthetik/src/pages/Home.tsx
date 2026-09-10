@@ -19,6 +19,7 @@ import { ProcessSteps } from "@/sections/ProcessSteps"
 import { Approach } from "@/sections/Approach"
 import { Standorte } from "@/sections/Standorte"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/center/hero-home.webp"
 
 export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
@@ -43,6 +44,8 @@ export default function Home() {
         lead={t("homeHeroLead")}
         accent={t("homeHeroAccent")}
         description={t("homeHeroDescription")}
+        image={heroImage}
+        imageAlt={t("homeHeroImageAlt")}
       >
         <Link
           to={pagePath("prices", locale)}
