@@ -182,7 +182,7 @@ Danach 0,51 / R/B 1,30 — genau auf dem Median der Serie.
 
 `public/favicon.svg` ist ein eigenes Zwischenzeichen: ein einfaches
 Monogramm aus dem Arbeitsnamen der Marke, gezeichnet in der Palette dieser
-Website (`--color-brand-ink`, `#1A73E8`). Es ist nicht von fremdem
+Website (`--color-brand-700`, `#0B7570`). Es ist nicht von fremdem
 Bildmaterial abgeleitet, die Rechte liegen bei uns.
 
 Es ist ausdruecklich ein Provisorium. Das endgueltige Zeichen des Centers
@@ -204,10 +204,36 @@ kein Icon ist besser als das Icon einer fremden Praxis.
 
 ## Noch offen
 
-Rechtlich nichts. Der Ordner `src/assets/praxis/` ist gelöscht. Er enthielt
-sechs eigene Aufnahmen der Praxis Dr. Dost — identifizierbare Bilder ihrer
-Räume und ihres Arztes, geführt unter „Rechte bei der Praxis“. Das Center ist
-ein anderes Unternehmen und durfte sie nicht zeigen; fünf davon waren nach
+### Rechtlich offen: fremde Marken in zwei Behandlungsbildern
+
+Eine Sichtung aller Behandlungsbilder bei 250–350 % hat drei Dateien mit
+lesbaren fremden Marken gefunden. Eine davon (`laser/oberlippe.webp`) ist
+oben ausgetauscht. **Zwei stehen bewusst noch offen** und sind hier notiert,
+damit dieses Dokument die Frage nicht schließt, die es dokumentieren soll:
+
+| Datei | Befund | Seite |
+|---|---|---|
+| `src/assets/laser/ganzkoerper.webp` | „New turbo 8G" steht groß und vollständig lesbar auf der Gerätefront, dazu „MIN MAX" und „INTENSITY". Ein bestimmtes Gerätemodell, das das Center nicht besitzt, auf seiner Ganzkörper-Seite. Das Handstück ist außerdem erkennbar kein Haarentfernungslaser. | `/behandlungen/ganzkoerper`, `/en/treatments/full-body` |
+| `src/assets/physio/manuelle-therapie.webp` | Grünes Logo mit Schriftzug auf der linken Brust des weißen Polos der behandelnden Person; das Gesicht ist vollständig erkennbar und lächelt in die Kamera, wirkt also wie Personal des Centers. | `/behandlungen/manuelle-therapie`, `/en/treatments/manual-therapy` |
+
+Beide sind derselbe Fall wie das eben ausgetauschte Oberlippen-Bild und wie
+das Praxiswappen aus Slice 1: eine fremde Marke auf einer Seite, die eine
+eigene Leistung bewirbt. Sie sind nicht vergessen, sondern zurückgestellt.
+
+Daneben steht eine Reihe von Bildern, die kein Rechtsproblem haben, aber
+Menschen zeigen, die als Personal oder Patienten dieses Centers gelesen
+werden können, sowie Handschuhe, Spritzen und Namensketten
+(`aesthetik/hyaluron`, `laser/gesicht-und-kopf`, `laser/kinn`,
+`laser/wangen`, `aesthetik/aesthetische-medizin`, `physio/sportmedizin`).
+Das ist eine gestalterische Entscheidung, keine juristische — aber auch sie
+ist noch nicht getroffen.
+
+### Eigenes Bildmaterial
+
+Der Ordner `src/assets/praxis/` ist gelöscht. Er enthielt sechs eigene
+Aufnahmen der Praxis Dr. Dost — identifizierbare Bilder ihrer Räume und
+ihres Arztes, geführt unter „Rechte bei der Praxis“. Das Center ist ein
+anderes Unternehmen und durfte sie nicht zeigen; fünf davon waren nach
 Slice 1 unbenutzt, das sechste hing noch am Laser-Bereich.
 
 Offen bleibt eigenes Bildmaterial. Zwei der neuen Bilder zeigen Innenräume
