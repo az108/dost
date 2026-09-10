@@ -78,6 +78,10 @@ export const ui = {
   homeAriaLabel: { de: "Zur Startseite", en: "Go to homepage" },
   menuOpen: { de: "Menü öffnen", en: "Open menu" },
   menuClose: { de: "Menü schließen", en: "Close menu" },
+  footerTagline: {
+    de: "Laser, Kosmetik & Ästhetik und Physiotherapie unter einem Dach.",
+    en: "Laser, beauty & aesthetics and physiotherapy under one roof.",
+  },
   prices: { de: "Preise", en: "Prices" },
   practice: { de: "Praxis", en: "Practice" },
   contact: { de: "Kontakt", en: "Contact" },

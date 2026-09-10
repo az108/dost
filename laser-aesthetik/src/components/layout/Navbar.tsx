@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { pillars } from "@/content/pillars"
-import { practice } from "@/content/practice"
+import { center } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { homePath, pagePath, pillarPath } from "@/lib/routes"
@@ -65,7 +65,7 @@ export function Navbar() {
               {/* brand-900, not brand: 16px bold sits under the large-text
                   threshold, so the display blue would be below AA here. */}
               <span className="font-display text-base font-extrabold text-brand-900">
-                {practice.shortBrand}
+                {center.shortBrand}
               </span>
               <span className="text-xs font-medium text-brand-600">
                 Laser · Physio · Ästhetik
