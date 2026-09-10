@@ -4,7 +4,7 @@ import { Section, type SectionTone } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
 import { Reveal } from "@/components/motion/Reveal"
-import { center, formatAddress, hasAddress } from "@/content/center"
+import { center, formatAddress } from "@/content/center"
 import { useT } from "@/content/ui"
 
 /**
@@ -52,7 +52,7 @@ export function Standorte({
                         missing address is simply omitted here rather than
                         repeating it — city twice in one card reads as a
                         rendering bug, not as an honest "no address yet". */}
-                    {hasAddress(location) ? (
+                    {formatAddress(location) ? (
                       <p className="text-sm leading-relaxed text-brand-800">
                         {formatAddress(location)}
                       </p>

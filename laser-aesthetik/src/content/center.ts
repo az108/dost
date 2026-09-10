@@ -84,13 +84,24 @@ export function openLocation(c: Center = center): Location {
   return open
 }
 
-/** "Musterweg 1, 84028 Landshut" */
-export function formatAddress(l: Location): string {
-  return `${l.street}, ${l.postalCode} ${l.city}`
-}
-
 function supplied(value: string | undefined, sentinel: string): boolean {
   return value !== undefined && value !== sentinel && value.trim().length > 0
+}
+
+/**
+ * "Musterweg 1, 84028 Landshut", or null when this location has no address
+ * worth printing.
+ *
+ * Null rather than a string, because the string version was the direct cause
+ * of three separate defects in one slice: it returned a plausible-looking
+ * "TODO_ADRESSE_LANDSHUT, TODO_ADRESSE_LANDSHUT Landshut" for input it
+ * cannot format, so every call site had to remember an external hasAddress()
+ * guard and three of them did not. A nullable return moves that from
+ * something a reviewer has to notice to something the compiler does.
+ */
+export function formatAddress(l: Location): string | null {
+  if (!hasAddress(l)) return null
+  return `${l.street}, ${l.postalCode} ${l.city}`
 }
 
 export function hasPhone(l: Location): boolean {

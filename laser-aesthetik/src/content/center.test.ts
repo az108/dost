@@ -109,6 +109,29 @@ describe("center data", () => {
     ).toBe("Musterweg 1, 84028 Landshut")
   })
 
+  it("returns null rather than a plausible-looking string it cannot format", () => {
+    // The whole point of the nullable return. While this returned a string
+    // unconditionally it produced "TODO_ADRESSE_LANDSHUT,
+    // TODO_ADRESSE_LANDSHUT Landshut" for the live seed data, and every
+    // call site had to remember an external hasAddress() guard. Three
+    // unguarded calls were written during this slice.
+    expect(formatAddress(openLocation())).toBeNull()
+    expect(formatAddress(center.locations[1])).toBeNull()
+    expect(formatAddress({ ...openLocation(), street: "Musterweg 1" })).toBeNull()
+    expect(formatAddress({ ...openLocation(), postalCode: "84028" })).toBeNull()
+  })
+
+  it("returns non-null exactly when hasAddress() is true", () => {
+    // The two must not drift: hasAddress() is still what call sites branch
+    // on where a boolean reads better than a null check.
+    for (const l of [
+      ...center.locations,
+      { ...openLocation(), street: "Musterweg 1", postalCode: "84028" },
+    ]) {
+      expect(formatAddress(l) !== null, `${l.city}`).toBe(hasAddress(l))
+    }
+  })
+
   it("carries no social link it does not actually have", () => {
     // The practice's Facebook and LinkedIn are the DOCTOR's personal
     // profiles. A center denying any connection to him must not link them.

@@ -1,5 +1,5 @@
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
-import { center, formatAddress, hasAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
+import { center, formatAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { pagePath } from "@/lib/routes"
@@ -17,10 +17,13 @@ export default function Kontakt() {
   const location = openLocation()
 
   // The Landshut location's street/postalCode are still TODO sentinels, so
-  // formatAddress() must never run unguarded here — see the hasAddress()
-  // checks below for what an unguarded call would do to each surface.
-  const mapsUrl = hasAddress(location)
-    ? `https://www.openstreetmap.org/search?query=${encodeURIComponent(formatAddress(location))}`
+  // formatAddress() returns null here. Every surface below falls back to the
+  // bare city rather than printing a placeholder; the map link has no such
+  // fallback — an OpenStreetMap search for the sentinel string would be
+  // worse than no link — so it is simply absent.
+  const address = formatAddress(location)
+  const mapsUrl = address
+    ? `https://www.openstreetmap.org/search?query=${encodeURIComponent(address)}`
     : null
 
   useSeo({
@@ -28,9 +31,7 @@ export default function Kontakt() {
     // center.brand, not t("practice") — a later task retitles the "practice"
     // UI key to "Über uns", which would otherwise leak "Über uns Aurea
     // Center, …" into the page's meta description.
-    description: `${center.brand}, ${
-      hasAddress(location) ? formatAddress(location) : location.city
-    }. ${t("contactMetaDescriptionSuffix")}`,
+    description: `${center.brand}, ${address ?? location.city}. ${t("contactMetaDescriptionSuffix")}`,
     canonicalPath: pagePath("contact", locale),
   })
 
@@ -49,7 +50,7 @@ export default function Kontakt() {
             <SectionHeader eyebrow={t("addressEyebrow")} title={t("addressTitle")} accent={t("addressAccent")} />
             <p className="flex items-start gap-3 text-lg text-brand-800">
               <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
-              {hasAddress(location) ? formatAddress(location) : location.city}
+              {address ?? location.city}
             </p>
             {/* No street address yet means no useful map target — a link
                 pointing at an OpenStreetMap search for the placeholder

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
 import { pillars } from "@/content/pillars"
-import { center, formatAddress, hasAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
+import { center, formatAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { legalPath, pagePath, pillarPath } from "@/lib/routes"
@@ -42,7 +42,7 @@ export function Footer() {
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-            {hasAddress(location) ? formatAddress(location) : location.city}
+            {formatAddress(location) ?? location.city}
           </p>
           {hasEmail() ? (
             <a
