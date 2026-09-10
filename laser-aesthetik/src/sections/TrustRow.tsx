@@ -3,7 +3,6 @@ import { HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Section, type SectionTone } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
-import { practice } from "@/content/practice"
 import { useT, type T } from "@/content/ui"
 
 function buildPoints(t: T) {
@@ -11,7 +10,7 @@ function buildPoints(t: T) {
     {
       icon: Stethoscope,
       title: t("physicianLed"),
-      body: `${t("trustDoctorPrefix")} ${practice.doctor} ${t("trustDoctorSuffix")}`,
+      body: t("physicianLedBody"),
     },
     {
       icon: ShieldCheck,

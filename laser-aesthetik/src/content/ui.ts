@@ -313,14 +313,21 @@ export const ui = {
    * navigating by heading unable to tell where this group begins.
    */
   trustGroupTitle: {
-    de: "Wofür diese Praxis steht",
-    en: "What this practice stands for",
+    de: "Wofür dieses Center steht",
+    en: "What this center stands for",
   },
-  physicianLed: { de: "Ärztlich durchgeführt", en: "Physician-led" },
-  trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out by" },
-  trustDoctorSuffix: {
-    de: "persönlich durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
-    en: "personally. No cosmetic procedure takes place without medical supervision.",
+  physicianLed: { de: "Ärztlich geführt", en: "Physician-led" },
+  /*
+   * One string, not a prefix and a suffix around an interpolated name. The
+   * two halves existed to wrap `practice.doctor`, and the sentence they
+   * built — "Jede Behandlung führt Dr. med. univ. Dost Mohammad persönlich
+   * durch." — was the most prominent claim on the site that this is his
+   * practice. It renders on the home page and on /praxis. The agent is now
+   * the one pillars.ts already uses; the second sentence is untouched.
+   */
+  physicianLedBody: {
+    de: "Jede Behandlung führen ärztlich geprüfte Fachkräfte des Centers durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
+    en: "Every treatment is carried out by the center's medically qualified practitioners. No cosmetic procedure takes place without medical supervision.",
   },
   consultBeforeTreatment: { de: "Beratung vor Behandlung", en: "Consultation before treatment" },
   consultBeforeTreatmentBody: {
