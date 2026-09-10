@@ -104,10 +104,10 @@ export default function Home() {
       {/* Every band below the hero is a sheet layered over the one before it,
           and the tones still alternate underneath that: white trust panel,
           tint pillars, light popular, tint process, light bio, tint
-          Standorte, tint FAQ, blue CTA. The overlap adds depth; the tones
-          keep doing the work of telling two adjacent bands apart — except
-          Standorte and FAQ, which now sit back to back with nothing between
-          them and share a tone, same as the Praxis page's intro/bio pair.
+          Standorte, light FAQ, blue CTA. The overlap adds depth; the tones
+          keep doing the work of telling two adjacent bands apart — FAQ
+          drops its tint to light specifically because Standorte, tint,
+          now sits directly above it with nothing between them.
 
           Flanks alternate sides on top of that — left, right, none, left,
           none, right — and Ablauf is the deliberate gap. It already carries
@@ -119,7 +119,7 @@ export default function Home() {
       <Approach tone="light" overlap flank="left" flankTone="accent" />
       <Standorte tone="tint" overlap />
 
-      <Section tone="tint" overlap flank="right" flankTone="blue">
+      <Section overlap flank="right" flankTone="blue">
         <Container>
           <div className="flex max-w-3xl flex-col gap-8">
             <SectionHeader

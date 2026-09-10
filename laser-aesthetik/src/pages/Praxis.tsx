@@ -37,18 +37,15 @@ export default function Praxis() {
         </Container>
       </Section>
 
-      {/* Tones alternate down the page where something sits between two
-          bands: intro and bio are both light with nothing between them
-          (the gallery, which used to separate them, is gone — see
-          CREDITS.md, every image in it was a real photograph of the
-          Kröning practice, and a separate Landshut center cannot show
-          it). Standorte and trust row DO sit back to back, so Standorte
-          stays tint and trust row drops to light, keeping those two from
-          reading as one long tinted section before the dark CTA closes
-          the page. */}
-      <Approach tone="light" overlap flank="left" flankTone="accent" />
-      <Standorte tone="tint" overlap />
-      <TrustRow tone="light" overlap />
+      {/* Tones alternate down the page: light intro, tint bio, light
+          Standorte, tint trust row, then the dark CTA. The gallery that
+          used to separate intro and bio is gone (see CREDITS.md — every
+          image in it was a real photograph of the Kröning practice, and a
+          separate Landshut center cannot show it), so bio and Standorte
+          each flip a tone to keep every neighbour distinct without it. */}
+      <Approach tone="tint" overlap flank="left" flankTone="accent" />
+      <Standorte tone="light" overlap />
+      <TrustRow tone="tint" overlap />
       <CtaBanner overlap />
     </>
   )
