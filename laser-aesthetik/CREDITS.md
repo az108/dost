@@ -24,6 +24,19 @@ diese Person nie gegeben hat; das ist derselbe Fall wie das Praxiswappen,
 das in Slice 1 entfernt wurde. Das neue Bild trägt keinen Namen, kein
 Abzeichen und keine Marke.
 
+`src/assets/laser/arme-komplett.webp` ist aus demselben Grund ausgetauscht
+worden und gehört ebenfalls zu dieser Serie. Das vorherige Bild stammte aus
+demselben Shooting wie das oben beschriebene: derselbe Kasack mit demselben
+fremden Namen und derselben Qualifikation, hier zusätzlich mit vollständig
+erkennbarem Gesicht, dazu schwarze Nitrilhandschuhe und ein lesbarer
+Geräteschriftzug. Das neue Bild zeigt nur einen Unterarm vor einer hellen
+Wand — kein Gerät, keine Person im Bild, keine Schrift. Export nach
+demselben Rezept (Ausschnitt `1800x1200+0+900` aus dem 2000-px-Original,
+R ×1,05 / G ×0,99 / B ×0,93, `-modulate 98,104`, 1400×933, WebP q82). Bei
+einem nahezu weißen Bild führt das Verhältnis R/B in die Irre — hier ist
+zusätzlich Grün leicht abgesenkt, sonst kippt die Wand ins Olivgrüne statt
+ins warme Creme der übrigen Serie.
+
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
@@ -41,7 +54,7 @@ Abzeichen und keine Marke.
 | src/assets/laser/kinn.webp | https://unsplash.com/photos/iN2ObRIy5Mc | Sum Sum | Unsplash License |
 | src/assets/laser/gesicht-und-kopf.webp | https://unsplash.com/photos/w2zkMmyMyc4 | Ace Maxwell | Unsplash License |
 | src/assets/laser/achseln.webp | https://unsplash.com/photos/IgAa6frsVyQ | Sam Moghadam | Unsplash License |
-| src/assets/laser/arme-komplett.webp | https://unsplash.com/photos/cZQetI50v7Q | Sum Sum | Unsplash License |
+| src/assets/laser/arme-komplett.webp | https://unsplash.com/photos/H4STV63ICrs | Lívia Rocha | Unsplash License |
 | src/assets/laser/ruecken-komplett.webp | https://unsplash.com/photos/ENMjfGTcLHM | DIEGO SÁNCHEZ | Unsplash License |
 | src/assets/laser/bikinizone.webp | https://unsplash.com/photos/2mzUaunCeI4 | Mathaus Heringer | Unsplash License |
 | src/assets/laser/intim-komplett.webp | https://unsplash.com/photos/7GCHCT-y1HI | Murat Ts. | Unsplash License |

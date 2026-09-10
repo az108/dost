@@ -263,9 +263,18 @@ const LASER: LocalizedTreatment[] = [
     slug: { de: "arme-komplett", en: "full-arms" },
     pillar: "laser",
     image: armeKomplettImg,
+    // Same shoot, same defect as the Faltenbehandlung photo below, and
+    // worse: the practitioner's scrubs read "Erika David / Registered
+    // Nurse" legibly *and* her face was fully in frame — a named stranger's
+    // name, face and stated credential together, on a page advertising this
+    // treatment for a centre she has no connection to. The old frame also
+    // carried black nitrile gloves and a legible device wordmark. As with
+    // the file below, neither the alt text nor the import path named any of
+    // it, so no grep guard could have found it. The slot now shows the zone
+    // itself — skin, and room around it — with no device and nobody in it.
     imageAlt: {
-      de: "Laserbehandlung am Unterarm in einem Behandlungsstudio",
-      en: "Laser treatment on the forearm in a treatment studio",
+      de: "Ausgestreckter Unterarm mit offener Hand vor einer hellen, warm beleuchteten Wand",
+      en: "An outstretched forearm and open hand against a bright, warmly lit wall",
     },
     title: { de: "Arme komplett", en: "Full Arms" },
     headline: {
