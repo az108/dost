@@ -1042,7 +1042,7 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Acupuncture", accent: "and TCM" },
     },
     excerpt: {
-      de: "Akupunktur und TCM, ärztlich durchgeführt. Eine Ergänzung zur Schulmedizin, kein Ersatz.",
+      de: "Akupunktur und TCM, ärztlich geführt. Eine Ergänzung zur Schulmedizin, kein Ersatz.",
       en: "Acupuncture and TCM, physician-led. A complement to conventional medicine, not a replacement.",
     },
     // Two paragraphs below reuse copy verbatim from the practice's own
@@ -1066,12 +1066,12 @@ const PHYSIO: LocalizedTreatment[] = [
     },
     benefits: {
       de: [
-        "Ärztlich durchgeführte Akupunktur",
+        "Akupunktur durch ärztlich geprüfte Fachkräfte des Centers",
         "Ergänzend zur schulmedizinischen Behandlung",
         "Zusatzqualifikation Naturheilverfahren und Akupunktur",
       ],
       en: [
-        "Acupuncture carried out by a physician",
+        "Acupuncture carried out by the center's medically qualified practitioners",
         "Complementary to conventional medical treatment",
         "Additional qualification in naturopathy and acupuncture",
       ],
@@ -1346,12 +1346,12 @@ const AESTHETIK: LocalizedTreatment[] = [
     },
     benefits: {
       de: [
-        "Ärztlich durchgeführt, nicht kosmetisch",
+        "Von ärztlich geprüften Fachkräften des Centers durchgeführt, nicht kosmetisch",
         "Ausführliche Beratung vor jeder Behandlung",
         "Zurückhaltender, natürlicher Ansatz",
       ],
       en: [
-        "Carried out by a physician, not a beautician",
+        "Carried out by the center's medically qualified practitioners, not a beautician",
         "Detailed consultation before every treatment",
         "A conservative, natural approach",
       ],

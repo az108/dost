@@ -88,6 +88,88 @@ it("never claims permanent hair removal in any English copy", () => {
 
 const LOCALES = ["de", "en"] as const
 
+describe("who performs the treatments", () => {
+  /*
+   * Whether the center's Ästhetik is physician-performed is a business
+   * question for the client, and this test does not decide it. What it
+   * forbids is the site answering it two ways at once, which is a
+   * misleading-advertising exposure whichever way the answer lands.
+   *
+   * That has now happened twice. pillars.ts says every aesthetic procedure
+   * is carried out by "ärztlich geprüfte Fachkräfte des Centers", while the
+   * aesthetische-medizin treatment sitting on that same pillar claimed
+   * "Ärztlich durchgeführt" and akupunktur-tcm claimed the same shape on
+   * physio. Both were resolved provisionally in the WEAKER direction —
+   * claiming physician-performed when it may not be is the riskier error —
+   * so the center-staff wording is the one the whole site now uses.
+   *
+   * The surfaces scanned deliberately include each pillar's treatments, not
+   * just the pillar's own copy: both recurrences lived one file over from
+   * the pillar they contradicted, and a pillars-only guard would have
+   * passed through both of them.
+   */
+  const CENTER_STAFF: Record<(typeof LOCALES)[number], RegExp> = {
+    de: /ärztlich geprüfte[nrms]* Fachkr/i,
+    en: /medically qualified practitioners/i,
+  }
+
+  // Assertions that a PHYSICIAN personally performs the treatment. Wording
+  // that only claims medical direction or supervision — "ärztlich geführt",
+  // "ärztlich begleitet", "physician-led" — is deliberately absent: that is
+  // compatible with the center-staff claim and is what the trust row and
+  // the pillars already say.
+  const PHYSICIAN_PERSONALLY: Record<(typeof LOCALES)[number], RegExp[]> = {
+    de: [/ärztlich durchgeführt/i, /vom Arzt (durchgeführt|behandelt)/i, /durch den Arzt/i, /persönlich durch/i],
+    en: [/carried out by a (physician|doctor)/i, /by a physician, not/i, /personally (carries|performs)/i],
+  }
+
+  function surfacesFor(pillar: Pillar, locale: (typeof LOCALES)[number]): [string, string][] {
+    const p = pillarById(pillar, locale)
+    const out: [string, string][] = [[`${pillar}.excerpt`, p.excerpt]]
+    p.intro.forEach((s, i) => out.push([`${pillar}.intro[${i}]`, s]))
+    ;(p.faq ?? []).forEach((f, i) => {
+      out.push([`${pillar}.faq[${i}].question`, f.question])
+      out.push([`${pillar}.faq[${i}].answer`, f.answer])
+    })
+    for (const t of treatmentsByPillar(pillar, locale)) {
+      out.push([`${t.slug}.excerpt`, t.excerpt])
+      t.benefits.forEach((b, i) => out.push([`${t.slug}.benefits[${i}]`, b]))
+      t.body.forEach((b, i) => out.push([`${t.slug}.body[${i}]`, b]))
+    }
+    return out
+  }
+
+  it.each(PILLAR_IDS)("gives one answer, not two, on the %s pillar", (pillar) => {
+    for (const locale of LOCALES) {
+      const surfaces = surfacesFor(pillar, locale)
+      const staff = surfaces.filter(([, text]) => CENTER_STAFF[locale].test(text)).map(([w]) => w)
+      const personally = surfaces
+        .filter(([, text]) => PHYSICIAN_PERSONALLY[locale].some((re) => re.test(text)))
+        .map(([w]) => w)
+
+      expect(
+        personally,
+        `${locale}/${pillar}: ${personally.join(", ")} claim a physician personally ` +
+          `performs the treatment, while ${staff.join(", ")} say the center's ` +
+          `medically qualified practitioners do`,
+      ).toEqual(staff.length > 0 ? [] : personally)
+    }
+  })
+
+  it("still makes a who-claim at all on the aesthetik pillar", () => {
+    // Guards the guard: the test above is satisfied trivially if every
+    // who-claim is deleted, and this pillar's is load-bearing — it is the
+    // answer to the home page's "Wer führt die Behandlung durch?".
+    for (const locale of LOCALES) {
+      const claims = surfacesFor("aesthetik", locale).filter(([, text]) =>
+        CENTER_STAFF[locale].test(text),
+      )
+      expect(claims.length, `${locale}/aesthetik states who performs treatments nowhere`).toBeGreaterThan(0)
+    }
+  })
+})
+
+
 describe("treatments", () => {
   it("has treatments for every pillar", () => {
     for (const locale of LOCALES) {
