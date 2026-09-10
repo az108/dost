@@ -21,7 +21,7 @@ export default function NotFound() {
         <p className="max-w-md text-lg text-brand-700">{t("notFoundBody")}</p>
         <Link
           to={homePath(locale)}
-          className="font-semibold text-brand-ink hover:underline"
+          className="font-semibold text-brand-700 hover:underline"
         >
           {t("notFoundHomeLink")}
         </Link>

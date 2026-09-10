@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils"
 const tones = {
   light: "bg-white text-brand-950",
   tint: "bg-brand-50 text-brand-950",
-  // brand-ink, not brand-900: the navy read as heavy next to the rest of the
-  // palette. brand-ink is the brightest blue that still carries white body
-  // copy (4.51:1); the display blue would drop this band's lead to 3.56:1.
-  brand: "bg-brand-ink text-white [&_:is(h1,h2,h3,h4)]:text-white",
+  // brand-900, the ramp's dark teal anchor. White body copy on it is
+  // 9.41:1. The old brand-ink was 4.51:1 — legal, but the band read thin
+  // against a white page rather than as a deliberate dark close.
+  brand: "bg-brand-900 text-white [&_:is(h1,h2,h3,h4)]:text-white",
   // Same treatment the Hero gives its own band, exposed as a tone so a page
   // that builds its opening section by hand (TreatmentDetail, which has to
   // fit breadcrumbs and a spec row in) still lands on the identical wash

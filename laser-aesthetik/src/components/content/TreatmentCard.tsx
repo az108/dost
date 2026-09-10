@@ -62,7 +62,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
         */}
         <div className="flex min-h-16 flex-wrap content-start items-start gap-2">
           {treatment.durationMin ? (
-            <StatChip icon={<Clock className="size-4 text-accent" aria-hidden="true" />}>
+            <StatChip icon={<Clock className="size-4 text-action-ink" aria-hidden="true" />}>
               {treatment.durationMin} {t("minutesSuffix")}
             </StatChip>
           ) : null}
@@ -76,7 +76,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
           )}
         </div>
 
-        <p className="flex items-center gap-2 font-semibold text-brand-ink">
+        <p className="flex items-center gap-2 font-semibold text-brand-700">
           {t("detailsAndBook")}
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-1"

@@ -67,7 +67,7 @@ export function Hero({
           )}
         >
           <div className="flex flex-col gap-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-ink">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
               {eyebrow}
             </p>
             <h1
@@ -78,7 +78,7 @@ export function Hero({
                 image ? "sm:text-5xl lg:text-6xl" : "max-w-4xl sm:text-6xl lg:text-7xl",
               )}
             >
-              {lead} <em className="font-display italic text-accent">{accent}</em>
+              {lead} <em className="font-display italic text-action-ink">{accent}</em>
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-brand-700 sm:text-xl">
               {description}

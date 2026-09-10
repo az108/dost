@@ -8,7 +8,7 @@ export function Breadcrumbs({ trail }: { trail: { label: string; to?: string }[]
         {trail.map((crumb, i) => (
           <li key={crumb.label} className="flex items-center gap-1">
             {crumb.to ? (
-              <Link to={crumb.to} className="hover:text-brand-ink">
+              <Link to={crumb.to} className="hover:text-brand-700">
                 {crumb.label}
               </Link>
             ) : (

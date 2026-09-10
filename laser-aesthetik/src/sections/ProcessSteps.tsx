@@ -67,9 +67,9 @@ export function ProcessSteps({
               // last:min-h-0 ends the rail on "Nachsorge" instead of letting
               // it run half a screen past the final step and stop in empty
               // space, which reads as a line someone forgot to close.
-              className="group flex flex-col gap-3 lg:min-h-[min(34vh,24rem)] lg:justify-center lg:border-l-2 lg:border-brand-200 lg:pl-10 lg:transition-colors lg:duration-500 lg:last:min-h-0 lg:data-[active=true]:border-accent"
+              className="group flex flex-col gap-3 lg:min-h-[min(34vh,24rem)] lg:justify-center lg:border-l-2 lg:border-brand-200 lg:pl-10 lg:transition-colors lg:duration-500 lg:last:min-h-0 lg:data-[active=true]:border-action-ink"
             >
-              <span className="font-display text-4xl font-extrabold text-accent lg:text-brand-300 lg:transition-colors lg:duration-500 lg:group-data-[active=true]:text-accent">
+              <span className="font-display text-4xl font-extrabold text-action-ink lg:text-brand-300 lg:transition-colors lg:duration-500 lg:group-data-[active=true]:text-action-ink">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-display text-xl font-extrabold">{step.title}</h3>

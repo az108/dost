@@ -41,7 +41,7 @@ export function Footer() {
         <div className="flex flex-col gap-2">
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+            <MapPin className="mt-0.5 size-4 shrink-0 text-action-ink" aria-hidden="true" />
             {formatAddress(location) ?? location.city}
           </p>
           {hasEmail() ? (
@@ -49,7 +49,7 @@ export function Footer() {
               href={`mailto:${center.email}`}
               className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
             >
-              <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              <Mail className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {center.email}
             </a>
           ) : null}
@@ -58,7 +58,7 @@ export function Footer() {
               href={`tel:${location.phone!.replace(/\s/g, "")}`}
               className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
             >
-              <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              <Phone className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {location.phone}
             </a>
           ) : null}
@@ -75,7 +75,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
                 >
-                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   Facebook
                 </a>
               ) : null}
@@ -86,7 +86,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
                 >
-                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   LinkedIn
                 </a>
               ) : null}

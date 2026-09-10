@@ -45,7 +45,7 @@ export function PillarCard({ pillar }: { pillar: PillarInfo }) {
         <p className="line-clamp-4 min-h-[calc(4*1.625rem)] flex-1 leading-relaxed text-brand-700">
           {pillar.excerpt}
         </p>
-        <span className="flex items-center gap-2 font-semibold text-brand-ink">
+        <span className="flex items-center gap-2 font-semibold text-brand-700">
           {t("learnMore")}
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-1"

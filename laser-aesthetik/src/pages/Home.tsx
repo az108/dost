@@ -46,7 +46,7 @@ export default function Home() {
       >
         <Link
           to={pagePath("prices", locale)}
-          className="flex items-center gap-2 font-semibold text-brand-ink hover:text-brand-900"
+          className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-900"
         >
           {t("viewPrices")}
           <ArrowRight className="size-4" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
           <Link
             to={pagePath("prices", locale)}
-            className="flex items-center gap-2 self-start font-semibold text-brand-ink hover:text-brand-900"
+            className="flex items-center gap-2 self-start font-semibold text-brand-700 hover:text-brand-900"
           >
             {t("viewFullPriceList")}
             <ArrowRight className="size-4" aria-hidden="true" />

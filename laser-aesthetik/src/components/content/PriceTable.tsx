@@ -60,7 +60,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-700"
                     >
                       {d.sessions}
-                      {tr("packageColumnSuffix")} <span className="text-accent">−{d.discountPct} %</span>
+                      {tr("packageColumnSuffix")} <span className="text-action-ink">−{d.discountPct} %</span>
                     </th>
                   ))}
                   <th scope="col" className="px-4 py-3">
@@ -74,7 +74,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                   const single = treatment.pricing.kind === "fixed" ? treatment.pricing.single : 0
                   return (
                     <tr key={treatment.slug} className="border-t border-brand-200">
-                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand-ink">
+                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand-700">
                         {treatment.title}
                       </th>
                       <td className="px-4 py-4 text-sm text-brand-700">
@@ -99,7 +99,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       <td className="px-4 py-4">
                         <Link
                           to={treatmentPath(treatment.slug, locale)}
-                          className="font-semibold text-brand-ink hover:underline"
+                          className="font-semibold text-brand-700 hover:underline"
                         >
                           {tr("detailsLink")}
                         </Link>

@@ -49,7 +49,7 @@ export default function Kontakt() {
           <div className="flex flex-col gap-6">
             <SectionHeader eyebrow={t("addressEyebrow")} title={t("addressTitle")} accent={t("addressAccent")} />
             <p className="flex items-start gap-3 text-lg text-brand-800">
-              <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
+              <MapPin className="mt-1 size-5 shrink-0 text-action-ink" aria-hidden="true" />
               {address ?? location.city}
             </p>
             {/* No street address yet means no useful map target — a link
@@ -71,7 +71,7 @@ export default function Kontakt() {
                 href={`mailto:${center.email}`}
                 className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
               >
-                <Mail className="size-5 shrink-0 text-accent" aria-hidden="true" />
+                <Mail className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {center.email}
               </a>
             ) : null}
@@ -80,7 +80,7 @@ export default function Kontakt() {
                 href={`tel:${location.phone!.replace(/\s/g, "")}`}
                 className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
               >
-                <Phone className="size-5 shrink-0 text-accent" aria-hidden="true" />
+                <Phone className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {location.phone}
               </a>
             ) : null}

@@ -6,8 +6,8 @@
 
     The monogram is the working brand's initial (center.shortBrand, "Aurea").
     center.brandApproved is still false — when the client approves or changes
-    the name, this glyph has to be redrawn with it. The tile colour is
-    --color-brand-700 (#0B7570), the same value as the theme-color meta tag
+    the name, this glyph has to be redrawn with it. The tile colour is the
+    brand-700 token (#0B7570), the same value as the theme-color meta tag
     in index.html, so the tab icon and the browser chrome agree.
 
     One flat file, no PNG derivatives: every raster size the old crest shipped

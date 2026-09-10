@@ -44,7 +44,7 @@ function TreatmentList({
           {treatment.slug === currentSlug ? (
             <span
               aria-current="page"
-              className="block rounded-lg bg-brand-50 px-3 py-2 font-semibold text-brand-ink"
+              className="block rounded-lg bg-brand-50 px-3 py-2 font-semibold text-brand-700"
             >
               {treatment.title}
             </span>

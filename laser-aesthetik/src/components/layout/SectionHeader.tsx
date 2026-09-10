@@ -26,7 +26,7 @@ export function SectionHeader({
       {eyebrow ? (
         <p
           data-eyebrow
-          className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-ink"
+          className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-700"
         >
           {eyebrow}
         </p>

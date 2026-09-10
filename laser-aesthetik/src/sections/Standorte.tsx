@@ -38,7 +38,7 @@ export function Standorte({
             <Reveal key={location.city} delay={i * 0.08}>
               <Card className="flex h-full flex-col gap-4 p-6">
                 <p className="flex items-center gap-2 font-display text-xl font-extrabold text-brand-900">
-                  <MapPin className="size-5 shrink-0 text-accent" aria-hidden="true" />
+                  <MapPin className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                   {location.city}
                 </p>
 
