@@ -13,6 +13,17 @@ gemeinsame Bildsprache ausgewählt: warmes, gerichtetes Tageslicht, geringe
 Schärfentiefe, viel Fläche. Farbtemperatur und Sättigung sind beim Export
 angeglichen, damit sie als eine Serie zusammenfinden.
 
+`src/assets/aesthetik/faltenbehandlung.webp` gehört seit dem Austausch zu
+dieser Serie und ist nach demselben Rezept exportiert (Ausschnitt
+`2100x1400+300+120` aus dem 2400-px-Original, R ×1,04 / B ×0,93,
+`-modulate 96,102`, 1400×933, WebP q82). Das vorherige Bild zeigte eine
+Spritze an einer Stirn — und auf dem Kasack der behandelnden Person gut
+lesbar den Namen und die Qualifikation einer fremden Fachkraft. Ein fremder
+Name auf einer deutschen Behandlungsseite legt eine Empfehlung nahe, die
+diese Person nie gegeben hat; das ist derselbe Fall wie das Praxiswappen,
+das in Slice 1 entfernt wurde. Das neue Bild trägt keinen Namen, kein
+Abzeichen und keine Marke.
+
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
@@ -49,7 +60,7 @@ angeglichen, damit sie als eine Serie zusammenfinden.
 | src/assets/physio/sportmedizin.webp | https://unsplash.com/photos/DzRPpycVHEY | Vitaly Gariev | Unsplash License |
 | src/assets/physio/akupunktur-tcm.webp | https://unsplash.com/photos/QgcdtM9rA5s | Katherine Hanlon | Unsplash License |
 | src/assets/physio/stosswellentherapie.webp | https://unsplash.com/photos/QBzckSn4fpo | Julius Toltesi | Unsplash License |
-| src/assets/aesthetik/faltenbehandlung.webp | https://unsplash.com/photos/0I5csvv8RFA | Sum Sum | Unsplash License |
+| src/assets/aesthetik/faltenbehandlung.webp | https://unsplash.com/photos/hYljdqK315s | Shoham Avisrur | Unsplash License |
 | src/assets/aesthetik/hyaluron.webp | https://unsplash.com/photos/1rEpbWlm7dA | Mina Rad | Unsplash License |
 | src/assets/aesthetik/kryolipolyse.webp | https://unsplash.com/photos/FIkfmwPTKqM | Corinne Sawers | Unsplash License |
 | src/assets/aesthetik/farblichttherapie.webp | https://unsplash.com/photos/BqEvVaqcLXc | Imran Ali | Unsplash License |

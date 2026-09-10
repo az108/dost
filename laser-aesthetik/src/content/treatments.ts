@@ -1131,9 +1131,19 @@ const AESTHETIK: LocalizedTreatment[] = [
     slug: { de: "faltenbehandlung", en: "wrinkle-treatment" },
     pillar: "aesthetik",
     image: faltenbehandlungImg,
+    // The photograph this replaced showed a syringe at a forehead — and,
+    // legible on the practitioner's scrubs, a named third party's
+    // professional identity ("Erika David / Registered Nurse"). A named
+    // stranger on a German medical marketing page implies an endorsement
+    // she never gave, and "Registered Nurse" contradicts the copy below,
+    // which says the centre's own ärztlich geprüfte Fachkräfte treat.
+    // Neither the alt text nor the import path said any of that, so no
+    // grep guard could have found it. The slot now shows the treatment's
+    // stated aim — "ein ausgeruhtes, nicht ein behandeltes Gesicht" —
+    // instead of its needle; the body copy carries the clinical detail.
     imageAlt: {
-      de: "Fachkraft setzt eine Injektion im Stirnbereich",
-      en: "Practitioner administering an injection to the forehead area",
+      de: "Frau in weißer Bluse steht im Tageslicht vor einem Spiegel und legt einen Ohrring an",
+      en: "Woman in a white blouse standing at a mirror in daylight, putting on an earring",
     },
     title: { de: "Faltenbehandlung", en: "Wrinkle Treatment" },
     headline: {
