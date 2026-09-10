@@ -49,4 +49,18 @@ describe("BookingButton", () => {
     expect(link).toHaveAttribute("rel", "noopener noreferrer")
     vi.doUnmock("@/content/center")
   })
+
+  it("uses the German label by default", () => {
+    renderButton()
+    expect(screen.getByRole("link")).toHaveTextContent("Termin buchen")
+  })
+
+  it("accepts a custom label", () => {
+    render(
+      <MemoryRouter>
+        <BookingButton>Jetzt anfragen</BookingButton>
+      </MemoryRouter>,
+    )
+    expect(screen.getByRole("link")).toHaveTextContent("Jetzt anfragen")
+  })
 })
