@@ -165,22 +165,51 @@ describe("design tokens", () => {
     expect(css).not.toMatch(/var\(--color-[a-z-]+\)\s*\/\s*[\d.]+/)
   })
 
-  it("declares a sheet radius distinct from the card radius", () => {
-    // Bands and cards round at different scales: a full-bleed band needs a
-    // bigger radius than a 20rem card to read as the same curvature.
-    expect(css).toContain("--radius-sheet:")
-    const sheet = css.match(/--radius-sheet:\s*([\d.]+)rem/)?.[1]
-    const card = css.match(/--radius-card:\s*([\d.]+)rem/)?.[1]
-    expect(sheet, "--radius-sheet missing or not in rem").toBeTruthy()
-    expect(Number(sheet)).toBeGreaterThan(Number(card))
+})
+
+describe("white base", () => {
+  const srcRoot = resolve(__dirname)
+
+  /*
+   * Both guards below match LINES and skip comment lines.
+   *
+   * That is not fussiness — it is the third time in this project a
+   * "this string must not appear" check has failed on the code most
+   * committed to its own goal. The Section.tsx that REPLACES the
+   * decorative layer explains, in its own comment, that there used to be a
+   * sheet overlap and a Flank. A guard that failed on that sentence would
+   * pressure whoever hits it into deleting the explanation rather than
+   * keeping the property.
+   *
+   * What survives the filter is a real prop on a real element.
+   */
+  const liveHits = (pattern: string) =>
+    execSync(
+      `grep -rEn --include='*.tsx' ${JSON.stringify(pattern)} ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    )
+      .trim()
+      .split("\n")
+      .filter(Boolean)
+      .filter((line) => {
+        const text = line.split(":").slice(2).join(":").trim()
+        return !text.startsWith("//") && !text.startsWith("*") && !text.startsWith("/*")
+      })
+
+  it("uses no tinted or washed section tone anywhere", () => {
+    // The client's "die Grundfarbe soll weiß sein". This makes it a
+    // property of the codebase rather than of one commit — the alternating
+    // bands were added once and could be added again.
+    expect(liveHits('tone="(tint|wash)"')).toEqual([])
   })
 
-  it("casts the seam shadow upward, so a sheet reads as in front of the band above", () => {
-    // A positive y-offset would read as the band ABOVE floating over the
-    // sheet — backwards from the stacking the layout actually builds, and the
-    // single detail that makes the overlap legible rather than just rounded.
-    const rule = css.match(/\.sheet\s*\{[^}]*\}/)?.[0]
-    expect(rule, ".sheet rule missing").toBeTruthy()
-    expect(rule).toMatch(/box-shadow:\s*0\s+-/)
+  it("uses no sheet overlap and no coloured flank anywhere", () => {
+    expect(liveHits('\\boverlap\\b|\\bflank(Tone)?\\b')).toEqual([])
+  })
+
+  it("removes the sheet machinery from the stylesheet", () => {
+    for (const gone of ["--radius-sheet", ".sheet"]) {
+      expect(css, `${gone} should be gone`).not.toContain(gone)
+    }
   })
 })

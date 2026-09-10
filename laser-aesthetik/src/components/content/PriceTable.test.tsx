@@ -70,10 +70,8 @@ describe("PriceTable", () => {
   })
 
   it("stands on its own opaque surface", () => {
-    // The pricing sections carry a background flank. With a transparent
-    // wrapper that colour washes across the left-hand columns: the header's
-    // own tint becomes a gradient from pink to blue across its width, and the
-    // row rules disappear into it. A data table is a surface, not an overlay.
+    // A data table is a surface, not an overlay: it owns its background
+    // rather than depending on whatever the section behind it happens to be.
     const { container } = renderTable([achseln])
     const surface = container.querySelector("table")?.parentElement
     expect(surface?.className).toContain("bg-white")

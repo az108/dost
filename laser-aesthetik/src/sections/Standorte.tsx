@@ -20,12 +20,11 @@ import { useT } from "@/content/ui"
  */
 export function Standorte({
   tone = "light",
-  overlap = false,
-}: { tone?: SectionTone; overlap?: boolean } = {}) {
+}: { tone?: SectionTone } = {}) {
   const t = useT()
 
   return (
-    <Section id="standorte" tone={tone} overlap={overlap}>
+    <Section id="standorte" tone={tone}>
       <Container className="flex flex-col gap-10">
         <SectionHeader
           eyebrow={t("standorteEyebrow")}

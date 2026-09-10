@@ -64,7 +64,7 @@ export default function TreatmentDetail() {
 
   return (
     <>
-      <Section tone="wash" className="pt-8">
+      <Section className="pt-8">
         <Container className="flex flex-col gap-8">
           <Breadcrumbs
             trail={[
@@ -107,7 +107,7 @@ export default function TreatmentDetail() {
         </Container>
       </Section>
 
-      <Section overlap>
+      <Section>
         <Container>
           <div className="grid gap-10 lg:grid-cols-[16rem_1fr]">
             <div className="order-2 lg:order-1">
@@ -195,7 +195,7 @@ export default function TreatmentDetail() {
         </Container>
       </Section>
 
-      <CtaBanner overlap />
+      <CtaBanner />
     </>
   )
 }

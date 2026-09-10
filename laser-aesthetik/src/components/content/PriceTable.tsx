@@ -29,11 +29,9 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
           {/* The table is wider than a phone. It scrolls inside this wrapper
               so the page body never scrolls horizontally.
 
-              bg-white is load-bearing, not decoration. The pricing sections
-              carry a background flank, and a transparent table lets that
-              colour through its own rows: the header's tint reads as a
-              gradient across its width and the row rules vanish into the
-              wash. The table owns its surface. */}
+              bg-white is deliberate rather than redundant with the section
+              behind it: a data table should own its surface on principle,
+              not depend on what happens to be painted behind it. */}
           <div className="overflow-x-auto rounded-card border border-brand-100 bg-white">
             <table className="w-full min-w-[42rem] border-collapse text-left">
               <caption className="sr-only">

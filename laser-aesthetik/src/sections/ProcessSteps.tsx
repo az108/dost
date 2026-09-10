@@ -15,9 +15,8 @@ function buildSteps(t: T) {
 }
 
 export function ProcessSteps({
-  tone = "tint",
-  overlap = false,
-}: { tone?: SectionTone; overlap?: boolean } = {}) {
+  tone = "light",
+}: { tone?: SectionTone } = {}) {
   const t = useT()
   const steps = buildSteps(t)
 
@@ -30,7 +29,7 @@ export function ProcessSteps({
   const [active, setActive] = useState(0)
 
   return (
-    <Section tone={tone} overlap={overlap}>
+    <Section tone={tone}>
       <Container className="flex flex-col gap-10">
         <SectionHeader eyebrow={t("processEyebrow")} title={t("processTitle")} accent={t("processAccent")} />
 
@@ -61,9 +60,9 @@ export function ProcessSteps({
               // The height is what paces the scroll — one step arrives per
               // screenful — but capped in rem so a tall monitor spreads the
               // four steps into voids instead of a sequence.
-              // brand-100 disappears against the tint band; the inactive
-              // rail has to stay visible as a track for the lit one to read
-              // as progress along it.
+              // brand-100 barely registers on white; the inactive rail has
+              // to stay visible as a track for the lit one to read as
+              // progress along it.
               // last:min-h-0 ends the rail on "Nachsorge" instead of letting
               // it run half a screen past the final step and stop in empty
               // space, which reads as a line someone forgot to close.

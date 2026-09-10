@@ -15,9 +15,11 @@ export function Footer() {
   // White on every page, deliberately. It used to be bg-brand-50, which is
   // exactly a `tint` section, so it merged into whatever sat above it.
   //
-  // White only works because no page ends on a white section: pages either
-  // close with the CtaBanner's blue band or with a tint section. Legal pages
-  // and the 404 are tinted for that reason alone — see their `tone` props.
+  // Tinted sections are gone entirely now (slice 2's "die Grundfarbe soll
+  // weiß sein"), so every page — including legal pages and the 404, which
+  // used to fall back to a tinted final section for this — can end in a
+  // plain white Section. `border-t border-brand-100` below is what actually
+  // keeps the footer legible as a separate block from whatever precedes it.
   return (
     <footer className="border-t border-brand-100 bg-white py-14 text-brand-900">
       <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

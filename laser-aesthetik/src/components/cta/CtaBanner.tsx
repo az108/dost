@@ -7,17 +7,15 @@ export function CtaBanner({
   title,
   accent,
   lead,
-  overlap = false,
 }: {
   title?: string
   accent?: string
   lead?: string
-  overlap?: boolean
 }) {
   const t = useT()
 
   return (
-    <Section tone="brand" overlap={overlap}>
+    <Section tone="brand">
       <Container className="flex flex-col items-center gap-6 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl">
           {title ?? t("ctaTitle")}{" "}

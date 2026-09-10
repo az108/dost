@@ -1,5 +1,4 @@
 import { Container } from "@/components/layout/Container"
-import type { FlankSide, FlankTone } from "@/components/layout/Flank"
 import { Section, type SectionTone } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { FeatureList } from "@/components/content/FeatureList"
@@ -20,19 +19,13 @@ import { useT } from "@/content/ui"
  */
 export function Approach({
   tone = "light",
-  overlap = false,
-  flank,
-  flankTone,
 }: {
   tone?: SectionTone
-  overlap?: boolean
-  flank?: FlankSide
-  flankTone?: FlankTone
 } = {}) {
   const t = useT()
 
   return (
-    <Section tone={tone} overlap={overlap} flank={flank} flankTone={flankTone}>
+    <Section tone={tone}>
       <Container>
         <div className="flex max-w-3xl flex-col gap-6">
           <SectionHeader

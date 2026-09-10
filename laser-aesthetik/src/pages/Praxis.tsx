@@ -29,7 +29,7 @@ export default function Praxis() {
         description={t("praxisHeroDescription")}
       />
 
-      <Section overlap flank="left" flankTone="blush">
+      <Section>
         <Container>
           <div className="flex max-w-3xl flex-col gap-5">
             <p className="text-lg leading-relaxed text-brand-800">{t("praxisIntro1")}</p>
@@ -38,17 +38,16 @@ export default function Praxis() {
       </Section>
 
       {/*
-       * Tones alternate down the page: light intro, tint bio, light
-       * Standorte, tint trust row, then the dark CTA. The gallery that
-       * used to separate intro and bio is gone (see CREDITS.md — every
-       * image in it was a real photograph of the old Kröning practice, and
-       * a separate Landshut center cannot show it), so bio and Standorte
-       * each flip a tone to keep every neighbour distinct without it.
+       * The gallery that used to separate intro and bio is gone (see
+       * CREDITS.md — every image in it was a real photograph of the old
+       * Kröning practice, and a separate Landshut center cannot show it).
+       * Bands are told apart by spacing and content now, not by a tone
+       * that used to flip between them.
        */}
-      <Approach tone="tint" overlap flank="left" flankTone="accent" />
-      <Standorte tone="light" overlap />
-      <TrustRow tone="tint" overlap />
-      <CtaBanner overlap />
+      <Approach />
+      <Standorte />
+      <TrustRow />
+      <CtaBanner />
     </>
   )
 }

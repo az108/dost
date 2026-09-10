@@ -57,7 +57,7 @@ export default function Home() {
           a panel that is visibly in front of the page, not another stripe. */}
       <TrustRow float />
 
-      <Section tone="tint" overlap flank="left" flankTone="blush">
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("threeAreas")}
@@ -76,7 +76,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section overlap flank="right" flankTone="blue">
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("popularEyebrow")}
@@ -101,25 +101,11 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Every band below the hero is a sheet layered over the one before it,
-          and the tones still alternate underneath that: white trust panel,
-          tint pillars, light popular, tint process, light bio, tint
-          Standorte, light FAQ, blue CTA. The overlap adds depth; the tones
-          keep doing the work of telling two adjacent bands apart — FAQ
-          drops its tint to light specifically because Standorte, tint,
-          now sits directly above it with nothing between them.
+      <ProcessSteps />
+      <Approach />
+      <Standorte />
 
-          Flanks alternate sides on top of that — left, right, none, left,
-          none, right — and Ablauf is the deliberate gap. It already carries
-          the pinned photograph and the rail, and a slab behind those would
-          be three devices competing inside one section; Standorte's own
-          gap is smaller, just three cards with no room for a flank slab
-          to read as anything but clutter beside them. */}
-      <ProcessSteps tone="tint" overlap />
-      <Approach tone="light" overlap flank="left" flankTone="accent" />
-      <Standorte tone="tint" overlap />
-
-      <Section overlap flank="right" flankTone="blue">
+      <Section>
         <Container>
           <div className="flex max-w-3xl flex-col gap-8">
             <SectionHeader
@@ -132,7 +118,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <CtaBanner overlap />
+      <CtaBanner />
     </>
   )
 }

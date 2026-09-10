@@ -27,13 +27,12 @@ function buildPoints(t: T) {
 
 export function TrustRow({
   tone = "light",
-  overlap = false,
   /**
    * Raise the three points onto one panel that straddles the seam with the
    * band above. Used once, directly under the home hero.
    */
   float = false,
-}: { tone?: SectionTone; overlap?: boolean; float?: boolean } = {}) {
+}: { tone?: SectionTone; float?: boolean } = {}) {
   const t = useT()
   const points = buildPoints(t)
   const headingId = useId()
@@ -67,14 +66,13 @@ export function TrustRow({
    * of only the panel, and the overlap silently disappears.
    */
   /*
-   * The bottom padding carries the same numbers as a sheet's compensating top
-   * padding (5/6/7.5rem), because the next band IS a sheet and pulls
-   * 2/2.5/3.5rem of it straight back off. Padded like an ordinary band, the
-   * panel ends up almost touching the sheet below it.
+   * The bottom padding matches Section's own top padding (3/3.5/4rem), so the
+   * gap below this panel reads the same as the gap between any two ordinary
+   * bands — the panel is not a Section, but it still keeps the page's rhythm.
    */
   if (float) {
     return (
-      <section aria-labelledby={headingId} className="relative flow-root pb-20 sm:pb-24 lg:pb-30">
+      <section aria-labelledby={headingId} className="relative flow-root pb-12 sm:pb-14 lg:pb-16">
         <Container>
           {/*
            * Pulled far enough to land ON the hero photograph, not just near
@@ -92,7 +90,7 @@ export function TrustRow({
   }
 
   return (
-    <Section tone={tone} overlap={overlap} aria-labelledby={headingId}>
+    <Section tone={tone} aria-labelledby={headingId}>
       <Container className="grid gap-10 sm:grid-cols-3">
         {heading}
         {items}
