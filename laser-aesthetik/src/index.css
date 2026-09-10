@@ -18,8 +18,7 @@
    */
   --color-brand: #0E8F8A;
   /*
-   * Primary CTA only — apart from the interim `.hero-wash` reuse below,
-   * which Task 4 removes. Once it does, this is the CTA's colour and
+   * Primary CTA only. This is the CTA's colour and
    * nothing else's, so "buchen" is unmistakable.
    *
    * Same two-shade split: `action` is the declared brand magenta at
@@ -35,8 +34,7 @@
   --color-action-ink: #D41071;
   /* Proof and reassurance: checkmarks, inclusion badges. Also the Physio
      pillar's mark — one green, used for both, rather than two that differ
-     by a hair and read as a mistake — and, for now, the interim
-     `.hero-wash` reuse below, which Task 4 removes. 6.57:1. */
+     by a hair and read as a mistake. 6.57:1. */
   --color-success: #306934;
   /* The Laser pillar's mark. Google blue, a colour the audience already
      recognises. 3.56:1 — icons and large text only, never body copy. */
@@ -127,38 +125,36 @@
    * partial opacity.
    */
   /*
-   * Two hues, not one. The previous version mixed `accent` (#DD1188) with
-   * `action` (#E8137C) — both magenta — so the band read as a single colour
-   * with a bright corner. Magenta now hands off to green across the diagonal.
+   * Turquoise meeting a warm peach across the diagonal. This is the
+   * "Licht-Effekt" the client asked for after sending a photograph of a
+   * lotus arrangement lit from behind — the reference is the quality of
+   * the light, not the subject.
    *
    * Layer order matters: the linear gradient carries the actual transition
    * and sits underneath, with the two radial blooms on top anchoring each
    * hue to its own corner so the handoff has somewhere to start and end.
+   *
+   * Both hues are far below any contrast floor at these opacities, which is
+   * fine — this paints behind a heading that takes its colour from
+   * brand-900 on white, and the wash never gets dark enough to threaten it.
    */
   .hero-wash {
-    /*
-     * Interim: still the two pre-slice-2 hues (action/success), not the
-     * turquoise/glow pairing the new palette declares. Task 4 rewrites this
-     * rule for the new hero; until then it deliberately fails the
-     * .hero-wash colour-mix test rather than quietly matching it by
-     * accident.
-     */
     background-image:
       radial-gradient(
         60rem 40rem at 82% -12%,
-        color-mix(in oklab, var(--color-action) 20%, transparent),
+        color-mix(in oklab, var(--color-glow) 55%, transparent),
         transparent
       ),
       radial-gradient(
         52rem 34rem at -2% 108%,
-        color-mix(in oklab, var(--color-success) 20%, transparent),
+        color-mix(in oklab, var(--color-brand) 16%, transparent),
         transparent
       ),
       linear-gradient(
         115deg,
-        color-mix(in oklab, var(--color-success) 12%, transparent) 0%,
+        color-mix(in oklab, var(--color-brand) 10%, transparent) 0%,
         transparent 46%,
-        color-mix(in oklab, var(--color-action) 14%, transparent) 100%
+        color-mix(in oklab, var(--color-glow) 45%, transparent) 100%
       );
   }
 }
