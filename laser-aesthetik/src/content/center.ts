@@ -89,6 +89,19 @@ export function hasBookingUrl(l: Location): boolean {
   return supplied(l.bookingUrl, BOOKING_TODO)
 }
 
+/**
+ * True when this location has a street address worth printing.
+ *
+ * Both halves must be present: formatAddress() interpolates street AND
+ * postalCode, so one without the other still renders a broken line. A
+ * `planned` location has neither — supplied() treats `undefined` and the
+ * sentinel alike, which is what keeps "undefined, undefined München" off
+ * the page.
+ */
+export function hasAddress(l: Location): boolean {
+  return supplied(l.street, ADDRESS_TODO) && supplied(l.postalCode, ADDRESS_TODO)
+}
+
 export function hasEmail(c: Center = center): boolean {
   return supplied(c.email, EMAIL_TODO)
 }

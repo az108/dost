@@ -6,6 +6,7 @@ import {
   PHONE_TODO,
   center,
   formatAddress,
+  hasAddress,
   hasBookingUrl,
   hasEmail,
   hasPhone,
@@ -83,6 +84,18 @@ describe("center data", () => {
     const planned = center.locations[1]
     expect(hasPhone(planned)).toBe(false)
     expect(hasBookingUrl(planned)).toBe(false)
+  })
+
+  it("reports an address as absent until both halves are supplied", () => {
+    // formatAddress() interpolates street and postalCode together, so a
+    // half-filled address still renders a broken line. And a planned
+    // location has neither field at all.
+    const landshut = openLocation()
+    expect(hasAddress(landshut)).toBe(false)
+    expect(hasAddress({ ...landshut, street: "Musterweg 1" })).toBe(false)
+    expect(hasAddress({ ...landshut, postalCode: "84028" })).toBe(false)
+    expect(hasAddress({ ...landshut, street: "Musterweg 1", postalCode: "84028" })).toBe(true)
+    expect(hasAddress(center.locations[1])).toBe(false)
   })
 
   it("formats an address as street, postcode and city", () => {

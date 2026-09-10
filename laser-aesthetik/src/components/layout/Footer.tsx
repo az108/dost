@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
 import { pillars } from "@/content/pillars"
-import { ADDRESS_TODO, center, formatAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
+import { center, formatAddress, hasAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { legalPath, pagePath, pillarPath } from "@/lib/routes"
@@ -11,10 +11,6 @@ export function Footer() {
   const t = useT()
   const locale = useLocale()
   const location = openLocation()
-  // center.ts has no hasAddress() helper of its own yet — hasPhone/hasEmail
-  // only cover their own fields. Until street and postcode arrive, fall back
-  // to the city alone rather than let the sentinel reach a patient's screen.
-  const hasStreetAddress = location.street !== undefined && location.street !== ADDRESS_TODO
 
   // White on every page, deliberately. It used to be bg-brand-50, which is
   // exactly a `tint` section, so it merged into whatever sat above it.
@@ -46,7 +42,7 @@ export function Footer() {
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-            {hasStreetAddress ? formatAddress(location) : location.city}
+            {hasAddress(location) ? formatAddress(location) : location.city}
           </p>
           {hasEmail() ? (
             <a
