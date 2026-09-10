@@ -145,29 +145,6 @@ export interface OpeningHours {
   schema?: { dayOfWeek: string[]; opens: string; closes: string }
 }
 
-export interface Practice {
-  /** Full brand, used in titles and the header lockup */
-  brand: string
-  /** Short brand for tight spaces */
-  shortBrand: string
-  doctor: string
-  /**
-   * The doctor's name split for display lockups that emphasise the surname.
-   * Its two halves must concatenate back to `doctor` — practice.test.ts
-   * asserts this, so the split cannot drift from the canonical string.
-   */
-  doctorLockup: { lead: string; accent: string }
-  qualifications: string
-  street: string
-  postalCode: string
-  city: string
-  email: string
-  phone: string
-  hours: OpeningHours[]
-  social: { facebook: string; linkedin: string }
-  bookingUrl: string
-}
-
 /**
  * One physical site of the center. `planned` locations carry a city and
  * nothing else: publishing an address or opening hours for a site that

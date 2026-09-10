@@ -1,3 +1,5 @@
+import { execSync } from "node:child_process"
+import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
 import { pillars, pillarById } from "./pillars"
 import { treatments, treatmentsByPillar, treatmentBySlug } from "./treatments"
@@ -397,5 +399,56 @@ describe("treatment imagery", () => {
         ).toBe(false)
       }
     }
+  })
+})
+
+describe("separation from Privatpraxis Dr. Dost", () => {
+  it("mentions the doctor and his practice nowhere but legal.ts", () => {
+    // The center is a separate business. §5 TMG is the only reason the
+    // doctor's name is on this site at all, so legal.ts is the only file
+    // allowed to carry it.
+    //
+    // Case-insensitive on purpose: info@drdosthealth.com and
+    // facebook.com/drdostmohammad both carry the name in lowercase, and a
+    // `Dost`-only grep would pass while the footer still linked his
+    // personal Facebook page.
+    //
+    // Scoped to src/ and excluding this file, which necessarily names the
+    // strings it is looking for.
+    // Matches LINES, not files, and skips two categories that must be
+    // allowed to name him:
+    //
+    //   - Test files. A test asserting the name is ABSENT has to spell it
+    //     out. Excluding them costs nothing: the strings they carry never
+    //     ship.
+    //   - Comment lines. The comments explaining WHY he was removed are the
+    //     most valuable prose in this slice, and a guard that deleted them
+    //     would be punishing the code most committed to its own goal.
+    //
+    // What is left is exactly the target: a user-visible string in
+    // production code.
+    const srcRoot = resolve(__dirname, "..")
+    const raw = execSync(
+      `grep -rEin --include='*.ts' --include='*.tsx' ` +
+        `'dost|privatpraxis|kröning|drdosthealth' ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    ).trim()
+
+    const hits = raw
+      .split("\n")
+      .filter(Boolean)
+      .map((line) => {
+        const [path, lineNo, ...rest] = line.split(":")
+        return { path: path.replace(`${srcRoot}/`, ""), lineNo, text: rest.join(":") }
+      })
+      .filter((h) => h.path !== "content/legal.ts")
+      .filter((h) => !/\.test\.tsx?$/.test(h.path))
+      .filter((h) => {
+        const t = h.text.trim()
+        return !t.startsWith("//") && !t.startsWith("*") && !t.startsWith("/*")
+      })
+      .map((h) => `${h.path}:${h.lineNo}`)
+
+    expect(hits).toEqual([])
   })
 })

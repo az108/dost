@@ -37,12 +37,14 @@ export default function Praxis() {
         </Container>
       </Section>
 
-      {/* Tones alternate down the page: light intro, tint bio, light
-          Standorte, tint trust row, then the dark CTA. The gallery that
-          used to separate intro and bio is gone (see CREDITS.md — every
-          image in it was a real photograph of the Kröning practice, and a
-          separate Landshut center cannot show it), so bio and Standorte
-          each flip a tone to keep every neighbour distinct without it. */}
+      {/*
+       * Tones alternate down the page: light intro, tint bio, light
+       * Standorte, tint trust row, then the dark CTA. The gallery that
+       * used to separate intro and bio is gone (see CREDITS.md — every
+       * image in it was a real photograph of the old Kröning practice, and
+       * a separate Landshut center cannot show it), so bio and Standorte
+       * each flip a tone to keep every neighbour distinct without it.
+       */}
       <Approach tone="tint" overlap flank="left" flankTone="accent" />
       <Standorte tone="light" overlap />
       <TrustRow tone="tint" overlap />

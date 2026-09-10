@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { buildKeywords } from "@/content/seo"
-import { practice } from "@/content/practice"
+import { center } from "@/content/center"
 import { seoForRoute } from "@/lib/seoForRoute"
 
 function upsert(selector: string, create: () => HTMLElement, attr: string, value: string) {
@@ -75,7 +75,7 @@ export function useSeo(
   const locale = seo ? seo.locale : "de"
 
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${practice.brand}` : practice.brand
+    const fullTitle = title ? `${title} | ${center.brand}` : center.brand
     document.title = fullTitle
     document.documentElement.lang = locale
 
@@ -90,7 +90,7 @@ export function useSeo(
 
     setOg("og:title", fullTitle)
     setOg("og:type", "website")
-    setOg("og:site_name", practice.brand)
+    setOg("og:site_name", center.brand)
     setOg("og:locale", locale === "en" ? "en_GB" : "de_DE")
 
     if (seo) {

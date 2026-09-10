@@ -2,6 +2,7 @@ import { render } from "@testing-library/react"
 import { beforeEach, describe, expect, it } from "vitest"
 import { useSeo } from "./useSeo"
 import { medicalClinicJsonLd } from "./structuredData"
+import { center } from "@/content/center"
 
 function Page({ title, description }: { title?: string; description?: string }) {
   useSeo({ title, description, canonicalPath: "/laser" })
@@ -21,12 +22,12 @@ describe("useSeo", () => {
 
   it("suffixes the brand onto the page title", () => {
     render(<Page title="Laserbehandlungen" />)
-    expect(document.title).toBe("Laserbehandlungen | Dr. Dost — Laser, Physio & Ästhetik")
+    expect(document.title).toBe(`Laserbehandlungen | ${center.brand}`)
   })
 
   it("uses the brand alone when no title is given", () => {
     render(<Page />)
-    expect(document.title).toBe("Dr. Dost — Laser, Physio & Ästhetik")
+    expect(document.title).toBe(center.brand)
   })
 
   it("sets the meta description", () => {
@@ -115,15 +116,16 @@ describe("medicalClinicJsonLd", () => {
   it("describes the clinic with its address", () => {
     const data = JSON.parse(medicalClinicJsonLd())
     expect(data["@type"]).toBe("MedicalClinic")
-    expect(data.address.streetAddress).toBe("Weiher 3")
-    expect(data.address.postalCode).toBe("84178")
-    expect(data.address.addressLocality).toBe("Kröning")
+    expect(data.address.addressLocality).toBe("Landshut")
     expect(data.address.addressCountry).toBe("DE")
   })
 
-  it("lists the social profiles under sameAs", () => {
+  it("omits the street address entirely while no street has been supplied", () => {
+    // Same rule as the telephone below: a placeholder street address in
+    // structured data can be surfaced on a map, which is worse than none.
     const data = JSON.parse(medicalClinicJsonLd())
-    expect(data.sameAs).toContain("https://www.facebook.com/drdostmohammad")
+    expect(data.address.streetAddress).toBeUndefined()
+    expect(data.address.postalCode).toBeUndefined()
   })
 
   it("omits telephone entirely while no number has been supplied", () => {

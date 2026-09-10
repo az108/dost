@@ -1,7 +1,7 @@
 import type { Locale } from "@/content/types"
 import type { UiKey } from "@/content/ui"
 import { ui } from "@/content/ui"
-import { formatAddress, practice } from "@/content/practice"
+import { center, formatAddress, hasAddress, openLocation } from "@/content/center"
 import { pillarById } from "@/content/pillars"
 import { treatmentBySlug } from "@/content/treatments"
 import { impressum, datenschutz } from "@/content/legal"
@@ -51,7 +51,7 @@ function localeOf(pathname: string): Locale {
 }
 
 function withBrand(title: string | undefined): string {
-  return title ? `${title} | ${practice.brand}` : practice.brand
+  return title ? `${title} | ${center.brand}` : center.brand
 }
 
 /**
@@ -114,9 +114,16 @@ export function seoForRoute(pathname: string): RouteSeo {
 
   for (const page of PAGES) {
     if (pathname === pagePath(page, locale)) {
+      // The Landshut location's street/postalCode are still TODO sentinels
+      // (see center.ts), so formatAddress() must never run unguarded here —
+      // matches the same hasAddress() guard the Kontakt page's own useSeo
+      // call uses for this exact string.
+      const location = openLocation()
       const description =
         page === "contact"
-          ? `${t("practice", locale)} ${practice.shortBrand}, ${formatAddress()}. ${t("contactMetaDescriptionSuffix", locale)}`
+          ? `${center.brand}, ${
+              hasAddress(location) ? formatAddress(location) : location.city
+            }. ${t("contactMetaDescriptionSuffix", locale)}`
           : page === "practice"
             ? t("praxisMetaDescription", locale)
             : t("pricesMetaDescription", locale)

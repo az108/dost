@@ -2,7 +2,7 @@ import { render } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter } from "react-router-dom"
 import { AppRoutes } from "@/App"
-import { practice } from "@/content/practice"
+import { center } from "@/content/center"
 import { pillars } from "@/content/pillars"
 import { treatments } from "@/content/treatments"
 import { homePath, pagePath, pillarPath, treatmentPath } from "@/lib/routes"
@@ -27,18 +27,18 @@ const GERMAN_MARKERS = [
 ]
 
 // ── Deliberate exceptions ────────────────────────────────────────────────
-// 1. The brand lockup is a proper noun and stays German on every page, in
-//    both languages: practice.brand ("Dr. Dost — Laser, Physio & Ästhetik",
-//    rendered in the footer) and the header's tagline (not exported from
-//    anywhere — it is hardcoded in Navbar.tsx by the same deliberate choice
-//    documented in ui.ts's file header). Both strings are stripped before
-//    matching, rather than excluding the header/footer landmarks wholesale,
-//    so a real German leak elsewhere in the nav or footer is still caught.
+// 1. The brand lockup is a proper noun and stays the same on every page, in
+//    both languages: center.brand ("Aurea Center", rendered in the footer)
+//    and the header's tagline (not exported from anywhere — it is
+//    hardcoded in Navbar.tsx by the same deliberate choice documented in
+//    ui.ts's file header). Both strings are stripped before matching,
+//    rather than excluding the header/footer landmarks wholesale, so a
+//    real German leak elsewhere in the nav or footer is still caught.
 const BRAND_TAGLINE = "Laser · Physio · Ästhetik"
 
 function englishPageText(): string {
   return (document.body.textContent ?? "")
-    .replaceAll(practice.brand, "")
+    .replaceAll(center.brand, "")
     .replaceAll(BRAND_TAGLINE, "")
 }
 
