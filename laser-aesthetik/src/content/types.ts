@@ -155,3 +155,39 @@ export interface Practice {
   social: { facebook: string; linkedin: string }
   bookingUrl: string
 }
+
+/**
+ * One physical site of the center. `planned` locations carry a city and
+ * nothing else: publishing an address or opening hours for a site that
+ * cannot be visited is an SEO liability and, for a medical service, a
+ * misleading-advertising risk.
+ */
+export interface Location {
+  /** "Landshut" */
+  city: string
+  status: "open" | "planned"
+  street?: string
+  postalCode?: string
+  phone?: string
+  hours?: OpeningHours[]
+  /** Absent until this location has its own booking profile. */
+  bookingUrl?: string
+}
+
+export interface Center {
+  /** Brand shown in nav, footer and page titles. */
+  brand: string
+  /** Short brand for tight spaces (the footer copyright line). */
+  shortBrand: string
+  /**
+   * False while `brand` is our working name rather than the client's.
+   * Deliberately a flag beside the value, not a TODO_ sentinel inside it:
+   * a site whose every heading reads TODO_MARKENNAME cannot be shown to
+   * the client, which is the whole point of having a working name.
+   */
+  brandApproved: boolean
+  email: string
+  locations: Location[]
+  /** Only the networks the center actually has. See center.ts. */
+  social: { facebook?: string; linkedin?: string }
+}
