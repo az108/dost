@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter, Routes, Route } from "react-router-dom"
+import { center } from "@/content/center"
 import { Navbar } from "./Navbar"
 
 function renderNav() {
@@ -36,6 +37,29 @@ describe("Navbar", () => {
   it("links home from the brand lockup", () => {
     renderNav()
     expect(screen.getByRole("link", { name: /Zur Startseite/i })).toHaveAttribute("href", "/")
+  })
+
+  it("wears no image mark at all, only a text wordmark read from center.ts", () => {
+    // The <img> that stood here was the Praxis Dr. Dost crest, whose rights
+    // belong to that practice. The assertion is "no image", not "not that
+    // file": another crest under another filename would be the same problem.
+    const { container } = renderNav()
+    expect(container.querySelector("img")).toBeNull()
+    expect(screen.getByText(center.brand)).toBeInTheDocument()
+  })
+
+  it("straplines all three pillars, in the current locale", () => {
+    // The hardcoded German "Laser · Physio · Ästhetik" omitted Kosmetik and
+    // shipped untranslated on every English page.
+    renderNav()
+    expect(screen.getByText("Laser · Kosmetik & Ästhetik · Physio")).toBeInTheDocument()
+
+    render(
+      <MemoryRouter initialEntries={["/en"]}>
+        <Navbar />
+      </MemoryRouter>,
+    )
+    expect(screen.getByText("Laser · Beauty & Aesthetics · Physio")).toBeInTheDocument()
   })
 
   it("has a skip link to the main content", () => {

@@ -3,8 +3,9 @@ import { StaticRouter } from "react-router-dom"
 import { AppRoutes } from "./App"
 
 // React 19 auto-generates a <link rel="preload" as="image" ...> for every
-// eagerly-loaded <img> it renders during SSR (the Navbar logo on every
-// page, plus each treatment's hero image on treatment pages). With the
+// eagerly-loaded <img> it renders during SSR (each treatment's hero image
+// on treatment pages; the navbar contributed one too until its logo was
+// replaced by a text wordmark). With the
 // streaming renderers that hoist happens into a real <head>; renderToString
 // has no <head> to hoist into, so it falls back to emitting the links
 // inline, as extra leading siblings of the actual root element. hydrateRoot

@@ -6,12 +6,11 @@ import type { Localized } from "./types"
  * status messages. Treatment content (pillars.ts, treatments.ts) lives
  * elsewhere and is deliberately not duplicated here.
  *
- * A handful of German pillar-identity words (e.g. the "Laser · Physio ·
- * Ästhetik" tagline, or "Laser" used as a section eyebrow) are left
- * hardcoded on purpose: the pillars themselves have no English label yet
- * (PillarInfo.label is still a plain string, not Localized), so translating
- * a passing reference to them here would drift from the real nav the moment
- * pillar content is localized in a later step.
+ * The brand strapline used to be hardcoded German in Navbar.tsx and Home.tsx
+ * on the grounds that PillarInfo.label was a plain string with no English
+ * half to agree with. It is `Localized` now, so the exception has expired:
+ * `brandStrapline` below names the three pillars in each language using
+ * exactly their own labels.
  */
 export const ui = {
   // ── Booking ──────────────────────────────────────────────────────────
@@ -81,6 +80,17 @@ export const ui = {
   footerTagline: {
     de: "Laser, Kosmetik & Ästhetik und Physiotherapie unter einem Dach.",
     en: "Laser, beauty & aesthetics and physiotherapy under one roof.",
+  },
+  /*
+   * The strapline under the wordmark in the navbar, and the home hero's
+   * eyebrow. Names the three pillars with their own `label` values, so it
+   * cannot drift from the nav beside it the way the previous hardcoded
+   * "Laser · Physio · Ästhetik" did — that one omitted Kosmetik entirely
+   * and contradicted both `footerTagline` and the aesthetik pillar's label.
+   */
+  brandStrapline: {
+    de: "Laser · Kosmetik & Ästhetik · Physio",
+    en: "Laser · Beauty & Aesthetics · Physio",
   },
   prices: { de: "Preise", en: "Prices" },
   practice: { de: "Über uns", en: "About us" },

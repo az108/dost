@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Laser · Physio · Ästhetik"
+        eyebrow={t("brandStrapline")}
         lead={t("homeHeroLead")}
         accent={t("homeHeroAccent")}
         description={t("homeHeroDescription")}

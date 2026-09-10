@@ -42,21 +42,27 @@ eigenen Aufnahmen gezeigt (siehe unten), nie mit Stockfotos.
 
 ## Logo
 
-`public/logo.png` ist das Wappen der Praxis Dr. Dost, entnommen von
-drdosthealth.com und für diese Website aufbereitet (Alphakanal bereinigt,
-auf 512 px skaliert). `public/apple-touch-icon.png` (180 px) wurde daraus
-abgeleitet. `public/logo-80.webp` (80 px) und `public/logo-320.webp`
-(320 px) sind verkleinerte WebP-Exporte desselben Wappens, erzeugt aus
-`public/logo.png` für die Navbar- bzw. die Arztvorstellungs-Anzeige —
-kein neues Bildmaterial, gleiche Herkunft wie der Master. Rechte liegen
-bei der Praxis.
+`public/favicon.svg` ist ein eigenes Zwischenzeichen: ein einfaches
+Monogramm aus dem Arbeitsnamen der Marke, gezeichnet in der Palette dieser
+Website (`--color-brand-ink`, `#1A73E8`). Es ist nicht von fremdem
+Bildmaterial abgeleitet, die Rechte liegen bei uns.
 
-`public/favicon.ico` (16/32/48 px), `public/favicon-192.png` und
-`public/apple-touch-icon.png` (180 px) sind aus `public/logo.png` erzeugt:
-transparenter Rand abgeschnitten, damit das Wappen die Icon-Flaeche
-ausfuellt. Das frueher hier genannte Monogramm `favicon.svg` ist entfallen,
-weil im Browser-Tab das echte Wappen gewuenscht ist. Das Apple-Icon hat
-einen weissen Hintergrund, da iOS Transparenz auf Schwarz rendert.
+Es ist ausdruecklich ein Provisorium. Das endgueltige Zeichen des Centers
+kommt vom Kunden bzw. aus Slice 2; solange `center.brandApproved` false ist,
+steht auch der Markenname selbst noch nicht fest, und das Monogramm muss mit
+ihm neu gezeichnet werden.
+
+Das frueher hier gefuehrte Wappen der Praxis Dr. Dost (`public/logo.png`,
+uebernommen von drdosthealth.com) und alle daraus erzeugten Dateien —
+`public/logo-80.webp`, `public/logo-320.webp`, `public/favicon.ico`,
+`public/favicon-192.png`, `public/apple-touch-icon.png` — sind geloescht.
+Die Rechte daran liegen bei der Praxis, nicht beim Center. Ein Center, das
+mit dieser Praxis nichts zu tun hat, darf ihr Wappen nicht im Browser-Tab
+und nicht auf dem iOS-Homescreen tragen.
+
+Damit gibt es bewusst keinen `.ico`-Fallback fuer sehr alte Browser und kein
+Apple-Touch-Icon mehr. Beides ist der ehrliche Preis des Zwischenzustands:
+kein Icon ist besser als das Icon einer fremden Praxis.
 
 ## Eigene Aufnahmen der Praxis
 

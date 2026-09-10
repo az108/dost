@@ -53,22 +53,28 @@ export function Navbar() {
       </a>
       <Container>
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Hauptnavigation">
+          {/*
+           * A text wordmark, not an image. What stood here was the separated
+           * practice's crest (public/logo-80.webp), under rights that sit
+           * with that practice — so a center denying any connection to it
+           * wore its heraldry on every page and in every browser tab. Slice 2
+           * and the client own the real mark; until it exists the brand
+           * renders as its own name, read from center.ts like every other
+           * surface. See CREDITS.md.
+           *
+           * center.brand, not shortBrand: with no glyph beside it the
+           * wordmark is the whole lockup, and the short form alone reads as a
+           * truncation rather than a name.
+           */}
           <Link to={homePath(locale)} aria-label={t("homeAriaLabel")} className="flex items-center gap-3">
-            <img
-              src="/logo-80.webp"
-              alt=""
-              width={80}
-              height={80}
-              className="size-10 shrink-0"
-            />
             <span className="flex flex-col leading-tight">
-              {/* brand-900, not brand: 16px bold sits under the large-text
+              {/* brand-900, not brand: 18px bold sits under the large-text
                   threshold, so the display blue would be below AA here. */}
-              <span className="font-display text-base font-extrabold text-brand-900">
-                {center.shortBrand}
+              <span className="font-display text-lg font-extrabold tracking-tight text-brand-900">
+                {center.brand}
               </span>
               <span className="text-xs font-medium text-brand-600">
-                Laser · Physio · Ästhetik
+                {t("brandStrapline")}
               </span>
             </span>
           </Link>
