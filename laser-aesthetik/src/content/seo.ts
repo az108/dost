@@ -2,12 +2,12 @@ export const SITE_URL = "https://laserhaarentfernung-landshut.de"
 
 const DEFAULT_KEYWORDS = [
   "Laser Haarentfernung",
-  "Physiotherapie",
+  "Kosmetik",
   "Ästhetische Medizin",
-  "Kröning",
+  "Physiotherapie",
   "Landshut",
-  "Privatpraxis",
-  "Dr. Dost",
+  "München",
+  "Stuttgart",
 ]
 
 export function buildKeywords(extra: string[] = []): string {

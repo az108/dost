@@ -378,7 +378,7 @@ const LASER: LocalizedTreatment[] = [
       de: [
         "Weniger eingewachsene Haare, weniger Erdbeerhaut",
         "Diskrete, ruhige Behandlungsräume",
-        "Ärztlich durchgeführt",
+        "Ärztlich geführt",
       ],
       en: [
         "Fewer ingrown hairs, less irritation",
@@ -917,12 +917,12 @@ const PHYSIO: LocalizedTreatment[] = [
       de: [
         "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
         "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung: der chronische Schmerz.",
-        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie in der Praxis Dr. med. univ. Dost Mohammad.",
+        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie.",
       ],
       en: [
         "A distinction is made between acute pain and chronic pain.",
         "When pain persists for a long time, it loses this warning function and becomes a condition in its own right: chronic pain.",
-        "Please feel free to get in touch with our pain therapy service at Praxis Dr. med. univ. Dost Mohammad.",
+        "Please feel free to get in touch with our pain therapy service.",
       ],
     },
     benefits: {
@@ -1003,14 +1003,14 @@ const PHYSIO: LocalizedTreatment[] = [
     },
     body: {
       de: [
-        "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Kröning mit den umliegenden radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
-        "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
-        "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
+        "Bei der Therapie und Diagnostik von Sportverletzungen arbeiten wir mit radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmedizinern und den Krankenhäusern der Region zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+        "Wir geben allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
+        "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an uns.",
       ],
       en: [
-        "For the diagnosis and treatment of sports injuries, our physician in Kröning works together with nearby radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals, to offer you the best possible service.",
-        "Our practice gives every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
-        "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact our practice promptly.",
+        "For the diagnosis and treatment of sports injuries, we work together with radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals in the region, to offer you the best possible service.",
+        "We give every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
+        "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact us promptly.",
       ],
     },
     benefits: {
@@ -1042,7 +1042,7 @@ const PHYSIO: LocalizedTreatment[] = [
       en: { lead: "Acupuncture", accent: "and TCM" },
     },
     excerpt: {
-      de: "Akupunktur und TCM, ärztlich durchgeführt. Eine Ergänzung zur Schulmedizin, kein Ersatz.",
+      de: "Akupunktur und TCM, ärztlich geführt. Eine Ergänzung zur Schulmedizin, kein Ersatz.",
       en: "Acupuncture and TCM, physician-led. A complement to conventional medicine, not a replacement.",
     },
     // Two paragraphs below reuse copy verbatim from the practice's own
@@ -1056,22 +1056,22 @@ const PHYSIO: LocalizedTreatment[] = [
       de: [
         "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
         "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst, physisch wie psychisch.",
-        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Kröning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Wir bieten viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
       ],
       en: [
         "With the varied methods of acupuncture and TCM, our patients benefit from Far Eastern treatment methods with a very long tradition and effectiveness that has been scientifically proven in many cases.",
         "Many acute and chronic complaints respond well to acupuncture and TCM measures. Compared with conventional medicine, acupuncture and TCM always pursue a holistic treatment goal. In TCM's therapeutic approach, the person is understood as a whole, physically and mentally.",
-        "TCM complements the conventional medical treatment of many complaints. Our private physician in Kröning offers many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
+        "TCM complements the conventional medical treatment of many complaints. We offer many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
       ],
     },
     benefits: {
       de: [
-        "Ärztlich durchgeführte Akupunktur",
+        "Akupunktur durch ärztlich geprüfte Fachkräfte des Centers",
         "Ergänzend zur schulmedizinischen Behandlung",
         "Zusatzqualifikation Naturheilverfahren und Akupunktur",
       ],
       en: [
-        "Acupuncture carried out by a physician",
+        "Acupuncture carried out by the center's medically qualified practitioners",
         "Complementary to conventional medical treatment",
         "Additional qualification in naturopathy and acupuncture",
       ],
@@ -1148,24 +1148,24 @@ const AESTHETIK: LocalizedTreatment[] = [
       de: [
         "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
         "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend: Sie sollen weiterhin lachen und die Stirn runzeln können.",
-        "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
+        "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führen ärztlich geprüfte Fachkräfte des Centers durch.",
       ],
       en: [
         "Botulinum toxin selectively relaxes the muscles that create a wrinkle. We mainly treat the frown line, forehead lines and the fine lines around the eyes.",
         "Our aim is a rested face, not a treated one. That's why we deliberately dose conservatively. You should still be able to laugh and furrow your brow.",
-        "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out personally by Dr. med. univ. Dost Mohammad.",
+        "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out by the center's medically qualified practitioners.",
       ],
     },
     benefits: {
       de: [
         "Bewusst zurückhaltende Dosierung",
         "Mimik bleibt erhalten",
-        "Persönlich durchgeführt von Dr. med. univ. Dost Mohammad",
+        "Durchgeführt von ärztlich geprüften Fachkräften des Centers",
       ],
       en: [
         "Deliberately conservative dosing",
         "Natural expression is preserved",
-        "Carried out personally by Dr. med. univ. Dost Mohammad",
+        "Carried out by the center's medically qualified practitioners",
       ],
     },
     durationMin: 20,
@@ -1289,12 +1289,12 @@ const AESTHETIK: LocalizedTreatment[] = [
     // both the German and English wording until a lawyer clears it.
     body: {
       de: [
-        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Kröning bieten wir Ihnen Lichttherapie an.",
+        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In unserem Center in Landshut bieten wir Ihnen Lichttherapie an.",
         "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
         "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
       ],
       en: [
-        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At the private practice of Dr. med. univ. Dost Mohammad in Kröning, we offer light therapy.",
+        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At our center in Landshut, we offer light therapy.",
         "In connection with depression that does not follow a seasonal pattern, colour light therapy can be healing.",
         "Depression is also often accompanied by sleep disturbances, which in turn cause stress for those affected. Light therapy can also be helpful for these disturbances.",
       ],
@@ -1336,27 +1336,147 @@ const AESTHETIK: LocalizedTreatment[] = [
       de: [
         "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
         "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
-        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Kröning.",
+        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie bei uns.",
       ],
       en: [
         "For most people, beauty matters because it helps them feel confident and attractive. People who see themselves as attractive tend to come across more positively.",
         "Over time, however, the skin changes, and so does one's appearance. Lines around the mouth, eyes and nose, or on the forehead, can make a face look older.",
-        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact the practice for Aesthetic Medicine, Dr. med. univ. Dost Mohammad, in Kröning.",
+        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact us.",
       ],
     },
     benefits: {
       de: [
-        "Ärztlich durchgeführt, nicht kosmetisch",
+        "Von ärztlich geprüften Fachkräften des Centers durchgeführt, nicht kosmetisch",
         "Ausführliche Beratung vor jeder Behandlung",
         "Zurückhaltender, natürlicher Ansatz",
       ],
       en: [
-        "Carried out by a physician, not a beautician",
+        "Carried out by the center's medically qualified practitioners, not a beautician",
         "Detailed consultation before every treatment",
         "A conservative, natural approach",
       ],
     },
     sessions: { de: "Nach Befund", en: "Based on assessment" },
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "klassische-gesichtsbehandlung", en: "classic-facial" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Klassische Gesichtsbehandlung", en: "Classic Facial" },
+    headline: {
+      de: { lead: "Reinigung, die", accent: "spürbar ist" },
+      en: { lead: "A cleanse you", accent: "can feel" },
+    },
+    excerpt: {
+      de: "Reinigung, Peeling, Ausreinigung und Pflege, abgestimmt auf Ihren Hauttyp.",
+      en: "Cleansing, exfoliation, extraction and care, matched to your skin type.",
+    },
+    body: {
+      de: [
+        "Die klassische Gesichtsbehandlung ist die Grundlage jeder Hautpflege. Wir bestimmen zuerst Ihren Hauttyp und wählen danach Reinigung, Peeling und Pflege aus.",
+        "Die Behandlung eignet sich als einzelne Anwendung ebenso wie als regelmäßige Routine. Wie oft sie sinnvoll ist, besprechen wir im Anschluss mit Ihnen.",
+      ],
+      en: [
+        "The classic facial is the foundation of any skincare routine. We first assess your skin type and select the cleansing, exfoliation and care products accordingly.",
+        "The treatment works as a one-off as well as a regular routine. We will discuss with you afterwards how often it makes sense.",
+      ],
+    },
+    benefits: {
+      de: ["Auf den Hauttyp abgestimmt", "Ohne Ausfallzeit", "Auch als Routine geeignet"],
+      en: ["Matched to your skin type", "No downtime", "Suitable as a routine"],
+    },
+    durationMin: 60,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "fruchtsaeurepeeling", en: "chemical-peel" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Fruchtsäurepeeling", en: "Chemical Peel" },
+    headline: {
+      de: { lead: "Ein Peeling mit", accent: "Augenmaß" },
+      en: { lead: "A peel with", accent: "judgement" },
+    },
+    excerpt: {
+      de: "Sanfte Abtragung der obersten Hautschicht, in der Konzentration auf Ihre Haut abgestimmt.",
+      en: "Gentle removal of the outermost skin layer, at a concentration matched to your skin.",
+    },
+    body: {
+      de: [
+        "Fruchtsäuren lösen die Verbindungen zwischen den obersten Hornzellen, sodass sich die Haut leichter erneuert. Die Konzentration wählen wir nach Hauttyp und Vorbehandlung.",
+        "Vor der ersten Anwendung prüfen wir Ihre Haut und klären Gegenanzeigen ab. In den Tagen danach ist konsequenter Sonnenschutz nötig.",
+      ],
+      en: [
+        "Fruit acids loosen the bonds between the outermost skin cells so the skin renews more easily. We choose the concentration according to skin type and previous treatments.",
+        "Before the first application we examine your skin and check for contraindications. Consistent sun protection is necessary in the days that follow.",
+      ],
+    },
+    benefits: {
+      de: ["Konzentration individuell gewählt", "Ärztliche Einschätzung vorab", "Mehrere Sitzungen möglich"],
+      en: ["Individually chosen concentration", "Medical assessment beforehand", "Multiple sessions possible"],
+    },
+    durationMin: 45,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "microneedling", en: "microneedling-treatment" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Microneedling", en: "Microneedling" },
+    headline: {
+      de: { lead: "Die Haut", accent: "selbst anregen" },
+      en: { lead: "Prompting the skin", accent: "itself" },
+    },
+    excerpt: {
+      de: "Feine Mikroverletzungen regen die hauteigene Erneuerung an, ärztlich begleitet.",
+      en: "Fine micro-injuries prompt the skin's own renewal, under medical supervision.",
+    },
+    body: {
+      de: [
+        "Beim Microneedling setzen feine Nadeln kontrollierte Mikroverletzungen in der Haut. Der Körper reagiert darauf mit seiner eigenen Reparatur.",
+        "Wie viele Sitzungen sinnvoll sind und in welchem Abstand, hängt von Hautbild und Zielsetzung ab. Das besprechen wir im Erstgespräch.",
+      ],
+      en: [
+        "In microneedling, fine needles create controlled micro-injuries in the skin. The body responds with its own repair process.",
+        "How many sessions make sense, and at what intervals, depends on your skin and what you want to achieve. We discuss this at the initial consultation.",
+      ],
+    },
+    benefits: {
+      de: ["Ärztlich begleitet", "Sitzungszahl individuell", "Erstgespräch vorab"],
+      en: ["Medically supervised", "Individual number of sessions", "Initial consultation beforehand"],
+    },
+    durationMin: 60,
+    pricing: { kind: "onRequest" },
+  },
+  {
+    slug: { de: "apparative-kosmetik", en: "device-based-treatments" },
+    pillar: "aesthetik",
+    draft: true,
+    title: { de: "Apparative Kosmetik", en: "Device-Based Treatments" },
+    headline: {
+      de: { lead: "Technik als", accent: "Ergänzung" },
+      en: { lead: "Technology as a", accent: "complement" },
+    },
+    excerpt: {
+      de: "Ultraschall und Radiofrequenz als Ergänzung zur manuellen Behandlung.",
+      en: "Ultrasound and radiofrequency as a complement to manual treatment.",
+    },
+    body: {
+      de: [
+        "Apparative Verfahren ergänzen die manuelle Kosmetik, sie ersetzen sie nicht. Wir setzen sie dort ein, wo sie einen Unterschied machen, und sagen es, wenn sie es nicht tun.",
+        "Welches Verfahren infrage kommt, hängt vom Hautbild ab. Im Erstgespräch sehen wir uns die Region an und schätzen offen ein, was zu erwarten ist.",
+      ],
+      en: [
+        "Device-based methods complement manual treatments rather than replacing them. We use them where they make a difference, and say so when they do not.",
+        "Which method is suitable depends on your skin. At the initial consultation we look at the area and give you an honest assessment of what to expect.",
+      ],
+    },
+    benefits: {
+      de: ["Ergänzend, nicht ersetzend", "Auswahl nach Hautbild", "Offene Einschätzung vorab"],
+      en: ["Complementary, not a replacement", "Chosen according to your skin", "An honest assessment beforehand"],
+    },
+    durationMin: 45,
     pricing: { kind: "onRequest" },
   },
 ]

@@ -67,14 +67,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The suite is split by test name so real regressions can gate the
+      # deploy while the intentional reds do not. Nine tests named
+      # "FAILS UNTIL …" fail on purpose until the client supplies a fact
+      # (brand approval, address, email, phone, booking profile, legal
+      # review, contact-form recipient, medical claims, draft Kosmetik copy);
+      # `test:ci` excludes them by negative lookahead, `npm test` still shows
+      # them to a developer, and `npm run test:golive` runs only them as a
+      # readiness check. Run before the build so a failure stops the deploy.
+      - name: Test
+        run: npm run test:ci
+
       # Runs the sitemap generator and tsc, so a type error fails the deploy.
       - name: Build
         run: npm run build
-
-      # Not a gate yet: four tests fail by design as go-live guards (phone
-      # number, legal review, contact-form recipient, medical claims).
-      # - name: Test
-      #   run: npm test
 
       # .htaccess is a dotfile and is what makes deep links work; without it
       # every route but the home page 404s.

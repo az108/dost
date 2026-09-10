@@ -20,7 +20,7 @@ describe("prerender route list", () => {
     expect(allRoutes()).toEqual(sitemapPaths)
   })
 
-  it("has exactly 74 routes: 9 German + 7 English static pages, 29 treatments in each language", () => {
-    expect(allRoutes()).toHaveLength(74)
+  it("has exactly 82 routes: 9 German + 7 English static pages, 33 treatments in each language", () => {
+    expect(allRoutes()).toHaveLength(82)
   })
 })

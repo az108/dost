@@ -14,10 +14,9 @@ function renderSteps() {
 
 describe("ProcessSteps", () => {
   it("renders every step as a list item in an ordered list", () => {
-    // On wide screens this section pins a photograph and scrolls the steps
-    // past it. That is decoration. The four steps have to stay readable as an
-    // ordered list when the sticky column is not rendered at all — narrow
-    // screens, print, a screen reader walking the document.
+    // The four steps have to stay readable as an ordered list on any
+    // surface — narrow screens, print, a screen reader walking the
+    // document — not only as the scroll-paced rail wide screens get.
     const { container } = renderSteps()
     expect(container.querySelector("ol")).not.toBeNull()
     expect(screen.getAllByRole("listitem")).toHaveLength(4)
@@ -36,10 +35,11 @@ describe("ProcessSteps", () => {
     expect(active[0]).toHaveTextContent("Termin")
   })
 
-  it("gives the pinned photograph real alternative text", () => {
-    // It carries the section's meaning — the physician performs the treatment
-    // himself — so it is content, not an empty-alt spacer.
-    renderSteps()
-    expect(screen.getByRole("img", { name: /Laserhandstück/ })).toBeInTheDocument()
-  })
+  // A third test asserted the alt text of the photograph this section used
+  // to pin beside the steps — the doctor holding the laser handpiece in his
+  // own practice. Both the photograph and the test went with the separation
+  // from Privatpraxis Dr. Dost. The import path named neither him nor his
+  // practice, so only that alt text gave the picture away; the grep guard in
+  // content.test.ts would never have caught it. Slice 2 sources a
+  // replacement the center can actually claim.
 })

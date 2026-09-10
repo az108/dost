@@ -16,9 +16,9 @@ import { CtaBanner } from "@/components/cta/CtaBanner"
 import { Hero } from "@/sections/Hero"
 import { TrustRow } from "@/sections/TrustRow"
 import { ProcessSteps } from "@/sections/ProcessSteps"
-import { DoctorIntro } from "@/sections/DoctorIntro"
+import { Approach } from "@/sections/Approach"
+import { Standorte } from "@/sections/Standorte"
 import { useSeo } from "@/lib/useSeo"
-import heroImage from "@/assets/praxis/dr-dost-schreibtisch.webp"
 
 export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
@@ -39,12 +39,10 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Laser · Physio · Ästhetik"
+        eyebrow={t("brandStrapline")}
         lead={t("homeHeroLead")}
         accent={t("homeHeroAccent")}
         description={t("homeHeroDescription")}
-        image={heroImage}
-        imageAlt={t("doctorAltAtDesk")}
       >
         <Link
           to={pagePath("prices", locale)}
@@ -105,18 +103,23 @@ export default function Home() {
 
       {/* Every band below the hero is a sheet layered over the one before it,
           and the tones still alternate underneath that: white trust panel,
-          tint pillars, light popular, tint process, light bio, tint FAQ,
-          blue CTA. The overlap adds depth; the tones keep doing the work of
-          telling two adjacent bands apart.
+          tint pillars, light popular, tint process, light bio, tint
+          Standorte, light FAQ, blue CTA. The overlap adds depth; the tones
+          keep doing the work of telling two adjacent bands apart — FAQ
+          drops its tint to light specifically because Standorte, tint,
+          now sits directly above it with nothing between them.
 
           Flanks alternate sides on top of that — left, right, none, left,
-          right — and Ablauf is the deliberate gap. It already carries the
-          pinned photograph and the rail, and a slab behind those would be
-          three devices competing inside one section. */}
+          none, right — and Ablauf is the deliberate gap. It already carries
+          the pinned photograph and the rail, and a slab behind those would
+          be three devices competing inside one section; Standorte's own
+          gap is smaller, just three cards with no room for a flank slab
+          to read as anything but clutter beside them. */}
       <ProcessSteps tone="tint" overlap />
-      <DoctorIntro tone="light" overlap flank="left" flankTone="accent" />
+      <Approach tone="light" overlap flank="left" flankTone="accent" />
+      <Standorte tone="tint" overlap />
 
-      <Section tone="tint" overlap flank="right" flankTone="blue">
+      <Section overlap flank="right" flankTone="blue">
         <Container>
           <div className="flex max-w-3xl flex-col gap-8">
             <SectionHeader

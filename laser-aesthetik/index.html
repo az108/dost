@@ -2,25 +2,41 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <!-- The practice crest, not a monogram. favicon.ico carries 16/32/48 so
-         the browser picks the size it needs; the transparent margin is
-         trimmed off the source so the shield actually fills the tab icon. -->
-    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <!-- An interim monogram of our own, in the site's palette. It replaces a
+         crest we hold no rights to, and the favicon.ico / favicon-192.png /
+         apple-touch-icon.png rasters derived from it; see CREDITS.md. One
+         SVG, no .ico fallback and no Apple touch icon: very old browsers and
+         the iOS home screen lose an icon, which is the honest cost of not
+         wearing someone else's mark. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1A73E8" />
-    <meta name="description" content="Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning bei Landshut. Ärztlich durchgeführt, mit transparenten Preisen." />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!--
+      Everything below is a NEUTRAL FALLBACK, not the site's identity. The
+      brand lives in src/content/center.ts and nowhere else; scripts/
+      prerender.ts overwrites the title, description, og:title,
+      og:description, og:site_name, og:locale and og:image tags on all 82
+      pre-rendered pages, and src/lib/useSeo.ts refreshes them again after
+      hydration. These values are what a crawler would read only if the
+      prerender step were skipped entirely, so they must name a category of
+      business — never a person, never a practice, never a brand this repo
+      cannot change in one edit.
+
+      Write no literal tag syntax in this comment: prerender.ts matches these
+      tags with regexes over the raw template, and a stray angle-bracketed
+      tag name here is matched in preference to the real tag below it.
+    -->
+    <meta name="description" content="Center für Laserbehandlungen, Kosmetik und ästhetische Medizin sowie Physiotherapie in Landshut." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
-    <meta property="og:site_name" content="Dr. Dost — Laser, Physio &amp; Ästhetik" />
-    <meta property="og:title" content="Dr. Dost — Laser, Physio &amp; Ästhetik" />
-    <meta property="og:description" content="Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning bei Landshut." />
+    <meta property="og:site_name" content="Laser-, Kosmetik- &amp; Physio-Center" />
+    <meta property="og:title" content="Laser-, Kosmetik- &amp; Physio-Center" />
+    <meta property="og:description" content="Center für Laserbehandlungen, Kosmetik und ästhetische Medizin sowie Physiotherapie in Landshut." />
     <meta property="og:image" content="https://laserhaarentfernung-landshut.de/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Dr. Dost — Laser, Physio &amp; Ästhetik</title>
+    <title>Laser-, Kosmetik- &amp; Physio-Center</title>
   </head>
   <body>
     <div id="root"></div>

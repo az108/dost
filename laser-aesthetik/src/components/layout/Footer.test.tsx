@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter } from "react-router-dom"
+import { center } from "@/content/center"
 import { Footer } from "./Footer"
 
 function renderFooter() {
@@ -15,19 +16,6 @@ describe("Footer", () => {
   it("renders a contentinfo landmark", () => {
     renderFooter()
     expect(screen.getByRole("contentinfo")).toBeInTheDocument()
-  })
-
-  it("shows the practice address", () => {
-    renderFooter()
-    expect(screen.getByText(/Weiher 3, 84178 Kröning/)).toBeInTheDocument()
-  })
-
-  it("links the email as a mailto", () => {
-    renderFooter()
-    expect(screen.getByRole("link", { name: "info@drdosthealth.com" })).toHaveAttribute(
-      "href",
-      "mailto:info@drdosthealth.com",
-    )
   })
 
   it("lists all three opening-hours rows", () => {
@@ -51,5 +39,30 @@ describe("Footer", () => {
     const { container } = renderFooter()
     expect(screen.queryByText(/TODO/i)).toBeNull()
     expect(container.querySelector('a[href^="tel:"]')).toBeNull()
+  })
+
+  it("shows the center brand, not a person", () => {
+    renderFooter()
+    expect(screen.getByText(center.brand)).toBeInTheDocument()
+    expect(screen.queryByText(/Dost/)).not.toBeInTheDocument()
+  })
+
+  it("shows the open location's address and no planned one", () => {
+    renderFooter()
+    expect(screen.getByText(/Landshut/)).toBeInTheDocument()
+    expect(screen.queryByText(/Stuttgart/)).not.toBeInTheDocument()
+  })
+
+  it("renders no social links while the center has no profiles", () => {
+    renderFooter()
+    expect(screen.queryByText("Facebook")).not.toBeInTheDocument()
+    expect(screen.queryByText("LinkedIn")).not.toBeInTheDocument()
+  })
+
+  it("renders no TODO_ sentinel anywhere in the footer", () => {
+    // Named for what it checks. The old name promised an assertion about
+    // the email line, and about an address, and made neither.
+    const { container } = renderFooter()
+    expect(container.innerHTML).not.toMatch(/TODO_/)
   })
 })

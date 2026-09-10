@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:ci": "vitest run -t '^(?!.*FAILS UNTIL)'",
+    "test:golive": "vitest run -t 'FAILS UNTIL'",
     "sitemap": "vite-node scripts/generate-sitemap.ts"
   },
   "dependencies": {

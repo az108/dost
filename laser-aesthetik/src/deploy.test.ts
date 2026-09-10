@@ -76,7 +76,7 @@ describe("sitemap.xml", () => {
     // same set minus the German-only Impressum and Datenschutz (there is no
     // English legal page at all, not even one pointing back to German — a
     // sitemap should only list a page's own canonical URL). Each treatment
-    // appears once per language: 29 + 29.
+    // appears once per language: 33 + 33.
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
     expect(locCount).toBe(9 + 7 + treatments("de").length + treatments("en").length)
@@ -88,6 +88,47 @@ describe("robots.txt", () => {
     const robots = pub("robots.txt")
     expect(robots).toContain("Allow: /")
     expect(robots).toContain(`${SITE_URL}/sitemap.xml`)
+  })
+})
+
+describe("index.html template", () => {
+  // scripts/prerender.ts rewrites these tags in place — replaceAttr() is a
+  // no-op when the tag is absent, so a tag deleted from the template stops
+  // being emitted on all 82 pages without any error. og:site_name is here
+  // because it was exactly that: never rewritten, so every page shipped the
+  // template's static value while useSeo() only corrected it after
+  // hydration.
+  //
+  // Exactly once, not merely present: replaceAttr() and the <title> rewrite
+  // are regexes over the raw template, so a second literal occurrence —
+  // including one inside an HTML comment — is matched in preference to the
+  // real tag and the injected value lands in the wrong place.
+  it("carries exactly one static default for every tag the prerenderer rewrites", () => {
+    const html = root("index.html")
+    for (const tag of [
+      '<meta name="description"',
+      '<meta property="og:title"',
+      '<meta property="og:description"',
+      '<meta property="og:site_name"',
+      '<meta property="og:locale"',
+      '<meta property="og:image"',
+      "<title>",
+    ]) {
+      const count = html.split(tag).length - 1
+      expect(count, `index.html carries ${count} occurrences of ${tag}, expected exactly 1`).toBe(1)
+    }
+  })
+
+  it("names no person, practice or inherited brand in its fallback metadata", () => {
+    // These strings ship on every page that a crawler reads before any JS
+    // runs. The center is a separate business; the template must carry a
+    // category of business, never an identity.
+    const html = root("index.html")
+    for (const banned of ["Dost", "Privatpraxis", "Kröning", "drdosthealth"]) {
+      expect(html.toLowerCase(), `index.html still carries "${banned}"`).not.toContain(
+        banned.toLowerCase(),
+      )
+    }
   })
 })
 
@@ -105,7 +146,7 @@ describe("go-live guards", () => {
 describe("legal go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
   // The Impressum and Datenschutz are scaffolds. Paragraphs marked PRÜFEN
-  // name facts only the practice can supply — the responsible medical
+  // name facts only the center can supply — the responsible medical
   // chamber, the hosting provider. §5 TMG and DSGVO Art. 13 make this
   // content legally consequential, so it must not ship as scaffolding.
   // To fix: have a lawyer complete both documents, then delete this test.
@@ -118,7 +159,7 @@ describe("legal go-live guard", () => {
 describe("contact form go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
   // contact.php has no recipient and no real sender domain until the
-  // practice supplies them. Shipping RECIPIENT unset means every message a
+  // center supplies them. Shipping RECIPIENT unset means every message a
   // patient sends is silently lost. Shipping SENDER_DOMAIN unset means the
   // From header carries a placeholder domain, which fails SPF/DKIM and gets
   // the mail spam-filtered even though RECIPIENT is correct.

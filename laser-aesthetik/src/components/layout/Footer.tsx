@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
 import { pillars } from "@/content/pillars"
-import { formatAddress, hasPhone, practice } from "@/content/practice"
+import { center, formatAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { legalPath, pagePath, pillarPath } from "@/lib/routes"
@@ -10,6 +10,7 @@ import { Container } from "./Container"
 export function Footer() {
   const t = useT()
   const locale = useLocale()
+  const location = openLocation()
 
   // White on every page, deliberately. It used to be bg-brand-50, which is
   // exactly a `tint` section, so it merged into whatever sat above it.
@@ -21,9 +22,8 @@ export function Footer() {
     <footer className="border-t border-brand-100 bg-white py-14 text-brand-900">
       <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-3">
-          <p className="font-display text-lg font-extrabold text-brand-900">{practice.brand}</p>
-          <p className="text-sm leading-relaxed text-brand-700">{practice.doctor}</p>
-          <p className="text-sm leading-relaxed text-brand-700">{practice.qualifications}</p>
+          <p className="font-display text-lg font-extrabold text-brand-900">{center.brand}</p>
+          <p className="text-sm leading-relaxed text-brand-700">{t("footerTagline")}</p>
         </div>
 
         <nav className="flex flex-col gap-2" aria-label={t("treatmentsLabel")}>
@@ -42,50 +42,62 @@ export function Footer() {
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-            {formatAddress()}
+            {formatAddress(location) ?? location.city}
           </p>
-          <a
-            href={`mailto:${practice.email}`}
-            className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
-          >
-            <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
-            {practice.email}
-          </a>
-          {hasPhone() ? (
+          {hasEmail() ? (
             <a
-              href={`tel:${practice.phone.replace(/\s/g, "")}`}
+              href={`mailto:${center.email}`}
+              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+            >
+              <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              {center.email}
+            </a>
+          ) : null}
+          {hasPhone(location) ? (
+            <a
+              href={`tel:${location.phone!.replace(/\s/g, "")}`}
               className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
             >
               <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
-              {practice.phone}
+              {location.phone}
             </a>
           ) : null}
-          <div className="mt-2 flex flex-col gap-2">
-            <a
-              href={practice.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
-            >
-              <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
-              Facebook
-            </a>
-            <a
-              href={practice.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
-            >
-              <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
-              LinkedIn
-            </a>
-          </div>
+          {/* Rendered only for networks the center actually has. The old
+              links were the doctor's personal Facebook page and LinkedIn
+              profile — an empty social row beats one pointing at a
+              different business. */}
+          {center.social.facebook || center.social.linkedin ? (
+            <div className="mt-2 flex flex-col gap-2">
+              {center.social.facebook ? (
+                <a
+                  href={center.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                >
+                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  Facebook
+                </a>
+              ) : null}
+              {center.social.linkedin ? (
+                <a
+                  href={center.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                >
+                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  LinkedIn
+                </a>
+              ) : null}
+            </div>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-2">
           <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("openingHours")}</p>
           <dl className="flex flex-col gap-1 text-sm">
-            {practice.hours.map((h) => (
+            {(location.hours ?? []).map((h) => (
               <div key={h.days} className="flex justify-between gap-4">
                 <dt className="text-brand-700">{h.days}</dt>
                 <dd className="font-medium text-brand-900">{h.time}</dd>
@@ -97,7 +109,7 @@ export function Footer() {
 
       <Container className="mt-10 flex flex-col gap-3 border-t border-brand-200 pt-6 text-sm text-brand-700 sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {new Date().getFullYear()} {practice.shortBrand}. {t("allRightsReserved")}
+          © {new Date().getFullYear()} {center.shortBrand}. {t("allRightsReserved")}
         </p>
         <nav className="flex gap-4" aria-label={t("legalNavLabel")}>
           <Link to={legalPath("impressum")} className="hover:text-brand-900">

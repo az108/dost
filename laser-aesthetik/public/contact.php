@@ -1,12 +1,12 @@
 <?php
 /**
- * Same-origin contact form endpoint for the practice website.
+ * Same-origin contact form endpoint for the center's website.
  *
  * Vite copies everything in public/ into dist/ verbatim, so this file ships
  * beside index.html and is reachable at /contact.php in production. The
  * form in src/components/content/ContactForm.tsx POSTs FormData here.
  *
- * BEFORE GO-LIVE: the practice must set RECIPIENT below to a real mailbox,
+ * BEFORE GO-LIVE: the center must set RECIPIENT below to a real mailbox,
  * and SENDER_DOMAIN to the live domain. Both placeholders are deliberate —
  * src/deploy.test.ts fails until they are changed, so an unset recipient or
  * sender domain physically cannot ship.
@@ -21,7 +21,7 @@
 
 declare(strict_types=1);
 
-// The practice must replace this with their real inbox before go-live.
+// The center must replace this with its real inbox before go-live.
 define("RECIPIENT", "TODO_EMPFAENGER_ADRESSE");
 
 // Sender domain for the From header. Deliberately a constant and NOT derived

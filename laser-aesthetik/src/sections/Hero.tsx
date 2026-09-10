@@ -1,8 +1,10 @@
 import { useRef, type ReactNode } from "react"
 import { motion } from "motion/react"
+import { useLocation } from "react-router-dom"
 import { Container } from "@/components/layout/Container"
-import { BookingButton } from "@/components/cta/BookingButton"
+import { BookingButton, bookingButtonHidden } from "@/components/cta/BookingButton"
 import { useDrift } from "@/lib/useDrift"
+import { useLocale } from "@/lib/locale"
 import { cn } from "@/lib/utils"
 
 export function Hero({
@@ -31,6 +33,13 @@ export function Hero({
   // the page on arrival, so progress has to be measured from the page's own
   // scroll position, not from the section entering the viewport.
   const y = useDrift(ref, 48, ["start start", "end start"])
+  const { pathname } = useLocation()
+  const locale = useLocale()
+  // On /kontakt, BookingButton renders nothing (see bookingButtonHidden) and
+  // no page passes children there either, which left an empty flex row and
+  // its gap-4 of dead space below the description. Render the row only when
+  // it will hold something.
+  const showButtonRow = children != null || !bookingButtonHidden(pathname, locale)
 
   return (
     <section ref={ref} className="relative isolate overflow-hidden bg-brand-50">
@@ -74,10 +83,12 @@ export function Hero({
             <p className="max-w-2xl text-lg leading-relaxed text-brand-700 sm:text-xl">
               {description}
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <BookingButton />
-              {children}
-            </div>
+            {showButtonRow ? (
+              <div className="flex flex-wrap items-center gap-4">
+                <BookingButton />
+                {children}
+              </div>
+            ) : null}
           </div>
 
           {image ? (

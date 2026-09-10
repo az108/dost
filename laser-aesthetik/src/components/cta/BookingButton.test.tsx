@@ -1,76 +1,115 @@
-import { readFileSync } from "node:fs"
-import { relative, resolve } from "node:path"
-import { execSync } from "node:child_process"
-import type { ReactNode } from "react"
 import { render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
 import { MemoryRouter } from "react-router-dom"
+import { afterEach, describe, expect, it, vi } from "vitest"
 import { BookingButton } from "./BookingButton"
 
-const DOCTOLIB =
-  "https://www.doctolib.de/privatpraxis/landshut/dr-med-univ-dost-mohammad-city-center-landshut/booking?profile_skipped=true&source=external_referral"
-
-// BookingButton reads the current locale (useT -> useLocale -> useLocation),
-// so it needs a Router in scope even when rendered on its own.
-function renderButton(children?: ReactNode) {
-  return render(<BookingButton>{children}</BookingButton>, { wrapper: MemoryRouter })
-}
+const renderButton = () =>
+  render(
+    <MemoryRouter>
+      <BookingButton />
+    </MemoryRouter>,
+  )
 
 describe("BookingButton", () => {
-  it("links to the Doctolib booking page", () => {
-    renderButton()
-    expect(screen.getByRole("link")).toHaveAttribute("href", DOCTOLIB)
+  afterEach(() => {
+    // In afterEach, not trailing the assertions inside the test that sets
+    // it up: a failing assertion throws before the cleanup line is reached
+    // and every later test in this file then runs against the mocked
+    // module, failing for a reason that has nothing to do with itself.
+    vi.doUnmock("@/content/center")
+    vi.resetModules()
   })
 
-  it("opens in a new tab without leaking the referrer opener", () => {
+  it("routes to the contact page while the center has no booking profile", () => {
+    // The old Doctolib URL belonged to Privatpraxis Dr. Dost. Until the
+    // center has its own profile, the honest destination is our own form.
     renderButton()
+    expect(screen.getByRole("link")).toHaveAttribute("href", "/kontakt")
+  })
+
+  it("names no booking provider in either the destination or the label", () => {
+    // This used to assert on the href alone, which passed for months while
+    // ctaLead, stepBookAppointmentBody and contactMetaDescriptionSuffix all
+    // still told the reader they were about to be sent to Doctolib. A link
+    // whose target is right and whose words are wrong is still a promise the
+    // site cannot keep, so both halves are checked here.
+    //
+    // The copy itself is guarded where it lives: content.test.ts greps every
+    // .ts/.tsx source under src/ for the provider's name.
+    const { container } = renderButton()
     const link = screen.getByRole("link")
+    expect(link.getAttribute("href")).not.toContain("doctolib")
+    expect(container.textContent?.toLowerCase()).not.toContain("doctolib")
+  })
+
+  it("links out to the booking provider once one is supplied", async () => {
+    vi.resetModules()
+    vi.doMock("@/content/center", async () => {
+      const actual = await vi.importActual<typeof import("@/content/center")>(
+        "@/content/center",
+      )
+      return {
+        ...actual,
+        openLocation: () => ({
+          ...actual.openLocation(),
+          bookingUrl: "https://booking.example.test/aurea",
+        }),
+      }
+    })
+    const { BookingButton: Fresh } = await import("./BookingButton")
+    render(
+      <MemoryRouter>
+        <Fresh />
+      </MemoryRouter>,
+    )
+    const link = screen.getByRole("link")
+    expect(link).toHaveAttribute("href", "https://booking.example.test/aurea")
     expect(link).toHaveAttribute("target", "_blank")
     expect(link).toHaveAttribute("rel", "noopener noreferrer")
   })
 
-  it("uses a default German label", () => {
+  it("renders nothing on the page its fallback would link to", () => {
+    // A CTA linking to the route the visitor is already reading is not a
+    // call to action. On /kontakt this button sat directly above the form it
+    // pointed at, while the form's own lead told the reader to book "über
+    // die Terminbuchung oben" — a closed loop with no way out.
+    const { container } = render(
+      <MemoryRouter initialEntries={["/kontakt"]}>
+        <BookingButton />
+      </MemoryRouter>,
+    )
+    expect(container.querySelector("a")).toBeNull()
+  })
+
+  it("still renders on the English contact page's German counterpart, and vice versa", () => {
+    // The suppression is per-locale: /en/contact is a different route from
+    // /kontakt, and a visitor on one is not on the other.
+    render(
+      <MemoryRouter initialEntries={["/en/contact"]}>
+        <BookingButton />
+      </MemoryRouter>,
+    )
+    expect(screen.queryByRole("link")).toBeNull()
+
+    const { container } = render(
+      <MemoryRouter initialEntries={["/preise"]}>
+        <BookingButton />
+      </MemoryRouter>,
+    )
+    expect(container.querySelector('a[href="/kontakt"]')).not.toBeNull()
+  })
+
+  it("uses the German label by default", () => {
     renderButton()
     expect(screen.getByRole("link")).toHaveTextContent("Termin buchen")
   })
 
   it("accepts a custom label", () => {
-    renderButton("Jetzt Termin sichern")
-    expect(screen.getByRole("link")).toHaveTextContent("Jetzt Termin sichern")
-  })
-
-  it("reads the URL from practice.ts rather than hardcoding it", () => {
-    const src = readFileSync(resolve(__dirname, "./BookingButton.tsx"), "utf8")
-    expect(src).not.toContain("doctolib.de")
-    expect(src).toContain("practice.bookingUrl")
-  })
-})
-
-describe("Doctolib URL containment", () => {
-  // Changing the booking destination must be a one-line change. This asserts
-  // the EXACT set of files containing the URL — an allowlist, not a denylist.
-  //
-  // Two things this shape deliberately avoids:
-  //  - Excluding files by a `.test.ts` suffix would let a production file with
-  //    that name hide a leak.
-  //  - Restricting grep to --include='*.ts,*.tsx' would miss a URL hardcoded
-  //    into a .json, .mdx or any other file type under src/.
-  // Scanning everything and pinning the result set closes both.
-  it("appears only in practice.ts and the two tests that assert it", () => {
-    const srcRoot = resolve(__dirname, "../..")
-    const hits = execSync(`grep -rl 'doctolib.de' ${JSON.stringify(srcRoot)} || true`, {
-      encoding: "utf8",
-    })
-      .split("\n")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .map((f) => relative(srcRoot, f))
-      .sort()
-
-    expect(hits).toEqual([
-      "components/cta/BookingButton.test.tsx",
-      "content/practice.test.ts",
-      "content/practice.ts",
-    ])
+    render(
+      <MemoryRouter>
+        <BookingButton>Jetzt anfragen</BookingButton>
+      </MemoryRouter>,
+    )
+    expect(screen.getByRole("link")).toHaveTextContent("Jetzt anfragen")
   })
 })

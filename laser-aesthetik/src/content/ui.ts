@@ -6,12 +6,11 @@ import type { Localized } from "./types"
  * status messages. Treatment content (pillars.ts, treatments.ts) lives
  * elsewhere and is deliberately not duplicated here.
  *
- * A handful of German pillar-identity words (e.g. the "Laser · Physio ·
- * Ästhetik" tagline, or "Laser" used as a section eyebrow) are left
- * hardcoded on purpose: the pillars themselves have no English label yet
- * (PillarInfo.label is still a plain string, not Localized), so translating
- * a passing reference to them here would drift from the real nav the moment
- * pillar content is localized in a later step.
+ * The brand strapline used to be hardcoded German in Navbar.tsx and Home.tsx
+ * on the grounds that PillarInfo.label was a plain string with no English
+ * half to agree with. It is `Localized` now, so the exception has expired:
+ * `brandStrapline` below names the three pillars in each language using
+ * exactly their own labels.
  */
 export const ui = {
   // ── Booking ──────────────────────────────────────────────────────────
@@ -78,8 +77,23 @@ export const ui = {
   homeAriaLabel: { de: "Zur Startseite", en: "Go to homepage" },
   menuOpen: { de: "Menü öffnen", en: "Open menu" },
   menuClose: { de: "Menü schließen", en: "Close menu" },
+  footerTagline: {
+    de: "Laser, Kosmetik & Ästhetik und Physiotherapie unter einem Dach.",
+    en: "Laser, beauty & aesthetics and physiotherapy under one roof.",
+  },
+  /*
+   * The strapline under the wordmark in the navbar, and the home hero's
+   * eyebrow. Names the three pillars with their own `label` values, so it
+   * cannot drift from the nav beside it the way the previous hardcoded
+   * "Laser · Physio · Ästhetik" did — that one omitted Kosmetik entirely
+   * and contradicted both `footerTagline` and the aesthetik pillar's label.
+   */
+  brandStrapline: {
+    de: "Laser · Kosmetik & Ästhetik · Physio",
+    en: "Laser · Beauty & Aesthetics · Physio",
+  },
   prices: { de: "Preise", en: "Prices" },
-  practice: { de: "Praxis", en: "Practice" },
+  practice: { de: "Über uns", en: "About us" },
   contact: { de: "Kontakt", en: "Contact" },
   openingHours: { de: "Öffnungszeiten", en: "Opening hours" },
   legalNavLabel: { de: "Rechtliches", en: "Legal" },
@@ -96,12 +110,12 @@ export const ui = {
   homeHeroLead: { de: "Medizin, die", en: "Medicine that" },
   homeHeroAccent: { de: "sichtbar wirkt", en: "delivers visible results" },
   homeHeroDescription: {
-    de: "Dauerhafte Laserhaarentfernung, Physiotherapie und ästhetische Medizin. Ärztlich durchgeführt, in Kröning bei Landshut.",
-    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine, all carried out by a physician in Kröning near Landshut.",
+    de: "Dauerhafte Laserhaarentfernung, Kosmetik und ästhetische Medizin sowie Physiotherapie. Ärztlich geführt, in Landshut.",
+    en: "Permanent laser hair reduction, beauty and aesthetic medicine, and physiotherapy. Physician-led, in Landshut.",
   },
   homeMetaDescription: {
-    de: "Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning. Ärztlich durchgeführt, mit transparenten Preisen.",
-    en: "Private medical practice for laser treatments, physiotherapy and aesthetic medicine in Kröning. Physician-led, with transparent pricing.",
+    de: "Center für Laserbehandlungen, Kosmetik und ästhetische Medizin sowie Physiotherapie in Landshut. Ärztlich geführt, mit transparenten Preisen.",
+    en: "Center for laser treatments, beauty and aesthetic medicine, and physiotherapy in Landshut. Physician-led, with transparent pricing.",
   },
   viewPrices: { de: "Preise ansehen", en: "View prices" },
   threeAreas: { de: "Drei Bereiche", en: "Three areas" },
@@ -120,9 +134,17 @@ export const ui = {
   contactHeroLead: { de: "So erreichen", en: "Here's how to" },
   contactHeroAccent: { de: "Sie uns", en: "reach us" },
   contactHeroDescription: {
-    de: "Termine buchen Sie am schnellsten online. Für alles andere schreiben Sie uns einfach.",
-    en: "The fastest way to book is online. For anything else, just drop us a message.",
+    de: "Termine und alles andere laufen über das Formular unten. Wir melden uns zügig zurück.",
+    en: "Appointments and everything else run through the form below. We'll get back to you promptly.",
   },
+  /*
+   * Its own key rather than `practice`, which this call site used to borrow
+   * while that key still read "Praxis". Task 7 retitled `practice` to
+   * "Über uns" for the navbar and /kontakt started rendering
+   * "Über uns / Adresse & Anfahrt". A nav label and a section eyebrow are
+   * different surfaces; either may be reworded without the other.
+   */
+  addressEyebrow: { de: "Standort", en: "Location" },
   addressTitle: { de: "Adresse &", en: "Address &" },
   addressAccent: { de: "Anfahrt", en: "directions" },
   viewOnMap: { de: "Auf der Karte ansehen", en: "View on the map" },
@@ -131,13 +153,19 @@ export const ui = {
   messageEyebrow: { de: "Nachricht", en: "Message" },
   writeToUsTitle: { de: "Schreiben Sie", en: "Send us" },
   writeToUsAccent: { de: "uns", en: "a message" },
+  /*
+   * This form is the center's only booking channel while
+   * center.locations[0].bookingUrl is still the BOOKING_TODO sentinel. The
+   * lead used to point at a "Terminbuchung oben" that no longer exists and
+   * cast the form as the leftover for everything else — precisely backwards.
+   */
   contactFormLead: {
-    de: "Termine buchen Sie am schnellsten online über die Terminbuchung oben. Für Rückfragen, einen Rückruf oder ein allgemeines Anliegen nutzen Sie stattdessen dieses Formular.",
-    en: "The fastest way to book is online using the booking button above. For questions, a callback, or anything else, use this form instead.",
+    de: "Über dieses Formular läuft alles: Terminanfragen, Rückrufwünsche und allgemeine Fragen. Wählen Sie Ihr Anliegen aus, und wir melden uns mit einem konkreten Terminvorschlag oder einer Antwort zurück.",
+    en: "Everything runs through this form: appointment requests, callbacks and general questions. Choose your topic and we'll come back to you with a concrete appointment slot or an answer.",
   },
   contactMetaDescriptionSuffix: {
-    de: "Termine online über Doctolib.",
-    en: "Book appointments online via Doctolib.",
+    de: "Terminanfragen über das Kontaktformular.",
+    en: "Request appointments through the contact form.",
   },
 
   // ── Contact form ─────────────────────────────────────────────────────
@@ -188,53 +216,49 @@ export const ui = {
     de: "Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an",
     en: "Please try again or email us directly at",
   },
+  // Shown instead of the line above while center.email is still the
+  // EMAIL_TODO sentinel. The prefix ends mid-sentence on purpose — it only
+  // reads correctly with an address after it — so the no-address branch
+  // needs a sentence of its own rather than the prefix with the link cut off.
+  submitErrorRetry: {
+    de: "Bitte versuchen Sie es erneut.",
+    en: "Please try again.",
+  },
 
   // ── Practice page ────────────────────────────────────────────────────
-  thePracticeEyebrow: { de: "Die Praxis", en: "The practice" },
+  // Same words as the nav label `practice`, deliberately its own key: the
+  // eyebrow over the page's own hero and the label in the navbar are
+  // different surfaces and either may be reworded without the other.
+  aboutUsEyebrow: { de: "Über uns", en: "About us" },
   praxisHeroLead: { de: "Medizin mit", en: "Medicine that" },
   praxisHeroAccent: { de: "Zeit für Sie", en: "takes its time" },
   praxisHeroDescription: {
-    de: "Eine privatärztliche Praxis, in der ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
-    en: "A private practice where an appointment is an appointment, not a five-minute slot squeezed between two others.",
+    de: "Ein Center, in dem ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
+    en: "A center where an appointment is an appointment, not a five-minute slot squeezed between two others.",
   },
   praxisIntro1: {
-    de: "Als Privatpraxis planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
-    en: "As a private practice, we deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
+    de: "Bei uns planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
+    en: "We deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
   },
-  insightsEyebrow: { de: "Einblicke", en: "Insights" },
-  roomsAndTechTitle: { de: "Räume und Technik", en: "Rooms and technology" },
-  roomsAndTechAccent: { de: "im Überblick", en: "at a glance" },
-  galleryLead: {
-    de: "Aufnahmen aus unseren eigenen Räumen in Kröning, einschließlich des Lasers, mit dem wir tatsächlich arbeiten.",
-    en: "Photographs of our own rooms in Kröning, including the laser we actually work with.",
-  },
-  // Every image below is a real photograph of this practice, so these alt
-  // texts may describe the actual equipment and name the doctor. Nothing
-  // here is a stand-in from a stock library any more.
-  doctorAltAtDesk: {
-    de: "Dr. med. univ. Dost Mohammad an seinem Schreibtisch im Sprechzimmer",
-    en: "Dr. med. univ. Dost Mohammad at his desk in the consulting room",
-  },
-  doctorAltInConsultingRoom: {
-    de: "Dr. med. univ. Dost Mohammad im Sprechzimmer der Praxis",
-    en: "Dr. med. univ. Dost Mohammad in the practice's consulting room",
-  },
-  praxisAltLaserDevice: {
-    de: "Lasergerät der Praxis im Behandlungsraum, daneben der Schreibtisch",
-    en: "The practice's laser device in the treatment room, beside the desk",
-  },
-  praxisAltDoctorWithHandpiece: {
-    de: "Dr. med. univ. Dost Mohammad mit dem Laserhandstück neben Lasergerät und Ultraschall",
-    en: "Dr. med. univ. Dost Mohammad holding the laser handpiece beside the laser and ultrasound units",
-  },
-  praxisAltConsultingRoom: {
-    de: "Sprechzimmer der Praxis mit Schreibtisch, Stethoskop und Blutdruckmessgerät",
-    en: "The practice's consulting room with desk, stethoscope and blood pressure monitor",
-  },
+  // The gallery section's header and lead, and every alt text for the
+  // practice photography, are gone with the photographs themselves: each
+  // one was a real picture of the Kröning practice — including the shot
+  // pinned beside the Ablauf steps — and a separate Landshut center cannot
+  // show them.
   praxisMetaDescription: {
-    de: "Privatärztliche Praxis in Kröning mit ärztlich geführten Laser-, Physio- und Ästhetikbehandlungen.",
-    en: "Private medical practice in Kröning offering physician-led laser, physiotherapy and aesthetic treatments.",
+    de: "Center in Landshut mit ärztlich geführten Laser-, Physio-, Kosmetik- und Ästhetikbehandlungen.",
+    en: "Center in Landshut offering physician-led laser, physiotherapy, beauty and aesthetic treatments.",
   },
+
+  // ── Standorte ────────────────────────────────────────────────────────
+  standorteEyebrow: { de: "Standorte", en: "Locations" },
+  standorteTitle: { de: "Wo Sie uns", en: "Where to" },
+  standorteAccent: { de: "finden", en: "find us" },
+  standorteLead: {
+    de: "Wir starten in Landshut. München und Stuttgart folgen.",
+    en: "We are opening in Landshut. München and Stuttgart will follow.",
+  },
+  standortPlanned: { de: "in Planung", en: "planned" },
 
   // ── Prices page ──────────────────────────────────────────────────────
   pricesHeroLead: { de: "Preise, die", en: "Prices that" },
@@ -275,8 +299,8 @@ export const ui = {
   processTitle: { de: "So läuft Ihre", en: "How your" },
   processAccent: { de: "Behandlung ab", en: "treatment works" },
   stepBookAppointmentBody: {
-    de: "Online über Doctolib, in unter einer Minute. Sie wählen Zeitfenster und Behandlung selbst.",
-    en: "Online via Doctolib, in under a minute. You choose the time slot and treatment yourself.",
+    de: "Über unser Kontaktformular, in unter einer Minute. Sie nennen uns Behandlung und Wunschzeitraum, wir bestätigen den Termin.",
+    en: "Through our contact form, in under a minute. You tell us the treatment and when suits you, and we confirm the appointment.",
   },
   initialConsultation: { de: "Erstgespräch", en: "Initial consultation" },
   initialConsultationBody: {
@@ -294,6 +318,27 @@ export const ui = {
     en: "You'll get concrete aftercare instructions for the days that follow, plus a follow-up appointment if it makes sense.",
   },
 
+  // ── Approach ─────────────────────────────────────────────────────────
+  approachEyebrow: { de: "Unser Ansatz", en: "Our approach" },
+  approachTitle: { de: "Drei Bereiche,", en: "Three areas," },
+  approachAccent: { de: "ein Konzept", en: "one concept" },
+  approachBody: {
+    de: "Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt, profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung, ob sie medizinisch sinnvoll ist.",
+    en: "Our three areas work together: patients who come to us for chronic pain often benefit from a combination of manual therapy and acupuncture. Patients who want an aesthetic treatment first receive an honest assessment of whether it makes medical sense.",
+  },
+  approachPoint1: {
+    de: "Ärztlich geführte Beratung vor jeder Behandlung",
+    en: "A medically led consultation before every treatment",
+  },
+  approachPoint2: {
+    de: "Transparente Preise, keine Paketbindung im Erstgespräch",
+    en: "Transparent prices, no package commitment at the first consultation",
+  },
+  approachPoint3: {
+    de: "Behandlungspläne nach Untersuchung, nicht nach Schema",
+    en: "Treatment plans based on examination, not on a template",
+  },
+
   // ── Trust row ────────────────────────────────────────────────────────
   /*
    * Names the three trust points as one group. Never shown: the panel is
@@ -303,14 +348,21 @@ export const ui = {
    * navigating by heading unable to tell where this group begins.
    */
   trustGroupTitle: {
-    de: "Wofür diese Praxis steht",
-    en: "What this practice stands for",
+    de: "Wofür dieses Center steht",
+    en: "What this center stands for",
   },
-  physicianLed: { de: "Ärztlich durchgeführt", en: "Physician-led" },
-  trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out by" },
-  trustDoctorSuffix: {
-    de: "persönlich durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
-    en: "personally. No cosmetic procedure takes place without medical supervision.",
+  physicianLed: { de: "Ärztlich geführt", en: "Physician-led" },
+  /*
+   * One string, not a prefix and a suffix around an interpolated name. The
+   * two halves existed to wrap `practice.doctor`, and the sentence they
+   * built — "Jede Behandlung führt Dr. med. univ. Dost Mohammad persönlich
+   * durch." — was the most prominent claim on the site that this is his
+   * practice. It renders on the home page and on /praxis. The agent is now
+   * the one pillars.ts already uses; the second sentence is untouched.
+   */
+  physicianLedBody: {
+    de: "Jede Behandlung führen ärztlich geprüfte Fachkräfte des Centers durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
+    en: "Every treatment is carried out by the center's medically qualified practitioners. No cosmetic procedure takes place without medical supervision.",
   },
   consultBeforeTreatment: { de: "Beratung vor Behandlung", en: "Consultation before treatment" },
   consultBeforeTreatmentBody: {
@@ -327,8 +379,8 @@ export const ui = {
   ctaTitle: { de: "Bereit für Ihren", en: "Ready for your" },
   ctaAccent: { de: "Termin?", en: "appointment?" },
   ctaLead: {
-    de: "Buchen Sie online in unter einer Minute. Sie werden direkt zu Doctolib weitergeleitet.",
-    en: "Book online in under a minute. You'll be redirected straight to Doctolib.",
+    de: "Schreiben Sie uns Ihren Terminwunsch über das Kontaktformular. Wir melden uns mit einem konkreten Vorschlag zurück.",
+    en: "Send us your preferred appointment time through the contact form. We'll come back to you with a concrete slot.",
   },
 } as const satisfies Record<string, Localized>
 

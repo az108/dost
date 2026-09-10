@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { render } from "../dist-ssr/entry-server.js"
+import { center } from "../src/content/center"
 import { seoForRoute } from "../src/lib/seoForRoute"
 import { allRoutes } from "./allRoutes"
 
@@ -39,6 +40,12 @@ function injectHead(html: string, seo: ReturnType<typeof seoForRoute>): string {
   out = replaceAttr(out, /<meta property="og:description"[^>]*>/, "content", seo.description)
   out = replaceAttr(out, /<meta property="og:locale"[^>]*>/, "content", seo.locale === "en" ? "en_GB" : "de_DE")
   out = replaceAttr(out, /<meta property="og:image"[^>]*>/, "content", seo.ogImage)
+  // og:site_name is not part of RouteSeo — it is the same on every route —
+  // but it still has to be rewritten here. useSeo() sets it from
+  // center.brand inside an effect, so without this line the template's
+  // static fallback is what every crawler, link-preview scraper and no-JS
+  // visitor reads on all 82 pages.
+  out = replaceAttr(out, /<meta property="og:site_name"[^>]*>/, "content", center.brand)
 
   // These have no static default in the template — the plain page has no
   // one true canonical URL, and a page with no English counterpart must
