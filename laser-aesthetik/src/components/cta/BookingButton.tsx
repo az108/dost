@@ -7,6 +7,22 @@ import { useLocale } from "@/lib/locale"
 import { pagePath } from "@/lib/routes"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import type { Locale } from "@/content/types"
+
+/**
+ * True exactly when BookingButton renders nothing at `pathname`: the center
+ * has no booking profile of its own yet, and this is the contact page the
+ * button would otherwise fall back to (a link to the page already being
+ * read). The one other caller of this — anything that wraps BookingButton in
+ * its own chrome, such as StickyMobileCta's fixed bar or Hero's button row —
+ * needs the same answer BookingButton gives itself, so it is computed once
+ * here rather than re-derived, which is exactly how the two drifted apart
+ * before: StickyMobileCta wrapped the button in visible chrome with no
+ * emptiness check of its own.
+ */
+export function bookingButtonHidden(pathname: string, locale: Locale): boolean {
+  return !hasBookingUrl(openLocation()) && pathname === pagePath("contact", locale)
+}
 
 /**
  * The single entry point to booking. Every CTA on the site renders through
@@ -63,11 +79,10 @@ export function BookingButton({
     )
   }
 
-  const contactPath = pagePath("contact", locale)
-  if (pathname === contactPath) return null
+  if (bookingButtonHidden(pathname, locale)) return null
 
   return (
-    <Link to={contactPath} className={classes}>
+    <Link to={pagePath("contact", locale)} className={classes}>
       {label}
     </Link>
   )

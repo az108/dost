@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter } from "react-router-dom"
 import { center, openLocation } from "@/content/center"
+import { Layout } from "@/components/layout/Layout"
 import Kontakt from "./Kontakt"
 
 // Mounted at its own path, not at "/". Components below it read the route:
@@ -90,5 +91,25 @@ describe("Kontakt", () => {
     expect(meta).not.toBeNull()
     expect(meta?.getAttribute("content")).not.toMatch(/TODO_/)
     expect(meta?.getAttribute("content")).toContain(openLocation(center).city)
+  })
+
+  it("renders no empty sticky mobile CTA bar when mounted inside Layout", () => {
+    // The other tests in this file mount <Kontakt/> bare, which is why none
+    // of them saw this: StickyMobileCta lives in Layout, one level up.
+    // BookingButton correctly renders nothing on the contact page (its
+    // fallback destination is the page already being read), but
+    // StickyMobileCta used to wrap it in fixed, bordered chrome regardless,
+    // shipping a blank bar pinned across the bottom of the viewport over the
+    // contact form. Asserting on the container's absence, not just the
+    // link's, is the point: a container with the link removed is exactly
+    // the bug this guards against.
+    render(
+      <MemoryRouter initialEntries={["/kontakt"]}>
+        <Layout>
+          <Kontakt />
+        </Layout>
+      </MemoryRouter>,
+    )
+    expect(screen.queryByTestId("sticky-mobile-cta")).not.toBeInTheDocument()
   })
 })
