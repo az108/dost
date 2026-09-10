@@ -4,83 +4,71 @@
 @import "tw-animate-css";
 
 @theme {
-  /* ── Palette: five colours, one role each ────────────────────────────── */
+  /* ── Palette: six hues, one role each ─────────────────────────────────── */
   /*
-   * Site theme: headings, icons, links, focus rings, borders.
+   * Turquoise is the site's identity: icons, focus rings, decorative fills,
+   * large text.
    *
-   * DISPLAY COLOUR, NOT A BODY-TEXT COLOUR. #4285F4 is 3.56:1 on white: it
+   * DISPLAY COLOUR, NOT A BODY-TEXT COLOUR. #0E8F8A is 3.95:1 on white: it
    * clears WCAG AA for large text (>=3:1) and for UI components, but not the
-   * 4.5:1 that body copy needs. That is a deliberate, signed-off trade to
-   * match the brand icon exactly. Anything set at body size reaches for the
-   * brand-700..950 ramp below instead, which does clear 4.5:1, and the dark
-   * `brand` section tone is anchored to brand-900 so white text on it stays
-   * legible. index.css.test.ts enforces both halves of that split.
+   * 4.5:1 that body copy needs — and not the 4.5:1 a WHITE LABEL on it would
+   * need either, since those are the same number. Anything at body size, and
+   * every turquoise button, reaches for brand-700 below.
+   * index.css.test.ts enforces both halves of that split.
    */
-  --color-brand: #4285F4;
-  /* Primary CTA only. Nothing else uses this, so "book" is unmistakable. */
+  --color-brand: #0E8F8A;
+  /*
+   * Primary CTA only. Nothing else uses this, so "buchen" is unmistakable.
+   * Same two-shade split: `action` is the declared brand magenta at 4.36:1,
+   * and the button actually renders in action-ink.
+   */
   --color-action: #E8137C;
   /*
-   * Derived accessible shade of `action`. #E8137C is 4.36:1 on white, which
-   * fails WCAG AA for body text and passes only as large text. This shade is
-   * 5.11:1, so a white label on it and this colour as text on white both
-   * clear AA at any size. Same pink family — the difference is barely
-   * perceptible. `action` itself remains the declared brand colour.
+   * Derived accessible shade of `action`, 5.11:1 — a white label on it and
+   * this colour as text on white both clear AA at any size. Same magenta
+   * family; the difference is barely perceptible. `action` remains the
+   * declared brand colour.
    */
   --color-action-ink: #D41071;
-  /*
-   * Blue TEXT: eyebrows, secondary links, "Mehr erfahren". Same relationship
-   * to `brand` that `action-ink` has to `action`. #4285F4 is 3.56:1 on white,
-   * fine for a heading or an icon but below AA for the 14-16px secondary text
-   * this role covers; #1A73E8 is 4.505:1, so it clears AA at any size and as
-   * a background for white. The two are barely distinguishable side by side.
-   * `brand` remains the declared brand colour and still paints icons, focus
-   * rings and anything large.
-   */
-  --color-brand-ink: #1A73E8;
-  /* Icons, eyebrows, chips, gradients. Never a button, never body text. */
-  --color-accent: #DD1188;
-  /* Proof and reassurance: checkmarks, inclusion badges, trust marks. */
+  /* Proof and reassurance: checkmarks, inclusion badges. Also the Physio
+     pillar's mark — one green, used for both, rather than two that differ
+     by a hair and read as a mistake. 6.57:1. */
   --color-success: #306934;
+  /* The Laser pillar's mark. Google blue, a colour the audience already
+     recognises. 3.56:1 — icons and large text only, never body copy. */
+  --color-laser: #4285F4;
   /*
-   * Decoration only: the second hue in the hero wash, so the band reads as a
-   * transition rather than one magenta blob. Never text, never a surface, so
-   * it carries no contrast obligation. Distinct from `success` on purpose —
-   * that one is a dark, muted green that turns olive at wash opacity.
+   * Decoration only: the warm half of the hero wash, so the band reads as a
+   * transition rather than one turquoise blob. 1.22:1 — never text, never a
+   * border, so it carries no contrast obligation. This is the "Licht-Effekt"
+   * the client asked for, taken from the lotus photograph he sent.
    */
-  --color-fresh: #34A853;
-  /*
-   * Decoration only, on the same contract as `fresh`. The soft flanks needed a
-   * warm tint to alternate against the blue ramp, or the whole page reads as
-   * one blue wash with the odd magenta heading in it. This is `accent` at
-   * roughly 12% on white — far too pale to carry a glyph or a border, which is
-   * exactly why index.css.test.ts forbids it from ever being one.
-   *
-   * It sits on the brand-50 tint band as often as on white, and two pale
-   * washes one step apart cancel out: at 5% this was invisible against the
-   * tint and the left half of the page just looked slightly dirty.
-   */
-  --color-blush: #FAE6F1;
+  --color-glow: #FFE3D0;
   /* RESERVED for the future subscription tier. Used nowhere in v1. */
   --color-premium: #D7A01C;
 
-  /* ── Neutrals: tints and shades of brand, not a separate grey hue ────────
-     Monotonically darkening by WCAG relative luminance, verified. 600-950 all
-     clear AA for body text on white; 500 is large-text/non-text only. This
-     ramp carries every body-size string on the site, which is what lets
-     --color-brand itself be the bright display blue. 900 (#053AA3) is the old
-     brand navy and is now the anchor for dark surfaces: the `brand` section
-     tone uses it so white text on that band stays at 9.8:1. */
-  --color-brand-50: #F2F6FD;
-  --color-brand-100: #E3ECFA;
-  --color-brand-200: #CADCF6;
-  --color-brand-300: #A3C1EF;
-  --color-brand-400: #6F9CE5;
-  --color-brand-500: #4278D8;
-  --color-brand-600: #2A5BC4;
-  --color-brand-700: #1D46A4;
-  --color-brand-800: #1440A4;
-  --color-brand-900: #053AA3;
-  --color-brand-950: #04204F;
+  /* ── Neutrals: tints and shades of the turquoise, not a separate grey ────
+     Monotonically darkening by WCAG relative luminance, verified by test.
+     700-950 all clear AA for body text on white; 600 and below are
+     large-text/non-text only. This ramp carries every body-size string on
+     the site, which is what lets --color-brand itself be the bright display
+     turquoise.
+
+     There is no separate brand-ink token any more: the ramp is turquoise,
+     so brand-700 IS that role and the value has one definition instead of
+     two. 900 anchors dark surfaces — the CTA band uses it, so white text on
+     that band sits at 9.41:1. */
+  --color-brand-50: #F0FAF9;
+  --color-brand-100: #DAF2F1;
+  --color-brand-200: #B4E5E2;
+  --color-brand-300: #82D2CE;
+  --color-brand-400: #45B8B3;
+  --color-brand-500: #1A9E99;
+  --color-brand-600: #0E8F8A;
+  --color-brand-700: #0B7570;
+  --color-brand-800: #0A5F5B;
+  --color-brand-900: #0B4F4A;
+  --color-brand-950: #062E2C;
 
   /* ── Type ────────────────────────────────────────────────────────────── */
   --font-display: "Plus Jakarta Sans Variable", system-ui, sans-serif;
@@ -108,17 +96,16 @@
   }
 
   /*
-   * Headings are magenta, whole. They used to be blue with a magenta italic
-   * tail, which split one sentence across two colours; the accent `em` inside
-   * a heading now differs by style alone. Blue moved to the secondary layer
-   * (eyebrows, links) so the two roles never mix inside one line.
+   * Headings are the ramp's darkest usable teal, not a brand colour. They
+   * used to be magenta, which is the single line most responsible for the
+   * client's "statt weiße Grundfarbe noch mal Farben gewählt". The accent
+   * `em` inside a heading still differs by style alone.
    *
    * Sections with a dark background put this back to white (see the `brand`
-   * tone in Section.tsx) — without that override the CTA banner's heading
-   * would be magenta on navy.
+   * tone in Section.tsx).
    */
   h1, h2, h3, h4 {
-    @apply font-display font-extrabold tracking-tight text-balance text-accent;
+    @apply font-display font-extrabold tracking-tight text-balance text-brand-900;
   }
 
   /* Visible focus, brand-coloured, on every interactive element. */
@@ -136,7 +123,7 @@
   /*
    * Decorative hero wash. Written as real CSS rather than a Tailwind
    * arbitrary value because the arbitrary-value version appended a
-   * slash-alpha suffix directly onto a bare `var(--color-accent)` call,
+   * slash-alpha suffix directly onto a bare `var(--color-action)` call,
    * which is invalid — the shorthand only works inside a colour function,
    * so the browser silently dropped the whole declaration and the hero
    * rendered flat. color-mix() is the correct way to take a token to
@@ -174,22 +161,29 @@
   }
 
   .hero-wash {
+    /*
+     * Interim: still the two pre-slice-2 hues (action/success), not the
+     * turquoise/glow pairing the new palette declares. Task 4 rewrites this
+     * rule for the new hero; until then it deliberately fails the
+     * .hero-wash colour-mix test rather than quietly matching it by
+     * accident.
+     */
     background-image:
       radial-gradient(
         60rem 40rem at 82% -12%,
-        color-mix(in oklab, var(--color-accent) 20%, transparent),
+        color-mix(in oklab, var(--color-action) 20%, transparent),
         transparent
       ),
       radial-gradient(
         52rem 34rem at -2% 108%,
-        color-mix(in oklab, var(--color-fresh) 20%, transparent),
+        color-mix(in oklab, var(--color-success) 20%, transparent),
         transparent
       ),
       linear-gradient(
         115deg,
-        color-mix(in oklab, var(--color-fresh) 12%, transparent) 0%,
+        color-mix(in oklab, var(--color-success) 12%, transparent) 0%,
         transparent 46%,
-        color-mix(in oklab, var(--color-accent) 14%, transparent) 100%
+        color-mix(in oklab, var(--color-action) 14%, transparent) 100%
       );
   }
 }

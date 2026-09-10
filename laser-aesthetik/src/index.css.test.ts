@@ -7,13 +7,22 @@ const css = readFileSync(resolve(__dirname, "./index.css"), "utf8")
 
 describe("design tokens", () => {
   it("declares the palette colours with their exact spec values", () => {
-    // brand is the brand icon's blue, matched exactly on request.
-    expect(css).toContain("--color-brand: #4285F4")
+    expect(css).toContain("--color-brand: #0E8F8A")
     expect(css).toContain("--color-action: #E8137C")
-    expect(css).toContain("--color-accent: #DD1188")
+    expect(css).toContain("--color-action-ink: #D41071")
     expect(css).toContain("--color-success: #306934")
-    expect(css).toContain("--color-fresh: #34A853")
-    expect(css).toContain("--color-brand-ink: #1A73E8")
+    expect(css).toContain("--color-laser: #4285F4")
+    expect(css).toContain("--color-glow: #FFE3D0")
+  })
+
+  it("retires the tokens the blue palette needed", () => {
+    // brand-ink is now brand-700 (the ramp is turquoise, so the ramp serves
+    // the role directly and one value stops being spelled two ways).
+    // accent painted headings, which are now brand-900. fresh was the hero
+    // wash's second hue. blush existed only for the deleted Flank.
+    for (const token of ["--color-brand-ink", "--color-accent", "--color-fresh", "--color-blush"]) {
+      expect(css, `${token} should be gone`).not.toContain(token)
+    }
   })
 
   it("declares the reserved premium token", () => {
@@ -85,11 +94,12 @@ describe("design tokens", () => {
     }
   })
 
-  it("keeps every text-bearing token above WCAG AA on white", () => {
-    // Computed, not asserted from memory: the spec originally claimed action
-    // passed and accent failed. Both claims were inverted — action is 4.36:1
-    // (fails body text) and accent is 4.66:1 (passes). That is why
-    // --color-action-ink exists.
+  it("keeps the declared brand colours out of the body-text roles", () => {
+    // The two-shade rule. brand (#0E8F8A, 3.95:1) and action (#E8137C,
+    // 4.36:1) are display colours: they may paint an icon or a large
+    // heading, never body text and never a white button label. Their
+    // darker siblings do that. This test is the reason the site does not
+    // ship an illegible CTA.
     const relLum = (hex: string) => {
       const c = hex.replace("#", "")
       const [r, g, b] = [0, 2, 4].map((i) => parseInt(c.slice(i, i + 2), 16) / 255)
@@ -103,24 +113,43 @@ describe("design tokens", () => {
       return hex!
     }
 
-    // Body-size text. `brand` is deliberately NOT in this list any more, but
-    // `brand-ink` — the blue that actually paints eyebrows and links — is,
-    // and so is `accent`, which now carries every heading.
-    for (const token of ["action-ink", "brand-ink", "accent", "success", "brand-700", "brand-800"]) {
+    // Body-size text, and white-label button backgrounds. Same number
+    // either way: contrast is (L_lighter + 0.05) / (L_darker + 0.05).
+    for (const token of ["action-ink", "brand-700", "brand-800", "brand-900", "brand-950", "success"]) {
       expect(onWhite(hexOf(token)), `--color-${token} fails AA on white`).toBeGreaterThanOrEqual(4.5)
     }
 
-    // `brand` is now the display blue from the brand icon. It is allowed to
-    // sit below 4.5:1, but it still has to clear the 3:1 that large text and
-    // UI components require — so if someone "brightens" it further, this
-    // fails rather than the site quietly becoming unreadable.
-    expect(onWhite(hexOf("brand")), "--color-brand fails the 3:1 large-text floor")
-      .toBeGreaterThanOrEqual(3)
+    // Display colours: below AA for body text, but they must still clear
+    // the 3:1 that large text and UI components require. If someone
+    // brightens one further, this fails rather than the site quietly
+    // becoming unreadable.
+    for (const token of ["brand", "action", "laser"]) {
+      expect(onWhite(hexOf(token)), `--color-${token} fails the 3:1 floor`).toBeGreaterThanOrEqual(3)
+    }
 
-    // The dark band's own anchor: white on it must clear AA at body size,
-    // which is the whole reason the `brand` section tone uses brand-900.
-    const onBrand900 = 1.05 / (relLum(hexOf("brand-900")) + 0.05)
-    expect(onBrand900, "white on the dark band fails AA").toBeGreaterThanOrEqual(4.5)
+    // The dark CTA band's anchor.
+    expect(onWhite(hexOf("brand-900")), "white on the dark band fails AA").toBeGreaterThanOrEqual(4.5)
+  })
+
+  it("keeps glow decoration-only", () => {
+    // 1.22:1 on white — nowhere near enough to carry a glyph or a border.
+    // Backgrounds and gradient stops only, so it never acquires a contrast
+    // obligation it cannot meet. Same contract blush used to have.
+    const srcRoot = resolve(__dirname)
+    const hits = execSync(
+      `grep -rEl --include='*.tsx' '(text|border|ring|outline|fill|stroke|divide)-glow' ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    ).trim()
+    expect(hits).toBe("")
+  })
+
+  it("paints headings in the ramp's dark teal, not a brand colour", () => {
+    // Magenta headings are the single line most responsible for the
+    // client's "statt weiße Grundfarbe noch mal Farben gewählt".
+    const headingRule = css.match(/h1,\s*h2,\s*h3,\s*h4\s*\{[^}]*\}/)?.[0]
+    expect(headingRule, "heading rule missing").toBeTruthy()
+    expect(headingRule).toContain("text-brand-900")
+    expect(headingRule).not.toContain("text-accent")
   })
 
   it("defines the hero wash with a valid colour-mix gradient", () => {
@@ -128,28 +157,12 @@ describe("design tokens", () => {
     // CSS — slash-alpha only works inside a colour function — so the browser
     // silently dropped the declaration and the hero rendered flat.
     expect(css).toContain(".hero-wash")
-    expect(css).toContain("color-mix(in oklab, var(--color-accent)")
+    expect(css).toContain("color-mix(in oklab, var(--color-brand)")
     // Two distinct hues. The wash previously mixed accent with action, which
-    // are both magenta, so it read as one colour — hence `fresh` here.
-    expect(css).toContain("color-mix(in oklab, var(--color-fresh)")
+    // are both magenta, so it read as one colour — hence `glow` here.
+    expect(css).toContain("color-mix(in oklab, var(--color-glow)")
     // The invalid shorthand must never come back.
     expect(css).not.toMatch(/var\(--color-[a-z-]+\)\s*\/\s*[\d.]+/)
-  })
-
-  it("declares the blush tint used by the soft flanks", () => {
-    expect(css).toContain("--color-blush:")
-  })
-
-  it("keeps blush decoration-only, like fresh", () => {
-    // It is accent at roughly 5% on white — nowhere near a contrast ratio that
-    // could carry a glyph or a border. Backgrounds and gradient stops only, so
-    // it never acquires a contrast obligation it cannot meet.
-    const srcRoot = resolve(__dirname)
-    const hits = execSync(
-      `grep -rEl --include='*.tsx' '(text|border|ring|outline|fill|stroke|divide)-blush' ${JSON.stringify(srcRoot)} || true`,
-      { encoding: "utf8" },
-    ).trim()
-    expect(hits).toBe("")
   })
 
   it("declares a sheet radius distinct from the card radius", () => {
