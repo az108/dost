@@ -298,6 +298,27 @@ export const ui = {
     en: "You'll get concrete aftercare instructions for the days that follow, plus a follow-up appointment if it makes sense.",
   },
 
+  // ── Approach ─────────────────────────────────────────────────────────
+  approachEyebrow: { de: "Unser Ansatz", en: "Our approach" },
+  approachTitle: { de: "Drei Bereiche,", en: "Three areas," },
+  approachAccent: { de: "ein Konzept", en: "one concept" },
+  approachBody: {
+    de: "Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt, profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung, ob sie medizinisch sinnvoll ist.",
+    en: "Our three areas work together: patients who come to us for chronic pain often benefit from a combination of manual therapy and acupuncture. Patients who want an aesthetic treatment first receive an honest assessment of whether it makes medical sense.",
+  },
+  approachPoint1: {
+    de: "Ärztlich geführte Beratung vor jeder Behandlung",
+    en: "A medically led consultation before every treatment",
+  },
+  approachPoint2: {
+    de: "Transparente Preise, keine Paketbindung im Erstgespräch",
+    en: "Transparent prices, no package commitment at the first consultation",
+  },
+  approachPoint3: {
+    de: "Behandlungspläne nach Untersuchung, nicht nach Schema",
+    en: "Treatment plans based on examination, not on a template",
+  },
+
   // ── Trust row ────────────────────────────────────────────────────────
   /*
    * Names the three trust points as one group. Never shown: the panel is

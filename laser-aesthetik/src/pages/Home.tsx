@@ -16,7 +16,7 @@ import { CtaBanner } from "@/components/cta/CtaBanner"
 import { Hero } from "@/sections/Hero"
 import { TrustRow } from "@/sections/TrustRow"
 import { ProcessSteps } from "@/sections/ProcessSteps"
-import { DoctorIntro } from "@/sections/DoctorIntro"
+import { Approach } from "@/sections/Approach"
 import { useSeo } from "@/lib/useSeo"
 import heroImage from "@/assets/praxis/dr-dost-schreibtisch.webp"
 
@@ -114,7 +114,7 @@ export default function Home() {
           pinned photograph and the rail, and a slab behind those would be
           three devices competing inside one section. */}
       <ProcessSteps tone="tint" overlap />
-      <DoctorIntro tone="light" overlap flank="left" flankTone="accent" />
+      <Approach tone="light" overlap flank="left" flankTone="accent" />
 
       <Section tone="tint" overlap flank="right" flankTone="blue">
         <Container>

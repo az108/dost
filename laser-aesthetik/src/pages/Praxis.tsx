@@ -8,7 +8,7 @@ import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { CtaBanner } from "@/components/cta/CtaBanner"
 import { Reveal } from "@/components/motion/Reveal"
-import { DoctorIntro } from "@/sections/DoctorIntro"
+import { Approach } from "@/sections/Approach"
 import { TrustRow } from "@/sections/TrustRow"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
@@ -97,7 +97,7 @@ export default function Praxis() {
       {/* Tones alternate down the page: light intro, tint gallery, light
           bio, tint trust row, then the dark CTA. Two neighbours sharing a
           tone read as one long section with a gap in the middle. */}
-      <DoctorIntro tone="light" overlap flank="left" flankTone="accent" />
+      <Approach tone="light" overlap flank="left" flankTone="accent" />
       <TrustRow tone="tint" overlap />
       <CtaBanner overlap />
     </>
