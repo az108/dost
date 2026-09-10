@@ -1,4 +1,4 @@
-import { formatAddress, hasPhone, practice } from "./practice"
+import { center, hasEmail } from "./center"
 
 export interface LegalDocument {
   title: string
@@ -6,11 +6,32 @@ export interface LegalDocument {
   sections: { heading: string; paragraphs: string[] }[]
 }
 
+/**
+ * The legally responsible entity behind the center.
+ *
+ * This is the ONLY place in src/ where the doctor's name appears, and it is
+ * deliberately NOT exported — the center is a separate business from
+ * Privatpraxis Dr. Dost, and §5 TMG is the single reason his name is on the
+ * site at all. content.test.ts greps the rest of src/ to enforce this; an
+ * export here would let a component quietly undo the whole slice.
+ */
+const operator = {
+  name: "Dr. med. univ. Dost Mohammad",
+  street: "Weiher 3",
+  postalCode: "84178",
+  city: "Kröning",
+  professionalTitle: "Arzt (verliehen in Österreich)",
+}
+
+const operatorAddress = `${operator.street}, ${operator.postalCode} ${operator.city}`
+
+// The email line is omitted entirely while no address is supplied. A
+// placeholder in an Impressum is worse than a missing line: one is
+// incomplete, the other is wrong.
 const contactLines = [
-  practice.doctor,
-  formatAddress(),
-  `E-Mail: ${practice.email}`,
-  ...(hasPhone() ? [`Telefon: ${practice.phone}`] : []),
+  operator.name,
+  operatorAddress,
+  ...(hasEmail() ? [`E-Mail: ${center.email}`] : []),
 ]
 
 export const impressum: LegalDocument = {
@@ -20,12 +41,12 @@ export const impressum: LegalDocument = {
     { heading: "Diensteanbieter", paragraphs: contactLines },
     {
       heading: "Verantwortlich für den Inhalt",
-      paragraphs: [`${practice.doctor}, ${formatAddress()}`],
+      paragraphs: [`${operator.name}, ${operatorAddress}`],
     },
     {
       heading: "Berufsbezeichnung und berufsrechtliche Regelungen",
       paragraphs: [
-        "Berufsbezeichnung: Arzt (verliehen in Österreich).",
+        `Berufsbezeichnung: ${operator.professionalTitle}.`,
         "PRÜFEN: Zuständige Ärztekammer, zuständige Aufsichtsbehörde, Berufsordnung und deren Fundstelle müssen vor Veröffentlichung ergänzt werden.",
       ],
     },
@@ -70,12 +91,10 @@ export const datenschutz: LegalDocument = {
         "PRÜFEN: Die Speicherdauer der über das Formular eingegangenen Nachrichten sowie das Löschkonzept müssen vor Veröffentlichung ergänzt werden.",
       ],
     },
-    {
-      heading: "Terminbuchung",
-      paragraphs: [
-        "Die Terminbuchung erfolgt über den externen Dienst Doctolib. Wenn Sie auf eine Schaltfläche zur Terminbuchung klicken, verlassen Sie diese Website. Für die dortige Datenverarbeitung gilt die Datenschutzerklärung von Doctolib.",
-      ],
-    },
+    // The Terminbuchung section is deliberately absent. It described a data
+    // flow to Doctolib, which belonged to Privatpraxis Dr. Dost. Restore it
+    // — with the new provider's name — when center.locations[0].bookingUrl
+    // is filled in. See Task 4 in the slice-1 plan.
     {
       heading: "Ihre Rechte",
       paragraphs: [
