@@ -917,12 +917,12 @@ const PHYSIO: LocalizedTreatment[] = [
       de: [
         "Man unterscheidet zwischen akuten Schmerzen und chronischen Schmerzen.",
         "Bei länger anhaltenden Schmerzen verlieren sie diese Warnfunktion und es entsteht eine eigene Erkrankung: der chronische Schmerz.",
-        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie in der Praxis Dr. med. univ. Dost Mohammad.",
+        "Bitte wenden Sie sich vertrauensvoll an unsere Schmerztherapie.",
       ],
       en: [
         "A distinction is made between acute pain and chronic pain.",
         "When pain persists for a long time, it loses this warning function and becomes a condition in its own right: chronic pain.",
-        "Please feel free to get in touch with our pain therapy service at Praxis Dr. med. univ. Dost Mohammad.",
+        "Please feel free to get in touch with our pain therapy service.",
       ],
     },
     benefits: {
@@ -1003,12 +1003,12 @@ const PHYSIO: LocalizedTreatment[] = [
     },
     body: {
       de: [
-        "Bei der Therapie und Diagnostik von Sportverletzungen arbeitet unser Arzt in Kröning mit den umliegenden radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmediziner und den Krankenhäusern zusammen, um Ihnen den bestmöglichen Service zu bieten.",
+        "Bei der Therapie und Diagnostik von Sportverletzungen arbeiten wir mit radiologischen Praxen (Röntgen, Kernspinuntersuchungen), mit Orthopäden, Sportmedizinern und den Krankenhäusern der Region zusammen, um Ihnen den bestmöglichen Service zu bieten.",
         "Unsere Praxis gibt allen Sportlern, vom Freizeitsportler bis hin zum Leistungssportler, die Möglichkeit, sich beraten, untersuchen und behandeln zu lassen.",
         "Die häufigsten Sportverletzungen sind Akutverletzungen und das sogenannte Überlastungssyndrom. Je nach Sportart treten typische Erkrankungen und Verletzungen auf. Klassische Überlastungen sind z.B. der Tennisarm, oder der Golferellenbogen sowie Überlastungsbrüche von Knochen. Bei Sportverletzungen jeglicher Art, wenden Sie sich bitte umgehend an unsere Praxis.",
       ],
       en: [
-        "For the diagnosis and treatment of sports injuries, our physician in Kröning works together with nearby radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals, to offer you the best possible service.",
+        "For the diagnosis and treatment of sports injuries, we work together with radiology practices (X-ray, MRI), orthopaedists, sports physicians and hospitals in the region, to offer you the best possible service.",
         "Our practice gives every athlete, from recreational to competitive, the opportunity to be advised, examined and treated.",
         "The most common sports injuries are acute injuries and so-called overuse syndrome. Typical conditions and injuries vary by sport. Classic overuse injuries include, for example, tennis elbow or golfer's elbow, as well as stress fractures. For sports injuries of any kind, please contact our practice promptly.",
       ],
@@ -1056,12 +1056,12 @@ const PHYSIO: LocalizedTreatment[] = [
       de: [
         "Mit den variablen Methoden der Akupunktur und der TCM kommen unsere Patienten in den Genuss fernöstlicher Behandlungsmethoden der TCM mit sehr langer Tradition und vielfach wissenschaftlich nachgewiesener Wirksamkeit.",
         "Viele akute und chronische Beschwerden sprechen gut auf die Akupunktur und Maßnahmen der TCM an. Im Vergleich zur Schulmedizin verfolgen Akupunktur und TCM stets ein ganzheitliches Behandlungsziel. Der Mensch wird bei den Therapieansätzen der TCM in seiner Gesamtheit erfasst, physisch wie psychisch.",
-        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Unser Privatarzt in Kröning bietet viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
+        "Die TCM ergänzt die schulmedizinische Behandlung vieler Beschwerden. Wir bieten viele Methoden der TCM an wie Schädelakupunktur, Körperakupunktur, Schröpfen, Neuraltherapie, Tui Na Massage und Qigong Gymnastik an.",
       ],
       en: [
         "With the varied methods of acupuncture and TCM, our patients benefit from Far Eastern treatment methods with a very long tradition and effectiveness that has been scientifically proven in many cases.",
         "Many acute and chronic complaints respond well to acupuncture and TCM measures. Compared with conventional medicine, acupuncture and TCM always pursue a holistic treatment goal. In TCM's therapeutic approach, the person is understood as a whole, physically and mentally.",
-        "TCM complements the conventional medical treatment of many complaints. Our private physician in Kröning offers many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
+        "TCM complements the conventional medical treatment of many complaints. We offer many TCM methods, including scalp acupuncture, body acupuncture, cupping, neural therapy, Tui Na massage and Qigong exercises.",
       ],
     },
     benefits: {
@@ -1148,24 +1148,24 @@ const AESTHETIK: LocalizedTreatment[] = [
       de: [
         "Botulinumtoxin entspannt gezielt die Muskeln, die eine Falte erzeugen. Behandelt werden vor allem Zornesfalte, Stirnfalten und die Fältchen um die Augen.",
         "Unser Anspruch ist ein ausgeruhtes, nicht ein behandeltes Gesicht. Wir dosieren deshalb bewusst zurückhaltend: Sie sollen weiterhin lachen und die Stirn runzeln können.",
-        "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führt Dr. med. univ. Dost Mohammad persönlich durch.",
+        "Die Wirkung setzt nach einigen Tagen ein und hält je nach Areal und Stoffwechsel etwa drei bis sechs Monate an. Die Behandlung führen ärztlich geprüfte Fachkräfte des Centers durch.",
       ],
       en: [
         "Botulinum toxin selectively relaxes the muscles that create a wrinkle. We mainly treat the frown line, forehead lines and the fine lines around the eyes.",
         "Our aim is a rested face, not a treated one. That's why we deliberately dose conservatively. You should still be able to laugh and furrow your brow.",
-        "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out personally by Dr. med. univ. Dost Mohammad.",
+        "The effect sets in after a few days and lasts around three to six months, depending on the area and your metabolism. The treatment is carried out by the center's medically qualified practitioners.",
       ],
     },
     benefits: {
       de: [
         "Bewusst zurückhaltende Dosierung",
         "Mimik bleibt erhalten",
-        "Persönlich durchgeführt von Dr. med. univ. Dost Mohammad",
+        "Durchgeführt von ärztlich geprüften Fachkräften des Centers",
       ],
       en: [
         "Deliberately conservative dosing",
         "Natural expression is preserved",
-        "Carried out personally by Dr. med. univ. Dost Mohammad",
+        "Carried out by the center's medically qualified practitioners",
       ],
     },
     durationMin: 20,
@@ -1289,12 +1289,12 @@ const AESTHETIK: LocalizedTreatment[] = [
     // both the German and English wording until a lawyer clears it.
     body: {
       de: [
-        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In der Privatarztpraxis Dr. med. univ. Dost Mohammad in Kröning bieten wir Ihnen Lichttherapie an.",
+        "Die Lichttherapie ist ein anerkanntes medizinisches Verfahren, um verschiedene Erkrankungen, die Körper und Seele betreffen, zu heilen. In unserem Center in Landshut bieten wir Ihnen Lichttherapie an.",
         "Auch in Zusammenhang mit Depressionen, die keinem saisonalen Muster folgen, kann eine Farblichttherapie heilsam sein.",
         "In Verbindung mit Depressionen werden auch oft Schlafstörungen beklagt, die wiederum Stress beim Betroffenen auslösen. Auch bei diesen Störungen ist eine Lichttherapie sinnvoll.",
       ],
       en: [
-        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At the private practice of Dr. med. univ. Dost Mohammad in Kröning, we offer light therapy.",
+        "Light therapy is a recognised medical procedure used to cure various illnesses affecting body and mind. At our center in Landshut, we offer light therapy.",
         "In connection with depression that does not follow a seasonal pattern, colour light therapy can be healing.",
         "Depression is also often accompanied by sleep disturbances, which in turn cause stress for those affected. Light therapy can also be helpful for these disturbances.",
       ],
@@ -1336,12 +1336,12 @@ const AESTHETIK: LocalizedTreatment[] = [
       de: [
         "Schönheit ist für die meisten Menschen wichtig, um sich selbstsicher und attraktiv zu fühlen. Wer sich selbst schön findet, hat eine positivere Ausstrahlung.",
         "Mit der Zeit verändert sich jedoch die Haut und somit auch das Aussehen. Falten um Mund, Augen und Nase oder auf der Stirn lassen ein Gesicht älter wirken.",
-        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie durch die Praxis für Ästhetische Medizin, Dr. med. univ. Dost Mohammad in Kröning.",
+        "Immer mehr Frauen und Männer entscheiden sich für kleine Schönheitskorrekturen, sie sind heutzutage keine Seltenheit mehr. Worauf Sie achten sollten und was wirklich hilft, erfahren Sie bei uns.",
       ],
       en: [
         "For most people, beauty matters because it helps them feel confident and attractive. People who see themselves as attractive tend to come across more positively.",
         "Over time, however, the skin changes, and so does one's appearance. Lines around the mouth, eyes and nose, or on the forehead, can make a face look older.",
-        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact the practice for Aesthetic Medicine, Dr. med. univ. Dost Mohammad, in Kröning.",
+        "More and more women and men are opting for minor cosmetic corrections; they are no longer unusual today. To find out what to look out for and what really helps, contact us.",
       ],
     },
     benefits: {

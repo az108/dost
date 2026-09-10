@@ -100,12 +100,12 @@ export const ui = {
   homeHeroLead: { de: "Medizin, die", en: "Medicine that" },
   homeHeroAccent: { de: "sichtbar wirkt", en: "delivers visible results" },
   homeHeroDescription: {
-    de: "Dauerhafte Laserhaarentfernung, Physiotherapie und ästhetische Medizin. Ärztlich durchgeführt, in Kröning bei Landshut.",
-    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine, all carried out by a physician in Kröning near Landshut.",
+    de: "Dauerhafte Laserhaarentfernung, Kosmetik und ästhetische Medizin sowie Physiotherapie. Ärztlich geführt, in Landshut.",
+    en: "Permanent laser hair reduction, beauty and aesthetic medicine, and physiotherapy. Physician-led, in Landshut.",
   },
   homeMetaDescription: {
-    de: "Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning. Ärztlich durchgeführt, mit transparenten Preisen.",
-    en: "Private medical practice for laser treatments, physiotherapy and aesthetic medicine in Kröning. Physician-led, with transparent pricing.",
+    de: "Center für Laserbehandlungen, Kosmetik und ästhetische Medizin sowie Physiotherapie in Landshut. Ärztlich geführt, mit transparenten Preisen.",
+    en: "Center for laser treatments, beauty and aesthetic medicine, and physiotherapy in Landshut. Physician-led, with transparent pricing.",
   },
   viewPrices: { de: "Preise ansehen", en: "View prices" },
   threeAreas: { de: "Drei Bereiche", en: "Three areas" },
@@ -198,46 +198,21 @@ export const ui = {
   praxisHeroLead: { de: "Medizin mit", en: "Medicine that" },
   praxisHeroAccent: { de: "Zeit für Sie", en: "takes its time" },
   praxisHeroDescription: {
-    de: "Eine privatärztliche Praxis, in der ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
-    en: "A private practice where an appointment is an appointment, not a five-minute slot squeezed between two others.",
+    de: "Ein Center, in dem ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
+    en: "A center where an appointment is an appointment, not a five-minute slot squeezed between two others.",
   },
   praxisIntro1: {
-    de: "Als Privatpraxis planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
-    en: "As a private practice, we deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
+    de: "Bei uns planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
+    en: "We deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
   },
-  insightsEyebrow: { de: "Einblicke", en: "Insights" },
-  roomsAndTechTitle: { de: "Räume und Technik", en: "Rooms and technology" },
-  roomsAndTechAccent: { de: "im Überblick", en: "at a glance" },
-  galleryLead: {
-    de: "Aufnahmen aus unseren eigenen Räumen in Kröning, einschließlich des Lasers, mit dem wir tatsächlich arbeiten.",
-    en: "Photographs of our own rooms in Kröning, including the laser we actually work with.",
-  },
-  // Every image below is a real photograph of this practice, so these alt
-  // texts may describe the actual equipment and name the doctor. Nothing
-  // here is a stand-in from a stock library any more.
-  doctorAltAtDesk: {
-    de: "Dr. med. univ. Dost Mohammad an seinem Schreibtisch im Sprechzimmer",
-    en: "Dr. med. univ. Dost Mohammad at his desk in the consulting room",
-  },
-  doctorAltInConsultingRoom: {
-    de: "Dr. med. univ. Dost Mohammad im Sprechzimmer der Praxis",
-    en: "Dr. med. univ. Dost Mohammad in the practice's consulting room",
-  },
-  praxisAltLaserDevice: {
-    de: "Lasergerät der Praxis im Behandlungsraum, daneben der Schreibtisch",
-    en: "The practice's laser device in the treatment room, beside the desk",
-  },
-  praxisAltDoctorWithHandpiece: {
-    de: "Dr. med. univ. Dost Mohammad mit dem Laserhandstück neben Lasergerät und Ultraschall",
-    en: "Dr. med. univ. Dost Mohammad holding the laser handpiece beside the laser and ultrasound units",
-  },
-  praxisAltConsultingRoom: {
-    de: "Sprechzimmer der Praxis mit Schreibtisch, Stethoskop und Blutdruckmessgerät",
-    en: "The practice's consulting room with desk, stethoscope and blood pressure monitor",
-  },
+  // The gallery section's header and lead, and every alt text for the
+  // practice photography, are gone with the photographs themselves: each
+  // one was a real picture of the Kröning practice — including the shot
+  // pinned beside the Ablauf steps — and a separate Landshut center cannot
+  // show them.
   praxisMetaDescription: {
-    de: "Privatärztliche Praxis in Kröning mit ärztlich geführten Laser-, Physio- und Ästhetikbehandlungen.",
-    en: "Private medical practice in Kröning offering physician-led laser, physiotherapy and aesthetic treatments.",
+    de: "Center in Landshut mit ärztlich geführten Laser-, Physio-, Kosmetik- und Ästhetikbehandlungen.",
+    en: "Center in Landshut offering physician-led laser, physiotherapy, beauty and aesthetic treatments.",
   },
 
   // ── Standorte ────────────────────────────────────────────────────────

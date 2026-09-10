@@ -115,7 +115,7 @@ const PILLARS: LocalizedPillarInfo[] = [
         {
           question: "Brauche ich eine Überweisung?",
           answer:
-            "Nein. Als Privatpraxis behandeln wir Sie ohne Überweisung. Vorhandene Befunde oder Bildgebung bringen Sie gerne mit.",
+            "Nein. Wir behandeln Sie ohne Überweisung. Vorhandene Befunde oder Bildgebung bringen Sie gerne mit.",
         },
         {
           question: "Wie läuft der erste Termin ab?",
@@ -132,7 +132,7 @@ const PILLARS: LocalizedPillarInfo[] = [
         {
           question: "Do I need a referral?",
           answer:
-            "No. As a private practice, we treat you without a referral. Feel free to bring any existing findings or imaging with you.",
+            "No. We treat you without a referral. Feel free to bring any existing findings or imaging with you.",
         },
         {
           question: "What happens at the first appointment?",
@@ -156,8 +156,8 @@ const PILLARS: LocalizedPillarInfo[] = [
       en: { lead: "Naturally", accent: "yourself" },
     },
     excerpt: {
-      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und von ärztlich geprüften Fachkräften durchgeführt.",
-      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by medically qualified practitioners.",
+      de: "Kosmetik, Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und von ärztlich geprüften Fachkräften durchgeführt.",
+      en: "Beauty treatments, wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by medically qualified practitioners.",
     },
     intro: {
       de: [
