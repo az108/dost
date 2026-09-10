@@ -10,7 +10,6 @@ import { BookingButton } from "@/components/cta/BookingButton"
 import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
-import heroImage from "@/assets/praxis/dr-dost-sprechzimmer.webp"
 
 export default function Kontakt() {
   const t = useT()
@@ -42,8 +41,6 @@ export default function Kontakt() {
         lead={t("contactHeroLead")}
         accent={t("contactHeroAccent")}
         description={t("contactHeroDescription")}
-        image={heroImage}
-        imageAlt={t("doctorAltInConsultingRoom")}
       />
 
       <Section overlap flank="left" flankTone="blush">

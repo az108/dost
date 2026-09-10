@@ -83,7 +83,7 @@ export const ui = {
     en: "Laser, beauty & aesthetics and physiotherapy under one roof.",
   },
   prices: { de: "Preise", en: "Prices" },
-  practice: { de: "Praxis", en: "Practice" },
+  practice: { de: "Über uns", en: "About us" },
   contact: { de: "Kontakt", en: "Contact" },
   openingHours: { de: "Öffnungszeiten", en: "Opening hours" },
   legalNavLabel: { de: "Rechtliches", en: "Legal" },
@@ -239,6 +239,16 @@ export const ui = {
     de: "Privatärztliche Praxis in Kröning mit ärztlich geführten Laser-, Physio- und Ästhetikbehandlungen.",
     en: "Private medical practice in Kröning offering physician-led laser, physiotherapy and aesthetic treatments.",
   },
+
+  // ── Standorte ────────────────────────────────────────────────────────
+  standorteEyebrow: { de: "Standorte", en: "Locations" },
+  standorteTitle: { de: "Wo Sie uns", en: "Where to" },
+  standorteAccent: { de: "finden", en: "find us" },
+  standorteLead: {
+    de: "Wir starten in Landshut. München und Stuttgart folgen.",
+    en: "We are opening in Landshut. München and Stuttgart will follow.",
+  },
+  standortPlanned: { de: "in Planung", en: "planned" },
 
   // ── Prices page ──────────────────────────────────────────────────────
   pricesHeroLead: { de: "Preise, die", en: "Prices that" },
