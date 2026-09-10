@@ -23,11 +23,16 @@ describe("Approach", () => {
         <Approach />
       </MemoryRouter>,
     )
-    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
-    // Both the heading ("Drei Bereiche, ein Konzept") and the body copy
-    // ("Unsere drei Bereiche greifen ineinander...") legitimately contain
-    // this phrase, so getByText's single-match assumption doesn't hold here
-    // — getAllByText asserts presence without assuming uniqueness.
-    expect(screen.getAllByText(/drei Bereiche/i).length).toBeGreaterThan(0)
+    // Bound to the heading specifically. The h2's accessible name is
+    // "Drei Bereiche, ein Konzept", a single unique match — where a bare
+    // getByText(/drei Bereiche/i) also matches the body paragraph and
+    // throws on the ambiguity.
+    expect(
+      screen.getByRole("heading", { level: 2, name: /drei Bereiche/i }),
+    ).toBeInTheDocument()
+
+    // A substring unique to the body, so the two assertions verify the two
+    // halves independently instead of one vague OR-condition.
+    expect(screen.getByText(/greifen ineinander/i)).toBeInTheDocument()
   })
 })
