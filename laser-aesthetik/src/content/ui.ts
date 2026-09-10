@@ -134,9 +134,17 @@ export const ui = {
   contactHeroLead: { de: "So erreichen", en: "Here's how to" },
   contactHeroAccent: { de: "Sie uns", en: "reach us" },
   contactHeroDescription: {
-    de: "Termine buchen Sie am schnellsten online. Für alles andere schreiben Sie uns einfach.",
-    en: "The fastest way to book is online. For anything else, just drop us a message.",
+    de: "Termine und alles andere laufen über das Formular unten. Wir melden uns zügig zurück.",
+    en: "Appointments and everything else run through the form below. We'll get back to you promptly.",
   },
+  /*
+   * Its own key rather than `practice`, which this call site used to borrow
+   * while that key still read "Praxis". Task 7 retitled `practice` to
+   * "Über uns" for the navbar and /kontakt started rendering
+   * "Über uns / Adresse & Anfahrt". A nav label and a section eyebrow are
+   * different surfaces; either may be reworded without the other.
+   */
+  addressEyebrow: { de: "Standort", en: "Location" },
   addressTitle: { de: "Adresse &", en: "Address &" },
   addressAccent: { de: "Anfahrt", en: "directions" },
   viewOnMap: { de: "Auf der Karte ansehen", en: "View on the map" },
@@ -145,13 +153,19 @@ export const ui = {
   messageEyebrow: { de: "Nachricht", en: "Message" },
   writeToUsTitle: { de: "Schreiben Sie", en: "Send us" },
   writeToUsAccent: { de: "uns", en: "a message" },
+  /*
+   * This form is the center's only booking channel while
+   * center.locations[0].bookingUrl is still the BOOKING_TODO sentinel. The
+   * lead used to point at a "Terminbuchung oben" that no longer exists and
+   * cast the form as the leftover for everything else — precisely backwards.
+   */
   contactFormLead: {
-    de: "Termine buchen Sie am schnellsten online über die Terminbuchung oben. Für Rückfragen, einen Rückruf oder ein allgemeines Anliegen nutzen Sie stattdessen dieses Formular.",
-    en: "The fastest way to book is online using the booking button above. For questions, a callback, or anything else, use this form instead.",
+    de: "Über dieses Formular läuft alles: Terminanfragen, Rückrufwünsche und allgemeine Fragen. Wählen Sie Ihr Anliegen aus, und wir melden uns mit einem konkreten Terminvorschlag oder einer Antwort zurück.",
+    en: "Everything runs through this form: appointment requests, callbacks and general questions. Choose your topic and we'll come back to you with a concrete appointment slot or an answer.",
   },
   contactMetaDescriptionSuffix: {
-    de: "Termine online über Doctolib.",
-    en: "Book appointments online via Doctolib.",
+    de: "Terminanfragen über das Kontaktformular.",
+    en: "Request appointments through the contact form.",
   },
 
   // ── Contact form ─────────────────────────────────────────────────────
@@ -285,8 +299,8 @@ export const ui = {
   processTitle: { de: "So läuft Ihre", en: "How your" },
   processAccent: { de: "Behandlung ab", en: "treatment works" },
   stepBookAppointmentBody: {
-    de: "Online über Doctolib, in unter einer Minute. Sie wählen Zeitfenster und Behandlung selbst.",
-    en: "Online via Doctolib, in under a minute. You choose the time slot and treatment yourself.",
+    de: "Über unser Kontaktformular, in unter einer Minute. Sie nennen uns Behandlung und Wunschzeitraum, wir bestätigen den Termin.",
+    en: "Through our contact form, in under a minute. You tell us the treatment and when suits you, and we confirm the appointment.",
   },
   initialConsultation: { de: "Erstgespräch", en: "Initial consultation" },
   initialConsultationBody: {
@@ -365,8 +379,8 @@ export const ui = {
   ctaTitle: { de: "Bereit für Ihren", en: "Ready for your" },
   ctaAccent: { de: "Termin?", en: "appointment?" },
   ctaLead: {
-    de: "Buchen Sie online in unter einer Minute. Sie werden direkt zu Doctolib weitergeleitet.",
-    en: "Book online in under a minute. You'll be redirected straight to Doctolib.",
+    de: "Schreiben Sie uns Ihren Terminwunsch über das Kontaktformular. Wir melden uns mit einem konkreten Vorschlag zurück.",
+    en: "Send us your preferred appointment time through the contact form. We'll come back to you with a concrete slot.",
   },
 } as const satisfies Record<string, Localized>
 

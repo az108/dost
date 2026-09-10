@@ -427,10 +427,17 @@ describe("separation from Privatpraxis Dr. Dost", () => {
     //
     // What is left is exactly the target: a user-visible string in
     // production code.
+    // `doctolib` is in the pattern for the same reason the rest are: it is
+    // the separated practice's booking provider, the center has no profile
+    // there, and BookingButton now routes to our own contact form. Three
+    // live copy blocks (ctaLead, stepBookAppointmentBody,
+    // contactMetaDescriptionSuffix) still promised it after the URL itself
+    // was removed — the name outlived the link, which is exactly what a
+    // source grep catches and a per-component test does not.
     const srcRoot = resolve(__dirname, "..")
     const raw = execSync(
       `grep -rEin --include='*.ts' --include='*.tsx' ` +
-        `'dost|privatpraxis|kröning|drdosthealth' ${JSON.stringify(srcRoot)} || true`,
+        `'dost|privatpraxis|kröning|drdosthealth|doctolib' ${JSON.stringify(srcRoot)} || true`,
       { encoding: "utf8" },
     ).trim()
 

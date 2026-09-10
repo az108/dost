@@ -46,7 +46,7 @@ export default function Kontakt() {
       <Section overlap flank="left" flankTone="blush">
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
-            <SectionHeader eyebrow={t("practice")} title={t("addressTitle")} accent={t("addressAccent")} />
+            <SectionHeader eyebrow={t("addressEyebrow")} title={t("addressTitle")} accent={t("addressAccent")} />
             <p className="flex items-start gap-3 text-lg text-brand-800">
               <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
               {hasAddress(location) ? formatAddress(location) : location.city}
@@ -98,6 +98,11 @@ export default function Kontakt() {
                 </div>
               ))}
             </dl>
+            {/* Renders nothing on this page while the BOOKING_TODO sentinel
+                is unfilled — BookingButton suppresses itself when its
+                fallback destination is the route already being read. It
+                comes back as an outbound link the moment a real bookingUrl
+                exists, which is exactly when it is worth a slot here. */}
             <BookingButton />
           </div>
         </Container>

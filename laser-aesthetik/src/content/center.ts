@@ -6,6 +6,18 @@ import type { Center, Location, OpeningHours } from "./types"
  * production. Same convention as the phone number always used.
  */
 export const PHONE_TODO = "TODO_TELEFONNUMMER"
+/**
+ * While this is the value of `locations[0].bookingUrl`, BookingButton routes
+ * to the contact form and the site has exactly one booking channel.
+ *
+ * Filling it in restores the external link everywhere in one edit, but the
+ * copy around the button does NOT follow automatically. These keys in ui.ts
+ * describe the form by name and have to be rewritten with it:
+ * `ctaLead`, `stepBookAppointmentBody`, `contactMetaDescriptionSuffix`,
+ * `contactFormLead`, `contactHeroDescription`. So does the Terminbuchung
+ * section of legal.ts's Datenschutz, which is deliberately absent while
+ * there is no third party to disclose.
+ */
 export const BOOKING_TODO = "TODO_BUCHUNGSLINK"
 export const ADDRESS_TODO = "TODO_ADRESSE_LANDSHUT"
 export const EMAIL_TODO = "TODO_EMAIL"

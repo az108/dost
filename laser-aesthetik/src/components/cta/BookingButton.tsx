@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { CalendarCheck } from "lucide-react"
 import { hasBookingUrl, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
@@ -17,6 +17,12 @@ import { cn } from "@/lib/utils"
  * Doctolib page, which this site is being separated from — so the button
  * falls back to our own contact form. Filling in
  * center.locations[0].bookingUrl restores the external link everywhere.
+ *
+ * On the contact page that fallback is a link to the page the visitor is
+ * already reading, immediately above the form it would send them to, so the
+ * button renders nothing there. This is a property of the fallback, not of
+ * the component: once bookingUrl is real the destination is outbound again
+ * and the button appears on every page including this one.
  */
 export function BookingButton({
   variant = "action",
@@ -34,6 +40,7 @@ export function BookingButton({
   const t = useT()
   const locale = useLocale()
   const location = openLocation()
+  const { pathname } = useLocation()
 
   const classes = cn(buttonVariants({ variant, size }), "gap-2 font-semibold", className)
   const label = (
@@ -56,8 +63,11 @@ export function BookingButton({
     )
   }
 
+  const contactPath = pagePath("contact", locale)
+  if (pathname === contactPath) return null
+
   return (
-    <Link to={pagePath("contact", locale)} className={classes}>
+    <Link to={contactPath} className={classes}>
       {label}
     </Link>
   )
