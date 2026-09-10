@@ -117,13 +117,21 @@ const PILLARS: LocalizedPillarInfo[] = [
     },
     image: physioImg,
     /*
-     * Movement, not pain. The previous photograph was someone gripping a
-     * hurting thigh — an illustration of the complaint rather than of what
-     * this pillar does about it.
+     * Movement, not pain. Two photographs back this slot showed someone
+     * gripping a hurting thigh — an illustration of the complaint rather
+     * than of what this pillar does about it. The one after that showed
+     * seated meditation in a cluttered room: a yoga studio, not physio,
+     * and a stop darker than the two cards beside it on the home page.
+     *
+     * What is here now is the treatment itself — a guided movement in
+     * daylight — and it is graded to sit in the same key as pillar-laser
+     * and pillar-kosmetik, which is the only reason the row reads as one
+     * set. Changing this picture without re-checking those two against it
+     * will pull the row apart again.
      */
     imageAlt: {
-      de: "Person auf einer Matte, gestreiftes Sonnenlicht auf dem Rücken",
-      en: "Person on a mat, striped sunlight falling across their back",
+      de: "Therapeutin bewegt das Bein einer liegenden Person in einem hellen Raum am Fenster",
+      en: "A therapist guiding the leg of someone lying down, in a bright room beside a window",
     },
     faq: {
       de: [
@@ -185,9 +193,21 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: aesthetikImg,
+    /*
+     * The photograph this replaced was the right subject with the wrong
+     * hands: at magnification the treating fingers carried long nails with
+     * dark-green tips and a red-and-white beaded bracelet. Beside copy that
+     * promises "ärztlich geprüfte Fachkräfte des Centers", jewellery and
+     * long painted nails on hands performing a treatment read as a
+     * competence signal, not merely as a colour clash — and no grep guard
+     * can see what is inside an image file.
+     *
+     * The replacement was chosen on the hands first: short, unpainted
+     * nails, no ring, no bracelet, no watch. Check that before the light.
+     */
     imageAlt: {
-      de: "Hände bei einer Gesichtsmassage, die Augen geschlossen",
-      en: "Hands giving a facial massage, the eyes closed",
+      de: "Hände umfassen ein entspanntes Gesicht, die Augen geschlossen",
+      en: "Hands cradling a relaxed face, the eyes closed",
     },
     faq: {
       de: [

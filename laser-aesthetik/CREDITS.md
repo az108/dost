@@ -15,6 +15,57 @@ gemeinsame Bildsprache ausgewählt: warmes, gerichtetes Tageslicht, geringe
 Schärfentiefe, viel Fläche. Farbtemperatur und Sättigung sind beim Export
 angeglichen, damit sie als eine Serie zusammenfinden.
 
+`pillar-physio.webp` und `pillar-kosmetik.webp` sind zusammen ausgetauscht
+worden, weil die drei Säulen-Karten auf der Startseite nebeneinander stehen
+und als **eine Reihe** zu beurteilen sind, nicht einzeln. Vorher lagen sie
+fast eine Blende auseinander (Helligkeit 0,34 / 0,47 / 0,56); jetzt liegen
+sie bei 0,47 / 0,56 / 0,49, R/B bei 1,12 / 1,18 / 1,34. Inhaltlich zeigte
+Physio eine sitzende Meditation in einem vollgestellten Raum — ein
+Yoga-Studio, keine Physiotherapie — und Kosmetik bei starker Vergrößerung
+lange Nägel mit dunkelgrünen Spitzen und ein rot-weißes Perlenarmband an
+den behandelnden Händen. Neben dem Satz „ärztlich geprüfte Fachkräfte des
+Centers" ist Schmuck an behandelnden Händen kein Farbproblem, sondern ein
+Kompetenzsignal. Export:
+
+```
+physio    -crop 4630x3087+842+295   # schneidet ein Buch mit lesbarem Titel links weg
+          -modulate 84,100          # zuerst abdunkeln, sonst kippt das
+          R ×1,04 / G ×1,005 / B ×0,96   # ausgebrannte Fenster ins Orange
+          -resize 1400x933 -quality 82
+kosmetik  -crop 4480x2986+0+2585
+          R ×0,97 / G ×1,01 / B ×1,09
+          -modulate 112,80
+          -resize 1400x933 -quality 82
+```
+
+Die Reihenfolge beim Physio-Bild ist wichtig: Das Fenster ist ausgebrannt,
+also auf 255 begrenzt. Wer dort zuerst die Kanäle verschiebt und danach die
+Sättigung anhebt, färbt die ganze Fensterfläche kräftig orange. Erst
+abdunkeln, dann Weißabgleich, Sättigung unverändert lassen.
+
+`standort-landshut.webp` ist ebenfalls ausgetauscht und stammt als einziges
+Bild dieser Serie von Wikimedia Commons (CC0, gemeinfrei, keine
+Namensnennung nötig). Das vorherige Bild war ein Straßenausschnitt, der den
+goldenen Schriftzug eines fremden Gastronomiebetriebs über das linke
+Fünftel der Karte trug, dazu ein Sponsorenbanner einer Segelsport-Serie am
+rechten Rand und eine rote Ampel — auf genau der Karte, die „das ist unsere
+Stadt" sagen soll. Ein Wahrzeichen war nicht zu sehen und Himmel auch
+nicht. Das neue Bild zeigt den Blick von der Burg Trausnitz über die
+Altstadt auf St. Martin, den höchsten Backsteinturm der Welt. Export:
+
+```
+-crop 2880x1920+480+0    # links eine Plakatwand, unten ein Fassadenname
+R ×1,105 / G ×1,02 / B ×0,855
+-modulate 104,62         # Sättigung runter: der Postkartenhimmel muss in
++level 10%,99.5%         # den Dunst von München und Stuttgart
+-resize 1200x800 -quality 55
+```
+
+Bei einer Stadtansicht führt das Verhältnis R/B ebenso in die Irre wie bei
+einem fast weißen Bild: Ein großer blauer Himmel drückt es unter 1,0, ohne
+dass das Bild kalt wirkt. Maßgeblich war der Blick auf die drei
+Standort-Karten nebeneinander, nicht die Zahl.
+
 `src/assets/aesthetik/faltenbehandlung.webp` gehört seit dem Austausch zu
 dieser Serie und ist nach demselben Rezept exportiert (Ausschnitt
 `2100x1400+300+120` aus dem 2400-px-Original, R ×1,04 / B ×0,93,
@@ -39,37 +90,14 @@ einem nahezu weißen Bild führt das Verhältnis R/B in die Irre — hier ist
 zusätzlich Grün leicht abgesenkt, sonst kippt die Wand ins Olivgrüne statt
 ins warme Creme der übrigen Serie.
 
-`standort-landshut.webp` ist ausgetauscht und stammt als einziges Bild
-dieser Serie von Wikimedia Commons (CC0, gemeinfrei, keine Namensnennung
-nötig). Das vorherige Bild war ein Straßenausschnitt, der den goldenen
-Schriftzug eines fremden Gastronomiebetriebs über das linke Fünftel der
-Karte trug, dazu ein Sponsorenbanner einer Segelsport-Serie am rechten Rand
-und eine rote Ampel — auf genau der Karte, die „das ist unsere Stadt" sagen
-soll. Ein Wahrzeichen war nicht zu sehen und Himmel auch nicht. Das neue
-Bild zeigt den Blick von der Burg Trausnitz über die Altstadt auf St.
-Martin, den höchsten Backsteinturm der Welt. Export:
-
-```
--crop 2880x1920+480+0    # links eine Plakatwand, unten ein Fassadenname
-R ×1,105 / G ×1,02 / B ×0,855
--modulate 104,62         # Sättigung runter: der Postkartenhimmel muss in
-+level 10%,99.5%         # den Dunst von München und Stuttgart
--resize 1200x800 -quality 55
-```
-
-Bei einer Stadtansicht führt das Verhältnis R/B ebenso in die Irre wie bei
-einem fast weißen Bild: Ein großer blauer Himmel drückt es unter 1,0, ohne
-dass das Bild kalt wirkt. Maßgeblich war der Blick auf die drei
-Standort-Karten nebeneinander, nicht die Zahl.
-
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
 | src/assets/center/hero-about.webp | https://unsplash.com/photos/VRoK8MxTlHY | Maverick Frame | Unsplash License |
 | src/assets/center/hero-contact.webp | https://unsplash.com/photos/lwLreiMS25k | Franco Debartolo | Unsplash License |
 | src/assets/center/pillar-laser.webp | https://unsplash.com/photos/0nav_aD3YZ4 | ActionVance | Unsplash License |
-| src/assets/center/pillar-physio.webp | https://unsplash.com/photos/LRcPNV8HQ3Q | Maryjoy Caballero | Unsplash License |
-| src/assets/center/pillar-kosmetik.webp | https://unsplash.com/photos/16mHHrY3PUk | Ionela Mat | Unsplash License |
+| src/assets/center/pillar-physio.webp | https://www.pexels.com/photo/5794011/ | Yan Krukau (Yankrukov) | Pexels License |
+| src/assets/center/pillar-kosmetik.webp | https://www.pexels.com/photo/6628807/ | KoolShooters | Pexels License |
 | src/assets/center/ablauf.webp | https://unsplash.com/photos/7yeqemd-p90 | Jakub Klucký | Unsplash License |
 | src/assets/center/standort-landshut.webp | https://commons.wikimedia.org/wiki/File:Blick_Landshut_Trausnitz_02.jpg | Helmlechner | CC0 1.0 (Public Domain Dedication) |
 | src/assets/center/standort-muenchen.webp | https://unsplash.com/photos/ySICq4GkcsQ | Jan Antonin Kolar | Unsplash License |
