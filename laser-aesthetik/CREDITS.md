@@ -90,6 +90,30 @@ einem nahezu weißen Bild führt das Verhältnis R/B in die Irre — hier ist
 zusätzlich Grün leicht abgesenkt, sonst kippt die Wand ins Olivgrüne statt
 ins warme Creme der übrigen Serie.
 
+`src/assets/laser/oberlippe.webp` ist ausgetauscht, weil das vorherige Bild
+zwei Fehler in einem trug. Auf dem Handstück standen bei 150 % gut lesbar ein
+rotes Sechseck-Logo und die Schriftzüge „My M" und „Micro Needle Therapy" —
+die Marke eines fremden Herstellers auf einer Seite, die eine eigene Leistung
+bewirbt. Schwerer wiegt der zweite: Das Gerät ist ein **Microneedling-Pen**,
+die Seite bewirbt dauerhafte **Laser**-Haarentfernung an der Oberlippe. Ein
+Foto von Behandlung B auf der kostenpflichtigen Seite von Behandlung A ist
+irreführende Werbung nach UWG §5, unabhängig von der Marke. Dazu trug die
+behandelnde Person zwei Ringe, darunter einen großen Schmetterlingsring. Das
+neue Bild zeigt nur die Zone selbst — Nase, Oberlippe und Mund in weichem,
+warmem Licht, dahinter eine große weiche Fläche. Kein Gerät, keine zweite
+Person, keine Schrift, kein Schmuck. Export:
+
+```
+-crop 2000x1333+0+150   # aus dem 2000-px-Original
+-despeckle              # das Filmkorn kostet sonst 357 kB statt 90 kB
+-resize 1400x933 -quality 78
+```
+
+**Hier wurde bewusst kein Weißabgleich gerechnet.** Das Bild liegt schon im
+Rohschnitt bei Helligkeit 0,52 und R/B 1,36 und damit mitten in der Serie
+(zwischen `hero-about` 0,49/1,30 und `pillar-kosmetik` 0,48/1,34). Wer eine
+Datei angleicht, die bereits passt, verschiebt sie nur aus der Reihe heraus.
+
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
@@ -102,7 +126,7 @@ ins warme Creme der übrigen Serie.
 | src/assets/center/standort-landshut.webp | https://commons.wikimedia.org/wiki/File:Blick_Landshut_Trausnitz_02.jpg | Helmlechner | CC0 1.0 (Public Domain Dedication) |
 | src/assets/center/standort-muenchen.webp | https://unsplash.com/photos/ySICq4GkcsQ | Jan Antonin Kolar | Unsplash License |
 | src/assets/center/standort-stuttgart.webp | https://unsplash.com/photos/h05F6pnxedo | Fabian Kleiser | Unsplash License |
-| src/assets/laser/oberlippe.webp | https://unsplash.com/photos/hR3ecKHpq7k | Studio Michael França | Unsplash License |
+| src/assets/laser/oberlippe.webp | https://unsplash.com/photos/KDCsN92zVs8 | omid armin | Unsplash License |
 | src/assets/laser/wangen.webp | https://unsplash.com/photos/MrH55xfdLp4 | Ace Maxwell | Unsplash License |
 | src/assets/laser/kinn.webp | https://unsplash.com/photos/iN2ObRIy5Mc | Sum Sum | Unsplash License |
 | src/assets/laser/gesicht-und-kopf.webp | https://unsplash.com/photos/w2zkMmyMyc4 | Ace Maxwell | Unsplash License |

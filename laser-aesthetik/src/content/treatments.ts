@@ -39,9 +39,20 @@ const LASER: LocalizedTreatment[] = [
     slug: { de: "oberlippe", en: "upper-lip" },
     pillar: "laser",
     image: oberlippeImg,
+    // The old frame showed a *microneedling pen* — a red hexagon logo with the
+    // wordmarks "My M" and "Micro Needle Therapy" legible on the handpiece,
+    // held by a practitioner wearing two rings — on the page that advertises
+    // permanent laser hair reduction. Two defects in one picture: a named
+    // competitor's product mark implying a supplier relationship that does not
+    // exist, and a photograph of treatment B illustrating paid treatment A,
+    // which is misleading advertising under UWG §5 quite apart from the mark.
+    // The old alt text ("Kosmetisches Handgerät…") described the device
+    // truthfully and still could not be caught by grep, because nothing in it
+    // or in the import path said which device. The slot now shows the zone
+    // itself, with no device and nobody else in the picture.
     imageAlt: {
-      de: "Kosmetisches Handgerät wird nah am Gesicht angewendet",
-      en: "Cosmetic handheld device being used close to the face",
+      de: "Nahaufnahme eines Gesichts von der Nase bis zum Kinn in weichem, warmem Licht",
+      en: "Close-up of a face from the nose to the chin in soft, warm light",
     },
     title: { de: "Oberlippe", en: "Upper Lip" },
     headline: {
