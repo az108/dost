@@ -147,9 +147,19 @@ export const ui = {
     de: "Termine und alles andere laufen über das Formular unten. Wir melden uns zügig zurück.",
     en: "Appointments and everything else run through the form below. We'll get back to you promptly.",
   },
+  /*
+   * The frame this replaced was a domestic living room — a white sofa, a
+   * laptop on a black X-frame console, a magazine, a table lamp — and it sat
+   * over a stop brighter and visibly cooler than the other two heroes
+   * (L 0.65 against 0.40 and 0.49; R/B 1.13 against 1.32 and 1.30). The alt
+   * text called it a "Beratungsplatz", asserting a function the picture did
+   * not show, which is the one thing CREDITS.md says alt text must never do.
+   * Both halves below name only what is in the frame — and, as with every
+   * other image here, claim nothing about the center's own rooms.
+   */
   contactHeroImageAlt: {
-    de: "Heller Beratungsplatz mit Sessel und Tisch am Fenster",
-    en: "Bright consultation corner with an armchair and a table by the window",
+    de: "Sitzecke mit Sofa, Olivenbäumen und rundem Tisch an einer raumhohen Fensterfront",
+    en: "A seating corner with a sofa, olive trees and a round table at a floor-to-ceiling window",
   },
   /*
    * Its own key rather than `practice`, which this call site used to borrow

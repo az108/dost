@@ -114,11 +114,30 @@ Rohschnitt bei Helligkeit 0,52 und R/B 1,36 und damit mitten in der Serie
 (zwischen `hero-about` 0,49/1,30 und `pillar-kosmetik` 0,48/1,34). Wer eine
 Datei angleicht, die bereits passt, verschiebt sie nur aus der Reihe heraus.
 
+`src/assets/center/hero-contact.webp` ist aus einem anderen Grund
+ausgetauscht: Es war kein Rechtefall, sondern das Bild, das die Beschwerde
+des Kunden am ehesten wieder geöffnet hätte. Zu sehen waren ein weißes Sofa,
+eine schwarze Konsole mit Laptop, eine Zeitschrift und eine Lampe — ein
+Wohnzimmer, kein Beratungsplatz. Messtechnisch lag es mit Helligkeit 0,65
+über eine Blende heller als die anderen beiden Hero-Bilder (0,40 und 0,49)
+und mit R/B 1,13 sichtbar kühler und grüner als die Serie (1,31 / 1,35). Das
+neue Bild stammt von derselben Urheberin wie `hero-about`, also aus derselben
+Bildsprache: Kalkputz, Olivenbäume, Betonboden, warmes Tageslicht. Export:
+
+```
+-crop 2250x1500+75+0    # macht aus 1,60 exakt 3:2, je 75 px links und rechts
+R ×1,06 / B ×0,92
+-modulate 100,102
+-resize 1400x933 -quality 45   # dichtes Laub; q82 wären 229 kB
+```
+
+Danach 0,51 / R/B 1,30 — genau auf dem Median der Serie.
+
 | Datei | Quelle | Fotograf:in | Lizenz |
 |---|---|---|---|
 | src/assets/center/hero-home.webp | https://unsplash.com/photos/w4Dj3MshHQ0 | Fleur Kaan | Unsplash License |
 | src/assets/center/hero-about.webp | https://unsplash.com/photos/VRoK8MxTlHY | Maverick Frame | Unsplash License |
-| src/assets/center/hero-contact.webp | https://unsplash.com/photos/lwLreiMS25k | Franco Debartolo | Unsplash License |
+| src/assets/center/hero-contact.webp | https://unsplash.com/photos/pjPd5fxEdUM | Maverick Frame | Unsplash License |
 | src/assets/center/pillar-laser.webp | https://unsplash.com/photos/0nav_aD3YZ4 | ActionVance | Unsplash License |
 | src/assets/center/pillar-physio.webp | https://www.pexels.com/photo/5794011/ | Yan Krukau (Yankrukov) | Pexels License |
 | src/assets/center/pillar-kosmetik.webp | https://www.pexels.com/photo/6628807/ | KoolShooters | Pexels License |
