@@ -1,9 +1,119 @@
-import { readFileSync } from "node:fs"
+import { existsSync, readFileSync } from "node:fs"
 import { execSync } from "node:child_process"
 import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
 
 const css = readFileSync(resolve(__dirname, "./index.css"), "utf8")
+
+const srcRoot = resolve(__dirname)
+const projectRoot = resolve(__dirname, "..")
+const repoRoot = resolve(projectRoot, "..")
+const thisFile = resolve(__dirname, "index.css.test.ts")
+
+/*
+ * The blue palette's tokens and its one hard-coded hex. Every one of these
+ * was deleted in task 1; naming them here is what keeps them deleted. This
+ * file is the only place in the repository allowed to say them.
+ */
+const RETIRED_TOKENS = [
+  "--color-brand-ink",
+  "--color-accent",
+  "--color-fresh",
+  "--color-blush",
+  "#1A73E8",
+]
+
+/*
+ * One line per source line, with comment text removed.
+ *
+ * The guards below all ask "does this string appear in live code?", and the
+ * honest answer has to ignore comments — otherwise the code most committed
+ * to explaining itself is the code that trips them. The previous version of
+ * this filter keyed on a line STARTING with `//`, `*` or `/*`, which misses
+ * the continuation lines of a braced JSX comment block: one whose second
+ * line happens to say "overlap" registered as a live hit. That false
+ * positive has been worked around three times instead of fixed, and each
+ * workaround pressures the next person into deleting the explanation rather
+ * than keeping the property. This tracks the comment span instead.
+ *
+ * Quoted runs are copied verbatim on purpose: the `//` in a URL is not a
+ * comment, and truncating there would hide a real hit — a false NEGATIVE,
+ * the direction a guard must never fail in. An unbalanced apostrophe in JSX
+ * text costs at most the rest of one line, and costs it in the safe
+ * direction.
+ */
+const codeText = (source: string): string[] => {
+  const out: string[] = []
+  let inBlock = false
+
+  for (const line of source.split("\n")) {
+    let code = ""
+    let i = 0
+    while (i < line.length) {
+      if (inBlock) {
+        const end = line.indexOf("*/", i)
+        if (end === -1) break // the comment runs on into the next line
+        i = end + 2
+        inBlock = false
+        continue
+      }
+      const pair = line.slice(i, i + 2)
+      if (pair === "/*") {
+        inBlock = true
+        i += 2
+        continue
+      }
+      if (pair === "//") break // the rest of the line is a comment
+      const ch = line[i]
+      if (ch === '"' || ch === "'" || ch === "`") {
+        code += ch
+        i += 1
+        while (i < line.length) {
+          if (line[i] === "\\") {
+            code += line.slice(i, i + 2)
+            i += 2
+            continue
+          }
+          code += line[i]
+          const closing = line[i] === ch
+          i += 1
+          if (closing) break
+        }
+        continue
+      }
+      code += ch
+      i += 1
+    }
+    out.push(code)
+  }
+  return out
+}
+
+/**
+ * Lines under `src/` whose LIVE code matches `pattern` — an ERE for grep and
+ * a RegExp for the comment-aware second pass, so both halves see the same
+ * thing. Returns grep's own `file:line:text` strings, comment and all, so a
+ * failure message shows the line as it really reads.
+ */
+const liveHits = (pattern: string) => {
+  const re = new RegExp(pattern)
+  const cache = new Map<string, string[]>()
+
+  return execSync(
+    `grep -rEn --include='*.tsx' ${JSON.stringify(pattern)} ${JSON.stringify(srcRoot)} || true`,
+    { encoding: "utf8" },
+  )
+    .trim()
+    .split("\n")
+    .filter(Boolean)
+    .filter((hit) => {
+      const match = /^([^:]+):(\d+):/.exec(hit)
+      if (!match) return true
+      const [, file, lineNo] = match
+      if (!cache.has(file)) cache.set(file, codeText(readFileSync(file, "utf8")))
+      return re.test(cache.get(file)![Number(lineNo) - 1] ?? "")
+    })
+}
 
 describe("design tokens", () => {
   it("declares the palette colours with their exact spec values", () => {
@@ -20,9 +130,65 @@ describe("design tokens", () => {
     // the role directly and one value stops being spelled two ways).
     // accent painted headings, which are now brand-900. fresh was the hero
     // wash's second hue. blush existed only for the deleted Flank.
-    for (const token of ["--color-brand-ink", "--color-accent", "--color-fresh", "--color-blush"]) {
-      expect(css, `${token} should be gone`).not.toContain(token)
+    for (const token of RETIRED_TOKENS) {
+      if (token.startsWith("--")) expect(css, `${token} should be gone`).not.toContain(token)
     }
+  })
+
+  it("leaves no retired token anywhere in the repository", () => {
+    /*
+     * The check above only reads index.css, and that is how #1A73E8 — the
+     * blue palette's brand-ink, retired in task 1 — survived two reviews
+     * inside CREDITS.md, where it described the favicon's fill. A retired
+     * token in a document is not cosmetic: it is the next person's
+     * instructions.
+     *
+     * So this scans everything a reader or a build can reach — src/,
+     * public/, index.html, every markdown file, and the deploy workflow at
+     * the repository root — rather than the stylesheet alone. Excluded:
+     * node_modules, dist, dist-ssr, .superpowers and .git. The one permitted
+     * mention is this file, which has to name the tokens to forbid them.
+     */
+    const markdown = execSync(
+      `find ${JSON.stringify(projectRoot)} ` +
+        `\\( -name node_modules -o -name dist -o -name dist-ssr -o -name .superpowers -o -name .git \\) ` +
+        `-prune -o -name '*.md' -print`,
+      { encoding: "utf8" },
+    )
+      .trim()
+      .split("\n")
+      .filter(Boolean)
+
+    expect(markdown.length, "no markdown found — the find expression is wrong").toBeGreaterThan(0)
+
+    const workflow = resolve(repoRoot, ".github/workflows/deploy-laser-aesthetik.yml")
+    expect(
+      existsSync(workflow),
+      "the deploy workflow moved; this guard is no longer reading it",
+    ).toBe(true)
+
+    const targets = [
+      srcRoot,
+      resolve(projectRoot, "public"),
+      resolve(projectRoot, "index.html"),
+      workflow,
+      ...markdown,
+    ]
+
+    const hits = execSync(
+      `grep -rnF ` +
+        `--exclude-dir=node_modules --exclude-dir=dist --exclude-dir=dist-ssr ` +
+        `--exclude-dir=.superpowers --exclude-dir=.git ` +
+        RETIRED_TOKENS.map((t) => `-e ${JSON.stringify(t)}`).join(" ") +
+        ` ${targets.map((t) => JSON.stringify(t)).join(" ")} || true`,
+      { encoding: "utf8" },
+    )
+      .trim()
+      .split("\n")
+      .filter(Boolean)
+      .filter((hit) => !hit.startsWith(`${thisFile}:`))
+
+    expect(hits, "a retired token is still documented or used somewhere").toEqual([])
   })
 
   it("declares the reserved premium token", () => {
@@ -45,7 +211,6 @@ describe("design tokens", () => {
     // Scoped to .tsx: that is where Tailwind classes actually appear in this
     // codebase, and it keeps this test's own comment above (which names the
     // pattern it is looking for) from matching itself.
-    const srcRoot = resolve(__dirname)
     const hits = execSync(
       `grep -rEl --include='*.tsx' '(bg|text|border|from|via|to|ring|outline|fill|stroke)-premium' ${JSON.stringify(srcRoot)} || true`,
       { encoding: "utf8" },
@@ -168,33 +333,14 @@ describe("design tokens", () => {
 })
 
 describe("white base", () => {
-  const srcRoot = resolve(__dirname)
-
-  /*
-   * Both guards below match LINES and skip comment lines.
-   *
-   * That is not fussiness — it is the third time in this project a
-   * "this string must not appear" check has failed on the code most
-   * committed to its own goal. The Section.tsx that REPLACES the
-   * decorative layer explains, in its own comment, that there used to be a
-   * sheet overlap and a Flank. A guard that failed on that sentence would
-   * pressure whoever hits it into deleting the explanation rather than
-   * keeping the property.
-   *
-   * What survives the filter is a real prop on a real element.
-   */
-  const liveHits = (pattern: string) =>
-    execSync(
-      `grep -rEn --include='*.tsx' ${JSON.stringify(pattern)} ${JSON.stringify(srcRoot)} || true`,
-      { encoding: "utf8" },
-    )
-      .trim()
-      .split("\n")
-      .filter(Boolean)
-      .filter((line) => {
-        const text = line.split(":").slice(2).join(":").trim()
-        return !text.startsWith("//") && !text.startsWith("*") && !text.startsWith("/*")
-      })
+  it("paints the body white", () => {
+    // The client asked for one thing in so many words: "die Grundfarbe soll
+    // weiß sein". Every other guard in this block checks that the tinted
+    // machinery is GONE, which four different palettes could satisfy — the
+    // reviewer mutation-tested it and `body { @apply bg-brand-50 }` left them
+    // all green. This one checks the thing that was actually asked for.
+    expect(css).toMatch(/body\s*\{[^}]*bg-white/)
+  })
 
   it("uses no tinted or washed section tone anywhere", () => {
     // The client's "die Grundfarbe soll weiß sein". This makes it a
@@ -211,5 +357,51 @@ describe("white base", () => {
     for (const gone of ["--radius-sheet", ".sheet"]) {
       expect(css, `${gone} should be gone`).not.toContain(gone)
     }
+  })
+})
+
+describe("the comment filter those guards run on", () => {
+  /*
+   * The guards above are only as good as the filter underneath them, and the
+   * filter has been wrong three times in the same way. These four cases are
+   * the contract: a word inside a comment is invisible, a word in code is
+   * not, and neither answer changes because of where on the line it sits.
+   */
+  const matches = (source: string, pattern: RegExp) =>
+    codeText(source).filter((line) => pattern.test(line))
+
+  it("does not see a word that only appears inside a multi-line JSX comment", () => {
+    // The exact shape that broke it: the word is on a CONTINUATION line, so
+    // the old "does the line start with // or *" test let it through.
+    const jsx = [
+      "<div>",
+      "  {/*",
+      "    There used to be a sheet overlap here, and a coloured Flank.",
+      "  */}",
+      "  <Section>x</Section>",
+      "</div>",
+    ].join("\n")
+    expect(matches(jsx, /\boverlap\b|\bflank\b/i)).toEqual([])
+  })
+
+  it("still sees a real prop on a real element", () => {
+    expect(matches("<Section overlap>x</Section>", /\boverlap\b/)).toEqual([
+      "<Section overlap>x</Section>",
+    ])
+  })
+
+  it("sees a real prop on a line that also carries a trailing comment", () => {
+    expect(matches("<Section overlap> {/* deliberate */}", /\boverlap\b/)).toEqual([
+      "<Section overlap> {}",
+    ])
+  })
+
+  it("does not truncate a line at the double slash inside a URL", () => {
+    // Truncating there would be a false NEGATIVE — a guard silently passing —
+    // which is the one failure direction that must not happen.
+    const line = 'const href = "https://example.test/overlap" // and a comment'
+    expect(matches(line, /\boverlap\b/)).toEqual([
+      'const href = "https://example.test/overlap" ',
+    ])
   })
 })
