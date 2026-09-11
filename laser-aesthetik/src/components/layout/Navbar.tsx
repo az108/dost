@@ -40,7 +40,7 @@ export function Navbar() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
       "rounded-md px-3 py-2 text-sm font-semibold transition-colors",
-      isActive ? "text-brand" : "text-brand-800 hover:text-brand",
+      isActive ? "text-brand-700" : "text-brand-800 hover:text-brand-700",
     )
 
   return (
@@ -73,7 +73,7 @@ export function Navbar() {
               <span className="font-display text-lg font-extrabold tracking-tight text-brand-900">
                 {center.brand}
               </span>
-              <span className="text-xs font-medium text-brand-600">
+              <span className="text-xs font-medium text-brand-700">
                 {t("brandStrapline")}
               </span>
             </span>
@@ -98,7 +98,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? t("menuClose") : t("menuOpen")}
-            className="rounded-md p-2 text-brand lg:hidden"
+            className="rounded-md p-2 text-brand-700 lg:hidden"
           >
             {open ? <X className="size-6" aria-hidden="true" /> : <Menu className="size-6" aria-hidden="true" />}
           </button>

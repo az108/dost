@@ -29,19 +29,19 @@ export function Footer() {
         </div>
 
         <nav className="flex flex-col gap-2" aria-label={t("treatmentsLabel")}>
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("treatmentsLabel")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("treatmentsLabel")}</p>
           {pillars(locale).map((p) => (
-            <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand">
+            <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand-700">
               {p.title}
             </Link>
           ))}
-          <Link to={pagePath("prices", locale)} className="text-sm text-brand-800 hover:text-brand">
+          <Link to={pagePath("prices", locale)} className="text-sm text-brand-800 hover:text-brand-700">
             {t("prices")}
           </Link>
         </nav>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
             <MapPin className="mt-0.5 size-4 shrink-0 text-action-ink" aria-hidden="true" />
             {formatAddress(location) ?? location.city}
@@ -49,7 +49,7 @@ export function Footer() {
           {hasEmail() ? (
             <a
               href={`mailto:${center.email}`}
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
             >
               <Mail className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {center.email}
@@ -58,7 +58,7 @@ export function Footer() {
           {hasPhone(location) ? (
             <a
               href={`tel:${location.phone!.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
             >
               <Phone className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {location.phone}
@@ -75,7 +75,7 @@ export function Footer() {
                   href={center.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
                 >
                   <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   Facebook
@@ -86,7 +86,7 @@ export function Footer() {
                   href={center.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
                 >
                   <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   LinkedIn
@@ -97,7 +97,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("openingHours")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("openingHours")}</p>
           <dl className="flex flex-col gap-1 text-sm">
             {(location.hours ?? []).map((h) => (
               <div key={h.days} className="flex justify-between gap-4">

@@ -308,6 +308,19 @@ describe("design tokens", () => {
     expect(hits).toBe("")
   })
 
+  it("never sets text colour to the display brand shade", () => {
+    // The two-shade rule again, this time at the call site rather than the
+    // token: brand and brand-600 are the same #0E8F8A (3.95:1) — a display
+    // colour, legal for large text, icons and other UI components, but
+    // below the 4.5:1 body text needs. brand-700 (5.54:1) is the text-safe
+    // sibling. Matched on "text-brand" so bg-/border-/ring-/outline-/fill-/
+    // stroke-/divide-brand — the non-text uses that only need 3:1 — are
+    // untouched, and on "(-600)?" so brand-700/800/900/950 (already AA) are
+    // never mistaken for a hit. Comment-aware, via liveHits, so a line that
+    // only explains the rule (as several call sites now do) cannot trip it.
+    expect(liveHits("\\btext-brand(-600)?([^A-Za-z0-9_-]|$)")).toEqual([])
+  })
+
   it("paints headings in the ramp's dark teal, not a brand colour", () => {
     // Magenta headings are the single line most responsible for the
     // client's "statt weiße Grundfarbe noch mal Farben gewählt".

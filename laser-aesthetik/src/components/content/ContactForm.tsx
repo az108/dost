@@ -241,7 +241,7 @@ export function ContactForm() {
           aria-describedby={describedBy("message", `${ids.message}-helper`)}
           className={cn(inputClass, errors.message && errorInputClass)}
         />
-        <p id={`${ids.message}-helper`} className="text-sm text-brand-600">
+        <p id={`${ids.message}-helper`} className="text-sm text-brand-700">
           {t("messageHelper")}
         </p>
         {errors.message ? (

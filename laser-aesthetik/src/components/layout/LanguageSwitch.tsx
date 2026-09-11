@@ -28,10 +28,10 @@ export function LanguageSwitch({ className }: { className?: string }) {
             aria-label={LABEL[loc]}
             className={cn(
               "rounded-md px-2 py-1 text-xs font-bold uppercase tracking-wider transition-colors",
-              // brand-900 (active) and brand-700 (hover), not brand: the label
-              // is 12px, so the pill needs an AA-safe dark teal rather than
-              // the display teal.
-              isActive ? "bg-brand-900 text-white" : "text-brand-600 hover:text-brand-700",
+              // brand-900 (active) and brand-700 (inactive), not brand: the
+              // label is 12px, so the pill needs an AA-safe dark teal rather
+              // than the display teal — on every state, not just active.
+              isActive ? "bg-brand-900 text-white" : "text-brand-700",
             )}
           >
             {loc}

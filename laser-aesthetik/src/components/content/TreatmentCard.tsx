@@ -69,7 +69,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
           {from !== null ? (
             <StatChip>
               {t("fromPricePrefix")} {formatEuro(from)}
-              <span className="text-xs font-normal text-brand-600">{t("perSessionInTenPack")}</span>
+              <span className="text-xs font-normal text-brand-700">{t("perSessionInTenPack")}</span>
             </StatChip>
           ) : (
             <StatChip>{t("priceOnRequest")}</StatChip>

@@ -79,7 +79,7 @@ export function Standorte({
                     </p>
 
                     {location.status === "planned" ? (
-                      <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">
+                      <p className="text-sm font-semibold uppercase tracking-wider text-brand-700">
                         {t("standortPlanned")}
                       </p>
                     ) : (

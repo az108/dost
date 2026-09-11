@@ -63,7 +63,7 @@ export default function Kontakt() {
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand"
+                className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand-700"
               >
                 {t("viewOnMap")}
                 <ExternalLink className="size-4" aria-hidden="true" />
@@ -72,7 +72,7 @@ export default function Kontakt() {
             {hasEmail() ? (
               <a
                 href={`mailto:${center.email}`}
-                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
+                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand-700"
               >
                 <Mail className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {center.email}
@@ -81,7 +81,7 @@ export default function Kontakt() {
             {hasPhone(location) ? (
               <a
                 href={`tel:${location.phone!.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
+                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand-700"
               >
                 <Phone className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {location.phone}

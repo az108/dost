@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react"
 export function Breadcrumbs({ trail }: { trail: { label: string; to?: string }[] }) {
   return (
     <nav aria-label="Brotkrumennavigation">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-brand-600">
+      <ol className="flex flex-wrap items-center gap-1 text-sm text-brand-700">
         {trail.map((crumb, i) => (
           <li key={crumb.label} className="flex items-center gap-1">
             {crumb.to ? (

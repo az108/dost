@@ -154,7 +154,7 @@ export default function TreatmentDetail() {
                 ) : (
                   <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
-                      <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                      <p className="text-xs font-bold uppercase tracking-widest text-brand-700">
                         {t("singleSession")}
                       </p>
                       <p className="font-display text-3xl font-extrabold text-brand-700">
@@ -166,22 +166,22 @@ export default function TreatmentDetail() {
                         key={tier.sessions}
                         className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6"
                       >
-                        <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">
                           {tier.sessions}
                           {t("packageTierSuffix")} <span className="text-action-ink">−{tier.discountPct} %</span>
                         </p>
                         <p className="font-display text-3xl font-extrabold text-brand-700">
                           {formatEuro(tier.perSession)}
-                          <span className="text-sm font-semibold text-brand-600">{t("perSession")}</span>
+                          <span className="text-sm font-semibold text-brand-700">{t("perSession")}</span>
                         </p>
-                        <p className="text-sm text-brand-600">
+                        <p className="text-sm text-brand-700">
                           {t("totalLabel")} {formatEuro(tier.total)}
                         </p>
                       </div>
                     ))}
                   </div>
                 )}
-                <p className="text-sm text-brand-600">{t("pricesIncludeVatNote")}</p>
+                <p className="text-sm text-brand-700">{t("pricesIncludeVatNote")}</p>
               </div>
 
               {faq.length ? (

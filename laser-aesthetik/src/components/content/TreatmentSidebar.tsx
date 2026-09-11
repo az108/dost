@@ -52,7 +52,7 @@ function TreatmentList({
             <Link
               to={treatmentPath(treatment.slug, locale)}
               state={{ preserveScroll: true }}
-              className="block rounded-lg px-3 py-2 text-brand-700 transition-colors hover:bg-brand-50 hover:text-brand"
+              className="block rounded-lg px-3 py-2 text-brand-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
             >
               {treatment.title}
             </Link>
@@ -82,7 +82,7 @@ export function TreatmentSidebar({
       <div className="flex flex-col gap-6">
         {named.map((group) => (
           <div key={group.name} className="flex flex-col gap-2">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-700">
               {group.name}
             </p>
             <TreatmentList items={group.items} currentSlug={currentSlug} locale={locale} />
