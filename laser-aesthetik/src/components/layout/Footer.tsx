@@ -15,9 +15,11 @@ export function Footer() {
   // White on every page, deliberately. It used to be bg-brand-50, which is
   // exactly a `tint` section, so it merged into whatever sat above it.
   //
-  // White only works because no page ends on a white section: pages either
-  // close with the CtaBanner's blue band or with a tint section. Legal pages
-  // and the 404 are tinted for that reason alone — see their `tone` props.
+  // Tinted sections are gone entirely now (slice 2's "die Grundfarbe soll
+  // weiß sein"), so every page — including legal pages and the 404, which
+  // used to fall back to a tinted final section for this — can end in a
+  // plain white Section. `border-t border-brand-100` below is what actually
+  // keeps the footer legible as a separate block from whatever precedes it.
   return (
     <footer className="border-t border-brand-100 bg-white py-14 text-brand-900">
       <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -27,38 +29,38 @@ export function Footer() {
         </div>
 
         <nav className="flex flex-col gap-2" aria-label={t("treatmentsLabel")}>
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("treatmentsLabel")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("treatmentsLabel")}</p>
           {pillars(locale).map((p) => (
-            <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand">
+            <Link key={p.path} to={pillarPath(p.id, locale)} className="text-sm text-brand-800 hover:text-brand-700">
               {p.title}
             </Link>
           ))}
-          <Link to={pagePath("prices", locale)} className="text-sm text-brand-800 hover:text-brand">
+          <Link to={pagePath("prices", locale)} className="text-sm text-brand-800 hover:text-brand-700">
             {t("prices")}
           </Link>
         </nav>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("contact")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("contact")}</p>
           <p className="flex items-start gap-2 text-sm text-brand-800">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+            <MapPin className="mt-0.5 size-4 shrink-0 text-action-ink" aria-hidden="true" />
             {formatAddress(location) ?? location.city}
           </p>
           {hasEmail() ? (
             <a
               href={`mailto:${center.email}`}
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
             >
-              <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              <Mail className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {center.email}
             </a>
           ) : null}
           {hasPhone(location) ? (
             <a
               href={`tel:${location.phone!.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+              className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
             >
-              <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              <Phone className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
               {location.phone}
             </a>
           ) : null}
@@ -73,9 +75,9 @@ export function Footer() {
                   href={center.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
                 >
-                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   Facebook
                 </a>
               ) : null}
@@ -84,9 +86,9 @@ export function Footer() {
                   href={center.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand"
+                  className="flex items-center gap-2 text-sm text-brand-800 hover:text-brand-700"
                 >
-                  <ExternalLink className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <ExternalLink className="size-4 shrink-0 text-action-ink" aria-hidden="true" />
                   LinkedIn
                 </a>
               ) : null}
@@ -95,7 +97,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">{t("openingHours")}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("openingHours")}</p>
           <dl className="flex flex-col gap-1 text-sm">
             {(location.hours ?? []).map((h) => (
               <div key={h.days} className="flex justify-between gap-4">

@@ -129,6 +129,16 @@ export const ui = {
     en: "A selection. You'll find every treatment and price in our full price list.",
   },
   viewFullPriceList: { de: "Zur vollständigen Preisliste", en: "View the full price list" },
+  /*
+   * Alt text for the home hero. Describes what is in the frame and nothing
+   * else — no treatment, no result, and no claim that this is the center,
+   * which it is not: the center does not exist to photograph yet and every
+   * picture on the site is a stock photograph (see CREDITS.md).
+   */
+  homeHeroImageAlt: {
+    de: "Frau mit geschlossenen Augen im warmen Tageslicht",
+    en: "Woman with her eyes closed in warm daylight",
+  },
 
   // ── Contact page ─────────────────────────────────────────────────────
   contactHeroLead: { de: "So erreichen", en: "Here's how to" },
@@ -136,6 +146,20 @@ export const ui = {
   contactHeroDescription: {
     de: "Termine und alles andere laufen über das Formular unten. Wir melden uns zügig zurück.",
     en: "Appointments and everything else run through the form below. We'll get back to you promptly.",
+  },
+  /*
+   * The frame this replaced was a domestic living room — a white sofa, a
+   * laptop on a black X-frame console, a magazine, a table lamp — and it sat
+   * over a stop brighter and visibly cooler than the other two heroes
+   * (L 0.65 against 0.40 and 0.49; R/B 1.13 against 1.32 and 1.30). The alt
+   * text called it a "Beratungsplatz", asserting a function the picture did
+   * not show, which is the one thing CREDITS.md says alt text must never do.
+   * Both halves below name only what is in the frame — and, as with every
+   * other image here, claim nothing about the center's own rooms.
+   */
+  contactHeroImageAlt: {
+    de: "Sitzecke mit Sofa, Olivenbäumen und rundem Tisch an einer raumhohen Fensterfront",
+    en: "A seating corner with a sofa, olive trees and a round table at a floor-to-ceiling window",
   },
   /*
    * Its own key rather than `practice`, which this call site used to borrow
@@ -240,11 +264,15 @@ export const ui = {
     de: "Bei uns planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
     en: "We deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
   },
-  // The gallery section's header and lead, and every alt text for the
-  // practice photography, are gone with the photographs themselves: each
-  // one was a real picture of the Kröning practice — including the shot
-  // pinned beside the Ablauf steps — and a separate Landshut center cannot
-  // show them.
+  // The gallery section's header and lead are gone with the photographs
+  // themselves: each one was a real picture of the Kröning practice — and a
+  // separate Landshut center cannot show them. The alt texts that went with
+  // them are not coming back either; the keys below describe stock
+  // photographs and say so by describing only what is in the frame.
+  praxisHeroImageAlt: {
+    de: "Hölzerner Empfangstresen neben einem Olivenbäumchen im Tageslicht",
+    en: "Wooden reception counter beside a small olive tree in daylight",
+  },
   praxisMetaDescription: {
     de: "Center in Landshut mit ärztlich geführten Laser-, Physio-, Kosmetik- und Ästhetikbehandlungen.",
     en: "Center in Landshut offering physician-led laser, physiotherapy, beauty and aesthetic treatments.",
@@ -259,6 +287,39 @@ export const ui = {
     en: "We are opening in Landshut. München and Stuttgart will follow.",
   },
   standortPlanned: { de: "in Planung", en: "planned" },
+  /*
+   * One alt text per city card. Each names the city, because that is the
+   * one thing the picture is there to say and a screen reader reaching the
+   * card has already heard the heading — "Dächer und ein Kirchturm" alone
+   * would be three cards that all sound the same.
+   *
+   * Deliberately descriptive rather than promotional: these are stock
+   * photographs of three German cities, not photographs of the center,
+   * which has no premises to show in any of them yet.
+   *
+   * The Landshut photograph was replaced once already. The first one was a
+   * street-level crop that carried a rival café's gold wordmark across the
+   * bottom-left, a motorsport sponsor banner at the right edge and a lit
+   * red traffic light — on the one card whose whole job is to say "this is
+   * our city". It also showed no Landshut landmark and no sky. Its
+   * replacement is CC0, not Unsplash (see CREDITS.md), and is cropped to
+   * exclude a billboard at the left and a charity's name lettered across a
+   * facade at the bottom. A cityscape always contains signage somewhere:
+   * whoever swaps this next should open the candidate at full size and read
+   * the shopfronts before judging the light.
+   */
+  standortLandshutImageAlt: {
+    de: "Blick von oben über die Ziegeldächer der Landshuter Altstadt zum Backsteinturm von St. Martin",
+    en: "A view from above across the tiled roofs of Landshut's old town to the brick tower of St. Martin's",
+  },
+  standortMuenchenImageAlt: {
+    de: "Der Münchner Marienplatz im Gegenlicht des frühen Morgens",
+    en: "Munich's Marienplatz backlit by the early morning sun",
+  },
+  standortStuttgartImageAlt: {
+    de: "Stuttgarter Dächer im Morgendunst",
+    en: "Stuttgart rooftops in the morning haze",
+  },
 
   // ── Prices page ──────────────────────────────────────────────────────
   pricesHeroLead: { de: "Preise, die", en: "Prices that" },
@@ -298,6 +359,16 @@ export const ui = {
   processEyebrow: { de: "Ablauf", en: "Process" },
   processTitle: { de: "So läuft Ihre", en: "How your" },
   processAccent: { de: "Behandlung ab", en: "treatment works" },
+  /*
+   * The photograph pinned beside the four steps. Its predecessor showed the
+   * doctor at work in his own practice and its alt text named him; both are
+   * gone. This one shows hands and no face, which is the point — the steps
+   * describe what happens to you, not who is famous for doing it.
+   */
+  processImageAlt: {
+    de: "Hände einer Therapeutin auf dem Rücken einer liegenden Person",
+    en: "A therapist's hands resting on the back of someone lying down",
+  },
   stepBookAppointmentBody: {
     de: "Über unser Kontaktformular, in unter einer Minute. Sie nennen uns Behandlung und Wunschzeitraum, wir bestätigen den Termin.",
     en: "Through our contact form, in under a minute. You tell us the treatment and when suits you, and we confirm the appointment.",

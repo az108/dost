@@ -5,7 +5,27 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
 import { Reveal } from "@/components/motion/Reveal"
 import { center, formatAddress } from "@/content/center"
-import { useT } from "@/content/ui"
+import { useT, type UiKey } from "@/content/ui"
+import landshutImg from "@/assets/center/standort-landshut.webp"
+import muenchenImg from "@/assets/center/standort-muenchen.webp"
+import stuttgartImg from "@/assets/center/standort-stuttgart.webp"
+
+/**
+ * One photograph per city, keyed by the city name in center.ts.
+ *
+ * A lookup rather than a field on `Location`, because it is not a fact
+ * about the location: these are stock photographs of three German cities
+ * (see CREDITS.md), and the center has no premises to photograph in any of
+ * them. A city added to center.ts without a picture here simply renders
+ * without one, which is the honest failure mode — the alternative, a
+ * required field, would push whoever adds the fourth city into reaching for
+ * any image at all.
+ */
+const CITY_PHOTO: Record<string, { src: string; alt: UiKey }> = {
+  Landshut: { src: landshutImg, alt: "standortLandshutImageAlt" },
+  München: { src: muenchenImg, alt: "standortMuenchenImageAlt" },
+  Stuttgart: { src: stuttgartImg, alt: "standortStuttgartImageAlt" },
+}
 
 /**
  * The three cities. Landshut carries an address and hours; München and
@@ -20,12 +40,11 @@ import { useT } from "@/content/ui"
  */
 export function Standorte({
   tone = "light",
-  overlap = false,
-}: { tone?: SectionTone; overlap?: boolean } = {}) {
+}: { tone?: SectionTone } = {}) {
   const t = useT()
 
   return (
-    <Section id="standorte" tone={tone} overlap={overlap}>
+    <Section id="standorte" tone={tone}>
       <Container className="flex flex-col gap-10">
         <SectionHeader
           eyebrow={t("standorteEyebrow")}
@@ -34,42 +53,61 @@ export function Standorte({
           lead={t("standorteLead")}
         />
         <div className="grid gap-6 lg:grid-cols-3">
-          {center.locations.map((location, i) => (
-            <Reveal key={location.city} delay={i * 0.08}>
-              <Card className="flex h-full flex-col gap-4 p-6">
-                <p className="flex items-center gap-2 font-display text-xl font-extrabold text-brand-900">
-                  <MapPin className="size-5 shrink-0 text-accent" aria-hidden="true" />
-                  {location.city}
-                </p>
+          {center.locations.map((location, i) => {
+            const photo = CITY_PHOTO[location.city]
+            return (
+              <Reveal key={location.city} delay={i * 0.08}>
+                {/* overflow-hidden and no padding on the Card itself: the
+                    photograph runs to the rounded edge, as on PillarCard,
+                    and the text keeps its own padded block below. */}
+                <Card className="flex h-full flex-col overflow-hidden">
+                  {photo ? (
+                    <img
+                      src={photo.src}
+                      alt={t(photo.alt)}
+                      width={1200}
+                      height={800}
+                      loading="lazy"
+                      className="aspect-[3/2] w-full object-cover"
+                    />
+                  ) : null}
 
-                {location.status === "planned" ? (
-                  <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">
-                    {t("standortPlanned")}
-                  </p>
-                ) : (
-                  <>
-                    {/* The city name already opens the card above, so a
-                        missing address is simply omitted here rather than
-                        repeating it — city twice in one card reads as a
-                        rendering bug, not as an honest "no address yet". */}
-                    {formatAddress(location) ? (
-                      <p className="text-sm leading-relaxed text-brand-800">
-                        {formatAddress(location)}
+                  <div className="flex flex-1 flex-col gap-4 p-6">
+                    <p className="flex items-center gap-2 font-display text-xl font-extrabold text-brand-900">
+                      <MapPin className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
+                      {location.city}
+                    </p>
+
+                    {location.status === "planned" ? (
+                      <p className="text-sm font-semibold uppercase tracking-wider text-brand-700">
+                        {t("standortPlanned")}
                       </p>
-                    ) : null}
-                    <dl className="flex flex-col gap-1 text-sm">
-                      {(location.hours ?? []).map((h) => (
-                        <div key={h.days} className="flex justify-between gap-4">
-                          <dt className="text-brand-700">{h.days}</dt>
-                          <dd className="font-medium text-brand-900">{h.time}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </>
-                )}
-              </Card>
-            </Reveal>
-          ))}
+                    ) : (
+                      <>
+                        {/* The city name already opens the card above, so a
+                            missing address is simply omitted here rather than
+                            repeating it — city twice in one card reads as a
+                            rendering bug, not as an honest "no address yet". */}
+                        {formatAddress(location) ? (
+                          <p className="text-sm leading-relaxed text-brand-800">
+                            {formatAddress(location)}
+                          </p>
+                        ) : null}
+                        <dl className="flex flex-col gap-1 text-sm">
+                          {(location.hours ?? []).map((h) => (
+                            <div key={h.days} className="flex justify-between gap-4">
+                              <dt className="text-brand-700">{h.days}</dt>
+                              <dd className="font-medium text-brand-900">{h.time}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </>
+                    )}
+                  </div>
+                </Card>
+              </Reveal>
+            )
+          })}
         </div>
       </Container>
     </Section>

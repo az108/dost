@@ -35,11 +35,21 @@ describe("ProcessSteps", () => {
     expect(active[0]).toHaveTextContent("Termin")
   })
 
-  // A third test asserted the alt text of the photograph this section used
-  // to pin beside the steps — the doctor holding the laser handpiece in his
-  // own practice. Both the photograph and the test went with the separation
-  // from Privatpraxis Dr. Dost. The import path named neither him nor his
-  // practice, so only that alt text gave the picture away; the grep guard in
-  // content.test.ts would never have caught it. Slice 2 sources a
-  // replacement the center can actually claim.
+  it("pins a photograph beside the steps and describes it without naming anyone", () => {
+    // This test existed before, asserting the alt text of the photograph
+    // this section used to pin: the doctor holding the laser handpiece in
+    // his own practice. Both went with the separation from Privatpraxis
+    // Dr. Dost — and the import path named neither him nor his practice, so
+    // that alt text was the only thing that gave the picture away. The grep
+    // guard in content.test.ts scans source lines and would never have
+    // caught it.
+    //
+    // Slice 2's replacement is a stock photograph of hands at work, so the
+    // guard comes back in the shape that would have caught the original: an
+    // alt text is present, and it names no person.
+    renderSteps()
+    const alt = screen.getByRole("img").getAttribute("alt") ?? ""
+    expect(alt.trim().length, "the pinned photograph has no alt text").toBeGreaterThan(0)
+    expect(alt, "the alt text names a person").not.toMatch(/Dr\.|Dost/)
+  })
 })

@@ -85,7 +85,9 @@ Changing one without the other produces a site with broken assets.
 
 Run `npm test`. Every failing test is a go-live blocker by design:
 
-- **`practice.test.ts` phone guard** — supply the real phone number.
+- **`center.test.ts` go-live guards** — the real brand name, the Landshut
+  address, a phone number, an own-domain email address and the center's own
+  booking profile. Five tests, one per missing fact.
 - **`deploy.test.ts` SITE_URL guard** — set the real domain in
   `src/content/seo.ts` and `public/robots.txt`.
 - **`PRÜFEN:` markers in `src/content/legal.ts`** — Impressum and
@@ -106,11 +108,17 @@ Run `npm test`. Every failing test is a go-live blocker by design:
   carries `pricing: { kind: "onRequest" }`; only Laser has fixed prices.
   The client must supply real prices (or confirm "on request" is
   intentional) before go-live.
-- **Practice imagery** — done. The Praxis gallery, both category and page
-  heroes and the bio panel all use real photographs of the practice and of
-  Dr. med. univ. Dost Mohammad (`src/assets/praxis/`), so the "Beispielbilder
-  aus vergleichbaren Praxen" disclaimer is gone. Unsplash stock now only
-  illustrates individual treatments, never the practice itself.
+- **The center's own photography** — outstanding, and it is not a
+  formality. **Every image on this site is a stock photograph**, including
+  the three page heroes and the three pillar cards; `src/assets/praxis/` was
+  deleted in slice 1 along with the practice's own pictures, which the center
+  had no right to show. No alt text and no caption claims that any of these
+  rooms or people belong to the center, and that wording is the only thing
+  keeping the pictures honest — so it must not be "improved" into a claim.
+  Once the center exists in Landshut, its own rooms and its own team belong
+  in those slots. `CREDITS.md` lists every file, its source and its licence,
+  and its "Noch offen" section lists two images that still carry a legible
+  third-party brand mark and are known-open.
 
 The site sets no cookies and loads no third-party resources, which is why it
 ships without a consent banner. Adding analytics, embedded maps or hosted
@@ -121,7 +129,7 @@ fonts changes that and requires a consent solution.
 Built and verified: routing, content, pricing, accessibility, build, Apache
 config. Outstanding before go-live, in priority order:
 
-1. **Phone number** — not published anywhere; `practice.test.ts` fails until
+1. **Phone number** — not published anywhere; `center.test.ts` fails until
    supplied.
 2. **Real domain** — done. `laserhaarentfernung-landshut.de`, **without**
    `www`, is set in `src/content/seo.ts`, `public/robots.txt`, the
@@ -146,9 +154,12 @@ config. Outstanding before go-live, in priority order:
    also covers three Laser treatments that carry the same
    `{ kind: "onRequest" }` pricing — Gefäßbehandlung, Pigmentflecken and
    Aknenarben — not only the Physio and Ästhetik pillars.
-5. **Stock photography** — the 29 *treatment* images are licensed Unsplash
-   stock. The practice itself and the doctor are shown only with the
-   practice's own photographs. Per-image sources are in `CREDITS.md`.
+5. **Stock photography** — *all* of it, not just the treatment images: the
+   heroes, the pillar cards, the location cards and the 29 treatment images
+   are licensed stock (Unsplash, Pexels, one CC0 file from Wikimedia
+   Commons). Nothing on the site is a photograph of the center. Per-image
+   sources and licences are in `CREDITS.md`, together with the two images
+   whose third-party brand marks are still open.
 6. **Contact form recipient and sender domain** — `public/contact.php` has
    `RECIPIENT` and `SENDER_DOMAIN` set to placeholders; `deploy.test.ts`
    fails until both are supplied. `SENDER_DOMAIN` must match the live

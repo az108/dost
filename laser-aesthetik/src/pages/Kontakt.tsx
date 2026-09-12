@@ -10,6 +10,7 @@ import { BookingButton } from "@/components/cta/BookingButton"
 import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
+import heroImage from "@/assets/center/hero-contact.webp"
 
 export default function Kontakt() {
   const t = useT()
@@ -42,14 +43,16 @@ export default function Kontakt() {
         lead={t("contactHeroLead")}
         accent={t("contactHeroAccent")}
         description={t("contactHeroDescription")}
+        image={heroImage}
+        imageAlt={t("contactHeroImageAlt")}
       />
 
-      <Section overlap flank="left" flankTone="blush">
+      <Section>
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <SectionHeader eyebrow={t("addressEyebrow")} title={t("addressTitle")} accent={t("addressAccent")} />
             <p className="flex items-start gap-3 text-lg text-brand-800">
-              <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
+              <MapPin className="mt-1 size-5 shrink-0 text-action-ink" aria-hidden="true" />
               {address ?? location.city}
             </p>
             {/* No street address yet means no useful map target — a link
@@ -60,7 +63,7 @@ export default function Kontakt() {
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand"
+                className="flex items-center gap-2 self-start font-semibold text-brand-800 hover:text-brand-700"
               >
                 {t("viewOnMap")}
                 <ExternalLink className="size-4" aria-hidden="true" />
@@ -69,18 +72,18 @@ export default function Kontakt() {
             {hasEmail() ? (
               <a
                 href={`mailto:${center.email}`}
-                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
+                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand-700"
               >
-                <Mail className="size-5 shrink-0 text-accent" aria-hidden="true" />
+                <Mail className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {center.email}
               </a>
             ) : null}
             {hasPhone(location) ? (
               <a
                 href={`tel:${location.phone!.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand"
+                className="flex items-center gap-3 text-lg text-brand-800 hover:text-brand-700"
               >
-                <Phone className="size-5 shrink-0 text-accent" aria-hidden="true" />
+                <Phone className="size-5 shrink-0 text-action-ink" aria-hidden="true" />
                 {location.phone}
               </a>
             ) : null}
@@ -109,7 +112,7 @@ export default function Kontakt() {
         </Container>
       </Section>
 
-      <Section tone="tint" overlap flank="right" flankTone="blue">
+      <Section>
         <Container>
           <div className="mx-auto flex max-w-2xl flex-col gap-8">
             <SectionHeader

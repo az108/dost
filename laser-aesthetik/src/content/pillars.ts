@@ -1,8 +1,8 @@
 import type { FaqItem, Locale, LocalizedPillarInfo, Pillar, PillarInfo } from "./types"
 import { resolvePillar } from "./localize"
-import laserImg from "@/assets/praxis/laser-geraet.webp"
-import physioImg from "@/assets/physio/schmerztherapie.webp"
-import aesthetikImg from "@/assets/aesthetik/aesthetische-medizin.webp"
+import laserImg from "@/assets/center/pillar-laser.webp"
+import physioImg from "@/assets/center/pillar-physio.webp"
+import aesthetikImg from "@/assets/center/pillar-kosmetik.webp"
 
 const PILLARS: LocalizedPillarInfo[] = [
   {
@@ -32,9 +32,19 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: laserImg,
+    /*
+     * The photograph this replaced was a real shot of the Kröning practice's
+     * own laser device, and its alt text said so — "Lasergerät der Praxis im
+     * Behandlungsraum". The grep guard in content.test.ts could not see it:
+     * the wording is "Praxis", not "Privatpraxis", and the import path named
+     * nobody. It shipped on /laser and /en/laser through all of slice 1.
+     *
+     * What is here now is a person, not a machine: skin in soft window
+     * light, which is what a laser appointment is actually about.
+     */
     imageAlt: {
-      de: "Lasergerät im Behandlungsraum",
-      en: "Laser device in the treatment room",
+      de: "Frau im Profil, die Hand am Hals, weiches Fensterlicht",
+      en: "Woman in profile, a hand at her neck, soft window light",
     },
     faq: {
       de: [
@@ -106,9 +116,22 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: physioImg,
+    /*
+     * Movement, not pain. Two photographs back this slot showed someone
+     * gripping a hurting thigh — an illustration of the complaint rather
+     * than of what this pillar does about it. The one after that showed
+     * seated meditation in a cluttered room: a yoga studio, not physio,
+     * and a stop darker than the two cards beside it on the home page.
+     *
+     * What is here now is the treatment itself — a guided movement in
+     * daylight — and it is graded to sit in the same key as pillar-laser
+     * and pillar-kosmetik, which is the only reason the row reads as one
+     * set. Changing this picture without re-checking those two against it
+     * will pull the row apart again.
+     */
     imageAlt: {
-      de: "Sportler greift sich an den schmerzenden Oberschenkel",
-      en: "Athlete gripping a painful thigh",
+      de: "Therapeutin bewegt das Bein einer liegenden Person in einem hellen Raum am Fenster",
+      en: "A therapist guiding the leg of someone lying down, in a bright room beside a window",
     },
     faq: {
       de: [
@@ -170,9 +193,21 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: aesthetikImg,
+    /*
+     * The photograph this replaced was the right subject with the wrong
+     * hands: at magnification the treating fingers carried long nails with
+     * dark-green tips and a red-and-white beaded bracelet. Beside copy that
+     * promises "ärztlich geprüfte Fachkräfte des Centers", jewellery and
+     * long painted nails on hands performing a treatment read as a
+     * competence signal, not merely as a colour clash — and no grep guard
+     * can see what is inside an image file.
+     *
+     * The replacement was chosen on the hands first: short, unpainted
+     * nails, no ring, no bracelet, no watch. Check that before the light.
+     */
     imageAlt: {
-      de: "Beratungsgespräch mit einer Patientin vor einer ästhetischen Behandlung",
-      en: "Consultation with a patient before an aesthetic treatment",
+      de: "Hände umfassen ein entspanntes Gesicht, die Augen geschlossen",
+      en: "Hands cradling a relaxed face, the eyes closed",
     },
     faq: {
       de: [

@@ -28,9 +28,15 @@ export function LanguageSwitch({ className }: { className?: string }) {
             aria-label={LABEL[loc]}
             className={cn(
               "rounded-md px-2 py-1 text-xs font-bold uppercase tracking-wider transition-colors",
-              // brand-ink, not brand: the label is 12px, so the pill needs the
-              // AA-safe blue behind white rather than the display blue.
-              isActive ? "bg-brand-ink text-white" : "text-brand-600 hover:text-brand-ink",
+              // brand-900 (active) and brand-700 (inactive), not brand: the
+              // label is 12px, so the pill needs an AA-safe dark teal rather
+              // than the display teal — on every state, not just active.
+              //
+              // The inactive hover darkens to brand-900 rather than lifting
+              // toward the display teal. Without it the `transition-colors`
+              // above animates nothing, and the only clickable half of this
+              // control gives no feedback at all.
+              isActive ? "bg-brand-900 text-white" : "text-brand-700 hover:text-brand-900",
             )}
           >
             {loc}

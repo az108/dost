@@ -39,9 +39,20 @@ const LASER: LocalizedTreatment[] = [
     slug: { de: "oberlippe", en: "upper-lip" },
     pillar: "laser",
     image: oberlippeImg,
+    // The old frame showed a *microneedling pen* — a red hexagon logo with the
+    // wordmarks "My M" and "Micro Needle Therapy" legible on the handpiece,
+    // held by a practitioner wearing two rings — on the page that advertises
+    // permanent laser hair reduction. Two defects in one picture: a named
+    // competitor's product mark implying a supplier relationship that does not
+    // exist, and a photograph of treatment B illustrating paid treatment A,
+    // which is misleading advertising under UWG §5 quite apart from the mark.
+    // The old alt text ("Kosmetisches Handgerät…") described the device
+    // truthfully and still could not be caught by grep, because nothing in it
+    // or in the import path said which device. The slot now shows the zone
+    // itself, with no device and nobody else in the picture.
     imageAlt: {
-      de: "Kosmetisches Handgerät wird nah am Gesicht angewendet",
-      en: "Cosmetic handheld device being used close to the face",
+      de: "Nahaufnahme eines Gesichts von der Nase bis zum Kinn in weichem, warmem Licht",
+      en: "Close-up of a face from the nose to the chin in soft, warm light",
     },
     title: { de: "Oberlippe", en: "Upper Lip" },
     headline: {
@@ -263,9 +274,18 @@ const LASER: LocalizedTreatment[] = [
     slug: { de: "arme-komplett", en: "full-arms" },
     pillar: "laser",
     image: armeKomplettImg,
+    // Same shoot, same defect as the Faltenbehandlung photo below, and
+    // worse: the practitioner's scrubs read "Erika David / Registered
+    // Nurse" legibly *and* her face was fully in frame — a named stranger's
+    // name, face and stated credential together, on a page advertising this
+    // treatment for a centre she has no connection to. The old frame also
+    // carried black nitrile gloves and a legible device wordmark. As with
+    // the file below, neither the alt text nor the import path named any of
+    // it, so no grep guard could have found it. The slot now shows the zone
+    // itself — skin, and room around it — with no device and nobody in it.
     imageAlt: {
-      de: "Laserbehandlung am Unterarm in einem Behandlungsstudio",
-      en: "Laser treatment on the forearm in a treatment studio",
+      de: "Ausgestreckter Unterarm mit offener Hand vor einer hellen, warm beleuchteten Wand",
+      en: "An outstretched forearm and open hand against a bright, warmly lit wall",
     },
     title: { de: "Arme komplett", en: "Full Arms" },
     headline: {
@@ -1131,9 +1151,19 @@ const AESTHETIK: LocalizedTreatment[] = [
     slug: { de: "faltenbehandlung", en: "wrinkle-treatment" },
     pillar: "aesthetik",
     image: faltenbehandlungImg,
+    // The photograph this replaced showed a syringe at a forehead — and,
+    // legible on the practitioner's scrubs, a named third party's
+    // professional identity ("Erika David / Registered Nurse"). A named
+    // stranger on a German medical marketing page implies an endorsement
+    // she never gave, and "Registered Nurse" contradicts the copy below,
+    // which says the centre's own ärztlich geprüfte Fachkräfte treat.
+    // Neither the alt text nor the import path said any of that, so no
+    // grep guard could have found it. The slot now shows the treatment's
+    // stated aim — "ein ausgeruhtes, nicht ein behandeltes Gesicht" —
+    // instead of its needle; the body copy carries the clinical detail.
     imageAlt: {
-      de: "Fachkraft setzt eine Injektion im Stirnbereich",
-      en: "Practitioner administering an injection to the forehead area",
+      de: "Frau in weißer Bluse steht im Tageslicht vor einem Spiegel und legt einen Ohrring an",
+      en: "Woman in a white blouse standing at a mirror in daylight, putting on an earring",
     },
     title: { de: "Faltenbehandlung", en: "Wrinkle Treatment" },
     headline: {

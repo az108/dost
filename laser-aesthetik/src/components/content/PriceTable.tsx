@@ -29,11 +29,9 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
           {/* The table is wider than a phone. It scrolls inside this wrapper
               so the page body never scrolls horizontally.
 
-              bg-white is load-bearing, not decoration. The pricing sections
-              carry a background flank, and a transparent table lets that
-              colour through its own rows: the header's tint reads as a
-              gradient across its width and the row rules vanish into the
-              wash. The table owns its surface. */}
+              bg-white is deliberate rather than redundant with the section
+              behind it: a data table should own its surface on principle,
+              not depend on what happens to be painted behind it. */}
           <div className="overflow-x-auto rounded-card border border-brand-100 bg-white">
             <table className="w-full min-w-[42rem] border-collapse text-left">
               <caption className="sr-only">
@@ -60,7 +58,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-700"
                     >
                       {d.sessions}
-                      {tr("packageColumnSuffix")} <span className="text-accent">−{d.discountPct} %</span>
+                      {tr("packageColumnSuffix")} <span className="text-action-ink">−{d.discountPct} %</span>
                     </th>
                   ))}
                   <th scope="col" className="px-4 py-3">
@@ -74,7 +72,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                   const single = treatment.pricing.kind === "fixed" ? treatment.pricing.single : 0
                   return (
                     <tr key={treatment.slug} className="border-t border-brand-200">
-                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand-ink">
+                      <th scope="row" className="px-4 py-4 font-display font-bold text-brand-700">
                         {treatment.title}
                       </th>
                       <td className="px-4 py-4 text-sm text-brand-700">
@@ -87,11 +85,11 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                         <td key={tier.sessions} className="px-4 py-4 text-brand-800">
                           <span className="font-semibold">
                             {formatEuro(tier.perSession)}
-                            <span className="text-xs font-normal text-brand-600">
+                            <span className="text-xs font-normal text-brand-700">
                               {tr("perSession")}
                             </span>
                           </span>
-                          <span className="block text-xs text-brand-600">
+                          <span className="block text-xs text-brand-700">
                             {tr("totalLabel")} {formatEuro(tier.total)}
                           </span>
                         </td>
@@ -99,7 +97,7 @@ export function PriceTable({ treatments }: { treatments: Treatment[] }) {
                       <td className="px-4 py-4">
                         <Link
                           to={treatmentPath(treatment.slug, locale)}
-                          className="font-semibold text-brand-ink hover:underline"
+                          className="font-semibold text-brand-700 hover:underline"
                         >
                           {tr("detailsLink")}
                         </Link>
