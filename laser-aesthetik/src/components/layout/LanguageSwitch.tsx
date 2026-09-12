@@ -31,7 +31,12 @@ export function LanguageSwitch({ className }: { className?: string }) {
               // brand-900 (active) and brand-700 (inactive), not brand: the
               // label is 12px, so the pill needs an AA-safe dark teal rather
               // than the display teal — on every state, not just active.
-              isActive ? "bg-brand-900 text-white" : "text-brand-700",
+              //
+              // The inactive hover darkens to brand-900 rather than lifting
+              // toward the display teal. Without it the `transition-colors`
+              // above animates nothing, and the only clickable half of this
+              // control gives no feedback at all.
+              isActive ? "bg-brand-900 text-white" : "text-brand-700 hover:text-brand-900",
             )}
           >
             {loc}

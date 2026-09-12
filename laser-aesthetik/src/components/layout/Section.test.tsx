@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { Container } from "./Container"
-import { Section } from "./Section"
+import { Section, tones } from "./Section"
 import { SectionHeader } from "./SectionHeader"
 
 describe("Container", () => {
@@ -23,6 +23,19 @@ describe("Section", () => {
     expect(white.firstChild).toHaveClass("bg-white")
     const { container: dark } = render(<Section tone="brand">x</Section>)
     expect(dark.firstChild).toHaveClass("bg-brand-900")
+  })
+
+  it("has no third tone, whatever it might be called", () => {
+    // The test above proves `light` and `brand` work. It does NOT prove
+    // nothing else exists — and the white-base grep guards only match the
+    // literal strings `tone="tint"` and `tone="wash"`, so an alternating
+    // tinted band reintroduced as `haze` or `soft` would ship silently.
+    // A reviewer demonstrated exactly that by adding one and watching all
+    // 533 tests stay green.
+    //
+    // This is the assertion that closes it. Adding a tone now requires
+    // editing this line, which is a decision rather than an accident.
+    expect(Object.keys(tones)).toEqual(["light", "brand"])
   })
 })
 

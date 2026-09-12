@@ -12,7 +12,15 @@ import { cn } from "@/lib/utils"
  * Bands are told apart by spacing and by their content now, not by
  * alternating background colours.
  */
-const tones = {
+/*
+ * Exported so Section.test.tsx can assert this map has EXACTLY these two
+ * keys. Asserting that `light` and `brand` render their classes is not the
+ * same fact: it leaves a third decorative tone free to be added under any
+ * other name, which the grep guards — scoped to the literal strings
+ * `tone="tint"` and `tone="wash"` — would not see either. That hole was
+ * deferred three times before being closed here.
+ */
+export const tones = {
   light: "bg-white text-brand-950",
   // The one dark surface on the site, for CtaBanner. White body copy on
   // brand-900 is 9.41:1.
