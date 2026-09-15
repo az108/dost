@@ -90,6 +90,8 @@ jobs:
           test -f dist/index.html   || { echo "::error::dist/index.html missing"; exit 1; }
           test -f dist/sitemap.xml  || { echo "::error::dist/sitemap.xml missing"; exit 1; }
           test -f dist/contact.php  || { echo "::error::dist/contact.php missing - contact form would 404"; exit 1; }
+          test -f dist/checkout.php || { echo "::error::dist/checkout.php missing - booking checkout would 404"; exit 1; }
+          test -f dist/booking.generated.php || { echo "::error::dist/booking.generated.php missing - checkout.php has no prices to read"; exit 1; }
           echo "Pre-rendered pages: $(find dist -name index.html | wc -l)"
 
       - name: Deploy via FTPS

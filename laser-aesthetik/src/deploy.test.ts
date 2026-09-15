@@ -156,6 +156,37 @@ describe("legal go-live guard", () => {
   })
 })
 
+describe("payment go-live guard", () => {
+  const php = () => readFileSync(resolve(__dirname, "../public/checkout.php"), "utf8")
+
+  it("trägt niemals einen Stripe-Secret-Key im Repository", () => {
+    // public/ wird unverändert nach dist/ kopiert und ins Web-Root geladen.
+    // Ein Key in dieser Datei ist ein veröffentlichter Key.
+    expect(php()).not.toMatch(/sk_(test|live)_/)
+  })
+
+  it("liest den Key von außerhalb des Web-Roots", () => {
+    expect(php()).toContain("__DIR__ . '/../stripe-config.php'")
+  })
+
+  it("nimmt unter keinem Schlüssel einen Betrag aus dem Request", () => {
+    // Die wichtigste Eigenschaft dieses Endpunkts.
+    const source = php()
+    expect(source).not.toMatch(/\$_POST\s*\[\s*['"]amount['"]\s*\]/)
+    expect(source).not.toMatch(/\$_POST\s*\[\s*['"]betrag['"]\s*\]/)
+    expect(source).not.toMatch(/\$_POST\s*\[\s*['"]price['"]\s*\]/)
+  })
+
+  // ── Go-live guard ────────────────────────────────────────────────────
+  // Die Rückkehr-URLs tragen die Live-Domain. Unausgefüllt schickt ein
+  // zahlender Kunde nach erfolgreicher Belastung auf einen Platzhalter.
+  // Zum Beheben: SUCCESS_URL und CANCEL_URL in public/checkout.php setzen,
+  // dann diesen Test löschen.
+  it("FAILS UNTIL the checkout return URLs are set", () => {
+    expect(php()).not.toContain("TODO_DOMAIN")
+  })
+})
+
 describe("contact form go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
   // contact.php has no recipient and no real sender domain until the

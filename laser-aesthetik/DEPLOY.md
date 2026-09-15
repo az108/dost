@@ -56,6 +56,42 @@ of `dist/`, not the folder itself. Ensure hidden files are visible so
 By FTP, mirror `dist/` into the web root and confirm `.htaccess` arrived —
 most FTP clients skip dotfiles by default.
 
+## Stripe
+
+`public/checkout.php` braucht einen Secret Key, der nie ins Repository darf —
+alles unter `public/` wird ins Web-Root geladen und ist weltweit lesbar.
+
+`/stripe-config.php` **eine Ebene oberhalb** des Document-Roots anlegen,
+also neben `laserhaarentfernung-landshut.de/`, nicht darin:
+
+    <?php return ["secret_key" => "sk_live_..."];
+
+`chmod 600`. Das FTP-Deployment fasst die Datei nie an, sie überlebt also
+jeden Upload.
+
+PayPal im Stripe-Dashboard unter Einstellungen → Zahlungsmethoden aktivieren.
+Das braucht keinen Code: Stripe Checkout bietet an, was das Konto für EUR
+freigeschaltet hat.
+
+### Den Live-Endpunkt testen
+
+`mail()` und ausgehendes cURL verhalten sich auf dem Host anders als lokal,
+das lässt sich also vor dem Deployment nicht prüfen. Nach dem ersten Upload,
+mit einem **Testmodus**-Key in `stripe-config.php`:
+
+1. `/termin` öffnen und eine Buchung starten.
+2. Mit `4242 4242 4242 4242` zahlen, beliebiges künftiges Ablaufdatum,
+   beliebige CVC.
+3. Prüfen, dass der Browser auf `/termin/erfolg` landet.
+4. Im Stripe-Dashboard prüfen, dass **Wunschdatum und Tageszeit** in den
+   Metadaten stehen — das ist der einzige Weg, auf dem der Termin euch
+   erreicht.
+5. Live-Key einsetzen.
+
+Gibt Schritt 1 `stripe_not_configured` zurück, liegt die Config-Datei falsch
+oder ist nicht lesbar. Kommt `stripe_unreachable`, ist ausgehendes HTTPS
+gesperrt und der ALL-INKL-Support muss es öffnen.
+
 ## After the first upload
 
 1. Force HTTPS and a single canonical host (with or without `www`) in the
