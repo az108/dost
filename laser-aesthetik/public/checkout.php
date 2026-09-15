@@ -29,11 +29,18 @@
 
 declare(strict_types=1);
 
-// Muss die Live-Domain sein. src/deploy.test.ts scheitert, solange hier
-// TODO_DOMAIN steht, ein zahlender Kunde kann also nicht auf einen
-// Platzhalter geleitet werden.
-define("SUCCESS_URL", "https://TODO_DOMAIN/termin/erfolg?session_id={CHECKOUT_SESSION_ID}");
-define("CANCEL_URL", "https://TODO_DOMAIN/termin/abbruch");
+// Die Live-Domain, wortgleich mit SITE_URL in src/content/seo.ts. Dieselbe
+// Domain steht in der Sitemap, in robots.txt, in der og:image-URL und in der
+// Kanonisierung in .htaccess — hier einen Platzhalter stehen zu lassen,
+// hielte die Frage nicht offen, es brächte diese Datei nur mit den anderen
+// vier in Widerspruch. Stripe akzeptiert jede syntaktisch gültige URL, ein
+// Platzhalter setzt den Kunden also NACH der Belastung auf einem Host ab,
+// den es nicht gibt.
+//
+// src/deploy.test.ts prüft beide Zeilen gegen SITE_URL, ein Domainwechsel
+// scheitert also an einer Stelle laut statt hier still zu bleiben.
+define("SUCCESS_URL", "https://laserhaarentfernung-landshut.de/termin/erfolg?session_id={CHECKOUT_SESSION_ID}");
+define("CANCEL_URL", "https://laserhaarentfernung-landshut.de/termin/abbruch");
 
 /** Wie weit im Voraus ein Wunschtermin liegen darf. */
 define("MAX_MONTHS_AHEAD", 6);
@@ -125,6 +132,13 @@ $payload = http_build_query([
     "mode" => "payment",
     "success_url" => SUCCESS_URL,
     "cancel_url" => CANCEL_URL,
+    // Stripe erhebt im payment-Modus ohnehin eine E-Mail-Adresse. Bestätigt
+    // wird ein Termin in einem Center aber per Telefon, und die Bestätigung
+    // ist der einzige Weg, auf dem aus dieser Zahlung ein Termin wird — ohne
+    // Nummer bleibt nur eine Mail an jemanden, der gerade Geld überwiesen hat
+    // und auf einen Rückruf wartet. "true" als String, weil http_build_query
+    // aus true sonst "1" macht; Stripe erwartet das Wort.
+    "phone_number_collection" => ["enabled" => "true"],
     "line_items" => [
         [
             "quantity" => 1,
@@ -152,6 +166,33 @@ $payload = http_build_query([
     ],
 ]);
 
+// ── Idempotenz ───────────────────────────────────────────────────────────
+// Kein Schutz gegen Doppelbelastung — bezahlt wird auf Stripes eigener Seite,
+// und dieser Aufruf legt nur eine Session an. Es geht um das Dashboard: das
+// ist die EINZIGE Stelle, an der der Betreiber eine Buchung samt Wunschtermin
+// sieht, und jeder abgebrochene Versuch, jedes zweite Klicken und jeder
+// Wiederholungsversuch nach einem Fehler legt dort sonst eine weitere
+// verwaiste Session an.
+//
+// Der Schlüssel MUSS pro Besucher verschieden sein. Wäre er nur aus SKU,
+// Datum und Tageszeit gebildet, bekäme der zweite Besucher mit derselben
+// Auswahl die Session des ersten zurück — und wenn der schon bezahlt hat,
+// eine abgeschlossene Session, die ihn unbelastet auf /termin/erfolg
+// weiterleitet. IP und User-Agent trennen die beiden.
+//
+// Das Zeitfenster (900 Sekunden) begrenzt, wie lange ein Schlüssel eine
+// spätere, echte zweite Buchung derselben Auswahl verdecken kann; Stripe hält
+// Idempotenz-Schlüssel sonst 24 Stunden. Zusammengefasst: ein Stolperdraht
+// gegen Wiederholungen innerhalb von Minuten, keine Zusicherung.
+$idempotencyKey = hash("sha256", implode("|", [
+    $sku,
+    $datum,
+    $tageszeit,
+    $_SERVER["REMOTE_ADDR"] ?? "",
+    $_SERVER["HTTP_USER_AGENT"] ?? "",
+    (string) intdiv(time(), 900),
+]));
+
 $ch = curl_init("https://api.stripe.com/v1/checkout/sessions");
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
@@ -163,6 +204,7 @@ curl_setopt_array($ch, [
         // Pinnt die API-Form, gegen die diese Datei geschrieben wurde, damit
         // ein Stripe-Release die Antwort nicht unter uns ändert.
         "Stripe-Version: 2024-06-20",
+        "Idempotency-Key: " . $idempotencyKey,
     ],
     CURLOPT_TIMEOUT => 20,
 ]);

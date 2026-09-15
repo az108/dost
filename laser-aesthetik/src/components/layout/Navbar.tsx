@@ -21,6 +21,16 @@ export function Navbar() {
   // verkaufen braucht AGB und eine Widerrufsbelehrung, die eine Anwältin
   // oder ein Anwalt geschrieben hat — siehe den legal go-live guard in
   // deploy.test.ts. Den Link setzen, wenn er grün wird.
+  //
+  // Dieser fehlende Link allein hält nichts zurück: dieselbe Entscheidung
+  // muss in der Sitemap stehen, sonst reicht public/sitemap.xml die Seite
+  // bei Google ein, die hier nicht verlinkt ist. Sie tut es nicht — siehe
+  // withheldFromSitemap in src/lib/seoForRoute.ts. Beide Stellen gehören
+  // zusammen entfernt.
+  //
+  // /agb und /widerruf fehlen hier aus einem anderen Grund: sie stehen im
+  // Footer, wo Rechtstexte hingehören, und in der Sitemap. Zurückgehalten
+  // wird nur die Kaufstrecke.
   const links = [
     ...pillars(locale).map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
     { to: pagePath("prices", locale), label: t("prices") },

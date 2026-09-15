@@ -30,6 +30,26 @@ export const ui = {
   packageColumnSuffix: { de: "er", en: "-pack" },
   packageTierSuffix: { de: "er-Paket", en: "-session package" },
   singleSession: { de: "Einzelsitzung", en: "Single session" },
+  /*
+   * TODO_UMSATZSTEUER — eine Behauptung der ganzen Seite, nicht einer Seite.
+   *
+   * Diese beiden Zeichenketten sagen "Alle Preise inkl. MwSt." und stehen
+   * zusammen auf 35 deutschen Seiten: pricesIncludeVatNote auf den 33
+   * Behandlungsseiten (TreatmentDetail.tsx) und in der Buchungsübersicht
+   * (Termin.tsx), packagePricesLead auf /preise. Mit den englischen
+   * Gegenstücken sind es 69.
+   *
+   * Ob das stimmt, ist ungeklärt: ob diese Leistungen nach § 4 Nr. 14 UStG
+   * steuerfrei sind, hängt daran, ob die ästhetischen Behandlungen ärztlich
+   * erbracht werden — dieselbe offene Frage, die im AGB-Gerüst unter "Preise
+   * und Umsatzsteuer" als PRÜFEN markiert ist. Sind sie steuerfrei, ist die
+   * Angabe auf allen 69 Seiten falsch und nicht nur auf der, auf der gezahlt
+   * wird.
+   *
+   * Der Guard in src/deploy.test.ts bleibt rot, solange dieser Marker hier
+   * steht. Er ist bewusst hier verankert und nicht in Termin.tsx: eine
+   * Aussage, die die ganze Seite trifft, darf nicht an einer Seite hängen.
+   */
   pricesIncludeVatNote: {
     de: "Alle Preise inkl. MwSt. Paketpreise gelten bei Vorauszahlung des Gesamtpakets.",
     en: "All prices include VAT. Package prices apply when the full package is paid upfront.",

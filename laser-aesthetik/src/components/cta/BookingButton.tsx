@@ -10,17 +10,31 @@ import { cn } from "@/lib/utils"
 import type { Locale } from "@/content/types"
 
 /**
- * True exactly when BookingButton renders nothing at `pathname`: the center
- * has no booking profile of its own yet, and this is the contact page the
- * button would otherwise fall back to (a link to the page already being
- * read). The one other caller of this — anything that wraps BookingButton in
- * its own chrome, such as StickyMobileCta's fixed bar or Hero's button row —
- * needs the same answer BookingButton gives itself, so it is computed once
- * here rather than re-derived, which is exactly how the two drifted apart
- * before: StickyMobileCta wrapped the button in visible chrome with no
- * emptiness check of its own.
+ * True exactly when BookingButton renders nothing at `pathname`. Every
+ * surface that wraps the button in its own chrome — StickyMobileCta's fixed
+ * bar, Hero's button row, the Navbar's top-right slot — has to get the same
+ * answer the button gives itself, so it is decided once here rather than
+ * re-derived per call site. Re-deriving is exactly how these drifted apart
+ * twice: first StickyMobileCta wrapped the button in visible chrome with no
+ * emptiness check of its own, then /termin suppressed the button through a
+ * local Hero prop while the Navbar and the sticky bar kept rendering it.
+ *
+ * Two reasons, and they are not the same kind of thing:
+ *
+ * 1. /termin and its two return pages ARE the booking path. A button reading
+ *    "Termin buchen" that leads to the contact form is both the one verb
+ *    this flow avoids and a way out of a checkout the visitor came to
+ *    complete — on /termin/erfolg, directly under the sentence saying the
+ *    appointment is not confirmed yet, it reads as an instruction to book
+ *    again, which costs a duplicate contact request or a second payment.
+ * 2. On the contact page the fallback destination is the page already being
+ *    read, immediately above the form it would send them to.
  */
 export function bookingButtonHidden(pathname: string, locale: Locale): boolean {
+  // /termin* IS the booking path. Not gated on hasBookingUrl: once a booking
+  // profile exists the button becomes an external target="_blank" link, which
+  // is a worse exit from a paid checkout, not a better one.
+  if (pathname === "/termin" || pathname.startsWith("/termin/")) return true
   return !hasBookingUrl(openLocation()) && pathname === pagePath("contact", locale)
 }
 
@@ -38,7 +52,8 @@ export function bookingButtonHidden(pathname: string, locale: Locale): boolean {
  * already reading, immediately above the form it would send them to, so the
  * button renders nothing there. This is a property of the fallback, not of
  * the component: once bookingUrl is real the destination is outbound again
- * and the button appears on every page including this one.
+ * and the button appears on that page too. On /termin* it does not — see
+ * bookingButtonHidden above for why that case does not depend on bookingUrl.
  */
 export function BookingButton({
   variant = "action",
@@ -66,6 +81,11 @@ export function BookingButton({
     </>
   )
 
+  // Before the hasBookingUrl branch, not after it: on /termin* the button is
+  // suppressed whatever the destination would have been. An external booking
+  // profile is the worse exit from a checkout, not the better one.
+  if (bookingButtonHidden(pathname, locale)) return null
+
   if (hasBookingUrl(location)) {
     return (
       <a
@@ -78,8 +98,6 @@ export function BookingButton({
       </a>
     )
   }
-
-  if (bookingButtonHidden(pathname, locale)) return null
 
   return (
     <Link to={pagePath("contact", locale)} className={classes}>

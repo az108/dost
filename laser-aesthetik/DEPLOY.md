@@ -41,9 +41,18 @@ The other optional **variable** is `ALLINKL_FTP_PROTOCOL` (default `ftps`;
 set to `ftp` only if the FTPS handshake fails).
 
 The workflow fails before uploading if `.htaccess`, `index.html`,
-`sitemap.xml` or `contact.php` is missing from `dist/`. It does **not** run
-`npm test`, because the go-live guards below fail by design and would block
-every deploy; re-enable the commented-out test step once they are resolved.
+`sitemap.xml`, `contact.php`, `checkout.php` or `booking.generated.php` is
+missing from `dist/`. The last two are the booking flow: without
+`checkout.php` the pay button 404s, and without `booking.generated.php`
+`checkout.php` has no prices to look up and every purchase returns
+`stripe_not_configured`-style failure instead of a Stripe page.
+
+**The deploy is gated on tests.** The workflow runs `npm run test:ci` before
+the build, so a real regression stops the upload. It runs `test:ci` and not
+`npm test` because the go-live guards below fail by design — `test:ci`
+excludes every test named `FAILS UNTIL …` by negative lookahead and nothing
+else. Once the guards are resolved and deleted, the two commands are the
+same and the step can be switched to `npm test`.
 
 ## Manual upload
 
@@ -119,16 +128,51 @@ Changing one without the other produces a site with broken assets.
 
 ## Before go-live
 
-Run `npm test`. Every failing test is a go-live blocker by design:
+Run `npm test`. Every failing test is a go-live blocker by design. There are
+**ten**, and `npm run test:golive` runs exactly those ten and nothing else:
 
 - **`center.test.ts` go-live guards** — the real brand name, the Landshut
   address, a phone number, an own-domain email address and the center's own
   booking profile. Five tests, one per missing fact.
-- **`deploy.test.ts` SITE_URL guard** — set the real domain in
-  `src/content/seo.ts` and `public/robots.txt`.
-- **`PRÜFEN:` markers in `src/content/legal.ts`** — Impressum and
-  Datenschutz are scaffolds. Both must be reviewed by a lawyer; §5 TMG and
-  DSGVO Art. 13 make their content legally consequential.
+- **`PRÜFEN:` markers in `src/content/legal.ts`** — all **four** legal
+  documents are scaffolds, not two. Impressum and Datenschutz are legally
+  consequential under §5 TMG and DSGVO Art. 13. **AGB and
+  Widerrufsbelehrung block the payment feature specifically**: selling
+  treatments online is a distance contract, and until a lawyer has written
+  both, `/termin` stays out of the navigation *and* out of the sitemap (see
+  the next item). One guard covers all four.
+- **`§ 356 Abs. 4 BGB` — a code obligation, not only a text.** The flow
+  takes full prepayment and allows a date as early as today. For a distance
+  service contract the 14-day withdrawal right survives full performance
+  unless the trader obtained *both* the consumer's express request to begin
+  before the period ends *and* her acknowledgement that full performance
+  ends the right. Without that, someone can be treated and then withdraw for
+  a full refund. Capturing it will almost certainly need **a second checkbox
+  in step 4 of `src/pages/Termin.tsx`** whose state is posted and recorded
+  in the Stripe metadata beside `wunschdatum` — the consent has to be
+  provable, and the Stripe dashboard is the only record there is. The
+  wording is the lawyer's; the checkbox and the metadata field are ours and
+  **are not built**. Do not sign this off as "the lawyer finished the
+  texts". See the comment above `widerruf` in `src/content/legal.ts`.
+- **`/termin` is withheld from `public/sitemap.xml`** while the legal guard
+  is red — `withheldFromSitemap` in `src/lib/seoForRoute.ts`. The route is
+  still built and prerendered (87 routes); it is simply not submitted to
+  search engines, because a nav link withheld for legal reasons means
+  nothing if Google is handed the same URL. **This condition must be removed
+  at go-live**, together with the nav link in
+  `src/components/layout/Navbar.tsx`: delete `withheldFromSitemap` from the
+  `/termin` entry, run `npm run sitemap`, and the count goes 84 → 85.
+  Deliberately *not* `noindex` — `/termin` is meant to be indexed once it is
+  released; `noindex` would be a permanent statement and would also emit a
+  robots meta tag into the shipped HTML.
+- **`deploy.test.ts` VAT guard** — the site asserts "Alle Preise inkl.
+  MwSt." on `/preise`, on all 33 treatment pages and (since this slice) in
+  the booking summary: 69 pages counting both languages. Whether that is
+  true is unsettled — if these services turn out to be exempt under § 4 Nr.
+  14 UStG, the line is wrong on **all** of them, not just on the booking
+  page, and it is also wrong on every Stripe receipt. Clarify the tax status,
+  confirm or correct the two strings in `src/content/ui.ts`, remove the
+  `TODO_UMSATZSTEUER` marker there, then delete the guard.
 - **`deploy.test.ts` contact form recipient guard** — `public/contact.php`
   has both `RECIPIENT` and `SENDER_DOMAIN` set to placeholders until the
   practice supplies real values. `RECIPIENT` must be a real mailbox.
@@ -163,28 +207,53 @@ fonts changes that and requires a consent solution.
 ## Handover status
 
 Built and verified: routing, content, pricing, accessibility, build, Apache
-config. Outstanding before go-live, in priority order:
+config, and the pre-payment booking flow (`/termin` → Stripe Checkout →
+`/termin/erfolg`). Outstanding before go-live, in priority order:
 
+0. **`stripe-config.php` on the server** — the one manual step no deploy can
+   perform and no test can catch, because the file deliberately lives
+   **outside** the repository and outside the web root. Without it every
+   single purchase fails with `stripe_not_configured`, and it fails the same
+   way whether the key is missing, wrong or unreadable. The FTP deploy never
+   touches the file, so it survives uploads — and so does its absence.
+   Create it as described under **Stripe** above, `chmod 600`, and run the
+   test-mode purchase in *Den Live-Endpunkt testen* before switching to the
+   live key. The Stripe dashboard is also the **only** record of a booking:
+   the Wunschtermin travels in the session metadata, and nothing else on the
+   server stores it.
 1. **Phone number** — not published anywhere; `center.test.ts` fails until
-   supplied.
+   supplied. Note this is the center's own number for the site; the
+   *customer's* number is collected by Stripe Checkout
+   (`phone_number_collection`), which is how the center reaches someone to
+   confirm the appointment they prepaid.
 2. **Real domain** — done. `laserhaarentfernung-landshut.de`, **without**
    `www`, is set in `src/content/seo.ts`, `public/robots.txt`, the
-   `og:image` URL and the generated sitemap. The apex was chosen because it
+   `og:image` URL, the generated sitemap and the two Stripe return URLs in
+   `public/checkout.php`. A source assertion in `deploy.test.ts` pins those
+   last two against `SITE_URL`, so a future domain change fails loudly in
+   one place instead of sending paying customers to a host that no longer
+   answers. The apex was chosen because it
    is the vhost KAS actually has configured, with the document root and the
    SSL certificate on it.
 
    `www` resolves to the same server, so it would otherwise serve a second
-   copy of all 74 pages. The `www` → apex and http → https redirects are
+   copy of all 87 pages. The `www` → apex and http → https redirects are
    handled in `public/.htaccess`, not in the hosting panel, so they are
    version-controlled and deploy with the site. Nothing to configure in KAS.
 
    (The similarly-named `laser-haarentfernung-landshut.de`, with the extra
    hyphen, has no DNS A record at all — its KAS entry is an orphaned config
    that no request can reach. Nothing to do there either.)
-3. **Legal review** — Impressum and Datenschutz are scaffolds carrying
-   `PRÜFEN:` markers for the responsible medical chamber and the hosting
-   provider. §5 TMG and DSGVO Art. 13 make this content legally
-   consequential; a lawyer must review both.
+3. **Legal review** — **four** documents, not two. Impressum and
+   Datenschutz are scaffolds carrying `PRÜFEN:` markers for the responsible
+   medical chamber and the hosting provider; §5 TMG and DSGVO Art. 13 make
+   this content legally consequential. AGB and Widerrufsbelehrung are
+   scaffolds too, and they gate the payment feature: `/termin` is withheld
+   from both the navigation and the sitemap until they are done, and the
+   Widerrufsbelehrung additionally carries a **code** obligation under
+   § 356 Abs. 4 BGB (a second checkbox in step 4, its state in the Stripe
+   metadata) that is not built. See **Before go-live** above for the full
+   statement — it is the item most likely to be closed prematurely.
 4. **Physio and Ästhetik prices** — currently "Preis auf Anfrage", the
    pricing field is wired, so supplying numbers is a data edit. Note this
    also covers three Laser treatments that carry the same

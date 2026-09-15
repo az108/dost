@@ -2,7 +2,8 @@ import { readFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
 import { buildSkuTable, buildHours, renderPhp } from "./generate-booking-php"
-import { treatments } from "../src/content/treatments"
+import { treatments, treatmentsByPillar } from "../src/content/treatments"
+import { packageTiers, skuFor } from "../src/content/pricing"
 import { center, openLocation } from "../src/content/center"
 
 const skus = buildSkuTable()
@@ -18,6 +19,30 @@ describe("SKU-Tabelle", () => {
       }
     }
     expect(Object.keys(skus).length).toBe(64)
+  })
+
+  it("kennt jede SKU, die der Flow überhaupt posten kann", () => {
+    // Die Bindung zwischen den beiden Hälften des Drahtformats. Der Generator
+    // legt die Schlüssel an, src/pages/Termin.tsx baut den geposteten Wert;
+    // seit beide skuFor() benutzen, ist die Endung eine Funktion statt zweier
+    // Zeichenketten — dieser Test prüft, dass auch die AUSWAHL beider Hälften
+    // deckungsgleich ist.
+    //
+    // Der Flow läuft über treatmentsByPillar("laser", "de"), der Generator
+    // über treatments("de"); die beiden stimmen heute nur überein, weil alle
+    // 16 Festpreis-Behandlungen LASER sind. Ohne diesen Test wäre die erste
+    // Festpreis-Behandlung in einer anderen Säule ein vollständiger
+    // Buchungsausfall: unknown_sku am Bezahlknopf, für jede Buchung, ohne
+    // eine Zeile, die die Ursache nennt.
+    const table = buildSkuTable()
+    const bookable = treatmentsByPillar("laser", "de").filter((t) => t.pricing.kind === "fixed")
+    expect(bookable.length).toBe(16)
+    for (const t of bookable) {
+      if (t.pricing.kind !== "fixed") continue
+      for (const n of [1, ...packageTiers(t.pricing).map((x) => x.sessions)]) {
+        expect(table, `${skuFor(t.slug, n)} fehlt in der Tabelle`).toHaveProperty(skuFor(t.slug, n))
+      }
+    }
   })
 
   it("nimmt keine onRequest-Behandlung auf", () => {

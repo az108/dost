@@ -68,13 +68,25 @@ jobs:
         run: npm ci
 
       # The suite is split by test name so real regressions can gate the
-      # deploy while the intentional reds do not. Nine tests named
-      # "FAILS UNTIL …" fail on purpose until the client supplies a fact
-      # (brand approval, address, email, phone, booking profile, legal
-      # review, contact-form recipient, medical claims, draft Kosmetik copy);
+      # deploy while the intentional reds do not. Ten tests named
+      # "FAILS UNTIL …" fail on purpose until the client (or a lawyer, or a
+      # tax adviser) supplies a fact:
+      #
+      #   1. brand approval            6. medical claims cleared
+      #   2. Landshut address          7. draft Kosmetik copy signed off
+      #   3. own-domain email          8. legal review of all four documents
+      #   4. phone number              9. VAT treatment of these services
+      #   5. own booking profile      10. contact-form recipient + sender
+      #
       # `test:ci` excludes them by negative lookahead, `npm test` still shows
       # them to a developer, and `npm run test:golive` runs only them as a
       # readiness check. Run before the build so a failure stops the deploy.
+      #
+      # Deleting a guard is how it is resolved — a guard whose fact has
+      # arrived and that still runs makes this list overstate the work. Two
+      # were removed this way in the booking slice (the real domain, the
+      # checkout return URLs); if the count above and DEPLOY.md disagree
+      # with `npm run test:golive`, the command is right.
       - name: Test
         run: npm run test:ci
 

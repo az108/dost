@@ -18,11 +18,18 @@ const sitemapPaths = (): string[] => {
  * the URLs search engines are told about cannot drift apart.
  *
  * The two lists are deliberately not the same length. Every route gets an
- * HTML file; only the indexable ones are submitted.
+ * HTML file; only the ones that are both indexable and released are
+ * submitted.
  */
+const submitted = () =>
+  allRoutes().filter((p) => {
+    const seo = seoForRoute(p)
+    return !seo.noindex && !seo.withheldFromSitemap
+  })
+
 describe("prerender route list", () => {
-  it("matches the sitemap once the noindex routes are removed", () => {
-    expect(allRoutes().filter((p) => !seoForRoute(p).noindex)).toEqual(sitemapPaths())
+  it("matches the sitemap once the noindex and withheld routes are removed", () => {
+    expect(submitted()).toEqual(sitemapPaths())
   })
 
   it("has exactly 87 routes: 14 German + 7 English static pages, 33 treatments in each language", () => {
@@ -39,5 +46,26 @@ describe("prerender route list", () => {
     for (const route of noindexRoutes) {
       expect(sitemapPaths(), `sitemap lists noindex route ${route}`).not.toContain(route)
     }
+  })
+
+  it("hält /termin zurück, ohne es auf noindex zu setzen", () => {
+    // Zwei verschiedene Gründe, zwei verschiedene Felder. /termin SOLL
+    // indexiert werden — nur nicht, solange der Rechts-Guard in
+    // src/deploy.test.ts rot ist und die Navigation denselben Link
+    // zurückhält. Es auf noindex zu setzen wäre die falsche Aussage: sie
+    // gälte dann auch nach der Freischaltung weiter, und die Seite trüge das
+    // robots-Meta im ausgelieferten HTML.
+    //
+    // Die Route bleibt in allRoutes(): das HTML muss gebaut werden, sonst
+    // gibt es die Seite gar nicht.
+    const withheld = allRoutes().filter((p) => seoForRoute(p).withheldFromSitemap)
+    expect(withheld).toEqual(["/termin"])
+    expect(allRoutes()).toContain("/termin")
+    expect(seoForRoute("/termin").noindex).toBeUndefined()
+    expect(sitemapPaths()).not.toContain("/termin")
+  })
+
+  it("reicht 84 URLs ein: 87 Routen minus die beiden noindex und /termin", () => {
+    expect(submitted()).toHaveLength(84)
   })
 })

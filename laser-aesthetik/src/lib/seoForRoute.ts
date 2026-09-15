@@ -26,6 +26,14 @@ export interface RouteSeo {
   ogImage: string
   /** Gibt <meta name="robots" content="noindex"> aus. Checkout-Rückkehrseiten. */
   noindex?: boolean
+  /**
+   * Die Seite wird gebaut und ausgeliefert, aber noch nicht bei Google
+   * eingereicht. Bewusst NICHT `noindex`: das hieße „diese Seite gehört in
+   * keinen Index", hier gilt „noch nicht". Die Seite trägt deshalb weiter
+   * ihr canonical und kein robots-Meta; sie steht nur nicht in
+   * public/sitemap.xml, und generate-sitemap.ts fragt genau dieses Feld ab.
+   */
+  withheldFromSitemap?: boolean
 }
 
 const PILLAR_IDS = ["laser", "physio", "aesthetik"] as const
@@ -43,11 +51,23 @@ const LEGAL_DOCS = { impressum, datenschutz, agb, widerruf } as const
  * Die beiden Rückkehrseiten tragen zusätzlich noindex — eine Seite, die nur
  * nach einer Stripe-Weiterleitung etwas aussagt, gehört in keinen Index, und
  * generate-sitemap.ts fragt genau dieses Feld ab, um sie nicht einzureichen.
+ *
+ * /termin trägt withheldFromSitemap, nicht noindex, und die beiden Gründe
+ * sind verschieden: Die Rückkehrseiten sollen nie in einen Index, /termin
+ * soll es — nur noch nicht. Solange der Rechts-Guard in src/deploy.test.ts
+ * rot ist, hält die Navigation den Link zurück, weil online verkaufen AGB
+ * und eine Widerrufsbelehrung braucht; eine Sitemap, die dieselbe Seite bei
+ * Google einreicht, hebt genau diese Entscheidung wieder auf. Zum Beheben:
+ * dieses Feld entfernen, wenn der Guard grün ist — siehe DEPLOY.md.
  */
 const TERMIN_SEO: Partial<
-  Record<string, { title: UiKey; description: UiKey; noindex?: true }>
+  Record<string, { title: UiKey; description: UiKey; noindex?: true; withheldFromSitemap?: true }>
 > = {
-  [terminPath("index")]: { title: "booking", description: "bookingMetaDescription" },
+  [terminPath("index")]: {
+    title: "booking",
+    description: "bookingMetaDescription",
+    withheldFromSitemap: true,
+  },
   [terminPath("erfolg")]: {
     title: "bookingSuccess",
     description: "bookingSuccessMetaDescription",
@@ -196,6 +216,7 @@ export function seoForRoute(pathname: string): RouteSeo {
       alternates: [],
       ogImage: DEFAULT_OG_IMAGE,
       ...(termin.noindex ? { noindex: true } : {}),
+      ...(termin.withheldFromSitemap ? { withheldFromSitemap: true } : {}),
     }
   }
 
@@ -215,7 +236,7 @@ export function seoForRoute(pathname: string): RouteSeo {
     }
   }
 
-  // Unmapped path (e.g. a 404) — never hit by the 74 sitemap routes, but
+  // Unmapped path (e.g. a 404) — never hit by the 84 sitemap routes, but
   // kept total so callers do not need a separate not-found branch.
   return {
     locale,

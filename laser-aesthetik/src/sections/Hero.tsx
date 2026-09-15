@@ -15,7 +15,6 @@ export function Hero({
   image,
   imageAlt,
   breadcrumbs,
-  showBookingButton = true,
   children,
 }: {
   eyebrow: string
@@ -27,21 +26,6 @@ export function Hero({
   /** Optional. Without it the hero keeps its original full-width text layout. */
   image?: string
   imageAlt?: string
-  /**
-   * False on a page that IS the booking path: /termin sells the appointment
-   * itself, and a hero button reading "Termin buchen" that leads out to the
-   * contact form is both the one verb that page avoids and a way out of a
-   * checkout the visitor came to complete. Worse once
-   * center.locations[0].bookingUrl is filled in — BookingButton then renders
-   * an external target="_blank" link, so a paid flow would grow an exit to a
-   * third-party booking site by configuration alone.
-   *
-   * Deliberately a prop here rather than another case in
-   * bookingButtonHidden(): that helper answers "does BookingButton render
-   * nothing anywhere on this path", which StickyMobileCta relies on too.
-   * This is one page declining one button.
-   */
-  showBookingButton?: boolean
   children?: ReactNode
 }) {
   const ref = useRef<HTMLElement>(null)
@@ -51,11 +35,16 @@ export function Hero({
   const y = useDrift(ref, 48, ["start start", "end start"])
   const { pathname } = useLocation()
   const locale = useLocale()
-  // On /kontakt, BookingButton renders nothing (see bookingButtonHidden) and
-  // no page passes children there either, which left an empty flex row and
-  // its gap-4 of dead space below the description. Render the row only when
-  // it will hold something.
-  const showButton = showBookingButton && !bookingButtonHidden(pathname, locale)
+  // On /kontakt and on /termin*, BookingButton renders nothing (see
+  // bookingButtonHidden) and no page passes children there either, which
+  // left an empty flex row and its gap-4 of dead space below the
+  // description. Render the row only when it will hold something.
+  //
+  // This asks the shared predicate rather than taking a per-page prop. The
+  // prop version suppressed the hero button on /termin and left the Navbar's
+  // and StickyMobileCta's copies of the same button untouched — a page-level
+  // decision made in one component cannot bind the other two.
+  const showButton = !bookingButtonHidden(pathname, locale)
   const showButtonRow = children != null || showButton
 
   return (

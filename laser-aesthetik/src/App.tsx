@@ -61,12 +61,25 @@ export function AppRoutes() {
           path={legalPath("widerruf")}
           element={<LegalPage document={widerruf} canonicalPath={legalPath("widerruf")} />}
         />
-        {/* Deutsch-only, wie die Rechtstexte — und bewusst NICHT in der
-            Navigation: /termin verkauft im Voraus, und das darf es erst,
-            wenn AGB und Widerrufsbelehrung anwaltlich fertig sind (siehe
-            den Rechts-Guard in src/deploy.test.ts). Die Route existiert
-            trotzdem, damit der Flow gebaut, getestet und angesehen werden
-            kann; verlinkt wird sie, wenn der Guard grün ist. */}
+        {/* Deutsch-only, wie die Rechtstexte — und bewusst noch nicht
+            veröffentlicht: /termin verkauft im Voraus, und das darf es erst,
+            wenn AGB und Widerrufsbelehrung anwaltlich fertig sind (siehe den
+            Rechts-Guard in src/deploy.test.ts).
+
+            Zurückgehalten wird das an zwei Stellen, und beide müssen es
+            sein: der Navigationslink in Navbar.tsx UND der Sitemap-Eintrag
+            (withheldFromSitemap in src/lib/seoForRoute.ts). Ein fehlender
+            Navigationslink hält niemanden auf, solange dieselbe URL bei
+            Google eingereicht ist.
+
+            Nicht zurückgehalten: /agb und /widerruf. Die stehen in der
+            Navigation, im Footer und in der Sitemap — eine verkaufende Seite
+            braucht sie, es gibt sie, und dass sie Gerüste sind, ist genau
+            das, wofür der rote Rechts-Guard da ist.
+
+            Die Route existiert die ganze Zeit, damit der Flow gebaut,
+            getestet, prerendert und angesehen werden kann; verlinkt und
+            eingereicht wird sie, wenn der Guard grün ist. */}
         <Route path={terminPath("index")} element={<Termin />} />
         <Route path={terminPath("erfolg")} element={<TerminErfolg />} />
         <Route path={terminPath("abbruch")} element={<TerminAbbruch />} />

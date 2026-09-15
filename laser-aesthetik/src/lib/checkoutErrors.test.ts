@@ -19,13 +19,23 @@ describe("errorText", () => {
     expect(errorText("stripe_unreachable", t)).toBe(ui.bookingErrorPaymentProvider.de)
     expect(errorText("method_not_allowed", t)).toBe(ui.bookingErrorGeneric.de)
     expect(errorText("http_error", t)).toBe(ui.bookingErrorGeneric.de)
+    expect(errorText("parse_error", t)).toBe(ui.bookingErrorGeneric.de)
   })
 
   it("nennt bei einem Ausfall des Zahlungsdienstleisters nicht die Leitung des Besuchers", () => {
     // Hinter stripe_error steht ein gesperrtes Konto, ein falscher Key oder
     // eine Stripe-Störung. "Bitte versuchen Sie es erneut" kann dann nie
     // gelingen — die Meldung muss den Weg zum Center anbieten.
-    for (const code of ["stripe_error", "stripe_unreachable", "http_error", "method_not_allowed"]) {
+    for (const code of [
+      "stripe_error",
+      "stripe_unreachable",
+      "http_error",
+      "method_not_allowed",
+      // parse_error gehört in dieselbe Familie: der Endpunkt hat geantwortet,
+      // nur nicht mit JSON. Ein PHP-Fatal heilt nicht dadurch, dass der
+      // Besucher seine Verbindung prüft.
+      "parse_error",
+    ]) {
       expect(errorText(code, t), code).not.toBe(ui.bookingErrorNetwork.de)
       expect(errorText(code, t), code).toMatch(/kontaktieren Sie uns direkt/)
     }

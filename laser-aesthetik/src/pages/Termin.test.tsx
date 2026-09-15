@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MemoryRouter } from "react-router-dom"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
@@ -61,12 +61,18 @@ describe("Termin-Flow", () => {
     expect(screen.queryByText(/Microneedling/)).not.toBeInTheDocument()
   })
 
-  it("bietet im Hero keinen Weg aus der Kaufstrecke heraus", async () => {
+  it("rendert im Hero keinen Knopf aus der Kaufstrecke heraus", async () => {
     // Der Hero rendert sonst BookingButton: ein großer Knopf "Termin
     // buchen", der zum Kontaktformular führt — auf der Seite, die die
     // Buchung selbst ist. Sobald center.locations[0].bookingUrl gesetzt
     // ist, würde daraus ein externer target="_blank"-Link aus einer
     // bezahlten Kaufstrecke heraus.
+    //
+    // Der Name sagt "im Hero" und nicht "auf der Seite", weil renderFlow()
+    // <Termin /> ohne <Layout> mountet: Navbar und StickyMobileCta liegen
+    // außerhalb dieses Baums und tragen denselben Knopf. Die Eigenschaft der
+    // ganzen Seite prüft src/sentinels.test.tsx über <AppRoutes />; hier
+    // stünde sie nur im Testnamen.
     renderFlow()
     expect(screen.queryByText(ui.bookAppointment.de)).not.toBeInTheDocument()
     expect(
@@ -117,6 +123,65 @@ describe("Termin-Flow", () => {
     // das erst gelesen wird, wenn das Geld schon weg ist.
     const button = screen.getByRole("button", { name: /kostenpflichtig buchen/i })
     expect(hinweis.compareDocumentPosition(button)).toBe(Node.DOCUMENT_POSITION_FOLLOWING)
+  })
+
+  it("öffnet AGB und Widerrufsbelehrung in einem neuen Tab", async () => {
+    // Der gesamte Zustand der Kaufstrecke liegt in useState auf <Termin />.
+    // Ein <Link> hängt die Komponente aus, und wer den Bedingungen folgt, die
+    // er gerade akzeptieren soll, kommt bei Schritt 1 ohne Auswahl wieder
+    // heraus — die Seite bestraft also genau das Verhalten, um das sie bittet.
+    renderFlow()
+    await fillFlow()
+    for (const name of [ui.legalTerms.de, ui.legalWithdrawalNotice.de]) {
+      const link = screen.getByRole("link", { name })
+      expect(link, name).toHaveAttribute("target", "_blank")
+      expect(link, name).toHaveAttribute("rel", "noopener noreferrer")
+    }
+    expect(screen.getByRole("link", { name: ui.legalTerms.de })).toHaveAttribute("href", "/agb")
+    expect(screen.getByRole("link", { name: ui.legalWithdrawalNotice.de })).toHaveAttribute(
+      "href",
+      "/widerruf",
+    )
+  })
+
+  it("nennt unter der Gesamtsumme, was die übrige Seite über die MwSt. sagt", async () => {
+    // § 1 PAngV. Bis hierher war /termin die einzige Seite ohne die Angabe —
+    // und die einzige, auf der wirklich gezahlt wird, während /preise und 33
+    // Behandlungsseiten sie für dieselben Preise tragen.
+    renderFlow()
+    await fillFlow()
+    expect(screen.getByText(ui.pricesIncludeVatNote.de)).toBeInTheDocument()
+  })
+
+  it("räumt eine Fehlermeldung weg, sobald der Besucher die Auswahl ändert", async () => {
+    // closed_that_day heißt "nimm einen anderen Tag". Blieb die Meldung
+    // stehen, während der Besucher genau das tat, stand unter der Übersicht
+    // ein Vorwurf gegen eine Auswahl, die es nicht mehr gab.
+    vi.mocked(fetch).mockResolvedValue({
+      ok: false,
+      json: async () => ({ ok: false, error: "closed_that_day" }),
+    } as Response)
+
+    renderFlow()
+    await fillFlow("2026-12-06")
+    await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
+    expect(await screen.findByRole("alert")).toBeInTheDocument()
+
+    // fireEvent.change und nicht userEvent.type: in ein <input type="date">,
+    // das schon einen Wert trägt, tippt userEvent nichts Neues hinein, und
+    // ein clear() davor würde Schritt 4 aushängen — die Meldung verschwände
+    // dann mit der Karte statt mit dem Fehler.
+    fireEvent.change(screen.getByLabelText(/Wunschtermin/), { target: { value: "2026-12-07" } })
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument()
+    // Schritt 4 steht noch: die Meldung ist weg, nicht die halbe Seite.
+    expect(screen.getByRole("button", { name: /kostenpflichtig buchen/i })).toBeInTheDocument()
+
+    // Und über die Tageszeit genauso — closed_that_day hängt am Datum,
+    // invalid_tageszeit an der Tageszeit, und beide stehen in derselben Zeile.
+    await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
+    expect(await screen.findByRole("alert")).toBeInTheDocument()
+    await userEvent.click(screen.getByRole("radio", { name: /abends/i }))
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument()
   })
 
   it("zeigt das Wunschdatum deutsch, nicht als ISO-String", async () => {
@@ -178,6 +243,46 @@ describe("Termin-Flow", () => {
     await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
 
     expect(await screen.findByRole("alert")).toHaveTextContent(ui.bookingErrorNetwork.de)
+  })
+
+  it("schiebt eine Antwort, die kein JSON ist, nicht der Leitung des Besuchers zu", async () => {
+    // Der häufigste erste Fehler im Echtbetrieb auf Shared Hosting: ein
+    // PHP-Fatal, eine Warning bei aktiviertem display_errors, die 500-Seite
+    // des Hosters. Die Antwort kam an, sie ist nur kein JSON — das ist ein
+    // Serverfehler, und "Bitte versuchen Sie es erneut" kann ihn nicht
+    // beheben.
+    vi.mocked(fetch).mockResolvedValue({
+      ok: false,
+      json: async () => {
+        throw new SyntaxError("Unexpected token '<'")
+      },
+    } as unknown as Response)
+
+    renderFlow()
+    await fillFlow()
+    await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
+
+    const alert = await screen.findByRole("alert")
+    expect(alert).toHaveTextContent(ui.bookingErrorGeneric.de)
+    expect(alert).not.toHaveTextContent(ui.bookingErrorNetwork.de)
+  })
+
+  it("übersteht den JSON-Literal null als Antwortkörper", async () => {
+    // `null` ist gültiges JSON. `"ok" in null` wirft einen TypeError, der
+    // vorher im gemeinsamen catch landete und ebenfalls als
+    // "Verbindung fehlgeschlagen" ankam.
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => null,
+    } as unknown as Response)
+
+    renderFlow()
+    await fillFlow()
+    await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
+
+    const alert = await screen.findByRole("alert")
+    expect(alert).toHaveTextContent(ui.bookingErrorGeneric.de)
+    expect(alert).not.toHaveTextContent(ui.bookingErrorNetwork.de)
   })
 
   it("schiebt einen Stripe-Ausfall nicht der Leitung des Besuchers zu", async () => {

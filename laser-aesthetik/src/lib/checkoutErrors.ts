@@ -30,6 +30,11 @@ const ERROR_KEYS: Record<Exclude<CheckoutError, "date_too_far">, UiKey> = {
   stripe_unreachable: "bookingErrorPaymentProvider",
   method_not_allowed: "bookingErrorGeneric",
   http_error: "bookingErrorGeneric",
+  // Der Endpunkt hat geantwortet, aber nicht mit JSON — PHP-Fatal, Warning
+  // bei display_errors, 500-Seite des Hosters. Dieselbe Begründung wie bei
+  // stripe_error: das ist ein Serverfehler und keine Leitungsstörung, und
+  // bookingErrorGeneric nennt bereits den Ausweg zum Center.
+  parse_error: "bookingErrorGeneric",
 }
 
 /**

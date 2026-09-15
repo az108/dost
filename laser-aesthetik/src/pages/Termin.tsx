@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react"
-import { Link } from "react-router-dom"
 import { treatmentsByPillar } from "@/content/treatments"
-import { packageTiers, formatEuro, priceFrom } from "@/content/pricing"
+import { packageTiers, formatEuro, priceFrom, skuFor } from "@/content/pricing"
 import type { Treatment } from "@/content/types"
 import { useT, type UiKey } from "@/content/ui"
 import { startCheckout } from "@/lib/checkout"
@@ -58,6 +57,15 @@ export default function Termin() {
   // Nur Festpreis: die onRequest-Behandlungen haben keinen Preis, und eine
   // Kaufstrecke anzubieten, die nicht abschließbar ist, ist schlechter als
   // sie wegzulassen.
+  //
+  // treatmentsByPillar("laser", …), während scripts/generate-booking-php.ts
+  // über treatments("de") geht. Die beiden Listen sind heute identisch, weil
+  // alle 16 Festpreis-Behandlungen LASER sind — das ist eine Tatsache über
+  // den Bestand, keine Zusicherung. Bekäme eine Ästhetik-Behandlung einen
+  // Festpreis, böte diese Seite sie nicht an, obwohl der Endpunkt sie
+  // verkaufen könnte. Der Bindungstest in generate-booking-php.test.ts hält
+  // die gefährlichere Richtung fest: keine SKU im Flow ohne Zeile in der
+  // Tabelle.
   const bookable = useMemo(
     () => treatmentsByPillar("laser", "de").filter((x) => x.pricing.kind === "fixed"),
     [],
@@ -75,10 +83,33 @@ export default function Termin() {
   const tiers = treatment && treatment.pricing.kind === "fixed" ? packageTiers(treatment.pricing) : []
   const single = treatment && treatment.pricing.kind === "fixed" ? treatment.pricing.single : 0
   const total = sessions === 1 ? single : (tiers.find((x) => x.sessions === sessions)?.total ?? 0)
-  const sku = treatment && sessions ? `${treatment.slug}-${sessions === 1 ? "single" : `${sessions}er`}` : null
+  // skuFor(), nicht hier zusammengesetzt: dieselbe Funktion legt die
+  // Schlüssel der Tabelle an, aus der public/checkout.php abrechnet. Von Hand
+  // gebaut war das ein Drahtformat in zwei Hälften, die nichts aneinander
+  // band. Siehe src/content/pricing.ts.
+  const sku = treatment && sessions ? skuFor(treatment.slug, sessions) : null
 
   const today = berlinDay(new Date())
   const maxDate = bookingWindowEnd(today)
+
+  /**
+   * Eine sichtbare Fehlermeldung verfällt, sobald der Besucher an dem dreht,
+   * was sie ihm vorwirft.
+   *
+   * setError(null) lief nur beim Start von buy(). Nach closed_that_day stand
+   * "An diesem Tag haben wir geschlossen" also unverändert unter der
+   * Übersicht, während der Besucher schon einen anderen Tag gewählt hatte —
+   * eine Meldung über eine Auswahl, die es nicht mehr gibt.
+   */
+  function pickDatum(value: string) {
+    setDatum(value)
+    setError(null)
+  }
+
+  function pickTageszeit(value: Tageszeit) {
+    setTageszeit(value)
+    setError(null)
+  }
 
   async function buy() {
     if (!sku || !tageszeit) return
@@ -102,10 +133,6 @@ export default function Termin() {
         lead={t("bookingHeroLead")}
         accent={t("bookingHeroAccent")}
         description={t("bookingHeroDescription")}
-        // Diese Seite IST die Buchung. Ein Hero-Knopf "Termin buchen", der
-        // zum Kontaktformular führt, trüge genau das Verb, das hier
-        // vermieden wird, und führte aus der Kaufstrecke heraus.
-        showBookingButton={false}
       />
 
       <Section>
@@ -201,7 +228,7 @@ export default function Termin() {
                   value={datum}
                   min={today}
                   max={maxDate}
-                  onChange={(e) => setDatum(e.target.value)}
+                  onChange={(e) => pickDatum(e.target.value)}
                   className="rounded-card border border-brand-200 px-4 py-3 text-brand-900"
                 />
               </label>
@@ -214,7 +241,7 @@ export default function Termin() {
                     type="button"
                     role="radio"
                     aria-checked={tageszeit === z}
-                    onClick={() => setTageszeit(z)}
+                    onClick={() => pickTageszeit(z)}
                     className={cn(
                       "rounded-pill border px-4 py-2 text-sm font-semibold transition-colors",
                       tageszeit === z
@@ -265,18 +292,27 @@ export default function Termin() {
                 </div>
                 <div className="flex justify-between gap-4 border-t border-brand-200 pt-2">
                   <dt className="text-brand-700">{t("bookingSummaryTotal")}</dt>
-                  {/*
-                   * TODO_UMSATZSTEUER: Unter dieser Summe fehlt die Angabe
-                   * nach § 1 PAngV, ob und in welcher Höhe Umsatzsteuer
-                   * enthalten ist. Ob die Leistungen nach § 4 Nr. 14 UStG
-                   * steuerfrei sind, hängt an einer offenen Frage an den
-                   * Kunden; eine Zeile zu erfinden wäre schlimmer als keine.
-                   * Der Guard in src/deploy.test.ts bleibt rot, solange dieser
-                   * Kommentar hier steht.
-                   */}
                   <dd className="text-lg font-bold text-brand-900">{formatEuro(total)}</dd>
                 </div>
               </dl>
+              {/*
+               * § 1 PAngV verlangt vor einem Verbrauchergeschäft die Angabe,
+               * ob und in welcher Höhe Umsatzsteuer enthalten ist.
+               *
+               * Genau dieselbe Zeichenkette wie auf den 33 Behandlungsseiten,
+               * und dieselbe Aussage wie ui.packagePricesLead auf /preise —
+               * für dieselben Preise. Hier stand vorher nichts, mit der
+               * Begründung, der Steuerstatus sei offen; damit war die Seite,
+               * auf der tatsächlich gezahlt wird, die einzige ohne Angabe,
+               * während 34 andere Seiten "inkl. MwSt." behaupteten. Beides
+               * ging nicht.
+               *
+               * Ob die Behauptung stimmt, ist weiter offen und weiter ein
+               * roter Guard — aber SEITENWEIT, nicht für diese Seite allein:
+               * siehe den Umsatzsteuer-Guard in src/deploy.test.ts und den
+               * Marker in src/content/ui.ts.
+               */}
+              <p className="text-xs text-brand-700">{t("pricesIncludeVatNote")}</p>
 
               {/* Die einzige der drei Stellen, die der Kunde sieht, BEVOR das
                   Geld weg ist. Steht deshalb über dem Button, nicht darunter. */}
@@ -300,15 +336,39 @@ export default function Termin() {
                 {pending ? t("bookingSubmitPending") : t("bookingSubmit")}
               </button>
 
+              {/*
+               * Ein neuer Tab, kein <Link>. Der gesamte Zustand dieser
+               * Kaufstrecke — Behandlung, Umfang, Datum, Tageszeit — liegt in
+               * useState auf dieser Komponente, und eine Navigation hängt sie
+               * aus: wer tut, was dieser Satz ihm sagt, und die Bedingungen
+               * liest, die er gleich akzeptiert, kam bei Schritt 1 ohne
+               * Auswahl und ohne Erklärung wieder heraus. Beide Ziele sind
+               * echte, prerenderte URLs, also target="_blank" — im deutschen
+               * Handel die übliche Form für genau diese zwei Links.
+               *
+               * rel="noopener noreferrer" gehört dazu, auch bei eigenen
+               * Zielen: ohne noopener behält das geöffnete Dokument
+               * window.opener auf diese Seite.
+               */}
               <p className="text-xs text-brand-700">
                 {t("bookingTermsPrefix")}{" "}
-                <Link to={legalPath("agb")} className="font-semibold underline">
+                <a
+                  href={legalPath("agb")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline"
+                >
                   {t("legalTerms")}
-                </Link>{" "}
+                </a>{" "}
                 {t("bookingTermsConjunction")}{" "}
-                <Link to={legalPath("widerruf")} className="font-semibold underline">
+                <a
+                  href={legalPath("widerruf")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline"
+                >
                   {t("legalWithdrawalNotice")}
-                </Link>
+                </a>
                 .
               </p>
             </Card>

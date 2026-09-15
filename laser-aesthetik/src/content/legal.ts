@@ -137,6 +137,29 @@ export const agb: LegalDocument = {
   ],
 }
 
+/**
+ * OFFEN, UND NICHT NUR ALS TEXT: § 356 Abs. 4 BGB.
+ *
+ * Die Kaufstrecke nimmt die volle Vorauszahlung und lässt als Wunschtermin
+ * auch den heutigen Tag zu. Bei einem Fernabsatzvertrag über eine
+ * Dienstleistung erlischt das vierzehntägige Widerrufsrecht bei vollständiger
+ * Erbringung NUR dann, wenn der Unternehmer zwei Dinge eingeholt hat: die
+ * ausdrückliche Aufforderung der Verbraucherin, vor Ablauf der Frist mit der
+ * Leistung zu beginnen, UND ihre Kenntnisnahme, dass sie das Widerrufsrecht
+ * mit vollständiger Erbringung verliert. Fehlt das, kann jemand behandelt
+ * werden und danach widerrufen — mit vollem Erstattungsanspruch.
+ *
+ * Das ist deshalb kein Absatz, der nachgereicht wird: die Lösung braucht
+ * aller Voraussicht nach eine ZWEITE CHECKBOX in Schritt 4 von
+ * src/pages/Termin.tsx, deren Zustand mitgepostet und neben `wunschdatum` in
+ * den Stripe-Metadaten festgehalten wird — die Zustimmung muss nachweisbar
+ * sein, und das Dashboard ist die einzige Aufzeichnung, die es gibt.
+ *
+ * Gebaut ist davon nichts, absichtlich: den Wortlaut der beiden Erklärungen
+ * muss die Anwältin oder der Anwalt liefern, und ihn zu erfinden wäre
+ * schlimmer als ihn zu fehlen. Wer diese Zeilen streicht, weil "die Texte
+ * fertig sind", übersieht die Code-Aufgabe dahinter. Siehe DEPLOY.md.
+ */
 export const widerruf: LegalDocument = {
   title: "Widerrufsbelehrung",
   intro: "Informationen zum Widerrufsrecht bei Fernabsatzverträgen.",

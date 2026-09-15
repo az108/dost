@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs"
 import { treatments } from "../src/content/treatments"
-import { packageTiers } from "../src/content/pricing"
+import { packageTiers, skuFor } from "../src/content/pricing"
 import { center, openLocation } from "../src/content/center"
 
 export interface SkuEntry {
@@ -33,12 +33,22 @@ const WEEKDAYS = [
 export function buildSkuTable(): SkuTable {
   const table: SkuTable = {}
 
+  // treatments("de"), während src/pages/Termin.tsx über
+  // treatmentsByPillar("laser", "de") geht. Die beiden Listen stimmen heute
+  // überein, weil alle 16 Festpreis-Behandlungen zufällig LASER sind — nicht,
+  // weil es so sein müsste. Bekäme eine Ästhetik-Behandlung einen Festpreis,
+  // stünde sie in dieser Tabelle und nicht im Flow: die Seite böte sie nicht
+  // an, der Endpunkt verkaufte sie aber. Die Gegenrichtung wäre schlimmer und
+  // ist der Grund für den Bindungstest in generate-booking-php.test.ts: ein
+  // Flow-Eintrag ohne Tabellenzeile ist unknown_sku am Bezahlknopf.
   for (const treatment of treatments("de")) {
     // onRequest hat keinen Preis. Physio, Kosmetik und Ästhetik bleiben
     // Anfrage.
     if (treatment.pricing.kind !== "fixed") continue
 
-    table[`${treatment.slug}-single`] = {
+    // skuFor(), nicht von Hand zusammengesetzt: dieselbe Funktion baut die
+    // SKU, die der Browser postet. Siehe src/content/pricing.ts.
+    table[skuFor(treatment.slug, 1)] = {
       amount: Math.round(treatment.pricing.single * 100),
       currency: "eur",
       name: `${treatment.title} — Einzelsitzung`,
@@ -46,7 +56,7 @@ export function buildSkuTable(): SkuTable {
     }
 
     for (const tier of packageTiers(treatment.pricing)) {
-      table[`${treatment.slug}-${tier.sessions}er`] = {
+      table[skuFor(treatment.slug, tier.sessions)] = {
         amount: Math.round(tier.total * 100),
         currency: "eur",
         name: `${treatment.title} — ${tier.sessions}er-Paket`,
