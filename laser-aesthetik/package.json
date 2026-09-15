@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run sitemap && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && vite-node scripts/prerender.ts",
+    "build": "npm run sitemap && npm run booking && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && vite-node scripts/prerender.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:ci": "vitest run -t '^(?!.*FAILS UNTIL)'",
     "test:golive": "vitest run -t 'FAILS UNTIL'",
-    "sitemap": "vite-node scripts/generate-sitemap.ts"
+    "sitemap": "vite-node scripts/generate-sitemap.ts",
+    "booking": "vite-node --script scripts/generate-booking-php.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.5",
