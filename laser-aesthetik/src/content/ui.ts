@@ -496,6 +496,124 @@ export const ui = {
   bookingStep4Title: { de: "Prüfen und", en: "Review and" },
   bookingStep4Accent: { de: "bezahlen", en: "pay" },
 
+  // ── Booking flow: body copy ──────────────────────────────────────────
+  /*
+   * Every sentence a customer reads inside the purchase path, including the
+   * one that matters most — bookingNoticeEmphasis, the sentence standing
+   * between a visitor and their money. These belong here and not inline in
+   * Termin.tsx precisely because they are the strings a copy reviewer must
+   * be able to find: ui.test.ts governs this file, and nothing governs a
+   * string buried in JSX.
+   */
+  bookingCheaperSuffix: { de: "günstiger", en: "cheaper" },
+  preferredDate: { de: "Wunschtermin", en: "Preferred date" },
+  timeOfDay: { de: "Tageszeit", en: "Time of day" },
+  /*
+   * Labels only. The values posted to checkout.php are the German literals
+   * in Termin.tsx's TAGESZEITEN — that list is a wire format the endpoint
+   * validates against, not copy, and translating it would make every
+   * English booking fail with invalid_tageszeit.
+   */
+  timeOfDayMorning: { de: "vormittags", en: "morning" },
+  timeOfDayAfternoon: { de: "nachmittags", en: "afternoon" },
+  timeOfDayEvening: { de: "abends", en: "evening" },
+  bookingFirstSessionNotePrefix: {
+    de: "Der Wunschtermin gilt für die",
+    en: "The date you choose applies to the",
+  },
+  bookingFirstSessionNoteEmphasis: { de: "erste", en: "first" },
+  bookingFirstSessionNoteSuffix: {
+    de: "Sitzung. Die weiteren stimmen wir gemeinsam mit Ihnen ab.",
+    en: "session. We arrange the remaining ones together with you.",
+  },
+  bookingSummaryTreatment: { de: "Behandlung", en: "Treatment" },
+  bookingSummaryScope: { de: "Umfang", en: "Scope" },
+  bookingSummaryTotal: { de: "Gesamt", en: "Total" },
+  /*
+   * The one sentence the customer sees BEFORE the money is gone, split so
+   * the contradiction itself carries the emphasis. Nothing here may be
+   * softened into a confirmation: the customer picked a date and already
+   * believes it holds.
+   */
+  bookingNoticePrefix: {
+    de: "Sie zahlen jetzt die Behandlung. Der Wunschtermin ist",
+    en: "You are paying for the treatment now. The date you asked for is",
+  },
+  bookingNoticeEmphasis: {
+    de: "noch kein bestätigter Termin",
+    en: "not a confirmed appointment yet",
+  },
+  bookingNoticeSuffix: {
+    de: "— wir melden uns nach Ihrer Zahlung, um ihn mit Ihnen zu bestätigen.",
+    en: "— we will come back to you after your payment to confirm it with you.",
+  },
+  bookingSubmit: { de: "Kostenpflichtig buchen", en: "Book and pay" },
+  bookingSubmitPending: { de: "Einen Moment…", en: "One moment…" },
+  bookingTermsPrefix: {
+    de: "Mit der Buchung akzeptieren Sie unsere",
+    en: "By booking you accept our",
+  },
+  bookingTermsConjunction: { de: "und die", en: "and the" },
+  legalWithdrawalNotice: {
+    de: "Widerrufsbelehrung",
+    en: "right of withdrawal notice",
+  },
+
+  // ── Booking flow: error messages ─────────────────────────────────────
+  /*
+   * The endpoint's error codes as sentences. "Fehler 502" tells a visitor
+   * nothing; "An diesem Tag haben wir geschlossen" tells them what to
+   * change.
+   *
+   * The three that are not the visitor's doing — the payment provider
+   * failing, the endpoint answering something we do not recognise, the
+   * payment not being configured — each offer the way out, because no
+   * amount of retrying will fix them. Blaming the visitor's connection for
+   * a restricted Stripe account leaves someone whose card was never charged
+   * pressing a button that cannot succeed.
+   */
+  bookingErrorClosedThatDay: {
+    de: "An diesem Tag haben wir geschlossen. Bitte wählen Sie einen anderen Termin.",
+    en: "We are closed that day. Please choose a different date.",
+  },
+  bookingErrorDateInPast: {
+    de: "Das Datum liegt in der Vergangenheit.",
+    en: "That date is in the past.",
+  },
+  bookingErrorDateTooFarPrefix: {
+    de: "Bitte wählen Sie einen Termin innerhalb der nächsten",
+    en: "Please choose a date within the next",
+  },
+  bookingErrorDateTooFarSuffix: { de: "Monate.", en: "months." },
+  bookingErrorInvalidDate: {
+    de: "Bitte prüfen Sie das Datum.",
+    en: "Please check the date.",
+  },
+  bookingErrorInvalidTimeOfDay: {
+    de: "Bitte wählen Sie eine Tageszeit.",
+    en: "Please choose a time of day.",
+  },
+  bookingErrorUnknownSku: {
+    de: "Diese Behandlung ist gerade nicht buchbar.",
+    en: "This treatment cannot be booked at the moment.",
+  },
+  bookingErrorNotConfigured: {
+    de: "Die Zahlung ist noch nicht eingerichtet. Bitte kontaktieren Sie uns direkt.",
+    en: "Payment is not set up yet. Please contact us directly.",
+  },
+  bookingErrorNetwork: {
+    de: "Verbindung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    en: "The connection failed. Please try again.",
+  },
+  bookingErrorPaymentProvider: {
+    de: "Unser Zahlungsdienstleister hat die Zahlung nicht angenommen. Es wurde nichts belastet. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+    en: "Our payment provider did not accept the payment. Nothing has been charged. Please try again later or contact us directly.",
+  },
+  bookingErrorGeneric: {
+    de: "Die Zahlung konnte nicht gestartet werden. Es wurde nichts belastet. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+    en: "The payment could not be started. Nothing has been charged. Please try again later or contact us directly.",
+  },
+
   // ── Booking return pages ─────────────────────────────────────────────
   /*
    * Both titles name what actually happened — a payment — and never an
@@ -509,6 +627,17 @@ export const ui = {
   },
   bookingSuccessTitle: { de: "Zahlung", en: "Payment" },
   bookingSuccessAccent: { de: "eingegangen", en: "received" },
+  /*
+   * Deliberately does NOT say an appointment is booked. The customer clicked
+   * a date and therefore believes it holds — that is exactly the belief this
+   * paragraph exists to contradict, and it is the last of the three places
+   * that contradict it (the other two are the notice above the pay button
+   * and the Stripe receipt line in public/checkout.php).
+   */
+  bookingSuccessBody: {
+    de: "Ihre Zahlung ist bei uns eingegangen. Ihren Wunschtermin haben wir notiert und melden uns in Kürze, um ihn zu bestätigen. Ein bestätigter Termin liegt erst vor, wenn Sie diese Rückmeldung von uns erhalten haben.",
+    en: "Your payment has reached us. We have noted the date you asked for and will be in touch shortly to confirm it. You have a confirmed appointment only once you have received that reply from us.",
+  },
   bookingReference: { de: "Ihre Zahlungsreferenz", en: "Your payment reference" },
   bookingCancelled: { de: "Zahlung abgebrochen", en: "Payment cancelled" },
   bookingCancelledMetaDescription: {
@@ -517,6 +646,20 @@ export const ui = {
   },
   bookingCancelledTitle: { de: "Zahlung", en: "Payment" },
   bookingCancelledAccent: { de: "abgebrochen", en: "cancelled" },
+  /*
+   * A visitor arriving here has just backed out at Stripe and does not know
+   * the one thing they most want to know: whether they have already paid.
+   * That answer goes in the first sentence, and it carries the emphasis.
+   */
+  bookingCancelledBodyPrefix: {
+    de: "Die Zahlung wurde abgebrochen. Es wurde",
+    en: "The payment was cancelled. Nothing has been",
+  },
+  bookingCancelledBodyEmphasis: { de: "nichts belastet", en: "charged" },
+  bookingCancelledBodySuffix: {
+    de: "und keine Buchung angelegt. Ihr Wunschtermin ist damit hinfällig — wenn Sie es noch einmal versuchen möchten, wählen Sie Behandlung und Termin einfach neu.",
+    en: "and no booking was created. The date you asked for has lapsed with it — if you would like to try again, simply choose a treatment and a date once more.",
+  },
   bookingRestart: { de: "Zurück zur Terminbuchung", en: "Back to appointment booking" },
   backToHome: { de: "Zurück zur Startseite", en: "Back to the homepage" },
 } as const satisfies Record<string, Localized>

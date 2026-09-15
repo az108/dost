@@ -1,7 +1,7 @@
 import { Link, useSearchParams } from "react-router-dom"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
-import { homePath } from "@/lib/routes"
+import { homePath, terminPath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
@@ -16,7 +16,7 @@ export default function TerminErfolg() {
   useSeo({
     title: t("bookingSuccess"),
     description: t("bookingSuccessMetaDescription"),
-    canonicalPath: "/termin/erfolg",
+    canonicalPath: terminPath("erfolg"),
     noindex: true,
   })
 
@@ -28,15 +28,14 @@ export default function TerminErfolg() {
             eyebrow={t("booking")}
             title={t("bookingSuccessTitle")}
             accent={t("bookingSuccessAccent")}
+            // Die einzige Überschrift der Seite — ohne level={1} hätte sie
+            // gar keine h1.
+            level={1}
           />
           {/* Sagt bewusst NICHT, dass ein Termin gebucht ist. Der Kunde hat
               ein Datum angeklickt und glaubt deshalb, es gelte — das ist
               genau der Irrtum, dem hier widersprochen werden muss. */}
-          <p className="text-lg leading-relaxed text-brand-800">
-            Ihre Zahlung ist bei uns eingegangen. Ihren Wunschtermin haben wir notiert und
-            melden uns in Kürze, um ihn zu bestätigen. Ein bestätigter Termin liegt erst
-            vor, wenn Sie diese Rückmeldung von uns erhalten haben.
-          </p>
+          <p className="text-lg leading-relaxed text-brand-800">{t("bookingSuccessBody")}</p>
           {sessionId ? (
             <p className="text-sm text-brand-700">
               {t("bookingReference")}: <span className="font-mono">{sessionId}</span>

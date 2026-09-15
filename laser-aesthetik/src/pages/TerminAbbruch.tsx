@@ -12,7 +12,7 @@ export default function TerminAbbruch() {
   useSeo({
     title: t("bookingCancelled"),
     description: t("bookingCancelledMetaDescription"),
-    canonicalPath: "/termin/abbruch",
+    canonicalPath: terminPath("abbruch"),
     noindex: true,
   })
 
@@ -24,6 +24,7 @@ export default function TerminAbbruch() {
             eyebrow={t("booking")}
             title={t("bookingCancelledTitle")}
             accent={t("bookingCancelledAccent")}
+            level={1}
           />
           {/* Der Besucher kommt hier an, nachdem er bei Stripe abgebrochen
               hat, und weiß in diesem Moment vor allem eines nicht: ob er
@@ -31,9 +32,9 @@ export default function TerminAbbruch() {
               Termin gebucht wurde, gilt hier ohnehin — es wurde ja nicht
               einmal gezahlt. */}
           <p className="text-lg leading-relaxed text-brand-800">
-            Die Zahlung wurde abgebrochen. Es wurde <strong>nichts belastet</strong> und
-            keine Buchung angelegt. Ihr Wunschtermin ist damit hinfällig — wenn Sie es
-            noch einmal versuchen möchten, wählen Sie Behandlung und Termin einfach neu.
+            {t("bookingCancelledBodyPrefix")}{" "}
+            <strong>{t("bookingCancelledBodyEmphasis")}</strong>{" "}
+            {t("bookingCancelledBodySuffix")}
           </p>
           <Link to={terminPath("index")} className="font-semibold text-brand-700 underline">
             {t("bookingRestart")}

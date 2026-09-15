@@ -197,6 +197,28 @@ describe("payment go-live guard", () => {
   it("FAILS UNTIL the checkout return URLs are set", () => {
     expect(php()).not.toContain("TODO_DOMAIN")
   })
+
+  // ── Go-live guard ────────────────────────────────────────────────────
+  // Die Buchungsübersicht zeigt eine Gesamtsumme ohne Umsatzsteuerangabe.
+  // § 1 PAngV verlangt vor einem Verbrauchergeschäft die Angabe, ob und in
+  // welcher Höhe Umsatzsteuer enthalten ist — die Preisseite trägt sie
+  // (ui.pricesIncludeVatNote), die Seite, auf der tatsächlich gezahlt wird,
+  // trägt sie nicht.
+  //
+  // Sie lässt sich nicht einfach abschreiben: ob diese Leistungen nach
+  // § 4 Nr. 14 UStG steuerfrei sind, hängt daran, ob die ästhetischen
+  // Behandlungen ärztlich erbracht werden — eine offene Frage an den Kunden,
+  // dieselbe, die auch im Widerrufs-Gerüst als PRÜFEN markiert ist. Eine
+  // Zeile zu erfinden wäre schlimmer als keine: "inkl. MwSt." unter einer
+  // steuerfreien Leistung ist eine falsche Angabe auf einem Beleg.
+  //
+  // Zum Beheben: den Umsatzsteuerstatus klären, den zutreffenden Hinweis
+  // unter die Gesamtsumme in src/pages/Termin.tsx setzen, den dortigen
+  // TODO_UMSATZSTEUER-Kommentar entfernen, dann diesen Test löschen.
+  it("FAILS UNTIL the VAT status on the booking summary is settled", () => {
+    const termin = readFileSync(resolve(__dirname, "pages/Termin.tsx"), "utf8")
+    expect(termin).not.toContain("TODO_UMSATZSTEUER")
+  })
 })
 
 describe("contact form go-live guard", () => {

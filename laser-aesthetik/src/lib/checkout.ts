@@ -1,6 +1,31 @@
+/**
+ * Every failure the caller can be handed. Ten come from public/checkout.php
+ * — keep this list in step with the respond() calls there — and the last two
+ * are synthesised below when the response never became a usable answer.
+ *
+ * A union rather than `string` so that a code without a message is a compile
+ * error in Termin.tsx's ERROR_KEYS map. As a plain string, three codes
+ * (stripe_error, stripe_unreachable, http_error) silently fell through to
+ * the "check your connection" text and told customers their own network had
+ * failed when it was the payment provider that had.
+ */
+export type CheckoutError =
+  | "method_not_allowed"
+  | "stripe_not_configured"
+  | "unknown_sku"
+  | "invalid_date"
+  | "date_in_past"
+  | "date_too_far"
+  | "closed_that_day"
+  | "invalid_tageszeit"
+  | "stripe_unreachable"
+  | "stripe_error"
+  | "http_error"
+  | "network_error"
+
 export type CheckoutResult =
   | { ok: true; url: string }
-  | { ok: false; error: string }
+  | { ok: false; error: CheckoutError }
 
 /**
  * Bittet den Server, eine Stripe-Checkout-Session anzulegen.

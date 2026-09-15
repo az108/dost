@@ -6,6 +6,7 @@ export function SectionHeader({
   accent,
   lead,
   align = "left",
+  level = 2,
   className,
 }: {
   eyebrow?: string
@@ -13,8 +14,16 @@ export function SectionHeader({
   accent?: string
   lead?: string
   align?: "left" | "center"
+  /**
+   * 1 on a page whose only heading this is — the two checkout return pages,
+   * which have no hero above them. A page that starts at h2 has no h1 at
+   * all, and the first thing a screen-reader user hears after paying should
+   * be the page's own title.
+   */
+  level?: 1 | 2
   className?: string
 }) {
+  const Heading = level === 1 ? "h1" : "h2"
   return (
     <div
       className={cn(
@@ -46,9 +55,9 @@ export function SectionHeader({
         else can perceive. `accent` stays in the API as the second half of the
         phrase, which is how every caller already writes it.
       */}
-      <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">
+      <Heading className="text-3xl leading-tight sm:text-4xl lg:text-5xl">
         {accent ? `${title} ${accent}` : title}
-      </h2>
+      </Heading>
       {lead ? (
         <p className="max-w-2xl text-lg leading-relaxed text-brand-700">{lead}</p>
       ) : null}
