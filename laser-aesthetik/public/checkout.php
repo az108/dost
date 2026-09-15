@@ -71,7 +71,11 @@ $prices = $booking["skus"];
 $hours = $booking["hours"];
 
 // ── SKU ──────────────────────────────────────────────────────────────────
-$sku = trim((string) ($_POST["sku"] ?? ""));
+// Kein (string)-Cast auf $_POST-Werte: ein Aufrufer, der sku[]=x schickt,
+// macht daraus ein Array, und (string) $array wirft eine PHP-Warning, die
+// bei aktiviertem display_errors vor die JSON-Antwort gedruckt würde.
+$rawSku = $_POST["sku"] ?? "";
+$sku = is_string($rawSku) ? trim($rawSku) : "";
 if ($sku === "" || !isset($prices[$sku])) {
     respond(422, ["ok" => false, "error" => "unknown_sku"]);
 }
@@ -81,7 +85,8 @@ $entry = $prices[$sku];
 // Der Client prüft das auch, aber das zählt nicht: ohne diese Prüfung
 // postet jemand einen Sonntag, den 3. Januar 1999 oder einen Termin in vier
 // Jahren, und es landet ungeprüft in den Stripe-Metadaten.
-$datum = trim((string) ($_POST["datum"] ?? ""));
+$rawDatum = $_POST["datum"] ?? "";
+$datum = is_string($rawDatum) ? trim($rawDatum) : "";
 $date = DateTimeImmutable::createFromFormat("!Y-m-d", $datum, new DateTimeZone("Europe/Berlin"));
 
 // createFromFormat akzeptiert den 31. Februar und rollt ihn auf den 3. März
@@ -109,7 +114,8 @@ if (!isset($hours[$weekday]) || $hours[$weekday] === null) {
 // Bewusst ein Zeitfenster, keine Uhrzeit: eine genaue Uhrzeit anzubieten,
 // die niemand gegen einen Kalender prüft, suggeriert eine Zusage, die es
 // nicht gibt.
-$tageszeit = trim((string) ($_POST["tageszeit"] ?? ""));
+$rawTageszeit = $_POST["tageszeit"] ?? "";
+$tageszeit = is_string($rawTageszeit) ? trim($rawTageszeit) : "";
 if (!in_array($tageszeit, TAGESZEITEN, true)) {
     respond(422, ["ok" => false, "error" => "invalid_tageszeit"]);
 }
@@ -167,7 +173,12 @@ $curlError = curl_error($ch);
 curl_close($ch);
 
 if ($response === false) {
-    respond(502, ["ok" => false, "error" => "stripe_unreachable", "detail" => $curlError]);
+    // Symmetrisch zum Stripe-Fehler unten: eine libcurl-Meldung wie "Could
+    // not resolve proxy" oder "SSL certificate problem" kann auf Shared
+    // Hosting Interna nennen (den ausgehenden Proxy, Zertifikatspfade), das
+    // geht also NICHT an den anonymen Aufrufer, sondern nur ins Log.
+    error_log("checkout.php: cURL: {$curlError}");
+    respond(502, ["ok" => false, "error" => "stripe_unreachable"]);
 }
 
 $decoded = json_decode((string) $response, true);
