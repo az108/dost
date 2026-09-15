@@ -31,6 +31,12 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz")
   })
 
+  it("links AGB and Widerruf", () => {
+    renderFooter()
+    expect(screen.getByRole("link", { name: "AGB" })).toHaveAttribute("href", "/agb")
+    expect(screen.getByRole("link", { name: "Widerruf" })).toHaveAttribute("href", "/widerruf")
+  })
+
   it("renders no phone affordance at all while no number has been supplied", () => {
     // The invariant is not "the sentinel string is hidden" — it is that there
     // is no phone link whatsoever. A future edit rendering "Telefonnummer

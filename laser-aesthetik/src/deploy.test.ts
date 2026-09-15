@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest"
 import { treatments } from "@/content/treatments"
 import { pillars } from "@/content/pillars"
 import { SITE_URL } from "@/content/seo"
-import { datenschutz, impressum } from "@/content/legal"
+import { agb, datenschutz, impressum, widerruf } from "@/content/legal"
 
 const pub = (f: string) => readFileSync(resolve(__dirname, "../public", f), "utf8")
 const root = (f: string) => readFileSync(resolve(__dirname, "..", f), "utf8")
@@ -41,7 +41,7 @@ describe(".htaccess", () => {
 describe("sitemap.xml", () => {
   it("lists every static route and every treatment", () => {
     const sitemap = pub("sitemap.xml")
-    for (const path of ["/", "/preise", "/praxis", "/kontakt", "/impressum", "/datenschutz"]) {
+    for (const path of ["/", "/preise", "/praxis", "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf"]) {
       expect(sitemap, `missing ${path}`).toContain(`${SITE_URL}${path}`)
     }
     for (const p of pillars("de")) {
@@ -71,15 +71,15 @@ describe("sitemap.xml", () => {
   it("has no stale URLs beyond the static routes and current treatments", () => {
     // The check above is subset-only: it proves nothing expected is missing,
     // but a removed treatment would leave a stale <loc> that nothing catches.
-    // 9 static German routes: "/", the 3 pillar pages, "/preise", "/praxis",
-    // "/kontakt", "/impressum", "/datenschutz". 7 static English routes: the
-    // same set minus the German-only Impressum and Datenschutz (there is no
-    // English legal page at all, not even one pointing back to German — a
-    // sitemap should only list a page's own canonical URL). Each treatment
-    // appears once per language: 33 + 33.
+    // 11 static German routes: "/", the 3 pillar pages, "/preise", "/praxis",
+    // "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf". 7 static
+    // English routes: the same set minus the German-only legal pages (there
+    // is no English legal page at all, not even one pointing back to German
+    // — a sitemap should only list a page's own canonical URL). Each
+    // treatment appears once per language: 33 + 33.
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
-    expect(locCount).toBe(9 + 7 + treatments("de").length + treatments("en").length)
+    expect(locCount).toBe(11 + 7 + treatments("de").length + treatments("en").length)
   })
 })
 
@@ -94,7 +94,7 @@ describe("robots.txt", () => {
 describe("index.html template", () => {
   // scripts/prerender.ts rewrites these tags in place — replaceAttr() is a
   // no-op when the tag is absent, so a tag deleted from the template stops
-  // being emitted on all 82 pages without any error. og:site_name is here
+  // being emitted on all 84 pages without any error. og:site_name is here
   // because it was exactly that: never rewritten, so every page shipped the
   // template's static value while useSeo() only corrected it after
   // hydration.
@@ -145,13 +145,18 @@ describe("go-live guards", () => {
 
 describe("legal go-live guard", () => {
   // ── Go-live guard ────────────────────────────────────────────────────
-  // The Impressum and Datenschutz are scaffolds. Paragraphs marked PRÜFEN
-  // name facts only the center can supply — the responsible medical
-  // chamber, the hosting provider. §5 TMG and DSGVO Art. 13 make this
-  // content legally consequential, so it must not ship as scaffolding.
-  // To fix: have a lawyer complete both documents, then delete this test.
+  // The Impressum, Datenschutz, AGB and Widerrufsbelehrung are scaffolds.
+  // Paragraphs marked PRÜFEN name facts only the center — or a lawyer — can
+  // supply: the responsible medical chamber, the hosting provider, how the
+  // 14-day withdrawal right applies to a prepaid package, whether § 4 Nr. 14
+  // UStG exempts the booked service. §5 TMG and DSGVO Art. 13 make the first
+  // two legally consequential; AGB and Widerrufsbelehrung specifically block
+  // the payment feature — selling treatments online makes this a distance
+  // contract, and /termin must not be linked from the navigation while this
+  // guard is red. To fix: have a lawyer complete all four documents, then
+  // delete this test.
   it("FAILS UNTIL the legal scaffolds have been reviewed", () => {
-    const text = JSON.stringify([impressum, datenschutz])
+    const text = JSON.stringify([impressum, datenschutz, agb, widerruf])
     expect(text).not.toContain("PRÜFEN")
   })
 })

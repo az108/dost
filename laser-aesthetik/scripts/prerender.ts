@@ -44,7 +44,7 @@ function injectHead(html: string, seo: ReturnType<typeof seoForRoute>): string {
   // but it still has to be rewritten here. useSeo() sets it from
   // center.brand inside an effect, so without this line the template's
   // static fallback is what every crawler, link-preview scraper and no-JS
-  // visitor reads on all 82 pages.
+  // visitor reads on all 84 pages.
   out = replaceAttr(out, /<meta property="og:site_name"[^>]*>/, "content", center.brand)
 
   // These have no static default in the template — the plain page has no

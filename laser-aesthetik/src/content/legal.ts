@@ -96,9 +96,55 @@ export const datenschutz: LegalDocument = {
     // — with the new provider's name — when center.locations[0].bookingUrl
     // is filled in. See Task 4 in the slice-1 plan.
     {
+      heading: "Zahlungsabwicklung",
+      paragraphs: [
+        "Für Zahlungen per Karte oder PayPal nutzen wir Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Irland. Wenn Sie eine Buchung abschließen, werden Sie auf eine von Stripe betriebene Zahlungsseite weitergeleitet. Ihre Zahlungsdaten geben Sie dort ein; wir erhalten sie nicht.",
+        "An Stripe übermittelt werden die Bezeichnung und der Betrag der gebuchten Leistung sowie Ihr Wunschtermin und die gewünschte Tageszeit. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die Erfüllung des Vertrags.",
+        "PRÜFEN: Die Speicherdauer der Zahlungsbelege und ein etwaiger Auftragsverarbeitungsvertrag mit Stripe müssen vor der Freischaltung ergänzt werden.",
+      ],
+    },
+    {
       heading: "Ihre Rechte",
       paragraphs: [
         "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Zudem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu.",
+      ],
+    },
+  ],
+}
+
+export const agb: LegalDocument = {
+  title: "Allgemeine Geschäftsbedingungen",
+  intro: "Bedingungen für die Buchung und Vorauszahlung von Behandlungen über diese Website.",
+  sections: [
+    {
+      heading: "Geltungsbereich und Vertragsschluss",
+      paragraphs: [
+        "PRÜFEN: Der vollständige AGB-Text muss von einer Rechtsanwältin oder einem Rechtsanwalt erstellt werden. Die Buchung von Behandlungen über diese Website ist ein Fernabsatzvertrag; Vertragsschluss, Leistungsumfang, Gültigkeitsdauer von Paketen und Zahlungsbedingungen müssen vor der Freischaltung geregelt sein.",
+      ],
+    },
+    {
+      heading: "Wunschtermin und Terminbestätigung",
+      paragraphs: [
+        "PRÜFEN: Über diese Website wird eine Behandlung vorausbezahlt und ein Wunschtermin angegeben. Der Termin gilt erst als vereinbart, wenn das Center ihn bestätigt. Wie zu verfahren ist, wenn kein Termin zustande kommt — Erstattung, Gutschrift, Frist — muss geregelt sein, bevor die erste Zahlung entgegengenommen wird.",
+      ],
+    },
+    {
+      heading: "Preise und Umsatzsteuer",
+      paragraphs: [
+        "PRÜFEN: Ob und in welchem Umfang die angebotenen Leistungen nach § 4 Nr. 14 UStG umsatzsteuerfrei sind, muss steuerlich geklärt werden. Kosmetische Leistungen ohne medizinische Indikation sind es in der Regel nicht. Die Preisangabenverordnung verlangt die Angabe von Endpreisen.",
+      ],
+    },
+  ],
+}
+
+export const widerruf: LegalDocument = {
+  title: "Widerrufsbelehrung",
+  intro: "Informationen zum Widerrufsrecht bei Fernabsatzverträgen.",
+  sections: [
+    {
+      heading: "Widerrufsrecht",
+      paragraphs: [
+        "PRÜFEN: Die Widerrufsbelehrung samt Muster-Widerrufsformular muss rechtlich erstellt werden. Insbesondere die Behandlung vorausbezahlter Behandlungspakete und die Frage, ab wann die Vierzehn-Tage-Frist läuft, dürfen nicht geschätzt werden.",
       ],
     },
   ],

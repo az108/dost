@@ -35,4 +35,20 @@ describe("seoForRoute", () => {
     expect(seo.canonical).toBe(`${SITE_URL}/impressum`)
     expect(seo.alternates).toEqual([])
   })
+
+  it("resolves the AGB scaffold, German-only", () => {
+    const seo = seoForRoute("/agb")
+    expect(seo.locale).toBe("de")
+    expect(seo.title).toBe(`Allgemeine Geschäftsbedingungen | ${center.brand}`)
+    expect(seo.canonical).toBe(`${SITE_URL}/agb`)
+    expect(seo.alternates).toEqual([])
+  })
+
+  it("resolves the Widerrufsbelehrung scaffold, German-only", () => {
+    const seo = seoForRoute("/widerruf")
+    expect(seo.locale).toBe("de")
+    expect(seo.title).toBe(`Widerrufsbelehrung | ${center.brand}`)
+    expect(seo.canonical).toBe(`${SITE_URL}/widerruf`)
+    expect(seo.alternates).toEqual([])
+  })
 })

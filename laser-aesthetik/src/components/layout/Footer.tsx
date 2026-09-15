@@ -120,6 +120,12 @@ export function Footer() {
           <Link to={legalPath("datenschutz")} className="hover:text-brand-900">
             {locale === "en" ? t("legalPrivacyGermanOnly") : t("legalPrivacy")}
           </Link>
+          <Link to={legalPath("agb")} className="hover:text-brand-900">
+            {locale === "en" ? t("legalTermsGermanOnly") : t("legalTerms")}
+          </Link>
+          <Link to={legalPath("widerruf")} className="hover:text-brand-900">
+            {locale === "en" ? t("legalWithdrawalGermanOnly") : t("legalWithdrawal")}
+          </Link>
         </nav>
       </Container>
     </footer>

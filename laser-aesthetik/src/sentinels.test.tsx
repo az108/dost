@@ -46,7 +46,7 @@ describe("no unfilled sentinel reaches a rendered page", () => {
 describe("no unfilled sentinel reaches machine-readable output", () => {
   it.each(allRoutes())("seoForRoute(%s)", (route) => {
     // The prerenderer does not mount React: it writes each page's <head>
-    // from seoForRoute() directly. A sentinel here ships to 82 static files
+    // from seoForRoute() directly. A sentinel here ships to 84 static files
     // and to every crawler, without any component ever rendering it.
     expect(JSON.stringify(seoForRoute(route)), `${route} SEO metadata`).not.toMatch(SENTINEL)
   })

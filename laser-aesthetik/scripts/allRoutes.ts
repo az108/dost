@@ -9,7 +9,7 @@ import { pillars } from "../src/content/pillars"
  */
 export function allRoutes(): string[] {
   return [
-    // 9 static German routes
+    // 11 static German routes
     "/",
     ...pillars("de").map((p) => p.path),
     "/preise",
@@ -17,13 +17,15 @@ export function allRoutes(): string[] {
     "/kontakt",
     "/impressum",
     "/datenschutz",
+    "/agb",
+    "/widerruf",
     // 7 static English routes — no English legal pages, they stay German-only
     "/en",
     ...pillars("en").map((p) => p.path),
     "/en/prices",
     "/en/practice",
     "/en/contact",
-    // 29 German + 29 English treatments
+    // 33 German + 33 English treatments
     ...treatments("de").map((t) => `/behandlungen/${t.slug}`),
     ...treatments("en").map((t) => `/en/treatments/${t.slug}`),
   ]

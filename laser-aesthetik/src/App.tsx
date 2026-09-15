@@ -8,7 +8,7 @@ import Praxis from "@/pages/Praxis"
 import Kontakt from "@/pages/Kontakt"
 import LegalPage from "@/pages/LegalPage"
 import NotFound from "@/pages/NotFound"
-import { datenschutz, impressum } from "@/content/legal"
+import { agb, datenschutz, impressum, widerruf } from "@/content/legal"
 import { homePath, legalPath, pagePath, pillarPath, treatmentPath } from "@/lib/routes"
 
 export function AppRoutes() {
@@ -42,6 +42,14 @@ export function AppRoutes() {
         <Route
           path={legalPath("datenschutz")}
           element={<LegalPage document={datenschutz} canonicalPath={legalPath("datenschutz")} />}
+        />
+        <Route
+          path={legalPath("agb")}
+          element={<LegalPage document={agb} canonicalPath={legalPath("agb")} />}
+        />
+        <Route
+          path={legalPath("widerruf")}
+          element={<LegalPage document={widerruf} canonicalPath={legalPath("widerruf")} />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>

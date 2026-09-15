@@ -17,6 +17,10 @@ export function Navbar() {
   const t = useT()
   const locale = useLocale()
 
+  // /termin fehlt hier bewusst. Die Seiten funktionieren, aber online zu
+  // verkaufen braucht AGB und eine Widerrufsbelehrung, die eine Anwältin
+  // oder ein Anwalt geschrieben hat — siehe den legal go-live guard in
+  // deploy.test.ts. Den Link setzen, wenn er grün wird.
   const links = [
     ...pillars(locale).map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
     { to: pagePath("prices", locale), label: t("prices") },

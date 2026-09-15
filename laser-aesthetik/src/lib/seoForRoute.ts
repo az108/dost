@@ -4,7 +4,7 @@ import { ui } from "@/content/ui"
 import { center, formatAddress, openLocation } from "@/content/center"
 import { pillarById } from "@/content/pillars"
 import { treatmentBySlug } from "@/content/treatments"
-import { impressum, datenschutz } from "@/content/legal"
+import { agb, datenschutz, impressum, widerruf } from "@/content/legal"
 import { SITE_URL } from "@/content/seo"
 import {
   counterpartPath,
@@ -27,7 +27,7 @@ export interface RouteSeo {
 
 const PILLAR_IDS = ["laser", "physio", "aesthetik"] as const
 const PAGES = ["prices", "practice", "contact"] as const
-const LEGAL_DOCS = { impressum, datenschutz } as const
+const LEGAL_DOCS = { impressum, datenschutz, agb, widerruf } as const
 
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
 
