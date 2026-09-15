@@ -34,6 +34,12 @@ export function bookingButtonHidden(pathname: string, locale: Locale): boolean {
   // /termin* IS the booking path. Not gated on hasBookingUrl: once a booking
   // profile exists the button becomes an external target="_blank" link, which
   // is a worse exit from a paid checkout, not a better one.
+  //
+  // A literal prefix rather than terminPath(): it has to cover the flow and
+  // both return pages without listing them. Renaming the route does not
+  // silently defeat it — src/sentinels.test.tsx drives its three routes from
+  // terminPath(), so a rename makes that test render the new path, find the
+  // button and fail.
   if (pathname === "/termin" || pathname.startsWith("/termin/")) return true
   return !hasBookingUrl(openLocation()) && pathname === pagePath("contact", locale)
 }

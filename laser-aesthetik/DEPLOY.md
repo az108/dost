@@ -154,17 +154,27 @@ Run `npm test`. Every failing test is a go-live blocker by design. There are
   wording is the lawyer's; the checkbox and the metadata field are ours and
   **are not built**. Do not sign this off as "the lawyer finished the
   texts". See the comment above `widerruf` in `src/content/legal.ts`.
-- **`/termin` is withheld from `public/sitemap.xml`** while the legal guard
-  is red — `withheldFromSitemap` in `src/lib/seoForRoute.ts`. The route is
-  still built and prerendered (87 routes); it is simply not submitted to
-  search engines, because a nav link withheld for legal reasons means
-  nothing if Google is handed the same URL. **This condition must be removed
-  at go-live**, together with the nav link in
-  `src/components/layout/Navbar.tsx`: delete `withheldFromSitemap` from the
-  `/termin` entry, run `npm run sitemap`, and the count goes 84 → 85.
+- **Releasing `/termin` — no test of its own, it rides on the legal guard
+  above.** Two places hold the booking flow back while that guard is red,
+  and both must be undone together when it goes green, or the site
+  contradicts itself:
+
+  1. `src/components/layout/Navbar.tsx` — **add** the nav link.
+  2. `src/lib/seoForRoute.ts` — **remove** `withheldFromSitemap` from the
+     `/termin` entry, then run `npm run sitemap`. The count goes 84 → 85 and
+     `src/deploy.test.ts` has to be updated to match (it pins both the count
+     and the absence of the three `/termin` `<loc>`s).
+
+  Withholding only the nav link is not withholding: a URL submitted in the
+  sitemap is the way in that actually matters. The route stays in
+  `allRoutes()` throughout — it is built and prerendered either way (87
+  routes), and it has to be, because Stripe redirects a paying customer
+  straight to `/termin/erfolg`.
+
   Deliberately *not* `noindex` — `/termin` is meant to be indexed once it is
-  released; `noindex` would be a permanent statement and would also emit a
-  robots meta tag into the shipped HTML.
+  released; `noindex` would be a permanent statement about the page and
+  would also emit a robots meta tag into the shipped HTML. The two return
+  pages *are* `noindex`, and stay that way.
 - **`deploy.test.ts` VAT guard** — the site asserts "Alle Preise inkl.
   MwSt." on `/preise`, on all 33 treatment pages and (since this slice) in
   the booking summary: 69 pages counting both languages. Whether that is
