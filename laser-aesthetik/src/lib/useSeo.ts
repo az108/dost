@@ -62,9 +62,11 @@ export function useSeo(
     description?: string
     keywords?: string[]
     canonicalPath?: string
+    /** Checkout return pages. See seoForRoute()'s RouteSeo.noindex. */
+    noindex?: boolean
   } = {},
 ) {
-  const { title, description, keywords, canonicalPath } = opts
+  const { title, description, keywords, canonicalPath, noindex: noindexProp } = opts
 
   // seoForRoute() is the single source for everything derived from the path
   // itself — canonical URL, hreflang alternates, og:image and locale — so
@@ -73,6 +75,13 @@ export function useSeo(
   // not-found fallback on TreatmentDetail) in ways a path alone can't tell.
   const seo = canonicalPath ? seoForRoute(canonicalPath) : null
   const locale = seo ? seo.locale : "de"
+
+  // Either source saying noindex is enough. seoForRoute() is what the
+  // prerenderer writes into the static file a crawler actually reads, so
+  // the client must never emit less than it after a soft navigation; the
+  // explicit prop stays because it documents the intent at the call site,
+  // the same way title and description do.
+  const noindex = noindexProp === true || seo?.noindex === true
 
   useEffect(() => {
     const fullTitle = title ? `${title} | ${center.brand}` : center.brand
@@ -87,6 +96,15 @@ export function useSeo(
       document.head.querySelector('meta[property="og:description"]')?.remove()
     }
     setMeta("keywords", buildKeywords(keywords))
+
+    // Removed rather than left standing when false: on a soft navigation
+    // away from a return page the tag would otherwise persist and deindex
+    // whatever page the visitor landed on next.
+    if (noindex) {
+      setMeta("robots", "noindex")
+    } else {
+      document.head.querySelector('meta[name="robots"]')?.remove()
+    }
 
     setOg("og:title", fullTitle)
     setOg("og:type", "website")
@@ -121,5 +139,5 @@ export function useSeo(
       document.head.querySelector('meta[property="og:image"]')?.remove()
       removeAlternates()
     }
-  }, [title, description, keywords, canonicalPath, locale, seo])
+  }, [title, description, keywords, canonicalPath, locale, noindex, seo])
 }

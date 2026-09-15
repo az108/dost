@@ -41,8 +41,10 @@ describe(".htaccess", () => {
 describe("sitemap.xml", () => {
   it("lists every static route and every treatment", () => {
     const sitemap = pub("sitemap.xml")
-    for (const path of ["/", "/preise", "/praxis", "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf"]) {
-      expect(sitemap, `missing ${path}`).toContain(`${SITE_URL}${path}`)
+    // "/termin" is here; its two return pages are not. They are noindex and
+    // generate-sitemap.ts leaves them out — see scripts/routes.test.ts.
+    for (const path of ["/", "/preise", "/praxis", "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf", "/termin"]) {
+      expect(sitemap, `missing ${path}`).toContain(`<loc>${SITE_URL}${path}</loc>`)
     }
     for (const p of pillars("de")) {
       expect(sitemap, `missing ${p.path}`).toContain(`${SITE_URL}${p.path}`)
@@ -71,15 +73,20 @@ describe("sitemap.xml", () => {
   it("has no stale URLs beyond the static routes and current treatments", () => {
     // The check above is subset-only: it proves nothing expected is missing,
     // but a removed treatment would leave a stale <loc> that nothing catches.
-    // 11 static German routes: "/", the 3 pillar pages, "/preise", "/praxis",
-    // "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf". 7 static
-    // English routes: the same set minus the German-only legal pages (there
-    // is no English legal page at all, not even one pointing back to German
-    // — a sitemap should only list a page's own canonical URL). Each
-    // treatment appears once per language: 33 + 33.
+    // 12 static German routes: "/", the 3 pillar pages, "/preise", "/praxis",
+    // "/kontakt", "/impressum", "/datenschutz", "/agb", "/widerruf",
+    // "/termin". 7 static English routes: the same set minus the German-only
+    // pages (there is no English legal page at all, and no English booking
+    // flow either — a sitemap should only list a page's own canonical URL).
+    // Each treatment appears once per language: 33 + 33.
+    //
+    // 12, not the 14 German routes allRoutes() returns: /termin/erfolg and
+    // /termin/abbruch are prerendered but noindex, and generate-sitemap.ts
+    // filters them out. 87 prerendered routes against 85 sitemap URLs is the
+    // intended end state, not a drift — scripts/routes.test.ts pins it.
     const sitemap = pub("sitemap.xml")
     const locCount = (sitemap.match(/<loc>/g) ?? []).length
-    expect(locCount).toBe(11 + 7 + treatments("de").length + treatments("en").length)
+    expect(locCount).toBe(12 + 7 + treatments("de").length + treatments("en").length)
   })
 })
 

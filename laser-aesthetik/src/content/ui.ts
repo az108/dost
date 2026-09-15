@@ -457,6 +457,68 @@ export const ui = {
     de: "Schreiben Sie uns Ihren Terminwunsch über das Kontaktformular. Wir melden uns mit einem konkreten Vorschlag zurück.",
     en: "Send us your preferred appointment time through the contact form. We'll come back to you with a concrete slot.",
   },
+
+  // ── Booking flow (/termin) ───────────────────────────────────────────
+  /*
+   * /termin and its two return pages are German-only, like the legal texts:
+   * the terms behind a purchase are German, so an English purchase path in
+   * front of German AGB would be misleading. Both halves are filled in
+   * anyway because `Localized` demands them and ui.test.ts enforces that
+   * they differ — the English values are what an English /termin would say
+   * if the AGB were ever translated, not filler.
+   *
+   * Every string here is chosen so that nothing reads as a confirmed
+   * appointment. The customer picked a date and therefore believes it
+   * holds; what is being sold is the treatment, and the date is a wish
+   * until the center comes back.
+   */
+  booking: { de: "Terminbuchung", en: "Appointment booking" },
+  bookingMetaDescription: {
+    de: "Laserbehandlung auswählen, Wunschtermin angeben und im Voraus bezahlen. Den Termin selbst bestätigen wir Ihnen danach persönlich.",
+    en: "Choose a laser treatment, name your preferred date and pay in advance. We then confirm the appointment itself with you personally.",
+  },
+  bookingHeroLead: { de: "Behandlung wählen,", en: "Choose a treatment," },
+  bookingHeroAccent: { de: "Termin wünschen", en: "name your date" },
+  bookingHeroDescription: {
+    de: "In vier Schritten: Zone, Umfang, Wunschtermin, Zahlung. Sie zahlen die Behandlung — den Wunschtermin bestätigen wir Ihnen persönlich, sobald Ihre Zahlung bei uns ist.",
+    en: "Four steps: area, package, preferred date, payment. You pay for the treatment — we confirm the date you asked for personally, as soon as your payment reaches us.",
+  },
+  bookingStep1Eyebrow: { de: "Schritt 1 von 4", en: "Step 1 of 4" },
+  bookingStep1Title: { de: "Welche", en: "Which" },
+  bookingStep1Accent: { de: "Behandlung?", en: "treatment?" },
+  bookingStep2Eyebrow: { de: "Schritt 2 von 4", en: "Step 2 of 4" },
+  bookingStep2Title: { de: "Einzeln oder", en: "A single session" },
+  bookingStep2Accent: { de: "im Paket?", en: "or a package?" },
+  bookingStep3Eyebrow: { de: "Schritt 3 von 4", en: "Step 3 of 4" },
+  bookingStep3Title: { de: "Wann passt es", en: "When suits" },
+  bookingStep3Accent: { de: "Ihnen?", en: "you?" },
+  bookingStep4Eyebrow: { de: "Schritt 4 von 4", en: "Step 4 of 4" },
+  bookingStep4Title: { de: "Prüfen und", en: "Review and" },
+  bookingStep4Accent: { de: "bezahlen", en: "pay" },
+
+  // ── Booking return pages ─────────────────────────────────────────────
+  /*
+   * Both titles name what actually happened — a payment — and never an
+   * appointment. "Termin gebucht" on the success page would be the single
+   * most misleading string on the site.
+   */
+  bookingSuccess: { de: "Zahlung eingegangen", en: "Payment received" },
+  bookingSuccessMetaDescription: {
+    de: "Ihre Zahlung ist eingegangen. Ihren Wunschtermin bestätigen wir Ihnen gesondert.",
+    en: "Your payment has arrived. We will confirm the date you asked for separately.",
+  },
+  bookingSuccessTitle: { de: "Zahlung", en: "Payment" },
+  bookingSuccessAccent: { de: "eingegangen", en: "received" },
+  bookingReference: { de: "Ihre Zahlungsreferenz", en: "Your payment reference" },
+  bookingCancelled: { de: "Zahlung abgebrochen", en: "Payment cancelled" },
+  bookingCancelledMetaDescription: {
+    de: "Die Zahlung wurde abgebrochen. Es wurde nichts belastet und keine Buchung angelegt.",
+    en: "The payment was cancelled. Nothing has been charged and no booking was created.",
+  },
+  bookingCancelledTitle: { de: "Zahlung", en: "Payment" },
+  bookingCancelledAccent: { de: "abgebrochen", en: "cancelled" },
+  bookingRestart: { de: "Zurück zur Terminbuchung", en: "Back to appointment booking" },
+  backToHome: { de: "Zurück zur Startseite", en: "Back to the homepage" },
 } as const satisfies Record<string, Localized>
 
 export type UiKey = keyof typeof ui

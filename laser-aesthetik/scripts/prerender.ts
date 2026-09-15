@@ -54,6 +54,7 @@ function injectHead(html: string, seo: ReturnType<typeof seoForRoute>): string {
   const inserted = [
     `<link rel="canonical" href="${escapeHtml(seo.canonical)}" />`,
     `<meta property="og:url" content="${escapeHtml(seo.canonical)}" />`,
+    ...(seo.noindex ? ['<meta name="robots" content="noindex" />'] : []),
     ...seo.alternates.map(
       (alt) => `<link rel="alternate" hreflang="${escapeHtml(alt.hreflang)}" href="${escapeHtml(alt.href)}" />`,
     ),

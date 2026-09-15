@@ -101,6 +101,20 @@ describe("useSeo", () => {
     expect(document.querySelectorAll('link[rel="alternate"]')).toHaveLength(0)
   })
 
+  it("emits a robots noindex tag on a checkout return page", () => {
+    render(<PageAt canonicalPath="/termin/erfolg" />)
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex")
+  })
+
+  it("removes the noindex tag again when navigating to an indexable page", () => {
+    // A soft navigation reuses the same document head. Left standing, the
+    // tag would deindex whatever page the visitor landed on next.
+    const { rerender } = render(<PageAt canonicalPath="/termin/erfolg" />)
+    expect(document.querySelector('meta[name="robots"]')).not.toBeNull()
+    rerender(<PageAt canonicalPath="/laser" />)
+    expect(document.querySelector('meta[name="robots"]')).toBeNull()
+  })
+
   it("sets og:locale and <html lang> from the canonical path's language", () => {
     render(<PageAt canonicalPath="/laser" />)
     expect(document.querySelector('meta[property="og:locale"]')).toHaveAttribute("content", "de_DE")

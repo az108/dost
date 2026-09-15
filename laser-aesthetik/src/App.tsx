@@ -7,9 +7,19 @@ import Preise from "@/pages/Preise"
 import Praxis from "@/pages/Praxis"
 import Kontakt from "@/pages/Kontakt"
 import LegalPage from "@/pages/LegalPage"
+import Termin from "@/pages/Termin"
+import TerminErfolg from "@/pages/TerminErfolg"
+import TerminAbbruch from "@/pages/TerminAbbruch"
 import NotFound from "@/pages/NotFound"
 import { agb, datenschutz, impressum, widerruf } from "@/content/legal"
-import { homePath, legalPath, pagePath, pillarPath, treatmentPath } from "@/lib/routes"
+import {
+  homePath,
+  legalPath,
+  pagePath,
+  pillarPath,
+  terminPath,
+  treatmentPath,
+} from "@/lib/routes"
 
 export function AppRoutes() {
   return (
@@ -51,6 +61,16 @@ export function AppRoutes() {
           path={legalPath("widerruf")}
           element={<LegalPage document={widerruf} canonicalPath={legalPath("widerruf")} />}
         />
+        {/* Deutsch-only, wie die Rechtstexte — und bewusst NICHT in der
+            Navigation: /termin verkauft im Voraus, und das darf es erst,
+            wenn AGB und Widerrufsbelehrung anwaltlich fertig sind (siehe
+            den Rechts-Guard in src/deploy.test.ts). Die Route existiert
+            trotzdem, damit der Flow gebaut, getestet und angesehen werden
+            kann; verlinkt wird sie, wenn der Guard grün ist. */}
+        <Route path={terminPath("index")} element={<Termin />} />
+        <Route path={terminPath("erfolg")} element={<TerminErfolg />} />
+        <Route path={terminPath("abbruch")} element={<TerminAbbruch />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

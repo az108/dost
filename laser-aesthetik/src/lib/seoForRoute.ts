@@ -13,6 +13,7 @@ import {
   legalPath,
   pagePath,
   pillarPath,
+  terminPath,
   treatmentPath,
 } from "@/lib/routes"
 
@@ -23,11 +24,41 @@ export interface RouteSeo {
   canonical: string
   alternates: { hreflang: string; href: string }[]
   ogImage: string
+  /** Gibt <meta name="robots" content="noindex"> aus. Checkout-Rückkehrseiten. */
+  noindex?: boolean
 }
 
 const PILLAR_IDS = ["laser", "physio", "aesthetik"] as const
 const PAGES = ["prices", "practice", "contact"] as const
 const LEGAL_DOCS = { impressum, datenschutz, agb, widerruf } as const
+
+/**
+ * Der Buchungs-Flow und seine beiden Rückkehrseiten. Ohne diesen Eintrag
+ * fällt /termin durch bis zur 404-Rückfallebene ganz unten und würde als
+ * „Seite nicht gefunden" mit leerer Description prerendert, während es im
+ * Browser normal rendert — der Prerender liest seoForRoute(), nicht die
+ * Komponente.
+ *
+ * Deutsch-only wie die Rechtstexte: locale "de", keine hreflang-Alternates.
+ * Die beiden Rückkehrseiten tragen zusätzlich noindex — eine Seite, die nur
+ * nach einer Stripe-Weiterleitung etwas aussagt, gehört in keinen Index, und
+ * generate-sitemap.ts fragt genau dieses Feld ab, um sie nicht einzureichen.
+ */
+const TERMIN_SEO: Partial<
+  Record<string, { title: UiKey; description: UiKey; noindex?: true }>
+> = {
+  [terminPath("index")]: { title: "booking", description: "bookingMetaDescription" },
+  [terminPath("erfolg")]: {
+    title: "bookingSuccess",
+    description: "bookingSuccessMetaDescription",
+    noindex: true,
+  },
+  [terminPath("abbruch")]: {
+    title: "bookingCancelled",
+    description: "bookingCancelledMetaDescription",
+    noindex: true,
+  },
+}
 
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
 
@@ -152,6 +183,19 @@ export function seoForRoute(pathname: string): RouteSeo {
         alternates: [],
         ogImage: DEFAULT_OG_IMAGE,
       }
+    }
+  }
+
+  const termin = TERMIN_SEO[pathname]
+  if (termin) {
+    return {
+      locale: "de",
+      title: withBrand(t(termin.title, "de")),
+      description: t(termin.description, "de"),
+      canonical,
+      alternates: [],
+      ogImage: DEFAULT_OG_IMAGE,
+      ...(termin.noindex ? { noindex: true } : {}),
     }
   }
 
