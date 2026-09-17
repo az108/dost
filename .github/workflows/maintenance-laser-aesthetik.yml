@@ -1,0 +1,125 @@
+name: Wartungsmodus laser-aesthetik
+
+# Schaltet die Live-Seite in den Wartungsmodus und wieder zurück.
+#
+# Warum ein eigener Workflow und nicht der Deploy: der Deploy lädt
+# `laser-aesthetik/dist/` mit SamKirkland/FTP-Deploy-Action hoch, und die
+# Aktion synchronisiert — ein Ordner mit zwei Dateien würde den Rest der
+# Seite auf dem Server löschen. Hier werden stattdessen genau zwei Dateien
+# einzeln übertragen. Es wird nichts gelöscht, und die eigentliche Seite
+# bleibt vollständig liegen, nur unerreichbar.
+#
+# Zurückschalten ist ein Schritt: `modus: aus` lädt die normale .htaccess
+# aus dem Repository wieder hoch.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modus:
+        description: "an = Wartungsseite zeigen, aus = Seite wieder freigeben"
+        required: true
+        type: choice
+        default: "an"
+        options:
+          - an
+          - aus
+
+# Dieselbe Gruppe wie der Deploy-Workflow. Zwei gleichzeitige Uploads in ein
+# Web-Root verschränken ihre Dateien.
+concurrency:
+  group: allinkl-laser-aesthetik
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  wartung:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zugangsdaten prüfen
+        env:
+          SERVER: ${{ vars.ALLINKL_FTP_SERVER }}
+          USERNAME: ${{ vars.ALLINKL_FTP_USERNAME }}
+          PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+        run: |
+          test -n "$SERVER"   || { echo "::error::vars.ALLINKL_FTP_SERVER fehlt"; exit 1; }
+          test -n "$USERNAME" || { echo "::error::vars.ALLINKL_FTP_USERNAME fehlt"; exit 1; }
+          test -n "$PASSWORD" || { echo "::error::secrets.ALLINKL_FTP_PASSWORD fehlt"; exit 1; }
+
+      - name: Dateien vorbereiten
+        run: |
+          set -euo pipefail
+          mkdir -p upload
+          if [ "${{ inputs.modus }}" = "an" ]; then
+            cp laser-aesthetik/wartung/wartung.html  upload/wartung.html
+            cp laser-aesthetik/wartung/htaccess-wartung upload/.htaccess
+            echo "Wartungsmodus AN: wartung.html + Wartungs-.htaccess"
+          else
+            cp laser-aesthetik/public/.htaccess upload/.htaccess
+            echo "Wartungsmodus AUS: normale .htaccess"
+          fi
+          ls -la upload
+
+      - name: Übertragen
+        env:
+          SERVER: ${{ vars.ALLINKL_FTP_SERVER }}
+          USERNAME: ${{ vars.ALLINKL_FTP_USERNAME }}
+          PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+          SERVER_DIR: ${{ vars.ALLINKL_SERVER_DIR || '/' }}
+          PROTOCOL: ${{ vars.ALLINKL_FTP_PROTOCOL || 'ftps' }}
+        run: |
+          set -euo pipefail
+
+          # --ssl-reqd erzwingt explizites FTPS und bricht ab, wenn der
+          # Server nur unverschlüsselt anbietet. Das Passwort darf nicht im
+          # Klartext über die Leitung gehen, auch nicht für zwei Dateien.
+          SSL_FLAG="--ssl-reqd"
+          if [ "$PROTOCOL" = "ftp" ]; then
+            echo "::warning::ALLINKL_FTP_PROTOCOL ist auf ftp gesetzt — unverschlüsselte Übertragung"
+            SSL_FLAG=""
+          fi
+
+          DIR="${SERVER_DIR%/}"
+
+          upload() {
+            local local_file="$1" remote_name="$2"
+            echo "→ $remote_name"
+            # --user über die Umgebung statt in der Kommandozeile: Argumente
+            # stehen in der Prozessliste, Umgebungsvariablen nicht.
+            curl --fail --silent --show-error $SSL_FLAG \
+              --user "$USERNAME:$PASSWORD" \
+              -T "$local_file" \
+              "ftp://$SERVER$DIR/$remote_name"
+          }
+
+          if [ "${{ inputs.modus }}" = "an" ]; then
+            # Reihenfolge zählt: erst die Seite hochladen, dann die
+            # .htaccess, die darauf zeigt. Andersherum gäbe es ein Fenster,
+            # in dem der ErrorDocument-Pfad ins Leere zeigt und Besucher
+            # eine nackte Apache-Fehlerseite sehen.
+            upload upload/wartung.html wartung.html
+            upload upload/.htaccess .htaccess
+          else
+            # Umgekehrt: erst die normale .htaccess, damit die Seite sofort
+            # wieder da ist; die Wartungsseite darf danach liegen bleiben.
+            upload upload/.htaccess .htaccess
+          fi
+
+      - name: Nachprüfen
+        run: |
+          set -uo pipefail
+          URL="https://laserhaarentfernung-landshut.de/"
+          echo "Warte 5s, bis der Server die neue .htaccess liest"
+          sleep 5
+          CODE=$(curl --silent --output /dev/null --write-out '%{http_code}' --location "$URL" || echo "000")
+          echo "HTTP $CODE von $URL"
+          if [ "${{ inputs.modus }}" = "an" ]; then
+            test "$CODE" = "503" || { echo "::error::Erwartet 503, bekommen $CODE — Wartungsmodus greift nicht"; exit 1; }
+            echo "Wartungsmodus ist aktiv."
+          else
+            test "$CODE" = "200" || { echo "::error::Erwartet 200, bekommen $CODE — Seite ist nicht zurück"; exit 1; }
+            echo "Seite ist wieder erreichbar."
+          fi

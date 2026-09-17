@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seite wird überarbeitet</title>
+    <!--
+      Bewusst ohne Markennamen, ohne Praxisnamen, ohne Adresse, Telefon oder
+      E-Mail. Der Markenname ist vom Auftraggeber noch nicht freigegeben
+      (center.brandApproved ist false), und Adresse, Telefon und E-Mail sind
+      im Datenbestand noch Platzhalter. Eine Wartungsseite ist der falsche
+      Ort, um irgendetwas davon zum ersten Mal zu behaupten.
+
+      Alles inline: keine externe CSS-Datei, kein Bild, keine Schriftart. So
+      braucht die .htaccess nur eine einzige Ausnahme von der 503-Regel.
+    -->
+    <style>
+      :root {
+        --tint: #f0faf9;
+        --ink: #0b4f4a;
+        --muted: #0b7570;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        background: var(--tint);
+        color: var(--ink);
+        font-family:
+          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 34rem;
+        text-align: center;
+      }
+      .mark {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 auto 2rem;
+        border-radius: 999px;
+        border: 3px solid var(--ink);
+        border-top-color: transparent;
+      }
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.6rem, 5vw, 2.25rem);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0 auto;
+        max-width: 28rem;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+      p + p {
+        margin-top: 1rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --tint: #062e2c;
+          --ink: #f0faf9;
+          --muted: #82d2ce;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="mark" aria-hidden="true"></div>
+      <h1>Diese Seite wird gerade überarbeitet.</h1>
+      <p>
+        Wir bauen unseren Auftritt neu auf und schalten ihn frei, sobald er fertig ist.
+        Bitte schauen Sie in Kürze noch einmal vorbei.
+      </p>
+      <p>Vielen Dank für Ihre Geduld.</p>
+    </main>
+  </body>
+</html>
