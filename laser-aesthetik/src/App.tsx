@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { basename } from "@/lib/basename"
 import { Layout } from "@/components/layout/Layout"
 import Home from "@/pages/Home"
 import CategoryPage from "@/pages/CategoryPage"
@@ -92,7 +93,7 @@ export function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AppRoutes />
     </BrowserRouter>
   )
