@@ -31,14 +31,11 @@ export function medicalClinicJsonLd(): string {
       addressLocality: location.city,
       addressCountry: "DE",
     },
-    openingHoursSpecification: (location.hours ?? [])
-      .filter((h) => h.schema)
-      .map((h) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: h.schema!.dayOfWeek,
-        opens: h.schema!.opens,
-        closes: h.schema!.closes,
-      })),
+    // No openingHoursSpecification: the client never confirmed the hours
+    // this site inherited from a predecessor site, and a made-up schedule
+    // for a medical provider is misleading advertising. Omitted entirely,
+    // not emitted as `[]` — an empty array asserts "we have no hours", a
+    // missing field asserts nothing.
   }
 
   if (hasPhone(location)) data.telephone = location.phone

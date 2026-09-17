@@ -75,7 +75,6 @@ if ($secretKey === "") {
 
 $booking = require __DIR__ . '/booking.generated.php';
 $prices = $booking["skus"];
-$hours = $booking["hours"];
 
 // ── SKU ──────────────────────────────────────────────────────────────────
 // Kein (string)-Cast auf $_POST-Werte: ein Aufrufer, der sku[]=x schickt,
@@ -90,8 +89,13 @@ $entry = $prices[$sku];
 
 // ── Wunschdatum ──────────────────────────────────────────────────────────
 // Der Client prüft das auch, aber das zählt nicht: ohne diese Prüfung
-// postet jemand einen Sonntag, den 3. Januar 1999 oder einen Termin in vier
-// Jahren, und es landet ungeprüft in den Stripe-Metadaten.
+// postet jemand den 3. Januar 1999 oder einen Termin in vier Jahren, und es
+// landet ungeprüft in den Stripe-Metadaten.
+//
+// Keine Wochentagsprüfung hier: die Öffnungszeiten, die dieser Endpunkt
+// früher dagegen prüfte, waren unbestätigte Daten aus einer Vorgängerseite.
+// Ohne bestätigte Zeiten ist Vergangenheit/zu weit in der Zukunft alles, was
+// sich noch plausibel prüfen lässt — ein Sonntag ist damit bewusst buchbar.
 $rawDatum = $_POST["datum"] ?? "";
 $datum = is_string($rawDatum) ? trim($rawDatum) : "";
 $date = DateTimeImmutable::createFromFormat("!Y-m-d", $datum, new DateTimeZone("Europe/Berlin"));
@@ -108,13 +112,6 @@ if ($date < $today) {
 }
 if ($date > $today->modify("+" . MAX_MONTHS_AHEAD . " months")) {
     respond(422, ["ok" => false, "error" => "date_too_far"]);
-}
-
-// Englischer Wochentag, weil center.ts die Zeiten im schema.org-Vokabular
-// führt und der Generator sie unverändert übernimmt.
-$weekday = $date->format("l");
-if (!isset($hours[$weekday]) || $hours[$weekday] === null) {
-    respond(422, ["ok" => false, "error" => "closed_that_day"]);
 }
 
 // ── Tageszeit ────────────────────────────────────────────────────────────

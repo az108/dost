@@ -2,7 +2,7 @@
 
 // GENERIERT von scripts/generate-booking-php.ts — nicht von Hand ändern.
 // Neu erzeugen mit `npm run booking`. generate-booking-php.test.ts
-// scheitert, wenn diese Datei und pricing.ts/center.ts auseinanderlaufen,
+// scheitert, wenn diese Datei und pricing.ts auseinanderlaufen,
 // eine Preisänderung ohne Generatorlauf kann also nicht ausgeliefert werden.
 //
 // Das ist die EINZIGE Quelle für Beträge in checkout.php. Nichts, was der
@@ -74,14 +74,5 @@ return [
         'ganzkoerper-3er' => ['amount' => 179700, 'currency' => 'eur', 'name' => 'Ganzkörper — 3er-Paket', 'sessions' => 3],
         'ganzkoerper-5er' => ['amount' => 274500, 'currency' => 'eur', 'name' => 'Ganzkörper — 5er-Paket', 'sessions' => 5],
         'ganzkoerper-10er' => ['amount' => 509000, 'currency' => 'eur', 'name' => 'Ganzkörper — 10er-Paket', 'sessions' => 10],
-    ],
-    'hours' => [
-        'Monday' => ['09:00', '20:00'],
-        'Tuesday' => ['09:00', '20:00'],
-        'Wednesday' => ['09:00', '20:00'],
-        'Thursday' => ['09:00', '20:00'],
-        'Friday' => ['09:00', '20:00'],
-        'Saturday' => ['10:00', '18:00'],
-        'Sunday' => null,
     ],
 ];

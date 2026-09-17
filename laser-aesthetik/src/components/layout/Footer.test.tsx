@@ -18,11 +18,17 @@ describe("Footer", () => {
     expect(screen.getByRole("contentinfo")).toBeInTheDocument()
   })
 
-  it("lists all three opening-hours rows", () => {
-    renderFooter()
-    expect(screen.getByText("Mo – Fr")).toBeInTheDocument()
-    expect(screen.getByText("Samstag")).toBeInTheDocument()
-    expect(screen.getByText("Geschlossen")).toBeInTheDocument()
+  it("renders no opening-hours heading or list — the data was never confirmed", () => {
+    // A previous defect shipped the "Öffnungszeiten" heading over an empty
+    // <dl> once the hours data was removed. The invariant is not just "the
+    // old times are gone" — the heading and the list markup must be gone
+    // too, or a visitor sees a section promising hours with nothing in it.
+    const { container } = renderFooter()
+    expect(screen.queryByText("Öffnungszeiten")).not.toBeInTheDocument()
+    expect(screen.queryByText("Mo – Fr")).not.toBeInTheDocument()
+    expect(screen.queryByText("Samstag")).not.toBeInTheDocument()
+    expect(screen.queryByText("Geschlossen")).not.toBeInTheDocument()
+    expect(container.querySelector("dl")).toBeNull()
   })
 
   it("links Impressum and Datenschutz", () => {

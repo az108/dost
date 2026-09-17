@@ -149,10 +149,12 @@ describe("medicalClinicJsonLd", () => {
     expect(data.telephone).toBeUndefined()
   })
 
-  it("encodes opening hours in schema.org format", () => {
+  it("omits openingHoursSpecification entirely — the hours were never confirmed", () => {
+    // Not `[]`: an empty array asserts "we have no hours", which search
+    // engines can surface just as readily as a made-up schedule. A missing
+    // field asserts nothing.
     const data = JSON.parse(medicalClinicJsonLd())
-    expect(data.openingHoursSpecification[0].dayOfWeek).toContain("Monday")
-    expect(data.openingHoursSpecification[0].opens).toBe("09:00")
-    expect(data.openingHoursSpecification[0].closes).toBe("20:00")
+    expect(data.openingHoursSpecification).toBeUndefined()
+    expect("openingHoursSpecification" in data).toBe(false)
   })
 })

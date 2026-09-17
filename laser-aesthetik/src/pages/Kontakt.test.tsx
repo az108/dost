@@ -51,12 +51,25 @@ describe("Kontakt", () => {
     expect(container.querySelector('a[href^="tel:"]')).toBeNull()
   })
 
-  it("lists the open location's opening hours", () => {
-    renderKontakt()
-    const location = openLocation(center)
-    for (const h of location.hours ?? []) {
-      expect(screen.getByText(h.days)).toBeInTheDocument()
-    }
+  it("renders no opening-hours heading, card or list — the data was never confirmed", () => {
+    // A previous defect shipped a SectionHeader ("Wann wir da sind") over an
+    // empty <dl> once the hours data was removed. The card that wrapped it
+    // has to go too: with no hours and no booking URL yet, it would
+    // otherwise ship as an empty rounded-card box next to the address.
+    const { container } = renderKontakt()
+    expect(screen.queryByText("Öffnungszeiten")).not.toBeInTheDocument()
+    expect(screen.queryByText("Wann wir")).not.toBeInTheDocument()
+    expect(screen.queryByText("da sind")).not.toBeInTheDocument()
+    expect(screen.queryByText("Mo – Fr")).not.toBeInTheDocument()
+    expect(container.querySelector("dl")).toBeNull()
+    // With BOOKING_TODO still unfilled, BookingButton renders nothing on
+    // this page (see bookingButtonHidden) — so the card that used to wrap
+    // the opening-hours block and the button must not render at all either,
+    // or it ships as an empty rounded-card box next to the address. The
+    // compound selector (not just .rounded-card) is deliberate: the Hero
+    // image on this page carries that class too, and matching it would make
+    // this assertion pass regardless of whether the booking card renders.
+    expect(container.querySelector(".rounded-card.bg-brand-50")).toBeNull()
   })
 
   it("sends the visitor nowhere in a circle: no booking CTA back to this page", () => {

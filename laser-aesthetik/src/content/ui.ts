@@ -115,7 +115,6 @@ export const ui = {
   prices: { de: "Preise", en: "Prices" },
   practice: { de: "Über uns", en: "About us" },
   contact: { de: "Kontakt", en: "Contact" },
-  openingHours: { de: "Öffnungszeiten", en: "Opening hours" },
   legalNavLabel: { de: "Rechtliches", en: "Legal" },
   legalImprint: { de: "Impressum", en: "Imprint" },
   legalPrivacy: { de: "Datenschutz", en: "Privacy policy" },
@@ -196,8 +195,6 @@ export const ui = {
   addressTitle: { de: "Adresse &", en: "Address &" },
   addressAccent: { de: "Anfahrt", en: "directions" },
   viewOnMap: { de: "Auf der Karte ansehen", en: "View on the map" },
-  whenWereThereTitle: { de: "Wann wir", en: "When we're" },
-  whenWereThereAccent: { de: "da sind", en: "here" },
   messageEyebrow: { de: "Nachricht", en: "Message" },
   writeToUsTitle: { de: "Schreiben Sie", en: "Send us" },
   writeToUsAccent: { de: "uns", en: "a message" },
@@ -582,7 +579,7 @@ export const ui = {
   // ── Booking flow: error messages ─────────────────────────────────────
   /*
    * The endpoint's error codes as sentences. "Fehler 502" tells a visitor
-   * nothing; "An diesem Tag haben wir geschlossen" tells them what to
+   * nothing; "Das Datum liegt in der Vergangenheit" tells them what to
    * change.
    *
    * The three that are not the visitor's doing — the payment provider
@@ -592,10 +589,6 @@ export const ui = {
    * a restricted Stripe account leaves someone whose card was never charged
    * pressing a button that cannot succeed.
    */
-  bookingErrorClosedThatDay: {
-    de: "An diesem Tag haben wir geschlossen. Bitte wählen Sie einen anderen Termin.",
-    en: "We are closed that day. Please choose a different date.",
-  },
   bookingErrorDateInPast: {
     de: "Das Datum liegt in der Vergangenheit.",
     en: "That date is in the past.",

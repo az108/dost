@@ -1,4 +1,4 @@
-import type { Center, Location, OpeningHours } from "./types"
+import type { Center, Location } from "./types"
 
 /**
  * Sentinels for facts the client has not supplied yet. center.test.ts fails
@@ -22,24 +22,6 @@ export const BOOKING_TODO = "TODO_BUCHUNGSLINK"
 export const ADDRESS_TODO = "TODO_ADRESSE_LANDSHUT"
 export const EMAIL_TODO = "TODO_EMAIL"
 
-const standardHours: OpeningHours[] = [
-  {
-    days: "Mo – Fr",
-    time: "9:00 – 20:00 Uhr",
-    schema: {
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-  },
-  {
-    days: "Samstag",
-    time: "10:00 – 18:00 Uhr",
-    schema: { dayOfWeek: ["Saturday"], opens: "10:00", closes: "18:00" },
-  },
-  { days: "Sonntag", time: "Geschlossen" },
-]
-
 /**
  * Single source of truth for the center's identity and locations. The nav,
  * footer, contact page and JSON-LD all read from here.
@@ -61,7 +43,6 @@ export const center: Center = {
       street: ADDRESS_TODO,
       postalCode: ADDRESS_TODO,
       phone: PHONE_TODO,
-      hours: standardHours,
       bookingUrl: BOOKING_TODO,
     },
     { city: "München", status: "planned" },

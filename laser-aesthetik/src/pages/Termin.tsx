@@ -96,8 +96,8 @@ export default function Termin() {
    * Eine sichtbare Fehlermeldung verfällt, sobald der Besucher an dem dreht,
    * was sie ihm vorwirft.
    *
-   * setError(null) lief nur beim Start von buy(). Nach closed_that_day stand
-   * "An diesem Tag haben wir geschlossen" also unverändert unter der
+   * setError(null) lief nur beim Start von buy(). Nach date_in_past stand
+   * "Das Datum liegt in der Vergangenheit" also unverändert unter der
    * Übersicht, während der Besucher schon einen anderen Tag gewählt hatte —
    * eine Meldung über eine Auswahl, die es nicht mehr gibt.
    */

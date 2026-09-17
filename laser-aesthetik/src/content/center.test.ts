@@ -29,41 +29,15 @@ describe("center data", () => {
   })
 
   it("gives planned locations nothing but a city", () => {
-    // A planned site must not publish an address, hours or a booking link.
-    // Those fields reaching a template is how a location nobody can visit
-    // ends up in structured data.
+    // A planned site must not publish an address or a booking link. Those
+    // fields reaching a template is how a location nobody can visit ends up
+    // in structured data.
     for (const l of center.locations.filter((l) => l.status === "planned")) {
       expect(l.street, `${l.city} has a street`).toBeUndefined()
       expect(l.postalCode, `${l.city} has a postal code`).toBeUndefined()
       expect(l.phone, `${l.city} has a phone`).toBeUndefined()
-      expect(l.hours, `${l.city} has hours`).toBeUndefined()
       expect(l.bookingUrl, `${l.city} has a booking URL`).toBeUndefined()
     }
-  })
-
-  it("gives the open location the full set of display hours", () => {
-    expect(openLocation().hours?.map((h) => [h.days, h.time])).toEqual([
-      ["Mo – Fr", "9:00 – 20:00 Uhr"],
-      ["Samstag", "10:00 – 18:00 Uhr"],
-      ["Sonntag", "Geschlossen"],
-    ])
-  })
-
-  it("keeps machine-readable hours in step with the display strings", () => {
-    // The schema.org form lives in the same objects as the display strings
-    // precisely so the two cannot drift.
-    const hours = openLocation().hours!
-    expect(hours[0].schema).toEqual({
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "20:00",
-    })
-    expect(hours[1].schema).toEqual({
-      dayOfWeek: ["Saturday"],
-      opens: "10:00",
-      closes: "18:00",
-    })
-    expect(hours[2].schema).toBeUndefined()
   })
 
   it("reports every unsupplied fact as absent rather than rendering it", () => {

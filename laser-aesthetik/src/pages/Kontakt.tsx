@@ -1,4 +1,5 @@
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react"
+import { useLocation } from "react-router-dom"
 import { center, formatAddress, hasEmail, hasPhone, openLocation } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
@@ -6,7 +7,7 @@ import { pagePath } from "@/lib/routes"
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { BookingButton } from "@/components/cta/BookingButton"
+import { BookingButton, bookingButtonHidden } from "@/components/cta/BookingButton"
 import { ContactForm } from "@/components/content/ContactForm"
 import { Hero } from "@/sections/Hero"
 import { useSeo } from "@/lib/useSeo"
@@ -16,6 +17,15 @@ export default function Kontakt() {
   const t = useT()
   const locale = useLocale()
   const location = openLocation()
+  const { pathname } = useLocation()
+  // The right-hand column used to be an opening-hours card with the booking
+  // CTA underneath. Now that opening hours are gone (unconfirmed data for a
+  // medical provider), the only thing that column can ever hold is
+  // BookingButton — and BookingButton renders nothing on this exact page
+  // while center.ts has no real booking URL (see bookingButtonHidden). Render
+  // the card only when it will hold something, or the grid ships an empty
+  // rounded-card box with nothing inside it.
+  const showBookingCard = !bookingButtonHidden(pathname, locale)
 
   // The Landshut location's street/postalCode are still TODO sentinels, so
   // formatAddress() returns null here. Every surface below falls back to the
@@ -89,26 +99,17 @@ export default function Kontakt() {
             ) : null}
           </div>
 
-          <div className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
-            <SectionHeader eyebrow={t("openingHours")} title={t("whenWereThereTitle")} accent={t("whenWereThereAccent")} />
-            <dl className="flex flex-col gap-3">
-              {(location.hours ?? []).map((h) => (
-                <div
-                  key={h.days}
-                  className="flex justify-between gap-4 border-b border-brand-200 pb-3 last:border-0"
-                >
-                  <dt className="text-brand-700">{h.days}</dt>
-                  <dd className="font-semibold text-brand-900">{h.time}</dd>
-                </div>
-              ))}
-            </dl>
-            {/* Renders nothing on this page while the BOOKING_TODO sentinel
-                is unfilled — BookingButton suppresses itself when its
-                fallback destination is the route already being read. It
-                comes back as an outbound link the moment a real bookingUrl
-                exists, which is exactly when it is worth a slot here. */}
-            <BookingButton />
-          </div>
+          {showBookingCard ? (
+            <div className="flex flex-col gap-6 rounded-card bg-brand-50 p-8">
+              {/* Renders nothing on this page while the BOOKING_TODO sentinel
+                  is unfilled — BookingButton suppresses itself when its
+                  fallback destination is the route already being read, which
+                  is exactly why showBookingCard hides this whole card too. It
+                  comes back as an outbound link the moment a real bookingUrl
+                  exists, which is exactly when it is worth a slot here. */}
+              <BookingButton />
+            </div>
+          ) : null}
         </Container>
       </Section>
 

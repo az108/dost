@@ -131,25 +131,16 @@ export interface LocalizedPillarInfo {
   faq?: Localized<FaqItem[]>
 }
 
-export interface OpeningHours {
-  /** Display label, e.g. "Mo – Fr" */
-  days: string
-  /** Display value, e.g. "9:00 – 20:00 Uhr" */
-  time: string
-  /**
-   * Machine-readable equivalent for schema.org JSON-LD, in schema.org's own
-   * vocabulary (English day names, 24-hour times). Omitted for closed days.
-   * It lives beside the display strings deliberately: the two cannot drift
-   * because you cannot edit one without seeing the other.
-   */
-  schema?: { dayOfWeek: string[]; opens: string; closes: string }
-}
-
 /**
  * One physical site of the center. `planned` locations carry a city and
- * nothing else: publishing an address or opening hours for a site that
- * cannot be visited is an SEO liability and, for a medical service, a
- * misleading-advertising risk.
+ * nothing else: publishing an address for a site that cannot be visited is
+ * an SEO liability and, for a medical service, a misleading-advertising
+ * risk.
+ *
+ * Opening hours are deliberately not a field here. The client never
+ * confirmed the ones this site inherited from a predecessor site, and a
+ * made-up schedule for a medical provider is misleading advertising — see
+ * the removal in the commit that deleted this field.
  */
 export interface Location {
   /** "Landshut" */
@@ -158,7 +149,6 @@ export interface Location {
   street?: string
   postalCode?: string
   phone?: string
-  hours?: OpeningHours[]
   /** Absent until this location has its own booking profile. */
   bookingUrl?: string
 }

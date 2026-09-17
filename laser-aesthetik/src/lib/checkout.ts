@@ -1,5 +1,5 @@
 /**
- * Every failure the caller can be handed. Ten come from public/checkout.php
+ * Every failure the caller can be handed. Nine come from public/checkout.php
  * — keep this list in step with the respond() calls there — and the last
  * three are synthesised below when the response never became a usable
  * answer.
@@ -17,7 +17,6 @@ export type CheckoutError =
   | "invalid_date"
   | "date_in_past"
   | "date_too_far"
-  | "closed_that_day"
   | "invalid_tageszeit"
   | "stripe_unreachable"
   | "stripe_error"

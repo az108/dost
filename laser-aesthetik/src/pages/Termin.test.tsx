@@ -154,12 +154,12 @@ describe("Termin-Flow", () => {
   })
 
   it("räumt eine Fehlermeldung weg, sobald der Besucher die Auswahl ändert", async () => {
-    // closed_that_day heißt "nimm einen anderen Tag". Blieb die Meldung
+    // date_in_past heißt "nimm einen anderen Tag". Blieb die Meldung
     // stehen, während der Besucher genau das tat, stand unter der Übersicht
     // ein Vorwurf gegen eine Auswahl, die es nicht mehr gab.
     vi.mocked(fetch).mockResolvedValue({
       ok: false,
-      json: async () => ({ ok: false, error: "closed_that_day" }),
+      json: async () => ({ ok: false, error: "date_in_past" }),
     } as Response)
 
     renderFlow()
@@ -176,7 +176,7 @@ describe("Termin-Flow", () => {
     // Schritt 4 steht noch: die Meldung ist weg, nicht die halbe Seite.
     expect(screen.getByRole("button", { name: /kostenpflichtig buchen/i })).toBeInTheDocument()
 
-    // Und über die Tageszeit genauso — closed_that_day hängt am Datum,
+    // Und über die Tageszeit genauso — date_in_past hängt am Datum,
     // invalid_tageszeit an der Tageszeit, und beide stehen in derselben Zeile.
     await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
     expect(await screen.findByRole("alert")).toBeInTheDocument()
@@ -223,14 +223,14 @@ describe("Termin-Flow", () => {
   it("zeigt einen Fehler statt einer leeren Seite, wenn der Endpunkt ablehnt", async () => {
     vi.mocked(fetch).mockResolvedValue({
       ok: false,
-      json: async () => ({ ok: false, error: "closed_that_day" }),
+      json: async () => ({ ok: false, error: "date_in_past" }),
     } as Response)
 
     renderFlow()
     await fillFlow("2026-12-06")
     await userEvent.click(screen.getByRole("button", { name: /kostenpflichtig buchen/i }))
 
-    expect(await screen.findByRole("alert")).toHaveTextContent(ui.bookingErrorClosedThatDay.de)
+    expect(await screen.findByRole("alert")).toHaveTextContent(ui.bookingErrorDateInPast.de)
   })
 
   it("übersteht einen Netzwerkfehler", async () => {

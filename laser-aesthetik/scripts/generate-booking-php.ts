@@ -1,7 +1,6 @@
 import { writeFileSync } from "node:fs"
 import { treatments } from "../src/content/treatments"
 import { packageTiers, skuFor } from "../src/content/pricing"
-import { center, openLocation } from "../src/content/center"
 
 export interface SkuEntry {
   /** Ganzzahlige Cent. Stripe lehnt Floats ab. */
@@ -14,12 +13,6 @@ export interface SkuEntry {
 }
 
 export type SkuTable = Record<string, SkuEntry>
-/** Englische Wochentage (schema.org-Vokabular), wie in center.ts. */
-export type Hours = Record<string, [string, string] | null>
-
-const WEEKDAYS = [
-  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-] as const
 
 /**
  * Die Tabelle, aus der checkout.php abrechnet.
@@ -68,34 +61,12 @@ export function buildSkuTable(): SkuTable {
   return table
 }
 
-/**
- * Öffnungszeiten für die serverseitige Datumsprüfung.
- *
- * center.ts führt sie maschinenlesbar in schema.org-Vokabular; PHP kann das
- * nicht lesen, also wird es hier mitgeneriert. Jeder der sieben Tage kommt
- * vor — ein fehlender Tag würde in checkout.php als `null` gelesen und jeden
- * Termin daran stillschweigend abweisen.
- */
-export function buildHours(): Hours {
-  const hours: Hours = {}
-  for (const day of WEEKDAYS) hours[day] = null
-
-  for (const h of openLocation(center).hours ?? []) {
-    if (!h.schema) continue
-    for (const day of h.schema.dayOfWeek) {
-      hours[day] = [h.schema.opens, h.schema.closes]
-    }
-  }
-
-  return hours
-}
-
 /** PHP-Strings in einfachen Anführungszeichen maskieren nur \ und '. */
 function phpString(value: string): string {
   return `'${value.replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`
 }
 
-export function renderPhp(skus: SkuTable, hours: Hours): string {
+export function renderPhp(skus: SkuTable): string {
   const skuRows = Object.entries(skus)
     .map(
       ([sku, e]) =>
@@ -105,20 +76,12 @@ export function renderPhp(skus: SkuTable, hours: Hours): string {
     )
     .join("\n")
 
-  const hourRows = Object.entries(hours)
-    .map(([day, span]) =>
-      span === null
-        ? `        ${phpString(day)} => null,`
-        : `        ${phpString(day)} => [${phpString(span[0])}, ${phpString(span[1])}],`,
-    )
-    .join("\n")
-
   return [
     "<?php",
     "",
     "// GENERIERT von scripts/generate-booking-php.ts — nicht von Hand ändern.",
     "// Neu erzeugen mit `npm run booking`. generate-booking-php.test.ts",
-    "// scheitert, wenn diese Datei und pricing.ts/center.ts auseinanderlaufen,",
+    "// scheitert, wenn diese Datei und pricing.ts auseinanderlaufen,",
     "// eine Preisänderung ohne Generatorlauf kann also nicht ausgeliefert werden.",
     "//",
     "// Das ist die EINZIGE Quelle für Beträge in checkout.php. Nichts, was der",
@@ -128,9 +91,6 @@ export function renderPhp(skus: SkuTable, hours: Hours): string {
     "    'skus' => [",
     skuRows,
     "    ],",
-    "    'hours' => [",
-    hourRows,
-    "    ],",
     "];",
     "",
   ].join("\n")
@@ -138,7 +98,7 @@ export function renderPhp(skus: SkuTable, hours: Hours): string {
 
 // Nur schreiben, wenn als Skript aufgerufen — nicht beim Import durch den Test.
 if (process.argv[1]?.endsWith("generate-booking-php.ts")) {
-  const php = renderPhp(buildSkuTable(), buildHours())
+  const php = renderPhp(buildSkuTable())
   writeFileSync("public/booking.generated.php", php)
   console.log(`booking.generated.php: ${Object.keys(buildSkuTable()).length} SKUs`)
 }

@@ -28,15 +28,14 @@ const CITY_PHOTO: Record<string, { src: string; alt: UiKey }> = {
 }
 
 /**
- * The three cities. Landshut carries an address and hours; München and
- * Stuttgart carry a city and the word "in Planung" and nothing else.
+ * The three cities. Landshut carries an address; München and Stuttgart
+ * carry a city and the word "in Planung" and nothing else.
  *
  * That asymmetry is the whole point and it is enforced by the data model,
- * not by this component: a `planned` Location has no street, no hours and
- * no booking URL to render. Publishing an address for a site nobody can
- * visit is an SEO liability and, for a medical service, a
- * misleading-advertising risk — see structuredData.ts, which emits an
- * entity for the open location alone.
+ * not by this component: a `planned` Location has no street and no booking
+ * URL to render. Publishing an address for a site nobody can visit is an
+ * SEO liability and, for a medical service, a misleading-advertising risk —
+ * see structuredData.ts, which emits an entity for the open location alone.
  */
 export function Standorte({
   tone = "light",
@@ -93,14 +92,6 @@ export function Standorte({
                             {formatAddress(location)}
                           </p>
                         ) : null}
-                        <dl className="flex flex-col gap-1 text-sm">
-                          {(location.hours ?? []).map((h) => (
-                            <div key={h.days} className="flex justify-between gap-4">
-                              <dt className="text-brand-700">{h.days}</dt>
-                              <dd className="font-medium text-brand-900">{h.time}</dd>
-                            </div>
-                          ))}
-                        </dl>
                       </>
                     )}
                   </div>

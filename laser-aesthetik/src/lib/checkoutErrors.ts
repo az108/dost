@@ -19,7 +19,6 @@ import { MAX_MONTHS_AHEAD } from "@/lib/bookingDates"
  * ihn — mit nicht belasteter Karte — einen Knopf ohne Ausweg drücken.
  */
 const ERROR_KEYS: Record<Exclude<CheckoutError, "date_too_far">, UiKey> = {
-  closed_that_day: "bookingErrorClosedThatDay",
   date_in_past: "bookingErrorDateInPast",
   invalid_date: "bookingErrorInvalidDate",
   invalid_tageszeit: "bookingErrorInvalidTimeOfDay",

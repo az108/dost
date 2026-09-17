@@ -23,10 +23,13 @@ describe("Standorte", () => {
     expect(screen.getAllByText("in Planung")).toHaveLength(2)
   })
 
-  it("shows opening hours only for the open location", () => {
-    // A planned site publishing hours is the failure this guards. The open
-    // location has three day-group rows; the planned ones have none.
-    renderSection()
-    expect(screen.getAllByText("Mo – Fr")).toHaveLength(1)
+  it("renders no opening hours anywhere — the data was never confirmed", () => {
+    // Opening hours used to render here as an empty <dl> once the hours
+    // data was removed from center.ts. No city's card — open or planned —
+    // may show a day-group row or an empty list for one.
+    const { container } = renderSection()
+    expect(screen.queryByText("Mo – Fr")).not.toBeInTheDocument()
+    expect(screen.queryByText("Samstag")).not.toBeInTheDocument()
+    expect(container.querySelector("dl")).toBeNull()
   })
 })

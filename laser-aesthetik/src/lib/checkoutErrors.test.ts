@@ -8,7 +8,6 @@ const t = ((key: keyof typeof ui) => ui[key].de) as never
 
 describe("errorText", () => {
   it("übersetzt jede Fehlerfamilie in einen eigenen Satz", () => {
-    expect(errorText("closed_that_day", t)).toBe(ui.bookingErrorClosedThatDay.de)
     expect(errorText("date_in_past", t)).toBe(ui.bookingErrorDateInPast.de)
     expect(errorText("invalid_date", t)).toBe(ui.bookingErrorInvalidDate.de)
     expect(errorText("invalid_tageszeit", t)).toBe(ui.bookingErrorInvalidTimeOfDay.de)

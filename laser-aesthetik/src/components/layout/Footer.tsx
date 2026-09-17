@@ -95,18 +95,6 @@ export function Footer() {
             </div>
           ) : null}
         </div>
-
-        <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold uppercase tracking-wider text-brand-700">{t("openingHours")}</p>
-          <dl className="flex flex-col gap-1 text-sm">
-            {(location.hours ?? []).map((h) => (
-              <div key={h.days} className="flex justify-between gap-4">
-                <dt className="text-brand-700">{h.days}</dt>
-                <dd className="font-medium text-brand-900">{h.time}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </Container>
 
       <Container className="mt-10 flex flex-col gap-3 border-t border-brand-200 pt-6 text-sm text-brand-700 sm:flex-row sm:items-center sm:justify-between">

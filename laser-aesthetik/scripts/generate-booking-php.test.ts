@@ -1,13 +1,11 @@
 import { readFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
-import { buildSkuTable, buildHours, renderPhp } from "./generate-booking-php"
+import { buildSkuTable, renderPhp } from "./generate-booking-php"
 import { treatments, treatmentsByPillar } from "../src/content/treatments"
 import { packageTiers, skuFor } from "../src/content/pricing"
-import { center, openLocation } from "../src/content/center"
 
 const skus = buildSkuTable()
-const hours = buildHours()
 
 describe("SKU-Tabelle", () => {
   it("legt vier Stufen für jede Festpreis-Behandlung an", () => {
@@ -81,36 +79,9 @@ describe("SKU-Tabelle", () => {
   })
 })
 
-describe("Öffnungszeiten", () => {
-  it("übernimmt sie unverändert aus center.ts", () => {
-    // PHP kann kein TypeScript lesen. Ohne diese Generierung müsste jemand
-    // die Zeiten von Hand doppelt pflegen, und sie liefen innerhalb eines
-    // Releases auseinander.
-    const location = openLocation(center)
-    for (const h of location.hours ?? []) {
-      if (!h.schema) continue
-      for (const day of h.schema.dayOfWeek) {
-        expect(hours[day]).toEqual([h.schema.opens, h.schema.closes])
-      }
-    }
-  })
-
-  it("markiert Sonntag als geschlossen", () => {
-    expect(hours["Sunday"]).toBeNull()
-  })
-
-  it("kennt alle sieben Wochentage", () => {
-    // Fehlt ein Tag, liest checkout.php für ihn `null` und weist jeden
-    // Termin daran ab — ein stiller Ausfall statt eines lauten.
-    expect(Object.keys(hours).sort()).toEqual(
-      ["Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday", "Wednesday"],
-    )
-  })
-})
-
 describe("PHP-Ausgabe", () => {
   it("gibt ein Array zurück und tut sonst nichts", () => {
-    const php = renderPhp(skus, hours)
+    const php = renderPhp(skus)
     expect(php.startsWith("<?php")).toBe(true)
     expect(php).toContain("return [")
     // Kein echo, keine Seiteneffekte: die Datei wird `require`d, und alles
@@ -121,10 +92,9 @@ describe("PHP-Ausgabe", () => {
   it("maskiert einfache Anführungszeichen in Namen", () => {
     // Nichts im aktuellen Bestand hat einen Apostroph — genau deshalb fällt
     // es niemandem auf, wenn es kaputtgeht.
-    const php = renderPhp(
-      { "x-single": { amount: 100, currency: "eur", name: "Anna's Zone", sessions: 1 } },
-      { Monday: null },
-    )
+    const php = renderPhp({
+      "x-single": { amount: 100, currency: "eur", name: "Anna's Zone", sessions: 1 },
+    })
     expect(php).toContain("\\'")
   })
 
@@ -133,6 +103,6 @@ describe("PHP-Ausgabe", () => {
     // Eine Preisänderung, die den Generator überspringt, muss hier scheitern
     // statt eine Abweichung auszuliefern.
     const committed = readFileSync(resolve(__dirname, "../public/booking.generated.php"), "utf8")
-    expect(committed).toBe(renderPhp(buildSkuTable(), buildHours()))
+    expect(committed).toBe(renderPhp(buildSkuTable()))
   })
 })
