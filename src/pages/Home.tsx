@@ -1,35 +1,25 @@
 import { Hero } from "@/sections/Hero"
-import { TopicGrid } from "@/sections/TopicGrid"
+import { AboutDost } from "@/sections/AboutDost"
+import { WhyChooseUs } from "@/sections/WhyChooseUs"
+import { TreatmentsTeaser } from "@/sections/TreatmentsTeaser"
 import { Arzt } from "@/sections/Arzt"
 import { Kontakt } from "@/sections/Kontakt"
-import { behandlungen } from "@/content/behandlungen"
-import { fachbereiche } from "@/content/fachbereiche"
+import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 
 export default function Home() {
+  const ui = useUi()
   useSeo({
     description:
       "Dr. med. univ. Dost Mohammad – Ihr Privatarzt in Magersdorf. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
   })
   return (
     <main>
-      <h1 className="sr-only">Dr. Dost – Ihr Privatarzt in Magersdorf</h1>
+      <h1 className="sr-only">{ui.hero.eyebrow}</h1>
       <Hero />
-      <TopicGrid
-        id="behandlungen"
-        title="Behandlungen"
-        intro="Von Akupunktur bis ästhetische Medizin – unsere Behandlungen verbinden Schulmedizin und Naturheilkunde."
-        entries={behandlungen}
-        basePath="/behandlungen"
-      />
-      <TopicGrid
-        id="fachbereiche"
-        title="Fachbereiche"
-        intro="Medizinische Versorgung auf höchstem Niveau durch vielfältige Spezialisierungen."
-        entries={fachbereiche}
-        basePath="/fachbereiche"
-        tinted
-      />
+      <AboutDost />
+      <WhyChooseUs />
+      <TreatmentsTeaser />
       <Arzt />
       <Kontakt />
     </main>

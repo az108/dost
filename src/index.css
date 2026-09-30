@@ -1,5 +1,7 @@
-@import "@fontsource-variable/fraunces";
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/heebo";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -7,11 +9,35 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand: #ee3d11;
-  --color-brand-ink: #b8300d;
-  --color-brand-green: #99ff99;
-  --font-display: "Fraunces Variable", Georgia, serif;
-  --font-sans: "Inter Variable", system-ui, sans-serif;
+  /* ── Palette sampled from drdosthealth.com ──────────────────────────────
+     Primary CTA magenta, mint secondary, periwinkle links, soft-pink washes,
+     near-black headings on grey-blue body text. See memory:drdosthealth-design-tokens. */
+
+  /* Primary: the magenta CTA. `brand-ink` is the accessible text shade
+     (#DD1188 is ~4.6:1 on white — fine for large/UI; this darker one clears
+     4.5:1 at body size). */
+  --color-brand: #DD1188;
+  --color-brand-ink: #B60D6F;
+  --color-brand-soft: #FDEFF6;
+
+  /* Secondary: mint/teal. `mint` for solid buttons (dark text), `mint-ink`
+     for mint-coloured text on white. */
+  --color-mint: #13C39C;
+  --color-mint-soft: #98D6CF;
+  --color-mint-ink: #0E8F72;
+
+  /* Links, eyebrows, labels: periwinkle → deeper blue for body-size text. */
+  --color-info: #7093E5;
+  --color-info-ink: #1863DC;
+
+  /* Neutrals from the source theme. `ink` = headings, `body` = paragraph text,
+     `wash` = the soft-pink section background. */
+  --color-ink: #171C26;
+  --color-body: #6E7990;
+  --color-wash: #FDEFEF;
+
+  --font-display: "Heebo Variable", system-ui, sans-serif;
+  --font-sans: "Roboto", system-ui, sans-serif;
 }
 
 html {
@@ -19,7 +45,14 @@ html {
 }
 
 body {
-  @apply bg-white text-neutral-900 font-sans antialiased;
+  @apply bg-white font-sans antialiased;
+  color: var(--color-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
 }
 
 @theme inline {

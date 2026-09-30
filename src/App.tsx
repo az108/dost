@@ -1,50 +1,46 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { LanguageProvider } from "@/lib/i18n"
 import { ScrollManager } from "@/components/site/ScrollManager"
 import { Navbar } from "@/components/site/Navbar"
 import { Footer } from "@/components/site/Footer"
 import Home from "@/pages/Home"
+import Treatments from "@/pages/Treatments"
+import TreatmentArea from "@/pages/TreatmentArea"
+import DiseaseDetail from "@/pages/DiseaseDetail"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
 import Galerie from "@/pages/Galerie"
 import NotFound from "@/pages/NotFound"
-import { behandlungen } from "@/content/behandlungen"
 import { fachbereiche } from "@/content/fachbereiche"
-import { legal } from "@/content/legal"
 
 export function AppRoutes() {
   return (
-    <div className="relative min-h-screen">
-      <ScrollManager />
-      <Navbar />
+    <LanguageProvider>
+      <div className="relative min-h-screen">
+        <ScrollManager />
+        <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/behandlungen/:slug"
-          element={
-            <TopicDetail
-              entries={behandlungen}
-              sectionLabel="Behandlungen"
-              basePath="/behandlungen"
-            />
-          }
-        />
+
+        {/* Treatments: areas → diseases */}
+        <Route path="/behandlungen" element={<Treatments />} />
+        <Route path="/behandlungen/:area" element={<TreatmentArea />} />
+        <Route path="/behandlungen/:area/:disease" element={<DiseaseDetail />} />
+
         <Route
           path="/fachbereiche/:slug"
           element={
-            <TopicDetail
-              entries={fachbereiche}
-              sectionLabel="Fachbereiche"
-              basePath="/fachbereiche"
-            />
+            <TopicDetail entries={fachbereiche} sectionLabel="Fachbereiche" basePath="/fachbereiche" />
           }
         />
         <Route path="/galerie" element={<Galerie />} />
-        <Route path="/impressum" element={<Legal title="Impressum" paragraphs={legal.impressum} />} />
-        <Route path="/datenschutz" element={<Legal title="Datenschutz" paragraphs={legal.datenschutz} />} />
+        <Route path="/impressum" element={<Legal which="impressum" />} />
+        <Route path="/datenschutz" element={<Legal which="datenschutz" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
 

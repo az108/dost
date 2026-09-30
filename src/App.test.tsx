@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { MemoryRouter } from "react-router-dom"
 import { AppRoutes } from "./App"
-import { behandlungen } from "./content/behandlungen"
 import { fachbereiche } from "./content/fachbereiche"
+import { treatmentAreas } from "./content/treatments"
 
 function renderAt(path: string) {
   return render(
@@ -19,14 +19,32 @@ describe("routes", () => {
     expect(screen.getAllByText(/Dr\. Dost/i).length).toBeGreaterThan(0)
   })
 
-  it("renders a detail page for every Behandlung", () => {
-    for (const e of behandlungen) {
-      const { unmount } = renderAt(`/behandlungen/${e.slug}`)
-      expect(
-        screen.getAllByRole("heading", { name: new RegExp(e.title, "i") }).length,
-      ).toBeGreaterThan(0)
-      unmount()
+  it("renders the treatments landing with the treatment areas", () => {
+    renderAt("/behandlungen")
+    // German is the default language; each area title should appear.
+    for (const area of treatmentAreas) {
+      expect(screen.getAllByText(new RegExp(area.title.de, "i")).length).toBeGreaterThan(0)
     }
+  })
+
+  it("renders a treatment-area page with its conditions", () => {
+    const area = treatmentAreas.find((a) => a.diseases.length > 0)!
+    renderAt(`/behandlungen/${area.slug}`)
+    expect(
+      screen.getAllByRole("heading", { name: new RegExp(area.title.de, "i") }).length,
+    ).toBeGreaterThan(0)
+    // and the first disease is listed
+    expect(screen.getAllByText(new RegExp(area.diseases[0].title.de, "i")).length).toBeGreaterThan(0)
+  })
+
+  it("renders a disease page with its ICD-10 code", () => {
+    const area = treatmentAreas.find((a) => a.diseases.length > 0)!
+    const disease = area.diseases[0]
+    renderAt(`/behandlungen/${area.slug}/${disease.slug}`)
+    expect(
+      screen.getAllByRole("heading", { name: new RegExp(disease.title.de, "i") }).length,
+    ).toBeGreaterThan(0)
+    expect(screen.getAllByText(new RegExp(disease.icd10, "i")).length).toBeGreaterThan(0)
   })
 
   it("renders a detail page for every Fachbereich", () => {
@@ -39,15 +57,6 @@ describe("routes", () => {
     }
   })
 
-  it("offers links to sibling topics on a detail page", () => {
-    const current = behandlungen[0]
-    const sibling = behandlungen[1]
-    renderAt(`/behandlungen/${current.slug}`)
-    const links = screen.getAllByRole("link", { name: new RegExp(sibling.title, "i") })
-    expect(links.length).toBeGreaterThan(0)
-    expect(links[0]).toHaveAttribute("href", `/behandlungen/${sibling.slug}`)
-  })
-
   it("renders Impressum and Datenschutz", () => {
     const { unmount } = renderAt("/impressum")
     expect(screen.getByRole("heading", { name: /Impressum/i })).toBeInTheDocument()
@@ -56,15 +65,11 @@ describe("routes", () => {
     expect(screen.getByRole("heading", { name: /Datenschutz/i })).toBeInTheDocument()
   })
 
-  it("renders a 404 page for unknown paths", () => {
-    const { unmount } = renderAt("/gibt-es-nicht")
-    expect(
-      screen.getByRole("heading", { name: /Seite nicht gefunden/i }),
-    ).toBeInTheDocument()
-    unmount()
-    renderAt("/behandlungen/unbekannter-slug")
-    expect(
-      screen.getByRole("heading", { name: /Seite nicht gefunden/i }),
-    ).toBeInTheDocument()
+  it("renders a 404 page for unknown paths and unknown areas/diseases", () => {
+    for (const path of ["/gibt-es-nicht", "/behandlungen/unbekanntes-gebiet", "/behandlungen/atemwege-hno/unbekannt"]) {
+      const { unmount } = renderAt(path)
+      expect(screen.getByRole("heading", { name: /Seite nicht gefunden/i })).toBeInTheDocument()
+      unmount()
+    }
   })
 })

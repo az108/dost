@@ -13,7 +13,7 @@ export function GradientBackdrop() {
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className={`${blob} top-1/3 -left-48 h-[30rem] w-[30rem] bg-brand-green/50`}
+        className={`${blob} top-1/3 -left-48 h-[30rem] w-[30rem] bg-mint/50`}
         animate={reduce ? undefined : { x: [0, 50, 10, 0], y: [0, -40, 20, 0] }}
         transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
       />

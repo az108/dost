@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useState } from "react"
 import { Reveal } from "@/components/site/Reveal"
+import { Container } from "@/components/site/Container"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
+import { useT } from "@/lib/i18n"
+import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 import { galerie } from "@/content/galerie"
 
 export default function Galerie() {
+  const t = useT()
+  const ui = useUi()
   useSeo({
-    title: "Galerie",
+    title: ui.gallery.title,
     description:
       "Einblicke in die Praxis von Dr. med. univ. Dost Mohammad in Magersdorf – Sprechzimmer, Behandlungsräume und moderne medizinische Ausstattung.",
     keywords: ["Praxis Galerie", "Praxisräume Magersdorf"],
@@ -36,51 +41,50 @@ export default function Galerie() {
   }, [active, close, show])
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden pt-24">
       <GradientBackdrop />
-      <div className="mx-auto max-w-7xl px-6 py-28">
-        <Reveal>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-            Praxis
-          </p>
-          <h1 className="font-display mt-3 text-5xl font-semibold md:text-6xl">Galerie</h1>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-600">
-            Ein paar Einblicke in unsere Praxis – Sprechzimmer, Behandlungsräume und
-            moderne medizinische Ausstattung.
-          </p>
-        </Reveal>
+      <Container>
+        <div className="py-14">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              {ui.gallery.eyebrow}
+            </p>
+            <h1 className="mt-3 text-5xl font-extrabold md:text-6xl">{ui.gallery.title}</h1>
+            <p className="mt-4 max-w-2xl text-lg text-body">{ui.gallery.intro}</p>
+          </Reveal>
 
-        <div className="mt-14 columns-1 gap-5 sm:columns-2 lg:columns-3">
-          {galerie.map((img, i) => (
-            <Reveal key={img.src} delay={(i % 3) * 0.08} className="mb-5 break-inside-avoid">
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                className="group block w-full overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-sm transition-all duration-300 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                />
-              </button>
-            </Reveal>
-          ))}
+          <div className="mt-14 columns-1 gap-5 sm:columns-2 lg:columns-3">
+            {galerie.map((img, i) => (
+              <Reveal key={img.src} delay={(i % 3) * 0.08} className="mb-5 break-inside-avoid">
+                <button
+                  type="button"
+                  onClick={() => setActive(i)}
+                  className="group block w-full overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-sm transition-all duration-300 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                >
+                  <img
+                    src={img.src}
+                    alt={t(img.alt)}
+                    loading="lazy"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                </button>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
+      </Container>
 
       {active !== null && (
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4"
           role="dialog"
           aria-modal="true"
-          aria-label="Bildansicht"
+          aria-label={ui.gallery.dialog}
           onClick={close}
         >
           <button
             type="button"
-            aria-label="Schließen"
+            aria-label={ui.gallery.close}
             onClick={close}
             className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition-colors hover:bg-white/20"
           >
@@ -88,7 +92,7 @@ export default function Galerie() {
           </button>
           <button
             type="button"
-            aria-label="Vorheriges Bild"
+            aria-label={ui.gallery.prev}
             onClick={(e) => {
               e.stopPropagation()
               show(-1)
@@ -99,13 +103,13 @@ export default function Galerie() {
           </button>
           <img
             src={galerie[active].src}
-            alt={galerie[active].alt}
+            alt={t(galerie[active].alt)}
             className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
           <button
             type="button"
-            aria-label="Nächstes Bild"
+            aria-label={ui.gallery.next}
             onClick={(e) => {
               e.stopPropagation()
               show(1)

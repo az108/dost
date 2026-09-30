@@ -1,13 +1,15 @@
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
+import { LanguageProvider } from "@/lib/i18n"
 import Legal from "./Legal"
-import { legal } from "@/content/legal"
 
 it("renders the impressum placeholder paragraphs from content", () => {
   render(
-    <MemoryRouter>
-      <Legal title="Impressum" paragraphs={legal.impressum} />
-    </MemoryRouter>
+    <LanguageProvider>
+      <MemoryRouter>
+        <Legal which="impressum" />
+      </MemoryRouter>
+    </LanguageProvider>,
   )
   expect(screen.getByRole("heading", { name: "Impressum" })).toBeInTheDocument()
   expect(screen.getByText(/Inhalt folgt/)).toBeInTheDocument()

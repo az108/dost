@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import type { TopicEntry } from "@/content/types"
 
 const gradients = [
-  "from-brand/30 to-brand-green/30",
-  "from-brand-green/30 to-brand/20",
+  "from-brand/30 to-mint/30",
+  "from-mint/30 to-brand/20",
   "from-amber-100 to-brand/30",
 ]
 

@@ -3,6 +3,7 @@ import type { TopicEntry } from "@/content/types"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useSeo } from "@/lib/useSeo"
+import { useUi } from "@/content/ui"
 import { TopicSidebar } from "@/components/site/TopicSidebar"
 import NotFound from "@/pages/NotFound"
 
@@ -16,6 +17,7 @@ export default function TopicDetail({
   basePath: string
 }) {
   const { slug } = useParams()
+  const ui = useUi()
   const entry = entries.find((e) => e.slug === slug)
   useSeo({
     title: entry?.title,
@@ -56,7 +58,7 @@ export default function TopicDetail({
               "mt-12 rounded-full bg-brand text-white hover:bg-brand/90",
             )}
           >
-            Termin buchen
+            {ui.topic.book}
           </Link>
         </article>
       </div>

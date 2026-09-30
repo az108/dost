@@ -1,0 +1,230 @@
+{
+  "areas": [
+    {
+      "area": "psychiatric-neurological-conditions",
+      "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/",
+      "diseases": [
+        {
+          "slug": "generalized-anxiety-disorder",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/generalized-anxiety-disorder/"
+        },
+        {
+          "slug": "panic-disorder",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/panic-disorder/"
+        },
+        {
+          "slug": "dysthymia",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/dysthymia/"
+        },
+        {
+          "slug": "recurrent-depressive-disorder",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/recurrent-depressive-disorder/"
+        },
+        {
+          "slug": "recurrent-depressive-disorder-moderate",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/recurrent-depressive-disorder-moderate/"
+        },
+        {
+          "slug": "depressive-episode-unspecified",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/depressive-episode-unspecified/"
+        },
+        {
+          "slug": "severe-depressive-episode",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/severe-depressive-episode/"
+        },
+        {
+          "slug": "moderate-depressive-episode",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/moderate-depressive-episode/"
+        },
+        {
+          "slug": "mild-depressive-episode",
+          "url": "https://www.drdosthealth.com/general-medicine/psychiatric-neurological-conditions/mild-depressive-episode/"
+        }
+      ]
+    },
+    {
+      "area": "stomach-intestinal-tract-liver-abdomen",
+      "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/",
+      "diseases": [
+        {
+          "slug": "irritable-bowel-syndrome-ibs",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/irritable-bowel-syndrome-ibs/"
+        },
+        {
+          "slug": "functional-dyspepsia-indigestion",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/functional-dyspepsia-indigestion/"
+        },
+        {
+          "slug": "duodenal-ulcer",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/duodenal-ulcer/"
+        },
+        {
+          "slug": "gastric-ulcer",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/gastric-ulcer/"
+        },
+        {
+          "slug": "duodenitis",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/duodenitis/"
+        },
+        {
+          "slug": "chronic-gastritis",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/chronic-gastritis/"
+        },
+        {
+          "slug": "acute-gastritis",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/acute-gastritis/"
+        },
+        {
+          "slug": "gastritis-unspecified",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/gastritis-unspecified/"
+        },
+        {
+          "slug": "gerd-with-esophagitis",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/gerd-with-esophagitis/"
+        },
+        {
+          "slug": "gastroesophageal-reflux-disease-gerd",
+          "url": "https://www.drdosthealth.com/general-medicine/stomach-intestinal-tract-liver-abdomen/gastroesophageal-reflux-disease-gerd/"
+        }
+      ]
+    },
+    {
+      "area": "general-complaints-respiratory-system-ent",
+      "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/",
+      "diseases": [
+        {
+          "slug": "acute-upper-respiratory-infection-unspecified",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-upper-respiratory-infection-unspecified/"
+        },
+        {
+          "slug": "acute-bronchitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-bronchitis/"
+        },
+        {
+          "slug": "bronchitis-unspecified",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/bronchitis-unspecified/"
+        },
+        {
+          "slug": "acute-laryngitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-laryngitis/"
+        },
+        {
+          "slug": "acute-tonsillitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-tonsillitis/"
+        },
+        {
+          "slug": "acute-pharyngitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-pharyngitis/"
+        },
+        {
+          "slug": "chronic-sinusitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/chronic-sinusitis/"
+        },
+        {
+          "slug": "acute-sinusitis",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/acute-sinusitis/"
+        },
+        {
+          "slug": "influenza",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/influenza/"
+        },
+        {
+          "slug": "common-cold",
+          "url": "https://www.drdosthealth.com/general-medicine/general-complaints-respiratory-system-ent/common-cold/"
+        }
+      ]
+    },
+    {
+      "area": "metabolism-endocrinology-nutrition",
+      "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/",
+      "diseases": [
+        {
+          "slug": "class-i-obesity",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/class-i-obesity/"
+        },
+        {
+          "slug": "obesity-due-to-excess-calories",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/obesity-due-to-excess-calories/"
+        },
+        {
+          "slug": "hyperlipidemia-unspecified",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/hyperlipidemia-unspecified/"
+        },
+        {
+          "slug": "mixed-hyperlipidemia",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/mixed-hyperlipidemia/"
+        },
+        {
+          "slug": "pure-hyperglyceridemia",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/pure-hyperglyceridemia/"
+        },
+        {
+          "slug": "pure-hypercholesterolemia",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/pure-hypercholesterolemia/"
+        },
+        {
+          "slug": "unspecified-diabetes-mellitus",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/unspecified-diabetes-mellitus/"
+        },
+        {
+          "slug": "type-1-diabetes-mellitus-without-complications",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/type-1-diabetes-mellitus-without-complications/"
+        },
+        {
+          "slug": "type-2-diabetes-mellitus-with-complications",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/type-2-diabetes-mellitus-with-complications/"
+        },
+        {
+          "slug": "type-2-diabetes-mellitus-without-complications",
+          "url": "https://www.drdosthealth.com/general-medicine/metabolism-endocrinology-nutrition/type-2-diabetes-mellitus-without-complications/"
+        }
+      ]
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "url": "https://www.drdosthealth.com/general-medicine/injuries-poisoning-consequences-of-accidents/",
+      "diseases": []
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "url": "https://www.drdosthealth.com/general-medicine/eyes-sensory-organs/",
+      "diseases": []
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "url": "https://www.drdosthealth.com/general-medicine/blood-immune-system-oncological-follow-up-care/",
+      "diseases": []
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "url": "https://www.drdosthealth.com/general-medicine/infections-parasitic-diseases/",
+      "diseases": []
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "url": "https://www.drdosthealth.com/general-medicine/urinary-tract-kidneys/",
+      "diseases": []
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "url": "https://www.drdosthealth.com/general-medicine/skin-hair-nails-subcutaneous-tissue/",
+      "diseases": []
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "url": "https://www.drdosthealth.com/general-medicine/musculoskeletal-system-orthopedics-pain-medicine/",
+      "diseases": []
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "url": "https://www.drdosthealth.com/general-medicine/heart-circulation-blood-vessels/",
+      "diseases": []
+    }
+  ],
+  "aestheticPages": [
+    "https://www.drdosthealth.com/laser-therapy/",
+    "https://www.drdosthealth.com/cosmetic-aesthetic-therapy/",
+    "https://www.drdosthealth.com/botox/",
+    "https://www.drdosthealth.com/skin-specialist/"
+  ]
+}
