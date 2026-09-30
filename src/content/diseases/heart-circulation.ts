@@ -774,4 +774,782 @@ export const heartCirculationDiseases: Disease[] = [
       ],
     },
   },
+
+  {
+    slug: "secondary-hypertension",
+    icd10: "I15.9",
+    illustration: "generic",
+    title: { de: "Sekundäre Hypertonie", en: "Secondary Hypertension" },
+    summary: {
+      de: "Bluthochdruck als Folge einer anderen, oft behandelbaren Grunderkrankung.",
+      en: "High blood pressure as a result of another, often treatable underlying condition.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Die sekundäre Hypertonie ist ein Bluthochdruck, der durch eine andere Erkrankung verursacht wird – etwa Nieren- oder Nebennierenerkrankungen, hormonelle Störungen, eine Schlafapnoe oder bestimmte Medikamente. Hinweise sind ein früher Beginn, sehr hohe Werte, schlechtes Ansprechen auf mehrere Medikamente oder auffällige Begleitbefunde.",
+          en: "Secondary hypertension is high blood pressure caused by another condition – such as kidney or adrenal disease, hormonal disorders, sleep apnoea or certain medicines. Clues are an early onset, very high readings, poor response to several medicines or notable associated findings." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Ursachensuche", en: "Finding the cause" } },
+        { t: "p", text: {
+          de: "Im Vordergrund steht die gezielte Abklärung der zugrunde liegenden Ursache mit Labor, Bildgebung und ggf. hormonellen Tests. Wird die Ursache behandelt, bessert sich der Blutdruck häufig deutlich oder normalisiert sich.",
+          en: "The priority is a targeted work-up for the underlying cause with laboratory tests, imaging and hormonal tests where appropriate. When the cause is treated, blood pressure often improves markedly or normalises." } },
+        { t: "sub", text: { de: "Blutdruckbehandlung", en: "Blood-pressure treatment" } },
+        { t: "p", text: {
+          de: "Bis zur Klärung und darüber hinaus wird der Blutdruck medikamentös eingestellt; die Auswahl richtet sich nach der Ursache und den Begleiterkrankungen.",
+          en: "Until the cause is clarified and beyond, blood pressure is controlled with medication; the choice depends on the cause and comorbidities." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Salzarme, herzgesunde Ernährung, Gewichtsmanagement, Bewegung, Rauchverzicht und Stressbewältigung unterstützen die Behandlung, ersetzen aber die Ursachenklärung nicht. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "A low-salt, heart-healthy diet, weight management, activity, stopping smoking and stress management support treatment but do not replace clarifying the cause. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Begleitbeschwerden können traditionell über Muster wie aufsteigendes Leber-Yang gedeutet werden. Akupunktur und Kräuter kommen nur ergänzend und unter qualifizierter Aufsicht infrage.",
+          en: "Accompanying symptoms may traditionally be interpreted through patterns such as ascending Liver Yang. Acupuncture and herbs are used only as complementary care under qualified supervision." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont Stressreduktion, ausgewogene Ernährung und geregelte Routinen. Kräuterpräparate sind wegen möglicher Wechselwirkungen ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises stress reduction, a balanced diet and regular routines. Herbal preparations should be medically reviewed because of possible interactions." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßiges, an die Belastbarkeit angepasstes Ausdauer- und moderates Krafttraining unterstützt die Blutdruckregulation. Die Dosierung wird mit dem Behandlungsteam abgestimmt.",
+          en: "Regular aerobic and moderate resistance training matched to capacity supports blood-pressure regulation. The dose is agreed with the treatment team." } },
+      ],
+    },
+  },
+
+  {
+    slug: "old-myocardial-infarction",
+    icd10: "I25.2",
+    illustration: "generic",
+    title: { de: "Zustand nach Herzinfarkt", en: "Old Myocardial Infarction" },
+    summary: {
+      de: "Nachsorge und Sekundärprävention nach einem durchgemachten Herzinfarkt.",
+      en: "Follow-up and secondary prevention after a previous heart attack.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Der Zustand nach Herzinfarkt beschreibt die Situation nach einem durchgemachten Herzinfarkt, bei dem ein Teil des Herzmuskels geschädigt wurde. Im Vordergrund stehen nun die Erholung, die Vermeidung eines erneuten Infarkts (Sekundärprävention) und der Erhalt der Herzfunktion.",
+          en: "Old myocardial infarction describes the situation after a previous heart attack in which part of the heart muscle was damaged. The focus is now recovery, preventing another infarction (secondary prevention) and preserving heart function." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Sekundärprävention", en: "Secondary prevention" } },
+        { t: "p", text: {
+          de: "Die Behandlung umfasst meist Thrombozytenhemmer, Statine, Betablocker und ACE-Hemmer/AT1-Blocker sowie die konsequente Einstellung von Blutdruck, Blutfetten und Blutzucker und einen strikten Rauchverzicht.",
+          en: "Treatment usually includes antiplatelet agents, statins, beta-blockers and ACE inhibitors/ARBs, plus consistent control of blood pressure, lipids and glucose and strict smoking cessation." } },
+        { t: "sub", text: { de: "Verlaufskontrolle", en: "Follow-up" } },
+        { t: "p", text: {
+          de: "Regelmäßige Kontrollen der Herzfunktion und der Risikofaktoren sind wichtig. Neue oder wiederkehrende Brustschmerzen erfordern sofort den Notruf 112.",
+          en: "Regular monitoring of heart function and risk factors is important. New or recurring chest pain requires an immediate emergency call (112)." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Eine herzgesunde, mediterrane Ernährung, Gewichtsmanagement, Rauchverzicht und Stressbewältigung unterstützen die Erholung. Ergänzende Präparate sind ärztlich zu prüfen und ersetzen die Sekundärprävention nicht.",
+          en: "A heart-healthy, Mediterranean diet, weight management, stopping smoking and stress management support recovery. Complementary products should be medically reviewed and do not replace secondary prevention." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "In der Erholungsphase können Akupunktur und individuelle Kräuter traditionell begleitend zur Stärkung und Entspannung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die Medikation zu ersetzen.",
+          en: "During recovery, acupuncture and individual herbs may traditionally be used as complementary support for strengthening and relaxation – only under qualified supervision and without replacing medication." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine herzfreundliche Ernährung, Stressreduktion durch Yoga und Meditation sowie geregelte Routinen. Kräuterpräparate sind ärztlich auf Wechselwirkungen zu prüfen.",
+          en: "Ayurvedic support emphasises a heart-friendly diet, stress reduction through yoga and meditation, and regular routines. Herbal preparations should be medically reviewed for interactions." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Eine kardiologische Rehabilitation mit strukturiertem, überwachtem Bewegungsaufbau verbessert Belastbarkeit, Prognose und Lebensqualität. Die Intensität wird individuell an die Herzfunktion angepasst.",
+          en: "Cardiac rehabilitation with structured, supervised exercise build-up improves capacity, prognosis and quality of life. Intensity is individually matched to heart function." } },
+      ],
+    },
+  },
+
+  {
+    slug: "premature-ventricular-contractions",
+    icd10: "I49.3",
+    illustration: "generic",
+    title: { de: "Ventrikuläre Extrasystolen", en: "Premature Ventricular Contractions" },
+    summary: {
+      de: "Zusätzliche Herzschläge aus den Herzkammern – meist harmlos, oft als Stolpern spürbar.",
+      en: "Extra heartbeats from the ventricles – usually harmless, often felt as skipping.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Ventrikuläre Extrasystolen sind zusätzliche Herzschläge, die aus den Herzkammern stammen und den regelmäßigen Rhythmus unterbrechen. Sie werden oft als Stolpern, Aussetzer oder kräftiger Schlag wahrgenommen. Bei herzgesunden Menschen sind sie meist harmlos; häufen sie sich oder besteht eine Herzerkrankung, ist eine Abklärung sinnvoll.",
+          en: "Premature ventricular contractions are extra heartbeats arising from the ventricles that interrupt the regular rhythm. They are often felt as skipping, missed beats or a forceful beat. In people with healthy hearts they are usually harmless; if frequent or with underlying heart disease, assessment is advisable." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
+        { t: "p", text: {
+          de: "EKG und Langzeit-EKG erfassen Häufigkeit und Art; bei Bedarf werden Herzultraschall und Laborwerte ergänzt. Ohne Herzerkrankung genügen meist Beobachtung und Auslöservermeidung. Bei starken Beschwerden oder sehr häufigen Extrasystolen kommen Betablocker oder – selten – eine Katheterablation infrage.",
+          en: "ECG and Holter ECG capture frequency and type; cardiac ultrasound and blood tests are added when needed. Without heart disease, observation and trigger avoidance usually suffice. For marked symptoms or very frequent extra beats, beta-blockers or – rarely – catheter ablation are options." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ausreichender Schlaf, Stressbewältigung sowie die Begrenzung von Koffein, Nikotin und Alkohol können die Beschwerden verringern. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "Adequate sleep, stress management and limiting caffeine, nicotine and alcohol can reduce symptoms. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Herzstolpern wird traditionell Mustern wie Herz-Qi- oder Herz-Yin-Mangel zugeordnet. Akupunktur und beruhigende Kräuter können begleitend genutzt werden.",
+          en: "Palpitations are traditionally assigned to patterns such as Heart Qi or Heart Yin deficiency. Acupuncture and calming herbs may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont beruhigende Routinen, Atemübungen und eine ausgewogene Ernährung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises calming routines, breathing exercises and a balanced diet. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßige, moderate Bewegung und Entspannungsübungen unterstützen die allgemeine Herz-Kreislauf-Gesundheit. Bei belastungsabhängigen Extrasystolen wird die Intensität ärztlich abgestimmt.",
+          en: "Regular, moderate activity and relaxation exercises support overall cardiovascular health. For exertion-related extra beats, intensity is agreed with a doctor." } },
+      ],
+    },
+  },
+
+  {
+    slug: "atrial-flutter",
+    icd10: "I48.3",
+    illustration: "generic",
+    title: { de: "Vorhofflattern", en: "Atrial Flutter" },
+    summary: {
+      de: "Sehr schneller, meist regelmäßiger Vorhofrhythmus – verwandt mit Vorhofflimmern.",
+      en: "A very fast, usually regular atrial rhythm – related to atrial fibrillation.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Vorhofflattern ist eine Herzrhythmusstörung mit sehr schnellem, meist regelmäßigem Schlagen der Vorhöfe. Beschwerden ähneln dem Vorhofflimmern (Herzrasen, Leistungsminderung, Luftnot), und auch hier besteht ein erhöhtes Risiko für Blutgerinnsel und Schlaganfall.",
+          en: "Atrial flutter is an arrhythmia with very fast, usually regular beating of the atria. Symptoms resemble atrial fibrillation (racing heart, reduced capacity, breathlessness), and there is likewise a raised risk of blood clots and stroke." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Die Diagnose erfolgt per EKG. Anhand des Risikos wird ein Schlaganfallschutz mit Gerinnungshemmung geprüft. Zur Behandlung stehen Frequenz- und Rhythmuskontrolle zur Verfügung; die Katheterablation ist bei typischem Vorhofflattern häufig sehr erfolgreich.",
+          en: "Diagnosis is by ECG. Based on risk, stroke prevention with anticoagulation is assessed. Rate and rhythm control are available; catheter ablation is often very successful for typical atrial flutter." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Maßvoller bis kein Alkohol, guter Schlaf, Stressbewältigung, Gewichtsmanagement und die Behandlung von Bluthochdruck oder Schlafapnoe unterstützen die Rhythmusstabilität. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "Moderate-to-no alcohol, good sleep, stress management, weight management and treating high blood pressure or sleep apnoea support rhythm stability. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Herzrasen wird traditionell Mustern wie Herz-Qi- oder Herz-Yin-Mangel zugeordnet. Akupunktur und Kräuter kommen nur ergänzend und unter qualifizierter Aufsicht infrage und ersetzen den Schlaganfallschutz nicht.",
+          en: "A racing heart is traditionally assigned to patterns such as Heart Qi or Heart Yin deficiency. Acupuncture and herbs are used only as complementary care under qualified supervision and do not replace stroke prevention." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont Stressreduktion, geregelte Routinen und eine ausgewogene Ernährung. Kräuterpräparate sind wegen möglicher Wechselwirkungen (u. a. mit Blutverdünnern) ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises stress reduction, regular routines and a balanced diet. Herbal preparations should be medically reviewed because of possible interactions (including with anticoagulants)." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßige, moderate Ausdauerbewegung unterstützt die Herz-Kreislauf-Gesundheit. Die passende Belastung wird individuell abgestimmt, insbesondere nach einer Ablation.",
+          en: "Regular, moderate aerobic activity supports cardiovascular health. The appropriate load is individualised, particularly after an ablation." } },
+      ],
+    },
+  },
+
+  {
+    slug: "sinus-bradycardia",
+    icd10: "R00.1",
+    illustration: "generic",
+    title: { de: "Bradykardie (langsamer Herzschlag)", en: "Bradycardia" },
+    summary: {
+      de: "Verlangsamter Herzschlag – bei Sportlichen oft normal, sonst je nach Beschwerden abzuklären.",
+      en: "A slowed heartbeat – often normal in athletes, otherwise assessed by symptoms.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Von Bradykardie spricht man bei einem verlangsamten Herzschlag. Bei sportlichen und in Ruhe befindlichen Menschen ist ein niedriger Puls oft normal und harmlos. Beschwerden wie Müdigkeit, Schwindel, Leistungsminderung oder Ohnmacht können jedoch auf eine behandlungsbedürftige Ursache hinweisen.",
+          en: "Bradycardia refers to a slowed heartbeat. In athletic and resting people a low pulse is often normal and harmless. Symptoms such as fatigue, dizziness, reduced capacity or fainting, however, can indicate a cause needing treatment." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
+        { t: "p", text: {
+          de: "EKG und Langzeit-EKG klären Art und Ursache (z. B. Medikamente, Schilddrüse, Reizleitungsstörung). Ohne Beschwerden ist oft keine Behandlung nötig. Bei relevanten Beschwerden werden auslösende Medikamente angepasst und – bei bestimmten Reizleitungsstörungen – ein Herzschrittmacher erwogen.",
+          en: "ECG and Holter ECG clarify the type and cause (e.g. medicines, thyroid, conduction disturbance). Without symptoms, treatment is often unnecessary. For significant symptoms, triggering medicines are adjusted and – for certain conduction disturbances – a pacemaker is considered." } },
+        { t: "p", text: {
+          de: "Wichtig: Ohnmacht oder wiederholtes Schwarzwerden vor den Augen erfordern eine rasche ärztliche Abklärung.",
+          en: "Important: fainting or repeated visual blackouts require prompt medical assessment." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ergänzende Maßnahmen betreffen vor allem die allgemeine Herz-Kreislauf-Gesundheit: ausgewogene Ernährung, ausreichend Flüssigkeit und angepasste Bewegung. Auslösende Substanzen und Medikamente werden ärztlich überprüft.",
+          en: "Complementary measures mainly concern general cardiovascular health: balanced nutrition, adequate fluids and adapted activity. Triggering substances and medicines are reviewed medically." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Ein langsamer Kreislauf mit Müdigkeit wird traditionell einem Herz- oder Nieren-Yang-Mangel zugeordnet. Akupunktur und wärmende Ernährung können begleitend genutzt werden.",
+          en: "A slow circulation with fatigue is traditionally assigned to a Heart or Kidney Yang deficiency. Acupuncture and warming nutrition may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont geregelte Routinen, nährende Ernährung und maßvolle Bewegung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises regular routines, nourishing nutrition and moderate activity. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßige, moderate Bewegung fördert die Herz-Kreislauf-Gesundheit. Bei beschwerdefreier, sportbedingter Bradykardie ist keine Einschränkung nötig; bei Beschwerden wird die Belastung ärztlich abgestimmt.",
+          en: "Regular, moderate activity promotes cardiovascular health. For symptom-free, exercise-related bradycardia no restriction is needed; with symptoms, the load is agreed with a doctor." } },
+      ],
+    },
+  },
+
+  {
+    slug: "sinus-tachycardia",
+    icd10: "R00.0",
+    illustration: "generic",
+    title: { de: "Sinustachykardie", en: "Sinus Tachycardia" },
+    summary: {
+      de: "Beschleunigter, aber regelmäßiger Herzschlag – meist Ausdruck einer Belastung oder Ursache.",
+      en: "A fast but regular heartbeat – usually a response to strain or an underlying cause.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Bei der Sinustachykardie schlägt das Herz schneller als normal, aber regelmäßig und mit normalem Ursprung. Häufig ist sie eine sinnvolle Reaktion auf Anstrengung, Aufregung, Fieber, Flüssigkeitsmangel, Blutarmut, eine Schilddrüsenüberfunktion oder bestimmte Substanzen. Anhaltendes Herzrasen ohne erkennbaren Anlass sollte abgeklärt werden.",
+          en: "In sinus tachycardia the heart beats faster than normal but regularly and from its normal origin. It is often an appropriate response to exertion, excitement, fever, dehydration, anaemia, an overactive thyroid or certain substances. A persistent racing heart without an obvious trigger should be assessed." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Ursachensuche & Behandlung", en: "Finding the cause & treatment" } },
+        { t: "p", text: {
+          de: "Im Vordergrund steht die Suche nach der Ursache (Labor, EKG, ggf. Schilddrüsen- und Blutwerte). Behandelt wird vorrangig die Ursache; nur selten sind Medikamente zur Frequenzsenkung nötig.",
+          en: "The priority is finding the cause (laboratory tests, ECG, thyroid and blood values where appropriate). Treatment mainly addresses the cause; medicines to slow the rate are rarely needed." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ausreichende Flüssigkeitszufuhr, Stressbewältigung, guter Schlaf sowie die Begrenzung von Koffein, Nikotin und Alkohol können anlassbedingtes Herzrasen verringern. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "Adequate hydration, stress management, good sleep and limiting caffeine, nicotine and alcohol can reduce trigger-related racing. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Herzrasen mit innerer Unruhe wird traditionell einem Herz-Yin-Mangel zugeordnet. Akupunktur und beruhigende Kräuter können begleitend genutzt werden.",
+          en: "A racing heart with inner restlessness is traditionally assigned to a Heart Yin deficiency. Acupuncture and calming herbs may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont beruhigende Routinen, Atemübungen und eine ausgewogene Ernährung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises calming routines, breathing exercises and a balanced diet. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Atem- und Entspannungsübungen sowie ein schrittweiser Ausdaueraufbau können die Herzfrequenzregulation und Belastbarkeit verbessern.",
+          en: "Breathing and relaxation exercises and a gradual aerobic build-up can improve heart-rate regulation and capacity." } },
+      ],
+    },
+  },
+
+  {
+    slug: "aortic-stenosis",
+    icd10: "I35.0",
+    illustration: "generic",
+    title: { de: "Aortenklappenstenose", en: "Aortic Stenosis" },
+    summary: {
+      de: "Verengung der Aortenklappe mit Luftnot, Brustenge oder Schwindel bei Belastung.",
+      en: "Narrowing of the aortic valve with breathlessness, chest tightness or dizziness on exertion.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Bei der Aortenklappenstenose ist die Auslassklappe der linken Herzkammer verengt, sodass das Herz gegen einen erhöhten Widerstand pumpen muss. Häufig bleibt sie lange beschwerdefrei; typische Warnzeichen sind Luftnot, Brustenge, Schwindel oder Ohnmacht bei Belastung.",
+          en: "In aortic stenosis the outlet valve of the left ventricle is narrowed, so the heart must pump against increased resistance. It often stays symptom-free for a long time; typical warning signs are breathlessness, chest tightness, dizziness or fainting on exertion." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Der Herzultraschall (Echokardiografie) ist die zentrale Untersuchung. Leichte Formen werden regelmäßig kontrolliert. Bei ausgeprägter, symptomatischer Stenose ist ein Klappenersatz die entscheidende Behandlung – operativ oder kathetergestützt (TAVI).",
+          en: "Cardiac ultrasound (echocardiography) is the central investigation. Mild forms are monitored regularly. For severe, symptomatic stenosis, valve replacement is the decisive treatment – surgical or catheter-based (TAVI)." } },
+        { t: "p", text: {
+          de: "Wichtig: Ohnmacht, Brustschmerz oder Luftnot bei Belastung erfordern eine zeitnahe kardiologische Abklärung.",
+          en: "Important: fainting, chest pain or breathlessness on exertion require prompt cardiology assessment." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ergänzende Maßnahmen betreffen die allgemeine Herz-Kreislauf-Gesundheit (ausgewogene Ernährung, Rauchverzicht, Behandlung von Risikofaktoren). Sie ersetzen nicht die kardiologische Behandlung; Präparate sind ärztlich zu prüfen.",
+          en: "Complementary measures concern general cardiovascular health (balanced nutrition, stopping smoking, treating risk factors). They do not replace cardiology care; products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "TCM-Verfahren kommen allenfalls zur allgemeinen Stärkung begleitend und unter qualifizierter Aufsicht infrage und ersetzen die Behandlung der Klappenerkrankung nicht.",
+          en: "TCM approaches may at most be used for general strengthening as complementary care under qualified supervision and do not replace treatment of the valve disease." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine herzfreundliche Ernährung, Stressreduktion und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises a heart-friendly diet, stress reduction and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Bewegung wird an den Schweregrad angepasst: Bei ausgeprägter Stenose sind starke Belastungen zu vermeiden. Ein individuell und ärztlich abgestimmtes Programm ist sinnvoll, insbesondere nach einem Klappenersatz.",
+          en: "Activity is matched to severity: with severe stenosis, heavy exertion should be avoided. An individually and medically agreed programme is sensible, particularly after valve replacement." } },
+      ],
+    },
+  },
+
+  {
+    slug: "mitral-valve-regurgitation",
+    icd10: "I34.0",
+    illustration: "generic",
+    title: { de: "Mitralklappeninsuffizienz", en: "Mitral Valve Regurgitation" },
+    summary: {
+      de: "Undichte Mitralklappe mit Rückfluss von Blut – oft lange beschwerdearm.",
+      en: "A leaking mitral valve with backflow of blood – often with few symptoms for a long time.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Bei der Mitralklappeninsuffizienz schließt die Mitralklappe nicht mehr vollständig, sodass Blut in den linken Vorhof zurückfließt. Leichte Formen verursachen oft keine Beschwerden; ausgeprägte Formen können zu Luftnot, Leistungsminderung, Herzrhythmusstörungen und mit der Zeit zu einer Herzschwäche führen.",
+          en: "In mitral valve regurgitation the mitral valve no longer closes fully, so blood flows back into the left atrium. Mild forms often cause no symptoms; pronounced forms can lead to breathlessness, reduced capacity, arrhythmias and, over time, heart failure." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Der Herzultraschall bestimmt Schweregrad und Ursache. Leichte Formen werden kontrolliert; bei ausgeprägter, symptomatischer Insuffizienz kommen eine Klappenreparatur oder ein Klappenersatz sowie medikamentöse Maßnahmen infrage.",
+          en: "Cardiac ultrasound determines severity and cause. Mild forms are monitored; for pronounced, symptomatic regurgitation, valve repair or replacement and medical measures are options." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ergänzende Maßnahmen betreffen die allgemeine Herz-Kreislauf-Gesundheit und die Behandlung von Risikofaktoren. Sie ersetzen nicht die kardiologische Behandlung; Präparate sind ärztlich zu prüfen.",
+          en: "Complementary measures concern general cardiovascular health and treating risk factors. They do not replace cardiology care; products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "TCM-Verfahren kommen allenfalls zur allgemeinen Stärkung begleitend und unter qualifizierter Aufsicht infrage und ersetzen die Behandlung der Klappenerkrankung nicht.",
+          en: "TCM approaches may at most be used for general strengthening as complementary care under qualified supervision and do not replace treatment of the valve disease." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine herzfreundliche Ernährung, Stressreduktion und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises a heart-friendly diet, stress reduction and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Ein individuell dosiertes Ausdauer- und leichtes Krafttraining nach ärztlicher Abstimmung unterstützt Belastbarkeit und Wohlbefinden. Die Intensität richtet sich nach Schweregrad und Herzfunktion.",
+          en: "Individually dosed aerobic and light resistance training after medical agreement supports capacity and wellbeing. Intensity follows severity and heart function." } },
+      ],
+    },
+  },
+
+  {
+    slug: "pericarditis",
+    icd10: "I30.9",
+    illustration: "generic",
+    title: { de: "Herzbeutelentzündung (Perikarditis)", en: "Pericarditis" },
+    summary: {
+      de: "Entzündung des Herzbeutels mit oft lageabhängigem, scharfem Brustschmerz.",
+      en: "Inflammation of the pericardium with often position-dependent, sharp chest pain.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Die Perikarditis ist eine Entzündung des Herzbeutels (Perikard). Typisch ist ein scharfer Brustschmerz, der sich im Liegen und beim Einatmen verstärkt und im Sitzen und Vornüberbeugen bessert. Häufige Ursachen sind Virusinfekte; seltener stecken andere Erkrankungen dahinter.",
+          en: "Pericarditis is inflammation of the pericardium (the sac around the heart). Typical is a sharp chest pain that worsens when lying down and on breathing in and eases when sitting and leaning forward. Common causes are viral infections; less often other conditions are involved." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Zur Abklärung dienen EKG, Herzultraschall, Labor und Anamnese; ein Herzinfarkt und ein Perikarderguss werden ausgeschlossen bzw. erfasst. Behandelt wird meist mit entzündungshemmenden Medikamenten (z. B. NSAR und Colchicin) und körperlicher Schonung.",
+          en: "Assessment uses ECG, cardiac ultrasound, laboratory tests and history; a heart attack and a pericardial effusion are excluded or identified. Treatment is usually with anti-inflammatory medicines (e.g. NSAIDs and colchicine) and physical rest." } },
+        { t: "p", text: {
+          de: "Wichtig: Starke oder anhaltende Brustschmerzen, Luftnot oder Kreislaufprobleme erfordern eine rasche ärztliche Abklärung, im Notfall den Notruf 112.",
+          en: "Important: severe or persistent chest pain, breathlessness or circulatory problems require prompt medical assessment, and an emergency call (112) in an emergency." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "In der Akutphase stehen Schonung und die ärztliche Behandlung im Vordergrund. Ergänzende Maßnahmen wie ausgewogene Ernährung und Stressreduktion unterstützen die Erholung; Präparate sind ärztlich zu prüfen.",
+          en: "In the acute phase, rest and medical treatment come first. Complementary measures such as balanced nutrition and stress reduction support recovery; products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung zu ersetzen.",
+          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening – only under qualified supervision and without replacing medical treatment." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung in der Erholungsphase betont eine leicht verdauliche Ernährung, Ruhe und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support during recovery emphasises easily digestible nutrition, rest and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "In der akuten Phase ist körperliche Schonung wichtig. Der Wiederaufbau der Belastung erfolgt schrittweise und nach ärztlicher Freigabe, um Rückfälle zu vermeiden.",
+          en: "In the acute phase, physical rest is important. Rebuilding activity is gradual and after medical clearance to avoid relapse." } },
+      ],
+    },
+  },
+
+  {
+    slug: "myocarditis",
+    icd10: "I40.9",
+    illustration: "generic",
+    title: { de: "Herzmuskelentzündung (Myokarditis)", en: "Myocarditis" },
+    summary: {
+      de: "Entzündung des Herzmuskels, oft nach Virusinfekt – Schonung ist besonders wichtig.",
+      en: "Inflammation of the heart muscle, often after a viral infection – rest is especially important.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Die Myokarditis ist eine Entzündung des Herzmuskels, häufig ausgelöst durch Virusinfekte. Beschwerden reichen von Müdigkeit, Luftnot und Herzstolpern bis zu Brustschmerz; der Verlauf ist meist gutartig, kann in seltenen Fällen aber schwer sein. Wichtig ist eine ausreichende körperliche Schonung während der Erkrankung.",
+          en: "Myocarditis is inflammation of the heart muscle, often triggered by viral infections. Symptoms range from fatigue, breathlessness and palpitations to chest pain; the course is usually benign but can rarely be severe. Adequate physical rest during the illness is important." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Zur Abklärung dienen EKG, Labor (u. a. Herzmuskelwerte), Herzultraschall und ggf. eine Kardio-MRT. Behandelt werden die Beschwerden und Komplikationen; körperliche Schonung über die ärztlich empfohlene Dauer ist zentral.",
+          en: "Assessment uses ECG, laboratory tests (including heart-muscle markers), cardiac ultrasound and, where appropriate, cardiac MRI. Symptoms and complications are treated; physical rest for the medically advised period is central." } },
+        { t: "p", text: {
+          de: "Wichtig: Zunehmende Luftnot, Brustschmerz, Ohnmacht oder ausgeprägte Herzrhythmusstörungen erfordern eine sofortige ärztliche Abklärung, im Notfall den Notruf 112.",
+          en: "Important: increasing breathlessness, chest pain, fainting or marked arrhythmias require immediate medical assessment, and an emergency call (112) in an emergency." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "In der akuten Phase steht die Schonung im Vordergrund. Ergänzende Maßnahmen wie ausgewogene Ernährung und ausreichend Ruhe unterstützen die Erholung; Präparate sind ärztlich zu prüfen.",
+          en: "In the acute phase, rest comes first. Complementary measures such as balanced nutrition and adequate rest support recovery; products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung oder Schonung zu ersetzen.",
+          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening – only under qualified supervision and without replacing medical treatment or rest." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung in der Erholungsphase betont Ruhe, eine leicht verdauliche Ernährung und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support during recovery emphasises rest, easily digestible nutrition and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Körperliche Schonung während der akuten Erkrankung ist entscheidend; intensiver Sport wird über die ärztlich empfohlene Dauer gemieden. Der Wiedereinstieg in Bewegung erfolgt schrittweise nach ärztlicher Freigabe.",
+          en: "Physical rest during the acute illness is decisive; intense sport is avoided for the medically advised period. Return to activity is gradual after medical clearance." } },
+      ],
+    },
+  },
+
+  {
+    slug: "cardiomyopathy",
+    icd10: "I42.9",
+    illustration: "generic",
+    title: { de: "Kardiomyopathie", en: "Cardiomyopathy" },
+    summary: {
+      de: "Erkrankung des Herzmuskels mit gestörter Pump- oder Füllungsfunktion.",
+      en: "A disease of the heart muscle with impaired pumping or filling function.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Die Kardiomyopathie umfasst verschiedene Erkrankungen des Herzmuskels, bei denen dieser vergrößert, verdickt oder versteift ist. Je nach Form kann die Pump- oder Füllungsfunktion gestört sein. Beschwerden reichen von Luftnot, Leistungsminderung und Herzstolpern bis zu Wassereinlagerungen; manche Formen sind erblich.",
+          en: "Cardiomyopathy covers various diseases of the heart muscle in which it is enlarged, thickened or stiffened. Depending on the form, pumping or filling function can be impaired. Symptoms range from breathlessness, reduced capacity and palpitations to fluid retention; some forms are inherited." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Zur Abklärung dienen EKG, Herzultraschall, Labor, ggf. Kardio-MRT und familiäre Anamnese. Die Behandlung richtet sich nach Form und Beschwerden – von Medikamenten gegen Herzschwäche und Rhythmusstörungen bis zu speziellen Verfahren; bei erblichen Formen ist die Familienuntersuchung wichtig.",
+          en: "Assessment uses ECG, cardiac ultrasound, laboratory tests, cardiac MRI where appropriate and family history. Treatment depends on the form and symptoms – from medicines for heart failure and arrhythmias to specialised procedures; for inherited forms, family screening is important." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ergänzende Maßnahmen betreffen die allgemeine Herz-Kreislauf-Gesundheit (ausgewogene Ernährung, Rauchverzicht, maßvoller Alkoholkonsum). Präparate sind wegen möglicher Wechselwirkungen ärztlich zu prüfen und ersetzen die Behandlung nicht.",
+          en: "Complementary measures concern general cardiovascular health (balanced nutrition, stopping smoking, moderate alcohol). Products should be medically reviewed because of possible interactions and do not replace treatment." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "TCM-Verfahren kommen allenfalls zur allgemeinen Stärkung begleitend und unter qualifizierter Aufsicht infrage und ersetzen die kardiologische Behandlung nicht.",
+          en: "TCM approaches may at most be used for general strengthening as complementary care under qualified supervision and do not replace cardiology treatment." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine herzfreundliche Ernährung, Stressreduktion und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises a heart-friendly diet, stress reduction and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Ein individuell dosiertes, ärztlich begleitetes Bewegungsprogramm kann Belastbarkeit und Lebensqualität verbessern. Bei bestimmten Formen sind sehr intensive Belastungen zu vermeiden; die Dosierung wird sorgfältig abgestimmt.",
+          en: "An individually dosed, medically supervised exercise programme can improve capacity and quality of life. With certain forms, very intense exertion should be avoided; the dose is carefully agreed." } },
+      ],
+    },
+  },
+
+  {
+    slug: "pulmonary-embolism",
+    icd10: "I26.9",
+    illustration: "generic",
+    title: { de: "Lungenembolie", en: "Pulmonary Embolism" },
+    summary: {
+      de: "Verschluss einer Lungenarterie durch ein Blutgerinnsel – ein medizinischer Notfall.",
+      en: "Blockage of a lung artery by a blood clot – a medical emergency.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Bei der Lungenembolie verschließt ein Blutgerinnsel – meist aus einer tiefen Beinvenenthrombose – eine Lungenarterie. Typisch sind plötzliche Luftnot, atemabhängiger Brustschmerz, Herzrasen und mitunter Bluthusten. Die Lungenembolie ist ein medizinischer Notfall.",
+          en: "In pulmonary embolism a blood clot – usually from a deep vein thrombosis – blocks a lung artery. Typical features are sudden breathlessness, breathing-dependent chest pain, a racing heart and sometimes coughing up blood. Pulmonary embolism is a medical emergency." } },
+        { t: "p", text: {
+          de: "Wichtig: Bei Verdacht auf eine Lungenembolie – plötzliche Luftnot, Brustschmerz, Kollaps – sofort den Notruf 112 wählen.",
+          en: "Important: if a pulmonary embolism is suspected – sudden breathlessness, chest pain, collapse – call the emergency number (112) immediately." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Die Abklärung kombiniert klinische Wahrscheinlichkeit, D-Dimer-Test und Bildgebung (meist CT-Angiografie der Lunge). Grundlage der Behandlung ist die Gerinnungshemmung über einen ärztlich festgelegten Zeitraum; schwere Fälle erfordern eine intensivmedizinische Behandlung.",
+          en: "Assessment combines clinical probability, a D-dimer test and imaging (usually CT pulmonary angiography). The basis of treatment is anticoagulation for a medically defined period; severe cases require intensive care." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Ergänzende Maßnahmen betreffen vor allem Vorbeugung und Erholung: Bewegung, ausreichende Flüssigkeitszufuhr und Gewichtsmanagement. Pflanzliche Mittel sind wegen der Wechselwirkung mit Gerinnungshemmern besonders sorgfältig ärztlich zu prüfen.",
+          en: "Complementary measures mainly concern prevention and recovery: activity, adequate hydration and weight management. Herbal products need particularly careful medical review because of interaction with anticoagulants." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "TCM-Verfahren kommen allenfalls in der Erholungsphase begleitend und unter qualifizierter Aufsicht infrage und ersetzen die Gerinnungshemmung nicht.",
+          en: "TCM approaches may at most be used during recovery as complementary care under qualified supervision and do not replace anticoagulation." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung in der Erholungsphase betont Bewegung, ausgewogene Ernährung und geregelte Routinen. Kräuterpräparate sind wegen der Wechselwirkung mit Blutverdünnern ärztlich zu prüfen.",
+          en: "Ayurvedic support during recovery emphasises activity, balanced nutrition and regular routines. Herbal preparations should be medically reviewed because of interaction with blood thinners." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Nach ärztlicher Freigabe fördern frühzeitige, dosierte Bewegung und ein schrittweiser Ausdaueraufbau die Erholung. Belastbarkeit und Atmung werden behutsam wieder aufgebaut.",
+          en: "After medical clearance, early, dosed activity and a gradual aerobic build-up aid recovery. Capacity and breathing are rebuilt gently." } },
+      ],
+    },
+  },
+
+  {
+    slug: "lymphedema",
+    icd10: "I89.0",
+    illustration: "generic",
+    title: { de: "Lymphödem", en: "Lymphoedema" },
+    summary: {
+      de: "Schwellung durch gestörten Lymphabfluss – Entstauungstherapie ist zentral.",
+      en: "Swelling from impaired lymph drainage – decongestive therapy is central.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Das Lymphödem ist eine Schwellung, die durch einen gestörten Abfluss der Lymphflüssigkeit entsteht – meist an Armen oder Beinen. Ursachen sind angeborene Anlagen oder Schädigungen des Lymphsystems, etwa nach Operationen, Bestrahlung oder Infektionen. Unbehandelt kann das Gewebe mit der Zeit verhärten.",
+          en: "Lymphoedema is swelling caused by impaired drainage of lymph fluid – usually in the arms or legs. Causes are congenital predisposition or damage to the lymphatic system, for instance after surgery, radiation or infection. Untreated, the tissue can harden over time." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Abklärung & Therapie", en: "Assessment & therapy" } },
+        { t: "p", text: {
+          de: "Die Diagnose ist meist klinisch; andere Ursachen einer Schwellung werden ausgeschlossen. Zentral ist die komplexe physikalische Entstauungstherapie aus manueller Lymphdrainage, Kompression, Bewegung und Hautpflege. Infektionen (z. B. Erysipel) werden konsequent behandelt.",
+          en: "Diagnosis is usually clinical; other causes of swelling are excluded. Central is complex decongestive therapy comprising manual lymphatic drainage, compression, exercise and skin care. Infections (e.g. erysipelas) are treated consistently." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Sorgfältige Hautpflege, Gewichtsmanagement und Bewegung unterstützen die Entstauung und beugen Infektionen vor. Ergänzende Mittel sind ärztlich zu prüfen und ersetzen die Entstauungstherapie nicht.",
+          en: "Careful skin care, weight management and activity support decongestion and prevent infections. Complementary products should be medically reviewed and do not replace decongestive therapy." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Schwellung und Stauung werden traditionell mit Feuchtigkeit und Qi-Mangel in Verbindung gebracht. Akupunktur kann begleitend eingesetzt werden.",
+          en: "Swelling and congestion are traditionally associated with dampness and Qi deficiency. Acupuncture may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont Bewegung, Hautpflege und eine ausgewogene Ernährung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises activity, skin care and a balanced diet. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Manuelle Lymphdrainage, Kompression und Entstauungsgymnastik bilden das Kernstück der Behandlung. Regelmäßige Bewegung unter Kompression aktiviert den Lymphabfluss; das Programm wird individuell fortgeführt.",
+          en: "Manual lymphatic drainage, compression and decongestive exercises form the core of treatment. Regular activity under compression activates lymph drainage; the programme is continued individually." } },
+      ],
+    },
+  },
+
+  {
+    slug: "raynaud-syndrome",
+    icd10: "I73.0",
+    illustration: "generic",
+    title: { de: "Raynaud-Syndrom", en: "Raynaud's Syndrome" },
+    summary: {
+      de: "Anfallsartige Weiß- und Blauverfärbung der Finger durch Gefäßverengung bei Kälte oder Stress.",
+      en: "Episodic whitening and bluing of the fingers from vessel narrowing in cold or stress.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Beim Raynaud-Syndrom verengen sich bei Kälte oder emotionalem Stress anfallsartig die kleinen Gefäße, meist an den Fingern. Typisch ist ein Farbwechsel (weiß, dann blau, beim Wiedererwärmen rot) mit Kälte-, Taubheits- oder Schmerzgefühl. Die primäre Form ist harmlos; die sekundäre Form kann mit anderen Erkrankungen zusammenhängen.",
+          en: "In Raynaud's syndrome the small vessels, mostly in the fingers, narrow in episodes in response to cold or emotional stress. Typical is a colour change (white, then blue, then red on rewarming) with cold, numbness or pain. The primary form is harmless; the secondary form can be linked to other conditions." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
+        { t: "p", text: {
+          de: "Wichtig ist die Unterscheidung von primärer und sekundärer Form (Anamnese, Untersuchung, ggf. Labor und Kapillarmikroskopie). Im Vordergrund stehen Kälteschutz und Auslöservermeidung; bei ausgeprägten Beschwerden können gefäßerweiternde Medikamente helfen.",
+          en: "Distinguishing the primary from the secondary form is important (history, examination, and laboratory tests and capillaroscopy where appropriate). Cold protection and trigger avoidance come first; for pronounced symptoms, vessel-dilating medicines can help." } },
+      ],
+      naturopathic: [
+        { t: "sub", text: { de: "Alltagsmaßnahmen", en: "Everyday measures" } },
+        { t: "ul", items: {
+          de: ["Hände und Körper warm halten, Handschuhe und warme Kleidung tragen.","Rauchverzicht, da Nikotin die Gefäße verengt.","Stressbewältigung und Entspannungsverfahren können Anfälle verringern.","Auf gefäßverengende Substanzen (z. B. bestimmte Medikamente, viel Koffein) achten."],
+          en: ["Keep hands and body warm, wear gloves and warm clothing.","Stop smoking, as nicotine narrows the vessels.","Stress management and relaxation techniques can reduce attacks.","Watch for vessel-narrowing substances (e.g. certain medicines, high caffeine)."] } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Kalte Hände mit Durchblutungsstörung werden traditionell mit Yang-Mangel und Blut-Stase in Verbindung gebracht. Akupunktur und wärmende Verfahren können begleitend genutzt werden.",
+          en: "Cold hands with circulatory disturbance are traditionally associated with Yang deficiency and blood stasis. Acupuncture and warming methods may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont wärmende Routinen, Bewegung und eine ausgewogene Ernährung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises warming routines, activity and a balanced diet. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßige Bewegung fördert die Durchblutung; Warmwasserbäder und Handgymnastik können im Anfall helfen. Wärmemanagement und ein schrittweises Ausdauertraining unterstützen die Gefäßfunktion.",
+          en: "Regular activity promotes circulation; warm-water baths and hand exercises can help during an attack. Warmth management and a gradual aerobic programme support vascular function." } },
+      ],
+    },
+  },
+
+  {
+    slug: "postthrombotic-syndrome",
+    icd10: "I87.0",
+    illustration: "generic",
+    title: { de: "Postthrombotisches Syndrom", en: "Post-Thrombotic Syndrome" },
+    summary: {
+      de: "Langzeitfolgen nach einer Beinvenenthrombose mit Schwellung und Hautveränderungen.",
+      en: "Long-term consequences after a leg vein thrombosis with swelling and skin changes.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Das postthrombotische Syndrom umfasst Langzeitfolgen nach einer tiefen Beinvenenthrombose. Durch geschädigte Venenklappen kommt es zu chronischer Stauung mit Schwere- und Spannungsgefühl, Schwellung, Hautveränderungen und im ungünstigen Fall zu einem offenen Bein.",
+          en: "Post-thrombotic syndrome comprises the long-term consequences after a deep vein thrombosis. Damaged venous valves cause chronic congestion with heaviness and tension, swelling, skin changes and, in unfavourable cases, a leg ulcer." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
+        { t: "p", text: {
+          de: "Zentral ist die Kompressionstherapie, ergänzt durch Bewegung, Hautpflege und Gewichtsmanagement. Ein offenes Bein wird nach modernen Prinzipien der Wundbehandlung versorgt; die weitere Gerinnungssituation wird ärztlich beurteilt.",
+          en: "Central is compression therapy, plus activity, skin care and weight management. A leg ulcer is managed according to modern wound-care principles; the ongoing clotting situation is assessed medically." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Bewegung, sorgfältige Hautpflege, Hochlagern und Gewichtsmanagement unterstützen die Behandlung. Pflanzliche Venenmittel sind ärztlich zu prüfen und ersetzen die Kompression nicht.",
+          en: "Activity, careful skin care, elevation and weight management support treatment. Herbal venous remedies should be medically reviewed and do not replace compression." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Stauung und Schwellung werden traditionell mit Qi-Mangel, Feuchtigkeit und Blut-Stase in Verbindung gebracht. Akupunktur kann begleitend eingesetzt werden.",
+          en: "Congestion and swelling are traditionally associated with Qi deficiency, dampness and blood stasis. Acupuncture may be used as complementary care." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont Bewegung, Beinhochlagerung, Hautpflege und eine ausgewogene Ernährung. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises activity, leg elevation, skin care and a balanced diet. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Gezielte Aktivierung der Wadenmuskelpumpe, Gehtraining und Bewegungsübungen unter Kompression fördern den venösen Rückfluss. Langes Stehen und Sitzen werden vermieden.",
+          en: "Targeted activation of the calf-muscle pump, walking training and movement exercises under compression promote venous return. Prolonged standing and sitting are avoided." } },
+      ],
+    },
+  },
+
+  {
+    slug: "carotid-artery-stenosis",
+    icd10: "I65.2",
+    illustration: "generic",
+    title: { de: "Karotisstenose (Verengung der Halsschlagader)", en: "Carotid Artery Stenosis" },
+    summary: {
+      de: "Verengung der Halsschlagader durch Arteriosklerose mit erhöhtem Schlaganfallrisiko.",
+      en: "Narrowing of the carotid artery from atherosclerosis with an increased stroke risk.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Bei der Karotisstenose ist die Halsschlagader durch arteriosklerotische Ablagerungen verengt. Sie verläuft oft unbemerkt, erhöht aber das Risiko für einen Schlaganfall. Warnzeichen können vorübergehende Sehstörungen, Sprach- oder Lähmungserscheinungen sein (transitorische ischämische Attacke).",
+          en: "In carotid artery stenosis the carotid artery is narrowed by atherosclerotic deposits. It often goes unnoticed but raises the risk of stroke. Warning signs can be temporary visual, speech or weakness symptoms (transient ischaemic attack)." } },
+        { t: "p", text: {
+          de: "Wichtig: Plötzliche Seh-, Sprach- oder Lähmungserscheinungen sind ein Schlaganfall-Notfall und erfordern sofort den Notruf 112.",
+          en: "Important: sudden visual, speech or weakness symptoms are a stroke emergency and require an immediate emergency call (112)." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
+        { t: "p", text: {
+          de: "Die Verengung wird per Ultraschall der Halsgefäße erfasst, bei Bedarf ergänzt durch weitere Bildgebung. Grundlage sind Risikofaktorbehandlung, Thrombozytenhemmer und Statine; bei höhergradiger oder symptomatischer Stenose kommen eine Operation oder ein Stent infrage.",
+          en: "The narrowing is assessed by ultrasound of the neck vessels, supplemented by further imaging when needed. The basis is risk-factor treatment, antiplatelet agents and statins; for higher-grade or symptomatic stenosis, surgery or a stent are options." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Rauchverzicht, herzgesunde Ernährung, Bewegung und die Behandlung von Blutdruck, Blutfetten und Blutzucker senken das Fortschreiten und das Schlaganfallrisiko. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "Stopping smoking, a heart-healthy diet, activity and treating blood pressure, lipids and glucose slow progression and reduce stroke risk. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "Durchblutungsstörungen werden traditionell mit Blut-Stase in Verbindung gebracht. Akupunktur kann begleitend und unter qualifizierter Aufsicht eingesetzt werden.",
+          en: "Circulatory problems are traditionally associated with blood stasis. Acupuncture may be used as complementary care under qualified supervision." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine gefäßfreundliche Ernährung, Bewegung und geregelte Routinen. Kräuterpräparate sind ärztlich auf Wechselwirkungen zu prüfen.",
+          en: "Ayurvedic support emphasises a vessel-friendly diet, activity and regular routines. Herbal preparations should be medically reviewed for interactions." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Regelmäßige, moderate Bewegung unterstützt die Gefäßgesundheit und die Behandlung der Risikofaktoren. Das Programm wird individuell und mit dem Behandlungsteam abgestimmt.",
+          en: "Regular, moderate activity supports vascular health and treatment of risk factors. The programme is individualised and agreed with the treatment team." } },
+      ],
+    },
+  },
+
+  {
+    slug: "abdominal-aortic-aneurysm",
+    icd10: "I71.4",
+    illustration: "generic",
+    title: { de: "Bauchaortenaneurysma", en: "Abdominal Aortic Aneurysm" },
+    summary: {
+      de: "Krankhafte Erweiterung der Bauchschlagader – meist beschwerdefrei, aber überwachungsbedürftig.",
+      en: "An abnormal widening of the abdominal aorta – usually symptom-free but needing monitoring.",
+    },
+    rich: {
+      definition: [
+        { t: "p", text: {
+          de: "Ein Bauchaortenaneurysma ist eine krankhafte Erweiterung der Bauchschlagader. Es verläuft meist beschwerdefrei und wird häufig zufällig entdeckt. Mit zunehmender Größe steigt das Risiko eines Einrisses, der lebensbedrohlich ist – daher sind Überwachung und rechtzeitige Behandlung wichtig.",
+          en: "An abdominal aortic aneurysm is an abnormal widening of the abdominal aorta. It is usually symptom-free and often found incidentally. As it enlarges, the risk of rupture – which is life-threatening – rises, so monitoring and timely treatment are important." } },
+        { t: "p", text: {
+          de: "Wichtig: Plötzliche starke Bauch- oder Rückenschmerzen mit Kreislaufproblemen können auf einen Einriss hindeuten und erfordern sofort den Notruf 112.",
+          en: "Important: sudden severe abdominal or back pain with circulatory problems can indicate a rupture and requires an immediate emergency call (112)." } },
+      ],
+      medical: [
+        { t: "sub", text: { de: "Überwachung & Behandlung", en: "Monitoring & treatment" } },
+        { t: "p", text: {
+          de: "Kleinere Aneurysmen werden per Ultraschall regelmäßig kontrolliert, begleitet von Rauchverzicht und Behandlung der Risikofaktoren. Ab einer bestimmten Größe oder bei raschem Wachstum wird eine Ausschaltung erwogen – kathetergestützt (Stentprothese) oder operativ.",
+          en: "Smaller aneurysms are monitored regularly by ultrasound, alongside smoking cessation and risk-factor treatment. Above a certain size or with rapid growth, repair is considered – catheter-based (stent graft) or surgical." } },
+      ],
+      naturopathic: [
+        { t: "p", text: {
+          de: "Rauchverzicht ist besonders wichtig. Herzgesunde Ernährung, Blutdruckkontrolle und maßvolle Bewegung unterstützen die Behandlung. Ergänzende Mittel sind ärztlich zu prüfen.",
+          en: "Stopping smoking is especially important. A heart-healthy diet, blood-pressure control and moderate activity support treatment. Complementary products should be medically reviewed." } },
+      ],
+      tcm: [
+        { t: "p", text: {
+          de: "TCM-Verfahren kommen allenfalls zur allgemeinen Gefäß- und Kreislaufunterstützung begleitend und unter qualifizierter Aufsicht infrage und ersetzen die Überwachung nicht.",
+          en: "TCM approaches may at most be used for general vascular and circulatory support as complementary care under qualified supervision and do not replace monitoring." } },
+      ],
+      ayurvedic: [
+        { t: "p", text: {
+          de: "Ayurvedische Begleitung betont eine gefäßfreundliche Ernährung, Stressreduktion und geregelte Routinen. Kräuterpräparate sind ärztlich zu prüfen.",
+          en: "Ayurvedic support emphasises a vessel-friendly diet, stress reduction and regular routines. Herbal preparations should be medically reviewed." } },
+      ],
+      physio: [
+        { t: "p", text: {
+          de: "Moderate Bewegung ist meist sinnvoll; sehr schweres Heben und starke Blutdruckspitzen (Pressatmung) werden gemieden. Die passende Belastung wird mit dem Behandlungsteam abgestimmt.",
+          en: "Moderate activity is usually sensible; very heavy lifting and strong blood-pressure peaks (breath-holding straining) are avoided. The appropriate load is agreed with the treatment team." } },
+      ],
+    },
+  },
 ]

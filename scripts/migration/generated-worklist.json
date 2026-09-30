@@ -1,5 +1,5 @@
 {
-  "_note": "Curated disease worklist for the 8 areas that are empty on drdosthealth.com (which lists no diseases for them). Slugs, bilingual titles and ICD-10 codes chosen from common conditions per specialty for a general/private practice. Content is generated (original bilingual prose, definition + 5 modalities) and reviewed by Dr. Dost; images added later via the Gemini web workflow with the 'KI-generiert' caption. Target ~250 conditions across the 8 areas. STATUS: heart-circulation first 16 are already generated in src/content/diseases/heart-circulation.ts (the remaining heart entries + all other areas are pending, generated area by area).",
+  "_note": "Curated disease worklist for the 8 areas that are empty on drdosthealth.com (which lists no diseases for them). Slugs, bilingual titles and ICD-10 codes chosen from common conditions per specialty for a general/private practice. Content is generated (original bilingual prose, definition + 5 modalities) and reviewed by Dr. Dost; images added later via the Gemini web workflow with the 'KI-generiert' caption. Target ~250 conditions across the 8 areas. STATUS: heart-circulation-blood-vessels is FULLY generated (all 33) in src/content/diseases/heart-circulation.ts. The other 7 areas are pending, generated area by area.",
   "areas": [
     {
       "area": "heart-circulation-blood-vessels",
