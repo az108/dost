@@ -320,6 +320,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Die supraventrikuläre Tachykardie ist ein anfallsartiges, oft plötzlich beginnendes und endendes Herzrasen, das seinen Ursprung oberhalb der Herzkammern hat. Typisch sind ein regelmäßiger, sehr schneller Puls, Herzklopfen, manchmal Schwindel oder Unruhe. Sie ist meist gutartig, kann aber belastend sein.",
           en: "Supraventricular tachycardia is an episodic, often abruptly starting and stopping fast heartbeat originating above the ventricles. Typical features are a regular, very fast pulse, palpitations and sometimes dizziness or unease. It is usually benign but can be distressing." } },
+        { t: "img", src: "diseases/supraventricular-tachycardia/definition.jpg", alt: { de: "Pulskontrolle am Hals", en: "Checking the pulse at the neck" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Akutmaßnahmen", en: "Assessment & acute measures" } },
@@ -368,6 +369,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Herzrhythmusstörungen sind Abweichungen des normalen Herzschlags – zu schnell, zu langsam oder unregelmäßig. Sie reichen von harmlosen Extraschlägen bis zu behandlungsbedürftigen Formen. Beschwerden können Herzstolpern, Herzrasen, Schwindel, Leistungsminderung oder – selten – Ohnmacht sein.",
           en: "Cardiac arrhythmias are deviations from the normal heartbeat – too fast, too slow or irregular. They range from harmless extra beats to forms needing treatment. Symptoms can include fluttering, racing heart, dizziness, reduced capacity or – rarely – fainting." } },
+        { t: "img", src: "diseases/cardiac-arrhythmia-unspecified/definition.jpg", alt: { de: "Abhören des Herzens mit dem Stethoskop", en: "Listening to the heart with a stethoscope" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
