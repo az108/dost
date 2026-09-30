@@ -23,6 +23,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Die essenzielle (primäre) Hypertonie ist ein dauerhaft erhöhter arterieller Blutdruck ohne einzelne fassbare Ursache. Sie entsteht aus einem Zusammenspiel von Veranlagung, Alter, Ernährung, Bewegungsmangel, Übergewicht, Salz- und Alkoholkonsum sowie Stress. Häufig verursacht sie lange keine Beschwerden, erhöht aber das Risiko für Herzinfarkt, Schlaganfall, Herz- und Nierenschwäche.",
           en: "Essential (primary) hypertension is persistently raised arterial blood pressure without a single identifiable cause. It arises from an interplay of predisposition, age, diet, inactivity, excess weight, salt and alcohol intake and stress. It often causes no symptoms for a long time but raises the risk of heart attack, stroke, and heart and kidney failure." } },
+        { t: "img", src: "diseases/essential-hypertension/definition.jpg", alt: { de: "Blutdruckmessung in einer hellen Arztpraxis", en: "Blood-pressure measurement in a bright doctor's practice" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Zielwerte", en: "Diagnosis & targets" } },
