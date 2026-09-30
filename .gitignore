@@ -26,3 +26,6 @@ dist-ssr
 
 # Superpowers working documents (specs/plans) stay local
 docs/superpowers/
+
+# Local Gemini image runner profile
+scripts/images/.gemini-profile/

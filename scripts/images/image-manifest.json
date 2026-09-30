@@ -1,0 +1,1742 @@
+{
+  "_note": "Work list for scripts/images/gemini-images.mjs. Edit any `prompt` to improve a scene. The runner skips diseases whose public/diseases/<slug>/definition.jpg already exists, so it is resumable.",
+  "count": 248,
+  "images": [
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "essential-hypertension",
+      "de": "Essenzielle Hypertonie (Bluthochdruck)",
+      "en": "Essential Hypertension",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Essenzielle Hypertonie (Bluthochdruck)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "hypertensive-heart-disease",
+      "de": "Hypertensive Herzkrankheit",
+      "en": "Hypertensive Heart Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hypertensive Herzkrankheit\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "coronary-artery-disease",
+      "de": "Koronare Herzkrankheit",
+      "en": "Coronary Artery Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Koronare Herzkrankheit\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "angina-pectoris",
+      "de": "Angina pectoris",
+      "en": "Angina Pectoris",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Angina pectoris\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "chronic-heart-failure",
+      "de": "Chronische Herzinsuffizienz",
+      "en": "Chronic Heart Failure",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Chronische Herzinsuffizienz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "atrial-fibrillation",
+      "de": "Vorhofflimmern",
+      "en": "Atrial Fibrillation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vorhofflimmern\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "supraventricular-tachycardia",
+      "de": "Supraventrikuläre Tachykardie",
+      "en": "Supraventricular Tachycardia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Supraventrikuläre Tachykardie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "cardiac-arrhythmia-unspecified",
+      "de": "Herzrhythmusstörung",
+      "en": "Cardiac Arrhythmia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Herzrhythmusstörung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "peripheral-arterial-disease",
+      "de": "Periphere arterielle Verschlusskrankheit",
+      "en": "Peripheral Arterial Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Periphere arterielle Verschlusskrankheit\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "varicose-veins-lower-extremities",
+      "de": "Krampfadern der Beine",
+      "en": "Varicose Veins of the Legs",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Krampfadern der Beine\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "chronic-venous-insufficiency",
+      "de": "Chronisch-venöse Insuffizienz",
+      "en": "Chronic Venous Insufficiency",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Chronisch-venöse Insuffizienz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "deep-vein-thrombosis",
+      "de": "Tiefe Beinvenenthrombose",
+      "en": "Deep Vein Thrombosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Tiefe Beinvenenthrombose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "superficial-thrombophlebitis",
+      "de": "Oberflächliche Thrombophlebitis",
+      "en": "Superficial Thrombophlebitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Oberflächliche Thrombophlebitis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "hypotension",
+      "de": "Niedriger Blutdruck (Hypotonie)",
+      "en": "Low Blood Pressure (Hypotension)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Niedriger Blutdruck (Hypotonie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "orthostatic-hypotension",
+      "de": "Orthostatische Hypotonie",
+      "en": "Orthostatic Hypotension",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Orthostatische Hypotonie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "palpitations",
+      "de": "Herzklopfen (Palpitationen)",
+      "en": "Palpitations",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Herzklopfen (Palpitationen)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "secondary-hypertension",
+      "de": "Sekundäre Hypertonie",
+      "en": "Secondary Hypertension",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sekundäre Hypertonie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "old-myocardial-infarction",
+      "de": "Zustand nach Herzinfarkt",
+      "en": "Old Myocardial Infarction",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Zustand nach Herzinfarkt\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "premature-ventricular-contractions",
+      "de": "Ventrikuläre Extrasystolen",
+      "en": "Premature Ventricular Contractions",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Ventrikuläre Extrasystolen\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "atrial-flutter",
+      "de": "Vorhofflattern",
+      "en": "Atrial Flutter",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vorhofflattern\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "sinus-bradycardia",
+      "de": "Bradykardie (langsamer Herzschlag)",
+      "en": "Bradycardia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bradykardie (langsamer Herzschlag)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "sinus-tachycardia",
+      "de": "Sinustachykardie",
+      "en": "Sinus Tachycardia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sinustachykardie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "aortic-stenosis",
+      "de": "Aortenklappenstenose",
+      "en": "Aortic Stenosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Aortenklappenstenose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "mitral-valve-regurgitation",
+      "de": "Mitralklappeninsuffizienz",
+      "en": "Mitral Valve Regurgitation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Mitralklappeninsuffizienz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "pericarditis",
+      "de": "Herzbeutelentzündung (Perikarditis)",
+      "en": "Pericarditis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Herzbeutelentzündung (Perikarditis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "myocarditis",
+      "de": "Herzmuskelentzündung (Myokarditis)",
+      "en": "Myocarditis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Herzmuskelentzündung (Myokarditis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "cardiomyopathy",
+      "de": "Kardiomyopathie",
+      "en": "Cardiomyopathy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kardiomyopathie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "pulmonary-embolism",
+      "de": "Lungenembolie",
+      "en": "Pulmonary Embolism",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lungenembolie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "lymphedema",
+      "de": "Lymphödem",
+      "en": "Lymphoedema",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lymphödem\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "raynaud-syndrome",
+      "de": "Raynaud-Syndrom",
+      "en": "Raynaud's Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Raynaud-Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "postthrombotic-syndrome",
+      "de": "Postthrombotisches Syndrom",
+      "en": "Post-Thrombotic Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Postthrombotisches Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "carotid-artery-stenosis",
+      "de": "Karotisstenose (Verengung der Halsschlagader)",
+      "en": "Carotid Artery Stenosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Karotisstenose (Verengung der Halsschlagader)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "heart-circulation-blood-vessels",
+      "slug": "abdominal-aortic-aneurysm",
+      "de": "Bauchaortenaneurysma",
+      "en": "Abdominal Aortic Aneurysm",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bauchaortenaneurysma\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "low-back-pain",
+      "de": "Kreuzschmerzen (unterer Rückenschmerz)",
+      "en": "Low Back Pain",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kreuzschmerzen (unterer Rückenschmerz)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "neck-pain-cervical-syndrome",
+      "de": "Nackenschmerzen (Zervikalsyndrom)",
+      "en": "Neck Pain (Cervical Syndrome)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nackenschmerzen (Zervikalsyndrom)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "sciatica",
+      "de": "Ischialgie",
+      "en": "Sciatica",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Ischialgie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "lumbar-disc-herniation",
+      "de": "Bandscheibenvorfall (Lendenwirbelsäule)",
+      "en": "Lumbar Disc Herniation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bandscheibenvorfall (Lendenwirbelsäule)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "cervical-disc-herniation",
+      "de": "Bandscheibenvorfall der Halswirbelsäule",
+      "en": "Cervical Disc Herniation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bandscheibenvorfall der Halswirbelsäule\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "osteoarthritis-knee",
+      "de": "Kniearthrose (Gonarthrose)",
+      "en": "Osteoarthritis of the Knee",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kniearthrose (Gonarthrose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "osteoarthritis-hip",
+      "de": "Hüftarthrose (Coxarthrose)",
+      "en": "Osteoarthritis of the Hip",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hüftarthrose (Coxarthrose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "thumb-base-osteoarthritis",
+      "de": "Daumensattelgelenksarthrose (Rhizarthrose)",
+      "en": "Thumb-Base Osteoarthritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Daumensattelgelenksarthrose (Rhizarthrose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "spondylosis",
+      "de": "Wirbelsäulenarthrose (Spondylose)",
+      "en": "Spondylosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Wirbelsäulenarthrose (Spondylose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "lumbar-spinal-stenosis",
+      "de": "Spinalkanalstenose (Lendenwirbelsäule)",
+      "en": "Lumbar Spinal Stenosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Spinalkanalstenose (Lendenwirbelsäule)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "scoliosis",
+      "de": "Skoliose",
+      "en": "Scoliosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Skoliose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "shoulder-impingement-syndrome",
+      "de": "Schulter-Impingement-Syndrom",
+      "en": "Shoulder Impingement Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schulter-Impingement-Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "rotator-cuff-syndrome",
+      "de": "Rotatorenmanschetten-Syndrom",
+      "en": "Rotator Cuff Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Rotatorenmanschetten-Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "frozen-shoulder",
+      "de": "Schultersteife (Frozen Shoulder)",
+      "en": "Frozen Shoulder",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schultersteife (Frozen Shoulder)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "lateral-epicondylitis-tennis-elbow",
+      "de": "Tennisellenbogen (Epicondylitis lateralis)",
+      "en": "Tennis Elbow (Lateral Epicondylitis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Tennisellenbogen (Epicondylitis lateralis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "medial-epicondylitis-golfers-elbow",
+      "de": "Golferellenbogen (Epicondylitis medialis)",
+      "en": "Golfer's Elbow (Medial Epicondylitis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Golferellenbogen (Epicondylitis medialis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "carpal-tunnel-syndrome",
+      "de": "Karpaltunnelsyndrom",
+      "en": "Carpal Tunnel Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Karpaltunnelsyndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "de-quervain-tenosynovitis",
+      "de": "Sehnenscheidenentzündung (De-Quervain)",
+      "en": "De Quervain's Tenosynovitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sehnenscheidenentzündung (De-Quervain)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "trigger-finger",
+      "de": "Schnellender Finger",
+      "en": "Trigger Finger",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schnellender Finger\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "ganglion-cyst",
+      "de": "Überbein (Ganglion)",
+      "en": "Ganglion Cyst",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Überbein (Ganglion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "knee-meniscus-lesion",
+      "de": "Meniskusschaden",
+      "en": "Meniscus Lesion",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Meniskusschaden\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "bursitis",
+      "de": "Schleimbeutelentzündung (Bursitis)",
+      "en": "Bursitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schleimbeutelentzündung (Bursitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "plantar-fasciitis",
+      "de": "Plantarfasziitis (Fersenschmerz)",
+      "en": "Plantar Fasciitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Plantarfasziitis (Fersenschmerz)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "achilles-tendinopathy",
+      "de": "Achillessehnen-Tendinopathie",
+      "en": "Achilles Tendinopathy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Achillessehnen-Tendinopathie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "hallux-valgus",
+      "de": "Hallux valgus (Ballenzeh)",
+      "en": "Hallux Valgus",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hallux valgus (Ballenzeh)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "rheumatoid-arthritis",
+      "de": "Rheumatoide Arthritis",
+      "en": "Rheumatoid Arthritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Rheumatoide Arthritis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "psoriatic-arthritis",
+      "de": "Psoriasis-Arthritis",
+      "en": "Psoriatic Arthritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Psoriasis-Arthritis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "ankylosing-spondylitis",
+      "de": "Morbus Bechterew (ankylosierende Spondylitis)",
+      "en": "Ankylosing Spondylitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Morbus Bechterew (ankylosierende Spondylitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "polymyalgia-rheumatica",
+      "de": "Polymyalgia rheumatica",
+      "en": "Polymyalgia Rheumatica",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Polymyalgia rheumatica\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "gout",
+      "de": "Gicht",
+      "en": "Gout",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gicht\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "osteoporosis",
+      "de": "Osteoporose",
+      "en": "Osteoporosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Osteoporose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "fibromyalgia",
+      "de": "Fibromyalgie",
+      "en": "Fibromyalgia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Fibromyalgie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "tension-type-headache",
+      "de": "Spannungskopfschmerz",
+      "en": "Tension-Type Headache",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Spannungskopfschmerz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "slug": "migraine",
+      "de": "Migräne",
+      "en": "Migraine",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Migräne\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "atopic-dermatitis-eczema",
+      "de": "Atopische Dermatitis (Neurodermitis)",
+      "en": "Atopic Dermatitis (Eczema)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Atopische Dermatitis (Neurodermitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "contact-dermatitis",
+      "de": "Kontaktdermatitis",
+      "en": "Contact Dermatitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kontaktdermatitis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "seborrheic-dermatitis",
+      "de": "Seborrhoisches Ekzem",
+      "en": "Seborrhoeic Dermatitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Seborrhoisches Ekzem\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "nummular-eczema",
+      "de": "Nummuläres Ekzem",
+      "en": "Nummular Eczema",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nummuläres Ekzem\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "dyshidrotic-eczema",
+      "de": "Dyshidrotisches Ekzem",
+      "en": "Dyshidrotic Eczema",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Dyshidrotisches Ekzem\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "psoriasis",
+      "de": "Schuppenflechte (Psoriasis)",
+      "en": "Psoriasis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schuppenflechte (Psoriasis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "acne-vulgaris",
+      "de": "Akne vulgaris",
+      "en": "Acne Vulgaris",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Akne vulgaris\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "rosacea",
+      "de": "Rosazea",
+      "en": "Rosacea",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Rosazea\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "perioral-dermatitis",
+      "de": "Periorale Dermatitis",
+      "en": "Perioral Dermatitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Periorale Dermatitis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "urticaria",
+      "de": "Nesselsucht (Urtikaria)",
+      "en": "Urticaria",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nesselsucht (Urtikaria)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "lichen-planus",
+      "de": "Knötchenflechte (Lichen ruber planus)",
+      "en": "Lichen Planus",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Knötchenflechte (Lichen ruber planus)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "pityriasis-rosea",
+      "de": "Röschenflechte (Pityriasis rosea)",
+      "en": "Pityriasis Rosea",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Röschenflechte (Pityriasis rosea)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "fungal-skin-infection",
+      "de": "Hautpilz (Dermatophytose)",
+      "en": "Fungal Skin Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hautpilz (Dermatophytose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "pityriasis-versicolor",
+      "de": "Kleienpilzflechte (Pityriasis versicolor)",
+      "en": "Pityriasis Versicolor",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kleienpilzflechte (Pityriasis versicolor)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "impetigo",
+      "de": "Grindflechte (Impetigo)",
+      "en": "Impetigo",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Grindflechte (Impetigo)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "erysipelas",
+      "de": "Wundrose (Erysipel)",
+      "en": "Erysipelas",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Wundrose (Erysipel)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "folliculitis",
+      "de": "Haarbalgentzündung (Follikulitis)",
+      "en": "Folliculitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Haarbalgentzündung (Follikulitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "hidradenitis-suppurativa",
+      "de": "Akne inversa (Hidradenitis suppurativa)",
+      "en": "Hidradenitis Suppurativa",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Akne inversa (Hidradenitis suppurativa)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "herpes-zoster-shingles",
+      "de": "Gürtelrose (Herpes zoster)",
+      "en": "Shingles (Herpes Zoster)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gürtelrose (Herpes zoster)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "warts-verruca",
+      "de": "Warzen (Verrucae)",
+      "en": "Warts (Verrucae)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Warzen (Verrucae)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "molluscum-contagiosum",
+      "de": "Dellwarzen (Mollusken)",
+      "en": "Molluscum Contagiosum",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Dellwarzen (Mollusken)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "scabies",
+      "de": "Krätze (Skabies)",
+      "en": "Scabies",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Krätze (Skabies)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "actinic-keratosis",
+      "de": "Aktinische Keratose",
+      "en": "Actinic Keratosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Aktinische Keratose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "seborrheic-keratosis",
+      "de": "Seborrhoische Keratose (Alterswarze)",
+      "en": "Seborrhoeic Keratosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Seborrhoische Keratose (Alterswarze)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "melasma",
+      "de": "Melasma (Chloasma)",
+      "en": "Melasma",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Melasma (Chloasma)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "vitiligo",
+      "de": "Vitiligo (Weißfleckenkrankheit)",
+      "en": "Vitiligo",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vitiligo (Weißfleckenkrankheit)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "androgenetic-alopecia",
+      "de": "Androgenetische Alopezie (erblicher Haarausfall)",
+      "en": "Androgenetic Alopecia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Androgenetische Alopezie (erblicher Haarausfall)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "alopecia-areata",
+      "de": "Kreisrunder Haarausfall (Alopecia areata)",
+      "en": "Alopecia Areata",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kreisrunder Haarausfall (Alopecia areata)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "onychomycosis-nail-fungus",
+      "de": "Nagelpilz (Onychomykose)",
+      "en": "Nail Fungus (Onychomycosis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nagelpilz (Onychomykose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "ingrown-toenail",
+      "de": "Eingewachsener Zehennagel",
+      "en": "Ingrown Toenail",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Eingewachsener Zehennagel\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "hyperhidrosis",
+      "de": "Übermäßiges Schwitzen (Hyperhidrose)",
+      "en": "Excessive Sweating (Hyperhidrosis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Übermäßiges Schwitzen (Hyperhidrose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "slug": "pruritus",
+      "de": "Juckreiz (Pruritus)",
+      "en": "Pruritus (Itching)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Juckreiz (Pruritus)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "influenza-seasonal",
+      "de": "Saisonale Grippe (Influenza)",
+      "en": "Seasonal Influenza",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Saisonale Grippe (Influenza)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "covid-19",
+      "de": "COVID-19",
+      "en": "COVID-19",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „COVID-19\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "pneumonia",
+      "de": "Lungenentzündung (Pneumonie)",
+      "en": "Pneumonia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lungenentzündung (Pneumonie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "streptococcal-pharyngitis",
+      "de": "Streptokokken-Angina",
+      "en": "Streptococcal Pharyngitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Streptokokken-Angina\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "scarlet-fever",
+      "de": "Scharlach",
+      "en": "Scarlet Fever",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Scharlach\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "whooping-cough-pertussis",
+      "de": "Keuchhusten (Pertussis)",
+      "en": "Whooping Cough (Pertussis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Keuchhusten (Pertussis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "infectious-gastroenteritis",
+      "de": "Infektiöse Gastroenteritis (Magen-Darm-Infekt)",
+      "en": "Infectious Gastroenteritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Infektiöse Gastroenteritis (Magen-Darm-Infekt)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "norovirus-infection",
+      "de": "Norovirus-Infektion",
+      "en": "Norovirus Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Norovirus-Infektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "rotavirus-enteritis",
+      "de": "Rotavirus-Infektion",
+      "en": "Rotavirus Enteritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Rotavirus-Infektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "salmonellosis",
+      "de": "Salmonellose",
+      "en": "Salmonellosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Salmonellose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "campylobacter-enteritis",
+      "de": "Campylobacter-Enteritis",
+      "en": "Campylobacter Enteritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Campylobacter-Enteritis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "infectious-mononucleosis",
+      "de": "Pfeiffersches Drüsenfieber (Mononukleose)",
+      "en": "Infectious Mononucleosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Pfeiffersches Drüsenfieber (Mononukleose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "herpes-simplex-infection",
+      "de": "Herpes-simplex-Infektion",
+      "en": "Herpes Simplex Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Herpes-simplex-Infektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "chickenpox-varicella",
+      "de": "Windpocken (Varizellen)",
+      "en": "Chickenpox (Varicella)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Windpocken (Varizellen)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "measles",
+      "de": "Masern",
+      "en": "Measles",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Masern\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "mumps",
+      "de": "Mumps",
+      "en": "Mumps",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Mumps\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "rubella",
+      "de": "Röteln",
+      "en": "Rubella",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Röteln\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "hand-foot-and-mouth-disease",
+      "de": "Hand-Fuß-Mund-Krankheit",
+      "en": "Hand, Foot and Mouth Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hand-Fuß-Mund-Krankheit\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "lyme-borreliosis",
+      "de": "Lyme-Borreliose",
+      "en": "Lyme Borreliosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lyme-Borreliose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "tick-borne-encephalitis",
+      "de": "Frühsommer-Meningoenzephalitis (FSME)",
+      "en": "Tick-Borne Encephalitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Frühsommer-Meningoenzephalitis (FSME)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "viral-hepatitis-a",
+      "de": "Virushepatitis A",
+      "en": "Viral Hepatitis A",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Virushepatitis A\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "viral-hepatitis-b",
+      "de": "Virushepatitis B",
+      "en": "Viral Hepatitis B",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Virushepatitis B\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "viral-hepatitis-c",
+      "de": "Chronische Virushepatitis C",
+      "en": "Chronic Viral Hepatitis C",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Chronische Virushepatitis C\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "hiv-infection",
+      "de": "HIV-Infektion",
+      "en": "HIV Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „HIV-Infektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "genital-herpes",
+      "de": "Genitalherpes",
+      "en": "Genital Herpes",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Genitalherpes\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "chlamydia-infection",
+      "de": "Chlamydien-Infektion",
+      "en": "Chlamydia Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Chlamydien-Infektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "gonorrhea",
+      "de": "Gonorrhö (Tripper)",
+      "en": "Gonorrhoea",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gonorrhö (Tripper)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "syphilis",
+      "de": "Syphilis",
+      "en": "Syphilis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Syphilis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "candidiasis",
+      "de": "Candidose (Pilzinfektion)",
+      "en": "Candidiasis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Candidose (Pilzinfektion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "oral-thrush",
+      "de": "Mundsoor (orale Candidose)",
+      "en": "Oral Thrush",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Mundsoor (orale Candidose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "giardiasis",
+      "de": "Giardiasis (Lambliasis)",
+      "en": "Giardiasis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Giardiasis (Lambliasis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "pinworm-enterobiasis",
+      "de": "Madenwürmer (Enterobiasis)",
+      "en": "Pinworm (Enterobiasis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Madenwürmer (Enterobiasis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "slug": "intestinal-parasitosis",
+      "de": "Darmparasitose (Wurmbefall)",
+      "en": "Intestinal Parasitosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Darmparasitose (Wurmbefall)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "acute-cystitis",
+      "de": "Akute Blasenentzündung (Zystitis)",
+      "en": "Acute Cystitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Akute Blasenentzündung (Zystitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "recurrent-urinary-tract-infection",
+      "de": "Wiederkehrende Harnwegsinfektion",
+      "en": "Recurrent Urinary Tract Infection",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Wiederkehrende Harnwegsinfektion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "interstitial-cystitis",
+      "de": "Interstitielle Zystitis (Reizblase)",
+      "en": "Interstitial Cystitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Interstitielle Zystitis (Reizblase)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "pyelonephritis",
+      "de": "Nierenbeckenentzündung (Pyelonephritis)",
+      "en": "Pyelonephritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nierenbeckenentzündung (Pyelonephritis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "urethritis",
+      "de": "Harnröhrenentzündung (Urethritis)",
+      "en": "Urethritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Harnröhrenentzündung (Urethritis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "urolithiasis-kidney-stones",
+      "de": "Nierensteine (Urolithiasis)",
+      "en": "Kidney Stones (Urolithiasis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nierensteine (Urolithiasis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "ureteral-stones",
+      "de": "Harnleitersteine",
+      "en": "Ureteral Stones",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Harnleitersteine\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "bladder-stones",
+      "de": "Blasensteine",
+      "en": "Bladder Stones",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Blasensteine\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "hydronephrosis",
+      "de": "Harnstau (Hydronephrose)",
+      "en": "Hydronephrosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Harnstau (Hydronephrose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "chronic-kidney-disease",
+      "de": "Chronische Nierenerkrankung",
+      "en": "Chronic Kidney Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Chronische Nierenerkrankung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "acute-kidney-injury",
+      "de": "Akutes Nierenversagen",
+      "en": "Acute Kidney Injury",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Akutes Nierenversagen\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "glomerulonephritis",
+      "de": "Glomerulonephritis",
+      "en": "Glomerulonephritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Glomerulonephritis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "nephrotic-syndrome",
+      "de": "Nephrotisches Syndrom",
+      "en": "Nephrotic Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nephrotisches Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "kidney-cyst",
+      "de": "Nierenzyste",
+      "en": "Kidney Cyst",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nierenzyste\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "polycystic-kidney-disease",
+      "de": "Polyzystische Nierenerkrankung (Zystennieren)",
+      "en": "Polycystic Kidney Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Polyzystische Nierenerkrankung (Zystennieren)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "benign-prostatic-hyperplasia",
+      "de": "Gutartige Prostatavergrößerung",
+      "en": "Benign Prostatic Hyperplasia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gutartige Prostatavergrößerung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "prostatitis",
+      "de": "Prostataentzündung (Prostatitis)",
+      "en": "Prostatitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Prostataentzündung (Prostatitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "epididymitis-orchitis",
+      "de": "Nebenhoden- und Hodenentzündung",
+      "en": "Epididymitis and Orchitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nebenhoden- und Hodenentzündung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "varicocele",
+      "de": "Krampfader am Hoden (Varikozele)",
+      "en": "Varicocele",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Krampfader am Hoden (Varikozele)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "hydrocele",
+      "de": "Wasserbruch (Hydrozele)",
+      "en": "Hydrocele",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Wasserbruch (Hydrozele)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "phimosis",
+      "de": "Vorhautverengung (Phimose)",
+      "en": "Phimosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vorhautverengung (Phimose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "erectile-dysfunction",
+      "de": "Erektile Dysfunktion",
+      "en": "Erectile Dysfunction",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Erektile Dysfunktion\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "overactive-bladder",
+      "de": "Überaktive Blase (Reizblase)",
+      "en": "Overactive Bladder",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Überaktive Blase (Reizblase)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "stress-urinary-incontinence",
+      "de": "Belastungsinkontinenz",
+      "en": "Stress Urinary Incontinence",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Belastungsinkontinenz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "urge-incontinence",
+      "de": "Dranginkontinenz",
+      "en": "Urge Incontinence",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Dranginkontinenz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "urinary-incontinence-unspecified",
+      "de": "Harninkontinenz",
+      "en": "Urinary Incontinence",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Harninkontinenz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "nocturia",
+      "de": "Nächtlicher Harndrang (Nokturie)",
+      "en": "Nocturia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nächtlicher Harndrang (Nokturie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "dysuria",
+      "de": "Schmerzen beim Wasserlassen (Dysurie)",
+      "en": "Dysuria",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schmerzen beim Wasserlassen (Dysurie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "hematuria",
+      "de": "Blut im Urin (Hämaturie)",
+      "en": "Blood in the Urine (Haematuria)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Blut im Urin (Hämaturie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "slug": "proteinuria",
+      "de": "Eiweiß im Urin (Proteinurie)",
+      "en": "Proteinuria",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Eiweiß im Urin (Proteinurie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "iron-deficiency-anemia",
+      "de": "Eisenmangelanämie",
+      "en": "Iron Deficiency Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Eisenmangelanämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "iron-deficiency-without-anemia",
+      "de": "Eisenmangel ohne Anämie",
+      "en": "Iron Deficiency Without Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Eisenmangel ohne Anämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "vitamin-b12-deficiency-anemia",
+      "de": "Vitamin-B12-Mangelanämie",
+      "en": "Vitamin B12 Deficiency Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vitamin-B12-Mangelanämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "pernicious-anemia",
+      "de": "Perniziöse Anämie",
+      "en": "Pernicious Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Perniziöse Anämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "folate-deficiency-anemia",
+      "de": "Folsäuremangelanämie",
+      "en": "Folate Deficiency Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Folsäuremangelanämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "anemia-of-chronic-disease",
+      "de": "Anämie bei chronischer Erkrankung",
+      "en": "Anaemia of Chronic Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Anämie bei chronischer Erkrankung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "hemolytic-anemia",
+      "de": "Hämolytische Anämie",
+      "en": "Haemolytic Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hämolytische Anämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "aplastic-anemia",
+      "de": "Aplastische Anämie",
+      "en": "Aplastic Anaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Aplastische Anämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "thalassemia",
+      "de": "Thalassämie",
+      "en": "Thalassaemia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Thalassämie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "vitamin-d-deficiency",
+      "de": "Vitamin-D-Mangel",
+      "en": "Vitamin D Deficiency",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Vitamin-D-Mangel\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "zinc-deficiency",
+      "de": "Zinkmangel",
+      "en": "Zinc Deficiency",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Zinkmangel\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "neutropenia",
+      "de": "Neutropenie (Mangel an weißen Blutkörperchen)",
+      "en": "Neutropenia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Neutropenie (Mangel an weißen Blutkörperchen)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "polycythemia",
+      "de": "Polyglobulie (Erythrozytose)",
+      "en": "Polycythaemia (Erythrocytosis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Polyglobulie (Erythrozytose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "thrombocytopenia",
+      "de": "Thrombozytopenie (Blutplättchenmangel)",
+      "en": "Thrombocytopenia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Thrombozytopenie (Blutplättchenmangel)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "thrombophilia",
+      "de": "Thrombophilie (erhöhte Gerinnungsneigung)",
+      "en": "Thrombophilia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Thrombophilie (erhöhte Gerinnungsneigung)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "hemochromatosis",
+      "de": "Eisenspeicherkrankheit (Hämochromatose)",
+      "en": "Haemochromatosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Eisenspeicherkrankheit (Hämochromatose)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "monoclonal-gammopathy-mgus",
+      "de": "Monoklonale Gammopathie (MGUS)",
+      "en": "Monoclonal Gammopathy (MGUS)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Monoklonale Gammopathie (MGUS)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "splenomegaly",
+      "de": "Milzvergrößerung (Splenomegalie)",
+      "en": "Splenomegaly",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Milzvergrößerung (Splenomegalie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "reactive-lymphadenopathy",
+      "de": "Reaktive Lymphknotenschwellung",
+      "en": "Reactive Lymphadenopathy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Reaktive Lymphknotenschwellung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "allergic-rhinitis",
+      "de": "Allergischer Schnupfen (Heuschnupfen)",
+      "en": "Allergic Rhinitis (Hay Fever)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Allergischer Schnupfen (Heuschnupfen)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "food-allergy",
+      "de": "Nahrungsmittelallergie",
+      "en": "Food Allergy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nahrungsmittelallergie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "drug-allergy",
+      "de": "Arzneimittelallergie",
+      "en": "Drug Allergy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Arzneimittelallergie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "insect-venom-allergy",
+      "de": "Insektengiftallergie",
+      "en": "Insect Venom Allergy",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Insektengiftallergie\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "anaphylaxis",
+      "de": "Anaphylaxie (schwere allergische Reaktion)",
+      "en": "Anaphylaxis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Anaphylaxie (schwere allergische Reaktion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "hereditary-angioedema",
+      "de": "Hereditäres Angioödem",
+      "en": "Hereditary Angioedema",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hereditäres Angioödem\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "immunodeficiency-recurrent-infections",
+      "de": "Immunschwäche mit wiederkehrenden Infekten",
+      "en": "Immunodeficiency with Recurrent Infections",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Immunschwäche mit wiederkehrenden Infekten\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "sarcoidosis",
+      "de": "Sarkoidose",
+      "en": "Sarcoidosis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sarkoidose\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "slug": "oncological-follow-up-care",
+      "de": "Onkologische Nachsorge",
+      "en": "Oncological Follow-up Care",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Onkologische Nachsorge\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "conjunctivitis-unspecified",
+      "de": "Bindehautentzündung (Konjunktivitis)",
+      "en": "Conjunctivitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bindehautentzündung (Konjunktivitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "allergic-conjunctivitis",
+      "de": "Allergische Bindehautentzündung",
+      "en": "Allergic Conjunctivitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Allergische Bindehautentzündung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "subconjunctival-hemorrhage",
+      "de": "Bindehautunterblutung",
+      "en": "Subconjunctival Haemorrhage",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Bindehautunterblutung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "pterygium",
+      "de": "Flügelfell (Pterygium)",
+      "en": "Pterygium",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Flügelfell (Pterygium)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "dry-eye-syndrome",
+      "de": "Trockenes-Auge-Syndrom",
+      "en": "Dry Eye Syndrome",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Trockenes-Auge-Syndrom\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "blepharitis",
+      "de": "Lidrandentzündung (Blepharitis)",
+      "en": "Blepharitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lidrandentzündung (Blepharitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "hordeolum-stye",
+      "de": "Gerstenkorn (Hordeolum)",
+      "en": "Stye (Hordeolum)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gerstenkorn (Hordeolum)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "chalazion",
+      "de": "Hagelkorn (Chalazion)",
+      "en": "Chalazion",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hagelkorn (Chalazion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "keratitis",
+      "de": "Hornhautentzündung (Keratitis)",
+      "en": "Keratitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hornhautentzündung (Keratitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "uveitis",
+      "de": "Regenbogenhautentzündung (Uveitis)",
+      "en": "Uveitis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Regenbogenhautentzündung (Uveitis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "age-related-cataract",
+      "de": "Grauer Star (Katarakt)",
+      "en": "Age-Related Cataract",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Grauer Star (Katarakt)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "primary-open-angle-glaucoma",
+      "de": "Grüner Star (Offenwinkelglaukom)",
+      "en": "Open-Angle Glaucoma",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Grüner Star (Offenwinkelglaukom)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "age-related-macular-degeneration",
+      "de": "Altersbedingte Makuladegeneration (AMD)",
+      "en": "Age-Related Macular Degeneration",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Altersbedingte Makuladegeneration (AMD)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "vitreous-floaters",
+      "de": "Glaskörpertrübungen (Mouches volantes)",
+      "en": "Vitreous Floaters",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Glaskörpertrübungen (Mouches volantes)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "presbyopia",
+      "de": "Alterssichtigkeit (Presbyopie)",
+      "en": "Presbyopia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Alterssichtigkeit (Presbyopie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "myopia",
+      "de": "Kurzsichtigkeit (Myopie)",
+      "en": "Myopia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kurzsichtigkeit (Myopie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "hyperopia",
+      "de": "Weitsichtigkeit (Hyperopie)",
+      "en": "Hyperopia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Weitsichtigkeit (Hyperopie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "astigmatism",
+      "de": "Hornhautverkrümmung (Astigmatismus)",
+      "en": "Astigmatism",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hornhautverkrümmung (Astigmatismus)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "acute-otitis-media",
+      "de": "Akute Mittelohrentzündung",
+      "en": "Acute Otitis Media",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Akute Mittelohrentzündung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "otitis-media-with-effusion",
+      "de": "Paukenerguss",
+      "en": "Otitis Media with Effusion",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Paukenerguss\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "otitis-externa",
+      "de": "Gehörgangsentzündung (Otitis externa)",
+      "en": "Otitis Externa",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gehörgangsentzündung (Otitis externa)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "eustachian-tube-dysfunction",
+      "de": "Tubenfunktionsstörung",
+      "en": "Eustachian Tube Dysfunction",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Tubenfunktionsstörung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "cerumen-impaction",
+      "de": "Ohrenschmalzpfropf (Zeruminalpfropf)",
+      "en": "Earwax Impaction",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Ohrenschmalzpfropf (Zeruminalpfropf)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "tinnitus",
+      "de": "Ohrgeräusche (Tinnitus)",
+      "en": "Tinnitus",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Ohrgeräusche (Tinnitus)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "sudden-sensorineural-hearing-loss",
+      "de": "Hörsturz",
+      "en": "Sudden Sensorineural Hearing Loss",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hörsturz\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "age-related-hearing-loss",
+      "de": "Altersschwerhörigkeit (Presbyakusis)",
+      "en": "Age-Related Hearing Loss",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Altersschwerhörigkeit (Presbyakusis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "benign-paroxysmal-positional-vertigo",
+      "de": "Gutartiger Lagerungsschwindel",
+      "en": "Benign Positional Vertigo",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gutartiger Lagerungsschwindel\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "vestibular-neuritis",
+      "de": "Neuritis vestibularis",
+      "en": "Vestibular Neuritis",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Neuritis vestibularis\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "meniere-disease",
+      "de": "Morbus Menière",
+      "en": "Ménière's Disease",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Morbus Menière\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "slug": "epistaxis-nosebleed",
+      "de": "Nasenbluten (Epistaxis)",
+      "en": "Nosebleed (Epistaxis)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Nasenbluten (Epistaxis)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "ankle-sprain",
+      "de": "Sprunggelenksverstauchung",
+      "en": "Ankle Sprain",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sprunggelenksverstauchung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "knee-ligament-sprain",
+      "de": "Knieband-Verstauchung",
+      "en": "Knee Ligament Sprain",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Knieband-Verstauchung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "muscle-strain",
+      "de": "Muskelzerrung",
+      "en": "Muscle Strain",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Muskelzerrung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "whiplash-injury",
+      "de": "Schleudertrauma (HWS-Distorsion)",
+      "en": "Whiplash Injury",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schleudertrauma (HWS-Distorsion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "contusion-bruise",
+      "de": "Prellung (Kontusion)",
+      "en": "Contusion (Bruise)",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Prellung (Kontusion)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "minor-wounds-lacerations",
+      "de": "Kleinere Wunden und Schnittverletzungen",
+      "en": "Minor Wounds and Lacerations",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kleinere Wunden und Schnittverletzungen\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "animal-and-human-bites",
+      "de": "Tier- und Menschenbisse",
+      "en": "Animal and Human Bites",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Tier- und Menschenbisse\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "wrist-fracture",
+      "de": "Handgelenksbruch (distale Radiusfraktur)",
+      "en": "Wrist Fracture",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Handgelenksbruch (distale Radiusfraktur)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "rib-fracture",
+      "de": "Rippenbruch",
+      "en": "Rib Fracture",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Rippenbruch\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "toe-fracture",
+      "de": "Zehenbruch",
+      "en": "Toe Fracture",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Zehenbruch\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "shoulder-dislocation",
+      "de": "Schulterluxation",
+      "en": "Shoulder Dislocation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schulterluxation\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "finger-dislocation",
+      "de": "Fingerluxation",
+      "en": "Finger Dislocation",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Fingerluxation\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "acromioclavicular-joint-injury",
+      "de": "Schultereckgelenksprengung",
+      "en": "Acromioclavicular Joint Injury",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Schultereckgelenksprengung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "achilles-tendon-rupture",
+      "de": "Achillessehnenriss",
+      "en": "Achilles Tendon Rupture",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Achillessehnenriss\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "concussion",
+      "de": "Gehirnerschütterung",
+      "en": "Concussion",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Gehirnerschütterung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "eye-foreign-body",
+      "de": "Fremdkörper im Auge",
+      "en": "Foreign Body in the Eye",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Fremdkörper im Auge\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "foreign-body-in-ear",
+      "de": "Fremdkörper im Ohr",
+      "en": "Foreign Body in the Ear",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Fremdkörper im Ohr\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "first-and-second-degree-burns",
+      "de": "Verbrennungen ersten und zweiten Grades",
+      "en": "First- and Second-Degree Burns",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Verbrennungen ersten und zweiten Grades\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "sunburn",
+      "de": "Sonnenbrand",
+      "en": "Sunburn",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Sonnenbrand\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "frostbite",
+      "de": "Erfrierung",
+      "en": "Frostbite",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Erfrierung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "insect-bites-and-stings",
+      "de": "Insektenstiche und -bisse",
+      "en": "Insect Bites and Stings",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Insektenstiche und -bisse\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "heat-exhaustion",
+      "de": "Hitzeerschöpfung",
+      "en": "Heat Exhaustion",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hitzeerschöpfung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "heat-stroke",
+      "de": "Hitzschlag",
+      "en": "Heat Stroke",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Hitzschlag\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "hypothermia",
+      "de": "Unterkühlung (Hypothermie)",
+      "en": "Hypothermia",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Unterkühlung (Hypothermie)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "dehydration",
+      "de": "Austrocknung (Dehydratation)",
+      "en": "Dehydration",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Austrocknung (Dehydratation)\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "food-poisoning",
+      "de": "Lebensmittelvergiftung",
+      "en": "Food Poisoning",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Lebensmittelvergiftung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "alcohol-intoxication",
+      "de": "Alkoholvergiftung",
+      "en": "Alcohol Intoxication",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Alkoholvergiftung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "slug": "carbon-monoxide-poisoning",
+      "de": "Kohlenmonoxidvergiftung",
+      "en": "Carbon Monoxide Poisoning",
+      "prompt": "Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene für die Website einer Arztpraxis zum Thema „Kohlenmonoxidvergiftung\". Warmes, natürliches Sonnenlicht, beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9)."
+    }
+  ]
+}
