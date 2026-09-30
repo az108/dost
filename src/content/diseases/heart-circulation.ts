@@ -73,6 +73,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Die hypertensive Herzkrankheit umfasst Veränderungen des Herzens infolge eines langjährig erhöhten Blutdrucks – insbesondere eine Verdickung der linken Herzkammer (Hypertrophie) und mit der Zeit eine nachlassende Pump- oder Füllungsfunktion. Sie kann zu Luftnot bei Belastung, Herzrhythmusstörungen und Herzschwäche führen.",
           en: "Hypertensive heart disease covers changes in the heart from long-standing raised blood pressure – in particular thickening of the left ventricle (hypertrophy) and, over time, a decline in pumping or filling function. It can lead to breathlessness on exertion, arrhythmias and heart failure." } },
+        { t: "img", src: "diseases/hypertensive-heart-disease/definition.jpg", alt: { de: "Herz-Ultraschall in einer hellen Praxis", en: "Cardiac ultrasound in a bright practice" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -121,6 +122,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Bei der koronaren Herzkrankheit sind die Herzkranzgefäße durch arteriosklerotische Ablagerungen verengt, sodass der Herzmuskel bei Belastung zu wenig durchblutet wird. Typisch sind Druck oder Enge in der Brust (Angina pectoris), Luftnot und Leistungsminderung; ein vollständiger Gefäßverschluss kann einen Herzinfarkt auslösen.",
           en: "In coronary artery disease the coronary vessels are narrowed by atherosclerotic deposits, so the heart muscle receives too little blood under strain. Typical features are chest pressure or tightness (angina), breathlessness and reduced capacity; a complete blockage can cause a heart attack." } },
+        { t: "img", src: "diseases/coronary-artery-disease/definition.jpg", alt: { de: "Arztgespräch an einem anatomischen Herzmodell", en: "Consultation with an anatomical heart model" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -172,6 +174,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Angina pectoris bezeichnet anfallsartige Schmerzen, Druck oder Enge in der Brust, die durch eine vorübergehende Minderdurchblutung des Herzmuskels entstehen – meist bei körperlicher Anstrengung oder Aufregung und mit Besserung in Ruhe. Sie ist ein Warnzeichen einer koronaren Herzkrankheit.",
           en: "Angina pectoris refers to episodic pain, pressure or tightness in the chest caused by temporary reduced blood flow to the heart muscle – usually on physical exertion or excitement and easing with rest. It is a warning sign of coronary artery disease." } },
+        { t: "img", src: "diseases/angina-pectoris/definition.jpg", alt: { de: "Einfühlsames Arztgespräch bei Brustbeschwerden", en: "Caring consultation for chest symptoms" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & stabile Angina", en: "Assessment & stable angina" } },
@@ -219,6 +222,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Bei der chronischen Herzinsuffizienz kann das Herz den Körper nicht mehr ausreichend mit Blut versorgen. Typisch sind Luftnot – zunächst bei Belastung, später auch in Ruhe –, Müdigkeit, verminderte Leistungsfähigkeit und Wassereinlagerungen, etwa in den Beinen. Ursachen sind u. a. koronare Herzkrankheit, Bluthochdruck und Herzklappen- oder Herzmuskelerkrankungen.",
           en: "In chronic heart failure the heart can no longer supply the body with enough blood. Typical features are breathlessness – at first on exertion, later at rest – fatigue, reduced capacity and fluid retention, for example in the legs. Causes include coronary artery disease, high blood pressure and valve or heart-muscle disease." } },
+        { t: "img", src: "diseases/chronic-heart-failure/definition.jpg", alt: { de: "Tägliche Gewichtskontrolle zu Hause", en: "Daily weight monitoring at home" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -267,6 +271,7 @@ export const heartCirculationDiseases: Disease[] = [
         { t: "p", text: {
           de: "Vorhofflimmern ist die häufigste anhaltende Herzrhythmusstörung. Die Herzvorhöfe schlagen ungeordnet und schnell, wodurch der Puls unregelmäßig wird. Mögliche Beschwerden sind Herzstolpern, Herzrasen, Leistungsminderung, Schwindel oder Luftnot; manche Betroffene bemerken es nicht. Wichtig ist das erhöhte Risiko für Blutgerinnsel und Schlaganfall.",
           en: "Atrial fibrillation is the most common sustained arrhythmia. The atria beat in a disorganised, fast way, making the pulse irregular. Possible symptoms are fluttering, racing heart, reduced capacity, dizziness or breathlessness; some people do not notice it. The raised risk of blood clots and stroke is important." } },
+        { t: "img", src: "diseases/atrial-fibrillation/definition.jpg", alt: { de: "Pulskontrolle mit einer Smartwatch", en: "Checking the pulse with a smartwatch" }, ai: true },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Schlaganfallschutz", en: "Diagnosis & stroke prevention" } },
