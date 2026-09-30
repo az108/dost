@@ -4,6 +4,13 @@ import { digestiveDiseases } from "@/content/diseases/digestive"
 import { metabolismDiseases } from "@/content/diseases/metabolism"
 import { psychiatricDiseases } from "@/content/diseases/psychiatric"
 import { heartCirculationDiseases } from "@/content/diseases/heart-circulation"
+import { musculoskeletalDiseases } from "@/content/diseases/musculoskeletal"
+import { skinDiseases } from "@/content/diseases/skin"
+import { infectionsDiseases } from "@/content/diseases/infections"
+import { urinaryDiseases } from "@/content/diseases/urinary"
+import { bloodImmuneDiseases } from "@/content/diseases/blood-immune"
+import { eyesSensoryDiseases } from "@/content/diseases/eyes-sensory"
+import { injuriesDiseases } from "@/content/diseases/injuries"
 
 export type IllustrationKey = "lungs" | "sinus" | "generic"
 export type AreaIcon =
@@ -82,10 +89,9 @@ export interface TreatmentArea {
  * (general-medicine/<area>/<disease>); slugs are kept identical for URL and
  * ICD continuity. The 4 areas filled on the source site are migrated
  * (39 conditions: respiratory, digestive, metabolism, psychiatric). The other
- * 8 areas are empty on the source and get generated content from the curated
- * worklist in scripts/migration/generated-worklist.json (heart-circulation is
- * the first; the rest are added area by area). Source map:
- * scripts/migration/drdosthealth-map.json.
+ * 8 areas are empty on the source and carry generated content from the curated
+ * worklist in scripts/migration/generated-worklist.json (all 8 now filled).
+ * Source map: scripts/migration/drdosthealth-map.json.
  */
 export const treatmentAreas: TreatmentArea[] = [
   {
@@ -146,7 +152,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Gelenke, Muskeln, Wirbelsäule und Schmerztherapie.",
       en: "Joints, muscles, the spine and pain therapy.",
     },
-    diseases: [],
+    diseases: musculoskeletalDiseases,
   },
   {
     slug: "skin-hair-nails-subcutaneous-tissue",
@@ -156,7 +162,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Hauterkrankungen, Allergien und Hautgesundheit.",
       en: "Skin conditions, allergies and skin health.",
     },
-    diseases: [],
+    diseases: skinDiseases,
   },
   {
     slug: "infections-parasitic-diseases",
@@ -166,7 +172,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Virale, bakterielle und parasitäre Infektionen.",
       en: "Viral, bacterial and parasitic infections.",
     },
-    diseases: [],
+    diseases: infectionsDiseases,
   },
   {
     slug: "urinary-tract-kidneys",
@@ -176,7 +182,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Nieren, Blase und die ableitenden Harnwege.",
       en: "Kidneys, bladder and the urinary tract.",
     },
-    diseases: [],
+    diseases: urinaryDiseases,
   },
   {
     slug: "blood-immune-system-oncological-follow-up-care",
@@ -186,7 +192,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Blutbild, Immunsystem und onkologische Nachsorge.",
       en: "Blood, the immune system and oncological follow-up care.",
     },
-    diseases: [],
+    diseases: bloodImmuneDiseases,
   },
   {
     slug: "eyes-sensory-organs",
@@ -196,7 +202,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Augen, Ohren und die Sinnesorgane.",
       en: "The eyes, ears and sensory organs.",
     },
-    diseases: [],
+    diseases: eyesSensoryDiseases,
   },
   {
     slug: "injuries-poisoning-consequences-of-accidents",
@@ -206,7 +212,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Wunden, Verletzungen und Folgen von Unfällen.",
       en: "Wounds, injuries and the consequences of accidents.",
     },
-    diseases: [],
+    diseases: injuriesDiseases,
   },
 ]
 
