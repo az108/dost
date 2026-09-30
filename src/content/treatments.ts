@@ -3,6 +3,7 @@ import { respiratoryDiseases } from "@/content/diseases/respiratory"
 import { digestiveDiseases } from "@/content/diseases/digestive"
 import { metabolismDiseases } from "@/content/diseases/metabolism"
 import { psychiatricDiseases } from "@/content/diseases/psychiatric"
+import { heartCirculationDiseases } from "@/content/diseases/heart-circulation"
 
 export type IllustrationKey = "lungs" | "sinus" | "generic"
 export type AreaIcon =
@@ -79,9 +80,12 @@ export interface TreatmentArea {
 /**
  * Treatment areas mirror the drdosthealth.com taxonomy
  * (general-medicine/<area>/<disease>); slugs are kept identical for URL and
- * ICD continuity. 4 areas are filled on the source site (~39 conditions to
- * migrate); the other 8 are staged for the generated content. See
- * scripts/migration/drdosthealth-map.json for the full worklist.
+ * ICD continuity. The 4 areas filled on the source site are migrated
+ * (39 conditions: respiratory, digestive, metabolism, psychiatric). The other
+ * 8 areas are empty on the source and get generated content from the curated
+ * worklist in scripts/migration/generated-worklist.json (heart-circulation is
+ * the first; the rest are added area by area). Source map:
+ * scripts/migration/drdosthealth-map.json.
  */
 export const treatmentAreas: TreatmentArea[] = [
   {
@@ -132,7 +136,7 @@ export const treatmentAreas: TreatmentArea[] = [
       de: "Blutdruck, Durchblutung und das Herz-Kreislauf-System.",
       en: "Blood pressure, circulation and the cardiovascular system.",
     },
-    diseases: [],
+    diseases: heartCirculationDiseases,
   },
   {
     slug: "musculoskeletal-system-orthopedics-pain-medicine",

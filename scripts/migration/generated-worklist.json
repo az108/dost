@@ -1,0 +1,159 @@
+{
+  "_note": "Curated disease worklist for the 8 areas that are empty on drdosthealth.com (which lists no diseases for them). Slugs, bilingual titles and ICD-10 codes chosen from common conditions per specialty for a general/private practice. Content is generated (original bilingual prose, definition + 5 modalities) and reviewed by Dr. Dost; images added later via the Gemini web workflow with the 'KI-generiert' caption. Counts aim toward the ~260 target across the 8 areas.",
+  "areas": [
+    {
+      "area": "heart-circulation-blood-vessels",
+      "diseases": [
+        { "slug": "essential-hypertension", "icd10": "I10", "de": "Essenzielle Hypertonie (Bluthochdruck)", "en": "Essential Hypertension" },
+        { "slug": "hypertensive-heart-disease", "icd10": "I11.9", "de": "Hypertensive Herzkrankheit", "en": "Hypertensive Heart Disease" },
+        { "slug": "coronary-artery-disease", "icd10": "I25.1", "de": "Koronare Herzkrankheit", "en": "Coronary Artery Disease" },
+        { "slug": "angina-pectoris", "icd10": "I20.9", "de": "Angina pectoris", "en": "Angina Pectoris" },
+        { "slug": "chronic-heart-failure", "icd10": "I50.9", "de": "Chronische Herzinsuffizienz", "en": "Chronic Heart Failure" },
+        { "slug": "atrial-fibrillation", "icd10": "I48.0", "de": "Vorhofflimmern", "en": "Atrial Fibrillation" },
+        { "slug": "supraventricular-tachycardia", "icd10": "I47.1", "de": "Supraventrikuläre Tachykardie", "en": "Supraventricular Tachycardia" },
+        { "slug": "cardiac-arrhythmia-unspecified", "icd10": "I49.9", "de": "Herzrhythmusstörung", "en": "Cardiac Arrhythmia" },
+        { "slug": "peripheral-arterial-disease", "icd10": "I73.9", "de": "Periphere arterielle Verschlusskrankheit", "en": "Peripheral Arterial Disease" },
+        { "slug": "varicose-veins-lower-extremities", "icd10": "I83.9", "de": "Krampfadern der Beine", "en": "Varicose Veins of the Legs" },
+        { "slug": "chronic-venous-insufficiency", "icd10": "I87.2", "de": "Chronisch-venöse Insuffizienz", "en": "Chronic Venous Insufficiency" },
+        { "slug": "deep-vein-thrombosis", "icd10": "I80.2", "de": "Tiefe Beinvenenthrombose", "en": "Deep Vein Thrombosis" },
+        { "slug": "superficial-thrombophlebitis", "icd10": "I80.0", "de": "Oberflächliche Thrombophlebitis", "en": "Superficial Thrombophlebitis" },
+        { "slug": "hypotension", "icd10": "I95.9", "de": "Niedriger Blutdruck (Hypotonie)", "en": "Low Blood Pressure (Hypotension)" },
+        { "slug": "orthostatic-hypotension", "icd10": "I95.1", "de": "Orthostatische Hypotonie", "en": "Orthostatic Hypotension" },
+        { "slug": "palpitations", "icd10": "R00.2", "de": "Herzklopfen (Palpitationen)", "en": "Palpitations" }
+      ]
+    },
+    {
+      "area": "musculoskeletal-system-orthopedics-pain-medicine",
+      "diseases": [
+        { "slug": "low-back-pain", "icd10": "M54.5", "de": "Kreuzschmerzen (unterer Rückenschmerz)", "en": "Low Back Pain" },
+        { "slug": "neck-pain-cervical-syndrome", "icd10": "M54.2", "de": "Nackenschmerzen (Zervikalsyndrom)", "en": "Neck Pain (Cervical Syndrome)" },
+        { "slug": "sciatica", "icd10": "M54.3", "de": "Ischialgie", "en": "Sciatica" },
+        { "slug": "lumbar-disc-herniation", "icd10": "M51.1", "de": "Bandscheibenvorfall (Lendenwirbelsäule)", "en": "Lumbar Disc Herniation" },
+        { "slug": "osteoarthritis-knee", "icd10": "M17.9", "de": "Kniearthrose (Gonarthrose)", "en": "Osteoarthritis of the Knee" },
+        { "slug": "osteoarthritis-hip", "icd10": "M16.9", "de": "Hüftarthrose (Coxarthrose)", "en": "Osteoarthritis of the Hip" },
+        { "slug": "shoulder-impingement-syndrome", "icd10": "M75.4", "de": "Schulter-Impingement-Syndrom", "en": "Shoulder Impingement Syndrome" },
+        { "slug": "frozen-shoulder", "icd10": "M75.0", "de": "Schultersteife (Frozen Shoulder)", "en": "Frozen Shoulder" },
+        { "slug": "lateral-epicondylitis-tennis-elbow", "icd10": "M77.1", "de": "Tennisellenbogen (Epicondylitis lateralis)", "en": "Tennis Elbow (Lateral Epicondylitis)" },
+        { "slug": "carpal-tunnel-syndrome", "icd10": "G56.0", "de": "Karpaltunnelsyndrom", "en": "Carpal Tunnel Syndrome" },
+        { "slug": "rheumatoid-arthritis", "icd10": "M06.9", "de": "Rheumatoide Arthritis", "en": "Rheumatoid Arthritis" },
+        { "slug": "gout", "icd10": "M10.9", "de": "Gicht", "en": "Gout" },
+        { "slug": "osteoporosis", "icd10": "M81.0", "de": "Osteoporose", "en": "Osteoporosis" },
+        { "slug": "fibromyalgia", "icd10": "M79.7", "de": "Fibromyalgie", "en": "Fibromyalgia" },
+        { "slug": "plantar-fasciitis", "icd10": "M72.2", "de": "Plantarfasziitis (Fersensporn-Beschwerden)", "en": "Plantar Fasciitis" },
+        { "slug": "achilles-tendinopathy", "icd10": "M76.6", "de": "Achillessehnen-Tendinopathie", "en": "Achilles Tendinopathy" },
+        { "slug": "tension-type-headache", "icd10": "G44.2", "de": "Spannungskopfschmerz", "en": "Tension-Type Headache" },
+        { "slug": "migraine", "icd10": "G43.9", "de": "Migräne", "en": "Migraine" }
+      ]
+    },
+    {
+      "area": "skin-hair-nails-subcutaneous-tissue",
+      "diseases": [
+        { "slug": "atopic-dermatitis-eczema", "icd10": "L20.9", "de": "Atopische Dermatitis (Neurodermitis)", "en": "Atopic Dermatitis (Eczema)" },
+        { "slug": "contact-dermatitis", "icd10": "L25.9", "de": "Kontaktdermatitis", "en": "Contact Dermatitis" },
+        { "slug": "psoriasis", "icd10": "L40.9", "de": "Schuppenflechte (Psoriasis)", "en": "Psoriasis" },
+        { "slug": "acne-vulgaris", "icd10": "L70.0", "de": "Akne vulgaris", "en": "Acne Vulgaris" },
+        { "slug": "rosacea", "icd10": "L71.9", "de": "Rosazea", "en": "Rosacea" },
+        { "slug": "urticaria", "icd10": "L50.9", "de": "Nesselsucht (Urtikaria)", "en": "Urticaria" },
+        { "slug": "seborrheic-dermatitis", "icd10": "L21.9", "de": "Seborrhoisches Ekzem", "en": "Seborrhoeic Dermatitis" },
+        { "slug": "fungal-skin-infection", "icd10": "B35.9", "de": "Hautpilz (Dermatophytose)", "en": "Fungal Skin Infection" },
+        { "slug": "herpes-zoster-shingles", "icd10": "B02.9", "de": "Gürtelrose (Herpes zoster)", "en": "Shingles (Herpes Zoster)" },
+        { "slug": "warts-verruca", "icd10": "B07.9", "de": "Warzen (Verrucae)", "en": "Warts (Verrucae)" },
+        { "slug": "androgenetic-alopecia", "icd10": "L64.9", "de": "Androgenetische Alopezie (erblicher Haarausfall)", "en": "Androgenetic Alopecia" },
+        { "slug": "alopecia-areata", "icd10": "L63.9", "de": "Kreisrunder Haarausfall (Alopecia areata)", "en": "Alopecia Areata" },
+        { "slug": "onychomycosis-nail-fungus", "icd10": "B35.1", "de": "Nagelpilz (Onychomykose)", "en": "Nail Fungus (Onychomycosis)" },
+        { "slug": "vitiligo", "icd10": "L80", "de": "Vitiligo (Weißfleckenkrankheit)", "en": "Vitiligo" },
+        { "slug": "hyperhidrosis", "icd10": "R61", "de": "Übermäßiges Schwitzen (Hyperhidrose)", "en": "Excessive Sweating (Hyperhidrosis)" }
+      ]
+    },
+    {
+      "area": "infections-parasitic-diseases",
+      "diseases": [
+        { "slug": "influenza-seasonal", "icd10": "J11.1", "de": "Saisonale Grippe (Influenza)", "en": "Seasonal Influenza" },
+        { "slug": "covid-19", "icd10": "U07.1", "de": "COVID-19", "en": "COVID-19" },
+        { "slug": "infectious-gastroenteritis", "icd10": "A09", "de": "Infektiöse Gastroenteritis (Magen-Darm-Infekt)", "en": "Infectious Gastroenteritis" },
+        { "slug": "urinary-tract-infection", "icd10": "N39.0", "de": "Harnwegsinfektion", "en": "Urinary Tract Infection" },
+        { "slug": "streptococcal-pharyngitis", "icd10": "J02.0", "de": "Streptokokken-Angina", "en": "Streptococcal Pharyngitis" },
+        { "slug": "infectious-mononucleosis", "icd10": "B27.9", "de": "Pfeiffersches Drüsenfieber (Mononukleose)", "en": "Infectious Mononucleosis" },
+        { "slug": "herpes-simplex-infection", "icd10": "B00.9", "de": "Herpes-simplex-Infektion", "en": "Herpes Simplex Infection" },
+        { "slug": "lyme-borreliosis", "icd10": "A69.2", "de": "Lyme-Borreliose", "en": "Lyme Borreliosis" },
+        { "slug": "tick-borne-encephalitis", "icd10": "A84.1", "de": "Frühsommer-Meningoenzephalitis (FSME)", "en": "Tick-Borne Encephalitis" },
+        { "slug": "candidiasis", "icd10": "B37.9", "de": "Candidose (Pilzinfektion)", "en": "Candidiasis" },
+        { "slug": "intestinal-parasitosis", "icd10": "B82.9", "de": "Darmparasitose (Wurmbefall)", "en": "Intestinal Parasitosis" },
+        { "slug": "viral-hepatitis-a", "icd10": "B15.9", "de": "Virushepatitis A", "en": "Viral Hepatitis A" },
+        { "slug": "chickenpox-varicella", "icd10": "B01.9", "de": "Windpocken (Varizellen)", "en": "Chickenpox (Varicella)" },
+        { "slug": "hand-foot-and-mouth-disease", "icd10": "B08.4", "de": "Hand-Fuß-Mund-Krankheit", "en": "Hand, Foot and Mouth Disease" },
+        { "slug": "bacterial-conjunctivitis", "icd10": "H10.0", "de": "Bakterielle Bindehautentzündung", "en": "Bacterial Conjunctivitis" }
+      ]
+    },
+    {
+      "area": "urinary-tract-kidneys",
+      "diseases": [
+        { "slug": "acute-cystitis", "icd10": "N30.0", "de": "Akute Blasenentzündung (Zystitis)", "en": "Acute Cystitis" },
+        { "slug": "recurrent-urinary-tract-infection", "icd10": "N39.0", "de": "Wiederkehrende Harnwegsinfektion", "en": "Recurrent Urinary Tract Infection" },
+        { "slug": "pyelonephritis", "icd10": "N10", "de": "Nierenbeckenentzündung (Pyelonephritis)", "en": "Pyelonephritis" },
+        { "slug": "urolithiasis-kidney-stones", "icd10": "N20.0", "de": "Nierensteine (Urolithiasis)", "en": "Kidney Stones (Urolithiasis)" },
+        { "slug": "chronic-kidney-disease", "icd10": "N18.9", "de": "Chronische Nierenerkrankung", "en": "Chronic Kidney Disease" },
+        { "slug": "benign-prostatic-hyperplasia", "icd10": "N40", "de": "Gutartige Prostatavergrößerung", "en": "Benign Prostatic Hyperplasia" },
+        { "slug": "prostatitis", "icd10": "N41.9", "de": "Prostataentzündung (Prostatitis)", "en": "Prostatitis" },
+        { "slug": "overactive-bladder", "icd10": "N32.81", "de": "Überaktive Blase (Reizblase)", "en": "Overactive Bladder" },
+        { "slug": "urinary-incontinence", "icd10": "R32", "de": "Harninkontinenz", "en": "Urinary Incontinence" },
+        { "slug": "urethritis", "icd10": "N34.2", "de": "Harnröhrenentzündung (Urethritis)", "en": "Urethritis" },
+        { "slug": "hematuria", "icd10": "R31.9", "de": "Blut im Urin (Hämaturie)", "en": "Blood in the Urine (Haematuria)" },
+        { "slug": "nephrotic-syndrome", "icd10": "N04.9", "de": "Nephrotisches Syndrom", "en": "Nephrotic Syndrome" },
+        { "slug": "acute-kidney-injury", "icd10": "N17.9", "de": "Akutes Nierenversagen", "en": "Acute Kidney Injury" }
+      ]
+    },
+    {
+      "area": "blood-immune-system-oncological-follow-up-care",
+      "diseases": [
+        { "slug": "iron-deficiency-anemia", "icd10": "D50.9", "de": "Eisenmangelanämie", "en": "Iron Deficiency Anaemia" },
+        { "slug": "vitamin-b12-deficiency-anemia", "icd10": "D51.9", "de": "Vitamin-B12-Mangelanämie", "en": "Vitamin B12 Deficiency Anaemia" },
+        { "slug": "folate-deficiency-anemia", "icd10": "D52.9", "de": "Folsäuremangelanämie", "en": "Folate Deficiency Anaemia" },
+        { "slug": "anemia-of-chronic-disease", "icd10": "D63.8", "de": "Anämie bei chronischer Erkrankung", "en": "Anaemia of Chronic Disease" },
+        { "slug": "vitamin-d-deficiency", "icd10": "E55.9", "de": "Vitamin-D-Mangel", "en": "Vitamin D Deficiency" },
+        { "slug": "allergic-rhinitis", "icd10": "J30.9", "de": "Allergischer Schnupfen (Heuschnupfen)", "en": "Allergic Rhinitis (Hay Fever)" },
+        { "slug": "food-allergy", "icd10": "T78.1", "de": "Nahrungsmittelallergie", "en": "Food Allergy" },
+        { "slug": "drug-allergy", "icd10": "T88.7", "de": "Arzneimittelallergie", "en": "Drug Allergy" },
+        { "slug": "immunodeficiency-recurrent-infections", "icd10": "D84.9", "de": "Immunschwäche mit wiederkehrenden Infekten", "en": "Immunodeficiency with Recurrent Infections" },
+        { "slug": "thrombocytopenia", "icd10": "D69.6", "de": "Thrombozytopenie (Blutplättchenmangel)", "en": "Thrombocytopenia" },
+        { "slug": "reactive-lymphadenopathy", "icd10": "R59.9", "de": "Reaktive Lymphknotenschwellung", "en": "Reactive Lymphadenopathy" },
+        { "slug": "oncological-follow-up-care", "icd10": "Z08", "de": "Onkologische Nachsorge", "en": "Oncological Follow-up Care" }
+      ]
+    },
+    {
+      "area": "eyes-sensory-organs",
+      "diseases": [
+        { "slug": "allergic-conjunctivitis", "icd10": "H10.1", "de": "Allergische Bindehautentzündung", "en": "Allergic Conjunctivitis" },
+        { "slug": "dry-eye-syndrome", "icd10": "H04.123", "de": "Trockenes-Auge-Syndrom", "en": "Dry Eye Syndrome" },
+        { "slug": "blepharitis", "icd10": "H01.0", "de": "Lidrandentzündung (Blepharitis)", "en": "Blepharitis" },
+        { "slug": "hordeolum-stye", "icd10": "H00.0", "de": "Gerstenkorn (Hordeolum)", "en": "Stye (Hordeolum)" },
+        { "slug": "chalazion", "icd10": "H00.1", "de": "Hagelkorn (Chalazion)", "en": "Chalazion" },
+        { "slug": "age-related-cataract", "icd10": "H25.9", "de": "Grauer Star (Katarakt)", "en": "Age-Related Cataract" },
+        { "slug": "primary-open-angle-glaucoma", "icd10": "H40.11", "de": "Grüner Star (Offenwinkelglaukom)", "en": "Open-Angle Glaucoma" },
+        { "slug": "acute-otitis-media", "icd10": "H66.0", "de": "Akute Mittelohrentzündung", "en": "Acute Otitis Media" },
+        { "slug": "otitis-externa", "icd10": "H60.9", "de": "Gehörgangsentzündung (Otitis externa)", "en": "Otitis Externa" },
+        { "slug": "cerumen-impaction", "icd10": "H61.2", "de": "Ohrenschmalzpfropf (Zeruminalpfropf)", "en": "Earwax Impaction" },
+        { "slug": "tinnitus", "icd10": "H93.1", "de": "Ohrgeräusche (Tinnitus)", "en": "Tinnitus" },
+        { "slug": "benign-paroxysmal-positional-vertigo", "icd10": "H81.1", "de": "Gutartiger Lagerungsschwindel", "en": "Benign Positional Vertigo" },
+        { "slug": "age-related-hearing-loss", "icd10": "H91.1", "de": "Altersschwerhörigkeit (Presbyakusis)", "en": "Age-Related Hearing Loss" }
+      ]
+    },
+    {
+      "area": "injuries-poisoning-consequences-of-accidents",
+      "diseases": [
+        { "slug": "ankle-sprain", "icd10": "S93.4", "de": "Sprunggelenksverstauchung", "en": "Ankle Sprain" },
+        { "slug": "muscle-strain", "icd10": "T14.3", "de": "Muskelzerrung", "en": "Muscle Strain" },
+        { "slug": "whiplash-injury", "icd10": "S13.4", "de": "Schleudertrauma (HWS-Distorsion)", "en": "Whiplash Injury" },
+        { "slug": "contusion-bruise", "icd10": "T14.0", "de": "Prellung (Kontusion)", "en": "Contusion (Bruise)" },
+        { "slug": "minor-wounds-lacerations", "icd10": "T14.1", "de": "Kleinere Wunden und Schnittverletzungen", "en": "Minor Wounds and Lacerations" },
+        { "slug": "first-and-second-degree-burns", "icd10": "T30.0", "de": "Verbrennungen ersten und zweiten Grades", "en": "First- and Second-Degree Burns" },
+        { "slug": "sunburn", "icd10": "L55.9", "de": "Sonnenbrand", "en": "Sunburn" },
+        { "slug": "insect-bites-and-stings", "icd10": "T14.0", "de": "Insektenstiche und -bisse", "en": "Insect Bites and Stings" },
+        { "slug": "concussion", "icd10": "S06.0", "de": "Gehirnerschütterung", "en": "Concussion" },
+        { "slug": "heat-exhaustion", "icd10": "T67.5", "de": "Hitzeerschöpfung", "en": "Heat Exhaustion" },
+        { "slug": "food-poisoning", "icd10": "T62.2", "de": "Lebensmittelvergiftung", "en": "Food Poisoning" },
+        { "slug": "alcohol-intoxication", "icd10": "T51.0", "de": "Alkoholvergiftung", "en": "Alcohol Intoxication" }
+      ]
+    }
+  ]
+}
