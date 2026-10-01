@@ -30,13 +30,36 @@ const GENERATED_AREAS = new Set([
   "injuries-poisoning-consequences-of-accidents",
 ])
 
-/** Default prompt for a condition — bright, friendly, text-free, landscape. */
-function defaultPrompt(de: string): string {
+/** Per-area subject nudges, so images vary and aren't all doctor/patient scenes. */
+const AREA_HINTS: Record<string, string> = {
+  "heart-circulation-blood-vessels":
+    "Herz-Kreislauf-Gesundheit, Bewegung an der frischen Luft, herzgesunde Ernährung, eine ruhige Alltagsszene oder passende Gegenstände",
+  "musculoskeletal-system-orthopedics-pain-medicine":
+    "Bewegung, Dehnübungen, Physiotherapie, aktive Menschen in der Natur oder eine entspannte Alltagsszene",
+  "skin-hair-nails-subcutaneous-tissue":
+    "gesunde Haut und Hautpflege, Naturkosmetik, sanfte Nahaufnahmen oder beruhigende Naturmotive",
+  "infections-parasitic-diseases":
+    "Vorbeugung und Hygiene, Erholung mit Tee und Ruhe, frische Luft oder eine gesunde Alltagsszene",
+  "urinary-tract-kidneys":
+    "ausreichend Wasser trinken, Bewegung, gesunde Ernährung oder eine ruhige, frische Szene",
+  "blood-immune-system-oncological-follow-up-care":
+    "Vitalität und Wohlbefinden, gesunde, nährstoffreiche Ernährung, frische Natur oder eine ruhige Erholungsszene",
+  "eyes-sensory-organs":
+    "Augen- und Ohrengesundheit, klares Sehen, eine Brille, Natur oder eine ruhige Alltagsszene",
+  "injuries-poisoning-consequences-of-accidents":
+    "Erste Hilfe und Erholung, Physiotherapie, Sicherheit im Alltag oder aktive, gesunde Erholung",
+}
+
+/** Default prompt — varied, topic-appropriate, bright, text-free, landscape. */
+function defaultPrompt(de: string, area: string): string {
+  const hints = AREA_HINTS[area] ?? "ein passendes, ansprechendes Motiv"
   return (
-    `Erstelle ein Bild: eine helle, freundliche, moderne und fotorealistische Szene ` +
-    `für die Website einer Arztpraxis zum Thema „${de}". Warmes, natürliches Sonnenlicht, ` +
-    `beruhigende Farben, professionell und einladend. Ganz wichtig: KEIN Text, keine ` +
-    `Buchstaben, keine Zahlen, keine Wörter und keine Logos im Bild. Querformat (16:9).`
+    `Erstelle ein ansprechendes Bild für die Website einer Arztpraxis zum Thema „${de}". ` +
+    `Wähle ein passendes Motiv – das muss NICHT eine Ärztin oder ein Patient sein; ` +
+    `je nach Thema eignen sich z. B. ${hints}. Hell, warm, natürliches Sonnenlicht, ` +
+    `fotorealistisch, beruhigend und professionell; keine ängstlichen, klinisch-kalten ` +
+    `oder blutigen Darstellungen. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, ` +
+    `keine Wörter und keine Logos im Bild. Querformat (16:9).`
   )
 }
 
@@ -62,7 +85,7 @@ for (const area of treatmentAreas) {
       slug: d.slug,
       de: d.title.de,
       en: d.title.en,
-      prompt: previous[d.slug] ?? defaultPrompt(d.title.de),
+      prompt: previous[d.slug] ?? defaultPrompt(d.title.de, area.slug),
     })
   }
 }
