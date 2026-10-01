@@ -45,6 +45,7 @@ const getArg = (name, def) => {
   return i >= 0 && args[i + 1] && !args[i + 1].startsWith("--") ? args[i + 1] : def
 }
 const AREA = getArg("area", null)
+const KIND = getArg("kind", null) // "definition" | "naturopathic" (default: both)
 const LIMIT = parseInt(getArg("limit", "0"), 10) || Infinity
 const DELAY = (parseFloat(getArg("delay", "10")) || 10) * 1000
 const HEADLESS = args.includes("--headless")
@@ -61,7 +62,8 @@ if (!fs.existsSync(MANIFEST)) {
 const manifest = JSON.parse(fs.readFileSync(MANIFEST, "utf8"))
 let todo = manifest.images.filter((e) => {
   if (AREA && e.area !== AREA) return false
-  return !fs.existsSync(path.join(OUTDIR, e.slug, "definition.jpg"))
+  if (KIND && e.kind !== KIND) return false
+  return !fs.existsSync(path.join(OUTDIR, e.slug, e.file))
 })
 const totalRemaining = todo.length
 todo = todo.slice(0, LIMIT)
@@ -72,7 +74,7 @@ console.log(
     ` · will do ${todo.length} now (delay ${DELAY / 1000}s).`,
 )
 if (DRY) {
-  for (const e of todo) console.log(`  · ${e.slug}`)
+  for (const e of todo) console.log(`  · ${e.slug} [${e.kind}]`)
   process.exit(0)
 }
 if (todo.length === 0) {
@@ -214,8 +216,8 @@ let fails = 0
 let consecutiveFails = 0
 
 for (const [idx, e] of todo.entries()) {
-  const out = path.join(OUTDIR, e.slug, "definition.jpg")
-  process.stdout.write(`[${idx + 1}/${todo.length}] ${e.slug} … `)
+  const out = path.join(OUTDIR, e.slug, e.file)
+  process.stdout.write(`[${idx + 1}/${todo.length}] ${e.slug} [${e.kind}] … `)
   try {
     await page.goto(GEMINI_URL, { waitUntil: "domcontentloaded" }) // fresh chat
     const composer = await findComposer(page)

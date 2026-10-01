@@ -60,10 +60,10 @@ export default function DiseaseDetail() {
   const { area, disease } = found
   const rich = disease.rich
 
-  // Auto-render a generated hero image on generated pages that have no explicit
-  // image block of their own (see scripts/images/sync-generated-images.ts).
-  const defHasImg = !!rich && rich.definition.some((b) => b.t === "img")
-  const genImg = rich && !defHasImg ? generatedImages[disease.slug] : undefined
+  // Auto-render generated images on generated pages that have no explicit image
+  // block of their own (see scripts/images/sync-generated-images.ts).
+  const gi = generatedImages[disease.slug]
+  const showDefImg = !!rich && !rich.definition.some((b) => b.t === "img") && !!gi?.def
 
   const richSections = rich
     ? ([
@@ -128,11 +128,11 @@ export default function DiseaseDetail() {
             <h2 className="text-2xl font-bold text-ink">{ui.disease.definition}</h2>
             {rich ? (
               <div>
-                {genImg && (
+                {showDefImg && gi && (
                   <figure className="relative mt-6 overflow-hidden rounded-2xl border border-neutral-100 shadow-sm">
                     <img
                       src={import.meta.env.BASE_URL + `diseases/${disease.slug}/definition.jpg`}
-                      alt={genImg[lang]}
+                      alt={gi.title[lang]}
                       loading="lazy"
                       className="w-full object-cover"
                     />
@@ -172,6 +172,19 @@ export default function DiseaseDetail() {
                       {blocks.map((b, j) => (
                         <BlockView key={j} block={b} />
                       ))}
+                      {key === "naturopathic" && gi?.naturo && !blocks.some((b) => b.t === "img") && (
+                        <figure className="relative mt-6 overflow-hidden rounded-2xl border border-neutral-100 shadow-sm">
+                          <img
+                            src={import.meta.env.BASE_URL + `diseases/${disease.slug}/naturopathic.jpg`}
+                            alt={gi.title[lang]}
+                            loading="lazy"
+                            className="w-full object-cover"
+                          />
+                          <figcaption className="absolute bottom-2 right-3 rounded-full bg-black/45 px-2 py-0.5 text-[11px] font-medium text-white/90">
+                            {ui.disease.aiCaption}
+                          </figcaption>
+                        </figure>
+                      )}
                     </div>
                   </Reveal>
                 ))
