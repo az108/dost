@@ -84,9 +84,30 @@ if (todo.length === 0) {
 const SEND_RE = "(nachricht senden|send message|senden|send)"
 
 async function findComposer(page, timeout = 20000) {
-  const sel = '.ql-editor[contenteditable="true"], div[contenteditable="true"], textarea'
-  await page.waitForSelector(sel, { timeout })
-  return page.locator(sel).last()
+  // Pick the VISIBLE editor. Gemini also has a hidden `.ql-clipboard`
+  // contenteditable that matches generic selectors — skip it.
+  const sels = [
+    '.ql-editor[contenteditable="true"]',
+    'div[role="textbox"][contenteditable="true"]',
+    'div[contenteditable="true"]',
+    'rich-textarea textarea',
+    'textarea',
+  ]
+  const deadline = Date.now() + timeout
+  while (Date.now() < deadline) {
+    for (const sel of sels) {
+      const all = page.locator(sel)
+      const count = await all.count().catch(() => 0)
+      for (let i = 0; i < count; i++) {
+        const el = all.nth(i)
+        const cls = (await el.getAttribute("class").catch(() => "")) || ""
+        if (cls.includes("ql-clipboard")) continue
+        if (await el.isVisible().catch(() => false)) return el
+      }
+    }
+    await page.waitForTimeout(500)
+  }
+  throw new Error("composer not found")
 }
 
 async function clickSend(page) {
@@ -200,7 +221,13 @@ for (const [idx, e] of todo.entries()) {
     const composer = await findComposer(page)
     await composer.click()
     await page.keyboard.insertText(e.prompt)
-    await sleep(300)
+    // verify the prompt actually landed in the editor; fall back to typing
+    let typed = (await composer.innerText().catch(() => "")) || ""
+    if (typed.replace(/\s/g, "").length < 5) {
+      await composer.click()
+      await composer.type(e.prompt, { delay: 5 })
+    }
+    await sleep(400)
     await clickSend(page)
 
     const ready = await waitForImage(page, 120000)
