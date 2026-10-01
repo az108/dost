@@ -18,6 +18,15 @@ import { treatmentAreas } from "@/content/treatments"
 const HERE = dirname(fileURLToPath(import.meta.url))
 const OUT = join(HERE, "image-manifest.json")
 
+// Per-disease object hints (the preferred motif for each condition).
+const objectHints: Record<string, string> = (() => {
+  try {
+    return JSON.parse(readFileSync(join(HERE, "object-hints.json"), "utf8")).hints ?? {}
+  } catch {
+    return {}
+  }
+})()
+
 /** The 8 areas that carry generated content and need images. */
 const GENERATED_AREAS = new Set([
   "heart-circulation-blood-vessels",
@@ -30,36 +39,42 @@ const GENERATED_AREAS = new Set([
   "injuries-poisoning-consequences-of-accidents",
 ])
 
-/** Per-area subject nudges, so images vary and aren't all doctor/patient scenes. */
+/** Per-area OBJECT ideas — concrete things tied to the conditions, so Gemini
+ *  shows a relevant object/still-life rather than defaulting to (elderly) people. */
 const AREA_HINTS: Record<string, string> = {
   "heart-circulation-blood-vessels":
-    "Herz-Kreislauf-Gesundheit, Bewegung an der frischen Luft, herzgesunde Ernährung, eine ruhige Alltagsszene oder passende Gegenstände",
+    "ein anatomisches Herzmodell, ein Stethoskop, ein Blutdruckmessgerät, herzgesunde Lebensmittel oder Laufschuhe",
   "musculoskeletal-system-orthopedics-pain-medicine":
-    "Bewegung, Dehnübungen, Physiotherapie, aktive Menschen in der Natur oder eine entspannte Alltagsszene",
+    "ein Gelenk- oder Wirbelsäulenmodell, Hanteln, ein Gymnastikband, eine Faszienrolle oder Wanderschuhe in der Natur",
   "skin-hair-nails-subcutaneous-tissue":
-    "gesunde Haut und Hautpflege, Naturkosmetik, sanfte Nahaufnahmen oder beruhigende Naturmotive",
+    "Hautpflegeprodukte, Naturkosmetik-Zutaten wie Aloe vera oder Hafer, eine sanfte Nahaufnahme gesunder Haut oder beruhigende Naturmotive",
   "infections-parasitic-diseases":
-    "Vorbeugung und Hygiene, Erholung mit Tee und Ruhe, frische Luft oder eine gesunde Alltagsszene",
+    "Taschentücher, eine Tasse Tee mit Ingwer und Zitrone, Honig, frische Kräuter oder eine Impfspritze",
   "urinary-tract-kidneys":
-    "ausreichend Wasser trinken, Bewegung, gesunde Ernährung oder eine ruhige, frische Szene",
+    "ein Glas Wasser, ein anatomisches Nierenmodell, Cranberrys, Kräutertee oder eine Trinkflasche",
   "blood-immune-system-oncological-follow-up-care":
-    "Vitalität und Wohlbefinden, gesunde, nährstoffreiche Ernährung, frische Natur oder eine ruhige Erholungsszene",
+    "Blutprobenröhrchen ohne Beschriftung, eisenreiche Lebensmittel, frisches Obst und Gemüse, Vitaminpräparate oder grüne Pflanzen",
   "eyes-sensory-organs":
-    "Augen- und Ohrengesundheit, klares Sehen, eine Brille, Natur oder eine ruhige Alltagsszene",
+    "eine Brille, Augentropfen, ein anatomisches Augen- oder Ohrmodell, eine Lupe oder ein ruhiges Naturmotiv",
   "injuries-poisoning-consequences-of-accidents":
-    "Erste Hilfe und Erholung, Physiotherapie, Sicherheit im Alltag oder aktive, gesunde Erholung",
+    "ein Verbandskasten, Pflaster, eine elastische Bandage, ein Kühlpack oder Erste-Hilfe-Material",
 }
 
-/** Default prompt — varied, topic-appropriate, bright, text-free, landscape. */
-function defaultPrompt(de: string, area: string): string {
-  const hints = AREA_HINTS[area] ?? "ein passendes, ansprechendes Motiv"
+/** Default prompt — leads with a condition-specific object, usually NO people. */
+function defaultPrompt(de: string, slug: string, area: string): string {
+  const hint =
+    objectHints[slug] ??
+    AREA_HINTS[area] ??
+    "ein typischer, gut erkennbarer Gegenstand zur Erkrankung"
   return (
-    `Erstelle ein ansprechendes Bild für die Website einer Arztpraxis zum Thema „${de}". ` +
-    `Wähle ein passendes Motiv – das muss NICHT eine Ärztin oder ein Patient sein; ` +
-    `je nach Thema eignen sich z. B. ${hints}. Hell, warm, natürliches Sonnenlicht, ` +
-    `fotorealistisch, beruhigend und professionell; keine ängstlichen, klinisch-kalten ` +
-    `oder blutigen Darstellungen. Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, ` +
-    `keine Wörter und keine Logos im Bild. Querformat (16:9).`
+    `Erstelle ein ansprechendes, fotorealistisches Bild für die Website einer Arztpraxis ` +
+    `zum Thema „${de}". Bevorzugtes Motiv: ${hint}. Zeige es als klares Stillleben oder ` +
+    `Nahaufnahme, möglichst OHNE Menschen – nur wenn es wirklich zur Erkrankung passt, ` +
+    `darf eine natürliche Szene mit einer Person vorkommen (keine gestellten Porträts, ` +
+    `nicht standardmäßig ältere Menschen). Heller, sauberer Hintergrund, warmes ` +
+    `natürliches Licht, modern und ansprechend; nichts Ängstliches oder Blutiges. ` +
+    `Ganz wichtig: KEIN Text, keine Buchstaben, keine Zahlen, keine Wörter und keine ` +
+    `Logos im Bild. Querformat (16:9).`
   )
 }
 
@@ -85,7 +100,7 @@ for (const area of treatmentAreas) {
       slug: d.slug,
       de: d.title.de,
       en: d.title.en,
-      prompt: previous[d.slug] ?? defaultPrompt(d.title.de, area.slug),
+      prompt: previous[d.slug] ?? defaultPrompt(d.title.de, d.slug, area.slug),
     })
   }
 }
