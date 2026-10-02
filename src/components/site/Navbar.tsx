@@ -10,9 +10,10 @@ export function Navbar() {
   const ui = useUi()
   const links = [
     { to: "/behandlungen", label: ui.nav.treatments },
-    { to: "/#about", label: ui.nav.about },
+    { to: "/aesthetik", label: ui.nav.aesthetic },
+    { to: "/ueber-uns", label: ui.nav.about },
     { to: "/galerie", label: ui.nav.gallery },
-    { to: "/#kontakt", label: ui.nav.contact },
+    { to: "/kontakt", label: ui.nav.contact },
   ]
 
   return (
@@ -38,7 +39,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <LanguageSwitch />
             <Link
-              to="/#kontakt"
+              to="/kontakt"
               className={cn(buttonVariants(), "rounded-full bg-brand text-white hover:bg-brand/90")}
             >
               {ui.nav.book}

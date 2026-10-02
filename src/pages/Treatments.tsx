@@ -3,6 +3,7 @@ import { Container } from "@/components/site/Container"
 import { Reveal } from "@/components/site/Reveal"
 import { AreaIcon } from "@/components/site/AreaIcon"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
+import { SearchBox } from "@/components/site/SearchBox"
 import { useLang } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
@@ -22,6 +23,11 @@ export default function Treatments() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">{ui.treatments.eyebrow}</p>
             <h1 className="mt-3 text-5xl font-extrabold md:text-6xl">{ui.treatments.title}</h1>
             <p className="mt-5 text-lg text-body">{ui.treatments.intro}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-8 max-w-2xl">
+              <SearchBox />
+            </div>
           </Reveal>
         </Container>
       </section>

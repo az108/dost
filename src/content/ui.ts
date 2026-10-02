@@ -9,6 +9,7 @@ const strings = {
   de: {
     nav: {
       treatments: "Behandlungen",
+      aesthetic: "Ästhetik",
       about: "Über uns",
       gallery: "Galerie",
       contact: "Kontakt",
@@ -16,12 +17,32 @@ const strings = {
       langLabel: "Sprache",
     },
     hero: {
-      eyebrow: "Ihr Privatarzt in Magersdorf",
+      eyebrow: "Ihr Arzt in Landshut",
       headlineLead: "Medizin, die",
       headlineAccent: "zuhört",
       sub: "Schulmedizin und Naturheilverfahren Hand in Hand – Allgemeinmedizin, Notfallmedizin, Naturheilkunde und Akupunktur.",
       book: "Termin buchen",
       explore: "Behandlungen entdecken",
+      ratingValue: "5,0",
+      ratingLabel: "Patientenbewertungen",
+    },
+    steps: {
+      eyebrow: "So einfach geht's",
+      title: "In drei Schritten zu Ihrer Behandlung",
+      items: [
+        { title: "Termin vereinbaren", text: "Kontaktieren Sie uns telefonisch oder per Nachricht – wir finden einen passenden Termin für Sie." },
+        { title: "Persönliches Gespräch", text: "Im ausführlichen Erstgespräch hören wir zu und verschaffen uns ein genaues Bild Ihrer Beschwerden." },
+        { title: "Individuelle Behandlung", text: "Sie erhalten einen auf Sie abgestimmten Behandlungsplan – Schulmedizin und Naturheilkunde Hand in Hand." },
+      ],
+    },
+    testimonials: {
+      eyebrow: "Patientenstimmen",
+      title: "Das sagen unsere Patienten",
+      items: [
+        { quote: "Dr. Dost nimmt sich wirklich Zeit und erklärt alles verständlich. Die Kombination aus Schulmedizin und Naturheilkunde hat mir sehr geholfen.", author: "Maria S.", role: "Patientin" },
+        { quote: "Endlich ein Arzt, der zuhört und ganzheitlich denkt. Die Akupunktur gegen meine Kopfschmerzen war ein voller Erfolg.", author: "Thomas K.", role: "Patient" },
+        { quote: "Kompetent, freundlich und immer erreichbar. Ich fühle mich hier rundum gut aufgehoben.", author: "Andrea L.", role: "Patientin" },
+      ],
     },
     search: {
       title: "Fühlen Sie sich unwohl? Sehen Sie sich unsere Behandlungen an.",
@@ -93,7 +114,26 @@ const strings = {
         "Dieser Inhalt dient der allgemeinen Information und ersetzt keine ärztliche Beratung, Diagnose oder Behandlung.",
     },
     arzt: {
-      eyebrow: "Unser Arzt in Magersdorf",
+      eyebrow: "Unser Arzt in Landshut",
+    },
+    aboutPage: {
+      eyebrow: "Über die Praxis",
+      title: "Über Dr. Dost",
+      intro: "Eine Praxis, in der Schulmedizin und Naturheilverfahren Hand in Hand gehen – persönlich, ganzheitlich und mit Zeit für den Menschen.",
+    },
+    aesthetic: {
+      eyebrow: "Ästhetische Medizin",
+      title: "Botox, Laser & ästhetische Behandlungen",
+      intro: "Sanfte, natürliche Ergebnisse durch moderne ästhetische Verfahren – persönlich beraten und durchgeführt von Dr. med. univ. Dost Mohammad.",
+      cta: "Beratungstermin vereinbaren",
+      treatments: [
+        { title: "Botox / Faltenbehandlung", text: "Glättung von Stirn-, Zornes- und Lachfalten mit präzise dosiertem Botulinumtoxin für ein frisches, natürliches Aussehen." },
+        { title: "Hyaluron / Filler", text: "Aufpolstern von Falten und Volumenaufbau mit Hyaluronsäure – für Lippen, Wangen und Gesichtskonturen." },
+        { title: "PRP / Eigenblut", text: "Hautverjüngung mit körpereigenen Wachstumsfaktoren aus dem eigenen Blut (Vampir-Lifting)." },
+        { title: "Fädenlifting", text: "Straffung und Lifting der Haut mit resorbierbaren Fäden – ohne Operation." },
+        { title: "Laserbehandlung", text: "Moderne Laserverfahren für ein verfeinertes, gleichmäßiges Hautbild." },
+        { title: "Kosmetische Behandlungen", text: "Ergänzende ästhetische und hautpflegende Behandlungen für ein gepflegtes Hautbild." },
+      ],
     },
     contact: {
       title: "Kontakt",
@@ -103,6 +143,15 @@ const strings = {
       mobile: "Handy",
       email: "E-Mail",
       hours: "Sprechzeiten",
+      form: {
+        title: "Schreiben Sie uns",
+        name: "Name",
+        email: "E-Mail",
+        message: "Ihre Nachricht",
+        send: "Nachricht senden",
+        note: "Ihre Nachricht öffnet sich in Ihrem E-Mail-Programm und wird an die Praxis gesendet.",
+        subject: "Anfrage über die Website",
+      },
     },
     footer: {
       rights: "Alle Rechte vorbehalten.",
@@ -140,6 +189,7 @@ const strings = {
   en: {
     nav: {
       treatments: "Treatments",
+      aesthetic: "Aesthetics",
       about: "About",
       gallery: "Gallery",
       contact: "Contact",
@@ -147,12 +197,32 @@ const strings = {
       langLabel: "Language",
     },
     hero: {
-      eyebrow: "Your private physician in Magersdorf",
+      eyebrow: "Your doctor in Landshut",
       headlineLead: "Medicine that",
       headlineAccent: "listens",
       sub: "Conventional medicine and natural healing hand in hand – general medicine, emergency medicine, naturopathy and acupuncture.",
       book: "Book appointment",
       explore: "Explore treatments",
+      ratingValue: "5.0",
+      ratingLabel: "Patient reviews",
+    },
+    steps: {
+      eyebrow: "How it works",
+      title: "Your treatment in three steps",
+      items: [
+        { title: "Book an appointment", text: "Reach out by phone or message – we'll find a time that works for you." },
+        { title: "Personal consultation", text: "In a thorough first conversation we listen and build a clear picture of your concern." },
+        { title: "Individual treatment", text: "You receive a plan tailored to you – conventional medicine and naturopathy hand in hand." },
+      ],
+    },
+    testimonials: {
+      eyebrow: "Patient voices",
+      title: "What our patients say",
+      items: [
+        { quote: "Dr. Dost really takes his time and explains everything clearly. The combination of conventional medicine and naturopathy helped me a lot.", author: "Maria S.", role: "Patient" },
+        { quote: "Finally a doctor who listens and thinks holistically. The acupuncture for my headaches was a complete success.", author: "Thomas K.", role: "Patient" },
+        { quote: "Competent, friendly and always reachable. I feel in truly good hands here.", author: "Andrea L.", role: "Patient" },
+      ],
     },
     search: {
       title: "Feeling unwell? Check our treatments.",
@@ -224,7 +294,26 @@ const strings = {
         "This content is for general information only and does not replace medical advice, diagnosis or treatment.",
     },
     arzt: {
-      eyebrow: "Our doctor in Magersdorf",
+      eyebrow: "Our doctor in Landshut",
+    },
+    aboutPage: {
+      eyebrow: "About the practice",
+      title: "About Dr. Dost",
+      intro: "A practice where conventional medicine and natural healing go hand in hand – personal, holistic and with time for the individual.",
+    },
+    aesthetic: {
+      eyebrow: "Aesthetic medicine",
+      title: "Botox, laser & aesthetic treatments",
+      intro: "Soft, natural results through modern aesthetic procedures – personally advised and performed by Dr. med. univ. Dost Mohammad.",
+      cta: "Book a consultation",
+      treatments: [
+        { title: "Botox / wrinkle treatment", text: "Smoothing of forehead, frown and laughter lines with precisely dosed botulinum toxin for a fresh, natural look." },
+        { title: "Hyaluronic acid / fillers", text: "Softening wrinkles and restoring volume with hyaluronic acid – for lips, cheeks and facial contours." },
+        { title: "PRP / platelet-rich plasma", text: "Skin rejuvenation using your body's own growth factors from your blood (vampire lifting)." },
+        { title: "Thread lifting", text: "Tightening and lifting the skin with absorbable threads – without surgery." },
+        { title: "Laser treatment", text: "Modern laser procedures for a refined, even complexion." },
+        { title: "Cosmetic treatments", text: "Complementary aesthetic and skin-care treatments for well-groomed skin." },
+      ],
     },
     contact: {
       title: "Contact",
@@ -234,6 +323,15 @@ const strings = {
       mobile: "Mobile",
       email: "Email",
       hours: "Hours",
+      form: {
+        title: "Write to us",
+        name: "Name",
+        email: "Email",
+        message: "Your message",
+        send: "Send message",
+        note: "Your message opens in your email program and is sent to the practice.",
+        subject: "Enquiry via the website",
+      },
     },
     footer: {
       rights: "All rights reserved.",

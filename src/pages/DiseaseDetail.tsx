@@ -3,6 +3,7 @@ import { Container } from "@/components/site/Container"
 import { Reveal } from "@/components/site/Reveal"
 import { Breadcrumbs } from "@/components/site/Breadcrumbs"
 import { DiseaseIllustration } from "@/components/site/DiseaseIllustration"
+import { IcdBadge } from "@/components/site/IcdBadge"
 import NotFound from "@/pages/NotFound"
 import { useLang, useT, type Loc } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
@@ -108,9 +109,8 @@ export default function DiseaseDetail() {
 
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand shadow-sm">
-                {ui.disease.icd} · {disease.icd10}
-              </span>
+              <IcdBadge code={disease.icd10} />
+
               <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{disease.title[lang]}</h1>
               <p className="mt-4 max-w-xl text-lg text-body">{disease.summary[lang]}</p>
             </div>

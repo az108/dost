@@ -7,6 +7,9 @@ import Home from "@/pages/Home"
 import Treatments from "@/pages/Treatments"
 import TreatmentArea from "@/pages/TreatmentArea"
 import DiseaseDetail from "@/pages/DiseaseDetail"
+import Aesthetik from "@/pages/Aesthetik"
+import About from "@/pages/About"
+import Contact from "@/pages/Contact"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
 import Galerie from "@/pages/Galerie"
@@ -26,6 +29,10 @@ export function AppRoutes() {
         <Route path="/behandlungen" element={<Treatments />} />
         <Route path="/behandlungen/:area" element={<TreatmentArea />} />
         <Route path="/behandlungen/:area/:disease" element={<DiseaseDetail />} />
+
+        <Route path="/aesthetik" element={<Aesthetik />} />
+        <Route path="/ueber-uns" element={<About />} />
+        <Route path="/kontakt" element={<Contact />} />
 
         <Route
           path="/fachbereiche/:slug"

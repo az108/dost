@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { Container } from "@/components/site/Container"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
 import { SearchBox } from "@/components/site/SearchBox"
+import { Stars } from "@/components/site/Stars"
 import { useUi } from "@/content/ui"
 import arztFoto from "@/assets/arzt-portrait.jpg"
 
@@ -32,7 +33,7 @@ export function Hero() {
             <p className="mt-6 max-w-xl text-lg text-body">{ui.hero.sub}</p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
-                to="/#kontakt"
+                to="/kontakt"
                 className={cn(buttonVariants({ size: "lg" }), "rounded-full bg-brand px-8 text-white hover:bg-brand/90")}
               >
                 {ui.hero.book}
@@ -57,18 +58,15 @@ export function Hero() {
           >
             <img src={arztFoto} alt="Dr. med. univ. Dost Mohammad" className="rotate-2 rounded-[2rem] shadow-2xl" />
             <motion.div
-              className="absolute -left-8 top-8 rounded-2xl bg-white/90 px-4 py-3 text-sm font-medium text-ink shadow-xl backdrop-blur"
+              className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl bg-white/95 px-5 py-3 shadow-xl backdrop-blur"
               animate={reduce ? undefined : { y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              🌿 {ui.about.points[2]} &amp; {ui.about.points[3]}
-            </motion.div>
-            <motion.div
-              className="absolute -right-5 bottom-10 rounded-2xl bg-mint px-4 py-3 text-sm font-semibold text-emerald-950 shadow-xl"
-              animate={reduce ? undefined : { y: [0, 8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              ⚕️ {ui.about.points[1]}
+              <Stars size={16} />
+              <span className="whitespace-nowrap text-sm">
+                <span className="font-bold text-ink">{ui.hero.ratingValue}</span>{" "}
+                <span className="text-body">· {ui.hero.ratingLabel}</span>
+              </span>
             </motion.div>
           </motion.div>
         </div>

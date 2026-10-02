@@ -5,20 +5,18 @@
 // more than the keywords meta — keep the verbatim copy keyword-rich too.
 
 export const siteKeywords = [
-  "Privatarzt Magersdorf",
-  "Arzt Magersdorf",
+  "Arzt Landshut",
   "Dr. Dost Mohammad",
-  "Praktischer Arzt Magersdorf",
-  "Naturheilverfahren Magersdorf",
-  "Akupunktur Magersdorf",
-  "TCM Magersdorf",
-  "Homöopathie Magersdorf",
-  "Notfallmedizin Magersdorf",
-  "ästhetische Medizin Magersdorf",
-  "Privatpraxis Magersdorf",
-  "Privatarztpraxis Magersdorf",
-  // Regionale Begriffe (Magersdorf liegt im Raum Landshut)
-  "Privatarzt Raum Landshut",
+  "praktischer Arzt Landshut",
+  "Naturheilverfahren Landshut",
+  "Akupunktur Landshut",
+  "TCM Landshut",
+  "Homöopathie Landshut",
+  "Notfallmedizin Landshut",
+  "ästhetische Medizin Landshut",
+  "Botox Landshut",
+  "Faltenbehandlung Landshut",
+  "Privatpraxis Landshut",
   "Arzt Landshut Umgebung",
 ]
 

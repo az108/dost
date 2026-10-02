@@ -1,8 +1,9 @@
 import { Hero } from "@/sections/Hero"
 import { AboutDost } from "@/sections/AboutDost"
 import { WhyChooseUs } from "@/sections/WhyChooseUs"
+import { Steps } from "@/sections/Steps"
+import { Testimonials } from "@/sections/Testimonials"
 import { TreatmentsTeaser } from "@/sections/TreatmentsTeaser"
-import { Arzt } from "@/sections/Arzt"
 import { Kontakt } from "@/sections/Kontakt"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
@@ -11,7 +12,7 @@ export default function Home() {
   const ui = useUi()
   useSeo({
     description:
-      "Dr. med. univ. Dost Mohammad – Ihr Privatarzt in Magersdorf. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
+      "Dr. med. univ. Dost Mohammad – Ihr Arzt in Landshut. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
   })
   return (
     <main>
@@ -19,8 +20,9 @@ export default function Home() {
       <Hero />
       <AboutDost />
       <WhyChooseUs />
+      <Steps />
+      <Testimonials />
       <TreatmentsTeaser />
-      <Arzt />
       <Kontakt />
     </main>
   )

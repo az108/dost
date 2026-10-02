@@ -1,4 +1,6 @@
+import { useRef } from "react"
 import { Link } from "react-router-dom"
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react"
 import { Reveal } from "@/components/site/Reveal"
 import { Container } from "@/components/site/Container"
 import { buttonVariants } from "@/components/ui/button"
@@ -7,17 +9,24 @@ import { useUi } from "@/content/ui"
 import { arzt } from "@/content/arzt"
 import klinikFoto from "@/assets/galerie/arzt-am-schreibtisch-01.jpg"
 
-export function AboutDost() {
+export function AboutDost({ showMore = true }: { showMore?: boolean }) {
   const ui = useUi()
+  const reduce = useReducedMotion()
+  const ref = useRef<HTMLElement>(null)
+  // Parallax: slide the faded watermark word horizontally as the section scrolls.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] })
+  const x = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"])
+
   return (
-    <section id="about" className="relative scroll-mt-20 overflow-hidden bg-white py-24">
-      {/* Faded watermark word, drdosthealth-style. */}
-      <span
+    <section ref={ref} id="about" className="relative scroll-mt-20 overflow-hidden bg-white py-24">
+      {/* Faded watermark word that drifts on scroll, drdosthealth-style. */}
+      <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-16 -translate-x-1/2 text-[13vw] font-extrabold leading-none tracking-tight text-neutral-900/[0.035] select-none"
+        style={reduce ? undefined : { x }}
+        className="pointer-events-none absolute inset-x-0 top-16 text-center text-[13vw] font-extrabold leading-none tracking-tight text-neutral-900/[0.035] select-none"
       >
         {ui.about.eyebrow.toUpperCase()}
-      </span>
+      </motion.span>
 
       <Container>
         <div className="relative grid items-start gap-14 lg:grid-cols-[1fr_1.05fr]">
@@ -62,7 +71,7 @@ export function AboutDost() {
                     <p className="mt-1 text-white/80">{ui.about.hoursValue}</p>
                   </div>
                   <Link
-                    to="/#kontakt"
+                    to="/kontakt"
                     className={cn(buttonVariants(), "mt-5 w-fit rounded-full bg-mint px-5 text-emerald-950 hover:bg-mint/90")}
                   >
                     {ui.about.book}
@@ -78,12 +87,14 @@ export function AboutDost() {
                       {ui.about.founder}
                     </p>
                   </div>
-                  <Link
-                    to="/#arzt"
-                    className={cn(buttonVariants(), "mt-5 w-fit rounded-full bg-brand px-5 text-white hover:bg-brand/90")}
-                  >
-                    {ui.about.more} <span aria-hidden="true" className="ml-1">+</span>
-                  </Link>
+                  {showMore && (
+                    <Link
+                      to="/ueber-uns"
+                      className={cn(buttonVariants(), "mt-5 w-fit rounded-full bg-brand px-5 text-white hover:bg-brand/90")}
+                    >
+                      {ui.about.more} <span aria-hidden="true" className="ml-1">+</span>
+                    </Link>
+                  )}
                 </div>
               </Reveal>
             </div>

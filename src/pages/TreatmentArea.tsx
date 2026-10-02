@@ -3,6 +3,7 @@ import { Container } from "@/components/site/Container"
 import { Reveal } from "@/components/site/Reveal"
 import { Breadcrumbs } from "@/components/site/Breadcrumbs"
 import { AreaIcon } from "@/components/site/AreaIcon"
+import { IcdBadge } from "@/components/site/IcdBadge"
 import NotFound from "@/pages/NotFound"
 import { useLang } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
@@ -63,9 +64,8 @@ export default function TreatmentArea() {
                       </span>
                       <span className="mt-1 block text-sm text-body">{d.summary[lang]}</span>
                     </span>
-                    <span className="shrink-0 rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-brand">
-                      {d.icd10}
-                    </span>
+                    <IcdBadge code={d.icd10} />
+
                   </Link>
                 </Reveal>
               ))}
