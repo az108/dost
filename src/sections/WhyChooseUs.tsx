@@ -32,8 +32,8 @@ export function WhyChooseUs() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {ui.why.cards.map((c, i) => (
             <Reveal key={c.title} delay={0.08 * i}>
-              <div className="group h-full rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
-                <span className="grid size-14 place-items-center rounded-2xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <div className="h-full rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm">
+                <span className="grid size-14 place-items-center rounded-2xl bg-brand-soft text-brand">
                   {ICONS[i]}
                 </span>
                 <h3 className="mt-6 text-xl font-bold text-ink">{c.title}</h3>

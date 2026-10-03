@@ -21,7 +21,7 @@ export function Testimonials() {
                 <blockquote className="mt-4 flex-1 text-lg leading-relaxed text-body">“{t.quote}”</blockquote>
                 <figcaption className="mt-6">
                   <span className="block font-semibold text-ink">{t.author}</span>
-                  <span className="block text-sm text-info-ink">{t.role}</span>
+                  <span className="block text-sm text-neutral-500">{t.role}</span>
                 </figcaption>
               </figure>
             </Reveal>

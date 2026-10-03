@@ -16,7 +16,8 @@ export default function Contact() {
     { label: ui.contact.mobile, value: praxis.mobile },
     { label: ui.contact.email, value: praxis.email, isEmail: true },
     { label: ui.contact.hours, value: praxis.hours },
-  ]
+    // Only show fields that are actually filled in (hide "… folgt" placeholders).
+  ].filter((r) => r.value && !/folgt/i.test(r.value))
   return (
     <main className="pt-24">
       <section className="relative overflow-hidden bg-wash py-16">

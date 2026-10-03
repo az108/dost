@@ -30,7 +30,16 @@ function BlockView({ block }: { block: Block }) {
         </ul>
       )
     case "img":
-      return null
+      return (
+        <figure className="mt-6 overflow-hidden rounded-2xl border border-neutral-100 shadow-sm">
+          <img
+            src={import.meta.env.BASE_URL + block.src}
+            alt={t(block.alt)}
+            loading="lazy"
+            className="w-full object-cover"
+          />
+        </figure>
+      )
   }
 }
 

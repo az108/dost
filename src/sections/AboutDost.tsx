@@ -59,20 +59,20 @@ export function AboutDost({ showMore = true }: { showMore?: boolean }) {
 
             <div className="mt-9 grid gap-5 sm:grid-cols-2">
               <Reveal delay={0.15}>
-                <div className="flex h-full flex-col justify-between rounded-2xl bg-brand p-6 text-white shadow-xl shadow-brand/20">
+                <div className="flex h-full flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
                   <div>
-                    <span className="grid size-11 place-items-center rounded-full border border-white/40">
+                    <span className="grid size-11 place-items-center rounded-full bg-brand-soft text-brand">
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
                         <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                       </svg>
                     </span>
-                    <h3 className="mt-4 text-2xl font-bold text-white">{ui.about.hoursTitle}</h3>
-                    <p className="mt-1 text-white/80">{ui.about.hoursValue}</p>
+                    <h3 className="mt-4 text-2xl font-bold text-ink">{ui.about.hoursTitle}</h3>
+                    <p className="mt-1 text-body">{ui.about.hoursValue}</p>
                   </div>
                   <Link
                     to="/kontakt"
-                    className={cn(buttonVariants(), "mt-5 w-fit rounded-full bg-mint px-5 text-emerald-950 hover:bg-mint/90")}
+                    className={cn(buttonVariants(), "mt-5 w-fit rounded-full bg-brand px-5 text-white hover:bg-brand/90")}
                   >
                     {ui.about.book}
                   </Link>

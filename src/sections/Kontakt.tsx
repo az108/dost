@@ -12,7 +12,8 @@ export function Kontakt() {
     { label: ui.contact.mobile, value: praxis.mobile },
     { label: ui.contact.email, value: praxis.email, isEmail: true },
     { label: ui.contact.hours, value: praxis.hours },
-  ]
+    // Only show fields that are actually filled in (hide "… folgt" placeholders).
+  ].filter((r) => r.value && !/folgt/i.test(r.value))
   return (
     <section id="kontakt" className="relative scroll-mt-20 overflow-hidden bg-white py-24">
       <div

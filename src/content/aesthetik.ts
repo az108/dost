@@ -31,6 +31,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       en: "Gentle smoothing of expression lines with precisely dosed botulinum toxin – for a fresh, natural look.",
     },
     definition: [
+      { t: "img", src: "aesthetik/botox/definition.jpg", alt: { de: "Botox-Behandlung – vorher und nachher", en: "Botox treatment – before and after" } },
       { t: "p", text: {
         de: "Botox ist der gebräuchliche Name für Botulinumtoxin, einen gereinigten Eiweißstoff, der die Signalübertragung zwischen Nerv und Muskel vorübergehend abschwächt. In sehr geringen, genau dosierten Mengen in bestimmte Mimikmuskeln gespritzt, entspannt es diese gezielt – die darüberliegende Haut glättet sich.",
         en: "Botox is the common name for botulinum toxin, a purified protein that temporarily reduces signal transmission between nerve and muscle. Injected in very small, precisely dosed amounts into specific facial muscles, it relaxes them selectively – and the skin above smooths out." } },
@@ -48,6 +49,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       { t: "p", text: {
         de: "Besonders gut ansprechbar sind Falten, die durch Muskelbewegung entstehen: Stirnfalten, Zornesfalten und Krähenfüße. Tiefe, ruhende Falten lassen sich oft mit Botox mildern und ergänzend mit Hyaluron behandeln.",
         en: "Lines caused by muscle movement respond particularly well: forehead lines, frown lines and crow's feet. Deeper static lines can often be softened with Botox and complemented with hyaluronic acid." } },
+      { t: "img", src: "aesthetik/botox/treatment.jpg", alt: { de: "Planung einer Botox-Behandlung in der Praxis", en: "Planning a Botox treatment in the practice" } },
       { t: "sub", text: { de: "Vor der Behandlung", en: "Before the treatment" } },
       { t: "p", text: {
         de: "In einem persönlichen Beratungsgespräch werden Wünsche, Krankengeschichte und Eignung besprochen. Blutverdünnende Mittel und Alkohol sollten nach Absprache gemieden werden, um blaue Flecken zu verringern.",
@@ -83,6 +85,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       en: "Modern laser procedures for a refined, even and fresh complexion.",
     },
     definition: [
+      { t: "img", src: "aesthetik/laser-therapie/definition.jpg", alt: { de: "Laserbehandlung der Haut", en: "Laser skin treatment" } },
       { t: "p", text: {
         de: "Bei der Laserbehandlung wird gebündeltes Licht einer bestimmten Wellenlänge gezielt auf die Haut gerichtet. Je nach Verfahren wird dabei entweder die Hauterneuerung angeregt oder es werden unerwünschte Strukturen wie Pigmentflecken oder erweiterte Äderchen behandelt.",
         en: "In laser treatment, focused light of a specific wavelength is aimed precisely at the skin. Depending on the procedure, this either stimulates skin renewal or treats unwanted structures such as pigment spots or dilated vessels." } },
@@ -97,6 +100,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       { t: "p", text: {
         de: "Je nach eingesetztem Gerät eignen sich Laserverfahren unter anderem für ein ungleichmäßiges Hautbild, Pigmentflecken, sonnenbedingte Hautveränderungen, erweiterte Äderchen und zur allgemeinen Hautverjüngung.",
         en: "Depending on the device used, laser procedures are suitable for an uneven complexion, pigment spots, sun-related skin changes, dilated vessels and general skin rejuvenation, among others." } },
+      { t: "img", src: "aesthetik/laser-therapie/treatment.jpg", alt: { de: "Laserbehandlung für ein ebenmäßiges Hautbild", en: "Laser treatment for an even complexion" } },
       { t: "sub", text: { de: "Vor der Behandlung", en: "Before the treatment" } },
       { t: "p", text: {
         de: "Vor einer Laserbehandlung sollte die Haut nicht frisch gebräunt sein. Intensive Sonne und Selbstbräuner werden vorab gemieden; die Eignung wird individuell geprüft.",
@@ -132,6 +136,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       en: "Individual aesthetic treatments such as hyaluronic acid, PRP and thread lifting for a naturally well-groomed look.",
     },
     definition: [
+      { t: "img", src: "aesthetik/kosmetische-aesthetische-therapie/definition.jpg", alt: { de: "Ästhetische Behandlung in der Praxis", en: "Aesthetic treatment in the practice" } },
       { t: "p", text: {
         de: "Die kosmetische und ästhetische Therapie umfasst verschiedene schonende Verfahren, die das Erscheinungsbild der Haut verbessern und harmonisieren – darunter Faltenunterspritzung mit Hyaluronsäure, die Eigenbluttherapie (PRP) und das Fädenlifting.",
         en: "Cosmetic and aesthetic therapy comprises various gentle procedures that improve and harmonise the appearance of the skin – including wrinkle filling with hyaluronic acid, platelet-rich plasma therapy (PRP) and thread lifting." } },
@@ -146,6 +151,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       { t: "p", text: {
         de: "Hyaluronsäure ist ein natürlicher Bestandteil der Haut. Als Filler polstert sie Falten auf, gibt Lippen und Wangen Volumen und glättet Konturen. Das Ergebnis ist sofort sichtbar.",
         en: "Hyaluronic acid is a natural component of the skin. As a filler it plumps wrinkles, gives volume to lips and cheeks and smooths contours. The result is visible immediately." } },
+      { t: "img", src: "aesthetik/kosmetische-aesthetische-therapie/treatment.jpg", alt: { de: "Hautberatung vor der Behandlung", en: "Skin consultation before the treatment" } },
       { t: "sub", text: { de: "PRP / Eigenblut (Vampir-Lifting)", en: "PRP / platelet-rich plasma (vampire lifting)" } },
       { t: "p", text: {
         de: "Aus einer kleinen Menge Eigenblut werden körpereigene Wachstumsfaktoren gewonnen und in die Haut eingebracht. Sie regen die Regeneration an und verbessern Spannkraft und Hautbild auf natürliche Weise.",
