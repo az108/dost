@@ -1,10 +1,10 @@
 import type { Locale } from "@/content/types"
 import type { UiKey } from "@/content/ui"
 import { ui } from "@/content/ui"
-import { formatAddress, practice } from "@/content/practice"
+import { center, formatAddress, openLocation } from "@/content/center"
 import { pillarById } from "@/content/pillars"
 import { treatmentBySlug } from "@/content/treatments"
-import { impressum, datenschutz } from "@/content/legal"
+import { agb, datenschutz, impressum, widerruf } from "@/content/legal"
 import { SITE_URL } from "@/content/seo"
 import {
   counterpartPath,
@@ -13,6 +13,7 @@ import {
   legalPath,
   pagePath,
   pillarPath,
+  terminPath,
   treatmentPath,
 } from "@/lib/routes"
 
@@ -23,11 +24,61 @@ export interface RouteSeo {
   canonical: string
   alternates: { hreflang: string; href: string }[]
   ogImage: string
+  /** Gibt <meta name="robots" content="noindex"> aus. Checkout-Rückkehrseiten. */
+  noindex?: boolean
+  /**
+   * Die Seite wird gebaut und ausgeliefert, aber noch nicht bei Google
+   * eingereicht. Bewusst NICHT `noindex`: das hieße „diese Seite gehört in
+   * keinen Index", hier gilt „noch nicht". Die Seite trägt deshalb weiter
+   * ihr canonical und kein robots-Meta; sie steht nur nicht in
+   * public/sitemap.xml, und generate-sitemap.ts fragt genau dieses Feld ab.
+   */
+  withheldFromSitemap?: boolean
 }
 
 const PILLAR_IDS = ["laser", "physio", "aesthetik"] as const
 const PAGES = ["prices", "practice", "contact"] as const
-const LEGAL_DOCS = { impressum, datenschutz } as const
+const LEGAL_DOCS = { impressum, datenschutz, agb, widerruf } as const
+
+/**
+ * Der Buchungs-Flow und seine beiden Rückkehrseiten. Ohne diesen Eintrag
+ * fällt /termin durch bis zur 404-Rückfallebene ganz unten und würde als
+ * „Seite nicht gefunden" mit leerer Description prerendert, während es im
+ * Browser normal rendert — der Prerender liest seoForRoute(), nicht die
+ * Komponente.
+ *
+ * Deutsch-only wie die Rechtstexte: locale "de", keine hreflang-Alternates.
+ * Die beiden Rückkehrseiten tragen zusätzlich noindex — eine Seite, die nur
+ * nach einer Stripe-Weiterleitung etwas aussagt, gehört in keinen Index, und
+ * generate-sitemap.ts fragt genau dieses Feld ab, um sie nicht einzureichen.
+ *
+ * /termin trägt withheldFromSitemap, nicht noindex, und die beiden Gründe
+ * sind verschieden: Die Rückkehrseiten sollen nie in einen Index, /termin
+ * soll es — nur noch nicht. Solange der Rechts-Guard in src/deploy.test.ts
+ * rot ist, hält die Navigation den Link zurück, weil online verkaufen AGB
+ * und eine Widerrufsbelehrung braucht; eine Sitemap, die dieselbe Seite bei
+ * Google einreicht, hebt genau diese Entscheidung wieder auf. Zum Beheben:
+ * dieses Feld entfernen, wenn der Guard grün ist — siehe DEPLOY.md.
+ */
+const TERMIN_SEO: Partial<
+  Record<string, { title: UiKey; description: UiKey; noindex?: true; withheldFromSitemap?: true }>
+> = {
+  [terminPath("index")]: {
+    title: "booking",
+    description: "bookingMetaDescription",
+    withheldFromSitemap: true,
+  },
+  [terminPath("erfolg")]: {
+    title: "bookingSuccess",
+    description: "bookingSuccessMetaDescription",
+    noindex: true,
+  },
+  [terminPath("abbruch")]: {
+    title: "bookingCancelled",
+    description: "bookingCancelledMetaDescription",
+    noindex: true,
+  },
+}
 
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
 
@@ -51,7 +102,7 @@ function localeOf(pathname: string): Locale {
 }
 
 function withBrand(title: string | undefined): string {
-  return title ? `${title} | ${practice.brand}` : practice.brand
+  return title ? `${title} | ${center.brand}` : center.brand
 }
 
 /**
@@ -114,9 +165,17 @@ export function seoForRoute(pathname: string): RouteSeo {
 
   for (const page of PAGES) {
     if (pathname === pagePath(page, locale)) {
+      // The Landshut location's street/postalCode are still TODO sentinels
+      // (see center.ts), so formatAddress() returns null and the bare city
+      // stands in — the same fallback the Kontakt page's own useSeo call
+      // uses for this exact string.
+      const location = openLocation()
       const description =
         page === "contact"
-          ? `${t("practice", locale)} ${practice.shortBrand}, ${formatAddress()}. ${t("contactMetaDescriptionSuffix", locale)}`
+          ? `${center.brand}, ${formatAddress(location) ?? location.city}. ${t(
+              "contactMetaDescriptionSuffix",
+              locale,
+            )}`
           : page === "practice"
             ? t("praxisMetaDescription", locale)
             : t("pricesMetaDescription", locale)
@@ -147,6 +206,20 @@ export function seoForRoute(pathname: string): RouteSeo {
     }
   }
 
+  const termin = TERMIN_SEO[pathname]
+  if (termin) {
+    return {
+      locale: "de",
+      title: withBrand(t(termin.title, "de")),
+      description: t(termin.description, "de"),
+      canonical,
+      alternates: [],
+      ogImage: DEFAULT_OG_IMAGE,
+      ...(termin.noindex ? { noindex: true } : {}),
+      ...(termin.withheldFromSitemap ? { withheldFromSitemap: true } : {}),
+    }
+  }
+
   const treatmentPrefix = locale === "en" ? "/en/treatments/" : "/behandlungen/"
   if (pathname.startsWith(treatmentPrefix)) {
     const slug = pathname.slice(treatmentPrefix.length)
@@ -163,7 +236,7 @@ export function seoForRoute(pathname: string): RouteSeo {
     }
   }
 
-  // Unmapped path (e.g. a 404) — never hit by the 74 sitemap routes, but
+  // Unmapped path (e.g. a 404) — never hit by the 84 sitemap routes, but
   // kept total so callers do not need a separate not-found branch.
   return {
     locale,

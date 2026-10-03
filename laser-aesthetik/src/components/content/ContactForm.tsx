@@ -1,7 +1,7 @@
 import { useId, useState, type ChangeEvent, type FormEvent } from "react"
 import { Link } from "react-router-dom"
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react"
-import { practice } from "@/content/practice"
+import { center, hasEmail } from "@/content/center"
 import { useT, type T } from "@/content/ui"
 import { legalPath } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
@@ -241,7 +241,7 @@ export function ContactForm() {
           aria-describedby={describedBy("message", `${ids.message}-helper`)}
           className={cn(inputClass, errors.message && errorInputClass)}
         />
-        <p id={`${ids.message}-helper`} className="text-sm text-brand-600">
+        <p id={`${ids.message}-helper`} className="text-sm text-brand-700">
           {t("messageHelper")}
         </p>
         {errors.message ? (
@@ -266,7 +266,7 @@ export function ContactForm() {
           />
           <label htmlFor={ids.consent} className="text-sm leading-relaxed text-brand-700">
             {t("consentPrefix")}{" "}
-            <Link to={legalPath("datenschutz")} className="font-semibold text-brand-ink underline">
+            <Link to={legalPath("datenschutz")} className="font-semibold text-brand-700 underline">
               {t("consentLinkText")}
             </Link>
             .
@@ -327,12 +327,31 @@ export function ContactForm() {
               <AlertCircle className="size-5 shrink-0" aria-hidden="true" />
               {t("submitError")}
             </span>
+            {/*
+             * The mailto is offered only when the center actually has a
+             * mailbox of its own. The address that stood here unguarded was
+             * `practice.email` — info@drdosthealth.com, the practice's own
+             * domain — handed to a visitor at the moment their message has
+             * just failed to send. It arrived by interpolation, so no grep
+             * over src/ could ever have seen the name in it.
+             *
+             * center.email is still the EMAIL_TODO sentinel, so today this
+             * renders the retry sentence alone. A mailto to a placeholder is
+             * worse than no link: it fails a second time, silently, in the
+             * visitor's mail client.
+             */}
             <span className="text-brand-700">
-              {t("submitErrorFallbackPrefix")}{" "}
-              <a href={`mailto:${practice.email}`} className="font-semibold text-brand-ink underline">
-                {practice.email}
-              </a>
-              .
+              {hasEmail() ? (
+                <>
+                  {t("submitErrorFallbackPrefix")}{" "}
+                  <a href={`mailto:${center.email}`} className="font-semibold text-brand-700 underline">
+                    {center.email}
+                  </a>
+                  .
+                </>
+              ) : (
+                t("submitErrorRetry")
+              )}
             </span>
           </p>
         ) : null}

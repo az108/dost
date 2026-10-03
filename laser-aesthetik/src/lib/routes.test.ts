@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest"
 import {
   counterpartPath,
+  hasCounterpart,
   homePath,
   legalPath,
   pagePath,
   pillarPath,
+  terminPath,
   treatmentPath,
 } from "./routes"
 
@@ -32,6 +34,22 @@ describe("routes — German (today's URLs, must stay byte-identical)", () => {
   it("resolves the legal paths, which take no locale", () => {
     expect(legalPath("impressum")).toBe("/impressum")
     expect(legalPath("datenschutz")).toBe("/datenschutz")
+    expect(legalPath("agb")).toBe("/agb")
+    expect(legalPath("widerruf")).toBe("/widerruf")
+  })
+})
+
+describe("terminPath — German-only, like the legal paths", () => {
+  it("resolves the booking flow's three paths", () => {
+    expect(terminPath("index")).toBe("/termin")
+    expect(terminPath("erfolg")).toBe("/termin/erfolg")
+    expect(terminPath("abbruch")).toBe("/termin/abbruch")
+  })
+
+  it("has no counterpart in the other language, like the legal pages", () => {
+    expect(hasCounterpart(terminPath("index"))).toBe(false)
+    expect(hasCounterpart(terminPath("erfolg"))).toBe(false)
+    expect(hasCounterpart(terminPath("abbruch"))).toBe(false)
   })
 })
 
@@ -94,6 +112,8 @@ describe("counterpartPath", () => {
   it("falls back to the target language's home page for the German-only legal pages", () => {
     expect(counterpartPath(legalPath("impressum"), "en")).toBe("/en")
     expect(counterpartPath(legalPath("datenschutz"), "en")).toBe("/en")
+    expect(counterpartPath(legalPath("agb"), "en")).toBe("/en")
+    expect(counterpartPath(legalPath("widerruf"), "en")).toBe("/en")
   })
 
   it("falls back to the target language's home page for an unknown path", () => {

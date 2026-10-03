@@ -1,8 +1,8 @@
 import type { FaqItem, Locale, LocalizedPillarInfo, Pillar, PillarInfo } from "./types"
 import { resolvePillar } from "./localize"
-import laserImg from "@/assets/praxis/laser-geraet.webp"
-import physioImg from "@/assets/physio/schmerztherapie.webp"
-import aesthetikImg from "@/assets/aesthetik/aesthetische-medizin.webp"
+import laserImg from "@/assets/center/pillar-laser.webp"
+import physioImg from "@/assets/center/pillar-physio.webp"
+import aesthetikImg from "@/assets/center/pillar-kosmetik.webp"
 
 const PILLARS: LocalizedPillarInfo[] = [
   {
@@ -22,17 +22,29 @@ const PILLARS: LocalizedPillarInfo[] = [
         "Moderne Lasertechnologie arbeitet gezielt. Das Licht wird nur dort aufgenommen, wo es wirken soll: im Haarfollikel, im erweiterten Gefäß oder im Pigment. Das umliegende Gewebe bleibt geschont.",
         "Jede Behandlung beginnt bei uns mit einem ärztlichen Gespräch. Wir bestimmen Ihren Hauttyp, prüfen Kontraindikationen und legen gemeinsam fest, wie viele Sitzungen realistisch nötig sind.",
         "Fachlich korrekt spricht man von dauerhafter Haarreduktion: Bei den meisten Patientinnen und Patienten bleibt ein kleiner Teil der Haare erhalten. Wie viele Sitzungen nötig sind und wie vollständig das Ergebnis ausfällt, hängt von Haut- und Haartyp ab.",
+        "Der Schwerpunkt liegt auf der dauerhaften Haarreduktion — vom Gesicht über die Achseln und die Bikinizone bis zum Ganzkörper. Jede Zone lässt sich einzeln oder im Paket buchen.",
       ],
       en: [
         "Modern laser technology works with precision. The light is absorbed only where it needs to act: in the hair follicle, the dilated vessel, or the pigment. The surrounding tissue is left unaffected.",
         "Every treatment with us begins with a medical consultation. We assess your skin type, check for contraindications, and agree together on how many sessions are realistically needed.",
         "The medically correct term is permanent hair reduction: in most patients, a small proportion of hair remains. How many sessions are needed, and how complete the result is, depends on skin and hair type.",
+        "The focus is permanent hair reduction — from the face through the underarms and bikini area to full-body treatment. Every zone can be booked individually or as a package.",
       ],
     },
     image: laserImg,
+    /*
+     * The photograph this replaced was a real shot of the Kröning practice's
+     * own laser device, and its alt text said so — "Lasergerät der Praxis im
+     * Behandlungsraum". The grep guard in content.test.ts could not see it:
+     * the wording is "Praxis", not "Privatpraxis", and the import path named
+     * nobody. It shipped on /laser and /en/laser through all of slice 1.
+     *
+     * What is here now is a person, not a machine: skin in soft window
+     * light, which is what a laser appointment is actually about.
+     */
     imageAlt: {
-      de: "Lasergerät der Praxis im Behandlungsraum",
-      en: "The practice's laser device in the treatment room",
+      de: "Frau im Profil, die Hand am Hals, weiches Fensterlicht",
+      en: "Woman in profile, a hand at her neck, soft window light",
     },
     faq: {
       de: [
@@ -104,16 +116,29 @@ const PILLARS: LocalizedPillarInfo[] = [
       ],
     },
     image: physioImg,
+    /*
+     * Movement, not pain. Two photographs back this slot showed someone
+     * gripping a hurting thigh — an illustration of the complaint rather
+     * than of what this pillar does about it. The one after that showed
+     * seated meditation in a cluttered room: a yoga studio, not physio,
+     * and a stop darker than the two cards beside it on the home page.
+     *
+     * What is here now is the treatment itself — a guided movement in
+     * daylight — and it is graded to sit in the same key as pillar-laser
+     * and pillar-kosmetik, which is the only reason the row reads as one
+     * set. Changing this picture without re-checking those two against it
+     * will pull the row apart again.
+     */
     imageAlt: {
-      de: "Sportler greift sich an den schmerzenden Oberschenkel",
-      en: "Athlete gripping a painful thigh",
+      de: "Therapeutin bewegt das Bein einer liegenden Person in einem hellen Raum am Fenster",
+      en: "A therapist guiding the leg of someone lying down, in a bright room beside a window",
     },
     faq: {
       de: [
         {
           question: "Brauche ich eine Überweisung?",
           answer:
-            "Nein. Als Privatpraxis behandeln wir Sie ohne Überweisung. Vorhandene Befunde oder Bildgebung bringen Sie gerne mit.",
+            "Nein. Wir behandeln Sie ohne Überweisung. Vorhandene Befunde oder Bildgebung bringen Sie gerne mit.",
         },
         {
           question: "Wie läuft der erste Termin ab?",
@@ -130,7 +155,7 @@ const PILLARS: LocalizedPillarInfo[] = [
         {
           question: "Do I need a referral?",
           answer:
-            "No. As a private practice, we treat you without a referral. Feel free to bring any existing findings or imaging with you.",
+            "No. We treat you without a referral. Feel free to bring any existing findings or imaging with you.",
         },
         {
           question: "What happens at the first appointment?",
@@ -147,30 +172,42 @@ const PILLARS: LocalizedPillarInfo[] = [
   },
   {
     id: "aesthetik",
-    label: { de: "Ästhetik", en: "Aesthetics" },
-    title: { de: "Ästhetische Medizin", en: "Aesthetic Medicine" },
+    label: { de: "Kosmetik & Ästhetik", en: "Beauty & Aesthetics" },
+    title: { de: "Kosmetik & Ästhetische Medizin", en: "Beauty & Aesthetic Medicine" },
     headline: {
       de: { lead: "Natürlich", accent: "Sie selbst" },
       en: { lead: "Naturally", accent: "yourself" },
     },
     excerpt: {
-      de: "Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und ärztlich durchgeführt.",
-      en: "Wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by a physician.",
+      de: "Kosmetik, Faltenbehandlung, Hyaluron, Kryolipolyse und Skinbooster, zurückhaltend dosiert und von ärztlich geprüften Fachkräften durchgeführt.",
+      en: "Beauty treatments, wrinkle treatment, hyaluronic acid, cryolipolysis and skin boosters, dosed conservatively and carried out by medically qualified practitioners.",
     },
     intro: {
       de: [
         "Ästhetische Medizin soll nicht auffallen. Unser Anspruch ist ein Ergebnis, das ausgeruht wirkt und Ihre Mimik erhält, nicht ein Gesicht, das behandelt aussieht.",
-        "Alle Eingriffe führt Dr. med. univ. Dost Mohammad persönlich durch. Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten.",
+        "Alle Eingriffe werden von ärztlich geprüften Fachkräften des Centers durchgeführt. Vor jeder Behandlung besprechen wir offen, was medizinisch sinnvoll ist und wovon wir abraten.",
       ],
       en: [
         "Aesthetic medicine shouldn't be noticeable. Our aim is a result that looks well-rested and preserves your natural expression, not a face that looks treated.",
-        "Every procedure is carried out personally by Dr. med. univ. Dost Mohammad. Before each treatment, we discuss openly what makes medical sense and what we would advise against.",
+        "Every procedure is carried out by the center's medically qualified practitioners. Before each treatment, we discuss openly what makes medical sense and what we would advise against.",
       ],
     },
     image: aesthetikImg,
+    /*
+     * The photograph this replaced was the right subject with the wrong
+     * hands: at magnification the treating fingers carried long nails with
+     * dark-green tips and a red-and-white beaded bracelet. Beside copy that
+     * promises "ärztlich geprüfte Fachkräfte des Centers", jewellery and
+     * long painted nails on hands performing a treatment read as a
+     * competence signal, not merely as a colour clash — and no grep guard
+     * can see what is inside an image file.
+     *
+     * The replacement was chosen on the hands first: short, unpainted
+     * nails, no ring, no bracelet, no watch. Check that before the light.
+     */
     imageAlt: {
-      de: "Beratungsgespräch mit einer Patientin vor einer ästhetischen Behandlung",
-      en: "Consultation with a patient before an aesthetic treatment",
+      de: "Hände umfassen ein entspanntes Gesicht, die Augen geschlossen",
+      en: "Hands cradling a relaxed face, the eyes closed",
     },
     faq: {
       de: [
@@ -181,7 +218,8 @@ const PILLARS: LocalizedPillarInfo[] = [
         },
         {
           question: "Wer führt die Behandlung durch?",
-          answer: "Alle ästhetischen Eingriffe führt Dr. med. univ. Dost Mohammad persönlich durch.",
+          answer:
+            "Alle ästhetischen Eingriffe führen ärztlich geprüfte Fachkräfte des Centers durch.",
         },
         {
           question: "Was passiert im Erstgespräch?",
@@ -197,7 +235,8 @@ const PILLARS: LocalizedPillarInfo[] = [
         },
         {
           question: "Who carries out the treatment?",
-          answer: "All aesthetic procedures are carried out personally by Dr. med. univ. Dost Mohammad.",
+          answer:
+            "All aesthetic procedures are carried out by the center's medically qualified practitioners.",
         },
         {
           question: "What happens at the initial consultation?",

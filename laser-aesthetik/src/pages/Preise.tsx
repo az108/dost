@@ -49,7 +49,7 @@ export default function Preise() {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("individualEyebrow")}

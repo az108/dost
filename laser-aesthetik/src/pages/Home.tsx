@@ -16,9 +16,10 @@ import { CtaBanner } from "@/components/cta/CtaBanner"
 import { Hero } from "@/sections/Hero"
 import { TrustRow } from "@/sections/TrustRow"
 import { ProcessSteps } from "@/sections/ProcessSteps"
-import { DoctorIntro } from "@/sections/DoctorIntro"
+import { Approach } from "@/sections/Approach"
+import { Standorte } from "@/sections/Standorte"
 import { useSeo } from "@/lib/useSeo"
-import heroImage from "@/assets/praxis/dr-dost-schreibtisch.webp"
+import heroImage from "@/assets/center/hero-home.webp"
 
 export const POPULAR = ["achseln", "beine-komplett", "bikinizone", "faltenbehandlung", "schmerztherapie", "kryolipolyse"]
 
@@ -39,23 +40,27 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Laser · Physio · Ästhetik"
+        eyebrow={t("brandStrapline")}
         lead={t("homeHeroLead")}
         accent={t("homeHeroAccent")}
         description={t("homeHeroDescription")}
         image={heroImage}
-        imageAlt={t("doctorAltAtDesk")}
+        imageAlt={t("homeHeroImageAlt")}
       >
         <Link
           to={pagePath("prices", locale)}
-          className="flex items-center gap-2 font-semibold text-brand-ink hover:text-brand-900"
+          className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-900"
         >
           {t("viewPrices")}
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
       </Hero>
 
-      <Section tone="tint">
+      {/* Straddles the seam under the hero: the first thing below the fold is
+          a panel that is visibly in front of the page, not another stripe. */}
+      <TrustRow float />
+
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("threeAreas")}
@@ -74,9 +79,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <TrustRow />
-
-      <Section tone="tint">
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={t("popularEyebrow")}
@@ -93,7 +96,7 @@ export default function Home() {
           </div>
           <Link
             to={pagePath("prices", locale)}
-            className="flex items-center gap-2 self-start font-semibold text-brand-ink hover:text-brand-900"
+            className="flex items-center gap-2 self-start font-semibold text-brand-700 hover:text-brand-900"
           >
             {t("viewFullPriceList")}
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -101,12 +104,9 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Tones alternate all the way down: tint pillars, light trust row,
-          tint popular, light process, tint bio, light FAQ, blue CTA.
-          "Beliebt" and "Ablauf" were both tint, so they ran together into
-          one long band. */}
-      <ProcessSteps tone="light" />
-      <DoctorIntro tone="tint" />
+      <ProcessSteps />
+      <Approach />
+      <Standorte />
 
       <Section>
         <Container>

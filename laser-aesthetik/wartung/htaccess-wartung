@@ -1,0 +1,48 @@
+# WARTUNGSMODUS — laser-aesthetik
+#
+# Diese Datei ersetzt auf dem Server vorübergehend die normale .htaccess.
+# Die eigentliche Seite bleibt vollständig liegen; sie ist nur nicht
+# erreichbar, solange diese Datei aktiv ist. Es wird nichts gelöscht.
+#
+# Zurücknehmen: laser-aesthetik/public/.htaccess wieder hochladen — das ist
+# der einzige Schritt. Der Workflow maintenance-laser-aesthetik.yml mit
+# `modus: aus` tut genau das.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ein Hostname, ein Schema, auch im Wartungsmodus. Ohne diese Regel
+  # beantworten apex und www dieselbe Wartungsseite unter zwei URLs, und der
+  # Crawler sieht zwei Adressen ausfallen statt einer.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://laserhaarentfernung-landshut.de%{REQUEST_URI} [R=301,L]
+
+  # Alles außer der Wartungsseite selbst beantwortet 503. Die Seite ist
+  # vollständig inline — kein Bild, keine CSS-Datei, keine Schriftart —,
+  # deshalb genügt diese eine Ausnahme.
+  RewriteCond %{REQUEST_URI} !^/wartung\.html$
+  RewriteRule ^ - [R=503,L]
+</IfModule>
+
+ErrorDocument 503 /wartung.html
+
+<IfModule mod_headers.c>
+  # Ein 503 ohne Retry-After liest Google mit der Zeit als dauerhaft und
+  # beginnt, die Seite aus dem Index zu nehmen. Mit Retry-After kommt der
+  # Crawler wieder, und die Platzierungen überstehen die Wartung.
+  Header always set Retry-After "86400"
+
+  # Eine Wartungsseite darf nicht zwischengespeichert werden, sonst sieht
+  # ein Besucher sie noch, wenn die Seite längst wieder da ist.
+  Header always set Cache-Control "no-store, must-revalidate"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# DirectorySlash ist hier nicht nötig — es wird ohnehin nichts ausgeliefert
+# außer der einen Datei —, aber ein Verzeichnislisting bei einem Fehltritt
+# wäre peinlich.
+Options -Indexes

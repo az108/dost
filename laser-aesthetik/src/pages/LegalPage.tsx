@@ -13,10 +13,7 @@ export default function LegalPage({
   useSeo({ title: doc.title, description: doc.intro, canonicalPath })
 
   return (
-    // Tinted so the white footer still reads as a separate block. These pages
-    // carry no CtaBanner, so without it a white section would run straight
-    // into a white footer.
-    <Section tone="tint">
+    <Section>
       <Container>
         <div className="flex max-w-3xl flex-col gap-8">
           <h1 className="text-4xl sm:text-5xl">{doc.title}</h1>

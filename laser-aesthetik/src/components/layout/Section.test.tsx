@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { Container } from "./Container"
-import { Section } from "./Section"
+import { Section, tones } from "./Section"
 import { SectionHeader } from "./SectionHeader"
 
 describe("Container", () => {
@@ -18,18 +18,44 @@ describe("Section", () => {
     expect(el?.tagName).toBe("SECTION")
   })
 
-  it("applies the brand tone", () => {
-    render(<Section tone="brand" data-testid="s">Inhalt</Section>)
-    expect(screen.getByTestId("s").className).toContain("bg-brand")
+  it("offers exactly two tones", () => {
+    const { container: white } = render(<Section>x</Section>)
+    expect(white.firstChild).toHaveClass("bg-white")
+    const { container: dark } = render(<Section tone="brand">x</Section>)
+    expect(dark.firstChild).toHaveClass("bg-brand-900")
+  })
+
+  it("has no third tone, whatever it might be called", () => {
+    // The test above proves `light` and `brand` work. It does NOT prove
+    // nothing else exists — and the white-base grep guards only match the
+    // literal strings `tone="tint"` and `tone="wash"`, so an alternating
+    // tinted band reintroduced as `haze` or `soft` would ship silently.
+    // A reviewer demonstrated exactly that by adding one and watching all
+    // 533 tests stay green.
+    //
+    // This is the assertion that closes it. Adding a tone now requires
+    // editing this line, which is a decision rather than an accident.
+    expect(Object.keys(tones)).toEqual(["light", "brand"])
   })
 })
 
 describe("SectionHeader", () => {
-  it("renders the title as a level-2 heading with the accent word inside it", () => {
+  it("renders the title and its accent as one level-2 heading", () => {
     render(<SectionHeader title="Unsere" accent="Behandlungen" />)
     const heading = screen.getByRole("heading", { level: 2 })
     expect(heading).toHaveTextContent("Unsere Behandlungen")
-    expect(heading.querySelector("em")).toHaveTextContent("Behandlungen")
+  })
+
+  it("does not set the accent apart typographically", () => {
+    // Italic used to mark the accent, but a section heading repeats four to
+    // six times a page and that made italic the loudest thing on the page.
+    // It now survives only in the two headings there is one of — the hero and
+    // the closing CTA. With nothing left to distinguish it, an <em> here would
+    // announce emphasis that nobody can see, so the heading is one phrase.
+    const { container } = render(<SectionHeader title="Unsere" accent="Behandlungen" />)
+    const heading = screen.getByRole("heading", { level: 2 })
+    expect(heading.querySelector("em")).toBeNull()
+    expect(container.querySelector(".italic")).toBeNull()
   })
 
   it("renders the eyebrow and lead when given", () => {

@@ -1,4 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#053AA3"/>
-  <path d="M20 18h11c9.4 0 15 5.3 15 14s-5.6 14-15 14H20V18Zm8 7v14h3c4.6 0 7.2-2.6 7.2-7s-2.6-7-7.2-7h-3Z" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aurea Center">
+  <!--
+    INTERIM MARK. Drawn for this repo from the site's own palette; it is not
+    derived from, and carries nothing of, the Praxis Dr. Dost crest that used
+    to sit here. The real mark is the client's and slice 2's.
+
+    The monogram is the working brand's initial (center.shortBrand, "Aurea").
+    center.brandApproved is still false — when the client approves or changes
+    the name, this glyph has to be redrawn with it. The tile colour is the
+    brand-700 token (#0B7570), the same value as the theme-color meta tag
+    in index.html, so the tab icon and the browser chrome agree.
+
+    One flat file, no PNG derivatives: every raster size the old crest shipped
+    (favicon.ico 16/32/48, favicon-192.png, apple-touch-icon.png 180) was a
+    copy of artwork we had no rights to.
+  -->
+  <rect width="64" height="64" rx="14" fill="#0B7570"/>
+  <path d="M16 49 L32 16 L48 49" fill="none" stroke="#FFFFFF" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22.5 39 H41.5" fill="none" stroke="#FFFFFF" stroke-width="6"
+        stroke-linecap="round"/>
 </svg>

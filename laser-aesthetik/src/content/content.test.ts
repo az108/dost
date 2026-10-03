@@ -1,3 +1,5 @@
+import { execSync } from "node:child_process"
+import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
 import { pillars, pillarById } from "./pillars"
 import { treatments, treatmentsByPillar, treatmentBySlug } from "./treatments"
@@ -85,6 +87,123 @@ it("never claims permanent hair removal in any English copy", () => {
 })
 
 const LOCALES = ["de", "en"] as const
+
+describe("who performs the treatments", () => {
+  /*
+   * The site-wide baseline is ui.ts's `physicianLedBody`, rendered by
+   * TrustRow on the home page and on /praxis: "Jede Behandlung führen
+   * ärztlich geprüfte Fachkräfte des Centers durch." ("Every treatment is
+   * carried out by the center's medically qualified practitioners.") That
+   * is a claim about EVERY treatment, site-wide — so no pillar, and no
+   * treatment in any pillar, may say instead that a physician personally
+   * performs it. Either would still be a defensible business answer on its
+   * own; saying both is what creates the misleading-advertising exposure,
+   * whichever way the true answer lands.
+   *
+   * This has now happened three times: pillars.ts's aesthetik copy says the
+   * center-staff line, while the aesthetische-medizin treatment on that same
+   * pillar claimed "Ärztlich durchgeführt", akupunktur-tcm claimed the same
+   * shape on physio, and bikinizone claimed it on laser. All were resolved
+   * in the weaker direction — claiming physician-performed when it may not
+   * be is the riskier error — so the center-staff wording is the one the
+   * whole site uses, and the assertion below is unconditional: it does not
+   * matter whether the pillar being scanned makes a center-staff claim of
+   * its own, because the claim it would contradict lives in ui.ts, not in
+   * the pillar. (An earlier version of this test compared each pillar's
+   * PHYSICIAN_PERSONALLY hits only against that same pillar's own
+   * CENTER_STAFF hits, so a pillar with no local staff claim — laser and
+   * physio both had none — could not fail no matter what its treatments
+   * said. bikinizone shipped "Ärztlich durchgeführt" on the laser pillar
+   * underneath that gap.)
+   *
+   * The surfaces scanned deliberately include each pillar's treatments, not
+   * just the pillar's own copy: all three recurrences lived one file over
+   * from the pillar they contradicted, and a pillars-only guard would have
+   * passed through all of them.
+   */
+  const CENTER_STAFF: Record<(typeof LOCALES)[number], RegExp> = {
+    de: /ärztlich geprüfte[nrms]* Fachkr/i,
+    en: /medically qualified practitioners/i,
+  }
+
+  // Assertions that a PHYSICIAN personally performs the treatment. Wording
+  // that only claims medical direction or supervision — "ärztlich geführt",
+  // "ärztlich begleitet", "physician-led" — is deliberately absent: that is
+  // compatible with the center-staff claim and is what the trust row and
+  // the pillars already say.
+  const PHYSICIAN_PERSONALLY: Record<(typeof LOCALES)[number], RegExp[]> = {
+    de: [/ärztlich durchgeführt/i, /vom Arzt (durchgeführt|behandelt)/i, /durch den Arzt/i, /persönlich durch/i],
+    en: [/carried out by a (physician|doctor)/i, /by a physician, not/i, /personally (carries|performs)/i],
+  }
+
+  function surfacesFor(pillar: Pillar, locale: (typeof LOCALES)[number]): [string, string][] {
+    const p = pillarById(pillar, locale)
+    const out: [string, string][] = [[`${pillar}.excerpt`, p.excerpt]]
+    p.intro.forEach((s, i) => out.push([`${pillar}.intro[${i}]`, s]))
+    ;(p.faq ?? []).forEach((f, i) => {
+      out.push([`${pillar}.faq[${i}].question`, f.question])
+      out.push([`${pillar}.faq[${i}].answer`, f.answer])
+    })
+    for (const t of treatmentsByPillar(pillar, locale)) {
+      out.push([`${t.slug}.excerpt`, t.excerpt])
+      t.benefits.forEach((b, i) => out.push([`${t.slug}.benefits[${i}]`, b]))
+      t.body.forEach((b, i) => out.push([`${t.slug}.body[${i}]`, b]))
+    }
+    return out
+  }
+
+  it.each(PILLAR_IDS)("claims no physician personally performs a treatment on the %s pillar", (pillar) => {
+    for (const locale of LOCALES) {
+      const surfaces = surfacesFor(pillar, locale)
+      const personally = surfaces
+        .filter(([, text]) => PHYSICIAN_PERSONALLY[locale].some((re) => re.test(text)))
+        .map(([w]) => w)
+
+      expect(
+        personally,
+        `${locale}/${pillar}: ${personally.join(", ")} claim a physician personally performs ` +
+          `the treatment, contradicting the site-wide baseline in ui.ts's physicianLedBody, ` +
+          `which says the center's medically qualified practitioners do ("Ärztlich geführt" / ` +
+          `"Physician-led" is the established weaker wording — use that instead)`,
+      ).toEqual([])
+    }
+  })
+
+  it("still makes a who-claim at all on the aesthetik pillar", () => {
+    // Guards the guard: the test above is satisfied trivially if every
+    // who-claim is deleted, and this pillar's own is load-bearing — it is
+    // the answer to its FAQ's "Wer führt die Behandlung durch?", a claim
+    // that lives in pillars.ts and is independent of the ui.ts baseline
+    // pinned below.
+    for (const locale of LOCALES) {
+      const claims = surfacesFor("aesthetik", locale).filter(([, text]) =>
+        CENTER_STAFF[locale].test(text),
+      )
+      expect(claims.length, `${locale}/aesthetik states who performs treatments nowhere`).toBeGreaterThan(0)
+    }
+  })
+
+  it("still makes the center-staff claim in ui.ts's physicianLedBody", () => {
+    // Guards the OTHER guard: the unconditional assertion above forbids
+    // every surface from claiming a physician personally performs a
+    // treatment because ui.ts's physicianLedBody claims, site-wide, that the
+    // center's medically qualified practitioners do instead. If that string
+    // were ever deleted or reworded away from the center-staff claim, the
+    // assertion above would keep passing but would no longer be grounded in
+    // anything the site actually says — this pins the baseline it depends
+    // on, the same way the aesthetik test above pins pillars.ts's copy of
+    // it. Sits beside that test rather than replacing it: the two guard
+    // different surfaces (the sitewide trust row vs. the aesthetik FAQ) that
+    // happen to make the same claim in different places.
+    for (const locale of LOCALES) {
+      expect(
+        CENTER_STAFF[locale].test(ui.physicianLedBody[locale]),
+        `ui.ts physicianLedBody (${locale}) no longer makes the center-staff claim`,
+      ).toBe(true)
+    }
+  })
+})
+
 
 describe("treatments", () => {
   it("has treatments for every pillar", () => {
@@ -292,6 +411,31 @@ describe("claims awaiting legal sign-off", () => {
   })
 })
 
+describe("draft content", () => {
+  // ── Go-live guard ─────────────────────────────────────────────────────
+  // The four Kosmetik treatments were drafted by us, not supplied by the
+  // client. Every line of treatment copy on this site is a claim surface,
+  // and these describe procedures and their effects. They must not reach
+  // production unreviewed.
+  // To fix: have the client review the copy, delete `draft: true` from
+  // each entry, then delete this test.
+  it("FAILS UNTIL the drafted Kosmetik copy is signed off", () => {
+    const drafts = treatments("de").filter((t) => t.draft)
+    expect(drafts.map((t) => t.slug)).toEqual([])
+  })
+
+  it("marks exactly the four new Kosmetik treatments as draft", () => {
+    // Guards the guard: if someone deletes `draft` from an entry without
+    // review, this fails too, so the flag cannot be quietly dropped.
+    expect(treatments("de").filter((t) => t.draft).map((t) => t.slug).sort()).toEqual([
+      "apparative-kosmetik",
+      "fruchtsaeurepeeling",
+      "klassische-gesichtsbehandlung",
+      "microneedling",
+    ])
+  })
+})
+
 describe("published prices", () => {
   // These are the clinic's real published figures. A transposed digit is a
   // wrong price on a live website, so they are pinned here rather than only
@@ -330,8 +474,15 @@ describe("published prices", () => {
 
 describe("treatment imagery", () => {
   it("gives every treatment an image and non-empty alt text", () => {
+    // Drafted treatments (see "draft content" above) have no client-approved
+    // photography yet — the copy itself is still awaiting sign-off, so
+    // there is nothing to source or clear an image against. Skipped here
+    // rather than given stock or reused imagery, which would be its own
+    // unreviewed claim about a procedure. Remove this guard once the draft
+    // treatments are signed off and photographed.
     for (const locale of LOCALES) {
       for (const t of treatments(locale)) {
+        if (t.draft) continue
         expect(t.image, `${locale}/${t.slug} has no image`).toBeTruthy()
         expect(t.imageAlt?.trim().length, `${locale}/${t.slug} has no alt text`).toBeGreaterThan(5)
       }
@@ -365,5 +516,63 @@ describe("treatment imagery", () => {
         ).toBe(false)
       }
     }
+  })
+})
+
+describe("separation from Privatpraxis Dr. Dost", () => {
+  it("mentions the doctor and his practice nowhere but legal.ts", () => {
+    // The center is a separate business. §5 TMG is the only reason the
+    // doctor's name is on this site at all, so legal.ts is the only file
+    // allowed to carry it.
+    //
+    // Case-insensitive on purpose: info@drdosthealth.com and
+    // facebook.com/drdostmohammad both carry the name in lowercase, and a
+    // `Dost`-only grep would pass while the footer still linked his
+    // personal Facebook page.
+    //
+    // Scoped to src/ and excluding this file, which necessarily names the
+    // strings it is looking for.
+    // Matches LINES, not files, and skips two categories that must be
+    // allowed to name him:
+    //
+    //   - Test files. A test asserting the name is ABSENT has to spell it
+    //     out. Excluding them costs nothing: the strings they carry never
+    //     ship.
+    //   - Comment lines. The comments explaining WHY he was removed are the
+    //     most valuable prose in this slice, and a guard that deleted them
+    //     would be punishing the code most committed to its own goal.
+    //
+    // What is left is exactly the target: a user-visible string in
+    // production code.
+    // `doctolib` is in the pattern for the same reason the rest are: it is
+    // the separated practice's booking provider, the center has no profile
+    // there, and BookingButton now routes to our own contact form. Three
+    // live copy blocks (ctaLead, stepBookAppointmentBody,
+    // contactMetaDescriptionSuffix) still promised it after the URL itself
+    // was removed — the name outlived the link, which is exactly what a
+    // source grep catches and a per-component test does not.
+    const srcRoot = resolve(__dirname, "..")
+    const raw = execSync(
+      `grep -rEin --include='*.ts' --include='*.tsx' ` +
+        `'dost|privatpraxis|kröning|drdosthealth|doctolib' ${JSON.stringify(srcRoot)} || true`,
+      { encoding: "utf8" },
+    ).trim()
+
+    const hits = raw
+      .split("\n")
+      .filter(Boolean)
+      .map((line) => {
+        const [path, lineNo, ...rest] = line.split(":")
+        return { path: path.replace(`${srcRoot}/`, ""), lineNo, text: rest.join(":") }
+      })
+      .filter((h) => h.path !== "content/legal.ts")
+      .filter((h) => !/\.test\.tsx?$/.test(h.path))
+      .filter((h) => {
+        const t = h.text.trim()
+        return !t.startsWith("//") && !t.startsWith("*") && !t.startsWith("/*")
+      })
+      .map((h) => `${h.path}:${h.lineNo}`)
+
+    expect(hits).toEqual([])
   })
 })

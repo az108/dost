@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { pillars } from "@/content/pillars"
-import { practice } from "@/content/practice"
+import { center } from "@/content/center"
 import { useT } from "@/content/ui"
 import { useLocale } from "@/lib/locale"
 import { homePath, pagePath, pillarPath } from "@/lib/routes"
@@ -17,6 +17,20 @@ export function Navbar() {
   const t = useT()
   const locale = useLocale()
 
+  // /termin fehlt hier bewusst. Die Seiten funktionieren, aber online zu
+  // verkaufen braucht AGB und eine Widerrufsbelehrung, die eine Anwältin
+  // oder ein Anwalt geschrieben hat — siehe den legal go-live guard in
+  // deploy.test.ts. Den Link setzen, wenn er grün wird.
+  //
+  // Dieser fehlende Link allein hält nichts zurück: dieselbe Entscheidung
+  // muss in der Sitemap stehen, sonst reicht public/sitemap.xml die Seite
+  // bei Google ein, die hier nicht verlinkt ist. Sie tut es nicht — siehe
+  // withheldFromSitemap in src/lib/seoForRoute.ts. Beide Stellen gehören
+  // zusammen entfernt.
+  //
+  // /agb und /widerruf fehlen hier aus einem anderen Grund: sie stehen im
+  // Footer, wo Rechtstexte hingehören, und in der Sitemap. Zurückgehalten
+  // wird nur die Kaufstrecke.
   const links = [
     ...pillars(locale).map((p) => ({ to: pillarPath(p.id, locale), label: p.label })),
     { to: pagePath("prices", locale), label: t("prices") },
@@ -40,7 +54,7 @@ export function Navbar() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
       "rounded-md px-3 py-2 text-sm font-semibold transition-colors",
-      isActive ? "text-brand" : "text-brand-800 hover:text-brand",
+      isActive ? "text-brand-700" : "text-brand-800 hover:text-brand-700",
     )
 
   return (
@@ -53,22 +67,28 @@ export function Navbar() {
       </a>
       <Container>
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Hauptnavigation">
+          {/*
+           * A text wordmark, not an image. What stood here was the separated
+           * practice's crest (public/logo-80.webp), under rights that sit
+           * with that practice — so a center denying any connection to it
+           * wore its heraldry on every page and in every browser tab. Slice 2
+           * and the client own the real mark; until it exists the brand
+           * renders as its own name, read from center.ts like every other
+           * surface. See CREDITS.md.
+           *
+           * center.brand, not shortBrand: with no glyph beside it the
+           * wordmark is the whole lockup, and the short form alone reads as a
+           * truncation rather than a name.
+           */}
           <Link to={homePath(locale)} aria-label={t("homeAriaLabel")} className="flex items-center gap-3">
-            <img
-              src="/logo-80.webp"
-              alt=""
-              width={80}
-              height={80}
-              className="size-10 shrink-0"
-            />
             <span className="flex flex-col leading-tight">
-              {/* brand-900, not brand: 16px bold sits under the large-text
+              {/* brand-900, not brand: 18px bold sits under the large-text
                   threshold, so the display blue would be below AA here. */}
-              <span className="font-display text-base font-extrabold text-brand-900">
-                {practice.shortBrand}
+              <span className="font-display text-lg font-extrabold tracking-tight text-brand-900">
+                {center.brand}
               </span>
-              <span className="text-xs font-medium text-brand-600">
-                Laser · Physio · Ästhetik
+              <span className="text-xs font-medium text-brand-700">
+                {t("brandStrapline")}
               </span>
             </span>
           </Link>
@@ -92,7 +112,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? t("menuClose") : t("menuOpen")}
-            className="rounded-md p-2 text-brand lg:hidden"
+            className="rounded-md p-2 text-brand-700 lg:hidden"
           >
             {open ? <X className="size-6" aria-hidden="true" /> : <Menu className="size-6" aria-hidden="true" />}
           </button>

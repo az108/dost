@@ -60,7 +60,7 @@ export default function CategoryPage({ pillar }: { pillar: Pillar }) {
         </Container>
       </Section>
 
-      <Section tone="tint">
+      <Section>
         <Container className="flex flex-col gap-10">
           <SectionHeader
             eyebrow={tr("treatmentsLabel")}

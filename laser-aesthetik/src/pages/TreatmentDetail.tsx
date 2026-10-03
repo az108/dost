@@ -64,7 +64,7 @@ export default function TreatmentDetail() {
 
   return (
     <>
-      <Section tone="wash" className="pt-8">
+      <Section className="pt-8">
         <Container className="flex flex-col gap-8">
           <Breadcrumbs
             trail={[
@@ -76,12 +76,12 @@ export default function TreatmentDetail() {
 
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col gap-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-ink">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-700">
                 {pillar.title}
               </p>
               <h1 className="text-4xl leading-tight sm:text-5xl lg:text-6xl">
                 {treatment.headline.lead}{" "}
-                <em className="font-display italic text-accent">{treatment.headline.accent}</em>
+                <em className="font-display italic text-action-ink">{treatment.headline.accent}</em>
               </h1>
               <p className="text-lg leading-relaxed text-brand-700">{treatment.excerpt}</p>
               <SpecRow items={specs} />
@@ -143,7 +143,7 @@ export default function TreatmentDetail() {
                     data-testid="pricing-block"
                     className="flex flex-col items-start gap-4 rounded-card border border-brand-100 bg-white p-8"
                   >
-                    <p className="font-display text-2xl font-extrabold text-brand-ink">
+                    <p className="font-display text-2xl font-extrabold text-brand-700">
                       {t("priceOnRequest")}
                     </p>
                     <p className="max-w-xl leading-relaxed text-brand-700">
@@ -154,10 +154,10 @@ export default function TreatmentDetail() {
                 ) : (
                   <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     <div className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6">
-                      <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                      <p className="text-xs font-bold uppercase tracking-widest text-brand-700">
                         {t("singleSession")}
                       </p>
-                      <p className="font-display text-3xl font-extrabold text-brand-ink">
+                      <p className="font-display text-3xl font-extrabold text-brand-700">
                         {formatEuro(treatment.pricing.single)}
                       </p>
                     </div>
@@ -166,22 +166,22 @@ export default function TreatmentDetail() {
                         key={tier.sessions}
                         className="flex flex-col gap-1 rounded-card border border-brand-100 bg-white p-6"
                       >
-                        <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
+                        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">
                           {tier.sessions}
-                          {t("packageTierSuffix")} <span className="text-accent">−{tier.discountPct} %</span>
+                          {t("packageTierSuffix")} <span className="text-action-ink">−{tier.discountPct} %</span>
                         </p>
-                        <p className="font-display text-3xl font-extrabold text-brand-ink">
+                        <p className="font-display text-3xl font-extrabold text-brand-700">
                           {formatEuro(tier.perSession)}
-                          <span className="text-sm font-semibold text-brand-600">{t("perSession")}</span>
+                          <span className="text-sm font-semibold text-brand-700">{t("perSession")}</span>
                         </p>
-                        <p className="text-sm text-brand-600">
+                        <p className="text-sm text-brand-700">
                           {t("totalLabel")} {formatEuro(tier.total)}
                         </p>
                       </div>
                     ))}
                   </div>
                 )}
-                <p className="text-sm text-brand-600">{t("pricesIncludeVatNote")}</p>
+                <p className="text-sm text-brand-700">{t("pricesIncludeVatNote")}</p>
               </div>
 
               {faq.length ? (

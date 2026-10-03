@@ -1,0 +1,126 @@
+name: Deploy laser-aesthetik to ALL-INKL
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "laser-aesthetik/**"
+      - ".github/workflows/deploy-laser-aesthetik.yml"
+  workflow_dispatch:
+
+# Two concurrent uploads into one web root interleave files.
+concurrency:
+  group: allinkl-laser-aesthetik
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: laser-aesthetik
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check deployment credentials are set
+        # Runs before checkout, so laser-aesthetik/ does not exist yet.
+        working-directory: ${{ github.workspace }}
+        # Must read the same sources as the Deploy step, or this passes and
+        # the upload then fails with an empty input.
+        env:
+          FTP_SERVER: ${{ vars.ALLINKL_FTP_SERVER }}
+          FTP_USERNAME: ${{ vars.ALLINKL_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$FTP_SERVER" ]   || missing="$missing ALLINKL_FTP_SERVER(variable)"
+          [ -n "$FTP_USERNAME" ] || missing="$missing ALLINKL_FTP_USERNAME(variable)"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing ALLINKL_FTP_PASSWORD(secret)"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing credential(s):$missing"
+            echo "Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          # A pasted value that picked up a space or newline still looks
+          # correct in the settings UI but fails as "530 Login incorrect".
+          for n in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
+            eval "v=\$$n"
+            case "$v" in
+              " "*|*" "|"	"*|*"	") echo "::error::$n has leading or trailing whitespace - re-enter it";
+                                      exit 1 ;;
+            esac
+          done
+          echo "Credentials present. Username: $FTP_USERNAME (length ${#FTP_USERNAME}), password length ${#FTP_PASSWORD}."
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: laser-aesthetik/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The suite is split by test name so real regressions can gate the
+      # deploy while the intentional reds do not. Ten tests named
+      # "FAILS UNTIL …" fail on purpose until the client (or a lawyer, or a
+      # tax adviser) supplies a fact:
+      #
+      #   1. brand approval            6. medical claims cleared
+      #   2. Landshut address          7. draft Kosmetik copy signed off
+      #   3. own-domain email          8. legal review of all four documents
+      #   4. phone number              9. VAT treatment of these services
+      #   5. own booking profile      10. contact-form recipient + sender
+      #
+      # `test:ci` excludes them by negative lookahead, `npm test` still shows
+      # them to a developer, and `npm run test:golive` runs only them as a
+      # readiness check. Run before the build so a failure stops the deploy.
+      #
+      # Deleting a guard is how it is resolved — a guard whose fact has
+      # arrived and that still runs makes this list overstate the work. Two
+      # were removed this way in the booking slice (the real domain, the
+      # checkout return URLs); if the count above and DEPLOY.md disagree
+      # with `npm run test:golive`, the command is right.
+      - name: Test
+        run: npm run test:ci
+
+      # Runs the sitemap generator and tsc, so a type error fails the deploy.
+      - name: Build
+        run: npm run build
+
+      # .htaccess is a dotfile and is what makes deep links work; without it
+      # every route but the home page 404s.
+      - name: Verify build output
+        run: |
+          test -f dist/.htaccess    || { echo "::error::dist/.htaccess missing - deep links would 404"; exit 1; }
+          test -f dist/index.html   || { echo "::error::dist/index.html missing"; exit 1; }
+          test -f dist/sitemap.xml  || { echo "::error::dist/sitemap.xml missing"; exit 1; }
+          test -f dist/contact.php  || { echo "::error::dist/contact.php missing - contact form would 404"; exit 1; }
+          test -f dist/checkout.php || { echo "::error::dist/checkout.php missing - booking checkout would 404"; exit 1; }
+          test -f dist/booking.generated.php || { echo "::error::dist/booking.generated.php missing - checkout.php has no prices to read"; exit 1; }
+          echo "Pre-rendered pages: $(find dist -name index.html | wc -l)"
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ vars.ALLINKL_FTP_SERVER }}
+          username: ${{ vars.ALLINKL_FTP_USERNAME }}
+          password: ${{ secrets.ALLINKL_FTP_PASSWORD }}
+          # Set ALLINKL_FTP_PROTOCOL to `ftp` if the FTPS handshake fails.
+          protocol: ${{ vars.ALLINKL_FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./laser-aesthetik/dist/
+          # `/` assumes the FTP user is rooted at the site's document root.
+          # Otherwise set ALLINKL_SERVER_DIR to /laserhaarentfernung-landshut.de/
+          server-dir: ${{ vars.ALLINKL_SERVER_DIR || '/' }}
+          # Incremental; does not wipe the web root.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

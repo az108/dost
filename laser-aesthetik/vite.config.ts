@@ -7,8 +7,15 @@ import tailwindcss from "@tailwindcss/vite"
 // Served from the domain root on Apache shared hosting (Namecheap / ALL-INKL).
 // If this ever moves to a subdirectory, `base` and the RewriteBase in
 // public/.htaccess must change together.
+//
+// PREVIEW_BASE overrides `base` for the client's GitHub Pages preview,
+// which lives on a subpath instead of a domain root — set via `npm run
+// build:preview` (see package.json), never by hand. Unset, `base` is still
+// "/" and this build is byte-for-byte what it was before PREVIEW_BASE
+// existed; .htaccess/RewriteBase is Apache-only and irrelevant on Pages, so
+// it does not need a preview counterpart.
 export default defineConfig({
-  base: "/",
+  base: process.env.PREVIEW_BASE ?? "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

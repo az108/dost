@@ -45,18 +45,43 @@ export function pagePath(page: Page, locale: Locale): string {
   return PAGE_PATHS[page][locale]
 }
 
-export function legalPath(page: "impressum" | "datenschutz"): string {
+export function legalPath(page: "impressum" | "datenschutz" | "agb" | "widerruf"): string {
   return `/${page}`
 }
 
-const LEGAL_PATHS: readonly string[] = ["/impressum", "/datenschutz"]
+const TERMIN_PATHS = {
+  index: "/termin",
+  erfolg: "/termin/erfolg",
+  abbruch: "/termin/abbruch",
+} as const
 
 /**
- * True when `pathname` has an equivalent page in the other language. Only
- * the legal pages (Impressum, Datenschutz) do not — they stay German-only.
+ * Deutsch-only, wie die Rechtstexte. Die Bedingungen hinter einer Buchung
+ * sind deutsch; eine englische Kaufstrecke vor deutschen AGB wäre
+ * irreführend.
+ */
+export function terminPath(page: keyof typeof TERMIN_PATHS): string {
+  return TERMIN_PATHS[page]
+}
+
+/** Pfade ohne englisches Gegenstück: die Rechtstexte und die Buchung. */
+const GERMAN_ONLY_PATHS: readonly string[] = [
+  "/impressum",
+  "/datenschutz",
+  "/agb",
+  "/widerruf",
+  "/termin",
+  "/termin/erfolg",
+  "/termin/abbruch",
+]
+
+/**
+ * True when `pathname` has an equivalent page in the other language. The
+ * German-only pages (the legal texts, /termin) do not — they stay
+ * German-only.
  */
 export function hasCounterpart(pathname: string): boolean {
-  return !LEGAL_PATHS.includes(pathname)
+  return !GERMAN_ONLY_PATHS.includes(pathname)
 }
 
 function localeOf(pathname: string): Locale {

@@ -6,12 +6,11 @@ import type { Localized } from "./types"
  * status messages. Treatment content (pillars.ts, treatments.ts) lives
  * elsewhere and is deliberately not duplicated here.
  *
- * A handful of German pillar-identity words (e.g. the "Laser · Physio ·
- * Ästhetik" tagline, or "Laser" used as a section eyebrow) are left
- * hardcoded on purpose: the pillars themselves have no English label yet
- * (PillarInfo.label is still a plain string, not Localized), so translating
- * a passing reference to them here would drift from the real nav the moment
- * pillar content is localized in a later step.
+ * The brand strapline used to be hardcoded German in Navbar.tsx and Home.tsx
+ * on the grounds that PillarInfo.label was a plain string with no English
+ * half to agree with. It is `Localized` now, so the exception has expired:
+ * `brandStrapline` below names the three pillars in each language using
+ * exactly their own labels.
  */
 export const ui = {
   // ── Booking ──────────────────────────────────────────────────────────
@@ -31,6 +30,26 @@ export const ui = {
   packageColumnSuffix: { de: "er", en: "-pack" },
   packageTierSuffix: { de: "er-Paket", en: "-session package" },
   singleSession: { de: "Einzelsitzung", en: "Single session" },
+  /*
+   * TODO_UMSATZSTEUER — eine Behauptung der ganzen Seite, nicht einer Seite.
+   *
+   * Diese beiden Zeichenketten sagen "Alle Preise inkl. MwSt." und stehen
+   * zusammen auf 35 deutschen Seiten: pricesIncludeVatNote auf den 33
+   * Behandlungsseiten (TreatmentDetail.tsx) und in der Buchungsübersicht
+   * (Termin.tsx), packagePricesLead auf /preise. Mit den englischen
+   * Gegenstücken sind es 69.
+   *
+   * Ob das stimmt, ist ungeklärt: ob diese Leistungen nach § 4 Nr. 14 UStG
+   * steuerfrei sind, hängt daran, ob die ästhetischen Behandlungen ärztlich
+   * erbracht werden — dieselbe offene Frage, die im AGB-Gerüst unter "Preise
+   * und Umsatzsteuer" als PRÜFEN markiert ist. Sind sie steuerfrei, ist die
+   * Angabe auf allen 69 Seiten falsch und nicht nur auf der, auf der gezahlt
+   * wird.
+   *
+   * Der Guard in src/deploy.test.ts bleibt rot, solange dieser Marker hier
+   * steht. Er ist bewusst hier verankert und nicht in Termin.tsx: eine
+   * Aussage, die die ganze Seite trifft, darf nicht an einer Seite hängen.
+   */
   pricesIncludeVatNote: {
     de: "Alle Preise inkl. MwSt. Paketpreise gelten bei Vorauszahlung des Gesamtpakets.",
     en: "All prices include VAT. Package prices apply when the full package is paid upfront.",
@@ -78,30 +97,48 @@ export const ui = {
   homeAriaLabel: { de: "Zur Startseite", en: "Go to homepage" },
   menuOpen: { de: "Menü öffnen", en: "Open menu" },
   menuClose: { de: "Menü schließen", en: "Close menu" },
+  footerTagline: {
+    de: "Laser, Kosmetik & Ästhetik und Physiotherapie unter einem Dach.",
+    en: "Laser, beauty & aesthetics and physiotherapy under one roof.",
+  },
+  /*
+   * The strapline under the wordmark in the navbar, and the home hero's
+   * eyebrow. Names the three pillars with their own `label` values, so it
+   * cannot drift from the nav beside it the way the previous hardcoded
+   * "Laser · Physio · Ästhetik" did — that one omitted Kosmetik entirely
+   * and contradicted both `footerTagline` and the aesthetik pillar's label.
+   */
+  brandStrapline: {
+    de: "Laser · Kosmetik & Ästhetik · Physio",
+    en: "Laser · Beauty & Aesthetics · Physio",
+  },
   prices: { de: "Preise", en: "Prices" },
-  practice: { de: "Praxis", en: "Practice" },
+  practice: { de: "Über uns", en: "About us" },
   contact: { de: "Kontakt", en: "Contact" },
-  openingHours: { de: "Öffnungszeiten", en: "Opening hours" },
   legalNavLabel: { de: "Rechtliches", en: "Legal" },
   legalImprint: { de: "Impressum", en: "Imprint" },
   legalPrivacy: { de: "Datenschutz", en: "Privacy policy" },
+  legalTerms: { de: "AGB", en: "Terms and conditions" },
+  legalWithdrawal: { de: "Widerruf", en: "Right of withdrawal" },
   // The legal pages stay German-only (E4) — these footer labels tell English
   // readers honestly what they're about to click into, instead of quietly
   // landing them on a German page they didn't expect.
   legalImprintGermanOnly: { de: "Impressum", en: "Imprint (auf Deutsch)" },
   legalPrivacyGermanOnly: { de: "Datenschutz", en: "Privacy policy (auf Deutsch)" },
+  legalTermsGermanOnly: { de: "AGB", en: "Terms and conditions (auf Deutsch)" },
+  legalWithdrawalGermanOnly: { de: "Widerruf", en: "Right of withdrawal (auf Deutsch)" },
   allRightsReserved: { de: "Alle Rechte vorbehalten.", en: "All rights reserved." },
 
   // ── Home page ────────────────────────────────────────────────────────
   homeHeroLead: { de: "Medizin, die", en: "Medicine that" },
   homeHeroAccent: { de: "sichtbar wirkt", en: "delivers visible results" },
   homeHeroDescription: {
-    de: "Dauerhafte Laserhaarentfernung, Physiotherapie und ästhetische Medizin. Ärztlich durchgeführt, in Kröning bei Landshut.",
-    en: "Permanent laser hair reduction, physiotherapy and aesthetic medicine, all carried out by a physician in Kröning near Landshut.",
+    de: "Dauerhafte Laserhaarentfernung, Kosmetik und ästhetische Medizin sowie Physiotherapie. Ärztlich geführt, in Landshut.",
+    en: "Permanent laser hair reduction, beauty and aesthetic medicine, and physiotherapy. Physician-led, in Landshut.",
   },
   homeMetaDescription: {
-    de: "Privatärztliche Praxis für Laserbehandlungen, Physiotherapie und ästhetische Medizin in Kröning. Ärztlich durchgeführt, mit transparenten Preisen.",
-    en: "Private medical practice for laser treatments, physiotherapy and aesthetic medicine in Kröning. Physician-led, with transparent pricing.",
+    de: "Center für Laserbehandlungen, Kosmetik und ästhetische Medizin sowie Physiotherapie in Landshut. Ärztlich geführt, mit transparenten Preisen.",
+    en: "Center for laser treatments, beauty and aesthetic medicine, and physiotherapy in Landshut. Physician-led, with transparent pricing.",
   },
   viewPrices: { de: "Preise ansehen", en: "View prices" },
   threeAreas: { de: "Drei Bereiche", en: "Three areas" },
@@ -115,29 +152,65 @@ export const ui = {
     en: "A selection. You'll find every treatment and price in our full price list.",
   },
   viewFullPriceList: { de: "Zur vollständigen Preisliste", en: "View the full price list" },
+  /*
+   * Alt text for the home hero. Describes what is in the frame and nothing
+   * else — no treatment, no result, and no claim that this is the center,
+   * which it is not: the center does not exist to photograph yet and every
+   * picture on the site is a stock photograph (see CREDITS.md).
+   */
+  homeHeroImageAlt: {
+    de: "Frau mit geschlossenen Augen im warmen Tageslicht",
+    en: "Woman with her eyes closed in warm daylight",
+  },
 
   // ── Contact page ─────────────────────────────────────────────────────
   contactHeroLead: { de: "So erreichen", en: "Here's how to" },
   contactHeroAccent: { de: "Sie uns", en: "reach us" },
   contactHeroDescription: {
-    de: "Termine buchen Sie am schnellsten online. Für alles andere schreiben Sie uns einfach.",
-    en: "The fastest way to book is online. For anything else, just drop us a message.",
+    de: "Termine und alles andere laufen über das Formular unten. Wir melden uns zügig zurück.",
+    en: "Appointments and everything else run through the form below. We'll get back to you promptly.",
   },
+  /*
+   * The frame this replaced was a domestic living room — a white sofa, a
+   * laptop on a black X-frame console, a magazine, a table lamp — and it sat
+   * over a stop brighter and visibly cooler than the other two heroes
+   * (L 0.65 against 0.40 and 0.49; R/B 1.13 against 1.32 and 1.30). The alt
+   * text called it a "Beratungsplatz", asserting a function the picture did
+   * not show, which is the one thing CREDITS.md says alt text must never do.
+   * Both halves below name only what is in the frame — and, as with every
+   * other image here, claim nothing about the center's own rooms.
+   */
+  contactHeroImageAlt: {
+    de: "Sitzecke mit Sofa, Olivenbäumen und rundem Tisch an einer raumhohen Fensterfront",
+    en: "A seating corner with a sofa, olive trees and a round table at a floor-to-ceiling window",
+  },
+  /*
+   * Its own key rather than `practice`, which this call site used to borrow
+   * while that key still read "Praxis". Task 7 retitled `practice` to
+   * "Über uns" for the navbar and /kontakt started rendering
+   * "Über uns / Adresse & Anfahrt". A nav label and a section eyebrow are
+   * different surfaces; either may be reworded without the other.
+   */
+  addressEyebrow: { de: "Standort", en: "Location" },
   addressTitle: { de: "Adresse &", en: "Address &" },
   addressAccent: { de: "Anfahrt", en: "directions" },
   viewOnMap: { de: "Auf der Karte ansehen", en: "View on the map" },
-  whenWereThereTitle: { de: "Wann wir", en: "When we're" },
-  whenWereThereAccent: { de: "da sind", en: "here" },
   messageEyebrow: { de: "Nachricht", en: "Message" },
   writeToUsTitle: { de: "Schreiben Sie", en: "Send us" },
   writeToUsAccent: { de: "uns", en: "a message" },
+  /*
+   * This form is the center's only booking channel while
+   * center.locations[0].bookingUrl is still the BOOKING_TODO sentinel. The
+   * lead used to point at a "Terminbuchung oben" that no longer exists and
+   * cast the form as the leftover for everything else — precisely backwards.
+   */
   contactFormLead: {
-    de: "Termine buchen Sie am schnellsten online über die Terminbuchung oben. Für Rückfragen, einen Rückruf oder ein allgemeines Anliegen nutzen Sie stattdessen dieses Formular.",
-    en: "The fastest way to book is online using the booking button above. For questions, a callback, or anything else, use this form instead.",
+    de: "Über dieses Formular läuft alles: Terminanfragen, Rückrufwünsche und allgemeine Fragen. Wählen Sie Ihr Anliegen aus, und wir melden uns mit einem konkreten Terminvorschlag oder einer Antwort zurück.",
+    en: "Everything runs through this form: appointment requests, callbacks and general questions. Choose your topic and we'll come back to you with a concrete appointment slot or an answer.",
   },
   contactMetaDescriptionSuffix: {
-    de: "Termine online über Doctolib.",
-    en: "Book appointments online via Doctolib.",
+    de: "Terminanfragen über das Kontaktformular.",
+    en: "Request appointments through the contact form.",
   },
 
   // ── Contact form ─────────────────────────────────────────────────────
@@ -188,52 +261,85 @@ export const ui = {
     de: "Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an",
     en: "Please try again or email us directly at",
   },
+  // Shown instead of the line above while center.email is still the
+  // EMAIL_TODO sentinel. The prefix ends mid-sentence on purpose — it only
+  // reads correctly with an address after it — so the no-address branch
+  // needs a sentence of its own rather than the prefix with the link cut off.
+  submitErrorRetry: {
+    de: "Bitte versuchen Sie es erneut.",
+    en: "Please try again.",
+  },
 
   // ── Practice page ────────────────────────────────────────────────────
-  thePracticeEyebrow: { de: "Die Praxis", en: "The practice" },
+  // Same words as the nav label `practice`, deliberately its own key: the
+  // eyebrow over the page's own hero and the label in the navbar are
+  // different surfaces and either may be reworded without the other.
+  aboutUsEyebrow: { de: "Über uns", en: "About us" },
   praxisHeroLead: { de: "Medizin mit", en: "Medicine that" },
   praxisHeroAccent: { de: "Zeit für Sie", en: "takes its time" },
   praxisHeroDescription: {
-    de: "Eine privatärztliche Praxis, in der ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
-    en: "A private practice where an appointment is an appointment, not a five-minute slot squeezed between two others.",
+    de: "Ein Center, in dem ein Termin ein Termin ist und kein Fünf-Minuten-Fenster zwischen zwei anderen.",
+    en: "A center where an appointment is an appointment, not a five-minute slot squeezed between two others.",
   },
   praxisIntro1: {
-    de: "Als Privatpraxis planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
-    en: "As a private practice, we deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
+    de: "Bei uns planen wir bewusst längere Termine. Das gibt uns Raum für eine gründliche Untersuchung und ein Gespräch, in dem auch Ihre Fragen Platz haben.",
+    en: "We deliberately schedule longer appointments. That gives us room for a thorough examination and a conversation that leaves space for your questions too.",
   },
-  insightsEyebrow: { de: "Einblicke", en: "Insights" },
-  roomsAndTechTitle: { de: "Räume und Technik", en: "Rooms and technology" },
-  roomsAndTechAccent: { de: "im Überblick", en: "at a glance" },
-  galleryLead: {
-    de: "Aufnahmen aus unseren eigenen Räumen in Kröning, einschließlich des Lasers, mit dem wir tatsächlich arbeiten.",
-    en: "Photographs of our own rooms in Kröning, including the laser we actually work with.",
-  },
-  // Every image below is a real photograph of this practice, so these alt
-  // texts may describe the actual equipment and name the doctor. Nothing
-  // here is a stand-in from a stock library any more.
-  doctorAltAtDesk: {
-    de: "Dr. med. univ. Dost Mohammad an seinem Schreibtisch im Sprechzimmer",
-    en: "Dr. med. univ. Dost Mohammad at his desk in the consulting room",
-  },
-  doctorAltInConsultingRoom: {
-    de: "Dr. med. univ. Dost Mohammad im Sprechzimmer der Praxis",
-    en: "Dr. med. univ. Dost Mohammad in the practice's consulting room",
-  },
-  praxisAltLaserDevice: {
-    de: "Lasergerät der Praxis im Behandlungsraum, daneben der Schreibtisch",
-    en: "The practice's laser device in the treatment room, beside the desk",
-  },
-  praxisAltDoctorWithHandpiece: {
-    de: "Dr. med. univ. Dost Mohammad mit dem Laserhandstück neben Lasergerät und Ultraschall",
-    en: "Dr. med. univ. Dost Mohammad holding the laser handpiece beside the laser and ultrasound units",
-  },
-  praxisAltConsultingRoom: {
-    de: "Sprechzimmer der Praxis mit Schreibtisch, Stethoskop und Blutdruckmessgerät",
-    en: "The practice's consulting room with desk, stethoscope and blood pressure monitor",
+  // The gallery section's header and lead are gone with the photographs
+  // themselves: each one was a real picture of the Kröning practice — and a
+  // separate Landshut center cannot show them. The alt texts that went with
+  // them are not coming back either; the keys below describe stock
+  // photographs and say so by describing only what is in the frame.
+  praxisHeroImageAlt: {
+    de: "Hölzerner Empfangstresen neben einem Olivenbäumchen im Tageslicht",
+    en: "Wooden reception counter beside a small olive tree in daylight",
   },
   praxisMetaDescription: {
-    de: "Privatärztliche Praxis in Kröning mit ärztlich geführten Laser-, Physio- und Ästhetikbehandlungen.",
-    en: "Private medical practice in Kröning offering physician-led laser, physiotherapy and aesthetic treatments.",
+    de: "Center in Landshut mit ärztlich geführten Laser-, Physio-, Kosmetik- und Ästhetikbehandlungen.",
+    en: "Center in Landshut offering physician-led laser, physiotherapy, beauty and aesthetic treatments.",
+  },
+
+  // ── Standorte ────────────────────────────────────────────────────────
+  standorteEyebrow: { de: "Standorte", en: "Locations" },
+  standorteTitle: { de: "Wo Sie uns", en: "Where to" },
+  standorteAccent: { de: "finden", en: "find us" },
+  standorteLead: {
+    de: "Wir starten in Landshut. München und Stuttgart folgen.",
+    en: "We are opening in Landshut. München and Stuttgart will follow.",
+  },
+  standortPlanned: { de: "in Planung", en: "planned" },
+  /*
+   * One alt text per city card. Each names the city, because that is the
+   * one thing the picture is there to say and a screen reader reaching the
+   * card has already heard the heading — "Dächer und ein Kirchturm" alone
+   * would be three cards that all sound the same.
+   *
+   * Deliberately descriptive rather than promotional: these are stock
+   * photographs of three German cities, not photographs of the center,
+   * which has no premises to show in any of them yet.
+   *
+   * The Landshut photograph was replaced once already. The first one was a
+   * street-level crop that carried a rival café's gold wordmark across the
+   * bottom-left, a motorsport sponsor banner at the right edge and a lit
+   * red traffic light — on the one card whose whole job is to say "this is
+   * our city". It also showed no Landshut landmark and no sky. Its
+   * replacement is CC0, not Unsplash (see CREDITS.md), and is cropped to
+   * exclude a billboard at the left and a charity's name lettered across a
+   * facade at the bottom. A cityscape always contains signage somewhere:
+   * whoever swaps this next should open the candidate at full size and read
+   * the shopfronts before judging the light.
+   */
+  standortLandshutImageAlt: {
+    de: "Blick von oben über die Ziegeldächer der Landshuter Altstadt zum Backsteinturm von St. Martin",
+    en: "A view from above across the tiled roofs of Landshut's old town to the brick tower of St. Martin's",
+  },
+  standortMuenchenImageAlt: {
+    de: "Der Münchner Marienplatz im Gegenlicht des frühen Morgens",
+    en: "Munich's Marienplatz backlit by the early morning sun",
+  },
+  standortStuttgartImageAlt: {
+    de: "Stuttgarter Dächer im Morgendunst",
+    en: "Stuttgart rooftops in the morning haze",
   },
 
   // ── Prices page ──────────────────────────────────────────────────────
@@ -274,9 +380,19 @@ export const ui = {
   processEyebrow: { de: "Ablauf", en: "Process" },
   processTitle: { de: "So läuft Ihre", en: "How your" },
   processAccent: { de: "Behandlung ab", en: "treatment works" },
+  /*
+   * The photograph pinned beside the four steps. Its predecessor showed the
+   * doctor at work in his own practice and its alt text named him; both are
+   * gone. This one shows hands and no face, which is the point — the steps
+   * describe what happens to you, not who is famous for doing it.
+   */
+  processImageAlt: {
+    de: "Hände einer Therapeutin auf dem Rücken einer liegenden Person",
+    en: "A therapist's hands resting on the back of someone lying down",
+  },
   stepBookAppointmentBody: {
-    de: "Online über Doctolib, in unter einer Minute. Sie wählen Zeitfenster und Behandlung selbst.",
-    en: "Online via Doctolib, in under a minute. You choose the time slot and treatment yourself.",
+    de: "Über unser Kontaktformular, in unter einer Minute. Sie nennen uns Behandlung und Wunschzeitraum, wir bestätigen den Termin.",
+    en: "Through our contact form, in under a minute. You tell us the treatment and when suits you, and we confirm the appointment.",
   },
   initialConsultation: { de: "Erstgespräch", en: "Initial consultation" },
   initialConsultationBody: {
@@ -294,12 +410,51 @@ export const ui = {
     en: "You'll get concrete aftercare instructions for the days that follow, plus a follow-up appointment if it makes sense.",
   },
 
+  // ── Approach ─────────────────────────────────────────────────────────
+  approachEyebrow: { de: "Unser Ansatz", en: "Our approach" },
+  approachTitle: { de: "Drei Bereiche,", en: "Three areas," },
+  approachAccent: { de: "ein Konzept", en: "one concept" },
+  approachBody: {
+    de: "Unsere drei Bereiche greifen ineinander: Wer wegen chronischer Schmerzen kommt, profitiert oft von einer Kombination aus manueller Therapie und Akupunktur. Wer eine ästhetische Behandlung wünscht, bekommt zuerst eine ehrliche Einschätzung, ob sie medizinisch sinnvoll ist.",
+    en: "Our three areas work together: patients who come to us for chronic pain often benefit from a combination of manual therapy and acupuncture. Patients who want an aesthetic treatment first receive an honest assessment of whether it makes medical sense.",
+  },
+  approachPoint1: {
+    de: "Ärztlich geführte Beratung vor jeder Behandlung",
+    en: "A medically led consultation before every treatment",
+  },
+  approachPoint2: {
+    de: "Transparente Preise, keine Paketbindung im Erstgespräch",
+    en: "Transparent prices, no package commitment at the first consultation",
+  },
+  approachPoint3: {
+    de: "Behandlungspläne nach Untersuchung, nicht nach Schema",
+    en: "Treatment plans based on examination, not on a template",
+  },
+
   // ── Trust row ────────────────────────────────────────────────────────
-  physicianLed: { de: "Ärztlich durchgeführt", en: "Physician-led" },
-  trustDoctorPrefix: { de: "Jede Behandlung führt", en: "Every treatment is carried out by" },
-  trustDoctorSuffix: {
-    de: "persönlich durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
-    en: "personally. No cosmetic procedure takes place without medical supervision.",
+  /*
+   * Names the three trust points as one group. Never shown: the panel is
+   * read visually as three items under the hero and a visible heading would
+   * only repeat what the items already say. It exists because the three
+   * point titles are h3s, and an h3 with no h2 above it leaves anyone
+   * navigating by heading unable to tell where this group begins.
+   */
+  trustGroupTitle: {
+    de: "Wofür dieses Center steht",
+    en: "What this center stands for",
+  },
+  physicianLed: { de: "Ärztlich geführt", en: "Physician-led" },
+  /*
+   * One string, not a prefix and a suffix around an interpolated name. The
+   * two halves existed to wrap `practice.doctor`, and the sentence they
+   * built — "Jede Behandlung führt Dr. med. univ. Dost Mohammad persönlich
+   * durch." — was the most prominent claim on the site that this is his
+   * practice. It renders on the home page and on /praxis. The agent is now
+   * the one pillars.ts already uses; the second sentence is untouched.
+   */
+  physicianLedBody: {
+    de: "Jede Behandlung führen ärztlich geprüfte Fachkräfte des Centers durch. Keine kosmetische Anwendung ohne ärztliche Aufsicht.",
+    en: "Every treatment is carried out by the center's medically qualified practitioners. No cosmetic procedure takes place without medical supervision.",
   },
   consultBeforeTreatment: { de: "Beratung vor Behandlung", en: "Consultation before treatment" },
   consultBeforeTreatmentBody: {
@@ -316,9 +471,210 @@ export const ui = {
   ctaTitle: { de: "Bereit für Ihren", en: "Ready for your" },
   ctaAccent: { de: "Termin?", en: "appointment?" },
   ctaLead: {
-    de: "Buchen Sie online in unter einer Minute. Sie werden direkt zu Doctolib weitergeleitet.",
-    en: "Book online in under a minute. You'll be redirected straight to Doctolib.",
+    de: "Schreiben Sie uns Ihren Terminwunsch über das Kontaktformular. Wir melden uns mit einem konkreten Vorschlag zurück.",
+    en: "Send us your preferred appointment time through the contact form. We'll come back to you with a concrete slot.",
   },
+
+  // ── Booking flow (/termin) ───────────────────────────────────────────
+  /*
+   * /termin and its two return pages are German-only, like the legal texts:
+   * the terms behind a purchase are German, so an English purchase path in
+   * front of German AGB would be misleading. Both halves are filled in
+   * anyway because `Localized` demands them and ui.test.ts enforces that
+   * they differ — the English values are what an English /termin would say
+   * if the AGB were ever translated, not filler.
+   *
+   * Every string here is chosen so that nothing reads as a confirmed
+   * appointment. The customer picked a date and therefore believes it
+   * holds; what is being sold is the treatment, and the date is a wish
+   * until the center comes back.
+   */
+  booking: { de: "Terminbuchung", en: "Appointment booking" },
+  bookingMetaDescription: {
+    de: "Laserbehandlung auswählen, Wunschtermin angeben und im Voraus bezahlen. Den Termin selbst bestätigen wir Ihnen danach persönlich.",
+    en: "Choose a laser treatment, name your preferred date and pay in advance. We then confirm the appointment itself with you personally.",
+  },
+  bookingHeroLead: { de: "Behandlung wählen,", en: "Choose a treatment," },
+  bookingHeroAccent: { de: "Termin wünschen", en: "name your date" },
+  bookingHeroDescription: {
+    de: "In vier Schritten: Zone, Umfang, Wunschtermin, Zahlung. Sie zahlen die Behandlung — den Wunschtermin bestätigen wir Ihnen persönlich, sobald Ihre Zahlung bei uns ist.",
+    en: "Four steps: area, package, preferred date, payment. You pay for the treatment — we confirm the date you asked for personally, as soon as your payment reaches us.",
+  },
+  bookingStep1Eyebrow: { de: "Schritt 1 von 4", en: "Step 1 of 4" },
+  bookingStep1Title: { de: "Welche", en: "Which" },
+  bookingStep1Accent: { de: "Behandlung?", en: "treatment?" },
+  bookingStep2Eyebrow: { de: "Schritt 2 von 4", en: "Step 2 of 4" },
+  bookingStep2Title: { de: "Einzeln oder", en: "A single session" },
+  bookingStep2Accent: { de: "im Paket?", en: "or a package?" },
+  bookingStep3Eyebrow: { de: "Schritt 3 von 4", en: "Step 3 of 4" },
+  bookingStep3Title: { de: "Wann passt es", en: "When suits" },
+  bookingStep3Accent: { de: "Ihnen?", en: "you?" },
+  bookingStep4Eyebrow: { de: "Schritt 4 von 4", en: "Step 4 of 4" },
+  bookingStep4Title: { de: "Prüfen und", en: "Review and" },
+  bookingStep4Accent: { de: "bezahlen", en: "pay" },
+
+  // ── Booking flow: body copy ──────────────────────────────────────────
+  /*
+   * Every sentence a customer reads inside the purchase path, including the
+   * one that matters most — bookingNoticeEmphasis, the sentence standing
+   * between a visitor and their money. These belong here and not inline in
+   * Termin.tsx precisely because they are the strings a copy reviewer must
+   * be able to find: ui.test.ts governs this file, and nothing governs a
+   * string buried in JSX.
+   */
+  bookingCheaperSuffix: { de: "günstiger", en: "cheaper" },
+  preferredDate: { de: "Wunschtermin", en: "Preferred date" },
+  timeOfDay: { de: "Tageszeit", en: "Time of day" },
+  /*
+   * Labels only. The values posted to checkout.php are the German literals
+   * in Termin.tsx's TAGESZEITEN — that list is a wire format the endpoint
+   * validates against, not copy, and translating it would make every
+   * English booking fail with invalid_tageszeit.
+   */
+  timeOfDayMorning: { de: "vormittags", en: "morning" },
+  timeOfDayAfternoon: { de: "nachmittags", en: "afternoon" },
+  timeOfDayEvening: { de: "abends", en: "evening" },
+  bookingFirstSessionNotePrefix: {
+    de: "Der Wunschtermin gilt für die",
+    en: "The date you choose applies to the",
+  },
+  bookingFirstSessionNoteEmphasis: { de: "erste", en: "first" },
+  bookingFirstSessionNoteSuffix: {
+    de: "Sitzung. Die weiteren stimmen wir gemeinsam mit Ihnen ab.",
+    en: "session. We arrange the remaining ones together with you.",
+  },
+  bookingSummaryTreatment: { de: "Behandlung", en: "Treatment" },
+  bookingSummaryScope: { de: "Umfang", en: "Scope" },
+  bookingSummaryTotal: { de: "Gesamt", en: "Total" },
+  /*
+   * The one sentence the customer sees BEFORE the money is gone, split so
+   * the contradiction itself carries the emphasis. Nothing here may be
+   * softened into a confirmation: the customer picked a date and already
+   * believes it holds.
+   */
+  bookingNoticePrefix: {
+    de: "Sie zahlen jetzt die Behandlung. Der Wunschtermin ist",
+    en: "You are paying for the treatment now. The date you asked for is",
+  },
+  bookingNoticeEmphasis: {
+    de: "noch kein bestätigter Termin",
+    en: "not a confirmed appointment yet",
+  },
+  bookingNoticeSuffix: {
+    de: "— wir melden uns nach Ihrer Zahlung, um ihn mit Ihnen zu bestätigen.",
+    en: "— we will come back to you after your payment to confirm it with you.",
+  },
+  bookingSubmit: { de: "Kostenpflichtig buchen", en: "Book and pay" },
+  bookingSubmitPending: { de: "Einen Moment…", en: "One moment…" },
+  bookingTermsPrefix: {
+    de: "Mit der Buchung akzeptieren Sie unsere",
+    en: "By booking you accept our",
+  },
+  bookingTermsConjunction: { de: "und die", en: "and the" },
+  legalWithdrawalNotice: {
+    de: "Widerrufsbelehrung",
+    en: "right of withdrawal notice",
+  },
+
+  // ── Booking flow: error messages ─────────────────────────────────────
+  /*
+   * The endpoint's error codes as sentences. "Fehler 502" tells a visitor
+   * nothing; "Das Datum liegt in der Vergangenheit" tells them what to
+   * change.
+   *
+   * The three that are not the visitor's doing — the payment provider
+   * failing, the endpoint answering something we do not recognise, the
+   * payment not being configured — each offer the way out, because no
+   * amount of retrying will fix them. Blaming the visitor's connection for
+   * a restricted Stripe account leaves someone whose card was never charged
+   * pressing a button that cannot succeed.
+   */
+  bookingErrorDateInPast: {
+    de: "Das Datum liegt in der Vergangenheit.",
+    en: "That date is in the past.",
+  },
+  bookingErrorDateTooFarPrefix: {
+    de: "Bitte wählen Sie einen Termin innerhalb der nächsten",
+    en: "Please choose a date within the next",
+  },
+  bookingErrorDateTooFarSuffix: { de: "Monate.", en: "months." },
+  bookingErrorInvalidDate: {
+    de: "Bitte prüfen Sie das Datum.",
+    en: "Please check the date.",
+  },
+  bookingErrorInvalidTimeOfDay: {
+    de: "Bitte wählen Sie eine Tageszeit.",
+    en: "Please choose a time of day.",
+  },
+  bookingErrorUnknownSku: {
+    de: "Diese Behandlung ist gerade nicht buchbar.",
+    en: "This treatment cannot be booked at the moment.",
+  },
+  bookingErrorNotConfigured: {
+    de: "Die Zahlung ist noch nicht eingerichtet. Bitte kontaktieren Sie uns direkt.",
+    en: "Payment is not set up yet. Please contact us directly.",
+  },
+  bookingErrorNetwork: {
+    de: "Verbindung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    en: "The connection failed. Please try again.",
+  },
+  bookingErrorPaymentProvider: {
+    de: "Unser Zahlungsdienstleister hat die Zahlung nicht angenommen. Es wurde nichts belastet. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+    en: "Our payment provider did not accept the payment. Nothing has been charged. Please try again later or contact us directly.",
+  },
+  bookingErrorGeneric: {
+    de: "Die Zahlung konnte nicht gestartet werden. Es wurde nichts belastet. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+    en: "The payment could not be started. Nothing has been charged. Please try again later or contact us directly.",
+  },
+
+  // ── Booking return pages ─────────────────────────────────────────────
+  /*
+   * Both titles name what actually happened — a payment — and never an
+   * appointment. "Termin gebucht" on the success page would be the single
+   * most misleading string on the site.
+   */
+  bookingSuccess: { de: "Zahlung eingegangen", en: "Payment received" },
+  bookingSuccessMetaDescription: {
+    de: "Ihre Zahlung ist eingegangen. Ihren Wunschtermin bestätigen wir Ihnen gesondert.",
+    en: "Your payment has arrived. We will confirm the date you asked for separately.",
+  },
+  bookingSuccessTitle: { de: "Zahlung", en: "Payment" },
+  bookingSuccessAccent: { de: "eingegangen", en: "received" },
+  /*
+   * Deliberately does NOT say an appointment is booked. The customer clicked
+   * a date and therefore believes it holds — that is exactly the belief this
+   * paragraph exists to contradict, and it is the last of the three places
+   * that contradict it (the other two are the notice above the pay button
+   * and the Stripe receipt line in public/checkout.php).
+   */
+  bookingSuccessBody: {
+    de: "Ihre Zahlung ist bei uns eingegangen. Ihren Wunschtermin haben wir notiert und melden uns in Kürze, um ihn zu bestätigen. Ein bestätigter Termin liegt erst vor, wenn Sie diese Rückmeldung von uns erhalten haben.",
+    en: "Your payment has reached us. We have noted the date you asked for and will be in touch shortly to confirm it. You have a confirmed appointment only once you have received that reply from us.",
+  },
+  bookingReference: { de: "Ihre Zahlungsreferenz", en: "Your payment reference" },
+  bookingCancelled: { de: "Zahlung abgebrochen", en: "Payment cancelled" },
+  bookingCancelledMetaDescription: {
+    de: "Die Zahlung wurde abgebrochen. Es wurde nichts belastet und keine Buchung angelegt.",
+    en: "The payment was cancelled. Nothing has been charged and no booking was created.",
+  },
+  bookingCancelledTitle: { de: "Zahlung", en: "Payment" },
+  bookingCancelledAccent: { de: "abgebrochen", en: "cancelled" },
+  /*
+   * A visitor arriving here has just backed out at Stripe and does not know
+   * the one thing they most want to know: whether they have already paid.
+   * That answer goes in the first sentence, and it carries the emphasis.
+   */
+  bookingCancelledBodyPrefix: {
+    de: "Die Zahlung wurde abgebrochen. Es wurde",
+    en: "The payment was cancelled. Nothing has been",
+  },
+  bookingCancelledBodyEmphasis: { de: "nichts belastet", en: "charged" },
+  bookingCancelledBodySuffix: {
+    de: "und keine Buchung angelegt. Ihr Wunschtermin ist damit hinfällig — wenn Sie es noch einmal versuchen möchten, wählen Sie Behandlung und Termin einfach neu.",
+    en: "and no booking was created. The date you asked for has lapsed with it — if you would like to try again, simply choose a treatment and a date once more.",
+  },
+  bookingRestart: { de: "Zurück zur Terminbuchung", en: "Back to appointment booking" },
+  backToHome: { de: "Zurück zur Startseite", en: "Back to the homepage" },
 } as const satisfies Record<string, Localized>
 
 export type UiKey = keyof typeof ui

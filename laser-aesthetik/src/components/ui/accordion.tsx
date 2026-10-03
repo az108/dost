@@ -117,7 +117,7 @@ export function AccordionTrigger({
         aria-expanded={open}
         onClick={() => toggle(value)}
         className={cn(
-          "flex flex-1 items-center justify-between gap-4 py-4 text-left font-semibold text-brand-950 transition-colors hover:text-brand",
+          "flex flex-1 items-center justify-between gap-4 py-4 text-left font-semibold text-brand-950 transition-colors hover:text-brand-700",
           className,
         )}
         {...rest}
@@ -127,7 +127,7 @@ export function AccordionTrigger({
           className={cn(
             // Matched to the panel's height tween so the arrow and the answer
             // finish together instead of the arrow snapping ahead of it.
-            "size-5 shrink-0 text-brand-600 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            "size-5 shrink-0 text-brand-700 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
             open && "rotate-180",
           )}
           aria-hidden="true"

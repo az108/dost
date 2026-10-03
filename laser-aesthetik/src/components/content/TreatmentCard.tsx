@@ -15,7 +15,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
   return (
     <Link
       to={treatmentPath(treatment.slug, locale)}
-      className="group flex flex-col overflow-hidden rounded-card border border-brand-100 bg-white transition-shadow hover:shadow-lg"
+      className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {treatment.image ? (
         <img
@@ -32,24 +32,52 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <h3 className="font-display text-xl font-extrabold">{treatment.title}</h3>
-        <p className="flex-1 leading-relaxed text-brand-700">{treatment.excerpt}</p>
+        {/*
+          Four lines, always — the same box PillarCard uses. Excerpts ran from
+          two lines to seven, and the longest one used to set the height of
+          every card in its row. min-h matters as much as the clamp: in a
+          single column — every phone — there is no row to stretch to, so
+          without it the short cards collapse and the stack is ragged again.
+          1.625rem is leading-relaxed at this size.
 
-        <div className="flex flex-wrap gap-2">
+          Four rather than three because three clipped the tail off real
+          excerpts at 360-390px, which is most phones: measured, a three-line
+          box fits about 90 characters at 360px and several teasers run 94-100.
+          Four fits every excerpt on the site down to 320px, at the cost of
+          26px of card height.
+        */}
+        <p className="line-clamp-4 min-h-[calc(4*1.625rem)] flex-1 leading-relaxed text-brand-700">
+          {treatment.excerpt}
+        </p>
+
+        {/*
+          Every card gets a price chip, figure or not. An on-request treatment
+          used to render no chip and bury the words in the link below, so its
+          chip row was empty and the card came out shorter than its neighbours.
+
+          min-h-16 is two chip rows. A duration and a price chip wrap onto two
+          lines on a phone while a lone price chip stays on one, which is the
+          last thing that made two cards in a stack differ. content-start stops
+          flex-wrap from stretching a single row to fill the reserved space.
+        */}
+        <div className="flex min-h-16 flex-wrap content-start items-start gap-2">
           {treatment.durationMin ? (
-            <StatChip icon={<Clock className="size-4 text-accent" aria-hidden="true" />}>
+            <StatChip icon={<Clock className="size-4 text-action-ink" aria-hidden="true" />}>
               {treatment.durationMin} {t("minutesSuffix")}
             </StatChip>
           ) : null}
           {from !== null ? (
             <StatChip>
               {t("fromPricePrefix")} {formatEuro(from)}
-              <span className="text-xs font-normal text-brand-600">{t("perSessionInTenPack")}</span>
+              <span className="text-xs font-normal text-brand-700">{t("perSessionInTenPack")}</span>
             </StatChip>
-          ) : null}
+          ) : (
+            <StatChip>{t("priceOnRequest")}</StatChip>
+          )}
         </div>
 
-        <p className="flex items-center gap-2 font-semibold text-brand-ink">
-          {from === null ? t("priceOnRequest") : t("detailsAndBook")}
+        <p className="flex items-center gap-2 font-semibold text-brand-700">
+          {t("detailsAndBook")}
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-1"
             aria-hidden="true"

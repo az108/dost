@@ -54,6 +54,12 @@ export interface Treatment {
   imageAlt?: string
   faq?: FaqItem[]
   keywords?: string[]
+  /**
+   * Copy we drafted rather than the client supplying. content.test.ts
+   * fails while any treatment carries it, so unreviewed medical claims
+   * cannot ship.
+   */
+  draft?: boolean
 }
 
 /**
@@ -78,6 +84,12 @@ export interface LocalizedTreatment {
   image?: string
   imageAlt?: Localized<string>
   faq?: Localized<FaqItem[]>
+  /**
+   * Copy we drafted rather than the client supplying. content.test.ts
+   * fails while any treatment carries it, so unreviewed medical claims
+   * cannot ship.
+   */
+  draft?: boolean
 }
 
 export interface PillarInfo {
@@ -119,39 +131,42 @@ export interface LocalizedPillarInfo {
   faq?: Localized<FaqItem[]>
 }
 
-export interface OpeningHours {
-  /** Display label, e.g. "Mo – Fr" */
-  days: string
-  /** Display value, e.g. "9:00 – 20:00 Uhr" */
-  time: string
-  /**
-   * Machine-readable equivalent for schema.org JSON-LD, in schema.org's own
-   * vocabulary (English day names, 24-hour times). Omitted for closed days.
-   * It lives beside the display strings deliberately: the two cannot drift
-   * because you cannot edit one without seeing the other.
-   */
-  schema?: { dayOfWeek: string[]; opens: string; closes: string }
+/**
+ * One physical site of the center. `planned` locations carry a city and
+ * nothing else: publishing an address for a site that cannot be visited is
+ * an SEO liability and, for a medical service, a misleading-advertising
+ * risk.
+ *
+ * Opening hours are deliberately not a field here. The client never
+ * confirmed the ones this site inherited from a predecessor site, and a
+ * made-up schedule for a medical provider is misleading advertising — see
+ * the removal in the commit that deleted this field.
+ */
+export interface Location {
+  /** "Landshut" */
+  city: string
+  status: "open" | "planned"
+  street?: string
+  postalCode?: string
+  phone?: string
+  /** Absent until this location has its own booking profile. */
+  bookingUrl?: string
 }
 
-export interface Practice {
-  /** Full brand, used in titles and the header lockup */
+export interface Center {
+  /** Brand shown in nav, footer and page titles. */
   brand: string
-  /** Short brand for tight spaces */
+  /** Short brand for tight spaces (the footer copyright line). */
   shortBrand: string
-  doctor: string
   /**
-   * The doctor's name split for display lockups that emphasise the surname.
-   * Its two halves must concatenate back to `doctor` — practice.test.ts
-   * asserts this, so the split cannot drift from the canonical string.
+   * False while `brand` is our working name rather than the client's.
+   * Deliberately a flag beside the value, not a TODO_ sentinel inside it:
+   * a site whose every heading reads TODO_MARKENNAME cannot be shown to
+   * the client, which is the whole point of having a working name.
    */
-  doctorLockup: { lead: string; accent: string }
-  qualifications: string
-  street: string
-  postalCode: string
-  city: string
+  brandApproved: boolean
   email: string
-  phone: string
-  hours: OpeningHours[]
-  social: { facebook: string; linkedin: string }
-  bookingUrl: string
+  locations: Location[]
+  /** Only the networks the center actually has. See center.ts. */
+  social: { facebook?: string; linkedin?: string }
 }

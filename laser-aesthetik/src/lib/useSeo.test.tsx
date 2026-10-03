@@ -2,6 +2,7 @@ import { render } from "@testing-library/react"
 import { beforeEach, describe, expect, it } from "vitest"
 import { useSeo } from "./useSeo"
 import { medicalClinicJsonLd } from "./structuredData"
+import { center } from "@/content/center"
 
 function Page({ title, description }: { title?: string; description?: string }) {
   useSeo({ title, description, canonicalPath: "/laser" })
@@ -21,12 +22,12 @@ describe("useSeo", () => {
 
   it("suffixes the brand onto the page title", () => {
     render(<Page title="Laserbehandlungen" />)
-    expect(document.title).toBe("Laserbehandlungen | Dr. Dost — Laser, Physio & Ästhetik")
+    expect(document.title).toBe(`Laserbehandlungen | ${center.brand}`)
   })
 
   it("uses the brand alone when no title is given", () => {
     render(<Page />)
-    expect(document.title).toBe("Dr. Dost — Laser, Physio & Ästhetik")
+    expect(document.title).toBe(center.brand)
   })
 
   it("sets the meta description", () => {
@@ -63,16 +64,16 @@ describe("useSeo", () => {
     render(<PageAt canonicalPath="/laser" />)
     expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
     expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/en/laser",
+      "https://laserhaarentfernung-landshut.de/en/laser",
     )
     // x-default points at German — the primary market.
     expect(document.querySelector('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
   })
 
@@ -80,11 +81,11 @@ describe("useSeo", () => {
     render(<PageAt canonicalPath="/en/laser" />)
     expect(document.querySelector('link[rel="alternate"][hreflang="de"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/laser",
+      "https://laserhaarentfernung-landshut.de/laser",
     )
     expect(document.querySelector('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
       "href",
-      "https://www.example-domain.de/en/laser",
+      "https://laserhaarentfernung-landshut.de/en/laser",
     )
   })
 
@@ -98,6 +99,20 @@ describe("useSeo", () => {
     expect(document.querySelectorAll('link[rel="alternate"]').length).toBeGreaterThan(0)
     rerender(<PageAt canonicalPath="/impressum" />)
     expect(document.querySelectorAll('link[rel="alternate"]')).toHaveLength(0)
+  })
+
+  it("emits a robots noindex tag on a checkout return page", () => {
+    render(<PageAt canonicalPath="/termin/erfolg" />)
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex")
+  })
+
+  it("removes the noindex tag again when navigating to an indexable page", () => {
+    // A soft navigation reuses the same document head. Left standing, the
+    // tag would deindex whatever page the visitor landed on next.
+    const { rerender } = render(<PageAt canonicalPath="/termin/erfolg" />)
+    expect(document.querySelector('meta[name="robots"]')).not.toBeNull()
+    rerender(<PageAt canonicalPath="/laser" />)
+    expect(document.querySelector('meta[name="robots"]')).toBeNull()
   })
 
   it("sets og:locale and <html lang> from the canonical path's language", () => {
@@ -115,15 +130,16 @@ describe("medicalClinicJsonLd", () => {
   it("describes the clinic with its address", () => {
     const data = JSON.parse(medicalClinicJsonLd())
     expect(data["@type"]).toBe("MedicalClinic")
-    expect(data.address.streetAddress).toBe("Weiher 3")
-    expect(data.address.postalCode).toBe("84178")
-    expect(data.address.addressLocality).toBe("Kröning")
+    expect(data.address.addressLocality).toBe("Landshut")
     expect(data.address.addressCountry).toBe("DE")
   })
 
-  it("lists the social profiles under sameAs", () => {
+  it("omits the street address entirely while no street has been supplied", () => {
+    // Same rule as the telephone below: a placeholder street address in
+    // structured data can be surfaced on a map, which is worse than none.
     const data = JSON.parse(medicalClinicJsonLd())
-    expect(data.sameAs).toContain("https://www.facebook.com/drdostmohammad")
+    expect(data.address.streetAddress).toBeUndefined()
+    expect(data.address.postalCode).toBeUndefined()
   })
 
   it("omits telephone entirely while no number has been supplied", () => {
@@ -133,10 +149,12 @@ describe("medicalClinicJsonLd", () => {
     expect(data.telephone).toBeUndefined()
   })
 
-  it("encodes opening hours in schema.org format", () => {
+  it("omits openingHoursSpecification entirely — the hours were never confirmed", () => {
+    // Not `[]`: an empty array asserts "we have no hours", which search
+    // engines can surface just as readily as a made-up schedule. A missing
+    // field asserts nothing.
     const data = JSON.parse(medicalClinicJsonLd())
-    expect(data.openingHoursSpecification[0].dayOfWeek).toContain("Monday")
-    expect(data.openingHoursSpecification[0].opens).toBe("09:00")
-    expect(data.openingHoursSpecification[0].closes).toBe("20:00")
+    expect(data.openingHoursSpecification).toBeUndefined()
+    expect("openingHoursSpecification" in data).toBe(false)
   })
 })

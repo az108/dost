@@ -45,5 +45,6 @@ export function resolveTreatment(t: LocalizedTreatment, locale: Locale): Treatme
     image: t.image,
     imageAlt: t.imageAlt?.[locale],
     faq: t.faq?.[locale],
+    draft: t.draft,
   }
 }

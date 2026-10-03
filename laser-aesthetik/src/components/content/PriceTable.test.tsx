@@ -68,4 +68,24 @@ describe("PriceTable", () => {
     const { container } = renderTable([achseln])
     expect(container.querySelector(".overflow-x-auto")).not.toBeNull()
   })
+
+  it("stands on its own opaque surface", () => {
+    // A data table is a surface, not an overlay: it owns its background
+    // rather than depending on whatever the section behind it happens to be.
+    const { container } = renderTable([achseln])
+    const surface = container.querySelector("table")?.parentElement
+    expect(surface?.className).toContain("bg-white")
+  })
+
+  it("rules the rows in a shade that survives on that surface", () => {
+    // brand-100 is a hair away from white — fine as the container's outline,
+    // far too faint to read as the line between two rows of numbers, which is
+    // the one thing a price table has to get right.
+    const { container } = renderTable([achseln, { ...achseln, slug: "beine", title: "Beine" }])
+    const rows = [...container.querySelectorAll("tbody tr")]
+    expect(rows.length).toBeGreaterThan(1)
+    for (const row of rows) {
+      expect(row.className).toContain("border-brand-200")
+    }
+  })
 })

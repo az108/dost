@@ -1,4 +1,4 @@
-import { formatAddress, hasPhone, practice } from "./practice"
+import { center, hasEmail } from "./center"
 
 export interface LegalDocument {
   title: string
@@ -6,11 +6,32 @@ export interface LegalDocument {
   sections: { heading: string; paragraphs: string[] }[]
 }
 
+/**
+ * The legally responsible entity behind the center.
+ *
+ * This is the ONLY place in src/ where the doctor's name appears, and it is
+ * deliberately NOT exported — the center is a separate business from
+ * Privatpraxis Dr. Dost, and §5 TMG is the single reason his name is on the
+ * site at all. content.test.ts greps the rest of src/ to enforce this; an
+ * export here would let a component quietly undo the whole slice.
+ */
+const operator = {
+  name: "Dr. med. univ. Dost Mohammad",
+  street: "Weiher 3",
+  postalCode: "84178",
+  city: "Kröning",
+  professionalTitle: "Arzt (verliehen in Österreich)",
+}
+
+const operatorAddress = `${operator.street}, ${operator.postalCode} ${operator.city}`
+
+// The email line is omitted entirely while no address is supplied. A
+// placeholder in an Impressum is worse than a missing line: one is
+// incomplete, the other is wrong.
 const contactLines = [
-  practice.doctor,
-  formatAddress(),
-  `E-Mail: ${practice.email}`,
-  ...(hasPhone() ? [`Telefon: ${practice.phone}`] : []),
+  operator.name,
+  operatorAddress,
+  ...(hasEmail() ? [`E-Mail: ${center.email}`] : []),
 ]
 
 export const impressum: LegalDocument = {
@@ -20,12 +41,12 @@ export const impressum: LegalDocument = {
     { heading: "Diensteanbieter", paragraphs: contactLines },
     {
       heading: "Verantwortlich für den Inhalt",
-      paragraphs: [`${practice.doctor}, ${formatAddress()}`],
+      paragraphs: [`${operator.name}, ${operatorAddress}`],
     },
     {
       heading: "Berufsbezeichnung und berufsrechtliche Regelungen",
       paragraphs: [
-        "Berufsbezeichnung: Arzt (verliehen in Österreich).",
+        `Berufsbezeichnung: ${operator.professionalTitle}.`,
         "PRÜFEN: Zuständige Ärztekammer, zuständige Aufsichtsbehörde, Berufsordnung und deren Fundstelle müssen vor Veröffentlichung ergänzt werden.",
       ],
     },
@@ -70,16 +91,83 @@ export const datenschutz: LegalDocument = {
         "PRÜFEN: Die Speicherdauer der über das Formular eingegangenen Nachrichten sowie das Löschkonzept müssen vor Veröffentlichung ergänzt werden.",
       ],
     },
+    // The Terminbuchung section is deliberately absent. It described a data
+    // flow to Doctolib, which belonged to Privatpraxis Dr. Dost. Restore it
+    // — with the new provider's name — when center.locations[0].bookingUrl
+    // is filled in. See Task 4 in the slice-1 plan.
     {
-      heading: "Terminbuchung",
+      heading: "Zahlungsabwicklung",
       paragraphs: [
-        "Die Terminbuchung erfolgt über den externen Dienst Doctolib. Wenn Sie auf eine Schaltfläche zur Terminbuchung klicken, verlassen Sie diese Website. Für die dortige Datenverarbeitung gilt die Datenschutzerklärung von Doctolib.",
+        "Für Zahlungen per Karte oder PayPal nutzen wir Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Irland. Wenn Sie eine Buchung abschließen, werden Sie auf eine von Stripe betriebene Zahlungsseite weitergeleitet. Ihre Zahlungsdaten geben Sie dort ein; wir erhalten sie nicht.",
+        "An Stripe übermittelt werden die Bezeichnung und der Betrag der gebuchten Leistung sowie Ihr Wunschtermin und die gewünschte Tageszeit. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die Erfüllung des Vertrags.",
+        "PRÜFEN: Die Speicherdauer der Zahlungsbelege und ein etwaiger Auftragsverarbeitungsvertrag mit Stripe müssen vor der Freischaltung ergänzt werden.",
       ],
     },
     {
       heading: "Ihre Rechte",
       paragraphs: [
         "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Zudem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu.",
+      ],
+    },
+  ],
+}
+
+export const agb: LegalDocument = {
+  title: "Allgemeine Geschäftsbedingungen",
+  intro: "Bedingungen für die Buchung und Vorauszahlung von Behandlungen über diese Website.",
+  sections: [
+    {
+      heading: "Geltungsbereich und Vertragsschluss",
+      paragraphs: [
+        "PRÜFEN: Der vollständige AGB-Text muss von einer Rechtsanwältin oder einem Rechtsanwalt erstellt werden. Die Buchung von Behandlungen über diese Website ist ein Fernabsatzvertrag; Vertragsschluss, Leistungsumfang, Gültigkeitsdauer von Paketen und Zahlungsbedingungen müssen vor der Freischaltung geregelt sein.",
+      ],
+    },
+    {
+      heading: "Wunschtermin und Terminbestätigung",
+      paragraphs: [
+        "PRÜFEN: Über diese Website wird eine Behandlung vorausbezahlt und ein Wunschtermin angegeben. Der Termin gilt erst als vereinbart, wenn das Center ihn bestätigt. Wie zu verfahren ist, wenn kein Termin zustande kommt — Erstattung, Gutschrift, Frist — muss geregelt sein, bevor die erste Zahlung entgegengenommen wird.",
+      ],
+    },
+    {
+      heading: "Preise und Umsatzsteuer",
+      paragraphs: [
+        "PRÜFEN: Ob und in welchem Umfang die angebotenen Leistungen nach § 4 Nr. 14 UStG umsatzsteuerfrei sind, muss steuerlich geklärt werden. Kosmetische Leistungen ohne medizinische Indikation sind es in der Regel nicht. Die Preisangabenverordnung verlangt die Angabe von Endpreisen.",
+      ],
+    },
+  ],
+}
+
+/**
+ * OFFEN, UND NICHT NUR ALS TEXT: § 356 Abs. 4 BGB.
+ *
+ * Die Kaufstrecke nimmt die volle Vorauszahlung und lässt als Wunschtermin
+ * auch den heutigen Tag zu. Bei einem Fernabsatzvertrag über eine
+ * Dienstleistung erlischt das vierzehntägige Widerrufsrecht bei vollständiger
+ * Erbringung NUR dann, wenn der Unternehmer zwei Dinge eingeholt hat: die
+ * ausdrückliche Aufforderung der Verbraucherin, vor Ablauf der Frist mit der
+ * Leistung zu beginnen, UND ihre Kenntnisnahme, dass sie das Widerrufsrecht
+ * mit vollständiger Erbringung verliert. Fehlt das, kann jemand behandelt
+ * werden und danach widerrufen — mit vollem Erstattungsanspruch.
+ *
+ * Das ist deshalb kein Absatz, der nachgereicht wird: die Lösung braucht
+ * aller Voraussicht nach eine ZWEITE CHECKBOX in Schritt 4 von
+ * src/pages/Termin.tsx, deren Zustand mitgepostet und neben `wunschdatum` in
+ * den Stripe-Metadaten festgehalten wird — die Zustimmung muss nachweisbar
+ * sein, und das Dashboard ist die einzige Aufzeichnung, die es gibt.
+ *
+ * Gebaut ist davon nichts, absichtlich: den Wortlaut der beiden Erklärungen
+ * muss die Anwältin oder der Anwalt liefern, und ihn zu erfinden wäre
+ * schlimmer als ihn zu fehlen. Wer diese Zeilen streicht, weil "die Texte
+ * fertig sind", übersieht die Code-Aufgabe dahinter. Siehe DEPLOY.md.
+ */
+export const widerruf: LegalDocument = {
+  title: "Widerrufsbelehrung",
+  intro: "Informationen zum Widerrufsrecht bei Fernabsatzverträgen.",
+  sections: [
+    {
+      heading: "Widerrufsrecht",
+      paragraphs: [
+        "PRÜFEN: Die Widerrufsbelehrung samt Muster-Widerrufsformular muss rechtlich erstellt werden. Insbesondere die Behandlung vorausbezahlter Behandlungspakete und die Frage, ab wann die Vierzehn-Tage-Frist läuft, dürfen nicht geschätzt werden.",
       ],
     },
   ],
