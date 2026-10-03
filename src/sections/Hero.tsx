@@ -14,7 +14,7 @@ export function Hero() {
   const ui = useUi()
 
   return (
-    <section className="relative overflow-hidden bg-wash pt-28 pb-16">
+    <section className="relative z-20 bg-wash pt-28 pb-16">
       <GradientBackdrop />
       <Container>
         <div className="grid items-center gap-12 md:grid-cols-[1.15fr_1fr] lg:gap-20">

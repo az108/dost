@@ -16,7 +16,7 @@ export default function Treatments() {
 
   return (
     <main className="pt-24">
-      <section className="relative overflow-hidden bg-wash py-16">
+      <section className="relative z-20 bg-wash py-16">
         <GradientBackdrop />
         <Container>
           <Reveal className="max-w-3xl">
