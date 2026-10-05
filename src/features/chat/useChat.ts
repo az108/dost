@@ -53,7 +53,15 @@ export function useChat() {
       } catch (e) {
         setError((e as Error).message === "rate_limited" ? "rate_limited" : "error")
         setStatus("error")
-        setMessages((m) => m.slice(0, -1)) // drop the empty assistant bubble
+        setMessages((m) => {
+          const last = m[m.length - 1]
+          // Only drop the trailing bubble when it's still the empty placeholder
+          // (e.g. a 429 or a non-OK response before any text arrived). A
+          // mid-stream failure keeps the partial text; the error panel
+          // renders the soft error note separately.
+          if (last && last.role === "assistant" && last.content === "") return m.slice(0, -1)
+          return m
+        })
       } finally {
         busy.current = false
       }
