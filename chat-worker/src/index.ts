@@ -82,6 +82,28 @@ export default {
   },
 }
 
+/** Parse a single SSE line and, if it carries a text delta, enqueue it. Returns whether it enqueued anything. */
+function processLine(
+  line: string,
+  controller: ReadableStreamDefaultController<Uint8Array>,
+  encoder: TextEncoder,
+): boolean {
+  const trimmed = line.trim()
+  if (!trimmed.startsWith("data:")) return false
+  const payload = trimmed.slice(5).trim()
+  if (!payload || payload === "[DONE]") return false
+  try {
+    const evt = JSON.parse(payload)
+    if (evt.type === "content_block_delta" && evt.delta?.type === "text_delta") {
+      controller.enqueue(encoder.encode(evt.delta.text))
+      return true
+    }
+  } catch {
+    /* ignore keep-alive pings / non-JSON lines */
+  }
+  return false
+}
+
 /** Parse Anthropic's SSE and emit only the assistant's text as a plain byte stream. */
 function toTextStream(src: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
   const reader = src.getReader()
@@ -90,27 +112,25 @@ function toTextStream(src: ReadableStream<Uint8Array>): ReadableStream<Uint8Arra
   let buffer = ""
   return new ReadableStream<Uint8Array>({
     async pull(controller) {
-      const { value, done } = await reader.read()
-      if (done) {
-        controller.close()
-        return
-      }
-      buffer += decoder.decode(value, { stream: true })
-      const lines = buffer.split("\n")
-      buffer = lines.pop() ?? ""
-      for (const line of lines) {
-        const trimmed = line.trim()
-        if (!trimmed.startsWith("data:")) continue
-        const payload = trimmed.slice(5).trim()
-        if (payload === "[DONE]") continue
-        try {
-          const evt = JSON.parse(payload)
-          if (evt.type === "content_block_delta" && evt.delta?.type === "text_delta") {
-            controller.enqueue(encoder.encode(evt.delta.text))
-          }
-        } catch {
-          /* ignore keep-alive pings / non-JSON lines */
+      // A single upstream read may land mid-line (an SSE event split across chunks), in
+      // which case processing it enqueues nothing. Nothing else will prompt the stream
+      // to call pull() again in that case, so keep reading here until we either emit
+      // something or the upstream is done — otherwise the response would stall forever.
+      for (;;) {
+        const { value, done } = await reader.read()
+        if (done) {
+          if (buffer.trim()) processLine(buffer, controller, encoder)
+          controller.close()
+          return
         }
+        buffer += decoder.decode(value, { stream: true })
+        const lines = buffer.split("\n")
+        buffer = lines.pop() ?? ""
+        let produced = false
+        for (const line of lines) {
+          if (processLine(line, controller, encoder)) produced = true
+        }
+        if (produced) return
       }
     },
     cancel() {

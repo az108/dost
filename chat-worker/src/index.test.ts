@@ -16,6 +16,16 @@ function sseStream(texts: string[]): ReadableStream<Uint8Array> {
   })
 }
 
+function rawStream(rawChunks: string[]): ReadableStream<Uint8Array> {
+  const enc = new TextEncoder()
+  return new ReadableStream({
+    start(c) {
+      for (const chunk of rawChunks) c.enqueue(enc.encode(chunk))
+      c.close()
+    },
+  })
+}
+
 function makeEnv(over: Partial<Env> = {}): Env {
   return {
     ANTHROPIC_API_KEY: "test-key",
@@ -75,5 +85,25 @@ describe("chat worker", () => {
     expect(res.status).toBe(200)
     expect(res.headers.get("content-type")).toContain("text/plain")
     expect(await res.text()).toBe("Migräne ist …")
+  })
+
+  it("buffers an SSE event split across chunks and flushes a trailing line with no terminator", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        async () =>
+          new Response(
+            rawStream([
+              'event: content_block_delta\ndata: {"type":"con',
+              'tent_block_delta","delta":{"type":"text_delta","text":"Hallo"}}\n\n',
+              'data: {"type":"content_block_delta","delta":{"type":"text_delta","text":" Welt"}}',
+            ]),
+            { status: 200 },
+          ),
+      ),
+    )
+    const res = await worker.fetch(post(valid), makeEnv())
+    expect(res.status).toBe(200)
+    expect(await res.text()).toBe("Hallo Welt")
   })
 })
