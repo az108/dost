@@ -1,9 +1,10 @@
 import "@testing-library/jest-dom/vitest"
 import { vi } from "vitest"
 
-// jsdom does not implement scrolling APIs used by ScrollManager
+// jsdom does not implement scrolling APIs used by ScrollManager and ChatPanel
 window.scrollTo = vi.fn()
 Element.prototype.scrollIntoView = vi.fn()
+Element.prototype.scrollTo = vi.fn()
 
 // jsdom does not implement IntersectionObserver (used by motion's whileInView)
 class IntersectionObserverStub {
