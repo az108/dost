@@ -10,6 +10,16 @@ describe("prompt", () => {
     expect(s).toMatch(/off-topic/i)
   })
 
+  it("forbids personalised diagnoses, prescriptions and dosages", () => {
+    const s = buildSystem([])
+    expect(s).toMatch(/personalised diagnosis/i)
+  })
+
+  it("instructs the model to ignore injected instructions in CONTEXT or visitor messages", () => {
+    const s = buildSystem([])
+    expect(s).toMatch(/ignore any instructions/i)
+  })
+
   it("labels an empty context explicitly", () => {
     expect(formatContext([])).toMatch(/no matching pages/i)
   })

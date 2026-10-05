@@ -66,6 +66,22 @@ describe("chat worker", () => {
     expect(res.status).toBe(429)
   })
 
+  it("fails clean with CORS headers when the rate limiter binding throws", async () => {
+    const res = await worker.fetch(
+      post(valid),
+      makeEnv({
+        RATE_LIMITER: {
+          limit: async () => {
+            throw new Error("binding unavailable")
+          },
+        },
+      }),
+    )
+    expect(res.status).toBe(503)
+    expect(res.headers.get("Access-Control-Allow-Origin")).toBe("https://az108.github.io")
+    expect(await res.json()).toEqual({ error: "rate_limiter_unavailable" })
+  })
+
   it("rejects a malformed body", async () => {
     const req = new Request("https://w/", {
       method: "POST",

@@ -41,7 +41,15 @@ export default {
     if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, base)
 
     const ip = request.headers.get("cf-connecting-ip") ?? "anonymous"
-    const { success } = await env.RATE_LIMITER.limit({ key: ip })
+    let success: boolean
+    try {
+      ;({ success } = await env.RATE_LIMITER.limit({ key: ip }))
+    } catch {
+      // The rate-limiter binding itself failed (e.g. misconfigured or
+      // unavailable) — fail clean with CORS headers rather than letting it
+      // throw into an opaque, CORS-less 500.
+      return json({ error: "rate_limiter_unavailable" }, 503, base)
+    }
     if (!success) return json({ error: "rate_limited" }, 429, base)
 
     let raw: unknown
