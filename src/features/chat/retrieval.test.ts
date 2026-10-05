@@ -7,11 +7,15 @@ describe("retrieve", () => {
     const hits = retrieve("Migräne Kopfschmerzen", "de")
     expect(hits.some((h) => h.url.endsWith("/migraine"))).toBe(true)
     expect(hits[0].title.length).toBeGreaterThan(0)
+    const migraine = hits.find((h) => h.url.endsWith("/migraine"))
+    expect(migraine?.title).toBe("Migräne")
   })
 
   it("finds the migraine page from an English query", () => {
     const hits = retrieve("migraine headache", "en")
     expect(hits.some((h) => h.url.endsWith("/migraine"))).toBe(true)
+    const migraine = hits.find((h) => h.url.endsWith("/migraine"))
+    expect(migraine?.title).toBe("Migraine")
   })
 
   it("finds a diabetes page", () => {
