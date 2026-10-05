@@ -1,15 +1,20 @@
 # dost-chat-worker
 
 Cloudflare Worker that proxies the site chatbot. It validates each request,
-applies per-IP rate limiting, calls the Anthropic Messages API with a
-grounded system prompt, and streams the assistant's reply back to the
+applies per-IP rate limiting, calls the Google Gemini API (`streamGenerateContent`)
+with a grounded system prompt, and streams the model's reply back to the
 browser as plain text.
+
+Get an API key from Google AI Studio (https://aistudio.google.com/apikey).
+A key with **billing enabled (paid tier)** keeps the traffic out of Google's
+model training; the free tier does not — prefer the paid tier for a medical
+site. The model is set in `src/index.ts` (`MODEL`, default `gemini-2.0-flash`).
 
 ## Local development
 
 ```
 npm install
-cp .dev.vars.example .dev.vars   # fill in a real ANTHROPIC_API_KEY
+cp .dev.vars.example .dev.vars   # fill in a real GEMINI_API_KEY
 npm run dev
 ```
 
@@ -26,7 +31,7 @@ npm run test
 
 ```
 wrangler login
-wrangler secret put ANTHROPIC_API_KEY
+wrangler secret put GEMINI_API_KEY
 wrangler deploy
 ```
 

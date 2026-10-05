@@ -158,7 +158,7 @@ const strings = {
       title: "Praxis-Assistent",
       disclaimer: "Allgemeine Infos – ersetzt keine ärztliche Beratung. Notfall: 112.",
       privacy:
-        "Nachrichten werden zur Beantwortung von Anthropic verarbeitet und nicht für das Training verwendet.",
+        "Nachrichten werden zur Beantwortung durch Google (Gemini) verarbeitet.",
       greeting: "Hallo! Fragen Sie mich zu unseren Behandlungen, Beschwerden oder zur Praxis.",
       placeholder: "Ihre Frage …",
       send: "Senden",
@@ -350,7 +350,7 @@ const strings = {
       title: "Practice assistant",
       disclaimer: "General info – not a substitute for medical advice. Emergency: 112.",
       privacy:
-        "Messages are processed by Anthropic to generate a reply and are not used for training.",
+        "Messages are processed by Google (Gemini) to generate a reply.",
       greeting: "Hi! Ask me about our treatments, symptoms or the practice.",
       placeholder: "Your question …",
       send: "Send",

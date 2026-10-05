@@ -6,7 +6,7 @@ function sseStream(texts: string[]): ReadableStream<Uint8Array> {
   const enc = new TextEncoder()
   const chunks = texts.map(
     (t) =>
-      `event: content_block_delta\ndata: ${JSON.stringify({ type: "content_block_delta", delta: { type: "text_delta", text: t } })}\n\n`,
+      `data: ${JSON.stringify({ candidates: [{ content: { role: "model", parts: [{ text: t }] } }] })}\n\n`,
   )
   return new ReadableStream({
     start(c) {
@@ -28,7 +28,7 @@ function rawStream(rawChunks: string[]): ReadableStream<Uint8Array> {
 
 function makeEnv(over: Partial<Env> = {}): Env {
   return {
-    ANTHROPIC_API_KEY: "test-key",
+    GEMINI_API_KEY: "test-key",
     RATE_LIMITER: { limit: async () => ({ success: true }) },
     ...over,
   }
@@ -92,7 +92,7 @@ describe("chat worker", () => {
     expect(res.status).toBe(400)
   })
 
-  it("streams the assistant text extracted from Anthropic's SSE", async () => {
+  it("streams the model text extracted from Gemini's SSE", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => new Response(sseStream(["Migräne ", "ist …"]), { status: 200 })),
@@ -110,9 +110,9 @@ describe("chat worker", () => {
         async () =>
           new Response(
             rawStream([
-              'event: content_block_delta\ndata: {"type":"con',
-              'tent_block_delta","delta":{"type":"text_delta","text":"Hallo"}}\n\n',
-              'data: {"type":"content_block_delta","delta":{"type":"text_delta","text":" Welt"}}',
+              'data: {"candidates":[{"content":{"role":"model","parts":[{"text":"Hal',
+              'lo"}]}}]}\n\n',
+              'data: {"candidates":[{"content":{"role":"model","parts":[{"text":" Welt"}]}}]}',
             ]),
             { status: 200 },
           ),

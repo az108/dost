@@ -29,7 +29,7 @@ export function parseChatRequest(
       content: mm.content.slice(0, MAX_CONTENT),
     })
   }
-  // Anthropic requires the conversation to start with a user turn.
+  // Gemini requires the conversation (contents) to start with a user turn.
   while (messages.length && messages[0].role === "assistant") messages.shift()
   if (messages.length === 0) return { ok: false, error: "bad_request" }
 

@@ -9,4 +9,4 @@ type = "ratelimit"
 namespace_id = "1001"
 simple = { limit = 15, period = 60 }
 
-# ANTHROPIC_API_KEY is set as a secret via `wrangler secret put` — never here.
+# GEMINI_API_KEY is set as a secret via `wrangler secret put` — never here.

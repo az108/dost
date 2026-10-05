@@ -3,7 +3,7 @@ import { parseChatRequest } from "./request"
 import { buildSystem } from "./prompt"
 
 export interface Env {
-  ANTHROPIC_API_KEY: string
+  GEMINI_API_KEY: string
   RATE_LIMITER: { limit(opts: { key: string }): Promise<{ success: boolean }> }
 }
 
@@ -12,8 +12,12 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:5173",
   "http://localhost:4173",
 ])
-const MODEL = "claude-haiku-4-5-20251001"
+// Gemini Flash — cheapest capable model. Change this one line to use a
+// different Gemini model (e.g. "gemini-2.5-flash"); verify the name exists
+// for your key in Google AI Studio.
+const MODEL = "gemini-2.0-flash"
 const MAX_TOKENS = 700
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`
 
 function cors(origin: string | null): Record<string, string> {
   const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : "https://az108.github.io"
@@ -63,19 +67,17 @@ export default {
 
     let upstream: Response
     try {
-      upstream = await fetch("https://api.anthropic.com/v1/messages", {
+      upstream = await fetch(GEMINI_URL, {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "x-api-key": env.ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01",
+          // Key travels in a header, never in the URL/query string.
+          "x-goog-api-key": env.GEMINI_API_KEY,
         },
         body: JSON.stringify({
-          model: MODEL,
-          max_tokens: MAX_TOKENS,
-          system: buildSystem(parsed.value.context),
-          stream: true,
-          messages: parsed.value.messages,
+          systemInstruction: { parts: [{ text: buildSystem(parsed.value.context) }] },
+          contents: toGeminiContents(parsed.value.messages),
+          generationConfig: { maxOutputTokens: MAX_TOKENS },
         }),
       })
     } catch {
@@ -90,7 +92,17 @@ export default {
   },
 }
 
-/** Parse a single SSE line and, if it carries a text delta, enqueue it. Returns whether it enqueued anything. */
+/** Map our chat messages to Gemini's `contents` shape (assistant → "model"). */
+function toGeminiContents(
+  messages: { role: "user" | "assistant"; content: string }[],
+): { role: "user" | "model"; parts: { text: string }[] }[] {
+  return messages.map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }))
+}
+
+/** Parse a single SSE line and, if it carries model text, enqueue it. Returns whether it enqueued anything. */
 function processLine(
   line: string,
   controller: ReadableStreamDefaultController<Uint8Array>,
@@ -99,12 +111,21 @@ function processLine(
   const trimmed = line.trim()
   if (!trimmed.startsWith("data:")) return false
   const payload = trimmed.slice(5).trim()
-  if (!payload || payload === "[DONE]") return false
+  if (!payload) return false
   try {
     const evt = JSON.parse(payload)
-    if (evt.type === "content_block_delta" && evt.delta?.type === "text_delta") {
-      controller.enqueue(encoder.encode(evt.delta.text))
-      return true
+    // Gemini streams a GenerateContentResponse per SSE line; the incremental
+    // text lives in candidates[0].content.parts[].text.
+    const parts = evt?.candidates?.[0]?.content?.parts
+    if (Array.isArray(parts)) {
+      let produced = false
+      for (const p of parts) {
+        if (typeof p?.text === "string" && p.text.length > 0) {
+          controller.enqueue(encoder.encode(p.text))
+          produced = true
+        }
+      }
+      return produced
     }
   } catch {
     /* ignore keep-alive pings / non-JSON lines */
@@ -112,7 +133,7 @@ function processLine(
   return false
 }
 
-/** Parse Anthropic's SSE and emit only the assistant's text as a plain byte stream. */
+/** Parse Gemini's SSE and emit only the model's text as a plain byte stream. */
 function toTextStream(src: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
   const reader = src.getReader()
   const decoder = new TextDecoder()
