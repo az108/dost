@@ -157,6 +157,8 @@ const strings = {
       close: "Chat schließen",
       title: "Praxis-Assistent",
       disclaimer: "Allgemeine Infos – ersetzt keine ärztliche Beratung. Notfall: 112.",
+      privacy:
+        "Nachrichten werden zur Beantwortung von Anthropic verarbeitet und nicht für das Training verwendet.",
       greeting: "Hallo! Fragen Sie mich zu unseren Behandlungen, Beschwerden oder zur Praxis.",
       placeholder: "Ihre Frage …",
       send: "Senden",
@@ -347,6 +349,8 @@ const strings = {
       close: "Close chat",
       title: "Practice assistant",
       disclaimer: "General info – not a substitute for medical advice. Emergency: 112.",
+      privacy:
+        "Messages are processed by Anthropic to generate a reply and are not used for training.",
       greeting: "Hi! Ask me about our treatments, symptoms or the practice.",
       placeholder: "Your question …",
       send: "Send",
