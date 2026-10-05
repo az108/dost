@@ -16,6 +16,7 @@ import Legal from "@/pages/Legal"
 import Galerie from "@/pages/Galerie"
 import NotFound from "@/pages/NotFound"
 import { fachbereiche } from "@/content/fachbereiche"
+import { ChatWidget } from "@/features/chat/ChatWidget"
 
 export function AppRoutes() {
   return (
@@ -48,6 +49,7 @@ export function AppRoutes() {
         <Route path="*" element={<NotFound />} />
       </Routes>
         <Footer />
+        <ChatWidget />
       </div>
     </LanguageProvider>
   )
