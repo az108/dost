@@ -47,6 +47,10 @@ describe("parseChatRequest", () => {
     expect(r.ok && r.value.messages[0].role).toBe("user")
   })
 
+  it("rejects a conversation that is entirely assistant turns", () => {
+    expect(parseChatRequest({ ...good, messages: [{ role: "assistant", content: "hi" }] }).ok).toBe(false)
+  })
+
   it("tolerates a missing context array", () => {
     const r = parseChatRequest({ lang: "en", messages: [{ role: "user", content: "hi" }] })
     expect(r.ok && r.value.context).toEqual([])
