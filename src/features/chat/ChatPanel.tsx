@@ -36,6 +36,7 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
         </div>
         <button
           type="button"
+          aria-label={ui.chat.close}
           onClick={onClose}
           className="rounded-full p-1 text-neutral-500 hover:bg-neutral-100"
         >
