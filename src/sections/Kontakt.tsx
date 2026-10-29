@@ -10,7 +10,6 @@ export function Kontakt() {
     { label: ui.contact.address, value: praxis.address },
     { label: ui.contact.phone, value: praxis.phone },
     { label: ui.contact.mobile, value: praxis.mobile },
-    { label: ui.contact.email, value: praxis.email, isEmail: true },
     { label: ui.contact.hours, value: praxis.hours },
     // Only show fields that are actually filled in (hide "… folgt" placeholders).
   ].filter((r) => r.value && !/folgt/i.test(r.value))
@@ -35,18 +34,7 @@ export function Kontakt() {
               {rows.map((r) => (
                 <div key={r.label}>
                   <p className="text-xs uppercase tracking-widest text-neutral-500">{r.label}</p>
-                  <p className="mt-2 whitespace-pre-line text-lg text-ink">
-                    {r.isEmail ? (
-                      <a
-                        href={`mailto:${r.value}`}
-                        className="rounded-sm text-info-ink underline decoration-brand underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                      >
-                        {r.value}
-                      </a>
-                    ) : (
-                      r.value
-                    )}
-                  </p>
+                  <p className="mt-2 whitespace-pre-line text-lg text-ink">{r.value}</p>
                 </div>
               ))}
             </CardContent>

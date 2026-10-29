@@ -1,9 +1,8 @@
 import { Reveal } from "@/components/site/Reveal"
 import { Container } from "@/components/site/Container"
-import { Stars } from "@/components/site/Stars"
 import { useUi } from "@/content/ui"
 
-/** "What our patients say" — testimonial cards with a 5-star rating. */
+/** "What our patients say" — testimonial cards. */
 export function Testimonials() {
   const ui = useUi()
   return (
@@ -17,8 +16,7 @@ export function Testimonials() {
           {ui.testimonials.items.map((t, i) => (
             <Reveal key={t.author} delay={0.08 * i}>
               <figure className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm">
-                <Stars />
-                <blockquote className="mt-4 flex-1 text-lg leading-relaxed text-body">“{t.quote}”</blockquote>
+                <blockquote className="flex-1 text-lg leading-relaxed text-body">“{t.quote}”</blockquote>
                 <figcaption className="mt-6">
                   <span className="block font-semibold text-ink">{t.author}</span>
                   <span className="block text-sm text-neutral-500">{t.role}</span>

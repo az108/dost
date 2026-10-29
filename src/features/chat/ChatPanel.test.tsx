@@ -35,10 +35,10 @@ describe("ChatPanel", () => {
     sendMock.mockReset()
   })
 
-  it("is an aria-modal dialog with the data-processing privacy note near the disclaimer", () => {
+  it("is an aria-modal dialog with an AI-generated notice near the disclaimer", () => {
     setup()
     expect(screen.getByRole("dialog")).toHaveAttribute("aria-modal", "true")
-    expect(screen.getByText(/google \(gemini\)/i)).toBeInTheDocument()
+    expect(screen.getByText(/von einer KI erstellt/i)).toBeInTheDocument()
   })
 
   it("closes on Escape", () => {

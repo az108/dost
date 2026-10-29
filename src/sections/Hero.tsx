@@ -63,10 +63,7 @@ export function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <Stars size={16} />
-              <span className="whitespace-nowrap text-sm">
-                <span className="font-bold text-ink">{ui.hero.ratingValue}</span>{" "}
-                <span className="text-body">· {ui.hero.ratingLabel}</span>
-              </span>
+              <span className="whitespace-nowrap text-sm font-bold text-ink">{ui.hero.ratingValue}</span>
             </motion.div>
           </motion.div>
         </div>

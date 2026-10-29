@@ -24,7 +24,6 @@ const strings = {
       book: "Termin buchen",
       explore: "Behandlungen entdecken",
       ratingValue: "5,0",
-      ratingLabel: "Patientenbewertungen",
     },
     steps: {
       eyebrow: "So einfach geht's",
@@ -156,9 +155,9 @@ const strings = {
       open: "Chat öffnen",
       close: "Chat schließen",
       title: "Praxis-Assistent",
-      disclaimer: "Allgemeine Infos – ersetzt keine ärztliche Beratung. Notfall: 112.",
-      privacy:
-        "Nachrichten werden zur Beantwortung durch Google (Gemini) verarbeitet.",
+      disclaimer: "Allgemeine Informationen – im Notfall wählen Sie 112.",
+      aiNotice:
+        "Antworten werden von einer KI erstellt und ersetzen keine professionelle ärztliche Behandlung.",
       greeting: "Hallo! Fragen Sie mich zu unseren Behandlungen, Beschwerden oder zur Praxis.",
       placeholder: "Ihre Frage …",
       send: "Senden",
@@ -216,7 +215,6 @@ const strings = {
       book: "Book appointment",
       explore: "Explore treatments",
       ratingValue: "5.0",
-      ratingLabel: "Patient reviews",
     },
     steps: {
       eyebrow: "How it works",
@@ -348,9 +346,9 @@ const strings = {
       open: "Open chat",
       close: "Close chat",
       title: "Practice assistant",
-      disclaimer: "General info – not a substitute for medical advice. Emergency: 112.",
-      privacy:
-        "Messages are processed by Google (Gemini) to generate a reply.",
+      disclaimer: "General information – in an emergency, call 112.",
+      aiNotice:
+        "Replies are AI-generated and are not a substitute for professional medical treatment.",
       greeting: "Hi! Ask me about our treatments, symptoms or the practice.",
       placeholder: "Your question …",
       send: "Send",

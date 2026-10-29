@@ -1,6 +1,6 @@
 // src/features/chat/ChatWidget.test.tsx
 import { describe, expect, it, vi, beforeEach } from "vitest"
-import { render, screen, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 
 // CHAT_ENDPOINT is read from import.meta.env at module-evaluation time, so a
 // test that needs it set must stub the env var, reset the module registry,
@@ -37,8 +37,11 @@ describe("ChatWidget", () => {
   it("closes the panel again", async () => {
     await setup()
     fireEvent.click(screen.getByRole("button", { name: /chat öffnen|open chat/i }))
-    fireEvent.click(screen.getByRole("button", { name: /chat schließen|close chat/i }))
-    expect(screen.queryByRole("dialog")).toBeNull()
+    // While open, both the launcher (now a close toggle) and the panel header
+    // carry a "close" label; clicking either dismisses the dialog.
+    const [closeBtn] = screen.getAllByRole("button", { name: /chat schließen|close chat/i })
+    fireEvent.click(closeBtn)
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull())
   })
 
   it("renders nothing when the endpoint isn't configured", async () => {

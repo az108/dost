@@ -30,10 +30,10 @@ export function TreatmentsTeaser() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             {treatmentAreas.map((area, i) => (
-              <Reveal key={area.slug} delay={0.05 * i}>
+              <Reveal key={area.slug} delay={0.05 * i} className="h-full">
                 <Link
                   to={areaPath(area.slug)}
-                  className="group flex items-center gap-4 rounded-2xl border border-neutral-100 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg"
+                  className="group flex h-full items-start gap-4 rounded-2xl border border-neutral-100 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg"
                 >
                   <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-white">
                     <AreaIcon name={area.icon} />

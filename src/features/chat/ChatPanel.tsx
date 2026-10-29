@@ -1,11 +1,13 @@
 // src/features/chat/ChatPanel.tsx
 import { useEffect, useRef, useState, type FormEvent } from "react"
+import { motion, useReducedMotion } from "motion/react"
 import { Send } from "lucide-react"
 import { useUi } from "@/content/ui"
 import { useChat } from "./useChat"
 
 export function ChatPanel({ onClose }: { onClose: () => void }) {
   const ui = useUi()
+  const reduce = useReducedMotion()
   const { messages, status, error, send } = useChat()
   const [input, setInput] = useState("")
   const listRef = useRef<HTMLDivElement>(null)
@@ -66,17 +68,21 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <div
+    <motion.div
       role="dialog"
       aria-modal="true"
       aria-label={ui.chat.title}
-      className="fixed inset-x-0 bottom-0 z-50 flex h-[85vh] flex-col border border-neutral-200 bg-white shadow-2xl rounded-t-2xl md:inset-x-auto md:bottom-24 md:right-5 md:h-[70vh] md:w-[380px] md:rounded-2xl"
+      className="fixed inset-x-0 bottom-0 z-50 flex h-[85vh] origin-bottom flex-col border border-neutral-200 bg-white shadow-2xl rounded-t-2xl md:inset-x-auto md:bottom-24 md:right-5 md:h-[70vh] md:w-[380px] md:origin-bottom-right md:rounded-2xl"
+      initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9, y: 24 }}
+      animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+      exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9, y: 24 }}
+      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
     >
       <header className="flex items-start justify-between gap-3 border-b border-neutral-100 px-4 py-3">
         <div>
           <p className="font-semibold text-ink">{ui.chat.title}</p>
           <p className="text-xs text-neutral-500">{ui.chat.disclaimer}</p>
-          <p className="text-xs text-neutral-400">{ui.chat.privacy}</p>
+          <p className="text-xs text-neutral-400">{ui.chat.aiNotice}</p>
         </div>
         <button
           ref={closeButtonRef}
@@ -136,6 +142,6 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
           <Send className="size-4" />
         </button>
       </form>
-    </div>
+    </motion.div>
   )
 }
