@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { motion, useReducedMotion } from "motion/react"
+import { MessageCircle } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Container } from "@/components/site/Container"
@@ -81,6 +82,10 @@ export function Hero() {
         >
           <p className="mb-4 text-center text-lg font-medium text-ink md:text-xl">{ui.search.title}</p>
           <SearchBox />
+          <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-sm text-body">
+            <MessageCircle className="size-4 text-brand" aria-hidden="true" />
+            {ui.search.chatHint}
+          </p>
         </motion.div>
       </Container>
     </section>

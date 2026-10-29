@@ -49,6 +49,7 @@ const strings = {
       noResults: "Keine passende Behandlung gefunden.",
       viewAll: "Alle Behandlungen ansehen",
       resultsIn: "in",
+      chatHint: "Oder fragen Sie gerne unseren Praxis-Assistenten.",
     },
     about: {
       eyebrow: "Über Dr. Dost",
@@ -240,6 +241,7 @@ const strings = {
       noResults: "No matching treatment found.",
       viewAll: "View all treatments",
       resultsIn: "in",
+      chatHint: "Or feel free to ask our practice assistant.",
     },
     about: {
       eyebrow: "About Dr. Dost",

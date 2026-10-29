@@ -34,9 +34,8 @@ export function ChatWidget() {
           <motion.span
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 rounded-full bg-brand"
-            initial={{ scale: 1, opacity: 0.45 }}
-            animate={{ scale: 1.7, opacity: 0 }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+            animate={{ scale: [1, 1.4], opacity: [0, 0.3, 0] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", repeatDelay: 0.8 }}
           />
         )}
         <motion.button

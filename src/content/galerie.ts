@@ -20,6 +20,11 @@ function altFor(path: string): Loc {
       de: "Dr. med. univ. Dost Mohammad an seinem Schreibtisch",
       en: "Dr. med. univ. Dost Mohammad at his desk",
     }
+  if (name.startsWith("empfang"))
+    return {
+      de: "Empfangsbereich der Praxis Dr. Dost",
+      en: "Reception area at Dr. Dost's practice",
+    }
   if (name.startsWith("behandlungsraum"))
     return {
       de: "Behandlungsraum der Praxis Dr. Dost mit medizinischen Geräten",
