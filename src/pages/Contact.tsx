@@ -9,7 +9,7 @@ import { useSeo } from "@/lib/useSeo"
 
 export default function Contact() {
   const ui = useUi()
-  useSeo({ title: ui.contact.title })
+  useSeo({ title: ui.contact.title, description: ui.contact.intro })
   const rows = [
     { label: ui.contact.address, value: praxis.address },
     { label: ui.contact.phone, value: praxis.phone },

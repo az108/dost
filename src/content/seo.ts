@@ -9,6 +9,10 @@
 // from it. Switching to the custom domain is a one-line change here.
 export const SITE_URL = "https://az108.github.io/dost"
 
+// Fallback meta description for the 404 page and any page that sets none.
+export const DEFAULT_DESCRIPTION =
+  "Dr. med. univ. Dost Mohammad – Ihr Arzt in Landshut. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur und Naturheilkunde."
+
 export const siteKeywords = [
   "Arzt Landshut",
   "Dr. Dost Mohammad",

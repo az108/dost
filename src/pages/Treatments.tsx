@@ -12,7 +12,7 @@ import { treatmentAreas, areaPath } from "@/content/treatments"
 export default function Treatments() {
   const { lang } = useLang()
   const ui = useUi()
-  useSeo({ title: ui.treatments.title })
+  useSeo({ title: ui.treatments.title, description: ui.treatments.intro })
 
   return (
     <main className="pt-24">

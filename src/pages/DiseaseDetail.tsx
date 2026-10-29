@@ -55,7 +55,7 @@ export default function DiseaseDetail() {
   const { lang } = useLang()
   const ui = useUi()
   const found = diseaseBySlug(areaSlug, diseaseSlug)
-  useSeo({ title: found ? found.disease.title[lang] : undefined })
+  useSeo({ title: found ? found.disease.title[lang] : undefined, description: found?.disease.summary[lang] })
 
   if (!found) return <NotFound />
   const { area, disease } = found

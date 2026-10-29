@@ -1,9 +1,14 @@
 import { StrictMode } from "react"
-import { createRoot } from "react-dom/client"
+import { hydrateRoot } from "react-dom/client"
 import "./index.css"
 import App from "./App"
 
-createRoot(document.getElementById("root")!).render(
+// hydrateRoot, not createRoot: the prerenderer already wrote real markup into
+// #root. createRoot would throw it away and rebuild from scratch — a flash of
+// an empty page before React takes over, and the SEO/no-JS content lost on the
+// first paint.
+hydrateRoot(
+  document.getElementById("root")!,
   <StrictMode>
     <App />
   </StrictMode>,

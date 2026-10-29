@@ -19,7 +19,7 @@ const Sparkle = (
 export default function Aesthetik() {
   const { lang } = useLang()
   const ui = useUi()
-  useSeo({ title: ui.aesthetic.title })
+  useSeo({ title: ui.aesthetic.title, description: ui.aesthetic.intro })
   return (
     <main className="pt-24">
       <section className="relative z-20 bg-wash py-16">

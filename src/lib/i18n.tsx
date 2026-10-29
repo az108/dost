@@ -21,14 +21,15 @@ interface LangCtx {
 
 const LanguageContext = createContext<LangCtx | null>(null)
 
-function initialLang(): Lang {
-  if (typeof window === "undefined") return "de"
-  const saved = window.localStorage.getItem(STORAGE_KEY)
-  return saved === "en" ? "en" : "de" // German is the default
-}
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(initialLang)
+  // Always start at the German default so the server-rendered HTML and the
+  // first client render agree (hydration). A returning visitor who chose
+  // English is switched over in the effect just after mount.
+  const [lang, setLang] = useState<Lang>("de")
+
+  useEffect(() => {
+    if (window.localStorage.getItem(STORAGE_KEY) === "en") setLang("en")
+  }, [])
 
   useEffect(() => {
     document.documentElement.lang = lang

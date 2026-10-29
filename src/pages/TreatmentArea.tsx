@@ -15,7 +15,7 @@ export default function TreatmentArea() {
   const { lang } = useLang()
   const ui = useUi()
   const area = areaBySlug(areaSlug)
-  useSeo({ title: area ? area.title[lang] : undefined })
+  useSeo({ title: area ? area.title[lang] : undefined, description: area?.excerpt[lang] })
 
   if (!area) return <NotFound />
 

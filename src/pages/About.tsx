@@ -8,7 +8,7 @@ import { useSeo } from "@/lib/useSeo"
 
 export default function About() {
   const ui = useUi()
-  useSeo({ title: ui.aboutPage.title })
+  useSeo({ title: ui.aboutPage.title, description: ui.aboutPage.intro })
   return (
     <main className="pt-24">
       <section className="relative overflow-hidden bg-wash py-16">

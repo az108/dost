@@ -35,11 +35,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # SPA fallback: GitHub Pages serves 404.html for unknown paths, so a copy
-      # of index.html lets client-side routes (e.g. /behandlungen/akupunktur)
-      # work on direct load and refresh.
-      - name: Add SPA 404 fallback
-        run: cp dist/index.html dist/404.html
+      # The build pre-renders every route to its own dist/<route>/index.html
+      # and writes dist/404.html (the NotFound page) for unmatched paths, so no
+      # manual SPA fallback copy is needed.
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

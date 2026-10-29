@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { LanguageProvider } from "@/lib/i18n"
+import { basename } from "@/lib/basename"
 import { ScrollManager } from "@/components/site/ScrollManager"
 import { Navbar } from "@/components/site/Navbar"
 import { Footer } from "@/components/site/Footer"
@@ -54,9 +55,6 @@ export function AppRoutes() {
     </LanguageProvider>
   )
 }
-
-// import.meta.env.BASE_URL is "/dost/" in the GitHub Pages build, "/" in dev.
-const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/"
 
 export default function App() {
   return (
