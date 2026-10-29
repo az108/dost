@@ -14,7 +14,6 @@ import About from "@/pages/About"
 import Contact from "@/pages/Contact"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
-import Galerie from "@/pages/Galerie"
 import NotFound from "@/pages/NotFound"
 import { fachbereiche } from "@/content/fachbereiche"
 import { ChatWidget } from "@/features/chat/ChatWidget"
@@ -22,9 +21,10 @@ import { ChatWidget } from "@/features/chat/ChatWidget"
 export function AppRoutes() {
   return (
     <LanguageProvider>
-      <div className="relative min-h-screen">
+      <div className="relative flex min-h-screen flex-col">
         <ScrollManager />
         <Navbar />
+        <div className="flex-1">
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -44,11 +44,11 @@ export function AppRoutes() {
             <TopicDetail entries={fachbereiche} sectionLabel="Fachbereiche" basePath="/fachbereiche" />
           }
         />
-        <Route path="/galerie" element={<Galerie />} />
         <Route path="/impressum" element={<Legal which="impressum" />} />
         <Route path="/datenschutz" element={<Legal which="datenschutz" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+        </div>
         <Footer />
         <ChatWidget />
       </div>

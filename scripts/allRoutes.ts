@@ -22,7 +22,6 @@ export function allRoutes(): string[] {
     "/ueber-uns",
     "/kontakt",
     ...fachbereiche.map((f) => `/fachbereiche/${f.slug}`),
-    "/galerie",
     "/impressum",
     "/datenschutz",
   ]

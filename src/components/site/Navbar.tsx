@@ -14,7 +14,6 @@ export function Navbar() {
     { to: "/behandlungen", label: ui.nav.treatments },
     { to: "/aesthetik", label: ui.nav.aesthetic },
     { to: "/ueber-uns", label: ui.nav.about },
-    { to: "/galerie", label: ui.nav.gallery },
     { to: "/kontakt", label: ui.nav.contact },
   ]
 

@@ -9,7 +9,6 @@ describe("allRoutes", () => {
     expect(routes).toContain("/aesthetik")
     expect(routes).toContain("/impressum")
     expect(routes).toContain("/datenschutz")
-    expect(routes).toContain("/galerie")
     // The ~286 condition pages dominate the list — the main SEO asset.
     expect(routes.length).toBeGreaterThan(280)
     expect(new Set(routes).size).toBe(routes.length)

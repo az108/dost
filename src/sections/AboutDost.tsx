@@ -23,7 +23,7 @@ export function AboutDost({ showMore = true }: { showMore?: boolean }) {
       <motion.span
         aria-hidden="true"
         style={reduce ? undefined : { x }}
-        className="pointer-events-none absolute inset-x-0 top-16 text-center text-[13vw] font-extrabold leading-none tracking-tight text-neutral-900/[0.035] select-none"
+        className="pointer-events-none absolute inset-x-0 top-16 text-center text-[13vw] font-extrabold leading-none tracking-tight text-brand/[0.07] select-none"
       >
         {ui.about.eyebrow.toUpperCase()}
       </motion.span>
