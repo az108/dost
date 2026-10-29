@@ -59,10 +59,10 @@ describe("routes", () => {
 
   it("renders Impressum and Datenschutz", () => {
     const { unmount } = renderAt("/impressum")
-    expect(screen.getByRole("heading", { name: /Impressum/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /Impressum/i, level: 1 })).toBeInTheDocument()
     unmount()
     renderAt("/datenschutz")
-    expect(screen.getByRole("heading", { name: /Datenschutz/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /Datenschutz/i, level: 1 })).toBeInTheDocument()
   })
 
   it("renders a 404 page for unknown paths and unknown areas/diseases", () => {

@@ -13,10 +13,15 @@ export default function Legal({ which }: { which: "impressum" | "datenschutz" })
     <Container>
       <main className="max-w-3xl py-32">
         <h1 className="text-5xl font-extrabold">{title}</h1>
-        {t(legal[which]).map((p, i) => (
-          <p key={i} className="mt-8 text-body">
-            {p}
-          </p>
+        {t(legal[which]).map((block, i) => (
+          <section key={i} className="mt-10">
+            {block.heading && <h2 className="text-xl font-bold text-ink">{block.heading}</h2>}
+            {block.body.map((p, j) => (
+              <p key={j} className="mt-3 whitespace-pre-line text-body">
+                {p}
+              </p>
+            ))}
+          </section>
         ))}
       </main>
     </Container>

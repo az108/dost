@@ -12,5 +12,6 @@ it("renders the impressum placeholder paragraphs from content", () => {
     </LanguageProvider>,
   )
   expect(screen.getByRole("heading", { name: "Impressum" })).toBeInTheDocument()
-  expect(screen.getByText(/Inhalt folgt/)).toBeInTheDocument()
+  // Renders the structured sections (h2 headings + paragraphs) from content.
+  expect(screen.getByRole("heading", { name: /Berufsbezeichnung/ })).toBeInTheDocument()
 })
