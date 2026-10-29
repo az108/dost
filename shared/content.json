@@ -3,9 +3,9 @@
     "brand": "Dr. Dost",
     "tagline": "Ihr Arzt in Landshut",
     "address": "Adresse folgt",
-    "phone": "Telefonnummer folgt",
+    "phone": "+49 8744 919990",
     "mobile": "Handynummer folgt",
-    "email": "dr.dost@silvamed.de",
+    "email": "dost@silvamed.de",
     "hours": "Nach Vereinbarung"
   },
   "arzt": {
@@ -48,7 +48,7 @@
         {
           "heading": "Kontakt",
           "body": [
-            "Telefon: 0871 430747-0\nE-Mail: [bitte ergänzen]"
+            "Telefon: +49 8744 919990\nE-Mail: dost@silvamed.de"
           ]
         },
         {
@@ -101,7 +101,7 @@
         {
           "heading": "Contact",
           "body": [
-            "Phone: +49 871 430747-0\nEmail: [to be added]"
+            "Phone: +49 8744 919990\nEmail: dost@silvamed.de"
           ]
         },
         {
@@ -156,7 +156,7 @@
         {
           "heading": "2. Verantwortliche Stelle",
           "body": [
-            "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut\nTelefon: 0871 430747-0\nE-Mail: [bitte ergänzen]"
+            "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut\nTelefon: +49 8744 919990\nE-Mail: dost@silvamed.de"
           ]
         },
         {
@@ -220,7 +220,7 @@
         {
           "heading": "2. Controller",
           "body": [
-            "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut, Germany\nPhone: +49 871 430747-0\nEmail: [to be added]"
+            "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut, Germany\nPhone: +49 8744 919990\nEmail: dost@silvamed.de"
           ]
         },
         {

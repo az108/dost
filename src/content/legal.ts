@@ -4,11 +4,9 @@ import type { Loc } from "@/lib/i18n"
 // more paragraphs. Rendered by src/pages/Legal.tsx.
 export type LegalBlock = { heading?: string; body: string[] }
 
-// NOTE: Draft legal texts. The practice-specific details (contact e-mail,
-// phone, exact professional-title wording, any VAT ID) must be verified by
-// the practice owner before publication. Address/phone reflect the Landshut
-// practice of Dr. med. univ. Dost Mohammad; "[bitte ergänzen]" marks a field
-// that still needs confirming.
+// NOTE: Contact e-mail and phone were provided by the practice owner. The
+// remaining details (address, exact professional-title wording, any VAT ID)
+// should still be confirmed by the owner before relying on them.
 export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[]> } = {
   impressum: {
     de: [
@@ -20,7 +18,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       },
       {
         heading: "Kontakt",
-        body: ["Telefon: 0871 430747-0\nE-Mail: [bitte ergänzen]"],
+        body: ["Telefon: +49 8744 919990\nE-Mail: dost@silvamed.de"],
       },
       {
         heading: "Berufsbezeichnung und berufsrechtliche Regelungen",
@@ -69,7 +67,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       },
       {
         heading: "Contact",
-        body: ["Phone: +49 871 430747-0\nEmail: [to be added]"],
+        body: ["Phone: +49 8744 919990\nEmail: dost@silvamed.de"],
       },
       {
         heading: "Professional title and regulations",
@@ -121,7 +119,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "2. Verantwortliche Stelle",
         body: [
-          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut\nTelefon: 0871 430747-0\nE-Mail: [bitte ergänzen]",
+          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut\nTelefon: +49 8744 919990\nE-Mail: dost@silvamed.de",
         ],
       },
       {
@@ -185,7 +183,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "2. Controller",
         body: [
-          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut, Germany\nPhone: +49 871 430747-0\nEmail: [to be added]",
+          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut, Germany\nPhone: +49 8744 919990\nEmail: dost@silvamed.de",
         ],
       },
       {

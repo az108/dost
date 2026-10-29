@@ -35,7 +35,8 @@ describe("content integrity", () => {
   })
 
   it("praxis has the agreed contact data", () => {
-    expect(praxis.email).toBe("dr.dost@silvamed.de")
+    expect(praxis.email).toBe("dost@silvamed.de")
+    expect(praxis.phone).toBe("+49 8744 919990")
     expect(praxis.address.trim().length).toBeGreaterThan(0)
   })
 })

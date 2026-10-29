@@ -3,8 +3,8 @@ export const praxis = {
   tagline: "Ihr Arzt in Landshut",
   // Platzhalter – finale Kontaktdaten werden vom Praxisinhaber bereitgestellt.
   address: "Adresse folgt",
-  phone: "Telefonnummer folgt",
+  phone: "+49 8744 919990",
   mobile: "Handynummer folgt",
-  email: "dr.dost@silvamed.de",
+  email: "dost@silvamed.de",
   hours: "Nach Vereinbarung",
 }
