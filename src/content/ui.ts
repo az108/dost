@@ -8,6 +8,7 @@ import { useLang } from "@/lib/i18n"
 const strings = {
   de: {
     nav: {
+      home: "Startseite",
       treatments: "Behandlungen",
       aesthetic: "Ästhetik",
       about: "Über uns",
@@ -200,6 +201,7 @@ const strings = {
 
   en: {
     nav: {
+      home: "Home",
       treatments: "Treatments",
       aesthetic: "Aesthetics",
       about: "About",

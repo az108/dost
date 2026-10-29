@@ -11,6 +11,7 @@ export function Navbar() {
   const ui = useUi()
   const [open, setOpen] = useState(false)
   const links = [
+    { to: "/", label: ui.nav.home },
     { to: "/behandlungen", label: ui.nav.treatments },
     { to: "/aesthetik", label: ui.nav.aesthetic },
     { to: "/ueber-uns", label: ui.nav.about },
