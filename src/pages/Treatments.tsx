@@ -38,7 +38,7 @@ export default function Treatments() {
             {treatmentAreas.map((area, i) => {
               const count = area.diseases.length
               return (
-                <Reveal key={area.slug} delay={0.05 * i}>
+                <Reveal key={area.slug} delay={(i % 3) * 0.06}>
                   <Link
                     to={areaPath(area.slug)}
                     className="group flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl"

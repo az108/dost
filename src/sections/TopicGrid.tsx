@@ -26,7 +26,7 @@ export function TopicGrid({
         </Reveal>
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((e, i) => (
-            <Reveal key={e.slug} delay={i * 0.08} className="h-full">
+            <Reveal key={e.slug} delay={(i % 3) * 0.06} className="h-full">
               <TopicCard entry={e} basePath={basePath} index={i} />
             </Reveal>
           ))}
