@@ -7,7 +7,7 @@ import { GradientBackdrop } from "@/components/site/GradientBackdrop"
 import { SearchBox } from "@/components/site/SearchBox"
 import { Stars } from "@/components/site/Stars"
 import { useUi } from "@/content/ui"
-import arztFoto from "@/assets/arzt-portrait.jpg"
+import heroFoto from "@/assets/praxis-empfang.jpg"
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -56,7 +56,11 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <img src={arztFoto} alt="Dr. med. univ. Dost Mohammad" className="rotate-2 rounded-[2rem] shadow-2xl" />
+            <img
+              src={heroFoto}
+              alt="Empfangsbereich der Praxis"
+              className="aspect-[4/5] w-full rotate-2 rounded-[2rem] object-cover shadow-2xl"
+            />
             <motion.div
               className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl bg-white/95 px-5 py-3 shadow-xl backdrop-blur"
               animate={reduce ? undefined : { y: [0, -8, 0] }}

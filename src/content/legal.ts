@@ -13,7 +13,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "Angaben gemäß § 5 DDG",
         body: [
-          "Dr. med. univ. Dost Mohammad\nPraxis für Allgemeinmedizin und Naturheilverfahren\nAm Alten Viehmarkt 5\n84028 Landshut",
+          "Dr. med. univ. Dost Mohammad\nPraxis für Allgemeinmedizin und Naturheilverfahren\nAm Weiher 3\nMagersdorf\n84178 Kröning",
         ],
       },
       {
@@ -62,7 +62,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "Information pursuant to § 5 DDG",
         body: [
-          "Dr. med. univ. Dost Mohammad\nPractice for General Medicine and Naturopathy\nAm Alten Viehmarkt 5\n84028 Landshut, Germany",
+          "Dr. med. univ. Dost Mohammad\nPractice for General Medicine and Naturopathy\nAm Weiher 3\nMagersdorf\n84178 Kröning, Germany",
         ],
       },
       {
@@ -119,7 +119,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "2. Verantwortliche Stelle",
         body: [
-          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut\nTelefon: +49 8744 919990\nE-Mail: dost@silvamed.de",
+          "Dr. med. univ. Dost Mohammad\nAm Weiher 3\nMagersdorf\n84178 Kröning\nTelefon: +49 8744 919990\nE-Mail: dost@silvamed.de",
         ],
       },
       {
@@ -183,7 +183,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "2. Controller",
         body: [
-          "Dr. med. univ. Dost Mohammad\nAm Alten Viehmarkt 5\n84028 Landshut, Germany\nPhone: +49 8744 919990\nEmail: dost@silvamed.de",
+          "Dr. med. univ. Dost Mohammad\nAm Weiher 3\nMagersdorf\n84178 Kröning, Germany\nPhone: +49 8744 919990\nEmail: dost@silvamed.de",
         ],
       },
       {
