@@ -40,11 +40,9 @@ function BlockView({ block }: { block: Block }) {
             loading="lazy"
             className="w-full object-cover"
           />
-          {block.ai && (
-            <figcaption className="absolute bottom-2 right-3 rounded-full bg-black/45 px-2 py-0.5 text-[11px] font-medium text-white/90">
-              {aiCaption}
-            </figcaption>
-          )}
+          <figcaption className="absolute bottom-2 right-3 rounded-full bg-black/45 px-2 py-0.5 text-[11px] font-medium text-white/90">
+            {aiCaption}
+          </figcaption>
         </figure>
       )
   }
