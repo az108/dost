@@ -1,5 +1,5 @@
 // src/features/chat/ChatWidget.tsx
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { MessageCircle, X } from "lucide-react"
 import { useUi } from "@/content/ui"
@@ -11,6 +11,14 @@ export function ChatWidget() {
   const ui = useUi()
   const reduce = useReducedMotion()
   const launcherRef = useRef<HTMLButtonElement>(null)
+
+  // Let other parts of the page (e.g. the homepage hint button) open the chat
+  // by dispatching a `dost:open-chat` event on window.
+  useEffect(() => {
+    const onOpen = () => setOpen(true)
+    window.addEventListener("dost:open-chat", onOpen)
+    return () => window.removeEventListener("dost:open-chat", onOpen)
+  }, [])
 
   // The worker endpoint is only wired in by the deploy step. Render nothing
   // rather than a chat button that leads to a broken, unconfigured panel.

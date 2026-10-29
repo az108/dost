@@ -82,10 +82,16 @@ export function Hero() {
         >
           <p className="mb-4 text-center text-lg font-medium text-ink md:text-xl">{ui.search.title}</p>
           <SearchBox />
-          <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-sm text-body">
-            <MessageCircle className="size-4 text-brand" aria-hidden="true" />
-            {ui.search.chatHint}
-          </p>
+          <div className="mt-4 text-center">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("dost:open-chat"))}
+              className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white px-4 py-2 text-sm font-medium text-brand shadow-sm transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+            >
+              <MessageCircle className="size-4" aria-hidden="true" />
+              {ui.search.chatHint}
+            </button>
+          </div>
         </motion.div>
       </Container>
     </section>
