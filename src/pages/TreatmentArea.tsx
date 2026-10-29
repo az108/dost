@@ -53,10 +53,10 @@ export default function TreatmentArea() {
           ) : (
             <ul className="mt-6 grid gap-4 md:grid-cols-2">
               {area.diseases.map((d, i) => (
-                <Reveal key={d.slug} delay={0.05 * i}>
+                <Reveal key={d.slug} delay={(i % 2) * 0.06} className="h-full">
                   <Link
                     to={diseasePath(area.slug, d.slug)}
-                    className="group flex items-center justify-between gap-4 rounded-2xl border border-neutral-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg"
+                    className="group flex h-full items-start justify-between gap-4 rounded-2xl border border-neutral-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg"
                   >
                     <span>
                       <span className="block text-lg font-semibold text-ink group-hover:text-brand">

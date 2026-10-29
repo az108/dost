@@ -107,14 +107,14 @@ export default function DiseaseDetail() {
             ]}
           />
 
-          <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.3fr_0.9fr]">
             <div>
               <IcdBadge code={disease.icd10} />
 
               <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{disease.title[lang]}</h1>
               <p className="mt-4 max-w-xl text-lg text-body">{disease.summary[lang]}</p>
             </div>
-            <figure className="relative">
+            <figure className="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto">
               <DiseaseIllustration kind={disease.illustration} />
             </figure>
           </div>

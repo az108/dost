@@ -16,7 +16,7 @@ export function DiseaseIllustration({
   return (
     <div
       className={
-        "flex items-center justify-center rounded-3xl border border-brand/10 bg-gradient-to-br from-brand-soft to-mint-soft/40 p-8 " +
+        "flex items-center justify-center rounded-3xl border border-brand/10 bg-gradient-to-br from-brand-soft to-mint-soft/40 p-6 " +
         (className ?? "")
       }
     >
