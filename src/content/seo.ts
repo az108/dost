@@ -4,6 +4,11 @@
 // Note: search engines weight on-page content, titles and descriptions far
 // more than the keywords meta — keep the verbatim copy keyword-rich too.
 
+// Production origin (no trailing slash). The single place the site's URL is
+// set — sitemap, robots and (with pre-rendering) canonical/og:url all derive
+// from it. Switching to the custom domain is a one-line change here.
+export const SITE_URL = "https://az108.github.io/dost"
+
 export const siteKeywords = [
   "Arzt Landshut",
   "Dr. Dost Mohammad",

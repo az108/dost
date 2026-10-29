@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run sitemap && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
+    "sitemap": "vite-node scripts/generate-sitemap.ts",
     "export:content": "vite-node scripts/export-content.ts"
   },
   "dependencies": {

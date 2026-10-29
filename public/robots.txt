@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://az108.github.io/dost/sitemap.xml
