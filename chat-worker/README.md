@@ -8,7 +8,9 @@ browser as plain text.
 Get an API key from Google AI Studio (https://aistudio.google.com/apikey).
 A key with **billing enabled (paid tier)** keeps the traffic out of Google's
 model training; the free tier does not — prefer the paid tier for a medical
-site. The model is set in `src/index.ts` (`MODEL`, default `gemini-2.0-flash`).
+site. The model is set in `src/index.ts` (`MODEL`, default `gemini-3.8-flash`);
+if a model is retired, Gemini returns a 404 naming its replacement. Thinking
+is set to `low` (`THINKING_LEVEL`) to keep hidden-reasoning cost minimal.
 
 ## Local development
 

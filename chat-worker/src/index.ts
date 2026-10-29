@@ -13,10 +13,15 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:4173",
 ])
 // Gemini Flash — cheapest capable model. Change this one line to use a
-// different Gemini model (e.g. "gemini-2.5-flash"); verify the name exists
-// for your key in Google AI Studio.
-const MODEL = "gemini-2.0-flash"
-const MAX_TOKENS = 700
+// different Gemini model; verify the name exists for your key in Google AI
+// Studio (a retired model returns a 404 naming its replacement).
+const MODEL = "gemini-3.8-flash"
+// Gemini 3 models always think, and maxOutputTokens is the budget for
+// thinking + visible answer combined. THINKING_LEVEL "low" keeps the hidden
+// reasoning (and its cost) minimal; the cap must still leave ample room for
+// the answer so a short reply is never starved by thinking tokens.
+const THINKING_LEVEL = "low"
+const MAX_TOKENS = 2048
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`
 
 function cors(origin: string | null): Record<string, string> {
@@ -77,13 +82,26 @@ export default {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: buildSystem(parsed.value.context) }] },
           contents: toGeminiContents(parsed.value.messages),
-          generationConfig: { maxOutputTokens: MAX_TOKENS },
+          generationConfig: {
+            maxOutputTokens: MAX_TOKENS,
+            thinkingConfig: { thinkingLevel: THINKING_LEVEL },
+          },
         }),
       })
-    } catch {
+    } catch (err) {
+      // Network-level failure reaching Gemini. Log for `wrangler tail`; the
+      // client only ever sees the generic error, never upstream detail.
+      console.error("gemini fetch threw", err)
       return json({ error: "upstream_error" }, 502, base)
     }
-    if (!upstream.ok || !upstream.body) return json({ error: "upstream_error" }, 502, base)
+    if (!upstream.ok || !upstream.body) {
+      // Gemini returned a non-2xx status (e.g. a retired model, a bad key, a
+      // rejected field). Log the status + body for `wrangler tail`; never
+      // surface upstream detail to the browser.
+      const detail = await upstream.text().catch(() => "")
+      console.error("gemini upstream error", upstream.status, detail.slice(0, 800))
+      return json({ error: "upstream_error" }, 502, base)
+    }
 
     return new Response(toTextStream(upstream.body), {
       status: 200,
@@ -120,7 +138,8 @@ function processLine(
     if (Array.isArray(parts)) {
       let produced = false
       for (const p of parts) {
-        if (typeof p?.text === "string" && p.text.length > 0) {
+        // Skip thought parts (p.thought === true) — only the visible answer.
+        if (p?.thought !== true && typeof p?.text === "string" && p.text.length > 0) {
           controller.enqueue(encoder.encode(p.text))
           produced = true
         }
