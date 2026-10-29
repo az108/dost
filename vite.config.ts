@@ -5,10 +5,10 @@ import { configDefaults } from "vitest/config"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 
-// Served from https://az108.github.io/dost/ on GitHub Pages, so the production
-// build needs the "/dost/" base. Dev keeps "/" for a clean localhost.
-export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/dost/" : "/",
+// Served from the custom domain https://drdosthealth.com at the root, so the
+// base is "/" in every build and in dev.
+export default defineConfig(() => ({
+  base: "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

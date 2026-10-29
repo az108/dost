@@ -7,7 +7,7 @@
 // Production origin (no trailing slash). The single place the site's URL is
 // set — sitemap, robots and (with pre-rendering) canonical/og:url all derive
 // from it. Switching to the custom domain is a one-line change here.
-export const SITE_URL = "https://az108.github.io/dost"
+export const SITE_URL = "https://drdosthealth.com"
 
 // Fallback meta description for the 404 page and any page that sets none.
 export const DEFAULT_DESCRIPTION =
