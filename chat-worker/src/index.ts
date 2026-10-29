@@ -8,6 +8,8 @@ export interface Env {
 }
 
 const ALLOWED_ORIGINS = new Set([
+  "https://drdosthealth.com",
+  "https://www.drdosthealth.com",
   "https://az108.github.io",
   "http://localhost:5173",
   "http://localhost:4173",
@@ -28,7 +30,7 @@ const MAX_TOKENS = 2048
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`
 
 function cors(origin: string | null): Record<string, string> {
-  const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : "https://az108.github.io"
+  const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : "https://drdosthealth.com"
   return {
     "Access-Control-Allow-Origin": allow,
     "Access-Control-Allow-Methods": "POST, OPTIONS",

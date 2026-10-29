@@ -52,6 +52,10 @@ app so the chat widget knows where to send requests.
   the worker returns a clean `503 { error: "rate_limiter_unavailable" }`
   instead of a bare 500.
 - CORS — only origins in `ALLOWED_ORIGINS` in `src/index.ts`
-  (`https://az108.github.io`, and `localhost:5173`/`localhost:4173` for
-  local dev) receive a matching `Access-Control-Allow-Origin`. Add a new
-  origin there before deploying to a different host.
+  (`https://drdosthealth.com` + `www`, `https://az108.github.io`, and
+  `localhost:5173`/`localhost:4173` for local dev) receive a matching
+  `Access-Control-Allow-Origin`. Add a new origin there before serving the
+  chat from a different host.
+- Rate limit — 15 requests per 60s per IP (`cf-connecting-ip`) via the native
+  `RATE_LIMITER` binding in `wrangler.toml`; over the limit returns `429`.
+  Change `simple = { limit, period }` there to adjust.
