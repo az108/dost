@@ -9,9 +9,10 @@ Get an API key from Google AI Studio (https://aistudio.google.com/apikey).
 A key with **billing enabled (paid tier)** keeps the traffic out of Google's
 model training; the free tier does not — prefer the paid tier for a medical
 site. The model is set in `src/index.ts` (`MODEL`, default
-`gemini-2.5-flash-lite` — the cheapest tier). To change it, confirm the name
+`gemini-3.5-flash-lite` — the cheapest tier). To change it, confirm the name
 with ListModels (`GET /v1beta/models`) first; a retired model 404s naming its
-replacement, and the model must support `generateContent`. The reply is not
+replacement (and some listed models are unavailable to new accounts), and the
+model must support `generateContent`. The reply is not
 streamed — the generativelanguage API no longer exposes `streamGenerateContent`
 for these models, so the Worker returns the full answer as one response.
 

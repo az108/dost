@@ -14,11 +14,13 @@ const ALLOWED_ORIGINS = new Set([
 ])
 // Gemini Flash-Lite — the cheapest tier, ample for grounded FAQ answers.
 // Change this one line to use a different model; verify it exists for your
-// key with ListModels (GET /v1beta/models) — a retired model 404s naming
-// its replacement. Keep to a model whose supportedGenerationMethods include
-// `generateContent` (all current flash models do).
-const MODEL = "gemini-2.5-flash-lite"
-const MAX_TOKENS = 1024
+// key with ListModels (GET /v1beta/models) — a retired model 404s naming its
+// replacement, and some listed models are unavailable to new accounts. Keep
+// to a model whose supportedGenerationMethods include `generateContent`.
+const MODEL = "gemini-3.5-flash-lite"
+// maxOutputTokens caps thinking + visible answer together; flash-lite thinks
+// little, so this leaves ample room for a short reply without wasted cost.
+const MAX_TOKENS = 2048
 // Non-streaming: the generativelanguage API no longer exposes
 // `streamGenerateContent` for these models (ListModels omits it, and calling
 // it just hangs until a gateway timeout). `generateContent` returns the whole
