@@ -29,3 +29,6 @@ docs/superpowers/
 
 # Local Gemini image runner profile
 scripts/images/.gemini-profile/
+
+# Worker secrets (wrangler dev) — never commit a real key
+chat-worker/.dev.vars

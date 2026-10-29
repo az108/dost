@@ -1,0 +1,12 @@
+name = "dost-chat"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+
+# Per-IP rate limiting (Cloudflare native binding). period must be 10 or 60 (seconds).
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 15, period = 60 }
+
+# GEMINI_API_KEY is set as a secret via `wrangler secret put` — never here.

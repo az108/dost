@@ -18,8 +18,9 @@ export default defineConfig(({ command }) => ({
     setupFiles: "./src/test/setup.ts",
     globals: true,
     passWithNoTests: true,
-    // laser-aesthetik is a separate app with its own test runner and its own
-    // `@` alias; excluded here so the root runner only covers the root app.
-    exclude: [...configDefaults.exclude, "laser-aesthetik/**"],
+    // laser-aesthetik and chat-worker are separate apps with their own test
+    // runners (and, for chat-worker, a node environment); excluded here so
+    // the root runner only covers the root app.
+    exclude: [...configDefaults.exclude, "laser-aesthetik/**", "chat-worker/**"],
   },
 }))
