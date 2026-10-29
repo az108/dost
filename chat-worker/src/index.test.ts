@@ -2,27 +2,11 @@
 import { describe, expect, it, vi, beforeEach } from "vitest"
 import worker, { type Env } from "./index"
 
-function sseStream(texts: string[]): ReadableStream<Uint8Array> {
-  const enc = new TextEncoder()
-  const chunks = texts.map(
-    (t) =>
-      `data: ${JSON.stringify({ candidates: [{ content: { role: "model", parts: [{ text: t }] } }] })}\n\n`,
-  )
-  return new ReadableStream({
-    start(c) {
-      for (const ch of chunks) c.enqueue(enc.encode(ch))
-      c.close()
-    },
-  })
-}
-
-function rawStream(rawChunks: string[]): ReadableStream<Uint8Array> {
-  const enc = new TextEncoder()
-  return new ReadableStream({
-    start(c) {
-      for (const chunk of rawChunks) c.enqueue(enc.encode(chunk))
-      c.close()
-    },
+/** A generateContent JSON response whose candidate holds the given parts. */
+function genResponse(parts: { text: string; thought?: boolean }[], status = 200): Response {
+  return new Response(JSON.stringify({ candidates: [{ content: { role: "model", parts } }] }), {
+    status,
+    headers: { "content-type": "application/json" },
   })
 }
 
@@ -92,34 +76,46 @@ describe("chat worker", () => {
     expect(res.status).toBe(400)
   })
 
-  it("streams the model text extracted from Gemini's SSE", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => new Response(sseStream(["Migräne ", "ist …"]), { status: 200 })),
-    )
+  it("returns the model text from a generateContent response as plain text", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => genResponse([{ text: "Migräne " }, { text: "ist …" }])))
     const res = await worker.fetch(post(valid), makeEnv())
     expect(res.status).toBe(200)
     expect(res.headers.get("content-type")).toContain("text/plain")
     expect(await res.text()).toBe("Migräne ist …")
   })
 
-  it("buffers an SSE event split across chunks and flushes a trailing line with no terminator", async () => {
+  it("calls the non-streaming generateContent endpoint", async () => {
+    const spy = vi.fn(async () => genResponse([{ text: "ok" }]))
+    vi.stubGlobal("fetch", spy)
+    await worker.fetch(post(valid), makeEnv())
+    const url = String(spy.mock.calls[0][0])
+    expect(url).toContain(":generateContent")
+    expect(url).not.toContain("streamGenerateContent")
+  })
+
+  it("drops thought parts, keeping only the visible answer", async () => {
     vi.stubGlobal(
       "fetch",
-      vi.fn(
-        async () =>
-          new Response(
-            rawStream([
-              'data: {"candidates":[{"content":{"role":"model","parts":[{"text":"Hal',
-              'lo"}]}}]}\n\n',
-              'data: {"candidates":[{"content":{"role":"model","parts":[{"text":" Welt"}]}}]}',
-            ]),
-            { status: 200 },
-          ),
-      ),
+      vi.fn(async () => genResponse([{ text: "geheime Gedanken", thought: true }, { text: "Antwort" }])),
     )
     const res = await worker.fetch(post(valid), makeEnv())
     expect(res.status).toBe(200)
-    expect(await res.text()).toBe("Hallo Welt")
+    expect(await res.text()).toBe("Antwort")
+  })
+
+  it("502s when Gemini returns a non-2xx status", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("error code: 524\n", { status: 524 })))
+    const res = await worker.fetch(post(valid), makeEnv())
+    expect(res.status).toBe(502)
+    expect(res.headers.get("Access-Control-Allow-Origin")).toBe("https://az108.github.io")
+  })
+
+  it("502s when the response carries no usable text (e.g. blocked)", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(JSON.stringify({ candidates: [] }), { status: 200 })),
+    )
+    const res = await worker.fetch(post(valid), makeEnv())
+    expect(res.status).toBe(502)
   })
 })

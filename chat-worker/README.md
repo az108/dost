@@ -1,16 +1,19 @@
 # dost-chat-worker
 
 Cloudflare Worker that proxies the site chatbot. It validates each request,
-applies per-IP rate limiting, calls the Google Gemini API (`streamGenerateContent`)
-with a grounded system prompt, and streams the model's reply back to the
-browser as plain text.
+applies per-IP rate limiting, calls the Google Gemini API (`generateContent`)
+with a grounded system prompt, and returns the model's reply to the browser
+as plain text.
 
 Get an API key from Google AI Studio (https://aistudio.google.com/apikey).
 A key with **billing enabled (paid tier)** keeps the traffic out of Google's
 model training; the free tier does not — prefer the paid tier for a medical
-site. The model is set in `src/index.ts` (`MODEL`, default `gemini-3.8-flash`);
-if a model is retired, Gemini returns a 404 naming its replacement. Thinking
-is set to `low` (`THINKING_LEVEL`) to keep hidden-reasoning cost minimal.
+site. The model is set in `src/index.ts` (`MODEL`, default
+`gemini-2.5-flash-lite` — the cheapest tier). To change it, confirm the name
+with ListModels (`GET /v1beta/models`) first; a retired model 404s naming its
+replacement, and the model must support `generateContent`. The reply is not
+streamed — the generativelanguage API no longer exposes `streamGenerateContent`
+for these models, so the Worker returns the full answer as one response.
 
 ## Local development
 

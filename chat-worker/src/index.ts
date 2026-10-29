@@ -12,17 +12,18 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:5173",
   "http://localhost:4173",
 ])
-// Gemini Flash — cheapest capable model. Change this one line to use a
-// different Gemini model; verify the name exists for your key in Google AI
-// Studio (a retired model returns a 404 naming its replacement).
-const MODEL = "gemini-3.8-flash"
-// Gemini 3 models always think, and maxOutputTokens is the budget for
-// thinking + visible answer combined. THINKING_LEVEL "low" keeps the hidden
-// reasoning (and its cost) minimal; the cap must still leave ample room for
-// the answer so a short reply is never starved by thinking tokens.
-const THINKING_LEVEL = "low"
-const MAX_TOKENS = 2048
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`
+// Gemini Flash-Lite — the cheapest tier, ample for grounded FAQ answers.
+// Change this one line to use a different model; verify it exists for your
+// key with ListModels (GET /v1beta/models) — a retired model 404s naming
+// its replacement. Keep to a model whose supportedGenerationMethods include
+// `generateContent` (all current flash models do).
+const MODEL = "gemini-2.5-flash-lite"
+const MAX_TOKENS = 1024
+// Non-streaming: the generativelanguage API no longer exposes
+// `streamGenerateContent` for these models (ListModels omits it, and calling
+// it just hangs until a gateway timeout). `generateContent` returns the whole
+// reply as one JSON response, which we forward as plain text.
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`
 
 function cors(origin: string | null): Record<string, string> {
   const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : "https://az108.github.io"
@@ -82,10 +83,7 @@ export default {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: buildSystem(parsed.value.context) }] },
           contents: toGeminiContents(parsed.value.messages),
-          generationConfig: {
-            maxOutputTokens: MAX_TOKENS,
-            thinkingConfig: { thinkingLevel: THINKING_LEVEL },
-          },
+          generationConfig: { maxOutputTokens: MAX_TOKENS },
         }),
       })
     } catch (err) {
@@ -94,7 +92,7 @@ export default {
       console.error("gemini fetch threw", err)
       return json({ error: "upstream_error" }, 502, base)
     }
-    if (!upstream.ok || !upstream.body) {
+    if (!upstream.ok) {
       // Gemini returned a non-2xx status (e.g. a retired model, a bad key, a
       // rejected field). Log the status + body for `wrangler tail`; never
       // surface upstream detail to the browser.
@@ -103,7 +101,22 @@ export default {
       return json({ error: "upstream_error" }, 502, base)
     }
 
-    return new Response(toTextStream(upstream.body), {
+    let data: unknown
+    try {
+      data = await upstream.json()
+    } catch (err) {
+      console.error("gemini bad json", err)
+      return json({ error: "upstream_error" }, 502, base)
+    }
+    const text = extractText(data)
+    if (!text) {
+      // No usable text — e.g. the reply was blocked or empty. Log the raw
+      // response (finishReason/safety live here) for `wrangler tail`.
+      console.error("gemini empty response", JSON.stringify(data).slice(0, 800))
+      return json({ error: "upstream_error" }, 502, base)
+    }
+
+    return new Response(text, {
       status: 200,
       headers: { ...base, "content-type": "text/plain; charset=utf-8" },
     })
@@ -120,69 +133,15 @@ function toGeminiContents(
   }))
 }
 
-/** Parse a single SSE line and, if it carries model text, enqueue it. Returns whether it enqueued anything. */
-function processLine(
-  line: string,
-  controller: ReadableStreamDefaultController<Uint8Array>,
-  encoder: TextEncoder,
-): boolean {
-  const trimmed = line.trim()
-  if (!trimmed.startsWith("data:")) return false
-  const payload = trimmed.slice(5).trim()
-  if (!payload) return false
-  try {
-    const evt = JSON.parse(payload)
-    // Gemini streams a GenerateContentResponse per SSE line; the incremental
-    // text lives in candidates[0].content.parts[].text.
-    const parts = evt?.candidates?.[0]?.content?.parts
-    if (Array.isArray(parts)) {
-      let produced = false
-      for (const p of parts) {
-        // Skip thought parts (p.thought === true) — only the visible answer.
-        if (p?.thought !== true && typeof p?.text === "string" && p.text.length > 0) {
-          controller.enqueue(encoder.encode(p.text))
-          produced = true
-        }
-      }
-      return produced
-    }
-  } catch {
-    /* ignore keep-alive pings / non-JSON lines */
+/** Concatenate the visible text parts of a generateContent response. */
+function extractText(data: unknown): string {
+  const parts = (data as { candidates?: { content?: { parts?: unknown[] } }[] })?.candidates?.[0]
+    ?.content?.parts
+  if (!Array.isArray(parts)) return ""
+  let out = ""
+  for (const p of parts as { text?: unknown; thought?: unknown }[]) {
+    // Skip thought parts (p.thought === true) — only the visible answer.
+    if (p?.thought !== true && typeof p?.text === "string") out += p.text
   }
-  return false
-}
-
-/** Parse Gemini's SSE and emit only the model's text as a plain byte stream. */
-function toTextStream(src: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
-  const reader = src.getReader()
-  const decoder = new TextDecoder()
-  const encoder = new TextEncoder()
-  let buffer = ""
-  return new ReadableStream<Uint8Array>({
-    async pull(controller) {
-      // A single upstream read may land mid-line (an SSE event split across chunks), in
-      // which case processing it enqueues nothing. Nothing else will prompt the stream
-      // to call pull() again in that case, so keep reading here until we either emit
-      // something or the upstream is done — otherwise the response would stall forever.
-      for (;;) {
-        const { value, done } = await reader.read()
-        if (done) {
-          if (buffer.trim()) processLine(buffer, controller, encoder)
-          controller.close()
-          return
-        }
-        buffer += decoder.decode(value, { stream: true })
-        const lines = buffer.split("\n")
-        buffer = lines.pop() ?? ""
-        let produced = false
-        for (const line of lines) {
-          if (processLine(line, controller, encoder)) produced = true
-        }
-        if (produced) return
-      }
-    },
-    cancel() {
-      void reader.cancel()
-    },
-  })
+  return out
 }
