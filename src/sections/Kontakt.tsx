@@ -3,14 +3,16 @@ import { Container } from "@/components/site/Container"
 import { Card, CardContent } from "@/components/ui/card"
 import { praxis } from "@/content/praxis"
 import { useUi } from "@/content/ui"
+import { useT } from "@/lib/i18n"
 
 export function Kontakt() {
   const ui = useUi()
+  const t = useT()
   const rows = [
     { label: ui.contact.address, value: praxis.address },
     { label: ui.contact.phone, value: praxis.phone },
     { label: ui.contact.mobile, value: praxis.mobile },
-    { label: ui.contact.hours, value: praxis.hours },
+    { label: ui.contact.hours, value: t(praxis.hours) },
     // Only show fields that are actually filled in (hide "… folgt" placeholders).
   ].filter((r) => r.value && !/folgt/i.test(r.value))
   return (

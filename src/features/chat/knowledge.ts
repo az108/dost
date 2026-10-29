@@ -90,7 +90,7 @@ export function buildKnowledgeDocs(): KnowledgeDoc[] {
     })
   }
 
-  const contact = [praxis.address, praxis.phone, praxis.mobile, praxis.email, praxis.hours]
+  const contact = [praxis.address, praxis.phone, praxis.mobile, praxis.email]
     .filter((v) => v && !/folgt/i.test(v))
     .join(" · ")
   docs.push({
@@ -99,8 +99,8 @@ export function buildKnowledgeDocs(): KnowledgeDoc[] {
     titleDe: "Praxis & Kontakt",
     titleEn: "Practice & Contact",
     keywords: `${praxis.brand} ${arzt.name} Kontakt contact Termin appointment Sprechzeiten hours`,
-    textDe: [arzt.name, arzt.qualifications.de, ...arzt.intro.de, ...arzt.bio.de, `Kontakt: ${contact}`, `Sprechzeiten: ${praxis.hours}`].join(" ").trim(),
-    textEn: [arzt.name, arzt.qualifications.en, ...arzt.intro.en, ...arzt.bio.en, `Contact: ${contact}`, `Hours: ${praxis.hours}`].join(" ").trim(),
+    textDe: [arzt.name, arzt.qualifications.de, ...arzt.intro.de, ...arzt.bio.de, `Kontakt: ${contact}`, `Sprechzeiten: ${praxis.hours.de}`].join(" ").trim(),
+    textEn: [arzt.name, arzt.qualifications.en, ...arzt.intro.en, ...arzt.bio.en, `Contact: ${contact}`, `Hours: ${praxis.hours.en}`].join(" ").trim(),
   })
 
   return docs

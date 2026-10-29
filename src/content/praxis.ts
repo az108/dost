@@ -6,5 +6,5 @@ export const praxis = {
   phone: "+49 8744 919990",
   mobile: "Handynummer folgt",
   email: "dost@silvamed.de",
-  hours: "Nach Vereinbarung",
+  hours: { de: "Nach Vereinbarung", en: "By appointment" },
 }

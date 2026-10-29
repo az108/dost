@@ -5,17 +5,19 @@ import { ContactForm } from "@/components/site/ContactForm"
 import { Card, CardContent } from "@/components/ui/card"
 import { praxis } from "@/content/praxis"
 import { useUi } from "@/content/ui"
+import { useT } from "@/lib/i18n"
 import { useSeo } from "@/lib/useSeo"
 
 export default function Contact() {
   const ui = useUi()
+  const t = useT()
   useSeo({ title: ui.contact.title, description: ui.contact.intro })
   const rows = [
     { label: ui.contact.address, value: praxis.address },
     { label: ui.contact.phone, value: praxis.phone },
     { label: ui.contact.mobile, value: praxis.mobile },
     { label: ui.contact.email, value: praxis.email, isEmail: true },
-    { label: ui.contact.hours, value: praxis.hours },
+    { label: ui.contact.hours, value: t(praxis.hours) },
     // Only show fields that are actually filled in (hide "… folgt" placeholders).
   ].filter((r) => r.value && !/folgt/i.test(r.value))
   return (
