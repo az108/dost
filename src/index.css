@@ -31,9 +31,11 @@
   --color-info-ink: #1863DC;
 
   /* Neutrals from the source theme. `ink` = headings, `body` = paragraph text,
-     `wash` = the soft-pink section background. */
+     `wash` = the soft-pink section background. `body` is a deliberately darker
+     slate than the source (≈6.3:1 on white, up from ≈4.0:1) so paragraph and
+     header text stays comfortably readable for older patients. */
   --color-ink: #171C26;
-  --color-body: #6E7990;
+  --color-body: #464E61;
   --color-wash: #FDEFEF;
 
   --font-display: "Heebo Variable", system-ui, sans-serif;
@@ -41,7 +43,15 @@
 }
 
 html {
+  /* Larger base so every rem-based size (text + spacing) scales up a notch for
+     better readability on a 60+ audience. ~17.5px instead of the 16px default. */
+  font-size: 109.375%;
   scroll-behavior: smooth;
+}
+
+/* Honour an explicit RTL direction (Arabic) set on <html> by the i18n layer. */
+html[dir="rtl"] {
+  text-align: right;
 }
 
 body {

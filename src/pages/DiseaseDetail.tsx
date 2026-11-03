@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs"
 import { DiseaseIllustration } from "@/components/site/DiseaseIllustration"
 import { IcdBadge } from "@/components/site/IcdBadge"
 import NotFound from "@/pages/NotFound"
-import { useLang, useT, type Loc } from "@/lib/i18n"
+import { useT, type Loc } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 import { diseaseBySlug, areaPath, type Block } from "@/content/treatments"
@@ -50,10 +50,13 @@ function BlockView({ block }: { block: Block }) {
 
 export default function DiseaseDetail() {
   const { area: areaSlug, disease: diseaseSlug } = useParams()
-  const { lang } = useLang()
+  const t = useT()
   const ui = useUi()
   const found = diseaseBySlug(areaSlug, diseaseSlug)
-  useSeo({ title: found ? found.disease.title[lang] : undefined, description: found?.disease.summary[lang] })
+  useSeo({
+    title: found ? t(found.disease.title) : undefined,
+    description: found ? t(found.disease.summary) : undefined,
+  })
 
   if (!found) return <NotFound />
   const { area, disease } = found
@@ -100,8 +103,8 @@ export default function DiseaseDetail() {
             crumbs={[
               { label: ui.common.home, to: "/" },
               { label: ui.treatments.title, to: "/behandlungen" },
-              { label: area.title[lang], to: areaPath(area.slug) },
-              { label: disease.title[lang] },
+              { label: t(area.title), to: areaPath(area.slug) },
+              { label: t(disease.title) },
             ]}
           />
 
@@ -109,8 +112,8 @@ export default function DiseaseDetail() {
             <div>
               <IcdBadge code={disease.icd10} />
 
-              <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{disease.title[lang]}</h1>
-              <p className="mt-4 max-w-xl text-lg text-body">{disease.summary[lang]}</p>
+              <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{t(disease.title)}</h1>
+              <p className="mt-4 max-w-xl text-lg text-body">{t(disease.summary)}</p>
             </div>
             <figure className="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto">
               <DiseaseIllustration kind={disease.illustration} />
@@ -130,7 +133,7 @@ export default function DiseaseDetail() {
                   <figure className="relative mt-6 overflow-hidden rounded-2xl border border-neutral-100 shadow-sm">
                     <img
                       src={import.meta.env.BASE_URL + `diseases/${disease.slug}/definition.jpg`}
-                      alt={gi.title[lang]}
+                      alt={t(gi.title)}
                       loading="lazy"
                       className="w-full object-cover"
                     />
@@ -145,7 +148,7 @@ export default function DiseaseDetail() {
               </div>
             ) : (
               <div className="mt-4 space-y-4 text-lg text-body">
-                {(disease.definition?.[lang] ?? []).map((p, i) => (
+                {(disease.definition ? t(disease.definition) : []).map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
@@ -174,7 +177,7 @@ export default function DiseaseDetail() {
                         <figure className="relative mt-6 overflow-hidden rounded-2xl border border-neutral-100 shadow-sm">
                           <img
                             src={import.meta.env.BASE_URL + `diseases/${disease.slug}/naturopathic.jpg`}
-                            alt={gi.title[lang]}
+                            alt={t(gi.title)}
                             loading="lazy"
                             className="w-full object-cover"
                           />
@@ -196,7 +199,7 @@ export default function DiseaseDetail() {
                         {ui.disease.sections[key]}
                       </h3>
                       <ul className="mt-4 space-y-2.5 pl-1">
-                        {value[lang].map((item, j) => (
+                        {t(value).map((item, j) => (
                           <li key={j} className="flex gap-3 text-body">
                             <span className="mt-2 size-1.5 shrink-0 rounded-full bg-mint" />
                             <span>{item}</span>

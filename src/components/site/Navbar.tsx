@@ -25,12 +25,12 @@ export function Navbar() {
           <Link
             to="/"
             onClick={() => setOpen(false)}
-            className="font-display text-xl font-extrabold tracking-tight text-ink"
+            className="font-display text-2xl font-extrabold tracking-tight text-ink"
           >
             {praxis.brand}
           </Link>
 
-          <div className="hidden items-center gap-8 text-sm font-medium text-body md:flex">
+          <div className="hidden items-center gap-8 text-base font-semibold text-ink md:flex">
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -46,7 +46,7 @@ export function Navbar() {
             <LanguageSwitch />
             <Link
               to="/kontakt"
-              className={cn(buttonVariants(), "hidden rounded-full bg-brand text-white hover:bg-brand/90 md:inline-flex")}
+              className={cn(buttonVariants(), "hidden h-11 rounded-full bg-brand px-6 text-base font-semibold text-white hover:bg-brand/90 md:inline-flex")}
             >
               {ui.nav.book}
             </Link>
@@ -78,7 +78,7 @@ export function Navbar() {
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-2 py-3 text-base font-medium text-body hover:bg-brand-soft hover:text-brand"
+                  className="rounded-lg px-2 py-3 text-lg font-semibold text-ink hover:bg-brand-soft hover:text-brand"
                 >
                   {l.label}
                 </Link>

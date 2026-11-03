@@ -1,6 +1,7 @@
 import type { TopicEntry } from "@/content/types"
 import { TopicCard } from "@/components/site/TopicCard"
 import { Reveal } from "@/components/site/Reveal"
+import { useTx } from "@/lib/i18n"
 
 export function TopicGrid({
   id,
@@ -17,12 +18,13 @@ export function TopicGrid({
   basePath: string
   tinted?: boolean
 }) {
+  const tx = useTx()
   return (
     <section id={id} className={`scroll-mt-20 py-24 ${tinted ? "bg-orange-50/40" : ""}`}>
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <h2 className="font-display text-4xl font-semibold md:text-5xl">{title}</h2>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-600">{intro}</p>
+          <h2 className="font-display text-4xl font-semibold md:text-5xl">{tx(title)}</h2>
+          <p className="mt-4 max-w-2xl text-lg text-neutral-600">{tx(intro)}</p>
         </Reveal>
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((e, i) => (

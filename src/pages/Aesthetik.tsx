@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/Reveal"
 import { GradientBackdrop } from "@/components/site/GradientBackdrop"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useLang } from "@/lib/i18n"
+import { useT } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 import { aestheticTreatments } from "@/content/aesthetik"
@@ -17,7 +17,7 @@ const Sparkle = (
 )
 
 export default function Aesthetik() {
-  const { lang } = useLang()
+  const t = useT()
   const ui = useUi()
   useSeo({ title: ui.aesthetic.title, description: ui.aesthetic.intro })
   return (
@@ -42,17 +42,17 @@ export default function Aesthetik() {
       <section className="py-16">
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {aestheticTreatments.map((t, i) => (
-              <Reveal key={t.slug} delay={0.05 * i}>
+            {aestheticTreatments.map((item, i) => (
+              <Reveal key={item.slug} delay={0.05 * i}>
                 <Link
-                  to={`/aesthetik/${t.slug}`}
+                  to={`/aesthetik/${item.slug}`}
                   className="group flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl"
                 >
                   <span className="grid size-14 place-items-center rounded-2xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-white">
                     {Sparkle}
                   </span>
-                  <h2 className="mt-6 text-xl font-bold text-ink group-hover:text-brand">{t.title[lang]}</h2>
-                  <p className="mt-3 flex-1 text-body">{t.summary[lang]}</p>
+                  <h2 className="mt-6 text-xl font-bold text-ink group-hover:text-brand">{t(item.title)}</h2>
+                  <p className="mt-3 flex-1 text-body">{t(item.summary)}</p>
                   <p className="mt-5 text-sm font-semibold text-brand">
                     {ui.aesthetic.learnMore}
                     <span aria-hidden="true" className="ml-1">→</span>

@@ -4,12 +4,12 @@ import { Container } from "@/components/site/Container"
 import { AreaIcon } from "@/components/site/AreaIcon"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useLang } from "@/lib/i18n"
+import { useT } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { treatmentAreas, areaPath } from "@/content/treatments"
 
 export function TreatmentsTeaser() {
-  const { lang } = useLang()
+  const t = useT()
   const ui = useUi()
   return (
     <section id="behandlungen" className="relative scroll-mt-20 overflow-hidden bg-white py-24">
@@ -39,8 +39,8 @@ export function TreatmentsTeaser() {
                     <AreaIcon name={area.icon} />
                   </span>
                   <span>
-                    <span className="block font-semibold text-ink">{area.title[lang]}</span>
-                    <span className="block text-sm text-body">{area.excerpt[lang]}</span>
+                    <span className="block font-semibold text-ink">{t(area.title)}</span>
+                    <span className="block text-sm text-body">{t(area.excerpt)}</span>
                   </span>
                 </Link>
               </Reveal>

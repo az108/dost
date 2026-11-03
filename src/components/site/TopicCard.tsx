@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import type { TopicEntry } from "@/content/types"
+import { useTx } from "@/lib/i18n"
 
 const gradients = [
   "from-brand/30 to-mint/30",
@@ -16,6 +17,7 @@ export function TopicCard({
   basePath: string
   index: number
 }) {
+  const tx = useTx()
   return (
     <Link
       to={`${basePath}/${entry.slug}`}
@@ -25,7 +27,7 @@ export function TopicCard({
         {entry.image ? (
           <img
             src={entry.image}
-            alt={entry.imageAlt ?? entry.title}
+            alt={tx(entry.imageAlt ?? entry.title)}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
@@ -34,18 +36,18 @@ export function TopicCard({
             className={`flex h-full w-full items-end bg-gradient-to-br p-5 ${gradients[index % gradients.length]}`}
           >
             <span className="font-display text-5xl text-neutral-900/20">
-              {entry.title.charAt(0)}
+              {tx(entry.title).charAt(0)}
             </span>
           </div>
         )}
       </div>
       <div className="p-6">
-        <h3 className="font-display text-xl font-semibold">{entry.title}</h3>
+        <h3 className="font-display text-xl font-semibold">{tx(entry.title)}</h3>
         <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600">
-          {entry.excerpt}
+          {tx(entry.excerpt)}
         </p>
         <span className="mt-4 inline-block text-sm font-medium text-brand-ink">
-          Mehr erfahren →
+          {tx("Mehr erfahren")} →
         </span>
       </div>
     </Link>

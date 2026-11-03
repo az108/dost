@@ -1,5 +1,8 @@
 // src/features/chat/knowledge.ts
-import type { Lang, Loc } from "@/lib/i18n"
+import type { Loc } from "@/lib/i18n"
+
+/** The chat retrieval index is built in the two reviewed languages only. */
+type IndexLang = "de" | "en"
 import {
   allDiseases,
   diseasePath,
@@ -20,7 +23,7 @@ export interface KnowledgeDoc {
   textEn: string
 }
 
-function blockText(blocks: Block[] | undefined, lang: Lang): string {
+function blockText(blocks: Block[] | undefined, lang: IndexLang): string {
   if (!blocks) return ""
   const out: string[] = []
   for (const b of blocks) {
@@ -31,11 +34,11 @@ function blockText(blocks: Block[] | undefined, lang: Lang): string {
   return out.join(" ")
 }
 
-function listText(loc: Loc<string[]> | undefined, lang: Lang): string {
+function listText(loc: Loc<string[]> | undefined, lang: IndexLang): string {
   return loc ? loc[lang].join(" ") : ""
 }
 
-function diseaseText(d: Disease, lang: Lang): string {
+function diseaseText(d: Disease, lang: IndexLang): string {
   const parts = [d.title[lang], d.summary[lang]]
   if (d.rich) {
     parts.push(

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useLang } from "@/lib/i18n"
+import { useLang, useT, useOverlay, resolveLoc } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { allDiseases, diseasePath } from "@/content/treatments"
 import { cn } from "@/lib/utils"
@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils"
  */
 export function SearchBox() {
   const { lang } = useLang()
+  const overlay = useOverlay()
+  const t = useT()
   const ui = useUi()
   const navigate = useNavigate()
   const [q, setQ] = useState("")
@@ -23,11 +25,13 @@ export function SearchBox() {
     if (!term) return []
     return index
       .filter(({ disease }) => {
-        const hay = `${disease.title[lang]} ${disease.summary[lang]} ${disease.icd10}`.toLowerCase()
+        const title = resolveLoc(disease.title, lang, overlay)
+        const summary = resolveLoc(disease.summary, lang, overlay)
+        const hay = `${title} ${summary} ${disease.icd10}`.toLowerCase()
         return hay.includes(term)
       })
       .slice(0, 6)
-  }, [q, index, lang])
+  }, [q, index, lang, overlay])
 
   const go = (areaSlug: string, diseaseSlug: string) => {
     setOpen(false)
@@ -74,9 +78,9 @@ export function SearchBox() {
                     )}
                   >
                     <span>
-                      <span className="block font-medium text-ink">{disease.title[lang]}</span>
+                      <span className="block font-medium text-ink">{t(disease.title)}</span>
                       <span className="block text-xs text-neutral-500">
-                        {ui.search.resultsIn} {area.title[lang]}
+                        {ui.search.resultsIn} {t(area.title)}
                       </span>
                     </span>
                     <span className="shrink-0 rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-semibold text-neutral-500">

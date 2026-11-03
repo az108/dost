@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import NotFound from "@/pages/NotFound"
-import { useLang, useT } from "@/lib/i18n"
+import { useT } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 import { aestheticBySlug } from "@/content/aesthetik"
@@ -45,11 +45,10 @@ function BlockView({ block }: { block: Block }) {
 
 export default function AesthetikDetail() {
   const { slug } = useParams()
-  const { lang } = useLang()
   const ui = useUi()
   const t = useT()
   const treatment = aestheticBySlug(slug)
-  useSeo({ title: treatment ? treatment.title[lang] : undefined })
+  useSeo({ title: treatment ? t(treatment.title) : undefined })
 
   if (!treatment) return <NotFound />
 
@@ -68,12 +67,12 @@ export default function AesthetikDetail() {
             crumbs={[
               { label: ui.common.home, to: "/" },
               { label: ui.aesthetic.eyebrow, to: "/aesthetik" },
-              { label: treatment.title[lang] },
+              { label: t(treatment.title) },
             ]}
           />
           <div className="mt-8 max-w-3xl">
-            <h1 className="text-4xl font-extrabold md:text-5xl">{treatment.title[lang]}</h1>
-            <p className="mt-4 text-lg text-body">{treatment.summary[lang]}</p>
+            <h1 className="text-4xl font-extrabold md:text-5xl">{t(treatment.title)}</h1>
+            <p className="mt-4 text-lg text-body">{t(treatment.summary)}</p>
           </div>
         </Container>
       </section>

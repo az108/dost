@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "sitemap": "vite-node scripts/generate-sitemap.ts",
-    "export:content": "vite-node scripts/export-content.ts"
+    "export:content": "vite-node scripts/export-content.ts",
+    "translate": "vite-node scripts/translate.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

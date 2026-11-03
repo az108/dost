@@ -5,17 +5,20 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs"
 import { AreaIcon } from "@/components/site/AreaIcon"
 import { IcdBadge } from "@/components/site/IcdBadge"
 import NotFound from "@/pages/NotFound"
-import { useLang } from "@/lib/i18n"
+import { useT } from "@/lib/i18n"
 import { useUi } from "@/content/ui"
 import { useSeo } from "@/lib/useSeo"
 import { areaBySlug, diseasePath } from "@/content/treatments"
 
 export default function TreatmentArea() {
   const { area: areaSlug } = useParams()
-  const { lang } = useLang()
+  const t = useT()
   const ui = useUi()
   const area = areaBySlug(areaSlug)
-  useSeo({ title: area ? area.title[lang] : undefined, description: area?.excerpt[lang] })
+  useSeo({
+    title: area ? t(area.title) : undefined,
+    description: area ? t(area.excerpt) : undefined,
+  })
 
   if (!area) return <NotFound />
 
@@ -28,7 +31,7 @@ export default function TreatmentArea() {
             crumbs={[
               { label: ui.common.home, to: "/" },
               { label: ui.treatments.title, to: "/behandlungen" },
-              { label: area.title[lang] },
+              { label: t(area.title) },
             ]}
           />
           <div className="mt-8 flex items-start gap-5">
@@ -36,8 +39,8 @@ export default function TreatmentArea() {
               <AreaIcon name={area.icon} className="size-8" />
             </span>
             <div>
-              <h1 className="text-4xl font-extrabold md:text-5xl">{area.title[lang]}</h1>
-              <p className="mt-2 max-w-2xl text-lg text-body">{area.excerpt[lang]}</p>
+              <h1 className="text-4xl font-extrabold md:text-5xl">{t(area.title)}</h1>
+              <p className="mt-2 max-w-2xl text-lg text-body">{t(area.excerpt)}</p>
             </div>
           </div>
         </Container>
@@ -60,9 +63,9 @@ export default function TreatmentArea() {
                   >
                     <span>
                       <span className="block text-lg font-semibold text-ink group-hover:text-brand">
-                        {d.title[lang]}
+                        {t(d.title)}
                       </span>
-                      <span className="mt-1 block text-sm text-body">{d.summary[lang]}</span>
+                      <span className="mt-1 block text-sm text-body">{t(d.summary)}</span>
                     </span>
                     <IcdBadge code={d.icd10} />
 

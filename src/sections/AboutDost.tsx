@@ -45,13 +45,27 @@ export function AboutDost({ showMore = true }: { showMore?: boolean }) {
             <Reveal delay={0.1}>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {ui.about.points.map((p) => (
-                  <li key={p} className="flex items-center gap-3 text-ink">
-                    <span className="grid size-6 shrink-0 place-items-center rounded-md bg-brand-soft text-brand">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <li key={p} className="flex items-center gap-3 text-lg text-ink">
+                    <span className="grid size-7 shrink-0 place-items-center rounded-md bg-brand-soft text-brand">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M5 12l5 5 9-11" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                     <span className="font-medium">{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.14}>
+              <p className="mt-7 text-sm font-semibold uppercase tracking-[0.15em] text-brand">
+                {ui.about.additionalTitle}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-x-7 gap-y-2">
+                {ui.about.additional.map((a) => (
+                  <li key={a} className="flex items-center gap-2.5 text-lg text-ink">
+                    <span className="size-2 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                    <span className="font-medium">{a}</span>
                   </li>
                 ))}
               </ul>

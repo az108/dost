@@ -32,22 +32,39 @@ export function Hero() {
               <span className="text-brand">{ui.hero.headlineAccent}</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-body">{ui.hero.sub}</p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-5 sm:gap-8">
+              {/* Booking keeps the brand (primary) magenta, on the left, calm. */}
               <Link
                 to="/kontakt"
-                className={cn(buttonVariants({ size: "lg" }), "rounded-full bg-brand px-8 text-white hover:bg-brand/90")}
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "h-14 rounded-full bg-brand px-9 text-lg font-semibold text-white shadow-lg shadow-brand/30 hover:bg-brand/90",
+                )}
               >
                 {ui.hero.book}
               </Link>
-              <Link
-                to="/behandlungen"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "rounded-full border-brand/30 bg-white px-8 text-ink hover:bg-brand-soft",
+              {/* "Discover treatments" — the button we want pressed — in the
+                  mint/green secondary colour with a calm, slow breathing halo (also
+                  green) to draw the eye, set apart to the right by the larger gap. */}
+              <span className="relative inline-flex">
+                {!reduce && (
+                  <motion.span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-full bg-mint"
+                    animate={{ scale: [1, 1.12, 1], opacity: [0.4, 0, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 )}
-              >
-                {ui.hero.explore}
-              </Link>
+                <Link
+                  to="/behandlungen"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "relative h-14 rounded-full bg-mint px-9 text-lg font-semibold text-emerald-950 shadow-lg shadow-mint/30 hover:bg-mint/90",
+                  )}
+                >
+                  {ui.hero.explore}
+                </Link>
+              </span>
             </div>
           </motion.div>
 
@@ -86,9 +103,9 @@ export function Hero() {
             <button
               type="button"
               onClick={() => window.dispatchEvent(new CustomEvent("dost:open-chat"))}
-              className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white px-4 py-2 text-sm font-medium text-brand shadow-sm transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white px-5 py-2.5 text-base font-medium text-brand shadow-sm transition-colors hover:border-brand/40 hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
             >
-              <MessageCircle className="size-4" aria-hidden="true" />
+              <MessageCircle className="size-5" aria-hidden="true" />
               {ui.search.chatHint}
             </button>
           </div>
