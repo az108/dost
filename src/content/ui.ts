@@ -1,5 +1,7 @@
-import { useLang } from "@/lib/i18n"
+import { useMemo } from "react"
+import { useLang, useOverlay, isStaticLang, type Overlay } from "@/lib/i18n"
 import type { Lang } from "@/lib/i18n"
+import { enqueue } from "@/lib/translator"
 
 /**
  * Site-chrome strings (nav, section headings, buttons, labels) in every site
@@ -19,6 +21,7 @@ const de = {
     contact: "Kontakt",
     book: "Termin buchen",
     langLabel: "Sprache",
+    moreLanguages: "Weitere Sprachen",
   },
   hero: {
     eyebrow: "Privatpraxis · Ihr Arzt in Landshut",
@@ -207,6 +210,7 @@ const en: Ui = {
     contact: "Contact",
     book: "Book appointment",
     langLabel: "Language",
+    moreLanguages: "More languages",
   },
   hero: {
     eyebrow: "Private practice · Your doctor in Landshut",
@@ -393,6 +397,7 @@ const es: Ui = {
     contact: "Contacto",
     book: "Reservar cita",
     langLabel: "Idioma",
+    moreLanguages: "Más idiomas",
   },
   hero: {
     eyebrow: "Consulta privada · Su médico en Landshut",
@@ -579,6 +584,7 @@ const fr: Ui = {
     contact: "Contact",
     book: "Prendre rendez-vous",
     langLabel: "Langue",
+    moreLanguages: "Plus de langues",
   },
   hero: {
     eyebrow: "Cabinet privé · Votre médecin à Landshut",
@@ -765,6 +771,7 @@ const it: Ui = {
     contact: "Contatti",
     book: "Prenota un appuntamento",
     langLabel: "Lingua",
+    moreLanguages: "Altre lingue",
   },
   hero: {
     eyebrow: "Studio medico privato · Il vostro medico a Landshut",
@@ -951,6 +958,7 @@ const tr: Ui = {
     contact: "İletişim",
     book: "Randevu al",
     langLabel: "Dil",
+    moreLanguages: "Diğer diller",
   },
   hero: {
     eyebrow: "Özel muayenehane · Landshut'taki doktorunuz",
@@ -1137,6 +1145,7 @@ const ru: Ui = {
     contact: "Контакты",
     book: "Записаться на приём",
     langLabel: "Язык",
+    moreLanguages: "Другие языки",
   },
   hero: {
     eyebrow: "Частная практика · Ваш врач в Ландсхуте",
@@ -1323,6 +1332,7 @@ const ar: Ui = {
     contact: "اتصل بنا",
     book: "حجز موعد",
     langLabel: "اللغة",
+    moreLanguages: "لغات أخرى",
   },
   hero: {
     eyebrow: "عيادة خاصة · طبيبك في لاندسهوت",
@@ -1501,7 +1511,34 @@ const ar: Ui = {
 
 const strings: Record<Lang, Ui> = { de, en, es, fr, it, tr, ru, ar }
 
-export function useUi() {
+/**
+ * Deep-copy the German chrome, replacing each string leaf with its overlay
+ * translation where present and queuing the rest for on-device translation.
+ * Used for the long-tail languages, which have no hand-written `Ui` object.
+ */
+function localizeUi<T>(node: T, overlay: Overlay | null): T {
+  if (typeof node === "string") {
+    if (!node.trim()) return node
+    const hit = overlay?.[node]
+    if (hit != null) return hit as unknown as T
+    enqueue(node)
+    return node
+  }
+  if (Array.isArray(node)) return node.map((n) => localizeUi(n, overlay)) as unknown as T
+  if (node && typeof node === "object") {
+    const out: Record<string, unknown> = {}
+    for (const [k, v] of Object.entries(node)) out[k] = localizeUi(v, overlay)
+    return out as T
+  }
+  return node
+}
+
+export function useUi(): Ui {
   const { lang } = useLang()
-  return strings[lang]
+  const overlay = useOverlay()
+  return useMemo<Ui>(() => {
+    if (isStaticLang(lang)) return strings[lang]
+    // Long-tail language: translate the German chrome on the visitor's device.
+    return localizeUi(de, overlay)
+  }, [lang, overlay])
 }

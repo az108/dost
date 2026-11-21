@@ -1,10 +1,13 @@
 // chat-worker/src/index.ts
 import { parseChatRequest } from "./request"
 import { buildSystem } from "./prompt"
+import { handleTranslate, type KV } from "./translate"
 
 export interface Env {
   GEMINI_API_KEY: string
   RATE_LIMITER: { limit(opts: { key: string }): Promise<{ success: boolean }> }
+  /** Optional KV namespace that caches /translate results across visitors. */
+  TRANSLATIONS?: KV
 }
 
 const ALLOWED_ORIGINS = new Set([
@@ -72,6 +75,12 @@ export default {
     } catch {
       return json({ error: "bad_request" }, 400, base)
     }
+
+    // POST /translate — machine translation for the long-tail languages.
+    if (new URL(request.url).pathname === "/translate") {
+      return handleTranslate(raw, env, base)
+    }
+
     const parsed = parseChatRequest(raw)
     if (!parsed.ok) return json({ error: parsed.error }, 400, base)
 

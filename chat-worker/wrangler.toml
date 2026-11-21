@@ -10,3 +10,14 @@ namespace_id = "1001"
 simple = { limit = 15, period = 60 }
 
 # GEMINI_API_KEY is set as a secret via `wrangler secret put` — never here.
+
+# Optional translation cache for POST /translate. Without it the worker still
+# works (it just re-translates on a cache miss every time); with it, each string
+# is translated once per language via Gemini and then reused for every later
+# visitor, so cost is essentially one-off per language. To enable:
+#   1. wrangler kv namespace create TRANSLATIONS
+#   2. paste the printed id below and uncomment this block
+#   3. wrangler deploy
+# [[kv_namespaces]]
+# binding = "TRANSLATIONS"
+# id = "PASTE_NAMESPACE_ID_HERE"

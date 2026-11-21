@@ -1,6 +1,5 @@
 // src/features/chat/retrieval.ts
 import MiniSearch from "minisearch"
-import type { Lang } from "@/lib/i18n"
 import { buildKnowledgeDocs } from "./knowledge"
 import type { RetrievedDoc } from "./types"
 
@@ -27,7 +26,10 @@ function getIndex(): MiniSearch {
   return ms
 }
 
-export function retrieve(query: string, lang: Lang, k: number = DEFAULT_K): RetrievedDoc[] {
+// `lang` may be any active language code; for everything but German the chat
+// context uses the English source text (the long-tail languages have no
+// reviewed text of their own).
+export function retrieve(query: string, lang: string, k: number = DEFAULT_K): RetrievedDoc[] {
   const q = query.trim()
   if (!q) return []
   const results = getIndex()

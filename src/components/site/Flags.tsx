@@ -106,3 +106,27 @@ const flags: Record<Lang, ReactNode> = {
 export function Flag({ code, className }: { code: Lang; className?: string }) {
   return <Frame className={className}>{flags[code]}</Frame>
 }
+
+/** Convert an ISO-3166 alpha-2 code to its flag emoji, e.g. "IN" → 🇮🇳. */
+function emojiFlag(country: string): string {
+  const cc = country.toUpperCase()
+  if (!/^[A-Z]{2}$/.test(cc)) return "🏳️"
+  return String.fromCodePoint(...[...cc].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65))
+}
+
+/**
+ * Flag for a long-tail language, drawn as the country's flag emoji. Unlike the
+ * hand-drawn SVGs above this relies on the OS emoji font (Windows shows the two
+ * country letters instead), an acceptable trade-off for covering ~60 countries
+ * without bundling ~60 more SVGs.
+ */
+export function CountryFlag({ country, className }: { country: string; className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("inline-flex shrink-0 items-center justify-center text-lg leading-none", className)}
+    >
+      {emojiFlag(country)}
+    </span>
+  )
+}

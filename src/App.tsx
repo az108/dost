@@ -3,6 +3,7 @@ import { LanguageProvider } from "@/lib/i18n"
 import { basename } from "@/lib/basename"
 import { ScrollManager } from "@/components/site/ScrollManager"
 import { Navbar } from "@/components/site/Navbar"
+import { AutoTranslateNotice } from "@/components/site/AutoTranslateNotice"
 import { Footer } from "@/components/site/Footer"
 import Home from "@/pages/Home"
 import Treatments from "@/pages/Treatments"
@@ -24,6 +25,7 @@ export function AppRoutes() {
       <div className="relative flex min-h-screen flex-col">
         <ScrollManager />
         <Navbar />
+        <AutoTranslateNotice />
         <div className="flex-1">
       <Routes>
         <Route path="/" element={<Home />} />
