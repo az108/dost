@@ -68,8 +68,8 @@ export const infectionsDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "COVID-19", en: "COVID-19" },
     summary: {
-      de: "Durch das Coronavirus SARS-CoV-2 ausgelöste Infektion mit sehr unterschiedlichem Verlauf – von mild bis schwer.",
-      en: "An infection caused by the coronavirus SARS-CoV-2 with a highly variable course – from mild to severe.",
+      de: "Durch das Coronavirus SARS-CoV-2 ausgelöste Infektion mit sehr unterschiedlichem Verlauf, von mild bis schwer.",
+      en: "An infection caused by the coronavirus SARS-CoV-2 with a highly variable course, from mild to severe.",
     },
     rich: {
       definition: [
@@ -80,8 +80,8 @@ export const infectionsDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
         { t: "p", text: {
-          de: "Die Diagnose erfolgt über Antigen- oder PCR-Tests. Die meisten Menschen können sich zu Hause mit unterstützenden Maßnahmen – Schonung, Flüssigkeit, fiebersenkenden Mitteln – auskurieren. Antibiotika wirken nicht gegen das Virus. Für Menschen mit erhöhtem Risiko für einen schweren Verlauf können früh begonnene antivirale Medikamente infrage kommen.",
-          en: "Diagnosis is by antigen or PCR testing. Most people can recover at home with supportive measures – rest, fluids and fever-reducing medicines. Antibiotics have no effect against the virus. For people at increased risk of severe disease, antiviral medicines started early may be an option." } },
+          de: "Die Diagnose erfolgt über Antigen- oder PCR-Tests. Die meisten Menschen können sich zu Hause mit unterstützenden Maßnahmen wie Schonung, Flüssigkeit und fiebersenkenden Mitteln auskurieren. Antibiotika wirken nicht gegen das Virus. Für Menschen mit erhöhtem Risiko für einen schweren Verlauf können früh begonnene antivirale Medikamente infrage kommen.",
+          en: "Diagnosis is by antigen or PCR testing. Most people can recover at home with supportive measures such as rest, fluids and fever-reducing medicines. Antibiotics have no effect against the virus. For people at increased risk of severe disease, antiviral medicines started early may be an option." } },
         { t: "sub", text: { de: "Impfung & Meldepflicht", en: "Vaccination & notification" } },
         { t: "p", text: {
           de: "Die Impfung senkt das Risiko für schwere Verläufe und wird für Risikogruppen als Auffrischung empfohlen. Der Nachweis von SARS-CoV-2 ist in Deutschland meldepflichtig.",
@@ -93,8 +93,8 @@ export const infectionsDiseases: Disease[] = [
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Unterstützend wirken ausreichend Ruhe, Flüssigkeitszufuhr, gute Raumluft und – bei Halsbeschwerden – Salzwasserspülungen oder Inhalationen. Pflanzliche Mittel können das Wohlbefinden fördern, sind aber ärztlich zu prüfen und ersetzen weder Impfung noch antivirale Therapie. Bei Risikopatientinnen und -patienten ist frühzeitig ärztlicher Rat einzuholen.",
-          en: "Supportive measures include adequate rest, hydration, good room ventilation and – for a sore throat – saltwater gargles or inhalation. Herbal products may aid wellbeing but should be medically reviewed and replace neither vaccination nor antiviral therapy. People at risk should seek medical advice early." } },
+          de: "Unterstützend wirken ausreichend Ruhe, Flüssigkeitszufuhr, gute Raumluft und bei Halsbeschwerden Salzwasserspülungen oder Inhalationen. Pflanzliche Mittel können das Wohlbefinden fördern, sind aber ärztlich zu prüfen und ersetzen weder Impfung noch antivirale Therapie. Bei Risikopatientinnen und -patienten ist frühzeitig ärztlicher Rat einzuholen.",
+          en: "Supportive measures include adequate rest, hydration, good room ventilation and, for a sore throat, saltwater gargles or inhalation. Herbal products may aid wellbeing but should be medically reviewed and replace neither vaccination nor antiviral therapy. People at risk should seek medical advice early." } },
       ],
       tcm: [
         { t: "p", text: {
@@ -108,8 +108,8 @@ export const infectionsDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "In der akuten Phase ist Schonung wichtig. In der Erholung – insbesondere bei anhaltender Erschöpfung – hilft ein sehr behutsamer, schrittweiser Wiederaufbau der Belastung; bei belastungsabhängiger Verschlechterung (post-exertionelle Malaise) wird die Aktivität bewusst zurückgenommen. Atemübungen können die Lungenfunktion und Atemmuskulatur unterstützen.",
-          en: "In the acute phase, rest is important. During recovery – especially with persistent exhaustion – a very careful, gradual rebuilding of activity helps; if exertion worsens symptoms (post-exertional malaise), activity is deliberately scaled back. Breathing exercises can support lung function and the respiratory muscles." } },
+          de: "In der akuten Phase ist Schonung wichtig. In der Erholung, insbesondere bei anhaltender Erschöpfung, hilft ein sehr behutsamer, schrittweiser Wiederaufbau der Belastung; bei belastungsabhängiger Verschlechterung (post-exertionelle Malaise) wird die Aktivität bewusst zurückgenommen. Atemübungen können die Lungenfunktion und Atemmuskulatur unterstützen.",
+          en: "In the acute phase, rest is important. During recovery, especially with persistent exhaustion, a very careful, gradual rebuilding of activity helps; if exertion worsens symptoms (post-exertional malaise), activity is deliberately scaled back. Breathing exercises can support lung function and the respiratory muscles." } },
       ],
     },
   },
@@ -178,8 +178,8 @@ export const infectionsDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Streptokokken-Angina ist eine durch A-Streptokokken verursachte bakterielle Entzündung von Rachen und Mandeln. Typisch sind rasch einsetzende, starke Halsschmerzen, Schluckbeschwerden, Fieber, gerötete und belegte Mandeln sowie geschwollene Lymphknoten am Hals. Husten und Schnupfen fehlen meist – anders als beim viralen Infekt.",
-          en: "Streptococcal pharyngitis is a bacterial inflammation of the throat and tonsils caused by group A streptococci. Typical features are rapid-onset severe sore throat, difficulty swallowing, fever, reddened tonsils with coating and swollen neck lymph nodes. Cough and runny nose are usually absent – unlike a viral infection." } },
+          de: "Die Streptokokken-Angina ist eine durch A-Streptokokken verursachte bakterielle Entzündung von Rachen und Mandeln. Typisch sind rasch einsetzende, starke Halsschmerzen, Schluckbeschwerden, Fieber, gerötete und belegte Mandeln sowie geschwollene Lymphknoten am Hals. Husten und Schnupfen fehlen meist, anders als beim viralen Infekt.",
+          en: "Streptococcal pharyngitis is a bacterial inflammation of the throat and tonsils caused by group A streptococci. Typical features are rapid-onset severe sore throat, difficulty swallowing, fever, reddened tonsils with coating and swollen neck lymph nodes. Cough and runny nose are usually absent, unlike a viral infection." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
@@ -188,8 +188,8 @@ export const infectionsDiseases: Disease[] = [
           en: "Diagnosis rests on the symptom picture, supplemented if needed by a rapid test or culture. As this is a bacterial infection, an antibiotic (usually penicillin) is indicated; it shortens symptoms and prevents complications. Pain and fever medicines and adequate fluids provide additional relief." } },
         { t: "sub", text: { de: "Abgrenzung zum viralen Infekt", en: "Distinction from viral infection" } },
         { t: "p", text: {
-          de: "Die meisten Halsentzündungen sind viral bedingt und brauchen kein Antibiotikum. Ein verantwortungsvoller Umgang mit Antibiotika – Einsatz nur bei nachgewiesener oder klar wahrscheinlicher bakterieller Ursache – ist wichtig, um Resistenzen zu vermeiden.",
-          en: "Most sore throats are viral and need no antibiotic. Responsible antibiotic use – reserved for a proven or clearly likely bacterial cause – is important to avoid resistance." } },
+          de: "Die meisten Halsentzündungen sind viral bedingt und brauchen kein Antibiotikum. Ein verantwortungsvoller Umgang mit Antibiotika (Einsatz nur bei nachgewiesener oder klar wahrscheinlicher bakterieller Ursache) ist wichtig, um Resistenzen zu vermeiden.",
+          en: "Most sore throats are viral and need no antibiotic. Responsible antibiotic use, reserved for a proven or clearly likely bacterial cause, is important to avoid resistance." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -389,8 +389,8 @@ export const infectionsDiseases: Disease[] = [
           en: "There is no causal treatment; the focus is on replacing fluids and salts. Antibiotics are ineffective because this is a virus. The infection usually resolves on its own." } },
         { t: "sub", text: { de: "Hygiene & Meldung", en: "Hygiene & notification" } },
         { t: "p", text: {
-          de: "Wegen der hohen Ansteckungsfähigkeit sind konsequente Händehygiene, das Reinigen kontaminierter Flächen und – wenn möglich – das Fernbleiben von Gemeinschaftseinrichtungen bis etwa zwei Tage nach dem Abklingen wichtig. Der Nachweis ist in Deutschland meldepflichtig.",
-          en: "Because of its high infectiousness, consistent hand hygiene, cleaning of contaminated surfaces and – where possible – staying away from community facilities until about two days after symptoms settle are important. Detection is notifiable in Germany." } },
+          de: "Wegen der hohen Ansteckungsfähigkeit sind konsequente Händehygiene, das Reinigen kontaminierter Flächen und, wenn möglich, das Fernbleiben von Gemeinschaftseinrichtungen bis etwa zwei Tage nach dem Abklingen wichtig. Der Nachweis ist in Deutschland meldepflichtig.",
+          en: "Because of its high infectiousness, consistent hand hygiene, cleaning of contaminated surfaces and, where possible, staying away from community facilities until about two days after symptoms settle are important. Detection is notifiable in Germany." } },
         { t: "sub", text: { de: "Warnzeichen", en: "Warning signs" } },
         { t: "p", text: {
           de: "Zeichen einer Austrocknung (wenig Urin, trockener Mund, Benommenheit) oder anhaltendes Erbrechen ohne Flüssigkeitsaufnahme erfordern eine ärztliche Abklärung, besonders bei Kindern und älteren Menschen.",
@@ -445,8 +445,8 @@ export const infectionsDiseases: Disease[] = [
           en: "For infants, a well-tolerated oral vaccine is recommended that protects against severe disease. Detection of rotavirus is notifiable in Germany." } },
         { t: "sub", text: { de: "Warnzeichen", en: "Warning signs" } },
         { t: "p", text: {
-          de: "Zeichen einer Austrocknung – wenige nasse Windeln, trockene Schleimhäute, eingesunkene Augen, Teilnahmslosigkeit – erfordern eine rasche ärztliche Abklärung.",
-          en: "Signs of dehydration – few wet nappies, dry mucous membranes, sunken eyes, listlessness – require prompt medical assessment." } },
+          de: "Zeichen einer Austrocknung wie wenige nasse Windeln, trockene Schleimhäute, eingesunkene Augen oder Teilnahmslosigkeit erfordern eine rasche ärztliche Abklärung.",
+          en: "Signs of dehydration such as few wet nappies, dry mucous membranes, sunken eyes or listlessness require prompt medical assessment." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -641,8 +641,8 @@ export const infectionsDiseases: Disease[] = [
           en: "Mild outbreaks usually heal on their own; antiviral creams or tablets can shorten their duration when applied early. For frequent or severe episodes, preventive antiviral treatment may be worthwhile. Antibiotics have no effect against the virus." } },
         { t: "sub", text: { de: "Ansteckung & Warnzeichen", en: "Transmission & warning signs" } },
         { t: "p", text: {
-          de: "Während eines Ausbruchs ist das Virus ansteckend; Berührung der Bläschen, gemeinsames Geschirr und enger Kontakt – besonders mit Neugeborenen und abwehrgeschwächten Menschen – sollten vermieden werden. Eine Beteiligung des Auges oder ausgedehnte Ausbrüche erfordern eine ärztliche Abklärung.",
-          en: "During an outbreak the virus is contagious; touching the blisters, sharing utensils and close contact – especially with newborns and immunocompromised people – should be avoided. Eye involvement or extensive outbreaks require medical assessment." } },
+          de: "Während eines Ausbruchs ist das Virus ansteckend; Berührung der Bläschen, gemeinsames Geschirr und enger Kontakt (besonders mit Neugeborenen und abwehrgeschwächten Menschen) sollten vermieden werden. Eine Beteiligung des Auges oder ausgedehnte Ausbrüche erfordern eine ärztliche Abklärung.",
+          en: "During an outbreak the virus is contagious; touching the blisters, sharing utensils and close contact (especially with newborns and immunocompromised people) should be avoided. Eye involvement or extensive outbreaks require medical assessment." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -817,8 +817,8 @@ export const infectionsDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Röteln", en: "Rubella" },
     summary: {
-      de: "Meist milde Viruserkrankung mit Ausschlag – in der Schwangerschaft aber gefährlich fürs Kind.",
-      en: "A usually mild viral illness with rash – but dangerous for the unborn child in pregnancy.",
+      de: "Meist milde Viruserkrankung mit Ausschlag, in der Schwangerschaft aber gefährlich fürs Kind.",
+      en: "A usually mild viral illness with rash, but dangerous for the unborn child in pregnancy.",
     },
     rich: {
       definition: [
@@ -919,8 +919,8 @@ export const infectionsDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Lyme-Borreliose ist eine durch Zecken übertragene bakterielle Infektion. Ein frühes und häufiges Zeichen ist die Wanderröte – eine sich langsam ausbreitende, ringförmige Rötung um die Stichstelle. Unbehandelt kann die Erkrankung später Gelenke, Nervensystem oder Herz betreffen.",
-          en: "Lyme borreliosis is a tick-borne bacterial infection. An early and common sign is erythema migrans – a slowly spreading, ring-shaped redness around the bite site. Untreated, the illness can later affect the joints, nervous system or heart." } },
+          de: "Die Lyme-Borreliose ist eine durch Zecken übertragene bakterielle Infektion. Ein frühes und häufiges Zeichen ist die Wanderröte, eine sich langsam ausbreitende, ringförmige Rötung um die Stichstelle. Unbehandelt kann die Erkrankung später Gelenke, Nervensystem oder Herz betreffen.",
+          en: "Lyme borreliosis is a tick-borne bacterial infection. An early and common sign is erythema migrans, a slowly spreading, ring-shaped redness around the bite site. Untreated, the illness can later affect the joints, nervous system or heart." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
@@ -1105,8 +1105,8 @@ export const infectionsDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Chronische Virushepatitis C", en: "Chronic Viral Hepatitis C" },
     summary: {
-      de: "Chronische, über Blut übertragene Leberentzündung – heute mit Medikamenten meist heilbar.",
-      en: "A chronic, blood-borne liver inflammation – today usually curable with medicines.",
+      de: "Chronische, über Blut übertragene Leberentzündung, die heute mit Medikamenten meist heilbar ist.",
+      en: "A chronic, blood-borne liver inflammation that today is usually curable with medicines.",
     },
     rich: {
       definition: [
@@ -1153,8 +1153,8 @@ export const infectionsDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "HIV-Infektion", en: "HIV Infection" },
     summary: {
-      de: "Chronische Virusinfektion des Immunsystems – mit Therapie heute gut behandelbar und nicht übertragbar bei Virusfreiheit.",
-      en: "A chronic viral infection of the immune system – today well treatable and non-transmissible when the virus is suppressed.",
+      de: "Chronische Virusinfektion des Immunsystems. Mit Therapie ist sie heute gut behandelbar und bei Virusfreiheit nicht übertragbar.",
+      en: "A chronic viral infection of the immune system. Today it is well treatable and non-transmissible when the virus is suppressed.",
     },
     rich: {
       definition: [
@@ -1213,8 +1213,8 @@ export const infectionsDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Antivirale Medikamente lindern die Beschwerden, verkürzen Ausbrüche und können bei häufigen Rückfällen vorbeugend eingesetzt werden. Antibiotika wirken nicht. Eine ärztliche Beratung – insbesondere in der Schwangerschaft – ist wichtig, da eine Übertragung auf das Neugeborene vermieden werden muss.",
-          en: "Antiviral medicines ease symptoms, shorten outbreaks and can be used preventively for frequent recurrences. Antibiotics have no effect. Medical advice – especially in pregnancy – is important, as transmission to the newborn must be avoided." } },
+          de: "Antivirale Medikamente lindern die Beschwerden, verkürzen Ausbrüche und können bei häufigen Rückfällen vorbeugend eingesetzt werden. Antibiotika wirken nicht. Eine ärztliche Beratung, insbesondere in der Schwangerschaft, ist wichtig, da eine Übertragung auf das Neugeborene vermieden werden muss.",
+          en: "Antiviral medicines ease symptoms, shorten outbreaks and can be used preventively for frequent recurrences. Antibiotics have no effect. Medical advice, especially in pregnancy, is important, as transmission to the newborn must be avoided." } },
         { t: "sub", text: { de: "Prävention & Partner", en: "Prevention & partners" } },
         { t: "p", text: {
           de: "Kondome verringern das Übertragungsrisiko, schützen aber nicht vollständig. Während eines Ausbruchs ist die Ansteckungsgefahr am größten. Eine offene, wertfreie Information von Partnerinnen und Partnern und deren Beratung sind sinnvoll.",
@@ -1303,8 +1303,8 @@ export const infectionsDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Gonorrhö (Tripper) ist eine durch das Bakterium Neisseria gonorrhoeae verursachte, sexuell übertragbare Infektion. Typisch sind eitriger Ausfluss und Brennen beim Wasserlassen; sie kann aber auch – besonders bei Frauen – ohne deutliche Beschwerden verlaufen und Rachen oder Enddarm betreffen. Unbehandelt sind Komplikationen bis hin zur Unfruchtbarkeit möglich.",
-          en: "Gonorrhoea is a sexually transmitted infection caused by the bacterium Neisseria gonorrhoeae. Typical features are pus-like discharge and burning on urination; it can, however – especially in women – run without clear symptoms and affect the throat or rectum. Untreated, complications up to infertility are possible." } },
+          de: "Die Gonorrhö (Tripper) ist eine durch das Bakterium Neisseria gonorrhoeae verursachte, sexuell übertragbare Infektion. Typisch sind eitriger Ausfluss und Brennen beim Wasserlassen; sie kann aber auch, besonders bei Frauen, ohne deutliche Beschwerden verlaufen und Rachen oder Enddarm betreffen. Unbehandelt sind Komplikationen bis hin zur Unfruchtbarkeit möglich.",
+          en: "Gonorrhoea is a sexually transmitted infection caused by the bacterium Neisseria gonorrhoeae. Typical features are pus-like discharge and burning on urination. However, it can also run without clear symptoms, especially in women, and affect the throat or rectum. Untreated, complications up to infertility are possible." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },

@@ -15,7 +15,7 @@ export function Hero() {
   const ui = useUi()
 
   return (
-    <section className="relative z-20 bg-wash pt-28 pb-16">
+    <section className="relative z-20 overflow-x-clip bg-wash pt-28 pb-16">
       <GradientBackdrop />
       <Container>
         <div className="grid items-center gap-12 md:grid-cols-[1.15fr_1fr] lg:gap-20">
@@ -79,20 +79,36 @@ export function Hero() {
               alt="Empfangsbereich der Praxis"
               className="aspect-[4/5] w-full rotate-2 rounded-[2rem] object-cover shadow-2xl"
             />
-            <motion.div
-              className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl bg-white/95 px-5 py-3 shadow-xl backdrop-blur"
-              animate={reduce ? undefined : { y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Stars size={16} />
-              <span className="whitespace-nowrap text-sm font-bold text-ink">{ui.hero.ratingValue}</span>
-            </motion.div>
+            {/* Real 5-star patient reviews. From xl they float off the photo's
+                upper-left and lower-right corners, mostly in the free space
+                beside it. Narrower screens show only the second, centred
+                under the photo. The section's overflow-x-clip stops any
+                sideways scroll without clipping the search dropdown. */}
+            {ui.hero.reviews.map((r, i) => (
+              <motion.figure
+                key={r.author}
+                className={cn(
+                  "absolute w-56 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur",
+                  i === 0
+                    ? "hidden xl:-top-10 xl:-left-36 xl:block 2xl:-left-48"
+                    : "-bottom-12 left-1/2 -translate-x-1/2 xl:-right-16 xl:-bottom-24 xl:left-auto xl:translate-x-0 2xl:-right-40",
+                )}
+                animate={reduce ? undefined : { y: [0, -8, 0] }}
+                transition={{ duration: 5, delay: i * 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Stars size={14} />
+                <blockquote className="mt-2 text-sm leading-snug text-ink">“{r.quote}”</blockquote>
+                <figcaption className="mt-2 text-xs text-neutral-500">
+                  <span className="font-semibold text-ink">{r.author}</span> · {r.source}
+                </figcaption>
+              </motion.figure>
+            ))}
           </motion.div>
         </div>
 
         {/* Search band — the "Feeling unwell?" entry point, under the hero. */}
         <motion.div
-          className="mt-14 md:mt-20"
+          className="mt-20 xl:mt-28"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}

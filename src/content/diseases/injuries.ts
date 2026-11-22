@@ -24,8 +24,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei einer Sprunggelenksverstauchung werden die Bänder des Sprunggelenks überdehnt oder teilweise eingerissen – meist durch Umknicken nach außen. Typisch sind sofortiger Schmerz, Schwellung, Bluterguss und eine eingeschränkte Belastbarkeit. Die Verletzung ist häufig und heilt bei guter Behandlung meist folgenlos aus.",
-          en: "In an ankle sprain the ligaments of the ankle are overstretched or partially torn – usually from the foot rolling outward. Typical features are immediate pain, swelling, bruising and reduced ability to bear weight. The injury is common and, with good care, usually heals without lasting problems." } },
+          de: "Bei einer Sprunggelenksverstauchung werden die Bänder des Sprunggelenks überdehnt oder teilweise eingerissen, meist durch Umknicken nach außen. Typisch sind sofortiger Schmerz, Schwellung, Bluterguss und eine eingeschränkte Belastbarkeit. Die Verletzung ist häufig und heilt bei guter Behandlung meist folgenlos aus.",
+          en: "In an ankle sprain the ligaments of the ankle are overstretched or partially torn, usually from the foot rolling outward. Typical features are immediate pain, swelling, bruising and reduced ability to bear weight. The injury is common and, with good care, usually heals without lasting problems." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung & Abklärung", en: "First aid & assessment" } },
@@ -72,8 +72,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei einer Knieband-Verstauchung werden die Bänder des Kniegelenks (z. B. Innen-, Außen- oder Kreuzband) überdehnt oder teilweise eingerissen – oft durch Verdrehen, Sturz oder Sportunfall. Typisch sind Schmerz, Schwellung und mitunter ein Gefühl der Instabilität oder des Nachgebens.",
-          en: "In a knee ligament sprain the ligaments of the knee (e.g. medial, lateral or cruciate) are overstretched or partially torn – often from twisting, a fall or a sports injury. Typical features are pain, swelling and sometimes a feeling of instability or giving way." } },
+          de: "Bei einer Knieband-Verstauchung werden die Bänder des Kniegelenks (z. B. Innen-, Außen- oder Kreuzband) überdehnt oder teilweise eingerissen, oft durch Verdrehen, Sturz oder Sportunfall. Typisch sind Schmerz, Schwellung und mitunter ein Gefühl der Instabilität oder des Nachgebens.",
+          en: "In a knee ligament sprain the ligaments of the knee (e.g. medial, lateral or cruciate) are overstretched or partially torn, often from twisting, a fall or a sports injury. Typical features are pain, swelling and sometimes a feeling of instability or giving way." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung & Abklärung", en: "First aid & assessment" } },
@@ -120,8 +120,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Eine Muskelzerrung entsteht, wenn ein Muskel über seine Dehnbarkeit hinaus beansprucht wird – häufig bei Sport ohne Aufwärmen, abrupten Bewegungen oder Überlastung. Typisch sind ein plötzlich einschießender Schmerz, eine Verhärtung und eine eingeschränkte Bewegung. Bei stärkeren Faser- oder Muskelrissen kommt ein Bluterguss hinzu.",
-          en: "A muscle strain occurs when a muscle is loaded beyond its stretch capacity – often during sport without warming up, abrupt movements or overuse. Typical features are a sudden shooting pain, tightening and restricted movement. Larger fibre or muscle tears add bruising." } },
+          de: "Eine Muskelzerrung entsteht, wenn ein Muskel über seine Dehnbarkeit hinaus beansprucht wird, häufig bei Sport ohne Aufwärmen, abrupten Bewegungen oder Überlastung. Typisch sind ein plötzlich einschießender Schmerz, eine Verhärtung und eine eingeschränkte Bewegung. Bei stärkeren Faser- oder Muskelrissen kommt ein Bluterguss hinzu.",
+          en: "A muscle strain occurs when a muscle is loaded beyond its stretch capacity, often during sport without warming up, abrupt movements or overuse. Typical features are a sudden shooting pain, tightening and restricted movement. Larger fibre or muscle tears add bruising." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung & Abklärung", en: "First aid & assessment" } },
@@ -168,8 +168,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Beim Schleudertrauma wird die Halswirbelsäule durch eine plötzliche Beschleunigung und Abbremsung – typisch beim Auffahrunfall – ruckartig überdehnt. Beschwerden wie Nackenschmerz, Steifigkeit, Kopfschmerz und Verspannung treten oft erst Stunden später auf. Meist bleiben keine Strukturschäden zurück.",
-          en: "In whiplash the cervical spine is jerked and overstretched by a sudden acceleration and deceleration – typically in a rear-end collision. Symptoms such as neck pain, stiffness, headache and tension often appear only hours later. Usually no structural damage remains." } },
+          de: "Beim Schleudertrauma wird die Halswirbelsäule durch eine plötzliche Beschleunigung und Abbremsung (typisch beim Auffahrunfall) ruckartig überdehnt. Beschwerden wie Nackenschmerz, Steifigkeit, Kopfschmerz und Verspannung treten oft erst Stunden später auf. Meist bleiben keine Strukturschäden zurück.",
+          en: "In whiplash the cervical spine is jerked and overstretched by a sudden acceleration and deceleration, typically in a rear-end collision. Symptoms such as neck pain, stiffness, headache and tension often appear only hours later. Usually no structural damage remains." } },
       ],
       medical: [
         { t: "sub", text: { de: "Warnzeichen & Abklärung", en: "Warning signs & assessment" } },
@@ -311,8 +311,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Tier- und Menschenbisse erzeugen oft tiefe Stich- oder Quetschwunden und bringen viele Keime ins Gewebe. Dadurch besteht ein hohes Infektionsrisiko – besonders an Händen, Gelenken und im Gesicht. Auch kleine Bisswunden werden deshalb ärztlich beurteilt.",
-          en: "Animal and human bites often create deep puncture or crush wounds and drive many germs into the tissue. This gives a high risk of infection – especially on the hands, joints and face. Even small bite wounds are therefore assessed medically." } },
+          de: "Tier- und Menschenbisse erzeugen oft tiefe Stich- oder Quetschwunden und bringen viele Keime ins Gewebe. Dadurch besteht ein hohes Infektionsrisiko, besonders an Händen, Gelenken und im Gesicht. Auch kleine Bisswunden werden deshalb ärztlich beurteilt.",
+          en: "Animal and human bites often create deep puncture or crush wounds and drive many germs into the tissue. This gives a high risk of infection, especially on the hands, joints and face. Even small bite wounds are therefore assessed medically." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung", en: "First aid" } },
@@ -321,8 +321,8 @@ export const injuriesDiseases: Disease[] = [
           en: "The wound is rinsed thoroughly with water and loosely covered. Prompt medical review is then important: bite wounds are often not closed immediately, preventive antibiotics are frequently sensible, and tetanus protection is checked." } },
         { t: "sub", text: { de: "Besondere Risiken", en: "Special risks" } },
         { t: "p", text: {
-          de: "Bei Bissen durch unbekannte oder wild lebende Tiere, insbesondere im Ausland, ist an Tollwut zu denken – hier ist umgehend ärztlicher Rat einzuholen. Warnzeichen einer Infektion (zunehmende Rötung, Schwellung, Eiter, Fieber, rote Streifen) erfordern eine rasche Wiedervorstellung.",
-          en: "For bites from unknown or wild animals, particularly abroad, rabies must be considered – seek medical advice immediately. Warning signs of infection (increasing redness, swelling, pus, fever, red streaks) require prompt re-evaluation." } },
+          de: "Bei Bissen durch unbekannte oder wild lebende Tiere, insbesondere im Ausland, ist an Tollwut zu denken. Hier ist umgehend ärztlicher Rat einzuholen. Warnzeichen einer Infektion (zunehmende Rötung, Schwellung, Eiter, Fieber, rote Streifen) erfordern eine rasche Wiedervorstellung.",
+          en: "For bites from unknown or wild animals, particularly abroad, rabies must be considered, so seek medical advice immediately. Warning signs of infection (increasing redness, swelling, pus, fever, red streaks) require prompt re-evaluation." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -341,8 +341,8 @@ export const injuriesDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Nach abgeschlossener Wundheilung – vor allem bei Bissen an Hand oder über Gelenken – hilft die Physiotherapie, Beweglichkeit und Kraft wiederherzustellen und einer narbenbedingten Einsteifung vorzubeugen.",
-          en: "After wound healing is complete – especially for bites on the hand or over joints – physiotherapy helps to restore mobility and strength and to prevent scar-related stiffening." } },
+          de: "Nach abgeschlossener Wundheilung, vor allem bei Bissen an Hand oder über Gelenken, hilft die Physiotherapie, Beweglichkeit und Kraft wiederherzustellen und einer narbenbedingten Einsteifung vorzubeugen.",
+          en: "After wound healing is complete, especially for bites on the hand or over joints, physiotherapy helps to restore mobility and strength and to prevent scar-related stiffening." } },
       ],
     },
   },
@@ -369,8 +369,8 @@ export const injuriesDiseases: Disease[] = [
           en: "The wrist is immobilised, cooled and elevated; tight rings and bracelets are removed early. Important: a marked deformity, numbness or cold, pale fingers are warning signs of impaired circulation or nerve damage and require immediate medical help, and an emergency call (112) in an emergency. An X-ray confirms the diagnosis." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Nicht verschobene Brüche werden im Gips ruhiggestellt. Verschobene Brüche werden eingerichtet (reponiert) und im Gips oder – bei Instabilität – operativ mit Platte oder Drähten versorgt. Nach der Ruhigstellung folgt der gezielte Wiederaufbau.",
-          en: "Undisplaced fractures are immobilised in a cast. Displaced fractures are set (reduced) and treated in a cast or – if unstable – surgically with a plate or wires. Targeted rebuilding follows the period of immobilisation." } },
+          de: "Nicht verschobene Brüche werden im Gips ruhiggestellt. Verschobene Brüche werden eingerichtet (reponiert) und im Gips oder (bei Instabilität) operativ mit Platte oder Drähten versorgt. Nach der Ruhigstellung folgt der gezielte Wiederaufbau.",
+          en: "Undisplaced fractures are immobilised in a cast. Displaced fractures are set (reduced) and treated in a cast or, if unstable, surgically with a plate or wires. Targeted rebuilding follows the period of immobilisation." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -413,8 +413,8 @@ export const injuriesDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Behandlung & Warnzeichen", en: "Treatment & warning signs" } },
         { t: "p", text: {
-          de: "Im Mittelpunkt steht eine gute Schmerzlinderung, damit weiterhin tief geatmet und abgehustet werden kann – das beugt einer Lungenentzündung vor. Ein festes Einwickeln des Brustkorbs wird vermieden, da es die Atmung behindert.",
-          en: "The focus is good pain relief so that deep breathing and coughing can continue – this prevents pneumonia. Tight strapping of the chest is avoided, as it hampers breathing." } },
+          de: "Im Mittelpunkt steht eine gute Schmerzlinderung, damit weiterhin tief geatmet und abgehustet werden kann. Das beugt einer Lungenentzündung vor. Ein festes Einwickeln des Brustkorbs wird vermieden, da es die Atmung behindert.",
+          en: "The focus is good pain relief so that deep breathing and coughing can continue, which prevents pneumonia. Tight strapping of the chest is avoided, as it hampers breathing." } },
         { t: "p", text: {
           de: "Wichtig: Zunehmende Luftnot, ausgeprägte Atemnot, Bluthusten oder ein Kreislaufeinbruch können auf einen Lungen- oder Organschaden (z. B. Pneumothorax) hindeuten und erfordern sofort den Notruf 112.",
           en: "Important: increasing breathlessness, severe difficulty breathing, coughing up blood or circulatory collapse can indicate lung or organ damage (e.g. pneumothorax) and require an immediate emergency call (112)." } },
@@ -549,8 +549,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Fingerluxation springt ein Fingergelenk aus seiner normalen Stellung – häufig durch Ballsport, Sturz oder Verdrehen. Typisch sind eine sichtbare Fehlstellung, Schmerz, Schwellung und eine blockierte Bewegung.",
-          en: "In a finger dislocation a finger joint slips out of its normal position – often through ball sports, a fall or twisting. Typical features are a visible deformity, pain, swelling and blocked movement." } },
+          de: "Bei der Fingerluxation springt ein Fingergelenk aus seiner normalen Stellung, häufig durch Ballsport, Sturz oder Verdrehen. Typisch sind eine sichtbare Fehlstellung, Schmerz, Schwellung und eine blockierte Bewegung.",
+          en: "In a finger dislocation a finger joint slips out of its normal position, often through ball sports, a fall or twisting. Typical features are a visible deformity, pain, swelling and blocked movement." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung & Behandlung", en: "First aid & treatment" } },
@@ -596,8 +596,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Schultereckgelenksprengung werden die Bänder zwischen Schlüsselbein und Schulterdach (Akromioklavikulargelenk) überdehnt oder gerissen – typisch beim Sturz direkt auf die Schulter. Je nach Schweregrad zeigt sich eine schmerzhafte Schwellung oder ein tastbarer Hochstand des Schlüsselbeins (Klaviertastenphänomen).",
-          en: "In an acromioclavicular joint injury the ligaments between the collarbone and the shoulder roof (AC joint) are overstretched or torn – typically from a fall directly onto the shoulder. Depending on severity, there is painful swelling or a palpable step-up of the collarbone (piano-key sign)." } },
+          de: "Bei der Schultereckgelenksprengung werden die Bänder zwischen Schlüsselbein und Schulterdach (Akromioklavikulargelenk) überdehnt oder gerissen, typischerweise beim Sturz direkt auf die Schulter. Je nach Schweregrad zeigt sich eine schmerzhafte Schwellung oder ein tastbarer Hochstand des Schlüsselbeins (Klaviertastenphänomen).",
+          en: "In an acromioclavicular joint injury the ligaments between the collarbone and the shoulder roof (AC joint) are overstretched or torn, typically from a fall directly onto the shoulder. Depending on severity, there is painful swelling or a palpable step-up of the collarbone (piano-key sign)." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
@@ -736,14 +736,14 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Ein Fremdkörper im Auge – etwa Staub, Sandkorn, Splitter oder Insekt – haftet meist auf der Bindehaut oder Hornhaut. Typisch sind ein Fremdkörper- oder Kratzgefühl, starkes Tränen, Rötung, Lichtempfindlichkeit und Blinzelzwang.",
-          en: "A foreign body in the eye – such as dust, a grain of sand, a splinter or an insect – usually sits on the conjunctiva or cornea. Typical features are a gritty or scratching sensation, heavy watering, redness, light sensitivity and forced blinking." } },
+          de: "Ein Fremdkörper im Auge, etwa Staub, ein Sandkorn, ein Splitter oder ein Insekt, haftet meist auf der Bindehaut oder Hornhaut. Typisch sind ein Fremdkörper- oder Kratzgefühl, starkes Tränen, Rötung, Lichtempfindlichkeit und Blinzelzwang.",
+          en: "A foreign body in the eye, such as dust, a grain of sand, a splinter or an insect, usually sits on the conjunctiva or cornea. Typical features are a gritty or scratching sensation, heavy watering, redness, light sensitivity and forced blinking." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung", en: "First aid" } },
         { t: "p", text: {
-          de: "Nicht reiben. Lose Partikel lassen sich durch Blinzeln oder vorsichtiges Spülen mit sauberem Wasser oder Kochsalzlösung entfernen. Wichtig: Fest sitzende oder eingedrungene (penetrierende) Fremdkörper werden nicht selbst entfernt – das Auge wird locker abgedeckt und sofort augenärztlich oder notfallmäßig versorgt.",
-          en: "Do not rub. Loose particles can be removed by blinking or by carefully rinsing with clean water or saline. Important: firmly lodged or penetrating foreign bodies are not removed yourself – the eye is loosely covered and treated immediately by an eye specialist or emergency care." } },
+          de: "Nicht reiben. Lose Partikel lassen sich durch Blinzeln oder vorsichtiges Spülen mit sauberem Wasser oder Kochsalzlösung entfernen. Wichtig: Fest sitzende oder eingedrungene (penetrierende) Fremdkörper werden nicht selbst entfernt. Stattdessen wird das Auge locker abgedeckt und sofort augenärztlich oder notfallmäßig versorgt.",
+          en: "Do not rub. Loose particles can be removed by blinking or by carefully rinsing with clean water or saline. Important: firmly lodged or penetrating foreign bodies are not removed yourself; instead, the eye is loosely covered and treated immediately by an eye specialist or emergency care." } },
         { t: "p", text: {
           de: "Bei Verätzung durch Chemikalien wird das Auge sofort und ausgiebig mit Wasser gespült und umgehend ärztliche Hilfe gesucht. Eine penetrierende Augenverletzung ist ein Notfall (Notruf 112); der Giftnotruf kann bei Chemikalien zusätzlich beraten.",
           en: "For a chemical burn, the eye is rinsed immediately and copiously with water and medical help is sought at once. A penetrating eye injury is an emergency (call 112); the Poison Control Centre (Giftnotruf) can additionally advise for chemicals." } },
@@ -783,14 +783,14 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Ein Fremdkörper im Ohr betrifft den äußeren Gehörgang – etwa eine Perle, ein Wattestückchen, ein Samenkorn oder ein Insekt. Typisch sind Druck- oder Völlegefühl, vermindertes Hören, Geräusche oder – bei einem lebenden Insekt – ein unangenehmes Krabbeln oder Summen.",
-          en: "A foreign body in the ear affects the outer ear canal – for example a bead, a piece of cotton wool, a seed or an insect. Typical features are a feeling of pressure or fullness, reduced hearing, noise or – with a live insect – an unpleasant crawling or buzzing." } },
+          de: "Ein Fremdkörper im Ohr betrifft den äußeren Gehörgang, etwa eine Perle, ein Wattestückchen, ein Samenkorn oder ein Insekt. Typisch sind Druck- oder Völlegefühl, vermindertes Hören, Geräusche oder (bei einem lebenden Insekt) ein unangenehmes Krabbeln oder Summen.",
+          en: "A foreign body in the ear affects the outer ear canal, for example a bead, a piece of cotton wool, a seed or an insect. Typical features are a feeling of pressure or fullness, reduced hearing, noise or, with a live insect, an unpleasant crawling or buzzing." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung", en: "First aid" } },
         { t: "p", text: {
-          de: "Wichtig: Nicht mit Wattestäbchen, Pinzette oder spitzen Gegenständen im Ohr stochern – das schiebt den Fremdkörper tiefer und kann Gehörgang oder Trommelfell verletzen. Ein loser Gegenstand kann sich manchmal durch Neigen des Kopfes lösen.",
-          en: "Important: do not poke in the ear with cotton buds, tweezers or pointed objects – this pushes the foreign body deeper and can injure the ear canal or eardrum. A loose object can sometimes dislodge by tilting the head." } },
+          de: "Wichtig: Nicht mit Wattestäbchen, Pinzette oder spitzen Gegenständen im Ohr stochern. Das schiebt den Fremdkörper tiefer und kann Gehörgang oder Trommelfell verletzen. Ein loser Gegenstand kann sich manchmal durch Neigen des Kopfes lösen.",
+          en: "Important: do not poke in the ear with cotton buds, tweezers or pointed objects, as this pushes the foreign body deeper and can injure the ear canal or eardrum. A loose object can sometimes dislodge by tilting the head." } },
         { t: "p", text: {
           de: "Ein lebendes Insekt lässt sich beruhigen, indem lauwarmes Öl oder Wasser in den Gehörgang gegeben wird (nur bei intaktem Trommelfell). Die eigentliche Entfernung erfolgt fachgerecht, meist durch HNO. Schmerzen, Blutung oder Hörverlust erfordern eine rasche ärztliche Vorstellung.",
           en: "A live insect can be calmed by putting lukewarm oil or water into the ear canal (only with an intact eardrum). The actual removal is done professionally, usually by an ENT specialist. Pain, bleeding or hearing loss require prompt medical review." } },
@@ -812,8 +812,8 @@ export const injuriesDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Die Physiotherapie hat hier keine direkte Rolle. Allgemeine Maßnahmen für Wohlbefinden und – bei begleitendem Schwindel nach Ohrproblemen – ein Gleichgewichtstraining können in Einzelfällen sinnvoll sein.",
-          en: "Physiotherapy has no direct role here. General measures for wellbeing and – with accompanying dizziness after ear problems – balance training can be sensible in individual cases." } },
+          de: "Die Physiotherapie hat hier keine direkte Rolle. Allgemeine Maßnahmen für Wohlbefinden und, bei begleitendem Schwindel nach Ohrproblemen, ein Gleichgewichtstraining können in Einzelfällen sinnvoll sein.",
+          en: "Physiotherapy has no direct role here. General measures for wellbeing and, with accompanying dizziness after ear problems, balance training can be sensible in individual cases." } },
       ],
     },
   },
@@ -887,8 +887,8 @@ export const injuriesDiseases: Disease[] = [
           de: "Hilfreich sind Schatten, kühlende Umschläge, reichliches Trinken, feuchtigkeitsspendende Pflege (z. B. mit Aloe vera) und bei Bedarf schmerzlindernde Mittel. Weitere Sonne wird gemieden; Blasen werden nicht geöffnet.",
           en: "Shade, cooling compresses, drinking plenty, moisturising care (e.g. with aloe vera) and pain relief when needed help. Further sun is avoided; blisters are not opened." } },
         { t: "p", text: {
-          de: "Wichtig: Ausgedehnte Blasenbildung, Fieber, Schüttelfrost, Übelkeit oder Kreislaufbeschwerden – Zeichen einer Hitzeerkrankung – erfordern ärztliche Hilfe. Zur Vorbeugung dienen Sonnenschutzmittel, Kleidung und das Meiden der Mittagssonne.",
-          en: "Important: extensive blistering, fever, chills, nausea or circulatory symptoms – signs of heat illness – require medical help. Prevention relies on sunscreen, clothing and avoiding the midday sun." } },
+          de: "Wichtig: Ausgedehnte Blasenbildung, Fieber, Schüttelfrost, Übelkeit oder Kreislaufbeschwerden (Zeichen einer Hitzeerkrankung) erfordern ärztliche Hilfe. Zur Vorbeugung dienen Sonnenschutzmittel, Kleidung und das Meiden der Mittagssonne.",
+          en: "Important: extensive blistering, fever, chills, nausea or circulatory symptoms (signs of heat illness) require medical help. Prevention relies on sunscreen, clothing and avoiding the midday sun." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -931,8 +931,8 @@ export const injuriesDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Erstversorgung", en: "First aid" } },
         { t: "p", text: {
-          de: "Die betroffene Person kommt an einen warmen Ort; nasse und einengende Kleidung wird entfernt. Erfrorene Stellen werden vorsichtig in körperwarmem Wasser (etwa 37 bis 39 Grad) aufgewärmt. Wichtig: Nicht mit Schnee reiben, nicht mit direkter, starker Hitze auftauen und nicht wieder gefrieren lassen – auf erfrorenen Füßen sollte nicht gegangen werden, wenn ein erneutes Einfrieren droht.",
-          en: "The person is brought to a warm place; wet and constricting clothing is removed. Frostbitten areas are gently rewarmed in body-temperature water (about 37 to 39 degrees). Important: do not rub with snow, do not thaw with direct, strong heat and do not allow refreezing – frostbitten feet should not be walked on if refreezing is likely." } },
+          de: "Die betroffene Person kommt an einen warmen Ort; nasse und einengende Kleidung wird entfernt. Erfrorene Stellen werden vorsichtig in körperwarmem Wasser (etwa 37 bis 39 Grad) aufgewärmt. Wichtig: Nicht mit Schnee reiben, nicht mit direkter, starker Hitze auftauen und nicht wieder gefrieren lassen. Auf erfrorenen Füßen sollte nicht gegangen werden, wenn ein erneutes Einfrieren droht.",
+          en: "The person is brought to a warm place; wet and constricting clothing is removed. Frostbitten areas are gently rewarmed in body-temperature water (about 37 to 39 degrees). Important: do not rub with snow, do not thaw with direct, strong heat and do not allow refreezing. Frostbitten feet should not be walked on if refreezing is likely." } },
         { t: "p", text: {
           de: "Tiefe oder großflächige Erfrierungen, Blasen und anhaltende Taubheit werden ärztlich versorgt; bei schwerer Kälteschädigung mit Allgemeinsymptomen oder begleitender Unterkühlung ist der Notruf 112 zu wählen.",
           en: "Deep or large-area frostbite, blisters and persistent numbness are treated medically; for severe cold injury with general symptoms or accompanying hypothermia, call the emergency number (112)." } },
@@ -966,8 +966,8 @@ export const injuriesDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Insektenstiche und -bisse", en: "Insect Bites and Stings" },
     summary: {
-      de: "Meist harmlose lokale Reaktionen – aber Wachsamkeit bei allergischen Notfällen.",
-      en: "Usually harmless local reactions – but vigilance for allergic emergencies.",
+      de: "Meist harmlose lokale Reaktionen, aber Wachsamkeit bei allergischen Notfällen.",
+      en: "Usually harmless local reactions, but vigilance for allergic emergencies.",
     },
     rich: {
       definition: [
@@ -982,8 +982,8 @@ export const injuriesDiseases: Disease[] = [
           en: "A bee sting is scraped out carefully (not squeezed). Cooling eases swelling and itching; antihistamine or anti-itch products help when needed. Ticks are removed as quickly and completely as possible with tweezers or a tick card." } },
         { t: "sub", text: { de: "Warnzeichen", en: "Warning signs" } },
         { t: "p", text: {
-          de: "Wichtig: Schwellung von Lippen, Zunge oder Rachen, Atemnot, Hautausschlag am ganzen Körper, Schwindel oder Kreislaufschwäche können auf eine lebensbedrohliche allergische Reaktion (Anaphylaxie) hindeuten und erfordern sofort den Notruf 112 – ein vorhandener Adrenalin-Autoinjektor wird angewendet. Auch Stiche im Mund- oder Rachenraum sind gefährlich.",
-          en: "Important: swelling of the lips, tongue or throat, difficulty breathing, a whole-body rash, dizziness or circulatory weakness can indicate a life-threatening allergic reaction (anaphylaxis) and require an immediate emergency call (112) – an available adrenaline auto-injector is used. Stings in the mouth or throat are also dangerous." } },
+          de: "Wichtig: Schwellung von Lippen, Zunge oder Rachen, Atemnot, Hautausschlag am ganzen Körper, Schwindel oder Kreislaufschwäche können auf eine lebensbedrohliche allergische Reaktion (Anaphylaxie) hindeuten und erfordern sofort den Notruf 112. Ein vorhandener Adrenalin-Autoinjektor wird angewendet. Auch Stiche im Mund- oder Rachenraum sind gefährlich.",
+          en: "Important: swelling of the lips, tongue or throat, difficulty breathing, a whole-body rash, dizziness or circulatory weakness can indicate a life-threatening allergic reaction (anaphylaxis) and require an immediate emergency call (112). An available adrenaline auto-injector is used. Stings in the mouth or throat are also dangerous." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1014,8 +1014,8 @@ export const injuriesDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Hitzeerschöpfung", en: "Heat Exhaustion" },
     summary: {
-      de: "Schwäche, Schwindel und Übelkeit durch Hitze und Flüssigkeitsmangel – Vorstufe des Hitzschlags.",
-      en: "Weakness, dizziness and nausea from heat and fluid loss – a precursor to heat stroke.",
+      de: "Schwäche, Schwindel und Übelkeit durch Hitze und Flüssigkeitsmangel als Vorstufe des Hitzschlags.",
+      en: "Weakness, dizziness and nausea from heat and fluid loss, a precursor to heat stroke.",
     },
     rich: {
       definition: [
@@ -1029,8 +1029,8 @@ export const injuriesDiseases: Disease[] = [
           de: "Die betroffene Person kommt an einen kühlen, schattigen Ort und ruht, am besten mit leicht erhöhten Beinen. Überflüssige Kleidung wird gelockert, die Haut gekühlt, und in kleinen Schlucken werden Flüssigkeit und Elektrolyte zugeführt (sofern die Person wach ist und schlucken kann).",
           en: "The person is moved to a cool, shaded place and rests, ideally with the legs slightly raised. Excess clothing is loosened, the skin is cooled, and fluid and electrolytes are given in small sips (provided the person is awake and able to swallow)." } },
         { t: "p", text: {
-          de: "Wichtig: Bessern sich die Beschwerden nicht rasch oder kommen Verwirrtheit, hohes Fieber oder Bewusstseinsstörungen hinzu, droht ein Hitzschlag – dann sofort den Notruf 112 wählen.",
-          en: "Important: if symptoms do not improve quickly or confusion, high fever or impaired consciousness develops, heat stroke is imminent – then call the emergency number (112) at once." } },
+          de: "Wichtig: Bessern sich die Beschwerden nicht rasch oder kommen Verwirrtheit, hohes Fieber oder Bewusstseinsstörungen hinzu, droht ein Hitzschlag. Dann sofort den Notruf 112 wählen.",
+          en: "Important: if symptoms do not improve quickly or confusion, high fever or impaired consciousness develops, heat stroke is imminent. Then call the emergency number (112) at once." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1081,8 +1081,8 @@ export const injuriesDiseases: Disease[] = [
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Naturheilkundliche Verfahren haben im akuten Hitzschlag keinen Platz – es zählt ausschließlich die rasche Kühlung und der Notruf. Vorbeugend helfen ausreichendes Trinken, Hitzeschutz und das Meiden von Anstrengung in großer Hitze.",
-          en: "Naturopathic methods have no place in acute heat stroke – only rapid cooling and the emergency call count. For prevention, drinking enough, heat protection and avoiding exertion in great heat help." } },
+          de: "Naturheilkundliche Verfahren haben im akuten Hitzschlag keinen Platz. Es zählt ausschließlich die rasche Kühlung und der Notruf. Vorbeugend helfen ausreichendes Trinken, Hitzeschutz und das Meiden von Anstrengung in großer Hitze.",
+          en: "Naturopathic methods have no place in acute heat stroke; only rapid cooling and the emergency call count. For prevention, drinking enough, heat protection and avoiding exertion in great heat help." } },
       ],
       tcm: [
         { t: "p", text: {
@@ -1161,8 +1161,8 @@ export const injuriesDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Dehydratation verliert der Körper mehr Flüssigkeit, als er aufnimmt – etwa durch Hitze, starkes Schwitzen, Fieber, Erbrechen oder Durchfall. Typisch sind Durst, trockener Mund, dunkler und wenig Urin, Müdigkeit, Kopfschmerz und Schwindel. Besonders gefährdet sind Kinder und ältere Menschen.",
-          en: "In dehydration the body loses more fluid than it takes in – for example through heat, heavy sweating, fever, vomiting or diarrhoea. Typical features are thirst, a dry mouth, dark and scant urine, fatigue, headache and dizziness. Children and older people are especially at risk." } },
+          de: "Bei der Dehydratation verliert der Körper mehr Flüssigkeit, als er aufnimmt, etwa durch Hitze, starkes Schwitzen, Fieber, Erbrechen oder Durchfall. Typisch sind Durst, trockener Mund, dunkler und wenig Urin, Müdigkeit, Kopfschmerz und Schwindel. Besonders gefährdet sind Kinder und ältere Menschen.",
+          en: "In dehydration the body loses more fluid than it takes in, for example through heat, heavy sweating, fever, vomiting or diarrhoea. Typical features are thirst, a dry mouth, dark and scant urine, fatigue, headache and dizziness. Children and older people are especially at risk." } },
       ],
       medical: [
         { t: "sub", text: { de: "Erstversorgung", en: "First aid" } },
@@ -1170,8 +1170,8 @@ export const injuriesDiseases: Disease[] = [
           de: "Leichte Austrocknung wird durch schluckweises Trinken ausgeglichen, am besten mit einer Elektrolytlösung (orale Rehydratationslösung), um auch Salze zu ersetzen. Bei Hitze helfen Ruhe im Kühlen und leichte Kost.",
           en: "Mild dehydration is corrected by drinking in sips, ideally with an electrolyte solution (oral rehydration solution) to replace salts as well. In the heat, rest in a cool place and light food help." } },
         { t: "p", text: {
-          de: "Wichtig: Zeichen einer schweren Austrocknung – anhaltendes Erbrechen, fehlende Urinausscheidung, Verwirrtheit, sehr schneller Puls, eingesunkene Augen oder Teilnahmslosigkeit (besonders bei Kindern und älteren Menschen) – erfordern rasche ärztliche Hilfe, ggf. eine Infusion.",
-          en: "Important: signs of severe dehydration – persistent vomiting, absent urine output, confusion, a very fast pulse, sunken eyes or apathy (especially in children and older people) – require prompt medical help, possibly an intravenous infusion." } },
+          de: "Wichtig: Zeichen einer schweren Austrocknung wie anhaltendes Erbrechen, fehlende Urinausscheidung, Verwirrtheit, sehr schneller Puls, eingesunkene Augen oder Teilnahmslosigkeit (besonders bei Kindern und älteren Menschen) erfordern rasche ärztliche Hilfe, ggf. eine Infusion.",
+          en: "Important: signs of severe dehydration such as persistent vomiting, absent urine output, confusion, a very fast pulse, sunken eyes or apathy (especially in children and older people) require prompt medical help, possibly an intravenous infusion." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1218,8 +1218,8 @@ export const injuriesDiseases: Disease[] = [
           en: "The priority is replacing fluid and salts (oral rehydration solution, drinking in sips), plus rest and light food as tolerated. Important: do not induce vomiting artificially." } },
         { t: "sub", text: { de: "Warnzeichen", en: "Warning signs" } },
         { t: "p", text: {
-          de: "Wichtig: Hohes Fieber, blutiger Durchfall, anhaltendes Erbrechen, Zeichen schwerer Austrocknung, neurologische Symptome (z. B. Doppeltsehen, Sprech- oder Schluckstörung – Verdacht auf Botulismus) oder ein Verdacht auf Pilzvergiftung erfordern rasche ärztliche Hilfe. Bei bekannter oder vermuteter Giftaufnahme berät der Giftnotruf rund um die Uhr; im Notfall gilt der Notruf 112.",
-          en: "Important: high fever, bloody diarrhoea, persistent vomiting, signs of severe dehydration, neurological symptoms (e.g. double vision, difficulty speaking or swallowing – suspected botulism) or suspected mushroom poisoning require prompt medical help. For known or suspected ingestion of a poison, the Poison Control Centre (Giftnotruf) advises around the clock; in an emergency the emergency number (112) applies." } },
+          de: "Wichtig: Hohes Fieber, blutiger Durchfall, anhaltendes Erbrechen, Zeichen schwerer Austrocknung, neurologische Symptome (z. B. Doppeltsehen, Sprech- oder Schluckstörung als Verdacht auf Botulismus) oder ein Verdacht auf Pilzvergiftung erfordern rasche ärztliche Hilfe. Bei bekannter oder vermuteter Giftaufnahme berät der Giftnotruf rund um die Uhr; im Notfall gilt der Notruf 112.",
+          en: "Important: high fever, bloody diarrhoea, persistent vomiting, signs of severe dehydration, neurological symptoms (e.g. double vision, difficulty speaking or swallowing, suggesting botulism) or suspected mushroom poisoning require prompt medical help. For known or suspected ingestion of a poison, the Poison Control Centre (Giftnotruf) advises around the clock; in an emergency the emergency number (112) applies." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1297,28 +1297,28 @@ export const injuriesDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Kohlenmonoxidvergiftung", en: "Carbon Monoxide Poisoning" },
     summary: {
-      de: "Vergiftung durch das geruchlose Gas Kohlenmonoxid – ein lebensbedrohlicher Notfall.",
-      en: "Poisoning by the odourless gas carbon monoxide – a life-threatening emergency.",
+      de: "Vergiftung durch das geruchlose Gas Kohlenmonoxid. Sie ist ein lebensbedrohlicher Notfall.",
+      en: "Poisoning by the odourless gas carbon monoxide, a life-threatening emergency.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Kohlenmonoxid (CO) ist ein farb- und geruchloses Gas, das bei unvollständiger Verbrennung entsteht – etwa an defekten Heizungen, Öfen, Grills oder Motoren. Es bindet an den roten Blutfarbstoff und verhindert den Sauerstofftransport. Typisch sind Kopfschmerz, Schwindel, Übelkeit, Verwirrtheit und Schläfrigkeit; die Gefahr wird oft zu spät bemerkt.",
-          en: "Carbon monoxide (CO) is a colourless, odourless gas produced by incomplete combustion – for example from faulty heaters, stoves, grills or engines. It binds to the red blood pigment and prevents oxygen transport. Typical features are headache, dizziness, nausea, confusion and drowsiness; the danger is often noticed too late." } },
+          de: "Kohlenmonoxid (CO) ist ein farb- und geruchloses Gas, das bei unvollständiger Verbrennung entsteht, etwa an defekten Heizungen, Öfen, Grills oder Motoren. Es bindet an den roten Blutfarbstoff und verhindert den Sauerstofftransport. Typisch sind Kopfschmerz, Schwindel, Übelkeit, Verwirrtheit und Schläfrigkeit; die Gefahr wird oft zu spät bemerkt.",
+          en: "Carbon monoxide (CO) is a colourless, odourless gas produced by incomplete combustion, for example from faulty heaters, stoves, grills or engines. It binds to the red blood pigment and prevents oxygen transport. Typical features are headache, dizziness, nausea, confusion and drowsiness; the danger is often noticed too late." } },
       ],
       medical: [
         { t: "sub", text: { de: "Notfallmaßnahmen", en: "Emergency measures" } },
         { t: "p", text: {
-          de: "Wichtig: Sofort an die frische Luft gehen oder die betroffene Person ins Freie bringen und umgehend den Notruf 112 wählen. Eigenschutz beachten – belastete Räume nicht ohne Gefahr betreten. Die Behandlung erfolgt mit Sauerstoff, in schweren Fällen in einer Überdruckkammer.",
-          en: "Important: get into fresh air immediately or bring the person outside, and call the emergency number (112) at once. Mind your own safety – do not enter contaminated rooms if it is dangerous. Treatment is with oxygen, and in severe cases in a pressure chamber." } },
+          de: "Wichtig: Sofort an die frische Luft gehen oder die betroffene Person ins Freie bringen und umgehend den Notruf 112 wählen. Eigenschutz beachten: Belastete Räume nicht ohne Gefahr betreten. Die Behandlung erfolgt mit Sauerstoff, in schweren Fällen in einer Überdruckkammer.",
+          en: "Important: get into fresh air immediately or bring the person outside, and call the emergency number (112) at once. Mind your own safety: do not enter contaminated rooms if it is dangerous. Treatment is with oxygen, and in severe cases in a pressure chamber." } },
         { t: "p", text: {
           de: "Bei Bewusstlosigkeit wird die Atmung überwacht und die Person in die stabile Seitenlage gebracht; bei Atemstillstand wird mit der Wiederbelebung begonnen. Zur Beratung steht zusätzlich der Giftnotruf zur Verfügung. Vorbeugend helfen gewartete Geräte und CO-Melder.",
           en: "If the person is unconscious, breathing is monitored and they are placed in the recovery position; if breathing stops, resuscitation is started. The Poison Control Centre (Giftnotruf) is additionally available for advice. Maintained appliances and CO detectors help with prevention." } },
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Naturheilkundliche Verfahren haben in der akuten Vergiftung keinen Platz – es zählen ausschließlich frische Luft, Sauerstoff und der Notruf. Vorbeugung durch sichere Geräte und Melder ist entscheidend.",
-          en: "Naturopathic methods have no place in acute poisoning – only fresh air, oxygen and the emergency call count. Prevention through safe appliances and detectors is decisive." } },
+          de: "Naturheilkundliche Verfahren haben in der akuten Vergiftung keinen Platz. Es zählen ausschließlich frische Luft, Sauerstoff und der Notruf. Vorbeugung durch sichere Geräte und Melder ist entscheidend.",
+          en: "Naturopathic methods have no place in acute poisoning; only fresh air, oxygen and the emergency call count. Prevention through safe appliances and detectors is decisive." } },
       ],
       tcm: [
         { t: "p", text: {

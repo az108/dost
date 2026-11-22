@@ -48,7 +48,7 @@ export const psychiatricDiseases: Disease[] = [
         { t: "sub", text: { de: "Medikamente", en: "Medication" } },
         { t: "p", text: {
           de: "Bei Bedarf werden Antidepressiva, insbesondere SSRI oder SNRI, eingesetzt; Auswahl und Überwachung erfolgen individuell durch Fachpersonal. Benzodiazepine sind wegen des Abhängigkeitsrisikos nur kurzfristig und sehr zurückhaltend zu verwenden.",
-          en: "When needed, antidepressants – particularly SSRIs or SNRIs – are used; selection and monitoring are individualised by professionals. Benzodiazepines, because of the risk of dependence, should be used only short-term and very sparingly." } },
+          en: "When needed, antidepressants (particularly SSRIs or SNRIs) are used; selection and monitoring are individualised by professionals. Benzodiazepines, because of the risk of dependence, should be used only short-term and very sparingly." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Lebensstil & Phytotherapie", en: "Lifestyle & phytotherapy" } },
@@ -126,7 +126,7 @@ export const psychiatricDiseases: Disease[] = [
         { t: "sub", text: { de: "Medikamente", en: "Medication" } },
         { t: "p", text: {
           de: "Bei Bedarf werden Antidepressiva, insbesondere SSRI, verordnet. Die Auswahl erfolgt individuell und wird durch qualifiziertes Fachpersonal überwacht.",
-          en: "When appropriate, antidepressants – particularly SSRIs – are prescribed. The choice is individualised and monitored by qualified professionals." } },
+          en: "When appropriate, antidepressants, particularly SSRIs, are prescribed. The choice is individualised and monitored by qualified professionals." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Lebensstil & Selbsthilfe", en: "Lifestyle & self-management" } },
@@ -161,8 +161,8 @@ export const psychiatricDiseases: Disease[] = [
           en: "Regular activity such as walking, cycling, swimming, yoga or resistance training can support mood, sleep and stress regulation. Breathing exercises, progressive muscle relaxation and stretching can ease tension; breathing exercises, however, are introduced carefully, as over-breathing can reproduce panic sensations." } },
         { t: "img", src: "diseases/panic-disorder/physio.jpg", alt: { de: "Bewegung & Entspannung", en: "Exercise & relaxation" }, ai: true },
         { t: "p", text: {
-          de: "Wichtig: Neue oder unerklärte starke Brustschmerzen, Ohnmacht, deutliche Atemnot oder andere besorgniserregende körperliche Symptome erfordern eine ärztliche Abklärung und dürfen nicht automatisch der Panik zugeschrieben werden. Suizidgedanken, Selbstverletzung oder eine schwere Verschlechterung erfordern eine dringende professionelle Abklärung – im Notfall die 112 wählen.",
-          en: "Important: new or unexplained severe chest pain, fainting, significant breathlessness or other concerning physical symptoms require medical assessment and must not be automatically attributed to panic. Suicidal thoughts, self-harm or severe deterioration require urgent professional assessment – in an emergency, call 112." } },
+          de: "Wichtig: Neue oder unerklärte starke Brustschmerzen, Ohnmacht, deutliche Atemnot oder andere besorgniserregende körperliche Symptome erfordern eine ärztliche Abklärung und dürfen nicht automatisch der Panik zugeschrieben werden. Suizidgedanken, Selbstverletzung oder eine schwere Verschlechterung erfordern eine dringende professionelle Abklärung. Im Notfall die 112 wählen.",
+          en: "Important: new or unexplained severe chest pain, fainting, significant breathlessness or other concerning physical symptoms require medical assessment and must not be automatically attributed to panic. Suicidal thoughts, self-harm or severe deterioration require urgent professional assessment. In an emergency, call 112." } },
       ],
     },
   },
@@ -203,8 +203,8 @@ export const psychiatricDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Phytotherapie", en: "Phytotherapy" } },
         { t: "ul", items: {
-          de: ["Standardisiertes Johanniskraut (Hypericum perforatum) zeigt bei manchen Erwachsenen mit leichter bis mittelgradiger Depression einen Nutzen.","Johanniskraut kann erhebliche Wechselwirkungen verursachen – u. a. mit bestimmten Antidepressiva, Blutverdünnern, Immunsuppressiva, Antiepileptika und hormonellen Verhütungsmitteln.","Die Kombination mit serotonergen Antidepressiva kann gefährlich sein und darf nur unter ärztlicher Aufsicht erfolgen."],
-          en: ["Standardised St. John's wort (Hypericum perforatum) shows benefit for some adults with mild-to-moderate depression.","St. John's wort can cause significant interactions – with certain antidepressants, blood thinners, immunosuppressants, antiepileptics and hormonal contraceptives, among others.","Combining it with serotonergic antidepressants can be dangerous and should only be done under medical supervision."] } },
+          de: ["Standardisiertes Johanniskraut (Hypericum perforatum) zeigt bei manchen Erwachsenen mit leichter bis mittelgradiger Depression einen Nutzen.","Johanniskraut kann erhebliche Wechselwirkungen verursachen, u. a. mit bestimmten Antidepressiva, Blutverdünnern, Immunsuppressiva, Antiepileptika und hormonellen Verhütungsmitteln.","Die Kombination mit serotonergen Antidepressiva kann gefährlich sein und darf nur unter ärztlicher Aufsicht erfolgen."],
+          en: ["Standardised St. John's wort (Hypericum perforatum) shows benefit for some adults with mild-to-moderate depression.","St. John's wort can cause significant interactions with certain antidepressants, blood thinners, immunosuppressants, antiepileptics and hormonal contraceptives, among others.","Combining it with serotonergic antidepressants can be dangerous and should only be done under medical supervision."] } },
         { t: "img", src: "diseases/mild-depressive-episode/naturopathic.jpg", alt: { de: "Naturheilkundliche Begleitung", en: "Naturopathic support" }, ai: true },
         { t: "sub", text: { de: "Körperliche & Lebensstil-Maßnahmen", en: "Physical & lifestyle measures" } },
         { t: "p", text: {
@@ -270,18 +270,18 @@ export const psychiatricDiseases: Disease[] = [
           en: "Assessment covers the severity and duration of symptoms, functional impairment, previous episodes, physical health, medications, substance use, psychosocial circumstances and possible bipolar disorder. Evaluating suicidal thoughts and safety is particularly important." } },
         { t: "sub", text: { de: "Psychotherapie", en: "Psychological treatment" } },
         { t: "p", text: {
-          de: "Evidenzbasierte Psychotherapie ist eine wichtige Option – etwa kognitive Verhaltenstherapie (KVT), Verhaltensaktivierung, interpersonelle Psychotherapie (IPT) oder andere strukturierte Verfahren, individuell nach Schwere, Wunsch und Begleiterkrankungen.",
-          en: "Evidence-based psychotherapy is an important option – such as cognitive behavioural therapy (CBT), behavioural activation, interpersonal psychotherapy (IPT) or other structured approaches, individualised by severity, preference and comorbidities." } },
+          de: "Evidenzbasierte Psychotherapie ist eine wichtige Option, etwa kognitive Verhaltenstherapie (KVT), Verhaltensaktivierung, interpersonelle Psychotherapie (IPT) oder andere strukturierte Verfahren, individuell nach Schwere, Wunsch und Begleiterkrankungen.",
+          en: "Evidence-based psychotherapy is an important option, such as cognitive behavioural therapy (CBT), behavioural activation, interpersonal psychotherapy (IPT) or other structured approaches, individualised by severity, preference and comorbidities." } },
         { t: "sub", text: { de: "Antidepressiva & Kombination", en: "Antidepressants & combination" } },
         { t: "p", text: {
-          de: "Antidepressiva – häufig SSRI – können erwogen werden, besonders wenn die Beschwerden den Alltag deutlich beeinträchtigen oder eine Psychotherapie allein nicht ausreicht. Sie brauchen Zeit bis zur vollen Wirkung, werden regelmäßig überprüft und sollten nicht abrupt abgesetzt werden. Bei anhaltenden Beschwerden kann die Kombination aus Psychotherapie und Medikament sinnvoll sein.",
-          en: "Antidepressants – often SSRIs – may be considered, especially when symptoms clearly impair daily life or psychotherapy alone is insufficient. They take time to reach full effect, are reviewed regularly and should not be stopped abruptly. For persistent symptoms, combining psychotherapy with medication can be appropriate." } },
+          de: "Antidepressiva, häufig SSRI, können erwogen werden, besonders wenn die Beschwerden den Alltag deutlich beeinträchtigen oder eine Psychotherapie allein nicht ausreicht. Sie brauchen Zeit bis zur vollen Wirkung, werden regelmäßig überprüft und sollten nicht abrupt abgesetzt werden. Bei anhaltenden Beschwerden kann die Kombination aus Psychotherapie und Medikament sinnvoll sein.",
+          en: "Antidepressants, often SSRIs, may be considered, especially when symptoms clearly impair daily life or psychotherapy alone is insufficient. They take time to reach full effect, are reviewed regularly and should not be stopped abruptly. For persistent symptoms, combining psychotherapy with medication can be appropriate." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Phytotherapie", en: "Phytotherapy" } },
         { t: "ul", items: {
-          de: ["Standardisiertes Johanniskraut (Hypericum perforatum) zeigt bei manchen Erwachsenen mit leichter bis mittelgradiger Depression einen Nutzen.","Es kann klinisch bedeutsame Wechselwirkungen verursachen – u. a. mit Antidepressiva, Blutverdünnern, Immunsuppressiva, Antiepileptika und hormonellen Verhütungsmitteln.","Die Kombination mit serotonergen Antidepressiva kann gefährlich sein und darf nur unter ärztlicher Aufsicht erfolgen."],
-          en: ["Standardised St. John's wort (Hypericum perforatum) shows benefit for some adults with mild-to-moderate depression.","It can cause clinically significant interactions – with antidepressants, blood thinners, immunosuppressants, antiepileptics and hormonal contraceptives, among others.","Combining it with serotonergic antidepressants can be dangerous and should only be done under medical supervision."] } },
+          de: ["Standardisiertes Johanniskraut (Hypericum perforatum) zeigt bei manchen Erwachsenen mit leichter bis mittelgradiger Depression einen Nutzen.","Es kann klinisch bedeutsame Wechselwirkungen verursachen, u. a. mit Antidepressiva, Blutverdünnern, Immunsuppressiva, Antiepileptika und hormonellen Verhütungsmitteln.","Die Kombination mit serotonergen Antidepressiva kann gefährlich sein und darf nur unter ärztlicher Aufsicht erfolgen."],
+          en: ["Standardised St. John's wort (Hypericum perforatum) shows benefit for some adults with mild-to-moderate depression.","It can cause clinically significant interactions with antidepressants, blood thinners, immunosuppressants, antiepileptics and hormonal contraceptives, among others.","Combining it with serotonergic antidepressants can be dangerous and should only be done under medical supervision."] } },
         { t: "sub", text: { de: "Körperliche & Lebensstil-Maßnahmen", en: "Physical & lifestyle measures" } },
         { t: "p", text: {
           de: "Regelmäßige Bewegung, geregelte Schlaf- und Wachzeiten, Tageslicht, ausgewogene Ernährung, soziale Kontakte und strukturierte Tagesaktivitäten können die Erholung unterstützen. Entspannungs-, Achtsamkeits- und Atemübungen sowie Stressbewältigung sind hilfreiche ergänzende Maßnahmen.",
@@ -307,14 +307,14 @@ export const psychiatricDiseases: Disease[] = [
           en: "Ayurveda interprets depressive symptoms in relation to constitution, mental wellbeing, daily routine, sleep, digestion and traditionally described dosha imbalances. These concepts belong to the Ayurvedic model." } },
         { t: "sub", text: { de: "Lebensstil & Kräuter", en: "Lifestyle & herbs" } },
         { t: "p", text: {
-          de: "Ein geregelter Tagesablauf, regelmäßiger Schlaf, Bewegung, Tageslicht, ausgewogene Mahlzeiten und soziale Kontakte können das Wohlbefinden unterstützen; Yoga, Atemübungen und Meditation wirken ergänzend. Ayurvedische Präparate sind – besonders bei gleichzeitiger Einnahme von Antidepressiva – ärztlich zu besprechen.",
+          de: "Ein geregelter Tagesablauf, regelmäßiger Schlaf, Bewegung, Tageslicht, ausgewogene Mahlzeiten und soziale Kontakte können das Wohlbefinden unterstützen; Yoga, Atemübungen und Meditation wirken ergänzend. Ayurvedische Präparate sind ärztlich zu besprechen, besonders bei gleichzeitiger Einnahme von Antidepressiva.",
           en: "A regular routine, consistent sleep, activity, daylight, balanced meals and social contact can support wellbeing; yoga, breathing exercises and meditation add support. Ayurvedic preparations should be discussed with a professional, especially alongside antidepressants." } },
       ],
       physio: [
         { t: "sub", text: { de: "Bewegung & Entspannung", en: "Exercise & relaxation" } },
         { t: "p", text: {
-          de: "Regelmäßige Bewegung kann Teil eines umfassenden Behandlungsplans sein. Bei geringer Motivation, Müdigkeit oder Energielosigkeit ist ein schrittweiser, gut erreichbarer Plan hilfreich – zunächst kurze Aktivitätsphasen, die nach Verträglichkeit gesteigert werden. Atemübungen, progressive Muskelentspannung und Dehnung können Anspannung, Stress und Schlafprobleme lindern.",
-          en: "Regular activity can be part of a comprehensive treatment plan. With low motivation, fatigue or low energy, a gradual, achievable plan helps – short periods of activity first, increased as tolerated. Breathing exercises, progressive muscle relaxation and stretching can ease tension, stress and sleep problems." } },
+          de: "Regelmäßige Bewegung kann Teil eines umfassenden Behandlungsplans sein. Bei geringer Motivation, Müdigkeit oder Energielosigkeit ist ein schrittweiser, gut erreichbarer Plan hilfreich: zunächst kurze Aktivitätsphasen, die nach Verträglichkeit gesteigert werden. Atemübungen, progressive Muskelentspannung und Dehnung können Anspannung, Stress und Schlafprobleme lindern.",
+          en: "Regular activity can be part of a comprehensive treatment plan. With low motivation, fatigue or low energy, a gradual, achievable plan helps: short periods of activity first, increased as tolerated. Breathing exercises, progressive muscle relaxation and stretching can ease tension, stress and sleep problems." } },
         { t: "img", src: "diseases/moderate-depressive-episode/physio.jpg", alt: { de: "Bewegung & Entspannung", en: "Exercise & relaxation" }, ai: true },
         { t: "p", text: {
           de: "Wichtig: Suizidgedanken, Selbstverletzung, eine schwere Verschlechterung, psychotische Symptome oder die Unfähigkeit, für sich selbst zu sorgen, erfordern eine dringende professionelle Abklärung. In einem akuten Notfall in Deutschland die 112 wählen.",
@@ -409,8 +409,8 @@ export const psychiatricDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Eine nicht näher bezeichnete depressive Episode liegt vor, wenn die typischen Symptome einer Depression – anhaltend gedrückte Stimmung, Interesse- und Freudverlust sowie verminderte Energie mit weiteren Beschwerden – bestehen, der genaue Schweregrad jedoch noch nicht festgelegt ist. Eine klinische Beurteilung dient dazu, den Schweregrad einzuordnen und die Behandlung entsprechend auszurichten.",
-          en: "An unspecified depressive episode is present when the typical symptoms of depression – persistently low mood, loss of interest and pleasure and reduced energy with further complaints – are present but the precise severity has not yet been established. A clinical assessment serves to grade the severity and align treatment accordingly." } },
+          de: "Eine nicht näher bezeichnete depressive Episode liegt vor, wenn die typischen Symptome einer Depression (anhaltend gedrückte Stimmung, Interesse- und Freudverlust sowie verminderte Energie mit weiteren Beschwerden) bestehen, der genaue Schweregrad jedoch noch nicht festgelegt ist. Eine klinische Beurteilung dient dazu, den Schweregrad einzuordnen und die Behandlung entsprechend auszurichten.",
+          en: "An unspecified depressive episode is present when the typical symptoms of depression (persistently low mood, loss of interest and pleasure and reduced energy with further complaints) are present but the precise severity has not yet been established. A clinical assessment serves to grade the severity and align treatment accordingly." } },
         { t: "img", src: "diseases/depressive-episode-unspecified/definition.jpg", alt: { de: "Depressive Episode", en: "Depressive episode" } },
       ],
       medical: [
@@ -595,8 +595,8 @@ export const psychiatricDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Dysthymie ist eine chronische depressive Störung mit anhaltend niedergedrückter Stimmung, begleitet von Symptomen wie verminderter Energie, Müdigkeit, geringem Selbstwertgefühl, Schlafstörungen, Konzentrationsschwäche, Pessimismus und reduzierter Lebensfreude. Die Beschwerden sind meist weniger schwer als bei einer typischen depressiven Episode, bestehen jedoch über einen langen Zeitraum – klassisch mindestens zwei Jahre bei Erwachsenen.",
-          en: "Dysthymia is a chronic depressive disorder with persistently low mood, accompanied by symptoms such as reduced energy, fatigue, low self-esteem, sleep disturbance, poor concentration, pessimism and reduced enjoyment of life. Symptoms are usually less severe than in a typical depressive episode but persist for a long time – classically at least two years in adults." } },
+          de: "Die Dysthymie ist eine chronische depressive Störung mit anhaltend niedergedrückter Stimmung, begleitet von Symptomen wie verminderter Energie, Müdigkeit, geringem Selbstwertgefühl, Schlafstörungen, Konzentrationsschwäche, Pessimismus und reduzierter Lebensfreude. Die Beschwerden sind meist weniger schwer als bei einer typischen depressiven Episode, bestehen jedoch über einen langen Zeitraum, klassisch mindestens zwei Jahre bei Erwachsenen.",
+          en: "Dysthymia is a chronic depressive disorder with persistently low mood, accompanied by symptoms such as reduced energy, fatigue, low self-esteem, sleep disturbance, poor concentration, pessimism and reduced enjoyment of life. Symptoms are usually less severe than in a typical depressive episode but persist for a long time, classically at least two years in adults." } },
         { t: "img", src: "diseases/dysthymia/definition.jpg", alt: { de: "Dysthymie", en: "Dysthymia" } },
       ],
       medical: [
@@ -606,8 +606,8 @@ export const psychiatricDiseases: Disease[] = [
           en: "Assessment covers the duration and severity of symptoms, functional impairment, previous episodes, physical and psychiatric comorbidities, medications, psychosocial circumstances and suicide risk. Other conditions that can contribute to persistent depressive symptoms are also considered." } },
         { t: "sub", text: { de: "Psychotherapie & Medikamente", en: "Psychotherapy & medication" } },
         { t: "p", text: {
-          de: "Eine strukturierte Psychotherapie – etwa kognitive Verhaltenstherapie (KVT), interpersonelle Ansätze, Verhaltensaktivierung oder speziell auf chronische Depression zugeschnittene Verfahren – ist ein wichtiger Bestandteil. Antidepressiva sind eine etablierte Option und werden individuell ausgewählt; Psychotherapie und Medikament können kombiniert werden, besonders bei anhaltenden oder stark beeinträchtigenden Beschwerden.",
-          en: "Structured psychotherapy – such as cognitive behavioural therapy (CBT), interpersonal approaches, behavioural activation or approaches tailored to chronic depression – is an important part. Antidepressants are an established option and are individualised; psychotherapy and medication can be combined, especially for persistent or substantially impairing symptoms." } },
+          de: "Eine strukturierte Psychotherapie, etwa kognitive Verhaltenstherapie (KVT), interpersonelle Ansätze, Verhaltensaktivierung oder speziell auf chronische Depression zugeschnittene Verfahren, ist ein wichtiger Bestandteil. Antidepressiva sind eine etablierte Option und werden individuell ausgewählt; Psychotherapie und Medikament können kombiniert werden, besonders bei anhaltenden oder stark beeinträchtigenden Beschwerden.",
+          en: "Structured psychotherapy, such as cognitive behavioural therapy (CBT), interpersonal approaches, behavioural activation or approaches tailored to chronic depression, is an important part. Antidepressants are an established option and are individualised; psychotherapy and medication can be combined, especially for persistent or substantially impairing symptoms." } },
         { t: "sub", text: { de: "Langfristige Betreuung", en: "Long-term management" } },
         { t: "p", text: {
           de: "Da die Dysthymie chronisch verläuft, ist eine regelmäßige Verlaufskontrolle wichtig. Überwacht werden Symptome, Alltagsfunktion, Therapietreue, Nebenwirkungen, das mögliche Auftreten einer schweren depressiven Episode und das Suizidrisiko.",
@@ -645,8 +645,8 @@ export const psychiatricDiseases: Disease[] = [
       physio: [
         { t: "sub", text: { de: "Bewegung & Entspannung", en: "Exercise & relaxation" } },
         { t: "p", text: {
-          de: "Regelmäßige Bewegung kann Teil eines umfassenden Managementplans bei anhaltender Depression sein und Stimmung, Schlaf, Energie und soziale Teilhabe fördern. Bei geringer Energie hilft ein schrittweiser, gut erreichbarer Plan – zunächst kurze Aktivitätsphasen, die nach Verträglichkeit gesteigert werden. Atemübungen, progressive Muskelentspannung und Dehnung können Anspannung, Stress und Schlafprobleme lindern.",
-          en: "Regular activity can be part of a comprehensive management plan for persistent depression and can support mood, sleep, energy and social participation. With low energy, a gradual, achievable plan helps – short periods of activity first, increased as tolerated. Breathing exercises, progressive muscle relaxation and stretching can ease tension, stress and sleep problems." } },
+          de: "Regelmäßige Bewegung kann Teil eines umfassenden Managementplans bei anhaltender Depression sein und Stimmung, Schlaf, Energie und soziale Teilhabe fördern. Bei geringer Energie hilft ein schrittweiser, gut erreichbarer Plan: zunächst kurze Aktivitätsphasen, die nach Verträglichkeit gesteigert werden. Atemübungen, progressive Muskelentspannung und Dehnung können Anspannung, Stress und Schlafprobleme lindern.",
+          en: "Regular activity can be part of a comprehensive management plan for persistent depression and can support mood, sleep, energy and social participation. With low energy, a gradual, achievable plan helps: short periods of activity first, increased as tolerated. Breathing exercises, progressive muscle relaxation and stretching can ease tension, stress and sleep problems." } },
         { t: "img", src: "diseases/dysthymia/physio.jpg", alt: { de: "Bewegung & Entspannung", en: "Exercise & relaxation" }, ai: true },
         { t: "p", text: {
           de: "Wichtig: Suizidgedanken, Selbstverletzung, eine schwere Verschlechterung, psychotische Symptome oder das Gefühl, sich nicht mehr sicher zu fühlen, erfordern eine dringende professionelle Abklärung. In einem akuten Notfall in Deutschland die 112 wählen.",

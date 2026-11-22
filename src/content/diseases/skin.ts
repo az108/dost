@@ -31,8 +31,8 @@ export const skinDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose & Auslöser", en: "Diagnosis & triggers" } },
         { t: "p", text: {
-          de: "Die Diagnose wird klinisch anhand des typischen Erscheinungsbilds und Verlaufs gestellt. Wichtig ist das Erkennen individueller Auslöser wie Hautirritantien, Schwitzen, trockene Luft, bestimmte Textilien, Stress oder – seltener – Nahrungsmittel. Eine Allergietestung erfolgt gezielt bei entsprechendem Verdacht.",
-          en: "Diagnosis is clinical, based on the typical appearance and course. It is important to identify individual triggers such as skin irritants, sweating, dry air, certain textiles, stress or – less often – foods. Allergy testing is done selectively when there is a specific suspicion." } },
+          de: "Die Diagnose wird klinisch anhand des typischen Erscheinungsbilds und Verlaufs gestellt. Wichtig ist das Erkennen individueller Auslöser wie Hautirritantien, Schwitzen, trockene Luft, bestimmte Textilien, Stress oder seltener auch Nahrungsmittel. Eine Allergietestung erfolgt gezielt bei entsprechendem Verdacht.",
+          en: "Diagnosis is clinical, based on the typical appearance and course. It is important to identify individual triggers such as skin irritants, sweating, dry air, certain textiles, stress or, less often, foods. Allergy testing is done selectively when there is a specific suspicion." } },
         { t: "sub", text: { de: "Basispflege & Stufentherapie", en: "Basic care & step therapy" } },
         { t: "p", text: {
           de: "Grundlage ist die tägliche rückfettende Basispflege. Im Schub werden entzündungshemmende Cremes eingesetzt, meist Kortikosteroide oder Calcineurin-Hemmer. Bei mittelschweren bis schweren Verläufen kommen UV-Therapie oder moderne systemische Medikamente (z. B. Biologika oder JAK-Hemmer) infrage.",
@@ -46,8 +46,8 @@ export const skinDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der TCM werden juckende, gerötete Ekzeme traditionell Mustern wie Hitze und Feuchtigkeit oder – bei trockener Haut – einem Blut-Mangel zugeordnet. Akupunktur, Ernährungsberatung und individuell abgestimmte Kräuter können begleitend eingesetzt werden, ersetzen aber die Hautbarrierepflege und entzündungshemmende Therapie nicht.",
-          en: "In TCM, itchy, reddened eczema is traditionally assigned to patterns such as heat and dampness or – with dry skin – a blood deficiency. Acupuncture, dietary advice and individually tailored herbs may be used as complementary care but do not replace skin-barrier care and anti-inflammatory therapy." } },
+          de: "In der TCM werden juckende, gerötete Ekzeme traditionell Mustern wie Hitze und Feuchtigkeit oder, bei trockener Haut, einem Blut-Mangel zugeordnet. Akupunktur, Ernährungsberatung und individuell abgestimmte Kräuter können begleitend eingesetzt werden, ersetzen aber die Hautbarrierepflege und entzündungshemmende Therapie nicht.",
+          en: "In TCM, itchy, reddened eczema is traditionally assigned to patterns such as heat and dampness or, with dry skin, a blood deficiency. Acupuncture, dietary advice and individually tailored herbs may be used as complementary care but do not replace skin-barrier care and anti-inflammatory therapy." } },
       ],
       ayurvedic: [
         { t: "p", text: {
@@ -123,8 +123,8 @@ export const skinDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Das seborrhoische Ekzem ist eine häufige, chronisch verlaufende Hautentzündung in talgdrüsenreichen Regionen – vor allem Kopfhaut, Augenbrauen, Nasenflügel, Ohren und vordere Brust. Typisch sind gelblich-fettige Schuppen auf gerötetem Grund, oft mit leichtem Juckreiz. Eine Rolle spielen hauteigene Hefepilze (Malassezia) und die Talgproduktion.",
-          en: "Seborrhoeic dermatitis is a common, chronic skin inflammation in sebum-rich regions – especially the scalp, eyebrows, sides of the nose, ears and central chest. Typical are yellowish, greasy scales on a reddened base, often with mild itching. Skin-resident yeasts (Malassezia) and sebum production play a role." } },
+          de: "Das seborrhoische Ekzem ist eine häufige, chronisch verlaufende Hautentzündung in talgdrüsenreichen Regionen, vor allem an Kopfhaut, Augenbrauen, Nasenflügeln, Ohren und vorderer Brust. Typisch sind gelblich-fettige Schuppen auf gerötetem Grund, oft mit leichtem Juckreiz. Eine Rolle spielen hauteigene Hefepilze (Malassezia) und die Talgproduktion.",
+          en: "Seborrhoeic dermatitis is a common, chronic skin inflammation in sebum-rich regions, especially the scalp, eyebrows, sides of the nose, ears and central chest. Typical are yellowish, greasy scales on a reddened base, often with mild itching. Skin-resident yeasts (Malassezia) and sebum production play a role." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -319,8 +319,8 @@ export const skinDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Akne vulgaris ist eine häufige Erkrankung der Talgdrüsenfollikel, vor allem in der Pubertät. Durch vermehrte Talgproduktion, Verhornungsstörung und das Bakterium Cutibacterium acnes entstehen Mitesser (Komedonen), entzündete Papeln, Pusteln und – bei schweren Formen – Knoten und Narben. Betroffen sind meist Gesicht, Brust und Rücken.",
-          en: "Acne vulgaris is a common disorder of the sebaceous follicles, especially during puberty. Increased sebum production, abnormal keratinisation and the bacterium Cutibacterium acnes lead to blackheads (comedones), inflamed papules, pustules and – in severe forms – nodules and scars. The face, chest and back are usually affected." } },
+          de: "Die Akne vulgaris ist eine häufige Erkrankung der Talgdrüsenfollikel, vor allem in der Pubertät. Durch vermehrte Talgproduktion, Verhornungsstörung und das Bakterium Cutibacterium acnes entstehen Mitesser (Komedonen), entzündete Papeln, Pusteln und bei schweren Formen auch Knoten und Narben. Betroffen sind meist Gesicht, Brust und Rücken.",
+          en: "Acne vulgaris is a common disorder of the sebaceous follicles, especially during puberty. Increased sebum production, abnormal keratinisation and the bacterium Cutibacterium acnes lead to blackheads (comedones), inflamed papules, pustules and, in severe forms, nodules and scars. The face, chest and back are usually affected." } },
       ],
       medical: [
         { t: "sub", text: { de: "Schweregrad & Behandlung", en: "Severity & treatment" } },
@@ -469,8 +469,8 @@ export const skinDiseases: Disease[] = [
           de: "Die Nesselsucht (Urtikaria) äußert sich in stark juckenden, erhabenen Quaddeln, oft mit umgebender Rötung, die einzeln meist innerhalb von Stunden abheilen. Ursache ist die Freisetzung von Histamin aus Mastzellen. Man unterscheidet akute (bis sechs Wochen) und chronische Formen; teils tritt zusätzlich eine tiefe Schwellung (Angioödem) auf.",
           en: "Urticaria presents as intensely itchy, raised weals, often with surrounding redness, each of which usually resolves within hours. The cause is the release of histamine from mast cells. Acute (up to six weeks) and chronic forms are distinguished; sometimes deep swelling (angioedema) also occurs." } },
         { t: "p", text: {
-          de: "Wichtig: Treten Atemnot, Schwellung von Lippen, Zunge oder Rachen, Kreislaufschwäche oder Schluckbeschwerden auf, kann eine schwere allergische Reaktion vorliegen – dann sofort den Notruf 112 wählen.",
-          en: "Important: if shortness of breath, swelling of the lips, tongue or throat, circulatory weakness or difficulty swallowing occur, a severe allergic reaction may be present – then call the emergency number (112) immediately." } },
+          de: "Wichtig: Treten Atemnot, Schwellung von Lippen, Zunge oder Rachen, Kreislaufschwäche oder Schluckbeschwerden auf, kann eine schwere allergische Reaktion vorliegen. Dann sofort den Notruf 112 wählen.",
+          en: "Important: if shortness of breath, swelling of the lips, tongue or throat, circulatory weakness or difficulty swallowing occur, a severe allergic reaction may be present. In that case, call the emergency number (112) immediately." } },
       ],
       medical: [
         { t: "sub", text: { de: "Ursachensuche", en: "Identifying the cause" } },
@@ -485,13 +485,13 @@ export const skinDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Auslöser & Linderung", en: "Triggers & relief" } },
         { t: "ul", items: {
-          de: ["Ein Symptom- und Auslöser-Tagebuch hilft, mögliche Trigger zu erkennen.","Überwärmung, enge Kleidung, Reibung und – bei einzelnen – Stress oder bestimmte Speisen können Schübe fördern.","Kühlung lindert den Juckreiz; kratzen verschlimmert ihn.","Ergänzende Präparate sind ärztlich zu prüfen, da Wechselwirkungen möglich sind."],
-          en: ["A symptom and trigger diary helps identify possible triggers.","Overheating, tight clothing, friction and – in some – stress or certain foods can promote flares.","Cooling eases the itch; scratching worsens it.","Complementary products should be medically reviewed, as interactions are possible."] } },
+          de: ["Ein Symptom- und Auslöser-Tagebuch hilft, mögliche Trigger zu erkennen.","Überwärmung, enge Kleidung, Reibung und bei manchen Betroffenen auch Stress oder bestimmte Speisen können Schübe fördern.","Kühlung lindert den Juckreiz; kratzen verschlimmert ihn.","Ergänzende Präparate sind ärztlich zu prüfen, da Wechselwirkungen möglich sind."],
+          en: ["A symptom and trigger diary helps identify possible triggers.","Overheating, tight clothing, friction and, in some people, stress or certain foods can promote flares.","Cooling eases the itch; scratching worsens it.","Complementary products should be medically reviewed, as interactions are possible."] } },
       ],
       tcm: [
         { t: "p", text: {
-          de: "Traditionell werden flüchtige, juckende Quaddeln Mustern wie Wind und Hitze zugeordnet. Begleitende Akupunktur oder Ernährungsberatung können das Wohlbefinden unterstützen, ersetzen aber die antiallergische Behandlung und – bei Warnzeichen – die Notfallversorgung nicht.",
-          en: "Traditionally, fleeting, itchy weals are assigned to patterns such as wind and heat. Complementary acupuncture or dietary advice may support wellbeing but do not replace antiallergic treatment and – with warning signs – emergency care." } },
+          de: "Traditionell werden flüchtige, juckende Quaddeln Mustern wie Wind und Hitze zugeordnet. Begleitende Akupunktur oder Ernährungsberatung können das Wohlbefinden unterstützen, ersetzen aber die antiallergische Behandlung und bei Warnzeichen die Notfallversorgung nicht.",
+          en: "Traditionally, fleeting, itchy weals are assigned to patterns such as wind and heat. Complementary acupuncture or dietary advice may support wellbeing but do not replace antiallergic treatment and, with warning signs, emergency care." } },
       ],
       ayurvedic: [
         { t: "p", text: {
@@ -524,8 +524,8 @@ export const skinDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
-          de: "Die Diagnose erfolgt klinisch, bei Unsicherheit durch eine Probeentnahme (Biopsie). Da einige Medikamente und – selten – Infektionen ein ähnliches Bild auslösen können, werden diese berücksichtigt. Schleimhaut- und Nagelbefall werden gezielt untersucht.",
-          en: "Diagnosis is clinical, and by biopsy when uncertain. As some medicines and – rarely – infections can cause a similar picture, these are considered. Mucosal and nail involvement are specifically assessed." } },
+          de: "Die Diagnose erfolgt klinisch, bei Unsicherheit durch eine Probeentnahme (Biopsie). Da einige Medikamente und selten auch Infektionen ein ähnliches Bild auslösen können, werden diese berücksichtigt. Schleimhaut- und Nagelbefall werden gezielt untersucht.",
+          en: "Diagnosis is clinical, and by biopsy when uncertain. As some medicines and, rarely, infections can cause a similar picture, these are considered. Mucosal and nail involvement are specifically assessed." } },
         { t: "sub", text: { de: "Behandlung & Verlauf", en: "Treatment & course" } },
         { t: "p", text: {
           de: "Behandelt wird meist mit entzündungshemmenden Cremes (Kortikosteroide), bei ausgedehntem Befall mit UV-Therapie oder systemischen Medikamenten. Viele Hautformen heilen innerhalb von Monaten bis Jahren ab; Schleimhautformen sind hartnäckiger und werden regelmäßig kontrolliert, da langjährige Verläufe selten entarten können.",
@@ -574,7 +574,7 @@ export const skinDiseases: Disease[] = [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
           de: "Die Diagnose ist klinisch anhand des typischen Musters. Abgegrenzt werden Pilzinfektionen und, bei entsprechendem Risiko, eine Syphilis, die ein ähnliches Bild machen kann. In der Schwangerschaft wird der Verlauf ärztlich begleitet.",
-          en: "Diagnosis is clinical, based on the typical pattern. Fungal infections and, where relevant risk exists, syphilis – which can mimic the picture – are excluded. In pregnancy, the course is medically monitored." } },
+          en: "Diagnosis is clinical, based on the typical pattern. Fungal infections and, where relevant risk exists, syphilis, which can mimic the picture, are excluded. In pregnancy, the course is medically monitored." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
           de: "Meist ist keine spezifische Behandlung nötig. Gegen Juckreiz helfen rückfettende Pflege, milde entzündungshemmende Cremes oder Antihistaminika; maßvolles Tageslicht kann günstig wirken. Wichtig ist die beruhigende Aufklärung über den gutartigen Verlauf.",
@@ -724,8 +724,8 @@ export const skinDiseases: Disease[] = [
           en: "Diagnosis is clinical; a swab is taken if needed. Because of the high risk of contagion, hygiene measures are central: separate towels, careful handwashing and often temporary staying away from communal facilities until improvement." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Begrenzte Formen werden mit antibiotischen Cremes und Krustenaufweichung behandelt, ausgedehnte oder schwere Formen mit Antibiotika-Tabletten. Wichtig ist die konsequente Behandlung, um Ausbreitung und – selten – Folgeerkrankungen zu vermeiden.",
-          en: "Limited forms are treated with antibiotic creams and softening of crusts, extensive or severe forms with antibiotic tablets. Consistent treatment is important to avoid spread and – rarely – complications." } },
+          de: "Begrenzte Formen werden mit antibiotischen Cremes und Krustenaufweichung behandelt, ausgedehnte oder schwere Formen mit Antibiotika-Tabletten. Wichtig ist die konsequente Behandlung, um Ausbreitung und seltene Folgeerkrankungen zu vermeiden.",
+          en: "Limited forms are treated with antibiotic creams and softening of crusts, extensive or severe forms with antibiotic tablets. Consistent treatment is important to avoid spread and rare complications." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Hygiene & Pflege", en: "Hygiene & care" } },
@@ -824,8 +824,8 @@ export const skinDiseases: Disease[] = [
           en: "Diagnosis is usually clinical. In stubborn or recurrent cases a swab can identify the pathogen; triggers such as a hot tub (hot-tub folliculitis) or fungi are also considered." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Leichte Formen bessern sich oft mit antiseptischer Reinigung und dem Meiden auslösender Reize. Bei Bedarf werden antibiotische oder – bei Pilzbeteiligung – antimykotische Präparate eingesetzt, in ausgeprägten Fällen als Tablette. Wichtig sind Rasurhygiene und das Vermeiden von Reibung.",
-          en: "Mild forms often improve with antiseptic cleansing and avoiding triggering irritants. When needed, antibiotic or – with fungal involvement – antifungal preparations are used, and tablets in pronounced cases. Shaving hygiene and avoiding friction are important." } },
+          de: "Leichte Formen bessern sich oft mit antiseptischer Reinigung und dem Meiden auslösender Reize. Bei Bedarf werden antibiotische oder, bei Pilzbeteiligung, antimykotische Präparate eingesetzt, in ausgeprägten Fällen als Tablette. Wichtig sind Rasurhygiene und das Vermeiden von Reibung.",
+          en: "Mild forms often improve with antiseptic cleansing and avoiding triggering irritants. When needed, antibiotic or, with fungal involvement, antifungal preparations are used, and tablets in pronounced cases. Shaving hygiene and avoiding friction are important." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Hautpflege & Vorbeugung", en: "Skin care & prevention" } },
@@ -863,8 +863,8 @@ export const skinDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Akne inversa (Hidradenitis suppurativa) ist eine chronisch-entzündliche Erkrankung der Haarfollikel in Hautfalten – vor allem Achseln, Leisten, Gesäß- und Brustregion. Typisch sind wiederkehrende schmerzhafte Knoten, Abszesse, Fistelgänge und Vernarbungen. Die Erkrankung ist oft belastend und wird nicht selten spät erkannt.",
-          en: "Hidradenitis suppurativa is a chronic inflammatory disease of the hair follicles in skin folds – especially the armpits, groin, buttock and breast regions. Typical are recurrent painful nodules, abscesses, sinus tracts and scarring. The disease is often distressing and not infrequently recognised late." } },
+          de: "Die Akne inversa (Hidradenitis suppurativa) ist eine chronisch-entzündliche Erkrankung der Haarfollikel in Hautfalten, vor allem in Achseln, Leisten, Gesäß- und Brustregion. Typisch sind wiederkehrende schmerzhafte Knoten, Abszesse, Fistelgänge und Vernarbungen. Die Erkrankung ist oft belastend und wird nicht selten spät erkannt.",
+          en: "Hidradenitis suppurativa is a chronic inflammatory disease of the hair follicles in skin folds, especially the armpits, groin, buttock and breast regions. Typical are recurrent painful nodules, abscesses, sinus tracts and scarring. The disease is often distressing and not infrequently recognised late." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Begleitfaktoren", en: "Diagnosis & associated factors" } },
@@ -946,8 +946,8 @@ export const skinDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "In der akuten Phase stehen Schonung, lockere Kleidung und Kühlung im Vordergrund. Bei anhaltenden Nervenschmerzen können sanfte Bewegung, Entspannungsverfahren und – im Rahmen einer Schmerztherapie – physikalische Maßnahmen helfen, den Umgang mit dem Schmerz zu verbessern.",
-          en: "In the acute phase, rest, loose clothing and cooling are the priority. For persistent nerve pain, gentle activity, relaxation techniques and – within pain management – physical measures can help improve coping with the pain." } },
+          de: "In der akuten Phase stehen Schonung, lockere Kleidung und Kühlung im Vordergrund. Bei anhaltenden Nervenschmerzen können sanfte Bewegung, Entspannungsverfahren und im Rahmen einer Schmerztherapie auch physikalische Maßnahmen helfen, den Umgang mit dem Schmerz zu verbessern.",
+          en: "In the acute phase, rest, loose clothing and cooling are the priority. For persistent nerve pain, gentle activity, relaxation techniques and, within pain management, physical measures can help improve coping with the pain." } },
       ],
     },
   },
@@ -1224,8 +1224,8 @@ export const skinDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Sonnenschutz & Pflege", en: "Sun protection & care" } },
         { t: "ul", items: {
-          de: ["Täglicher, hoher Sonnenschutz – auch im Alltag und an bewölkten Tagen – ist entscheidend.","Mineralische Sonnenschutzmittel und Kopfbedeckungen ergänzen den Schutz.","Aggressive Peelings und reizende Produkte meiden, da sie die Pigmentierung verstärken können.","Ergänzende Mittel sind ärztlich zu prüfen."],
-          en: ["Daily, high sun protection – also in everyday life and on cloudy days – is decisive.","Mineral sunscreens and headwear complement the protection.","Avoid aggressive peels and irritating products, as they can intensify the pigmentation.","Complementary products should be medically reviewed."] } },
+          de: ["Täglicher, hoher Sonnenschutz ist entscheidend, auch im Alltag und an bewölkten Tagen.","Mineralische Sonnenschutzmittel und Kopfbedeckungen ergänzen den Schutz.","Aggressive Peelings und reizende Produkte meiden, da sie die Pigmentierung verstärken können.","Ergänzende Mittel sind ärztlich zu prüfen."],
+          en: ["Daily, high sun protection is essential, even in everyday life and on cloudy days.","Mineral sunscreens and headwear complement the protection.","Avoid aggressive peels and irritating products, as they can intensify the pigmentation.","Complementary products should be medically reviewed."] } },
       ],
       tcm: [
         { t: "p", text: {
@@ -1572,8 +1572,8 @@ export const skinDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "Traditionell wird Juckreiz Mustern wie Wind, Hitze, Feuchtigkeit oder – bei trockener Haut – Blut-Mangel zugeordnet. Akupunktur und Ernährungsberatung können begleitend eingesetzt werden; anhaltender Juckreiz sollte dennoch ärztlich auf innere Ursachen abgeklärt werden.",
-          en: "Traditionally, itching is assigned to patterns such as wind, heat, dampness or – with dry skin – blood deficiency. Acupuncture and dietary advice may be used as complementary care; persistent itching should nevertheless be medically assessed for internal causes." } },
+          de: "Traditionell wird Juckreiz Mustern wie Wind, Hitze, Feuchtigkeit oder, bei trockener Haut, Blut-Mangel zugeordnet. Akupunktur und Ernährungsberatung können begleitend eingesetzt werden; anhaltender Juckreiz sollte dennoch ärztlich auf innere Ursachen abgeklärt werden.",
+          en: "Traditionally, itching is assigned to patterns such as wind, heat, dampness or, with dry skin, blood deficiency. Acupuncture and dietary advice may be used as complementary care; persistent itching should nevertheless be medically assessed for internal causes." } },
       ],
       ayurvedic: [
         { t: "p", text: {

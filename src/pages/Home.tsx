@@ -12,7 +12,7 @@ export default function Home() {
   const ui = useUi()
   useSeo({
     description:
-      "Dr. med. univ. Dost Mohammad – Ihr Arzt in Landshut. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur, TCM und ästhetische Medizin.",
+      "Dr. med. univ. Dost Mohammad, Ihr Arzt in Landshut. Praktischer Arzt mit Notfallmedizin, Akupunktur und Naturheilverfahren, ergänzt durch TCM und ästhetische Medizin.",
   })
   return (
     <main>

@@ -134,8 +134,8 @@ export const metabolismDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der TCM werden diabetesähnliche Bilder traditionell unter Xiao Ke („auszehrender Durst“) beschrieben – der moderne Typ-2-Diabetes ist damit jedoch nicht gleichzusetzen.",
-          en: "In TCM, diabetes-like pictures are traditionally described under Xiao Ke (“wasting-thirst”) – though modern type 2 diabetes is not identical to it." } },
+          de: "In der TCM werden diabetesähnliche Bilder traditionell unter Xiao Ke („auszehrender Durst“) beschrieben. Der moderne Typ-2-Diabetes ist damit jedoch nicht gleichzusetzen.",
+          en: "In TCM, diabetes-like pictures are traditionally described under Xiao Ke (“wasting-thirst”), though modern type 2 diabetes is not identical to it." } },
         { t: "sub", text: { de: "Yin-Mangel mit Hitze", en: "Yin deficiency with heat" } },
         { t: "p", text: { de: "Starker Durst, trockener Mund, Hunger und häufiges Wasserlassen: das Yin nähren und Hitze klären.", en: "Strong thirst, dry mouth, hunger and frequent urination: nourish Yin and clear heat." } },
         { t: "sub", text: { de: "Qi- und Yin-Mangel", en: "Qi and Yin deficiency" } },
@@ -180,8 +180,8 @@ export const metabolismDiseases: Disease[] = [
           de: "Der Typ-2-Diabetes ist eine chronische Stoffwechselerkrankung mit Insulinresistenz und nachlassender Insulinausschüttung, wodurch der Blutzucker dauerhaft erhöht ist. Mit der Zeit kann ein dauerhaft hoher Blutzucker Blutgefäße, Nerven, Nieren, Augen und weitere Organe schädigen.",
           en: "Type 2 diabetes is a chronic metabolic disorder with insulin resistance and declining insulin output, so blood glucose stays persistently raised. Over time, persistently high glucose can damage blood vessels, nerves, kidneys, eyes and other organs." } },
         { t: "p", text: {
-          de: "Der Zusatz „mit Komplikationen“ bedeutet, dass bereits eine oder mehrere Folgeerkrankungen festgestellt wurden – etwa eine diabetische Nierenerkrankung, Neuropathie, Retinopathie, Herz-Kreislauf-Erkrankung oder periphere Durchblutungsstörung.",
-          en: "The phrase “with complications” means one or more associated conditions have already been identified – for example diabetic kidney disease, neuropathy, retinopathy, cardiovascular disease or peripheral vascular disease." } },
+          de: "Der Zusatz „mit Komplikationen“ bedeutet, dass bereits eine oder mehrere Folgeerkrankungen festgestellt wurden, etwa eine diabetische Nierenerkrankung, Neuropathie, Retinopathie, Herz-Kreislauf-Erkrankung oder periphere Durchblutungsstörung.",
+          en: "The phrase “with complications” means one or more associated conditions have already been identified, for example diabetic kidney disease, neuropathy, retinopathy, cardiovascular disease or peripheral vascular disease." } },
         { t: "img", src: "diseases/type-2-diabetes-mellitus-with-complications/definition.jpg", alt: { de: "Diabetes-Kontrolle", en: "Diabetes review" } },
       ],
       medical: [
@@ -286,8 +286,8 @@ export const metabolismDiseases: Disease[] = [
       ayurvedic: [
         { t: "sub", text: { de: "Prameha-Rahmen", en: "Prameha framework" } },
         { t: "p", text: {
-          de: "Die ayurvedische Beurteilung kann diabetesähnliche Stoffwechselbilder im Rahmen von Prameha betrachten. Ernährungsanpassung, Bewegung und individuelle traditionelle Maßnahmen können die medizinische Einordnung und Behandlung ergänzen – sie dürfen sie jedoch nicht verzögern.",
-          en: "Ayurvedic assessment may view diabetes-like metabolic pictures within the Prameha framework. Dietary change, activity and individualised traditional measures may complement the medical classification and treatment – but must not delay them." } },
+          de: "Die ayurvedische Beurteilung kann diabetesähnliche Stoffwechselbilder im Rahmen von Prameha betrachten. Ernährungsanpassung, Bewegung und individuelle traditionelle Maßnahmen können die medizinische Einordnung und Behandlung ergänzen, dürfen sie jedoch nicht verzögern.",
+          en: "Ayurvedic assessment may view diabetes-like metabolic pictures within the Prameha framework. Dietary change, activity and individualised traditional measures may complement the medical classification and treatment but must not delay them." } },
       ],
       physio: [
         { t: "sub", text: { de: "Bewegung", en: "Exercise" } },
@@ -444,8 +444,8 @@ export const metabolismDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die reine Hypercholesterinämie ist vor allem durch ein erhöhtes Blutcholesterin – insbesondere LDL-Cholesterin – gekennzeichnet. Dauerhaft erhöhtes LDL begünstigt arteriosklerotische Plaques und erhöht langfristig das Risiko für koronare Herzkrankheit, Herzinfarkt und Schlaganfall.",
-          en: "Pure hypercholesterolaemia is characterised mainly by raised blood cholesterol – in particular LDL cholesterol. Persistently high LDL promotes atherosclerotic plaques and raises the long-term risk of coronary heart disease, heart attack and stroke." } },
+          de: "Die reine Hypercholesterinämie ist vor allem durch ein erhöhtes Blutcholesterin, insbesondere LDL-Cholesterin, gekennzeichnet. Dauerhaft erhöhtes LDL begünstigt arteriosklerotische Plaques und erhöht langfristig das Risiko für koronare Herzkrankheit, Herzinfarkt und Schlaganfall.",
+          en: "Pure hypercholesterolaemia is characterised mainly by raised blood cholesterol, in particular LDL cholesterol. Persistently high LDL promotes atherosclerotic plaques and raises the long-term risk of coronary heart disease, heart attack and stroke." } },
         { t: "p", text: {
           de: "Bei manchen Menschen liegt eine erbliche Form wie die familiäre Hypercholesterinämie vor, bei anderen entsteht sie durch ein Zusammenspiel genetischer, ernährungsbedingter, stoffwechselbezogener und lebensstilbedingter Faktoren.",
           en: "Some people have an inherited form such as familial hypercholesterolaemia, while in others it develops through a combination of genetic, dietary, metabolic and lifestyle factors." } },
@@ -489,8 +489,8 @@ export const metabolismDiseases: Disease[] = [
           en: "Regular aerobic training combined with resistance work supports cardiovascular fitness, weight management and metabolic health. Progression follows cardiovascular risk and physical condition." } },
         { t: "img", src: "diseases/pure-hypercholesterolemia/physio.jpg", alt: { de: "Bewegung & Stoffwechsel", en: "Movement & metabolism" } },
         { t: "p", text: {
-          de: "Ein stark erhöhtes LDL – besonders bei früher Herz-Kreislauf-Erkrankung oder ausgeprägter Familienanamnese – sollte an eine familiäre Hypercholesterinämie denken lassen.",
-          en: "Markedly raised LDL – especially with premature cardiovascular disease or a strong family history – should prompt consideration of familial hypercholesterolaemia." } },
+          de: "Ein stark erhöhtes LDL sollte, besonders bei früher Herz-Kreislauf-Erkrankung oder ausgeprägter Familienanamnese, an eine familiäre Hypercholesterinämie denken lassen.",
+          en: "Markedly raised LDL, especially with premature cardiovascular disease or a strong family history, should prompt consideration of familial hypercholesterolaemia." } },
       ],
     },
   },
@@ -507,14 +507,14 @@ export const metabolismDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die reine Hyperglyzeridämie – meist als Hypertriglyzeridämie bezeichnet – ist vor allem durch erhöhte Triglyzeride im Blut gekennzeichnet. Erhöhte Triglyzeride sind mit metabolischem und kardiovaskulärem Risiko verbunden; sehr hohe Werte können das Risiko einer akuten Bauchspeicheldrüsenentzündung deutlich steigern.",
-          en: "Pure hyperglyceridaemia – usually called hypertriglyceridaemia – is characterised mainly by raised triglycerides in the blood. Elevated triglycerides are linked with metabolic and cardiovascular risk; very high levels can substantially increase the risk of acute pancreatitis." } },
+          de: "Die reine Hyperglyzeridämie (meist als Hypertriglyzeridämie bezeichnet) ist vor allem durch erhöhte Triglyzeride im Blut gekennzeichnet. Erhöhte Triglyzeride sind mit metabolischem und kardiovaskulärem Risiko verbunden; sehr hohe Werte können das Risiko einer akuten Bauchspeicheldrüsenentzündung deutlich steigern.",
+          en: "Pure hyperglyceridaemia (usually called hypertriglyceridaemia) is characterised mainly by raised triglycerides in the blood. Elevated triglycerides are linked with metabolic and cardiovascular risk; very high levels can substantially increase the risk of acute pancreatitis." } },
       ],
       medical: [
         { t: "sub", text: { de: "Ursachen & Lebensstil", en: "Causes & lifestyle" } },
         { t: "p", text: {
-          de: "Die Behandlung zielt darauf, zugrunde liegende Faktoren zu erkennen und zu behandeln – etwa Diabetes, Übergewicht, übermäßigen Alkoholkonsum, eine Schilddrüsenunterfunktion, Ernährungsfaktoren, Medikamente oder genetische Störungen. Die Lebensstilanpassung ist grundlegend.",
-          en: "Treatment aims to identify and manage underlying factors – such as diabetes, overweight, excessive alcohol, an underactive thyroid, dietary factors, medications or genetic disorders. Lifestyle change is fundamental." } },
+          de: "Die Behandlung zielt darauf, zugrunde liegende Faktoren zu erkennen und zu behandeln, etwa Diabetes, Übergewicht, übermäßigen Alkoholkonsum, eine Schilddrüsenunterfunktion, Ernährungsfaktoren, Medikamente oder genetische Störungen. Die Lebensstilanpassung ist grundlegend.",
+          en: "Treatment aims to identify and manage underlying factors such as diabetes, overweight, excessive alcohol, an underactive thyroid, dietary factors, medications or genetic disorders. Lifestyle change is fundamental." } },
         { t: "img", src: "diseases/pure-hyperglyceridemia/medical.jpg", alt: { de: "Bluttest", en: "Blood test" } },
         { t: "sub", text: { de: "Medikamente", en: "Medication" } },
         { t: "p", text: {
@@ -558,14 +558,14 @@ export const metabolismDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Kombinierte Hyperlipidämie", en: "Mixed Hyperlipidaemia" },
     summary: {
-      de: "Störung mehrerer Blutfettwerte – häufig erhöhtes LDL und erhöhte Triglyzeride.",
-      en: "Disturbance of several blood lipids – often raised LDL and triglycerides.",
+      de: "Störung mehrerer Blutfettwerte, häufig mit erhöhtem LDL und erhöhten Triglyzeriden.",
+      en: "Disturbance of several blood lipids, often with raised LDL and triglycerides.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die kombinierte (gemischte) Hyperlipidämie ist durch Störungen mehrerer Blutfettwerte gekennzeichnet – häufig erhöhtes LDL-Cholesterin und erhöhte Triglyzeride, teils begleitet von vermindertem HDL-Cholesterin.",
-          en: "Mixed hyperlipidaemia is characterised by disturbances in more than one blood lipid – often raised LDL cholesterol and raised triglycerides, sometimes accompanied by reduced HDL cholesterol." } },
+          de: "Die kombinierte (gemischte) Hyperlipidämie ist durch Störungen mehrerer Blutfettwerte gekennzeichnet. Häufig sind LDL-Cholesterin und Triglyzeride erhöht, teils begleitet von vermindertem HDL-Cholesterin.",
+          en: "Mixed hyperlipidaemia is characterised by disturbances in more than one blood lipid, often raised LDL cholesterol and raised triglycerides, sometimes accompanied by reduced HDL cholesterol." } },
         { t: "p", text: {
           de: "Ursachen sind genetische Veranlagung, Insulinresistenz, Diabetes, Übergewicht, Ernährungsfaktoren, eine Schilddrüsenunterfunktion, bestimmte Medikamente oder Kombinationen davon.",
           en: "Causes include genetic predisposition, insulin resistance, diabetes, overweight, dietary factors, an underactive thyroid, certain medications or combinations of these." } },

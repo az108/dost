@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useUi } from "@/content/ui"
 import { arzt } from "@/content/arzt"
-import klinikFoto from "@/assets/galerie/arzt-am-schreibtisch-01.jpg"
+import klinikFoto from "@/assets/galerie/dr-dost-schreibtisch.jpg"
 
 export function AboutDost({ showMore = true }: { showMore?: boolean }) {
   const ui = useUi()

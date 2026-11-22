@@ -27,22 +27,22 @@ export const aestheticTreatments: AestheticTreatment[] = [
     slug: "botox",
     title: { de: "Botox / Faltenbehandlung", en: "Botox / Wrinkle Treatment" },
     summary: {
-      de: "Sanfte Glättung von Mimikfalten mit präzise dosiertem Botulinumtoxin – für ein frisches, natürliches Aussehen.",
-      en: "Gentle smoothing of expression lines with precisely dosed botulinum toxin – for a fresh, natural look.",
+      de: "Sanfte Glättung von Mimikfalten mit präzise dosiertem Botulinumtoxin für ein frisches, natürliches Aussehen.",
+      en: "Gentle smoothing of expression lines with precisely dosed botulinum toxin for a fresh, natural look.",
     },
     definition: [
-      { t: "img", src: "aesthetik/botox/definition.jpg", alt: { de: "Botox-Behandlung – vorher und nachher", en: "Botox treatment – before and after" } },
+      { t: "img", src: "aesthetik/botox/definition.jpg", alt: { de: "Botox-Behandlung vorher und nachher", en: "Botox treatment before and after" } },
       { t: "p", text: {
-        de: "Botox ist der gebräuchliche Name für Botulinumtoxin, einen gereinigten Eiweißstoff, der die Signalübertragung zwischen Nerv und Muskel vorübergehend abschwächt. In sehr geringen, genau dosierten Mengen in bestimmte Mimikmuskeln gespritzt, entspannt es diese gezielt – die darüberliegende Haut glättet sich.",
-        en: "Botox is the common name for botulinum toxin, a purified protein that temporarily reduces signal transmission between nerve and muscle. Injected in very small, precisely dosed amounts into specific facial muscles, it relaxes them selectively – and the skin above smooths out." } },
+        de: "Botox ist der gebräuchliche Name für Botulinumtoxin, einen gereinigten Eiweißstoff, der die Signalübertragung zwischen Nerv und Muskel vorübergehend abschwächt. In sehr geringen, genau dosierten Mengen in bestimmte Mimikmuskeln gespritzt, entspannt es diese gezielt, sodass sich die darüberliegende Haut glättet.",
+        en: "Botox is the common name for botulinum toxin, a purified protein that temporarily reduces signal transmission between nerve and muscle. Injected in very small, precisely dosed amounts into specific facial muscles, it relaxes them selectively so that the skin above smooths out." } },
       { t: "p", text: {
         de: "Es handelt sich um eine minimalinvasive, seit Jahrzehnten etablierte Behandlung in der ästhetischen Medizin.",
         en: "It is a minimally invasive treatment that has been well established in aesthetic medicine for decades." } },
     ],
     effect: [
       { t: "p", text: {
-        de: "Durch die gezielte Entspannung der behandelten Muskeln werden sogenannte mimische Falten – etwa Stirnfalten, die Zornesfalte zwischen den Augenbrauen und Lachfältchen um die Augen (Krähenfüße) – sichtbar gemildert. Das Ergebnis wirkt bei korrekter Dosierung natürlich; die Mimik bleibt erhalten.",
-        en: "By selectively relaxing the treated muscles, so-called expression lines – such as forehead lines, the frown line between the eyebrows and smile lines around the eyes (crow's feet) – are visibly softened. With correct dosing the result looks natural and facial expression is preserved." } },
+        de: "Durch die gezielte Entspannung der behandelten Muskeln werden sogenannte mimische Falten sichtbar gemildert, etwa Stirnfalten, die Zornesfalte zwischen den Augenbrauen und Lachfältchen um die Augen (Krähenfüße). Das Ergebnis wirkt bei korrekter Dosierung natürlich; die Mimik bleibt erhalten.",
+        en: "By selectively relaxing the treated muscles, so-called expression lines are visibly softened, such as forehead lines, the frown line between the eyebrows and smile lines around the eyes (crow's feet). With correct dosing the result looks natural and facial expression is preserved." } },
     ],
     treatment: [
       { t: "sub", text: { de: "Welche Falten lassen sich behandeln?", en: "Which wrinkles can be treated?" } },
@@ -71,7 +71,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
       { q: { de: "Ist die Behandlung schmerzhaft?", en: "Is the treatment painful?" },
         a: { de: "Dank sehr feiner Nadeln empfinden die meisten Menschen nur einen kurzen, leichten Piks. Auf Wunsch kann eine betäubende Creme verwendet werden.", en: "Thanks to very fine needles, most people feel only a brief, slight prick. A numbing cream can be used on request." } },
       { q: { de: "Sieht das Ergebnis künstlich aus?", en: "Does the result look artificial?" },
-        a: { de: "Bei sorgfältiger, zurückhaltender Dosierung bleibt die natürliche Mimik erhalten – das Gesicht wirkt erholt, nicht „gemacht“.", en: "With careful, restrained dosing, natural expression is preserved – the face looks rested, not 'done'." } },
+        a: { de: "Bei sorgfältiger, zurückhaltender Dosierung bleibt die natürliche Mimik erhalten. Das Gesicht wirkt erholt, nicht „gemacht“.", en: "With careful, restrained dosing, natural expression is preserved. The face looks rested, not 'done'." } },
       { q: { de: "Gibt es Nebenwirkungen?", en: "Are there side effects?" },
         a: { de: "Möglich sind vorübergehend kleine Rötungen oder blaue Flecken an den Einstichstellen. Seltene Nebenwirkungen werden im Beratungsgespräch erläutert.", en: "Temporary small redness or bruising at the injection sites is possible. Rare side effects are explained in the consultation." } },
     ],
@@ -138,13 +138,13 @@ export const aestheticTreatments: AestheticTreatment[] = [
     definition: [
       { t: "img", src: "aesthetik/kosmetische-aesthetische-therapie/definition.jpg", alt: { de: "Ästhetische Behandlung in der Praxis", en: "Aesthetic treatment in the practice" } },
       { t: "p", text: {
-        de: "Die kosmetische und ästhetische Therapie umfasst verschiedene schonende Verfahren, die das Erscheinungsbild der Haut verbessern und harmonisieren – darunter Faltenunterspritzung mit Hyaluronsäure, die Eigenbluttherapie (PRP) und das Fädenlifting.",
-        en: "Cosmetic and aesthetic therapy comprises various gentle procedures that improve and harmonise the appearance of the skin – including wrinkle filling with hyaluronic acid, platelet-rich plasma therapy (PRP) and thread lifting." } },
+        de: "Die kosmetische und ästhetische Therapie umfasst verschiedene schonende Verfahren, die das Erscheinungsbild der Haut verbessern und harmonisieren. Dazu gehören die Faltenunterspritzung mit Hyaluronsäure, die Eigenbluttherapie (PRP) und das Fädenlifting.",
+        en: "Cosmetic and aesthetic therapy comprises various gentle procedures that improve and harmonise the appearance of the skin. These include wrinkle filling with hyaluronic acid, platelet-rich plasma therapy (PRP) and thread lifting." } },
     ],
     effect: [
       { t: "p", text: {
-        de: "Je nach Verfahren werden Falten aufgepolstert, Volumen schonend wiederhergestellt, die Hautqualität verbessert und Konturen sanft betont – stets mit dem Ziel eines natürlichen, frischen Ergebnisses.",
-        en: "Depending on the procedure, wrinkles are plumped, volume gently restored, skin quality improved and contours softly enhanced – always aiming for a natural, fresh result." } },
+        de: "Je nach Verfahren werden Falten aufgepolstert, Volumen schonend wiederhergestellt, die Hautqualität verbessert und Konturen sanft betont. Ziel ist stets ein natürliches, frisches Ergebnis.",
+        en: "Depending on the procedure, wrinkles are plumped, volume gently restored, skin quality improved and contours softly enhanced. The aim is always a natural, fresh result." } },
     ],
     treatment: [
       { t: "sub", text: { de: "Hyaluron / Filler", en: "Hyaluronic acid / fillers" } },
@@ -158,8 +158,8 @@ export const aestheticTreatments: AestheticTreatment[] = [
         en: "From a small amount of your own blood, the body's own growth factors are obtained and introduced into the skin. They stimulate regeneration and improve firmness and complexion naturally." } },
       { t: "sub", text: { de: "Fädenlifting", en: "Thread lifting" } },
       { t: "p", text: {
-        de: "Mit feinen, resorbierbaren Fäden wird die Haut sanft gestrafft und angehoben – eine Alternative zum chirurgischen Lifting ohne größeren Eingriff.",
-        en: "With fine, absorbable threads the skin is gently tightened and lifted – an alternative to surgical lifting without a major procedure." } },
+        de: "Mit feinen, resorbierbaren Fäden wird die Haut sanft gestrafft und angehoben. So entsteht eine Alternative zum chirurgischen Lifting ohne größeren Eingriff.",
+        en: "With fine, absorbable threads the skin is gently tightened and lifted, offering an alternative to surgical lifting without a major procedure." } },
       { t: "sub", text: { de: "Ablauf & Nachsorge", en: "Procedure & aftercare" } },
       { t: "p", text: {
         de: "Nach einer individuellen Beratung wird das passende Verfahren schonend durchgeführt. Leichte Rötungen oder Schwellungen können kurzzeitig auftreten; die meisten Menschen sind rasch wieder gesellschaftsfähig.",
@@ -167,7 +167,7 @@ export const aestheticTreatments: AestheticTreatment[] = [
     ],
     faq: [
       { q: { de: "Welches Verfahren ist das richtige für mich?", en: "Which procedure is right for me?" },
-        a: { de: "Das hängt von Ihrem Anliegen ab. In einem persönlichen Gespräch wird gemeinsam das passende Verfahren – oder eine Kombination – ausgewählt.", en: "This depends on your concern. In a personal conversation the suitable procedure – or a combination – is chosen together." } },
+        a: { de: "Das hängt von Ihrem Anliegen ab. In einem persönlichen Gespräch wird gemeinsam das passende Verfahren oder eine Kombination mehrerer Verfahren ausgewählt.", en: "This depends on your concern. In a personal conversation the suitable procedure, or a combination of several, is chosen together." } },
       { q: { de: "Wie lange halten die Ergebnisse?", en: "How long do the results last?" },
         a: { de: "Das variiert je nach Verfahren: Hyaluron hält meist mehrere Monate bis über ein Jahr, PRP und Fädenlifting wirken über einen individuell unterschiedlichen Zeitraum.", en: "This varies by procedure: hyaluronic acid usually lasts several months to over a year, while PRP and thread lifting work over an individually varying period." } },
       { q: { de: "Sind die Behandlungen natürlich im Ergebnis?", en: "Are the results natural?" },

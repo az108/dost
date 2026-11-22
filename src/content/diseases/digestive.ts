@@ -23,13 +23,13 @@ export const digestiveDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die akute Gastritis ist eine plötzliche Entzündung oder Schädigung der Magenschleimhaut – etwa durch NSAR, Alkohol, akuten Stress, Infektionen oder andere Reizstoffe. Typisch sind Oberbauchschmerzen oder Brennen, Übelkeit, Erbrechen, Völlegefühl und Appetitverlust; selten kommt es zu Magen-Darm-Blutungen.",
-          en: "Acute gastritis is a sudden inflammation or injury of the stomach lining – e.g. from NSAIDs, alcohol, acute stress, infections or other irritants. Typical signs are upper-abdominal pain or burning, nausea, vomiting, bloating and loss of appetite; gastrointestinal bleeding is rare." } },
+          de: "Die akute Gastritis ist eine plötzliche Entzündung oder Schädigung der Magenschleimhaut, etwa durch NSAR, Alkohol, akuten Stress, Infektionen oder andere Reizstoffe. Typisch sind Oberbauchschmerzen oder Brennen, Übelkeit, Erbrechen, Völlegefühl und Appetitverlust; selten kommt es zu Magen-Darm-Blutungen.",
+          en: "Acute gastritis is a sudden inflammation or injury of the stomach lining, e.g. from NSAIDs, alcohol, acute stress, infections or other irritants. Typical signs are upper-abdominal pain or burning, nausea, vomiting, bloating and loss of appetite; gastrointestinal bleeding is rare." } },
       ],
       medical: [
         { t: "sub", text: { de: "Ursache erkennen & Säurehemmung", en: "Identify the cause & suppress acid" } },
         { t: "p", text: {
-          de: "Zuerst wird der Auslöser gesucht und – wenn möglich – beseitigt: unnötige NSAR, Alkohol und Rauchen meiden. Protonenpumpenhemmer (z. B. Omeprazol, Pantoprazol) senken die Magensäure und fördern die Heilung; H2-Blocker sind eine Alternative.",
+          de: "Zuerst wird der Auslöser gesucht und, wenn möglich, beseitigt: unnötige NSAR, Alkohol und Rauchen meiden. Protonenpumpenhemmer (z. B. Omeprazol, Pantoprazol) senken die Magensäure und fördern die Heilung; H2-Blocker sind eine Alternative.",
           en: "Management starts by finding and, where possible, removing the trigger: avoid unnecessary NSAIDs, alcohol and smoking. Proton-pump inhibitors (e.g. omeprazole, pantoprazole) reduce gastric acid and promote healing; H2 blockers are an alternative." } },
         { t: "img", src: "diseases/acute-gastritis/medical.jpg", alt: { de: "Magenbehandlung", en: "Gastric treatment" } },
         { t: "sub", text: { de: "H. pylori & Warnzeichen", en: "H. pylori & warning signs" } },
@@ -172,13 +172,13 @@ export const digestiveDiseases: Disease[] = [
       ayurvedic: [
         { t: "sub", text: { de: "Ansätze & Ernährung", en: "Approaches & nutrition" } },
         { t: "p", text: {
-          de: "Traditionell vor allem als aggraviertes Pitta mit Hitze und Säure verstanden. Eine beruhigende Ernährung, regelmäßige Mahlzeiten und Stressreduktion stehen im Vordergrund; Kräuter werden individuell und ärztlich geprüft eingesetzt – ergänzend, nicht als Ersatz.",
-          en: "Traditionally understood mainly as aggravated Pitta with heat and acidity. A soothing diet, regular meals and stress reduction come first; herbs are used individually and medically reviewed – complementary, not a replacement." } },
+          de: "Traditionell vor allem als aggraviertes Pitta mit Hitze und Säure verstanden. Eine beruhigende Ernährung, regelmäßige Mahlzeiten und Stressreduktion stehen im Vordergrund; Kräuter werden individuell und ärztlich geprüft eingesetzt, und zwar ergänzend, nicht als Ersatz.",
+          en: "Traditionally understood mainly as aggravated Pitta with heat and acidity. A soothing diet, regular meals and stress reduction come first; herbs are used individually and medically reviewed, as a complement, not a replacement." } },
       ],
       physio: [
         { t: "p", text: {
-          de: "Moderate Bewegung fördert Stressabbau und Allgemeinbefinden; sanftes Gehen, Zwerchfellatmung und Entspannung je nach Zustand. Bei starkem Schmerz, Blutung oder Perforationsverdacht ist keine Belastung angezeigt – zuerst ärztliche Abklärung.",
-          en: "Moderate activity aids stress relief and general wellbeing; gentle walking, diaphragmatic breathing and relaxation per condition. With severe pain, bleeding or suspected perforation, no exertion – medical review first." } },
+          de: "Moderate Bewegung fördert Stressabbau und Allgemeinbefinden; sanftes Gehen, Zwerchfellatmung und Entspannung je nach Zustand. Bei starkem Schmerz, Blutung oder Perforationsverdacht ist keine Belastung angezeigt; zuerst erfolgt die ärztliche Abklärung.",
+          en: "Moderate activity aids stress relief and general wellbeing; gentle walking, diaphragmatic breathing and relaxation per condition. With severe pain, bleeding or suspected perforation, avoid exertion and seek medical review first." } },
         { t: "img", src: "diseases/duodenal-ulcer/physio.jpg", alt: { de: "Sanfte Bewegung", en: "Gentle movement" } },
       ],
     },
@@ -252,8 +252,8 @@ export const digestiveDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die funktionelle Dyspepsie ist eine chronische oder wiederkehrende Störung mit Beschwerden wie Völlegefühl nach dem Essen, früher Sättigung, Oberbauchschmerz oder -brennen – ohne strukturelle Erkrankung, die dies ausreichend erklärt. Die Diagnose erfolgt nach klinischer Abklärung und Ausschluss relevanter organischer Ursachen.",
-          en: "Functional dyspepsia is a chronic or recurrent disorder with symptoms such as post-meal fullness, early satiety and epigastric pain or burning – without a structural disease that adequately explains them. Diagnosis follows clinical assessment and exclusion of relevant organic causes." } },
+          de: "Die funktionelle Dyspepsie ist eine chronische oder wiederkehrende Störung mit Beschwerden wie Völlegefühl nach dem Essen, früher Sättigung, Oberbauchschmerz oder -brennen, ohne dass eine strukturelle Erkrankung vorliegt, die dies ausreichend erklärt. Die Diagnose erfolgt nach klinischer Abklärung und Ausschluss relevanter organischer Ursachen.",
+          en: "Functional dyspepsia is a chronic or recurrent disorder with symptoms such as post-meal fullness, early satiety and epigastric pain or burning, without a structural disease that adequately explains them. Diagnosis follows clinical assessment and exclusion of relevant organic causes." } },
         { t: "img", src: "diseases/functional-dyspepsia-indigestion/definition.jpg", alt: { de: "Verdauungsbeschwerden", en: "Indigestion" } },
       ],
       medical: [
@@ -339,8 +339,8 @@ export const digestiveDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Moderate Bewegung fördert Stressabbau und Allgemeinbefinden; sanftes Gehen, Zwerchfellatmung und Entspannung je nach Zustand. Bei starkem Schmerz oder Blutung ist keine Belastung angezeigt – zuerst ärztliche Abklärung.",
-          en: "Moderate activity aids stress relief and general wellbeing; gentle walking, diaphragmatic breathing and relaxation per condition. With severe pain or bleeding, no exertion – medical review first." } },
+          de: "Moderate Bewegung fördert Stressabbau und Allgemeinbefinden; sanftes Gehen, Zwerchfellatmung und Entspannung je nach Zustand. Bei starkem Schmerz oder Blutung ist keine Belastung angezeigt; zuerst erfolgt die ärztliche Abklärung.",
+          en: "Moderate activity aids stress relief and general wellbeing; gentle walking, diaphragmatic breathing and relaxation per condition. With severe pain or bleeding, avoid exertion and seek medical review first." } },
         { t: "img", src: "diseases/gastric-ulcer/physio.jpg", alt: { de: "Sanfte Bewegung", en: "Gentle movement" } },
       ],
     },
@@ -482,8 +482,8 @@ export const digestiveDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Phytotherapie & Lebensstil", en: "Phytotherapy & lifestyle" } },
         { t: "p", text: {
-          de: "Eibischwurzel und Kamille beruhigen; Pfefferminz meiden, wenn es Reflux auslöst. Kleinere Mahlzeiten, nicht direkt nach dem Essen hinlegen und das Kopfteil erhöhen. Ergänzend – kein Ersatz für die säurehemmende Behandlung der Ösophagitis.",
-          en: "Marshmallow root and chamomile soothe; avoid peppermint if it triggers reflux. Smaller meals, not lying down right after eating, and raising the head of the bed. Complementary – not a substitute for acid-suppressive treatment of the esophagitis." } },
+          de: "Eibischwurzel und Kamille beruhigen; Pfefferminz meiden, wenn es Reflux auslöst. Kleinere Mahlzeiten, nicht direkt nach dem Essen hinlegen und das Kopfteil erhöhen. Dies ist ergänzend gedacht und kein Ersatz für die säurehemmende Behandlung der Ösophagitis.",
+          en: "Marshmallow root and chamomile soothe; avoid peppermint if it triggers reflux. Smaller meals, not lying down right after eating, and raising the head of the bed. This is complementary and not a substitute for acid-suppressive treatment of the esophagitis." } },
       ],
       tcm: [
         { t: "sub", text: { de: "Leber-Qi greift den Magen an", en: "Liver Qi invading the Stomach" } },
@@ -519,8 +519,8 @@ export const digestiveDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Das Reizdarmsyndrom ist eine chronische funktionelle Darmstörung mit wiederkehrenden Bauchschmerzen und verändertem Stuhlverhalten – Durchfall, Verstopfung oder ein Wechsel von beidem, oft mit Blähungen und Krämpfen. Es gilt als Störung der Darm-Hirn-Interaktion und verursacht in der Regel keine strukturellen Schäden. Ausprägung und Auslöser (Ernährung, Stress, Empfindlichkeit) sind sehr individuell.",
-          en: "IBS is a chronic functional bowel disorder with recurrent abdominal pain and altered bowel habits – diarrhea, constipation or alternating both, often with bloating and cramps. It is a disorder of gut–brain interaction and usually causes no structural damage. Severity and triggers (diet, stress, sensitivity) vary greatly between individuals." } },
+          de: "Das Reizdarmsyndrom ist eine chronische funktionelle Darmstörung mit wiederkehrenden Bauchschmerzen und verändertem Stuhlverhalten, also Durchfall, Verstopfung oder ein Wechsel von beidem, oft mit Blähungen und Krämpfen. Es gilt als Störung der Darm-Hirn-Interaktion und verursacht in der Regel keine strukturellen Schäden. Ausprägung und Auslöser (Ernährung, Stress, Empfindlichkeit) sind sehr individuell.",
+          en: "IBS is a chronic functional bowel disorder with recurrent abdominal pain and altered bowel habits, such as diarrhea, constipation or alternating both, often with bloating and cramps. It is a disorder of gut–brain interaction and usually causes no structural damage. Severity and triggers (diet, stress, sensitivity) vary greatly between individuals." } },
         { t: "img", src: "diseases/irritable-bowel-syndrome-ibs/definition.jpg", alt: { de: "Darmgesundheit", en: "Gut health" } },
       ],
       medical: [

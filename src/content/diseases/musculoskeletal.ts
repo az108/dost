@@ -1033,8 +1033,8 @@ export const musculoskeletalDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Ein Ganglion (Überbein) ist eine gutartige, mit gallertartiger Flüssigkeit gefüllte Zyste, die von einer Gelenkkapsel oder Sehnenscheide ausgeht – am häufigsten am Handgelenk. Es zeigt sich als prall-elastische Schwellung, die in der Größe schwanken kann; oft ist es beschwerdefrei, manchmal verursacht es Druckgefühl oder Schmerzen.",
-          en: "A ganglion cyst is a benign, gel-filled cyst arising from a joint capsule or tendon sheath – most commonly at the wrist. It appears as a firm-elastic swelling that can fluctuate in size; often it is symptom-free, sometimes it causes a feeling of pressure or pain." } },
+          de: "Ein Ganglion (Überbein) ist eine gutartige, mit gallertartiger Flüssigkeit gefüllte Zyste, die von einer Gelenkkapsel oder Sehnenscheide ausgeht, am häufigsten am Handgelenk. Es zeigt sich als prall-elastische Schwellung, die in der Größe schwanken kann; oft ist es beschwerdefrei, manchmal verursacht es Druckgefühl oder Schmerzen.",
+          en: "A ganglion cyst is a benign, gel-filled cyst arising from a joint capsule or tendon sheath, most commonly at the wrist. It appears as a firm-elastic swelling that can fluctuate in size; often it is symptom-free, sometimes it causes a feeling of pressure or pain." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1397,8 +1397,8 @@ export const musculoskeletalDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Psoriasis-Arthritis ist eine chronisch-entzündliche Gelenkerkrankung, die bei Menschen mit Schuppenflechte auftreten kann – manchmal auch, bevor Hautveränderungen sichtbar sind. Typisch sind Gelenkschmerzen und -schwellungen, Entzündung von Sehnenansätzen, Wurstfinger oder -zehen sowie Nagelveränderungen.",
-          en: "Psoriatic arthritis is a chronic inflammatory joint disease that can occur in people with psoriasis – sometimes even before skin changes are visible. Typical features are joint pain and swelling, inflammation of tendon attachments, sausage-like fingers or toes and nail changes." } },
+          de: "Die Psoriasis-Arthritis ist eine chronisch-entzündliche Gelenkerkrankung, die bei Menschen mit Schuppenflechte auftreten kann, manchmal auch schon, bevor Hautveränderungen sichtbar sind. Typisch sind Gelenkschmerzen und -schwellungen, Entzündung von Sehnenansätzen, Wurstfinger oder -zehen sowie Nagelveränderungen.",
+          en: "Psoriatic arthritis is a chronic inflammatory joint disease that can occur in people with psoriasis, sometimes even before skin changes are visible. Typical features are joint pain and swelling, inflammation of tendon attachments, sausage-like fingers or toes and nail changes." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1504,8 +1504,8 @@ export const musculoskeletalDiseases: Disease[] = [
           de: "Die Polymyalgia rheumatica ist eine entzündliche Erkrankung, die vor allem Menschen über 50 Jahre betrifft. Typisch sind ausgeprägte Schmerzen und Steifigkeit im Schulter- und Beckengürtel, besonders morgens, oft mit Abgeschlagenheit. Sie spricht meist rasch auf Kortison an.",
           en: "Polymyalgia rheumatica is an inflammatory condition affecting mainly people over 50. Typical features are marked pain and stiffness in the shoulder and pelvic girdle, especially in the morning, often with fatigue. It usually responds quickly to cortisone." } },
         { t: "p", text: {
-          de: "Wichtig: Neu auftretende, starke Kopfschmerzen (besonders an der Schläfe), Schmerzen beim Kauen, Berührungsempfindlichkeit der Kopfhaut oder Sehstörungen können auf eine begleitende Riesenzellarteriitis hindeuten – ein Notfall wegen drohenden Sehverlusts, der eine sofortige ärztliche Abklärung erfordert.",
-          en: "Important: new, severe headache (especially at the temple), pain on chewing, tenderness of the scalp or visual disturbance can indicate an accompanying giant cell arteritis – an emergency because of the risk of vision loss, requiring immediate medical assessment." } },
+          de: "Wichtig: Neu auftretende, starke Kopfschmerzen (besonders an der Schläfe), Schmerzen beim Kauen, Berührungsempfindlichkeit der Kopfhaut oder Sehstörungen können auf eine begleitende Riesenzellarteriitis hindeuten. Wegen des drohenden Sehverlusts ist das ein Notfall, der eine sofortige ärztliche Abklärung erfordert.",
+          en: "Important: new, severe headache (especially at the temple), pain on chewing, tenderness of the scalp or visual disturbance can indicate an accompanying giant cell arteritis. This is an emergency because of the risk of vision loss, requiring immediate medical assessment." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1535,8 +1535,8 @@ export const musculoskeletalDiseases: Disease[] = [
       physio: [
         { t: "sub", text: { de: "Beweglichkeit & Kraft erhalten", en: "Maintaining mobility & strength" } },
         { t: "p", text: {
-          de: "Die Physiotherapie unterstützt die Behandlung: sanfte Beweglichkeits- und Dehnübungen für Schulter- und Beckengürtel sowie – angepasst an die Kortisonbehandlung – gezielte Kräftigung wirken Steifigkeit, Muskelabbau und Funktionsverlust entgegen.",
-          en: "Physiotherapy supports treatment: gentle mobility and stretching exercises for the shoulder and pelvic girdle and – adapted to cortisone treatment – targeted strengthening counteract stiffness, muscle loss and loss of function." } },
+          de: "Die Physiotherapie unterstützt die Behandlung: sanfte Beweglichkeits- und Dehnübungen für Schulter- und Beckengürtel sowie gezielte, an die Kortisonbehandlung angepasste Kräftigung wirken Steifigkeit, Muskelabbau und Funktionsverlust entgegen.",
+          en: "Physiotherapy supports treatment: gentle mobility and stretching exercises for the shoulder and pelvic girdle and targeted strengthening adapted to cortisone treatment counteract stiffness, muscle loss and loss of function." } },
         { t: "p", text: {
           de: "Da Kortison Muskeln und Knochen schwächen kann, sind regelmäßiges, angepasstes Training und Sturzprävention besonders wichtig. Ein Heimprogramm hält beweglich.",
           en: "As cortisone can weaken muscles and bones, regular, adapted training and fall prevention are particularly important. A home programme keeps you mobile." } },
@@ -1556,8 +1556,8 @@ export const musculoskeletalDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Gicht ist eine Stoffwechselerkrankung, bei der ein erhöhter Harnsäurespiegel zur Ablagerung von Kristallen in Gelenken führt. Ein akuter Anfall zeigt sich als plötzliche, sehr schmerzhafte Schwellung, Rötung und Überwärmung eines Gelenks – klassisch am Großzehengrundgelenk. Unbehandelt kann die Gicht chronisch werden und Gelenke schädigen.",
-          en: "Gout is a metabolic disease in which a raised uric acid level leads to crystal deposits in joints. An acute attack presents as sudden, very painful swelling, redness and warmth of a joint – classically at the big toe joint. Untreated, gout can become chronic and damage joints." } },
+          de: "Die Gicht ist eine Stoffwechselerkrankung, bei der ein erhöhter Harnsäurespiegel zur Ablagerung von Kristallen in Gelenken führt. Ein akuter Anfall zeigt sich als plötzliche, sehr schmerzhafte Schwellung, Rötung und Überwärmung eines Gelenks, klassischerweise am Großzehengrundgelenk. Unbehandelt kann die Gicht chronisch werden und Gelenke schädigen.",
+          en: "Gout is a metabolic disease in which a raised uric acid level leads to crystal deposits in joints. An acute attack presents as sudden, very painful swelling, redness and warmth of a joint, classically at the big toe joint. Untreated, gout can become chronic and damage joints." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1609,8 +1609,8 @@ export const musculoskeletalDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Osteoporose nehmen Knochendichte und Knochenqualität ab, sodass die Knochen brüchiger werden. Lange verursacht sie keine Beschwerden und wird oft erst durch einen Knochenbruch bemerkt – typisch an Wirbelkörpern, Hüfte oder Handgelenk. Alter, Hormonmangel, Bewegungsmangel, bestimmte Erkrankungen und Medikamente (z. B. Kortison) begünstigen sie.",
-          en: "In osteoporosis, bone density and bone quality decline, making bones more fragile. It causes no symptoms for a long time and is often noticed only through a fracture – typically of the vertebrae, hip or wrist. Age, hormone deficiency, inactivity, certain diseases and medicines (e.g. cortisone) promote it." } },
+          de: "Bei der Osteoporose nehmen Knochendichte und Knochenqualität ab, sodass die Knochen brüchiger werden. Lange verursacht sie keine Beschwerden und wird oft erst durch einen Knochenbruch bemerkt, typischerweise an Wirbelkörpern, Hüfte oder Handgelenk. Alter, Hormonmangel, Bewegungsmangel, bestimmte Erkrankungen und Medikamente (z. B. Kortison) begünstigen sie.",
+          en: "In osteoporosis, bone density and bone quality decline, making bones more fragile. It causes no symptoms for a long time and is often noticed only through a fracture, typically of the vertebrae, hip or wrist. Age, hormone deficiency, inactivity, certain diseases and medicines (e.g. cortisone) promote it." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1644,8 +1644,8 @@ export const musculoskeletalDiseases: Disease[] = [
       physio: [
         { t: "sub", text: { de: "Kraft, Gleichgewicht & Sturzprävention", en: "Strength, balance & fall prevention" } },
         { t: "p", text: {
-          de: "Die Physiotherapie ist ein zentraler Baustein: gezieltes Kraft- und belastendes Training regen den Knochenaufbau an, während Gleichgewichts- und Koordinationsübungen sowie Gangschulung das Sturzrisiko senken – die wichtigste Maßnahme zur Vermeidung von Brüchen.",
-          en: "Physiotherapy is a central component: targeted strength and weight-bearing training stimulate bone formation, while balance and coordination exercises and gait training reduce the fall risk – the most important measure to prevent fractures." } },
+          de: "Die Physiotherapie ist ein zentraler Baustein: gezieltes Kraft- und belastendes Training regen den Knochenaufbau an, während Gleichgewichts- und Koordinationsübungen sowie Gangschulung das Sturzrisiko senken. Das ist die wichtigste Maßnahme zur Vermeidung von Brüchen.",
+          en: "Physiotherapy is a central component: targeted strength and weight-bearing training stimulate bone formation, while balance and coordination exercises and gait training reduce the fall risk, which is the most important measure to prevent fractures." } },
         { t: "p", text: {
           de: "Rückengerechtes Verhalten, Haltungsschulung und ein regelmäßiges, an die Belastbarkeit angepasstes Heimprogramm erhalten Knochen, Muskeln und Sicherheit im Alltag.",
           en: "Back-friendly behaviour, posture training and a regular home programme adapted to capacity maintain bones, muscles and everyday safety." } },
@@ -1807,8 +1807,8 @@ export const musculoskeletalDiseases: Disease[] = [
       physio: [
         { t: "sub", text: { de: "Ausdauer & Entspannung", en: "Aerobic activity & relaxation" } },
         { t: "p", text: {
-          de: "Die Physiotherapie wirkt vorbeugend: regelmäßiges, moderates Ausdauertraining, Entspannungsverfahren (z. B. progressive Muskelentspannung), Haltungs- und Nackenübungen sowie – bei begleitenden Nackenverspannungen – manuelle Techniken können die Anfallshäufigkeit senken.",
-          en: "Physiotherapy works preventively: regular, moderate aerobic training, relaxation techniques (e.g. progressive muscle relaxation), posture and neck exercises and – with accompanying neck tension – manual techniques can reduce attack frequency." } },
+          de: "Die Physiotherapie wirkt vorbeugend: regelmäßiges, moderates Ausdauertraining, Entspannungsverfahren (z. B. progressive Muskelentspannung), Haltungs- und Nackenübungen sowie bei begleitenden Nackenverspannungen auch manuelle Techniken können die Anfallshäufigkeit senken.",
+          en: "Physiotherapy works preventively: regular, moderate aerobic training, relaxation techniques (e.g. progressive muscle relaxation), posture and neck exercises and, with accompanying neck tension, manual techniques can reduce attack frequency." } },
         { t: "p", text: {
           de: "Ein regelmäßiger Bewegungsrhythmus, Stressmanagement und ein Heimübungsprogramm ergänzen die medizinische Vorbeugung und stärken die Selbstwirksamkeit.",
           en: "A regular movement rhythm, stress management and a home exercise programme complement medical prevention and strengthen self-efficacy." } },

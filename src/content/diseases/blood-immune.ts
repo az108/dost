@@ -65,8 +65,8 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Eisenmangel ohne Anämie", en: "Iron Deficiency Without Anaemia" },
     summary: {
-      de: "Leere Eisenspeicher bei noch normalem Blutbild – oft mit Müdigkeit und Erschöpfung.",
-      en: "Depleted iron stores with a still-normal blood count – often with fatigue and exhaustion.",
+      de: "Leere Eisenspeicher bei noch normalem Blutbild, oft mit Müdigkeit und Erschöpfung.",
+      en: "Depleted iron stores with a still-normal blood count, often with fatigue and exhaustion.",
     },
     rich: {
       definition: [
@@ -129,8 +129,8 @@ export const bloodImmuneDiseases: Disease[] = [
           en: "The blood count, vitamin B12 and additional markers such as holotranscobalamin or methylmalonic acid are examined to detect a functional deficiency. To find the cause, diet, medicines and possible absorption problems are considered." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Vitamin B12 wird ersetzt – bei Aufnahmestörungen anfangs als Spritze, sonst hochdosiert als Tablette. Nervenbeschwerden bilden sich häufig zurück, sollten aber früh behandelt werden, da anhaltende Schäden schwerer rückläufig sind. Die zugrunde liegende Ursache wird mitbehandelt.",
-          en: "Vitamin B12 is replaced – initially by injection when absorption is impaired, otherwise as high-dose tablets. Nerve symptoms often regress but should be treated early, as long-standing damage is harder to reverse. The underlying cause is treated alongside." } },
+          de: "Vitamin B12 wird ersetzt: bei Aufnahmestörungen anfangs als Spritze, sonst hochdosiert als Tablette. Nervenbeschwerden bilden sich häufig zurück, sollten aber früh behandelt werden, da anhaltende Schäden schwerer rückläufig sind. Die zugrunde liegende Ursache wird mitbehandelt.",
+          en: "Vitamin B12 is replaced: initially by injection when absorption is impaired, otherwise as high-dose tablets. Nerve symptoms often regress but should be treated early, as long-standing damage is harder to reverse. The underlying cause is treated alongside." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -177,8 +177,8 @@ export const bloodImmuneDiseases: Disease[] = [
           en: "Besides the blood count and vitamin B12 values, autoantibodies (against intrinsic factor and parietal cells) and, if needed, gastroscopy with tissue samples help. As there is a long-term increased risk of stomach changes, follow-up checks are advisable." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Da die Aufnahme über den Magen gestört ist, wird Vitamin B12 dauerhaft ersetzt – klassisch als Spritze in regelmäßigen Abständen, in geeigneten Fällen hochdosiert als Tablette. Die Behandlung ist in der Regel lebenslang erforderlich.",
-          en: "Because absorption via the stomach is impaired, vitamin B12 is replaced permanently – classically by injection at regular intervals, and in suitable cases as high-dose tablets. Treatment is usually needed lifelong." } },
+          de: "Da die Aufnahme über den Magen gestört ist, wird Vitamin B12 dauerhaft ersetzt, klassisch als Spritze in regelmäßigen Abständen, in geeigneten Fällen hochdosiert als Tablette. Die Behandlung ist in der Regel lebenslang erforderlich.",
+          en: "Because absorption via the stomach is impaired, vitamin B12 is replaced permanently, classically by injection at regular intervals, and in suitable cases as high-dose tablets. Treatment is usually needed lifelong." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -225,8 +225,8 @@ export const bloodImmuneDiseases: Disease[] = [
           en: "Besides the blood count, folate and often vitamin B12 are measured, since both deficiencies look similar and can occur together. It is important not to overlook a vitamin B12 deficiency before giving folate." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Folsäure wird als Tablette ersetzt und die Ursache behandelt – etwa durch Ernährungsumstellung, Reduktion von Alkohol oder Anpassung auslösender Medikamente. In Schwangerschaft und bei Kinderwunsch wird Folsäure vorbeugend empfohlen.",
-          en: "Folate is replaced as tablets and the cause is treated – for instance by dietary change, reducing alcohol or adjusting triggering medicines. In pregnancy and when planning a pregnancy, folate is recommended preventively." } },
+          de: "Folsäure wird als Tablette ersetzt und die Ursache behandelt, etwa durch Ernährungsumstellung, Reduktion von Alkohol oder Anpassung auslösender Medikamente. In Schwangerschaft und bei Kinderwunsch wird Folsäure vorbeugend empfohlen.",
+          en: "Folate is replaced as tablets and the cause is treated, for instance by dietary change, reducing alcohol or adjusting triggering medicines. In pregnancy and when planning a pregnancy, folate is recommended preventively." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -273,8 +273,8 @@ export const bloodImmuneDiseases: Disease[] = [
           en: "The blood count often shows a normocytic anaemia; iron values and inflammatory markers help distinguish it from true iron deficiency. The priority is clarifying the underlying disease." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Am wirksamsten ist die Behandlung der Grunderkrankung. Je nach Situation können Eisen (bei zusätzlichem Eisenmangel), bei chronischer Nierenerkrankung erythropoese-stimulierende Mittel oder – selten – Transfusionen sinnvoll sein. Unnötige Eisengaben ohne Mangel werden vermieden.",
-          en: "Treating the underlying disease is most effective. Depending on the situation, iron (with additional iron deficiency), erythropoiesis-stimulating agents in chronic kidney disease or – rarely – transfusions can be useful. Unnecessary iron without deficiency is avoided." } },
+          de: "Am wirksamsten ist die Behandlung der Grunderkrankung. Je nach Situation können Eisen (bei zusätzlichem Eisenmangel), bei chronischer Nierenerkrankung erythropoese-stimulierende Mittel oder (selten) Transfusionen sinnvoll sein. Unnötige Eisengaben ohne Mangel werden vermieden.",
+          en: "Treating the underlying disease is most effective. Depending on the situation, iron (with additional iron deficiency), erythropoiesis-stimulating agents in chronic kidney disease or, rarely, transfusions can be useful. Unnecessary iron without deficiency is avoided." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -488,8 +488,8 @@ export const bloodImmuneDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Regelmäßiges Kraft- und Gleichgewichtstraining stärkt Muskulatur und Knochen und beugt Stürzen vor – besonders im höheren Alter. Bewegung an der frischen Luft verbindet körperliche Aktivität mit Sonnenlicht.",
-          en: "Regular strength and balance training strengthens muscles and bones and prevents falls – especially in older age. Outdoor activity combines physical activity with sunlight." } },
+          de: "Regelmäßiges Kraft- und Gleichgewichtstraining stärkt Muskulatur und Knochen und beugt Stürzen vor, besonders im höheren Alter. Bewegung an der frischen Luft verbindet körperliche Aktivität mit Sonnenlicht.",
+          en: "Regular strength and balance training strengthens muscles and bones and prevents falls, especially in older age. Outdoor activity combines physical activity with sunlight." } },
       ],
     },
   },
@@ -554,17 +554,17 @@ export const bloodImmuneDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Neutropenie ist die Zahl der neutrophilen Granulozyten – einer wichtigen Gruppe weißer Blutkörperchen zur Infektabwehr – vermindert. Dadurch steigt die Anfälligkeit für bakterielle Infektionen. Ursachen sind Medikamente (u. a. Chemotherapie), Infektionen, Autoimmunprozesse, Vitaminmängel oder Knochenmarkerkrankungen.",
-          en: "In neutropenia the number of neutrophil granulocytes – an important group of white blood cells for fighting infection – is reduced. This increases susceptibility to bacterial infections. Causes are medicines (including chemotherapy), infections, autoimmune processes, vitamin deficiencies or bone marrow diseases." } },
+          de: "Bei der Neutropenie ist die Zahl der neutrophilen Granulozyten vermindert. Sie sind eine wichtige Gruppe weißer Blutkörperchen zur Infektabwehr. Dadurch steigt die Anfälligkeit für bakterielle Infektionen. Ursachen sind Medikamente (u. a. Chemotherapie), Infektionen, Autoimmunprozesse, Vitaminmängel oder Knochenmarkerkrankungen.",
+          en: "In neutropenia the number of neutrophil granulocytes, an important group of white blood cells for fighting infection, is reduced. This increases susceptibility to bacterial infections. Causes are medicines (including chemotherapy), infections, autoimmune processes, vitamin deficiencies or bone marrow diseases." } },
         { t: "p", text: {
-          de: "Wichtig: Fieber ab etwa 38,3 °C bei bekannter starker Neutropenie ist ein Notfall (febrile Neutropenie) und erfordert umgehend ärztliche Behandlung – im Zweifel über den Notruf 112 oder die Notaufnahme.",
-          en: "Important: fever of about 38.3 °C or more with known severe neutropenia is an emergency (febrile neutropenia) and requires prompt medical treatment – if in doubt via the emergency number (112) or the emergency department." } },
+          de: "Wichtig: Fieber ab etwa 38,3 °C bei bekannter starker Neutropenie ist ein Notfall (febrile Neutropenie) und erfordert umgehend ärztliche Behandlung. Im Zweifel den Notruf 112 wählen oder die Notaufnahme aufsuchen.",
+          en: "Important: fever of about 38.3 °C or more with known severe neutropenia is an emergency (febrile neutropenia) and requires prompt medical treatment. If in doubt, call the emergency number (112) or go to the emergency department." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
-          de: "Das Blutbild zeigt die verminderte Zahl neutrophiler Granulozyten; der Schweregrad bestimmt das Infektionsrisiko. Zur Ursachensuche werden Medikamente, Infektionen und – bei anhaltendem Befund – gegebenenfalls eine Knochenmarkuntersuchung herangezogen.",
-          en: "The blood count shows the reduced number of neutrophil granulocytes; the severity determines the infection risk. To find the cause, medicines, infections and – with a persistent finding – possibly a bone marrow examination are used." } },
+          de: "Das Blutbild zeigt die verminderte Zahl neutrophiler Granulozyten; der Schweregrad bestimmt das Infektionsrisiko. Zur Ursachensuche werden Medikamente, Infektionen und bei anhaltendem Befund gegebenenfalls eine Knochenmarkuntersuchung herangezogen.",
+          en: "The blood count shows the reduced number of neutrophil granulocytes; the severity determines the infection risk. To find the cause, medicines, infections and, with a persistent finding, possibly a bone marrow examination are used." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
           de: "Behandelt wird die Ursache, etwa durch Absetzen eines auslösenden Medikaments. Bei hohem Risiko kommen wachstumsfördernde Faktoren, eine konsequente Infektionsvorbeugung und bei Fieber eine rasche antibiotische Therapie zum Einsatz. Die Betreuung erfolgt je nach Schweregrad fachärztlich.",
@@ -611,8 +611,8 @@ export const bloodImmuneDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
-          de: "Das Blutbild zeigt erhöhte rote Blutwerte. Zur Unterscheidung dienen die Suche nach Ursachen (z. B. Lungen- oder Herzerkrankung, Schlafapnoe), das Hormon Erythropoetin und – bei Verdacht auf eine Knochenmarkerkrankung – ein Gentest (JAK2) sowie hämatologische Abklärung.",
-          en: "The blood count shows raised red cell values. Distinguishing the cause uses a search for causes (e.g. lung or heart disease, sleep apnoea), the hormone erythropoietin and – when a bone marrow disease is suspected – a gene test (JAK2) and haematological assessment." } },
+          de: "Das Blutbild zeigt erhöhte rote Blutwerte. Zur Unterscheidung dienen die Suche nach Ursachen (z. B. Lungen- oder Herzerkrankung, Schlafapnoe), das Hormon Erythropoetin und, bei Verdacht auf eine Knochenmarkerkrankung, ein Gentest (JAK2) sowie hämatologische Abklärung.",
+          en: "The blood count shows raised red cell values. Distinguishing the cause uses a search for causes (e.g. lung or heart disease, sleep apnoea), the hormone erythropoietin and, when a bone marrow disease is suspected, a gene test (JAK2) and haematological assessment." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
           de: "Bei reaktiven Formen steht die Behandlung der Ursache im Vordergrund (z. B. Rauchstopp, Behandlung einer Schlafapnoe). Bei der Polycythaemia vera werden regelmäßige Aderlässe, Thrombozytenhemmer und je nach Risiko weitere Medikamente eingesetzt, um Thrombosen vorzubeugen.",
@@ -737,8 +737,8 @@ export const bloodImmuneDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Regelmäßige Bewegung und die Aktivierung der Wadenmuskelpumpe (Gehen, Fußgymnastik) fördern den venösen Rückfluss. Bei langem Sitzen, Reisen oder Bettlägerigkeit sind Bewegungspausen und – nach ärztlicher Vorgabe – Kompression sinnvoll.",
-          en: "Regular activity and activating the calf-muscle pump (walking, foot exercises) promote venous return. During prolonged sitting, travel or bed rest, movement breaks and – as medically advised – compression are useful." } },
+          de: "Regelmäßige Bewegung und die Aktivierung der Wadenmuskelpumpe (Gehen, Fußgymnastik) fördern den venösen Rückfluss. Bei langem Sitzen, Reisen oder Bettlägerigkeit sind Bewegungspausen und (nach ärztlicher Vorgabe) Kompression sinnvoll.",
+          en: "Regular activity and activating the calf-muscle pump (walking, foot exercises) promote venous return. During prolonged sitting, travel or bed rest, movement breaks and, as medically advised, compression are useful." } },
       ],
     },
   },
@@ -797,8 +797,8 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Monoklonale Gammopathie (MGUS)", en: "Monoclonal Gammopathy (MGUS)" },
     summary: {
-      de: "Nachweis eines abnormen Eiweißes im Blut ohne Erkrankung – wird überwacht.",
-      en: "An abnormal protein in the blood without disease – kept under surveillance.",
+      de: "Nachweis eines abnormen Eiweißes im Blut ohne Erkrankung, das regelmäßig überwacht wird.",
+      en: "An abnormal protein in the blood without disease, kept under surveillance.",
     },
     rich: {
       definition: [
@@ -845,14 +845,14 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Milzvergrößerung (Splenomegalie)", en: "Splenomegaly" },
     summary: {
-      de: "Vergrößerte Milz als Zeichen verschiedener Grunderkrankungen – ein Befund, keine eigene Krankheit.",
-      en: "An enlarged spleen signalling various underlying conditions – a finding, not a disease in itself.",
+      de: "Vergrößerte Milz als Zeichen verschiedener Grunderkrankungen. Sie ist ein Befund, keine eigene Krankheit.",
+      en: "An enlarged spleen signalling various underlying conditions. It is a finding, not a disease in itself.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Splenomegalie ist eine Vergrößerung der Milz. Sie ist kein eigenständiges Krankheitsbild, sondern ein Hinweis auf eine zugrunde liegende Ursache – etwa Infektionen, Blut- und Lympherkrankungen, Lebererkrankungen mit Pfortaderstau oder Stoffwechselstörungen. Beschwerden können ein Druck- oder Völlegefühl im linken Oberbauch sein; oft bleibt sie zunächst unbemerkt.",
-          en: "Splenomegaly is an enlargement of the spleen. It is not a disease in itself but a pointer to an underlying cause – such as infections, blood and lymph diseases, liver disease with portal congestion or metabolic disorders. Symptoms can be a pressure or fullness in the left upper abdomen; often it goes unnoticed at first." } },
+          de: "Die Splenomegalie ist eine Vergrößerung der Milz. Sie ist kein eigenständiges Krankheitsbild, sondern ein Hinweis auf eine zugrunde liegende Ursache, etwa Infektionen, Blut- und Lympherkrankungen, Lebererkrankungen mit Pfortaderstau oder Stoffwechselstörungen. Beschwerden können ein Druck- oder Völlegefühl im linken Oberbauch sein; oft bleibt sie zunächst unbemerkt.",
+          en: "Splenomegaly is an enlargement of the spleen. It is not a disease in itself but a pointer to an underlying cause, such as infections, blood and lymph diseases, liver disease with portal congestion or metabolic disorders. Symptoms can be a pressure or fullness in the left upper abdomen; often it goes unnoticed at first." } },
       ],
       medical: [
         { t: "sub", text: { de: "Ursachensuche", en: "Finding the cause" } },
@@ -893,8 +893,8 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Reaktive Lymphknotenschwellung", en: "Reactive Lymphadenopathy" },
     summary: {
-      de: "Anschwellen der Lymphknoten als Reaktion auf Infekte – meist harmlos und vorübergehend.",
-      en: "Swelling of lymph nodes reacting to infection – usually harmless and temporary.",
+      de: "Anschwellen der Lymphknoten als Reaktion auf Infekte, meist harmlos und vorübergehend.",
+      en: "Swelling of lymph nodes reacting to infection, usually harmless and temporary.",
     },
     rich: {
       definition: [
@@ -902,14 +902,14 @@ export const bloodImmuneDiseases: Disease[] = [
           de: "Bei der reaktiven Lymphknotenschwellung vergrößern sich Lymphknoten als normale Reaktion des Immunsystems, meist auf Infektionen wie Erkältungen, Hals- oder Zahninfekte. Typisch sind weiche, verschiebliche, oft druckschmerzhafte Knoten, etwa am Hals. In der Regel bilden sie sich innerhalb einiger Wochen wieder zurück.",
           en: "In reactive lymphadenopathy, lymph nodes enlarge as a normal immune response, usually to infections such as colds, throat or dental infections. Typical are soft, mobile, often tender nodes, for example in the neck. As a rule they subside again within a few weeks." } },
         { t: "p", text: {
-          de: "Wichtig: Harte, nicht verschiebliche, schmerzlose oder über mehrere Wochen anhaltende und wachsende Lymphknoten – besonders mit Nachtschweiß, Fieber oder ungewolltem Gewichtsverlust – sollten ärztlich abgeklärt werden.",
-          en: "Important: hard, fixed, painless or persistently enlarging nodes lasting several weeks – especially with night sweats, fever or unintended weight loss – should be medically assessed." } },
+          de: "Wichtig: Harte, nicht verschiebliche, schmerzlose oder über mehrere Wochen anhaltende und wachsende Lymphknoten sollten ärztlich abgeklärt werden, besonders bei Nachtschweiß, Fieber oder ungewolltem Gewichtsverlust.",
+          en: "Important: hard, fixed, painless or persistently enlarging nodes lasting several weeks should be medically assessed, especially with night sweats, fever or unintended weight loss." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
         { t: "p", text: {
-          de: "Wichtig sind Vorgeschichte und Tastbefund (Größe, Konsistenz, Verschieblichkeit, Dauer). Bei harmlosem Bild wird häufig zunächst beobachtet. Bei auffälligen Merkmalen oder Anhalten kommen Blutuntersuchungen, Ultraschall und – falls nötig – eine Gewebeprobe zum Einsatz.",
-          en: "History and palpation findings (size, consistency, mobility, duration) are important. With a harmless picture, a period of observation is often chosen first. With suspicious features or persistence, blood tests, ultrasound and – if needed – a tissue sample are used." } },
+          de: "Wichtig sind Vorgeschichte und Tastbefund (Größe, Konsistenz, Verschieblichkeit, Dauer). Bei harmlosem Bild wird häufig zunächst beobachtet. Bei auffälligen Merkmalen oder Anhalten kommen Blutuntersuchungen, Ultraschall und, falls nötig, eine Gewebeprobe zum Einsatz.",
+          en: "History and palpation findings (size, consistency, mobility, duration) are important. With a harmless picture, a period of observation is often chosen first. With suspicious features or persistence, blood tests, ultrasound and, if needed, a tissue sample are used." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
           de: "Die Behandlung richtet sich nach der Ursache. Bei einer einfachen infektbedingten Schwellung genügt meist die Behandlung des Infekts; die Knoten bilden sich von selbst zurück.",
@@ -993,8 +993,8 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Nahrungsmittelallergie", en: "Food Allergy" },
     summary: {
-      de: "Allergische Reaktion auf bestimmte Nahrungsmittel – von Hautjucken bis zum Notfall.",
-      en: "Allergic reaction to certain foods – from skin itching to a medical emergency.",
+      de: "Allergische Reaktion auf bestimmte Nahrungsmittel, von Hautjucken bis zum Notfall.",
+      en: "Allergic reaction to certain foods, ranging from skin itching to a medical emergency.",
     },
     rich: {
       definition: [
@@ -1002,14 +1002,14 @@ export const bloodImmuneDiseases: Disease[] = [
           de: "Bei der Nahrungsmittelallergie reagiert das Immunsystem überschießend auf eigentlich harmlose Bestandteile bestimmter Lebensmittel (z. B. Erdnüsse, Nüsse, Milch, Ei, Fisch, Schalentiere, Weizen). Reaktionen reichen von Kribbeln im Mund, Hautausschlag und Magen-Darm-Beschwerden bis zu Atemnot und einer lebensbedrohlichen Anaphylaxie.",
           en: "In food allergy the immune system overreacts to actually harmless components of certain foods (e.g. peanuts, tree nuts, milk, egg, fish, shellfish, wheat). Reactions range from tingling in the mouth, skin rash and gastrointestinal symptoms to shortness of breath and a life-threatening anaphylaxis." } },
         { t: "p", text: {
-          de: "Wichtig: Atemnot, Schwellung im Hals, Kreislaufschwäche oder ein Engegefühl sind Notfallzeichen – dann sofort den Adrenalin-Autoinjektor (falls verordnet) anwenden und den Notruf 112 rufen.",
-          en: "Important: shortness of breath, throat swelling, circulatory weakness or a sense of tightness are emergency signs – then immediately use the adrenaline auto-injector (if prescribed) and call the emergency number (112)." } },
+          de: "Wichtig: Atemnot, Schwellung im Hals, Kreislaufschwäche oder ein Engegefühl sind Notfallzeichen. Dann sofort den Adrenalin-Autoinjektor (falls verordnet) anwenden und den Notruf 112 rufen.",
+          en: "Important: shortness of breath, throat swelling, circulatory weakness or a sense of tightness are emergency signs. In that case, immediately use the adrenaline auto-injector (if prescribed) and call the emergency number (112)." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
-          de: "Die Abklärung umfasst eine genaue Vorgeschichte, Allergietests (Hauttest, spezifische Antikörper) und – in ausgewählten Fällen unter ärztlicher Aufsicht – eine Provokationstestung. So werden echte Allergien von Unverträglichkeiten abgegrenzt.",
-          en: "Assessment includes a careful history, allergy tests (skin test, specific antibodies) and – in selected cases under medical supervision – a challenge test. This distinguishes true allergies from intolerances." } },
+          de: "Die Abklärung umfasst eine genaue Vorgeschichte, Allergietests (Hauttest, spezifische Antikörper) und in ausgewählten Fällen unter ärztlicher Aufsicht eine Provokationstestung. So werden echte Allergien von Unverträglichkeiten abgegrenzt.",
+          en: "Assessment includes a careful history, allergy tests (skin test, specific antibodies) and, in selected cases under medical supervision, a challenge test. This distinguishes true allergies from intolerances." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
           de: "Grundlage ist das konsequente Meiden des auslösenden Lebensmittels, unterstützt durch Beratung zum Lesen von Zutatenlisten. Bei Risiko für schwere Reaktionen wird ein Notfallset mit Adrenalin-Autoinjektor verordnet und die Anwendung geschult. Antihistaminika lindern leichte Reaktionen.",
@@ -1044,27 +1044,27 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Arzneimittelallergie", en: "Drug Allergy" },
     summary: {
-      de: "Allergische Reaktion auf ein Medikament – von Hautausschlag bis zum Notfall.",
-      en: "Allergic reaction to a medicine – from skin rash to a medical emergency.",
+      de: "Allergische Reaktion auf ein Medikament, von Hautausschlag bis zum Notfall.",
+      en: "Allergic reaction to a medicine, ranging from skin rash to a medical emergency.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Arzneimittelallergie reagiert das Immunsystem überempfindlich auf ein Medikament. Häufig sind Hautreaktionen wie Ausschlag, Quaddeln und Juckreiz; möglich sind auch Fieber oder – seltener – schwere Reaktionen bis zur Anaphylaxie oder ausgeprägten Hautreaktionen. Wichtig ist, echte Allergien von häufigeren, nicht allergischen Nebenwirkungen zu unterscheiden.",
-          en: "In drug allergy the immune system reacts hypersensitively to a medicine. Skin reactions such as rash, hives and itching are common; fever or – more rarely – severe reactions up to anaphylaxis or marked skin reactions are also possible. It is important to distinguish true allergies from the more common non-allergic side effects." } },
+          de: "Bei der Arzneimittelallergie reagiert das Immunsystem überempfindlich auf ein Medikament. Häufig sind Hautreaktionen wie Ausschlag, Quaddeln und Juckreiz; möglich sind auch Fieber oder, seltener, schwere Reaktionen bis zur Anaphylaxie oder ausgeprägten Hautreaktionen. Wichtig ist, echte Allergien von häufigeren, nicht allergischen Nebenwirkungen zu unterscheiden.",
+          en: "In drug allergy the immune system reacts hypersensitively to a medicine. Skin reactions such as rash, hives and itching are common; fever or, more rarely, severe reactions up to anaphylaxis or marked skin reactions are also possible. It is important to distinguish true allergies from the more common non-allergic side effects." } },
         { t: "p", text: {
-          de: "Wichtig: Atemnot, Schwellung im Gesicht oder Hals, Kreislaufschwäche oder eine sich rasch ausbreitende, blasige Hautreaktion sind Notfälle – Medikament stoppen, bei Anaphylaxie den Adrenalin-Autoinjektor anwenden und sofort den Notruf 112 rufen.",
-          en: "Important: shortness of breath, swelling of the face or throat, circulatory weakness or a rapidly spreading, blistering skin reaction are emergencies – stop the medicine, use the adrenaline auto-injector in anaphylaxis and call the emergency number (112) immediately." } },
+          de: "Wichtig: Atemnot, Schwellung im Gesicht oder Hals, Kreislaufschwäche oder eine sich rasch ausbreitende, blasige Hautreaktion sind Notfälle. Dann das Medikament stoppen, bei Anaphylaxie den Adrenalin-Autoinjektor anwenden und sofort den Notruf 112 rufen.",
+          en: "Important: shortness of breath, swelling of the face or throat, circulatory weakness or a rapidly spreading, blistering skin reaction are emergencies. In that case, stop the medicine, use the adrenaline auto-injector in anaphylaxis and call the emergency number (112) immediately." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
         { t: "p", text: {
-          de: "Wichtig sind eine genaue Medikamenten- und Reaktionsgeschichte; je nach Situation können Haut- oder Bluttests und – unter Aufsicht – Provokationstestungen folgen. Die auslösenden Wirkstoffe werden dokumentiert.",
-          en: "A careful medication and reaction history is important; depending on the situation, skin or blood tests and – under supervision – challenge tests may follow. The triggering agents are documented." } },
+          de: "Wichtig sind eine genaue Medikamenten- und Reaktionsgeschichte; je nach Situation können Haut- oder Bluttests und unter Aufsicht auch Provokationstestungen folgen. Die auslösenden Wirkstoffe werden dokumentiert.",
+          en: "A careful medication and reaction history is important; depending on the situation, skin or blood tests and, under supervision, challenge tests may follow. The triggering agents are documented." } },
         { t: "sub", text: { de: "Behandlung & Vorsorge", en: "Treatment & prevention" } },
         { t: "p", text: {
-          de: "Zentral ist das künftige Meiden des Auslösers und geeigneter Alternativen. Ein Allergiepass hilft, Verwechslungen zu vermeiden. Akute Reaktionen werden je nach Schwere mit Antihistaminika, Kortison oder – bei Anaphylaxie – Adrenalin behandelt.",
-          en: "Central is future avoidance of the trigger and of suitable alternatives. An allergy passport helps prevent mix-ups. Acute reactions are treated according to severity with antihistamines, cortisone or – in anaphylaxis – adrenaline." } },
+          de: "Zentral ist das künftige Meiden des Auslösers und geeigneter Alternativen. Ein Allergiepass hilft, Verwechslungen zu vermeiden. Akute Reaktionen werden je nach Schwere mit Antihistaminika, Kortison oder bei Anaphylaxie mit Adrenalin behandelt.",
+          en: "Central is future avoidance of the trigger and of suitable alternatives. An allergy passport helps prevent mix-ups. Acute reactions are treated according to severity with antihistamines, cortisone or, in anaphylaxis, adrenaline." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1104,8 +1104,8 @@ export const bloodImmuneDiseases: Disease[] = [
           de: "Bei der Insektengiftallergie reagiert das Immunsystem überschießend auf das Gift von Bienen oder Wespen. Während ein Stich normalerweise nur eine lokale Schwellung verursacht, kann es bei Allergie zu großflächigen Schwellungen oder zu einer raschen, lebensbedrohlichen Allgemeinreaktion (Anaphylaxie) mit Atemnot und Kreislaufschwäche kommen.",
           en: "In insect venom allergy the immune system overreacts to the venom of bees or wasps. While a sting normally causes only a local swelling, an allergy can lead to large-area swelling or to a rapid, life-threatening whole-body reaction (anaphylaxis) with shortness of breath and circulatory weakness." } },
         { t: "p", text: {
-          de: "Wichtig: Atemnot, Schwellung im Hals, Schwindel oder Kreislaufschwäche nach einem Stich sind Notfallzeichen – sofort den Adrenalin-Autoinjektor anwenden (falls verordnet) und den Notruf 112 rufen.",
-          en: "Important: shortness of breath, throat swelling, dizziness or circulatory weakness after a sting are emergency signs – immediately use the adrenaline auto-injector (if prescribed) and call the emergency number (112)." } },
+          de: "Wichtig: Atemnot, Schwellung im Hals, Schwindel oder Kreislaufschwäche nach einem Stich sind Notfallzeichen. Dann sofort den Adrenalin-Autoinjektor anwenden (falls verordnet) und den Notruf 112 rufen.",
+          en: "Important: shortness of breath, throat swelling, dizziness or circulatory weakness after a sting are emergency signs. In that case, immediately use the adrenaline auto-injector (if prescribed) and call the emergency number (112)." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1146,8 +1146,8 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Anaphylaxie (schwere allergische Reaktion)", en: "Anaphylaxis" },
     summary: {
-      de: "Lebensbedrohliche, rasch verlaufende allergische Reaktion – ein medizinischer Notfall.",
-      en: "A life-threatening, rapidly progressing allergic reaction – a medical emergency.",
+      de: "Lebensbedrohliche, rasch verlaufende allergische Reaktion. Sie ist ein medizinischer Notfall.",
+      en: "A life-threatening, rapidly progressing allergic reaction. It is a medical emergency.",
     },
     rich: {
       definition: [
@@ -1170,8 +1170,8 @@ export const bloodImmuneDiseases: Disease[] = [
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Bei der Anaphylaxie selbst gibt es keinen Platz für naturheilkundliche Mittel – sie ist ein Notfall, der sofort Adrenalin und den Notruf 112 erfordert. Begleitend sinnvoll sind Auslöservermeidung, sorgfältige Vorbereitung (Notfallset stets dabei) und Schulung des Umfelds.",
-          en: "In anaphylaxis itself there is no place for naturopathic remedies – it is an emergency that requires immediate adrenaline and the emergency number (112). Trigger avoidance, careful preparation (always carrying the emergency kit) and training those around you are sensible complementary measures." } },
+          de: "Bei der Anaphylaxie selbst gibt es keinen Platz für naturheilkundliche Mittel, denn sie ist ein Notfall, der sofort Adrenalin und den Notruf 112 erfordert. Begleitend sinnvoll sind Auslöservermeidung, sorgfältige Vorbereitung (Notfallset stets dabei) und Schulung des Umfelds.",
+          en: "In anaphylaxis itself there is no place for naturopathic remedies, because it is an emergency that requires immediate adrenaline and the emergency number (112). Trigger avoidance, careful preparation (always carrying the emergency kit) and training those around you are sensible complementary measures." } },
       ],
       tcm: [
         { t: "p", text: {
@@ -1197,17 +1197,17 @@ export const bloodImmuneDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Hereditäres Angioödem", en: "Hereditary Angioedema" },
     summary: {
-      de: "Erbliche Erkrankung mit wiederkehrenden Schwellungen – nicht allergisch bedingt.",
-      en: "An inherited condition with recurrent swelling – not allergy-driven.",
+      de: "Erbliche Erkrankung mit wiederkehrenden Schwellungen, die nicht allergisch bedingt sind.",
+      en: "An inherited condition with recurrent swelling that is not allergy-driven.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Das hereditäre Angioödem ist eine seltene, erbliche Erkrankung mit wiederkehrenden, anfallsartigen Schwellungen der Haut und Schleimhäute – etwa an Gesicht, Gliedmaßen, im Bauchraum (mit Schmerzen) oder im Hals. Ursache ist meist ein Mangel oder eine Fehlfunktion des C1-Esterase-Inhibitors. Wichtig: Diese Schwellungen sind nicht allergisch bedingt und sprechen nicht auf Antihistaminika oder Kortison an.",
-          en: "Hereditary angioedema is a rare, inherited condition with recurrent, episodic swelling of the skin and mucous membranes – for instance in the face, limbs, abdomen (with pain) or throat. The cause is usually a deficiency or dysfunction of C1 esterase inhibitor. Important: this swelling is not allergy-driven and does not respond to antihistamines or cortisone." } },
+          de: "Das hereditäre Angioödem ist eine seltene, erbliche Erkrankung mit wiederkehrenden, anfallsartigen Schwellungen der Haut und Schleimhäute, etwa an Gesicht, Gliedmaßen, im Bauchraum (mit Schmerzen) oder im Hals. Ursache ist meist ein Mangel oder eine Fehlfunktion des C1-Esterase-Inhibitors. Wichtig: Diese Schwellungen sind nicht allergisch bedingt und sprechen nicht auf Antihistaminika oder Kortison an.",
+          en: "Hereditary angioedema is a rare, inherited condition with recurrent, episodic swelling of the skin and mucous membranes, for instance in the face, limbs, abdomen (with pain) or throat. The cause is usually a deficiency or dysfunction of C1 esterase inhibitor. Important: this swelling is not allergy-driven and does not respond to antihistamines or cortisone." } },
         { t: "p", text: {
-          de: "Notfall: Eine Schwellung im Hals- oder Kehlkopfbereich kann die Atemwege verlegen und ist lebensbedrohlich – sofort den Notruf 112 rufen und das verordnete Akutmedikament anwenden.",
-          en: "Emergency: swelling in the throat or larynx can block the airway and is life-threatening – call the emergency number (112) immediately and use the prescribed acute medicine." } },
+          de: "Notfall: Eine Schwellung im Hals- oder Kehlkopfbereich kann die Atemwege verlegen und ist lebensbedrohlich. Dann sofort den Notruf 112 rufen und das verordnete Akutmedikament anwenden.",
+          en: "Emergency: swelling in the throat or larynx can block the airway and is life-threatening. In that case, call the emergency number (112) immediately and use the prescribed acute medicine." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -1320,8 +1320,8 @@ export const bloodImmuneDiseases: Disease[] = [
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Unterstützend sind ein gesunder Lebensstil, Rauchverzicht, ausgewogene Ernährung und Stressbewältigung. Vorsicht bei hochdosiertem Vitamin D und Kalzium, da der Kalziumhaushalt bei Sarkoidose gestört sein kann – die Einnahme ist ärztlich abzustimmen.",
-          en: "A healthy lifestyle, stopping smoking, a balanced diet and stress management are supportive. Caution with high-dose vitamin D and calcium, as calcium balance can be disturbed in sarcoidosis – their use should be medically coordinated." } },
+          de: "Unterstützend sind ein gesunder Lebensstil, Rauchverzicht, ausgewogene Ernährung und Stressbewältigung. Vorsicht bei hochdosiertem Vitamin D und Kalzium, da der Kalziumhaushalt bei Sarkoidose gestört sein kann. Die Einnahme ist daher ärztlich abzustimmen.",
+          en: "A healthy lifestyle, stopping smoking, a balanced diet and stress management are supportive. Caution with high-dose vitamin D and calcium, as calcium balance can be disturbed in sarcoidosis. Their use should therefore be medically coordinated." } },
       ],
       tcm: [
         { t: "p", text: {

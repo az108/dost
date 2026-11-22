@@ -11,7 +11,7 @@ export const SITE_URL = "https://drdosthealth.com"
 
 // Fallback meta description for the 404 page and any page that sets none.
 export const DEFAULT_DESCRIPTION =
-  "Dr. med. univ. Dost Mohammad – Ihr Arzt in Landshut. Schulmedizin und Naturheilverfahren Hand in Hand: Allgemeinmedizin, Notfallmedizin, Akupunktur und Naturheilkunde."
+  "Dr. med. univ. Dost Mohammad, Ihr Arzt in Landshut. Praktischer Arzt mit Notfallmedizin, Akupunktur und Naturheilverfahren, bei dem Schulmedizin und Naturheilverfahren Hand in Hand gehen."
 
 export const siteKeywords = [
   "Arzt Landshut",

@@ -15,8 +15,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Essenzielle Hypertonie (Bluthochdruck)", en: "Essential Hypertension" },
     summary: {
-      de: "Dauerhaft erhöhter Blutdruck ohne fassbare Einzelursache – ein zentraler Herz-Kreislauf-Risikofaktor.",
-      en: "Persistently raised blood pressure without a single identifiable cause – a key cardiovascular risk factor.",
+      de: "Dauerhaft erhöhter Blutdruck ohne fassbare Einzelursache. Er gilt als zentraler Herz-Kreislauf-Risikofaktor.",
+      en: "Persistently raised blood pressure without a single identifiable cause. It is a key cardiovascular risk factor.",
     },
     rich: {
       definition: [
@@ -31,8 +31,8 @@ export const heartCirculationDiseases: Disease[] = [
           en: "Diagnosis rests on repeated measurements, often supplemented by 24-hour ambulatory monitoring and home readings. Organ effects and further risk factors (lipids, glucose, kidney values) are also assessed. Individual targets depend on age and comorbidities." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Grundlage ist die Lebensstiländerung. Reicht sie nicht aus, werden blutdrucksenkende Medikamente eingesetzt – häufig ACE-Hemmer oder AT1-Blocker, Kalziumkanalblocker und Diuretika, oft als niedrig dosierte Kombination. Die Einstellung wird regelmäßig überprüft.",
-          en: "Lifestyle change is the foundation. If it is not enough, blood-pressure-lowering medicines are used – commonly ACE inhibitors or ARBs, calcium-channel blockers and diuretics, often as a low-dose combination. Control is reviewed regularly." } },
+          de: "Grundlage ist die Lebensstiländerung. Reicht sie nicht aus, werden blutdrucksenkende Medikamente eingesetzt, häufig ACE-Hemmer oder AT1-Blocker, Kalziumkanalblocker und Diuretika, oft als niedrig dosierte Kombination. Die Einstellung wird regelmäßig überprüft.",
+          en: "Lifestyle change is the foundation. If it is not enough, blood-pressure-lowering medicines are used, commonly ACE inhibitors or ARBs, calcium-channel blockers and diuretics, often as a low-dose combination. Control is reviewed regularly." } },
       ],
       naturopathic: [
         { t: "sub", text: { de: "Ernährung & Lebensstil", en: "Nutrition & lifestyle" } },
@@ -70,8 +70,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die hypertensive Herzkrankheit umfasst Veränderungen des Herzens infolge eines langjährig erhöhten Blutdrucks – insbesondere eine Verdickung der linken Herzkammer (Hypertrophie) und mit der Zeit eine nachlassende Pump- oder Füllungsfunktion. Sie kann zu Luftnot bei Belastung, Herzrhythmusstörungen und Herzschwäche führen.",
-          en: "Hypertensive heart disease covers changes in the heart from long-standing raised blood pressure – in particular thickening of the left ventricle (hypertrophy) and, over time, a decline in pumping or filling function. It can lead to breathlessness on exertion, arrhythmias and heart failure." } },
+          de: "Die hypertensive Herzkrankheit umfasst Veränderungen des Herzens infolge eines langjährig erhöhten Blutdrucks, insbesondere eine Verdickung der linken Herzkammer (Hypertrophie) und mit der Zeit eine nachlassende Pump- oder Füllungsfunktion. Sie kann zu Luftnot bei Belastung, Herzrhythmusstörungen und Herzschwäche führen.",
+          en: "Hypertensive heart disease covers changes in the heart from long-standing raised blood pressure, in particular thickening of the left ventricle (hypertrophy) and, over time, a decline in pumping or filling function. It can lead to breathlessness on exertion, arrhythmias and heart failure." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -128,8 +128,8 @@ export const heartCirculationDiseases: Disease[] = [
           en: "Assessment uses ECG, stress testing, cardiac ultrasound and imaging up to coronary angiography. Risk factors such as blood pressure, lipids, glucose and smoking are assessed." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Die Behandlung kombiniert Lebensstiländerung, Medikamente (z. B. Thrombozytenhemmer, Statine, Betablocker, je nach Befund weitere) und – bei relevanten Verengungen – eine Aufdehnung mit Stent oder eine Bypass-Operation.",
-          en: "Treatment combines lifestyle change, medicines (e.g. antiplatelet agents, statins, beta-blockers and others as indicated) and – for significant narrowing – balloon dilation with a stent or bypass surgery." } },
+          de: "Die Behandlung kombiniert Lebensstiländerung, Medikamente (z. B. Thrombozytenhemmer, Statine, Betablocker, je nach Befund weitere) und bei relevanten Verengungen eine Aufdehnung mit Stent oder eine Bypass-Operation.",
+          en: "Treatment combines lifestyle change, medicines (e.g. antiplatelet agents, statins, beta-blockers and others as indicated) and, for significant narrowing, balloon dilation with a stent or bypass surgery." } },
         { t: "p", text: {
           de: "Wichtig: Anhaltende, neu aufgetretene oder in Ruhe bestehende Brustschmerzen können auf einen Herzinfarkt hindeuten und erfordern sofort den Notruf 112.",
           en: "Important: persistent, new-onset or resting chest pain can indicate a heart attack and requires an immediate emergency call (112)." } },
@@ -151,8 +151,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Ein strukturiertes, ärztlich begleitetes Bewegungsprogramm – idealerweise im Rahmen einer kardiologischen Rehabilitation – verbessert Belastbarkeit, Durchblutung und Lebensqualität. Die Intensität wird an die individuelle Belastungsgrenze angepasst.",
-          en: "A structured, medically supervised exercise programme – ideally within cardiac rehabilitation – improves capacity, circulation and quality of life. Intensity is matched to the individual exertion threshold." } },
+          de: "Ein strukturiertes, ärztlich begleitetes Bewegungsprogramm, idealerweise im Rahmen einer kardiologischen Rehabilitation, verbessert Belastbarkeit, Durchblutung und Lebensqualität. Die Intensität wird an die individuelle Belastungsgrenze angepasst.",
+          en: "A structured, medically supervised exercise programme, ideally within cardiac rehabilitation, improves capacity, circulation and quality of life. Intensity is matched to the individual exertion threshold." } },
       ],
     },
   },
@@ -169,8 +169,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Angina pectoris bezeichnet anfallsartige Schmerzen, Druck oder Enge in der Brust, die durch eine vorübergehende Minderdurchblutung des Herzmuskels entstehen – meist bei körperlicher Anstrengung oder Aufregung und mit Besserung in Ruhe. Sie ist ein Warnzeichen einer koronaren Herzkrankheit.",
-          en: "Angina pectoris refers to episodic pain, pressure or tightness in the chest caused by temporary reduced blood flow to the heart muscle – usually on physical exertion or excitement and easing with rest. It is a warning sign of coronary artery disease." } },
+          de: "Angina pectoris bezeichnet anfallsartige Schmerzen, Druck oder Enge in der Brust, die durch eine vorübergehende Minderdurchblutung des Herzmuskels entstehen, meist bei körperlicher Anstrengung oder Aufregung und mit Besserung in Ruhe. Sie ist ein Warnzeichen einer koronaren Herzkrankheit.",
+          en: "Angina pectoris refers to episodic pain, pressure or tightness in the chest caused by temporary reduced blood flow to the heart muscle, usually on physical exertion or excitement and easing with rest. It is a warning sign of coronary artery disease." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & stabile Angina", en: "Assessment & stable angina" } },
@@ -216,8 +216,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der chronischen Herzinsuffizienz kann das Herz den Körper nicht mehr ausreichend mit Blut versorgen. Typisch sind Luftnot – zunächst bei Belastung, später auch in Ruhe –, Müdigkeit, verminderte Leistungsfähigkeit und Wassereinlagerungen, etwa in den Beinen. Ursachen sind u. a. koronare Herzkrankheit, Bluthochdruck und Herzklappen- oder Herzmuskelerkrankungen.",
-          en: "In chronic heart failure the heart can no longer supply the body with enough blood. Typical features are breathlessness – at first on exertion, later at rest – fatigue, reduced capacity and fluid retention, for example in the legs. Causes include coronary artery disease, high blood pressure and valve or heart-muscle disease." } },
+          de: "Bei der chronischen Herzinsuffizienz kann das Herz den Körper nicht mehr ausreichend mit Blut versorgen. Typisch sind Luftnot (zunächst bei Belastung, später auch in Ruhe), Müdigkeit, verminderte Leistungsfähigkeit und Wassereinlagerungen, etwa in den Beinen. Ursachen sind u. a. koronare Herzkrankheit, Bluthochdruck und Herzklappen- oder Herzmuskelerkrankungen.",
+          en: "In chronic heart failure the heart can no longer supply the body with enough blood. Typical features are breathlessness (at first on exertion, later at rest), fatigue, reduced capacity and fluid retention, for example in the legs. Causes include coronary artery disease, high blood pressure and valve or heart-muscle disease." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -246,8 +246,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Ein individuell dosiertes, ärztlich begleitetes Bewegungsprogramm – etwa im Rahmen einer Herzinsuffizienz-Rehabilitation – kann Belastbarkeit und Lebensqualität verbessern. Übungsintensität und -umfang werden sorgfältig an die aktuelle Herzfunktion angepasst.",
-          en: "An individually dosed, medically supervised exercise programme – for instance within heart-failure rehabilitation – can improve capacity and quality of life. Exercise intensity and volume are carefully matched to current heart function." } },
+          de: "Ein individuell dosiertes, ärztlich begleitetes Bewegungsprogramm, etwa im Rahmen einer Herzinsuffizienz-Rehabilitation, kann Belastbarkeit und Lebensqualität verbessern. Übungsintensität und -umfang werden sorgfältig an die aktuelle Herzfunktion angepasst.",
+          en: "An individually dosed, medically supervised exercise programme, for instance within heart-failure rehabilitation, can improve capacity and quality of life. Exercise intensity and volume are carefully matched to current heart function." } },
       ],
     },
   },
@@ -360,8 +360,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Herzrhythmusstörungen sind Abweichungen des normalen Herzschlags – zu schnell, zu langsam oder unregelmäßig. Sie reichen von harmlosen Extraschlägen bis zu behandlungsbedürftigen Formen. Beschwerden können Herzstolpern, Herzrasen, Schwindel, Leistungsminderung oder – selten – Ohnmacht sein.",
-          en: "Cardiac arrhythmias are deviations from the normal heartbeat – too fast, too slow or irregular. They range from harmless extra beats to forms needing treatment. Symptoms can include fluttering, racing heart, dizziness, reduced capacity or – rarely – fainting." } },
+          de: "Herzrhythmusstörungen sind Abweichungen des normalen Herzschlags: zu schnell, zu langsam oder unregelmäßig. Sie reichen von harmlosen Extraschlägen bis zu behandlungsbedürftigen Formen. Beschwerden können Herzstolpern, Herzrasen, Schwindel, Leistungsminderung oder, selten, Ohnmacht sein.",
+          en: "Cardiac arrhythmias are deviations from the normal heartbeat: too fast, too slow or irregular. They range from harmless extra beats to forms needing treatment. Symptoms can include fluttering, racing heart, dizziness, reduced capacity or, rarely, fainting." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -370,8 +370,8 @@ export const heartCirculationDiseases: Disease[] = [
           en: "ECG and Holter ECG are important to characterise the disturbance, along with a search for causes (e.g. thyroid, electrolytes, heart disease, medications)." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Die Behandlung richtet sich nach Art und Ursache: von Beobachtung und Auslöservermeidung über Medikamente bis zu Verfahren wie Katheterablation oder – bei bestimmten langsamen Rhythmen – einem Herzschrittmacher.",
-          en: "Treatment depends on the type and cause: from observation and trigger avoidance to medicines and procedures such as catheter ablation or – for certain slow rhythms – a pacemaker." } },
+          de: "Die Behandlung richtet sich nach Art und Ursache: von Beobachtung und Auslöservermeidung über Medikamente bis zu Verfahren wie Katheterablation oder, bei bestimmten langsamen Rhythmen, einem Herzschrittmacher.",
+          en: "Treatment depends on the type and cause: from observation and trigger avoidance to medicines and procedures such as catheter ablation or, for certain slow rhythms, a pacemaker." } },
         { t: "p", text: {
           de: "Wichtig: Ohnmacht, anhaltendes Herzrasen mit Luftnot oder Brustschmerz erfordern eine rasche ärztliche Abklärung, im Notfall den Notruf 112.",
           en: "Important: fainting, sustained fast heartbeat with breathlessness or chest pain require prompt medical assessment, and an emergency call (112) in an emergency." } },
@@ -549,8 +549,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Tiefe Beinvenenthrombose", en: "Deep Vein Thrombosis" },
     summary: {
-      de: "Blutgerinnsel in einer tiefen Vene, meist im Bein – mit Risiko einer Lungenembolie.",
-      en: "A blood clot in a deep vein, usually in the leg – with a risk of pulmonary embolism.",
+      de: "Blutgerinnsel in einer tiefen Vene, meist im Bein, mit dem Risiko einer Lungenembolie.",
+      en: "A blood clot in a deep vein, usually in the leg, with a risk of pulmonary embolism.",
     },
     rich: {
       definition: [
@@ -600,8 +600,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Oberflächliche Thrombophlebitis", en: "Superficial Thrombophlebitis" },
     summary: {
-      de: "Entzündung mit Gerinnsel in einer oberflächlichen Vene – schmerzhafter, geröteter Strang.",
-      en: "Inflammation with a clot in a superficial vein – a painful, reddened cord.",
+      de: "Entzündung mit Gerinnsel in einer oberflächlichen Vene. Typisch ist ein schmerzhafter, geröteter Strang.",
+      en: "Inflammation with a clot in a superficial vein, felt as a painful, reddened cord.",
     },
     rich: {
       definition: [
@@ -644,8 +644,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Niedriger Blutdruck (Hypotonie)", en: "Low Blood Pressure (Hypotension)" },
     summary: {
-      de: "Niedriger Blutdruck mit Müdigkeit, Schwindel oder Benommenheit – meist harmlos.",
-      en: "Low blood pressure with fatigue, dizziness or light-headedness – usually harmless.",
+      de: "Niedriger Blutdruck mit Müdigkeit, Schwindel oder Benommenheit. Er ist meist harmlos.",
+      en: "Low blood pressure with fatigue, dizziness or light-headedness. It is usually harmless.",
     },
     rich: {
       definition: [
@@ -695,8 +695,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der orthostatischen Hypotonie fällt der Blutdruck kurz nach dem Aufstehen deutlich ab. Typisch sind Schwindel, Benommenheit, Schwarzwerden vor den Augen oder – selten – kurze Ohnmacht. Ursachen sind u. a. Flüssigkeitsmangel, Medikamente, langes Liegen oder Störungen der Kreislaufregulation.",
-          en: "In orthostatic hypotension, blood pressure drops markedly shortly after standing up. Typical features are dizziness, light-headedness, visual blackout or – rarely – brief fainting. Causes include dehydration, medications, prolonged bed rest or disturbances of circulatory regulation." } },
+          de: "Bei der orthostatischen Hypotonie fällt der Blutdruck kurz nach dem Aufstehen deutlich ab. Typisch sind Schwindel, Benommenheit, Schwarzwerden vor den Augen oder, selten, eine kurze Ohnmacht. Ursachen sind u. a. Flüssigkeitsmangel, Medikamente, langes Liegen oder Störungen der Kreislaufregulation.",
+          en: "In orthostatic hypotension, blood pressure drops markedly shortly after standing up. Typical features are dizziness, light-headedness, visual blackout or, rarely, brief fainting. Causes include dehydration, medications, prolonged bed rest or disturbances of circulatory regulation." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
@@ -722,8 +722,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Kreislauftraining, Beingymnastik, das Anspannen der Beinmuskulatur vor dem Aufstehen und – nach ärztlicher Abstimmung – ein schrittweises Stehtraining verbessern die Kreislaufregulation.",
-          en: "Circulation training, leg exercises, tensing the leg muscles before standing and – after medical agreement – gradual standing training improve circulatory regulation." } },
+          de: "Kreislauftraining, Beingymnastik, das Anspannen der Beinmuskulatur vor dem Aufstehen und, nach ärztlicher Abstimmung, ein schrittweises Stehtraining verbessern die Kreislaufregulation.",
+          en: "Circulation training, leg exercises, tensing the leg muscles before standing and, after medical agreement, gradual standing training improve circulatory regulation." } },
       ],
     },
   },
@@ -734,14 +734,14 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Herzklopfen (Palpitationen)", en: "Palpitations" },
     summary: {
-      de: "Bewusstes, oft unangenehmes Wahrnehmen des Herzschlags – meist harmlos.",
-      en: "A conscious, often unpleasant awareness of the heartbeat – usually harmless.",
+      de: "Bewusstes, oft unangenehmes Wahrnehmen des Herzschlags, meist harmlos.",
+      en: "A conscious, often unpleasant awareness of the heartbeat, usually harmless.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Als Palpitationen bezeichnet man das bewusste, oft als unangenehm empfundene Wahrnehmen des eigenen Herzschlags – etwa als Stolpern, Rasen oder kräftiges Pochen. Ursachen reichen von harmlosen Auslösern (Aufregung, Koffein, Anstrengung) bis zu Herzrhythmusstörungen, Schilddrüsen- oder anderen Erkrankungen.",
-          en: "Palpitations are a conscious, often unpleasant awareness of one's own heartbeat – as skipping, racing or forceful pounding. Causes range from harmless triggers (excitement, caffeine, exertion) to arrhythmias, thyroid or other conditions." } },
+          de: "Als Palpitationen bezeichnet man das bewusste, oft als unangenehm empfundene Wahrnehmen des eigenen Herzschlags, etwa als Stolpern, Rasen oder kräftiges Pochen. Ursachen reichen von harmlosen Auslösern (Aufregung, Koffein, Anstrengung) bis zu Herzrhythmusstörungen, Schilddrüsen- oder anderen Erkrankungen.",
+          en: "Palpitations are a conscious, often unpleasant awareness of one's own heartbeat, for example as skipping, racing or forceful pounding. Causes range from harmless triggers (excitement, caffeine, exertion) to arrhythmias, thyroid or other conditions." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -787,8 +787,8 @@ export const heartCirculationDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die sekundäre Hypertonie ist ein Bluthochdruck, der durch eine andere Erkrankung verursacht wird – etwa Nieren- oder Nebennierenerkrankungen, hormonelle Störungen, eine Schlafapnoe oder bestimmte Medikamente. Hinweise sind ein früher Beginn, sehr hohe Werte, schlechtes Ansprechen auf mehrere Medikamente oder auffällige Begleitbefunde.",
-          en: "Secondary hypertension is high blood pressure caused by another condition – such as kidney or adrenal disease, hormonal disorders, sleep apnoea or certain medicines. Clues are an early onset, very high readings, poor response to several medicines or notable associated findings." } },
+          de: "Die sekundäre Hypertonie ist ein Bluthochdruck, der durch eine andere Erkrankung verursacht wird, etwa durch Nieren- oder Nebennierenerkrankungen, hormonelle Störungen, eine Schlafapnoe oder bestimmte Medikamente. Hinweise sind ein früher Beginn, sehr hohe Werte, schlechtes Ansprechen auf mehrere Medikamente oder auffällige Begleitbefunde.",
+          en: "Secondary hypertension is high blood pressure caused by another condition, such as kidney or adrenal disease, hormonal disorders, sleep apnoea or certain medicines. Clues are an early onset, very high readings, poor response to several medicines or notable associated findings." } },
       ],
       medical: [
         { t: "sub", text: { de: "Ursachensuche", en: "Finding the cause" } },
@@ -855,8 +855,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der Erholungsphase können Akupunktur und individuelle Kräuter traditionell begleitend zur Stärkung und Entspannung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die Medikation zu ersetzen.",
-          en: "During recovery, acupuncture and individual herbs may traditionally be used as complementary support for strengthening and relaxation – only under qualified supervision and without replacing medication." } },
+          de: "In der Erholungsphase können Akupunktur und individuelle Kräuter traditionell begleitend zur Stärkung und Entspannung eingesetzt werden, jedoch nur unter qualifizierter Aufsicht und ohne die Medikation zu ersetzen.",
+          en: "During recovery, acupuncture and individual herbs may traditionally be used as complementary support for strengthening and relaxation, but only under qualified supervision and without replacing medication." } },
       ],
       ayurvedic: [
         { t: "p", text: {
@@ -877,8 +877,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Ventrikuläre Extrasystolen", en: "Premature Ventricular Contractions" },
     summary: {
-      de: "Zusätzliche Herzschläge aus den Herzkammern – meist harmlos, oft als Stolpern spürbar.",
-      en: "Extra heartbeats from the ventricles – usually harmless, often felt as skipping.",
+      de: "Zusätzliche Herzschläge aus den Herzkammern. Sie sind meist harmlos und oft als Stolpern spürbar.",
+      en: "Extra heartbeats from the ventricles. They are usually harmless and often felt as skipping.",
     },
     rich: {
       definition: [
@@ -889,8 +889,8 @@ export const heartCirculationDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
         { t: "p", text: {
-          de: "EKG und Langzeit-EKG erfassen Häufigkeit und Art; bei Bedarf werden Herzultraschall und Laborwerte ergänzt. Ohne Herzerkrankung genügen meist Beobachtung und Auslöservermeidung. Bei starken Beschwerden oder sehr häufigen Extrasystolen kommen Betablocker oder – selten – eine Katheterablation infrage.",
-          en: "ECG and Holter ECG capture frequency and type; cardiac ultrasound and blood tests are added when needed. Without heart disease, observation and trigger avoidance usually suffice. For marked symptoms or very frequent extra beats, beta-blockers or – rarely – catheter ablation are options." } },
+          de: "EKG und Langzeit-EKG erfassen Häufigkeit und Art; bei Bedarf werden Herzultraschall und Laborwerte ergänzt. Ohne Herzerkrankung genügen meist Beobachtung und Auslöservermeidung. Bei starken Beschwerden oder sehr häufigen Extrasystolen kommen Betablocker oder, selten, eine Katheterablation infrage.",
+          en: "ECG and Holter ECG capture frequency and type; cardiac ultrasound and blood tests are added when needed. Without heart disease, observation and trigger avoidance usually suffice. For marked symptoms or very frequent extra beats, beta-blockers or, rarely, catheter ablation are options." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -921,8 +921,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Vorhofflattern", en: "Atrial Flutter" },
     summary: {
-      de: "Sehr schneller, meist regelmäßiger Vorhofrhythmus – verwandt mit Vorhofflimmern.",
-      en: "A very fast, usually regular atrial rhythm – related to atrial fibrillation.",
+      de: "Sehr schneller, meist regelmäßiger Vorhofrhythmus, verwandt mit dem Vorhofflimmern.",
+      en: "A very fast, usually regular atrial rhythm, related to atrial fibrillation.",
     },
     rich: {
       definition: [
@@ -965,8 +965,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Bradykardie (langsamer Herzschlag)", en: "Bradycardia" },
     summary: {
-      de: "Verlangsamter Herzschlag – bei Sportlichen oft normal, sonst je nach Beschwerden abzuklären.",
-      en: "A slowed heartbeat – often normal in athletes, otherwise assessed by symptoms.",
+      de: "Verlangsamter Herzschlag. Bei Sportlichen ist er oft normal, sonst wird er je nach Beschwerden abgeklärt.",
+      en: "A slowed heartbeat. It is often normal in athletes and otherwise assessed by symptoms.",
     },
     rich: {
       definition: [
@@ -977,8 +977,8 @@ export const heartCirculationDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
         { t: "p", text: {
-          de: "EKG und Langzeit-EKG klären Art und Ursache (z. B. Medikamente, Schilddrüse, Reizleitungsstörung). Ohne Beschwerden ist oft keine Behandlung nötig. Bei relevanten Beschwerden werden auslösende Medikamente angepasst und – bei bestimmten Reizleitungsstörungen – ein Herzschrittmacher erwogen.",
-          en: "ECG and Holter ECG clarify the type and cause (e.g. medicines, thyroid, conduction disturbance). Without symptoms, treatment is often unnecessary. For significant symptoms, triggering medicines are adjusted and – for certain conduction disturbances – a pacemaker is considered." } },
+          de: "EKG und Langzeit-EKG klären Art und Ursache (z. B. Medikamente, Schilddrüse, Reizleitungsstörung). Ohne Beschwerden ist oft keine Behandlung nötig. Bei relevanten Beschwerden werden auslösende Medikamente angepasst und bei bestimmten Reizleitungsstörungen ein Herzschrittmacher erwogen.",
+          en: "ECG and Holter ECG clarify the type and cause (e.g. medicines, thyroid, conduction disturbance). Without symptoms, treatment is often unnecessary. For significant symptoms, triggering medicines are adjusted and, for certain conduction disturbances, a pacemaker is considered." } },
         { t: "p", text: {
           de: "Wichtig: Ohnmacht oder wiederholtes Schwarzwerden vor den Augen erfordern eine rasche ärztliche Abklärung.",
           en: "Important: fainting or repeated visual blackouts require prompt medical assessment." } },
@@ -1012,8 +1012,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Sinustachykardie", en: "Sinus Tachycardia" },
     summary: {
-      de: "Beschleunigter, aber regelmäßiger Herzschlag – meist Ausdruck einer Belastung oder Ursache.",
-      en: "A fast but regular heartbeat – usually a response to strain or an underlying cause.",
+      de: "Beschleunigter, aber regelmäßiger Herzschlag. Er ist meist Ausdruck einer Belastung oder einer zugrunde liegenden Ursache.",
+      en: "A fast but regular heartbeat. It is usually a response to strain or an underlying cause.",
     },
     rich: {
       definition: [
@@ -1068,8 +1068,8 @@ export const heartCirculationDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
         { t: "p", text: {
-          de: "Der Herzultraschall (Echokardiografie) ist die zentrale Untersuchung. Leichte Formen werden regelmäßig kontrolliert. Bei ausgeprägter, symptomatischer Stenose ist ein Klappenersatz die entscheidende Behandlung – operativ oder kathetergestützt (TAVI).",
-          en: "Cardiac ultrasound (echocardiography) is the central investigation. Mild forms are monitored regularly. For severe, symptomatic stenosis, valve replacement is the decisive treatment – surgical or catheter-based (TAVI)." } },
+          de: "Der Herzultraschall (Echokardiografie) ist die zentrale Untersuchung. Leichte Formen werden regelmäßig kontrolliert. Bei ausgeprägter, symptomatischer Stenose ist ein Klappenersatz die entscheidende Behandlung, entweder operativ oder kathetergestützt (TAVI).",
+          en: "Cardiac ultrasound (echocardiography) is the central investigation. Mild forms are monitored regularly. For severe, symptomatic stenosis, valve replacement is the decisive treatment, either surgical or catheter-based (TAVI)." } },
         { t: "p", text: {
           de: "Wichtig: Ohnmacht, Brustschmerz oder Luftnot bei Belastung erfordern eine zeitnahe kardiologische Abklärung.",
           en: "Important: fainting, chest pain or breathlessness on exertion require prompt cardiology assessment." } },
@@ -1103,8 +1103,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Mitralklappeninsuffizienz", en: "Mitral Valve Regurgitation" },
     summary: {
-      de: "Undichte Mitralklappe mit Rückfluss von Blut – oft lange beschwerdearm.",
-      en: "A leaking mitral valve with backflow of blood – often with few symptoms for a long time.",
+      de: "Undichte Mitralklappe mit Rückfluss von Blut. Sie bleibt oft lange beschwerdearm.",
+      en: "A leaking mitral valve with backflow of blood. It often causes few symptoms for a long time.",
     },
     rich: {
       definition: [
@@ -1172,8 +1172,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung zu ersetzen.",
-          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening – only under qualified supervision and without replacing medical treatment." } },
+          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden, jedoch nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung zu ersetzen.",
+          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening, but only under qualified supervision and without replacing medical treatment." } },
       ],
       ayurvedic: [
         { t: "p", text: {
@@ -1194,8 +1194,8 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Herzmuskelentzündung (Myokarditis)", en: "Myocarditis" },
     summary: {
-      de: "Entzündung des Herzmuskels, oft nach Virusinfekt – Schonung ist besonders wichtig.",
-      en: "Inflammation of the heart muscle, often after a viral infection – rest is especially important.",
+      de: "Entzündung des Herzmuskels, oft nach einem Virusinfekt. Schonung ist dabei besonders wichtig.",
+      en: "Inflammation of the heart muscle, often after a viral infection. Rest is especially important.",
     },
     rich: {
       definition: [
@@ -1219,8 +1219,8 @@ export const heartCirculationDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden – nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung oder Schonung zu ersetzen.",
-          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening – only under qualified supervision and without replacing medical treatment or rest." } },
+          de: "In der Erholungsphase können Akupunktur und Kräuter traditionell begleitend zur Stärkung eingesetzt werden, jedoch nur unter qualifizierter Aufsicht und ohne die medizinische Behandlung oder Schonung zu ersetzen.",
+          en: "During recovery, acupuncture and herbs may traditionally be used as complementary support for strengthening, but only under qualified supervision and without replacing medical treatment or rest." } },
       ],
       ayurvedic: [
         { t: "p", text: {
@@ -1253,8 +1253,8 @@ export const heartCirculationDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
         { t: "p", text: {
-          de: "Zur Abklärung dienen EKG, Herzultraschall, Labor, ggf. Kardio-MRT und familiäre Anamnese. Die Behandlung richtet sich nach Form und Beschwerden – von Medikamenten gegen Herzschwäche und Rhythmusstörungen bis zu speziellen Verfahren; bei erblichen Formen ist die Familienuntersuchung wichtig.",
-          en: "Assessment uses ECG, cardiac ultrasound, laboratory tests, cardiac MRI where appropriate and family history. Treatment depends on the form and symptoms – from medicines for heart failure and arrhythmias to specialised procedures; for inherited forms, family screening is important." } },
+          de: "Zur Abklärung dienen EKG, Herzultraschall, Labor, ggf. Kardio-MRT und familiäre Anamnese. Die Behandlung richtet sich nach Form und Beschwerden. Sie reicht von Medikamenten gegen Herzschwäche und Rhythmusstörungen bis zu speziellen Verfahren; bei erblichen Formen ist die Familienuntersuchung wichtig.",
+          en: "Assessment uses ECG, cardiac ultrasound, laboratory tests, cardiac MRI where appropriate and family history. Treatment depends on the form and symptoms, ranging from medicines for heart failure and arrhythmias to specialised procedures; for inherited forms, family screening is important." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1285,17 +1285,17 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Lungenembolie", en: "Pulmonary Embolism" },
     summary: {
-      de: "Verschluss einer Lungenarterie durch ein Blutgerinnsel – ein medizinischer Notfall.",
-      en: "Blockage of a lung artery by a blood clot – a medical emergency.",
+      de: "Verschluss einer Lungenarterie durch ein Blutgerinnsel. Sie ist ein medizinischer Notfall.",
+      en: "Blockage of a lung artery by a blood clot. It is a medical emergency.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Lungenembolie verschließt ein Blutgerinnsel – meist aus einer tiefen Beinvenenthrombose – eine Lungenarterie. Typisch sind plötzliche Luftnot, atemabhängiger Brustschmerz, Herzrasen und mitunter Bluthusten. Die Lungenembolie ist ein medizinischer Notfall.",
-          en: "In pulmonary embolism a blood clot – usually from a deep vein thrombosis – blocks a lung artery. Typical features are sudden breathlessness, breathing-dependent chest pain, a racing heart and sometimes coughing up blood. Pulmonary embolism is a medical emergency." } },
+          de: "Bei der Lungenembolie verschließt ein Blutgerinnsel, meist aus einer tiefen Beinvenenthrombose, eine Lungenarterie. Typisch sind plötzliche Luftnot, atemabhängiger Brustschmerz, Herzrasen und mitunter Bluthusten. Die Lungenembolie ist ein medizinischer Notfall.",
+          en: "In pulmonary embolism a blood clot, usually from a deep vein thrombosis, blocks a lung artery. Typical features are sudden breathlessness, breathing-dependent chest pain, a racing heart and sometimes coughing up blood. Pulmonary embolism is a medical emergency." } },
         { t: "p", text: {
-          de: "Wichtig: Bei Verdacht auf eine Lungenembolie – plötzliche Luftnot, Brustschmerz, Kollaps – sofort den Notruf 112 wählen.",
-          en: "Important: if a pulmonary embolism is suspected – sudden breathlessness, chest pain, collapse – call the emergency number (112) immediately." } },
+          de: "Wichtig: Bei Verdacht auf eine Lungenembolie (plötzliche Luftnot, Brustschmerz, Kollaps) sofort den Notruf 112 wählen.",
+          en: "Important: if a pulmonary embolism is suspected (sudden breathlessness, chest pain, collapse), call the emergency number (112) immediately." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
@@ -1332,14 +1332,14 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Lymphödem", en: "Lymphoedema" },
     summary: {
-      de: "Schwellung durch gestörten Lymphabfluss – Entstauungstherapie ist zentral.",
-      en: "Swelling from impaired lymph drainage – decongestive therapy is central.",
+      de: "Schwellung durch gestörten Lymphabfluss. Die Entstauungstherapie ist zentral.",
+      en: "Swelling from impaired lymph drainage. Decongestive therapy is central.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Das Lymphödem ist eine Schwellung, die durch einen gestörten Abfluss der Lymphflüssigkeit entsteht – meist an Armen oder Beinen. Ursachen sind angeborene Anlagen oder Schädigungen des Lymphsystems, etwa nach Operationen, Bestrahlung oder Infektionen. Unbehandelt kann das Gewebe mit der Zeit verhärten.",
-          en: "Lymphoedema is swelling caused by impaired drainage of lymph fluid – usually in the arms or legs. Causes are congenital predisposition or damage to the lymphatic system, for instance after surgery, radiation or infection. Untreated, the tissue can harden over time." } },
+          de: "Das Lymphödem ist eine Schwellung, die durch einen gestörten Abfluss der Lymphflüssigkeit entsteht, meist an Armen oder Beinen. Ursachen sind angeborene Anlagen oder Schädigungen des Lymphsystems, etwa nach Operationen, Bestrahlung oder Infektionen. Unbehandelt kann das Gewebe mit der Zeit verhärten.",
+          en: "Lymphoedema is swelling caused by impaired drainage of lymph fluid, usually in the arms or legs. Causes are congenital predisposition or damage to the lymphatic system, for instance after surgery, radiation or infection. Untreated, the tissue can harden over time." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Therapie", en: "Assessment & therapy" } },
@@ -1512,14 +1512,14 @@ export const heartCirculationDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Bauchaortenaneurysma", en: "Abdominal Aortic Aneurysm" },
     summary: {
-      de: "Krankhafte Erweiterung der Bauchschlagader – meist beschwerdefrei, aber überwachungsbedürftig.",
-      en: "An abnormal widening of the abdominal aorta – usually symptom-free but needing monitoring.",
+      de: "Krankhafte Erweiterung der Bauchschlagader. Sie ist meist beschwerdefrei, muss aber überwacht werden.",
+      en: "An abnormal widening of the abdominal aorta. It is usually symptom-free but needs monitoring.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Ein Bauchaortenaneurysma ist eine krankhafte Erweiterung der Bauchschlagader. Es verläuft meist beschwerdefrei und wird häufig zufällig entdeckt. Mit zunehmender Größe steigt das Risiko eines Einrisses, der lebensbedrohlich ist – daher sind Überwachung und rechtzeitige Behandlung wichtig.",
-          en: "An abdominal aortic aneurysm is an abnormal widening of the abdominal aorta. It is usually symptom-free and often found incidentally. As it enlarges, the risk of rupture – which is life-threatening – rises, so monitoring and timely treatment are important." } },
+          de: "Ein Bauchaortenaneurysma ist eine krankhafte Erweiterung der Bauchschlagader. Es verläuft meist beschwerdefrei und wird häufig zufällig entdeckt. Mit zunehmender Größe steigt das Risiko eines Einrisses, der lebensbedrohlich ist. Daher sind Überwachung und rechtzeitige Behandlung wichtig.",
+          en: "An abdominal aortic aneurysm is an abnormal widening of the abdominal aorta. It is usually symptom-free and often found incidentally. As it enlarges, the risk of a life-threatening rupture rises, so monitoring and timely treatment are important." } },
         { t: "p", text: {
           de: "Wichtig: Plötzliche starke Bauch- oder Rückenschmerzen mit Kreislaufproblemen können auf einen Einriss hindeuten und erfordern sofort den Notruf 112.",
           en: "Important: sudden severe abdominal or back pain with circulatory problems can indicate a rupture and requires an immediate emergency call (112)." } },
@@ -1527,8 +1527,8 @@ export const heartCirculationDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Überwachung & Behandlung", en: "Monitoring & treatment" } },
         { t: "p", text: {
-          de: "Kleinere Aneurysmen werden per Ultraschall regelmäßig kontrolliert, begleitet von Rauchverzicht und Behandlung der Risikofaktoren. Ab einer bestimmten Größe oder bei raschem Wachstum wird eine Ausschaltung erwogen – kathetergestützt (Stentprothese) oder operativ.",
-          en: "Smaller aneurysms are monitored regularly by ultrasound, alongside smoking cessation and risk-factor treatment. Above a certain size or with rapid growth, repair is considered – catheter-based (stent graft) or surgical." } },
+          de: "Kleinere Aneurysmen werden per Ultraschall regelmäßig kontrolliert, begleitet von Rauchverzicht und Behandlung der Risikofaktoren. Ab einer bestimmten Größe oder bei raschem Wachstum wird eine Ausschaltung erwogen, entweder kathetergestützt (Stentprothese) oder operativ.",
+          en: "Smaller aneurysms are monitored regularly by ultrasound, alongside smoking cessation and risk-factor treatment. Above a certain size or with rapid growth, repair is considered, either catheter-based (stent graft) or surgical." } },
       ],
       naturopathic: [
         { t: "p", text: {

@@ -13,7 +13,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "Angaben gemäß § 5 DDG",
         body: [
-          "Dr. med. univ. Dost Mohammad\nPraxis für Allgemeinmedizin und Naturheilverfahren\nAm Weiher 3\nMagersdorf\n84178 Kröning",
+          "Dr. med. univ. Dost Mohammad\nPrivatpraxis, Praktischer Arzt, Naturheilverfahren\nAm Weiher 3\nMagersdorf\n84178 Kröning",
         ],
       },
       {
@@ -62,7 +62,7 @@ export const legal: { impressum: Loc<LegalBlock[]>; datenschutz: Loc<LegalBlock[
       {
         heading: "Information pursuant to § 5 DDG",
         body: [
-          "Dr. med. univ. Dost Mohammad\nPractice for General Medicine and Naturopathy\nAm Weiher 3\nMagersdorf\n84178 Kröning, Germany",
+          "Dr. med. univ. Dost Mohammad\nPrivate practice, General Practitioner, Naturopathic Procedures\nAm Weiher 3\nMagersdorf\n84178 Kröning, Germany",
         ],
       },
       {

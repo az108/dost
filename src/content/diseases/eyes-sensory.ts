@@ -15,8 +15,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Bindehautentzündung (Konjunktivitis)", en: "Conjunctivitis" },
     summary: {
-      de: "Entzündung der Augenbindehaut mit Rötung, Tränen und Fremdkörpergefühl – meist harmlos.",
-      en: "Inflammation of the eye's conjunctiva with redness, tearing and grittiness – usually harmless.",
+      de: "Entzündung der Augenbindehaut mit Rötung, Tränen und Fremdkörpergefühl, meist harmlos.",
+      en: "Inflammation of the eye's conjunctiva with redness, tearing and grittiness, usually harmless.",
     },
     rich: {
       definition: [
@@ -73,8 +73,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die allergische Bindehautentzündung ist eine Überempfindlichkeitsreaktion der Bindehaut auf Allergene wie Pollen, Hausstaubmilben oder Tierhaare. Leitsymptom ist starker Juckreiz, begleitet von Rötung, Tränen, Schwellung und einem Fremdkörpergefühl – häufig an beiden Augen und oft zusammen mit einer allergischen Nasenschleimhautentzündung (Heuschnupfen).",
-          en: "Allergic conjunctivitis is a hypersensitivity reaction of the conjunctiva to allergens such as pollen, house-dust mites or animal dander. The leading symptom is intense itching, with redness, tearing, swelling and grittiness – usually in both eyes and often together with allergic rhinitis (hay fever)." } },
+          de: "Die allergische Bindehautentzündung ist eine Überempfindlichkeitsreaktion der Bindehaut auf Allergene wie Pollen, Hausstaubmilben oder Tierhaare. Leitsymptom ist starker Juckreiz, begleitet von Rötung, Tränen, Schwellung und einem Fremdkörpergefühl, häufig an beiden Augen und oft zusammen mit einer allergischen Nasenschleimhautentzündung (Heuschnupfen).",
+          en: "Allergic conjunctivitis is a hypersensitivity reaction of the conjunctiva to allergens such as pollen, house-dust mites or animal dander. The leading symptom is intense itching, with redness, tearing, swelling and grittiness, usually in both eyes and often together with allergic rhinitis (hay fever)." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -116,8 +116,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Bindehautunterblutung", en: "Subconjunctival Haemorrhage" },
     summary: {
-      de: "Scharf begrenzter roter Fleck im Auge durch ein geplatztes kleines Gefäß – meist harmlos.",
-      en: "A sharply defined red patch in the eye from a burst small vessel – usually harmless.",
+      de: "Scharf begrenzter roter Fleck im Auge durch ein geplatztes kleines Gefäß. Er ist meist harmlos.",
+      en: "A sharply defined red patch in the eye from a burst small vessel. It is usually harmless.",
     },
     rich: {
       definition: [
@@ -169,8 +169,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Das Flügelfell ist eine gutartige, keilförmige Wucherung der Bindehaut, die vom inneren Augenwinkel her auf die Hornhaut vorwachsen kann. Begünstigt wird es durch jahrelange UV-Belastung, Wind, Staub und Trockenheit. Oft bleibt es beschwerdearm; es kann jedoch reizen, röten und – wenn es die Sehachse erreicht – die Hornhaut verformen und das Sehen beeinträchtigen.",
-          en: "A pterygium is a benign, wedge-shaped growth of the conjunctiva that can advance from the inner corner of the eye onto the cornea. It is favoured by years of UV exposure, wind, dust and dryness. It is often low in symptoms but can cause irritation and redness and – if it reaches the visual axis – distort the cornea and impair vision." } },
+          de: "Das Flügelfell ist eine gutartige, keilförmige Wucherung der Bindehaut, die vom inneren Augenwinkel her auf die Hornhaut vorwachsen kann. Begünstigt wird es durch jahrelange UV-Belastung, Wind, Staub und Trockenheit. Oft bleibt es beschwerdearm; es kann jedoch reizen, röten und, wenn es die Sehachse erreicht, die Hornhaut verformen und das Sehen beeinträchtigen.",
+          en: "A pterygium is a benign, wedge-shaped growth of the conjunctiva that can advance from the inner corner of the eye onto the cornea. It is favoured by years of UV exposure, wind, dust and dryness. It is often low in symptoms but can cause irritation and redness and, if it reaches the visual axis, distort the cornea and impair vision." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -218,8 +218,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Beim Trockenen-Auge-Syndrom ist der Tränenfilm gestört – entweder durch zu wenig Tränenflüssigkeit oder durch zu rasche Verdunstung, häufig bei Funktionsstörung der Liddrüsen. Typisch sind Brennen, Fremdkörpergefühl, Rötung, müde Augen, zeitweises Verschwommensehen und – paradox – auch Tränenträufeln. Bildschirmarbeit, trockene Luft, Kontaktlinsen, Hormonumstellungen und manche Medikamente können die Beschwerden verstärken.",
-          en: "In dry eye syndrome the tear film is disturbed – either through too little tear fluid or through overly rapid evaporation, often with dysfunction of the eyelid glands. Typical features are burning, grittiness, redness, tired eyes, intermittent blurring and – paradoxically – also watering. Screen work, dry air, contact lenses, hormonal changes and some medicines can intensify symptoms." } },
+          de: "Beim Trockenen-Auge-Syndrom ist der Tränenfilm gestört, entweder durch zu wenig Tränenflüssigkeit oder durch zu rasche Verdunstung, häufig bei Funktionsstörung der Liddrüsen. Typisch sind Brennen, Fremdkörpergefühl, Rötung, müde Augen, zeitweises Verschwommensehen und paradoxerweise auch Tränenträufeln. Bildschirmarbeit, trockene Luft, Kontaktlinsen, Hormonumstellungen und manche Medikamente können die Beschwerden verstärken.",
+          en: "In dry eye syndrome the tear film is disturbed, either through too little tear fluid or through overly rapid evaporation, often with dysfunction of the eyelid glands. Typical features are burning, grittiness, redness, tired eyes, intermittent blurring and, paradoxically, also watering. Screen work, dry air, contact lenses, hormonal changes and some medicines can intensify symptoms." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -283,8 +283,8 @@ export const eyesSensoryDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Tägliche Lidpflege", en: "Daily lid care" } },
         { t: "ul", items: {
-          de: ["Warme Kompressen für einige Minuten, gefolgt von sanfter Lidmassage, lösen verstopfte Drüsen.","Behutsame Reinigung der Lidränder mit dafür vorgesehenen Produkten oder mildem Mittel nach ärztlicher Empfehlung.","Regelmäßigkeit ist entscheidend – die Pflege wird dauerhaft fortgeführt, auch in beschwerdearmen Phasen.","Augen-Make-up am Lidrand sollte in akuten Phasen reduziert werden."],
-          en: ["Warm compresses for a few minutes followed by gentle lid massage loosen blocked glands.","Careful cleaning of the lid margins with dedicated products or a mild agent on medical advice.","Consistency is decisive – care is continued long-term, including during symptom-free phases.","Eye make-up on the lid margin should be reduced during acute phases."] } },
+          de: ["Warme Kompressen für einige Minuten, gefolgt von sanfter Lidmassage, lösen verstopfte Drüsen.","Behutsame Reinigung der Lidränder mit dafür vorgesehenen Produkten oder mildem Mittel nach ärztlicher Empfehlung.","Regelmäßigkeit ist entscheidend: Die Pflege wird dauerhaft fortgeführt, auch in beschwerdearmen Phasen.","Augen-Make-up am Lidrand sollte in akuten Phasen reduziert werden."],
+          en: ["Warm compresses for a few minutes followed by gentle lid massage loosen blocked glands.","Careful cleaning of the lid margins with dedicated products or a mild agent on medical advice.","Consistency is decisive: care is continued long-term, including during symptom-free phases.","Eye make-up on the lid margin should be reduced during acute phases."] } },
       ],
       tcm: [
         { t: "p", text: {
@@ -406,8 +406,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Hornhautentzündung (Keratitis)", en: "Keratitis" },
     summary: {
-      de: "Entzündung der Hornhaut mit Schmerz, Rötung und Sehstörung – potenziell sehbedrohlich.",
-      en: "Inflammation of the cornea with pain, redness and visual disturbance – potentially sight-threatening.",
+      de: "Entzündung der Hornhaut mit Schmerz, Rötung und Sehstörung. Sie ist potenziell sehbedrohlich.",
+      en: "Inflammation of the cornea with pain, redness and visual disturbance. It is potentially sight-threatening.",
     },
     rich: {
       definition: [
@@ -425,8 +425,8 @@ export const eyesSensoryDiseases: Disease[] = [
           de: "Je nach Ursache kommen antibiotische, antivirale oder seltener antimykotische Augentropfen zum Einsatz, oft in engmaschiger Kontrolle. Kontaktlinsen werden pausiert. Eine gute Ausheilung hängt vom raschen Behandlungsbeginn ab.",
           en: "Depending on the cause, antibiotic, antiviral or more rarely antifungal eye drops are used, often with close monitoring. Contact lenses are paused. A good outcome depends on starting treatment quickly." } },
         { t: "p", text: {
-          de: "Wichtig: Ein rotes, schmerzhaftes Auge mit Lichtscheu und Sehverschlechterung – besonders bei Kontaktlinsenträgern – ist ein augenärztlicher Notfall und erfordert sofortige Vorstellung.",
-          en: "Important: a red, painful eye with light sensitivity and reduced vision – especially in contact-lens wearers – is an ophthalmological emergency requiring immediate attention." } },
+          de: "Wichtig: Ein rotes, schmerzhaftes Auge mit Lichtscheu und Sehverschlechterung, besonders bei Kontaktlinsenträgern, ist ein augenärztlicher Notfall und erfordert sofortige Vorstellung.",
+          en: "Important: a red, painful eye with light sensitivity and reduced vision, especially in contact-lens wearers, is an ophthalmological emergency requiring immediate attention." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -457,8 +457,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Regenbogenhautentzündung (Uveitis)", en: "Uveitis" },
     summary: {
-      de: "Entzündung der mittleren Augenhaut mit Schmerz, Rötung und Lichtscheu – sehbedrohlich.",
-      en: "Inflammation of the eye's middle layer with pain, redness and light sensitivity – sight-threatening.",
+      de: "Entzündung der mittleren Augenhaut mit Schmerz, Rötung und Lichtscheu. Sie kann das Sehen bedrohen.",
+      en: "Inflammation of the eye's middle layer with pain, redness and light sensitivity. It can threaten sight.",
     },
     rich: {
       definition: [
@@ -473,16 +473,16 @@ export const eyesSensoryDiseases: Disease[] = [
           en: "Uveitis warrants prompt ophthalmological examination (slit lamp, intraocular pressure, retinal assessment). Depending on course, causes such as infections or systemic disease are specifically investigated, sometimes together with other specialties." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Behandelt wird meist entzündungshemmend, häufig mit kortisonhaltigen Augentropfen, pupillenerweiternden Tropfen gegen Verklebungen und – bei schweren oder wiederkehrenden Formen – mit systemischen oder immunmodulierenden Medikamenten. Infektionsbedingte Formen erhalten eine gezielte Therapie.",
-          en: "Treatment is usually anti-inflammatory, often with corticosteroid eye drops, pupil-dilating drops to prevent adhesions and – for severe or recurrent forms – systemic or immunomodulating medicines. Infection-related forms receive targeted therapy." } },
+          de: "Behandelt wird meist entzündungshemmend, häufig mit kortisonhaltigen Augentropfen, pupillenerweiternden Tropfen gegen Verklebungen und, bei schweren oder wiederkehrenden Formen, mit systemischen oder immunmodulierenden Medikamenten. Infektionsbedingte Formen erhalten eine gezielte Therapie.",
+          en: "Treatment is usually anti-inflammatory, often with corticosteroid eye drops, pupil-dilating drops to prevent adhesions and, for severe or recurrent forms, systemic or immunomodulating medicines. Infection-related forms receive targeted therapy." } },
         { t: "p", text: {
           de: "Wichtig: Ein rotes, schmerzhaftes, lichtempfindliches Auge mit Sehverschlechterung erfordert umgehend eine augenärztliche Vorstellung.",
           en: "Important: a red, painful, light-sensitive eye with reduced vision requires immediate ophthalmological attention." } },
       ],
       naturopathic: [
         { t: "p", text: {
-          de: "Eine naturheilkundliche Behandlung kann die entzündungshemmende Therapie nicht ersetzen. Unterstützend – nach ärztlicher Freigabe – können antientzündlich orientierte Ernährung, Stressreduktion und Lichtschutz das Wohlbefinden fördern; entscheidend bleibt die konsequente augenärztliche Behandlung.",
-          en: "Naturopathic treatment cannot replace anti-inflammatory therapy. As supportive measures – once medically cleared – an anti-inflammatory diet, stress reduction and light protection can aid wellbeing; consistent ophthalmological treatment remains decisive." } },
+          de: "Eine naturheilkundliche Behandlung kann die entzündungshemmende Therapie nicht ersetzen. Unterstützend können nach ärztlicher Freigabe antientzündlich orientierte Ernährung, Stressreduktion und Lichtschutz das Wohlbefinden fördern; entscheidend bleibt die konsequente augenärztliche Behandlung.",
+          en: "Naturopathic treatment cannot replace anti-inflammatory therapy. As supportive measures, once medically cleared, an anti-inflammatory diet, stress reduction and light protection can aid wellbeing; consistent ophthalmological treatment remains decisive." } },
       ],
       tcm: [
         { t: "p", text: {
@@ -545,8 +545,8 @@ export const eyesSensoryDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Physiotherapie behandelt den Grauen Star nicht und Augenübungen können die Linse nicht aufklaren. Unterstützend helfen im Alltag gute Beleuchtung, Blendschutz und – bei eingeschränkter Sicht – Maßnahmen zur Sturzvorbeugung und zur sicheren Bewegung.",
-          en: "Physiotherapy does not treat cataract and eye exercises cannot clear the lens. As supportive measures for daily life, good lighting, glare protection and – with reduced vision – fall prevention and safe mobility help." } },
+          de: "Physiotherapie behandelt den Grauen Star nicht und Augenübungen können die Linse nicht aufklaren. Unterstützend helfen im Alltag gute Beleuchtung, Blendschutz und bei eingeschränkter Sicht auch Maßnahmen zur Sturzvorbeugung und zur sicheren Bewegung.",
+          en: "Physiotherapy does not treat cataract and eye exercises cannot clear the lens. As supportive measures for daily life, good lighting, glare protection and, with reduced vision, fall prevention and safe mobility help." } },
       ],
     },
   },
@@ -557,8 +557,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Grüner Star (Offenwinkelglaukom)", en: "Open-Angle Glaucoma" },
     summary: {
-      de: "Fortschreitende Schädigung des Sehnervs, meist durch erhöhten Augeninnendruck – lange unbemerkt.",
-      en: "Progressive optic-nerve damage, usually from raised eye pressure – long unnoticed.",
+      de: "Fortschreitende Schädigung des Sehnervs, meist durch erhöhten Augeninnendruck. Sie bleibt lange unbemerkt.",
+      en: "Progressive optic-nerve damage, usually from raised eye pressure. It often goes unnoticed for a long time.",
     },
     rich: {
       definition: [
@@ -576,8 +576,8 @@ export const eyesSensoryDiseases: Disease[] = [
           de: "Ziel ist die dauerhafte Senkung des Augeninnendrucks, meist mit drucksenkenden Augentropfen, die regelmäßig und lebenslang angewendet werden. Alternativ oder ergänzend stehen Laserbehandlung und Operationen zur Verfügung. Bereits eingetretene Schäden lassen sich nicht rückgängig machen, aber ein Fortschreiten kann aufgehalten werden.",
           en: "The goal is lasting reduction of intraocular pressure, usually with pressure-lowering eye drops used regularly and lifelong. Laser treatment and surgery are available as alternatives or additions. Damage that has already occurred cannot be reversed, but progression can be halted." } },
         { t: "p", text: {
-          de: "Wichtig: Ein akut rotes, sehr schmerzhaftes Auge mit Sehverschlechterung, Farbringen um Lichtquellen (Halos), Kopfschmerz und Übelkeit kann auf einen akuten Glaukomanfall (Winkelblock) hindeuten – das ist ein augenärztlicher Notfall und erfordert sofortige Hilfe.",
-          en: "Important: an acutely red, very painful eye with reduced vision, coloured halos around lights, headache and nausea can indicate an acute glaucoma attack (angle closure) – this is an ophthalmological emergency and requires immediate help." } },
+          de: "Wichtig: Ein akut rotes, sehr schmerzhaftes Auge mit Sehverschlechterung, Farbringen um Lichtquellen (Halos), Kopfschmerz und Übelkeit kann auf einen akuten Glaukomanfall (Winkelblock) hindeuten. Das ist ein augenärztlicher Notfall und erfordert sofortige Hilfe.",
+          en: "Important: an acutely red, very painful eye with reduced vision, coloured halos around lights, headache and nausea can indicate an acute glaucoma attack (angle closure). This is an ophthalmological emergency and requires immediate help." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -624,8 +624,8 @@ export const eyesSensoryDiseases: Disease[] = [
           en: "Assessment includes vision tests, retinal examination and modern imaging (e.g. OCT), often supplemented by a simple grid test (Amsler grid) for self-monitoring. Distinguishing the dry from the wet form is decisive for treatment." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Für die feuchte Form stehen Medikamente zur Verfügung, die als Einspritzung in das Auge (Anti-VEGF) das Fortschreiten bremsen und die Sehkraft oft stabilisieren. Die trockene Form wird beobachtet; Rauchverzicht und – je nach Befund – bestimmte Nährstoffpräparate können das Risiko des Fortschreitens senken.",
-          en: "For the wet form, medicines are available that, given as injections into the eye (anti-VEGF), slow progression and often stabilise vision. The dry form is monitored; stopping smoking and – depending on findings – certain nutrient supplements can lower the risk of progression." } },
+          de: "Für die feuchte Form stehen Medikamente zur Verfügung, die als Einspritzung in das Auge (Anti-VEGF) das Fortschreiten bremsen und die Sehkraft oft stabilisieren. Die trockene Form wird beobachtet; Rauchverzicht und je nach Befund bestimmte Nährstoffpräparate können das Risiko des Fortschreitens senken.",
+          en: "For the wet form, medicines are available that, given as injections into the eye (anti-VEGF), slow progression and often stabilise vision. The dry form is monitored; stopping smoking and, depending on findings, certain nutrient supplements can lower the risk of progression." } },
         { t: "p", text: {
           de: "Wichtig: Eine plötzliche Sehverschlechterung, verzerrtes Sehen oder ein zentraler dunkler Fleck können auf eine feuchte AMD hindeuten und erfordern eine rasche augenärztliche Abklärung.",
           en: "Important: sudden visual decline, distorted vision or a central dark spot can indicate wet AMD and require prompt ophthalmological assessment." } },
@@ -660,8 +660,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Glaskörpertrübungen (Mouches volantes)", en: "Vitreous Floaters" },
     summary: {
-      de: "Bewegliche Punkte oder Fäden im Blickfeld durch Trübungen im Glaskörper – meist harmlos.",
-      en: "Moving dots or threads in the field of view from opacities in the vitreous – usually harmless.",
+      de: "Bewegliche Punkte oder Fäden im Blickfeld durch Trübungen im Glaskörper. Sie sind meist harmlos.",
+      en: "Moving dots or threads in the field of view from opacities in the vitreous. They are usually harmless.",
     },
     rich: {
       definition: [
@@ -675,8 +675,8 @@ export const eyesSensoryDiseases: Disease[] = [
           de: "Neu oder verstärkt auftretende Trübungen sollten augenärztlich mit erweiterter Pupille untersucht werden, um die Netzhaut zu beurteilen. Harmlose Floater bedürfen in der Regel keiner Behandlung.",
           en: "New or increased floaters should be examined by an ophthalmologist with a dilated pupil to assess the retina. Harmless floaters usually need no treatment." } },
         { t: "p", text: {
-          de: "Wichtig: Ein plötzlicher Schwarm neuer Punkte, Lichtblitze oder ein wandernder Schatten bzw. Vorhang im Gesichtsfeld können auf einen Netzhauteinriss oder eine Netzhautablösung hindeuten – das ist ein augenärztlicher Notfall und erfordert sofortige Vorstellung.",
-          en: "Important: a sudden shower of new dots, flashes of light or a moving shadow or curtain in the visual field can indicate a retinal tear or detachment – this is an ophthalmological emergency and requires immediate attention." } },
+          de: "Wichtig: Ein plötzlicher Schwarm neuer Punkte, Lichtblitze oder ein wandernder Schatten bzw. Vorhang im Gesichtsfeld können auf einen Netzhauteinriss oder eine Netzhautablösung hindeuten. Das ist ein augenärztlicher Notfall und erfordert sofortige Vorstellung.",
+          en: "Important: a sudden shower of new dots, flashes of light or a moving shadow or curtain in the visual field can indicate a retinal tear or detachment. This is an ophthalmological emergency and requires immediate attention." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -897,8 +897,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die akute Mittelohrentzündung ist eine meist durch Viren oder Bakterien ausgelöste Entzündung des Mittelohrs, häufig im Gefolge eines Atemwegsinfekts. Typisch sind rasch einsetzende Ohrenschmerzen, Druckgefühl, vermindertes Hören und – vor allem bei Kindern – Fieber und Unruhe. Reißt das Trommelfell durch den Druck ein, kann Sekret abfließen und der Schmerz nachlassen.",
-          en: "Acute otitis media is an infection of the middle ear, usually triggered by viruses or bacteria, often following a respiratory infection. Typical features are rapidly starting earache, a sense of pressure, reduced hearing and – especially in children – fever and restlessness. If the eardrum tears under the pressure, fluid can drain and the pain may ease." } },
+          de: "Die akute Mittelohrentzündung ist eine meist durch Viren oder Bakterien ausgelöste Entzündung des Mittelohrs, häufig im Gefolge eines Atemwegsinfekts. Typisch sind rasch einsetzende Ohrenschmerzen, Druckgefühl, vermindertes Hören und, vor allem bei Kindern, Fieber und Unruhe. Reißt das Trommelfell durch den Druck ein, kann Sekret abfließen und der Schmerz nachlassen.",
+          en: "Acute otitis media is an infection of the middle ear, usually triggered by viruses or bacteria, often following a respiratory infection. Typical features are rapidly starting earache, a sense of pressure, reduced hearing and, especially in children, fever and restlessness. If the eardrum tears under the pressure, fluid can drain and the pain may ease." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
@@ -945,8 +945,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Beim Paukenerguss sammelt sich Flüssigkeit im Mittelohr, ohne dass eine akute Infektion vorliegt. Ursache ist meist eine gestörte Belüftung über die Ohrtrompete, etwa nach einem Infekt oder bei vergrößerten Rachenmandeln. Typisch sind ein dumpfes, gemindertes Hören, Druck- oder Völlegefühl im Ohr und – vor allem bei Kindern – unbemerkte Hörprobleme, die die Sprachentwicklung beeinflussen können.",
-          en: "In otitis media with effusion fluid collects in the middle ear without an acute infection. The cause is usually impaired ventilation through the eustachian tube, for example after a cold or with enlarged adenoids. Typical features are muffled, reduced hearing, a sense of pressure or fullness in the ear and – especially in children – unnoticed hearing problems that can affect speech development." } },
+          de: "Beim Paukenerguss sammelt sich Flüssigkeit im Mittelohr, ohne dass eine akute Infektion vorliegt. Ursache ist meist eine gestörte Belüftung über die Ohrtrompete, etwa nach einem Infekt oder bei vergrößerten Rachenmandeln. Typisch sind ein dumpfes, gemindertes Hören, Druck- oder Völlegefühl im Ohr und, vor allem bei Kindern, unbemerkte Hörprobleme, die die Sprachentwicklung beeinflussen können.",
+          en: "In otitis media with effusion fluid collects in the middle ear without an acute infection. The cause is usually impaired ventilation through the eustachian tube, for example after a cold or with enlarged adenoids. Typical features are muffled, reduced hearing, a sense of pressure or fullness in the ear and, especially in children, unnoticed hearing problems that can affect speech development." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Verlauf", en: "Assessment & course" } },
@@ -976,8 +976,8 @@ export const eyesSensoryDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Übungen zum Druckausgleich und zur Belüftung der Ohrtrompete können unterstützen, etwa bewusstes Schlucken und Gähnen oder – bei Kindern altersgerecht – das Aufblasen eines speziellen Nasenballons nach ärztlicher Anleitung. Eine strukturelle Ursache wird dadurch nicht ersetzt.",
-          en: "Exercises for pressure equalisation and eustachian-tube ventilation can support, such as conscious swallowing and yawning or – in children, age-appropriately – inflating a special nasal balloon on medical advice. A structural cause is not replaced by this." } },
+          de: "Übungen zum Druckausgleich und zur Belüftung der Ohrtrompete können unterstützen, etwa bewusstes Schlucken und Gähnen oder bei Kindern altersgerecht das Aufblasen eines speziellen Nasenballons nach ärztlicher Anleitung. Eine strukturelle Ursache wird dadurch nicht ersetzt.",
+          en: "Exercises for pressure equalisation and eustachian-tube ventilation can support, such as conscious swallowing and yawning or (in children, age-appropriately) inflating a special nasal balloon on medical advice. A structural cause is not replaced by this." } },
       ],
     },
   },
@@ -1042,8 +1042,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Ohrtrompete (Tube) verbindet das Mittelohr mit dem Rachen und sorgt für den Druckausgleich und die Belüftung. Ist ihre Funktion gestört – häufig bei Erkältungen, Allergien oder beim Fliegen und Tauchen –, entstehen ein Druck- oder Völlegefühl, dumpfes oder gemindertes Hören, Knacken beim Schlucken und mitunter leichte Schmerzen. Meist ist die Störung vorübergehend.",
-          en: "The eustachian tube connects the middle ear to the throat and provides pressure equalisation and ventilation. If its function is impaired – often with colds, allergies or when flying and diving – a sense of pressure or fullness, muffled or reduced hearing, clicking on swallowing and sometimes mild pain arise. Usually the disturbance is temporary." } },
+          de: "Die Ohrtrompete (Tube) verbindet das Mittelohr mit dem Rachen und sorgt für den Druckausgleich und die Belüftung. Ist ihre Funktion gestört, etwa bei Erkältungen, Allergien oder beim Fliegen und Tauchen, entstehen ein Druck- oder Völlegefühl, dumpfes oder gemindertes Hören, Knacken beim Schlucken und mitunter leichte Schmerzen. Meist ist die Störung vorübergehend.",
+          en: "The eustachian tube connects the middle ear to the throat and provides pressure equalisation and ventilation. If its function is impaired (often with colds, allergies or when flying and diving), a sense of pressure or fullness, muffled or reduced hearing, clicking on swallowing and sometimes mild pain arise. Usually the disturbance is temporary." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung & Behandlung", en: "Assessment & treatment" } },
@@ -1069,8 +1069,8 @@ export const eyesSensoryDiseases: Disease[] = [
       ],
       physio: [
         { t: "p", text: {
-          de: "Gezielte Druckausgleichs- und Tubenübungen bilden hier den Kern der unterstützenden Maßnahmen: bewusstes Schlucken und Gähnen, das behutsame Valsalva-Manöver sowie – nach Anleitung – das Aufblasen eines Nasenballons. Bei begleitender Nasen- und Nebenhöhlenbeteiligung können atemtherapeutische Übungen ergänzen.",
-          en: "Targeted pressure-equalisation and tube exercises form the core of supportive measures here: conscious swallowing and yawning, the gentle Valsalva manoeuvre and – with guidance – inflating a nasal balloon. With accompanying nasal and sinus involvement, breathing-therapy exercises can add to this." } },
+          de: "Gezielte Druckausgleichs- und Tubenübungen bilden hier den Kern der unterstützenden Maßnahmen: bewusstes Schlucken und Gähnen, das behutsame Valsalva-Manöver sowie nach Anleitung das Aufblasen eines Nasenballons. Bei begleitender Nasen- und Nebenhöhlenbeteiligung können atemtherapeutische Übungen ergänzen.",
+          en: "Targeted pressure-equalisation and tube exercises form the core of supportive measures here: conscious swallowing and yawning, the gentle Valsalva manoeuvre and, with guidance, inflating a nasal balloon. With accompanying nasal and sinus involvement, breathing-therapy exercises can add to this." } },
       ],
     },
   },
@@ -1093,8 +1093,8 @@ export const eyesSensoryDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Der Pfropf wird ärztlich sicher entfernt – durch Aufweichen mit geeigneten Tropfen, schonende Spülung oder instrumentelle bzw. abgesaugte Reinigung unter Sicht. Das ist unkompliziert und bessert das Hören meist sofort. Bei bekanntem Trommelfelldefekt oder Ohrenoperationen wird die Methode angepasst.",
-          en: "The plug is removed safely by a clinician – by softening with suitable drops, gentle irrigation or instrumental or suction cleaning under direct view. This is straightforward and usually improves hearing at once. With a known eardrum defect or previous ear surgery, the method is adapted." } },
+          de: "Der Pfropf wird ärztlich sicher entfernt, und zwar durch Aufweichen mit geeigneten Tropfen, schonende Spülung oder instrumentelle bzw. abgesaugte Reinigung unter Sicht. Das ist unkompliziert und bessert das Hören meist sofort. Bei bekanntem Trommelfelldefekt oder Ohrenoperationen wird die Methode angepasst.",
+          en: "The plug is removed safely by a clinician by softening with suitable drops, gentle irrigation or instrumental or suction cleaning under direct view. This is straightforward and usually improves hearing at once. With a known eardrum defect or previous ear surgery, the method is adapted." } },
         { t: "p", text: {
           de: "Wichtig: Wattestäbchen und spitze Gegenstände gehören nicht in den Gehörgang, da sie den Pfropf verdichten und das Trommelfell verletzen können.",
           en: "Important: cotton buds and pointed objects do not belong in the ear canal, as they compact the plug and can injure the eardrum." } },
@@ -1102,8 +1102,8 @@ export const eyesSensoryDiseases: Disease[] = [
       naturopathic: [
         { t: "sub", text: { de: "Pflege & Vorbeugung", en: "Care & prevention" } },
         { t: "ul", items: {
-          de: ["Das Ohr reinigt sich normalerweise selbst; äußere Reinigung der Ohrmuschel genügt.","Aufweichende Tropfen (z. B. auf Öl- oder Salzwasserbasis) können vor einer Entfernung helfen – nur bei intaktem Trommelfell.","Von Ohrkerzen wird wegen Verletzungs- und Verbrennungsgefahr abgeraten.","Bei wiederkehrenden Pfropfen kann eine regelmäßige ärztliche Reinigung sinnvoll sein."],
-          en: ["The ear normally cleans itself; cleaning the outer auricle is enough.","Softening drops (e.g. oil- or saline-based) can help before removal – only with an intact eardrum.","Ear candles are discouraged because of injury and burn risk.","With recurring plugs, regular professional cleaning can be sensible."] } },
+          de: ["Das Ohr reinigt sich normalerweise selbst; äußere Reinigung der Ohrmuschel genügt.","Aufweichende Tropfen (z. B. auf Öl- oder Salzwasserbasis) können vor einer Entfernung helfen, allerdings nur bei intaktem Trommelfell.","Von Ohrkerzen wird wegen Verletzungs- und Verbrennungsgefahr abgeraten.","Bei wiederkehrenden Pfropfen kann eine regelmäßige ärztliche Reinigung sinnvoll sein."],
+          en: ["The ear normally cleans itself; cleaning the outer auricle is enough.","Softening drops (e.g. oil- or saline-based) can help before removal, but only with an intact eardrum.","Ear candles are discouraged because of injury and burn risk.","With recurring plugs, regular professional cleaning can be sensible."] } },
       ],
       tcm: [
         { t: "p", text: {
@@ -1135,8 +1135,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Tinnitus ist die Wahrnehmung von Geräuschen – etwa Pfeifen, Rauschen, Summen oder Klingeln – ohne äußere Schallquelle. Er ist meist ein Symptom und kann viele Ursachen haben, etwa Lärm, Hörminderung, Stress, eine Ohrerkrankung oder Verspannungen im Kiefer- und Nackenbereich. Viele Menschen gewöhnen sich mit der Zeit daran; bei starkem Leidensdruck ist gezielte Hilfe möglich.",
-          en: "Tinnitus is the perception of sounds – such as whistling, hissing, buzzing or ringing – without an external source. It is usually a symptom and can have many causes, for example noise, hearing loss, stress, an ear condition or tension in the jaw and neck. Many people habituate over time; where distress is high, targeted help is available." } },
+          de: "Tinnitus ist die Wahrnehmung von Geräuschen (etwa Pfeifen, Rauschen, Summen oder Klingeln) ohne äußere Schallquelle. Er ist meist ein Symptom und kann viele Ursachen haben, etwa Lärm, Hörminderung, Stress, eine Ohrerkrankung oder Verspannungen im Kiefer- und Nackenbereich. Viele Menschen gewöhnen sich mit der Zeit daran; bei starkem Leidensdruck ist gezielte Hilfe möglich.",
+          en: "Tinnitus is the perception of sounds (such as whistling, hissing, buzzing or ringing) without an external source. It is usually a symptom and can have many causes, for example noise, hearing loss, stress, an ear condition or tension in the jaw and neck. Many people habituate over time; where distress is high, targeted help is available." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1181,8 +1181,8 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Hörsturz", en: "Sudden Sensorineural Hearing Loss" },
     summary: {
-      de: "Plötzliche, meist einseitige Hörminderung ohne erkennbare äußere Ursache – dringlich.",
-      en: "Sudden, usually one-sided hearing loss without an apparent external cause – urgent.",
+      de: "Plötzliche, meist einseitige Hörminderung ohne erkennbare äußere Ursache. Sie ist ein dringlicher Befund.",
+      en: "Sudden, usually one-sided hearing loss without an apparent external cause. It needs urgent attention.",
     },
     rich: {
       definition: [
@@ -1238,8 +1238,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Altersschwerhörigkeit ist ein allmählicher, meist beidseitiger und symmetrischer Verlust des Hörvermögens, besonders für hohe Töne. Typisch ist, dass das Verstehen von Sprache im Störgeräusch – etwa in geselliger Runde – schwerfällt, obwohl einzelne Laute noch gehört werden. Ursache sind altersbedingte Veränderungen im Innenohr und an der Hörbahn, oft verstärkt durch frühere Lärmbelastung.",
-          en: "Age-related hearing loss is a gradual, usually two-sided and symmetrical loss of hearing, especially for high tones. Characteristically, understanding speech in background noise – for example in company – becomes difficult, although individual sounds are still heard. The cause is age-related changes in the inner ear and auditory pathway, often intensified by earlier noise exposure." } },
+          de: "Die Altersschwerhörigkeit ist ein allmählicher, meist beidseitiger und symmetrischer Verlust des Hörvermögens, besonders für hohe Töne. Typisch ist, dass das Verstehen von Sprache im Störgeräusch, etwa in geselliger Runde, schwerfällt, obwohl einzelne Laute noch gehört werden. Ursache sind altersbedingte Veränderungen im Innenohr und an der Hörbahn, oft verstärkt durch frühere Lärmbelastung.",
+          en: "Age-related hearing loss is a gradual, usually two-sided and symmetrical loss of hearing, especially for high tones. Characteristically, understanding speech in background noise, for example in company, becomes difficult, although individual sounds are still heard. The cause is age-related changes in the inner ear and auditory pathway, often intensified by earlier noise exposure." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1281,20 +1281,20 @@ export const eyesSensoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Gutartiger Lagerungsschwindel", en: "Benign Positional Vertigo" },
     summary: {
-      de: "Kurze, heftige Drehschwindelattacken bei bestimmten Kopfbewegungen – gut behandelbar.",
-      en: "Brief, intense rotatory vertigo with certain head movements – readily treatable.",
+      de: "Kurze, heftige Drehschwindelattacken bei bestimmten Kopfbewegungen. Er ist gut behandelbar.",
+      en: "Brief, intense rotatory vertigo with certain head movements. It is readily treatable.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Der gutartige Lagerungsschwindel ist die häufigste Ursache von Drehschwindel. Kleine Kristalle (Otokonien) lösen sich im Gleichgewichtsorgan und geraten in einen Bogengang, wo sie bei bestimmten Kopfbewegungen – etwa Hinlegen, Umdrehen im Bett oder Kopf in den Nacken legen – kurze, heftige Drehschwindelattacken von Sekunden bis wenigen Minuten auslösen. Er ist unangenehm, aber gutartig und meist sehr gut behandelbar.",
-          en: "Benign positional vertigo is the most common cause of rotatory vertigo. Small crystals (otoconia) become dislodged in the balance organ and enter a semicircular canal, where certain head movements – such as lying down, turning over in bed or tilting the head back – trigger brief, intense attacks of rotatory vertigo lasting seconds to a few minutes. It is unpleasant but benign and usually very treatable." } },
+          de: "Der gutartige Lagerungsschwindel ist die häufigste Ursache von Drehschwindel. Kleine Kristalle (Otokonien) lösen sich im Gleichgewichtsorgan und geraten in einen Bogengang, wo sie bei bestimmten Kopfbewegungen (etwa Hinlegen, Umdrehen im Bett oder Kopf in den Nacken legen) kurze, heftige Drehschwindelattacken von Sekunden bis wenigen Minuten auslösen. Er ist unangenehm, aber gutartig und meist sehr gut behandelbar.",
+          en: "Benign positional vertigo is the most common cause of rotatory vertigo. Small crystals (otoconia) become dislodged in the balance organ and enter a semicircular canal, where certain head movements (such as lying down, turning over in bed or tilting the head back) trigger brief, intense attacks of rotatory vertigo lasting seconds to a few minutes. It is unpleasant but benign and usually very treatable." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose & Behandlung", en: "Diagnosis & treatment" } },
         { t: "p", text: {
-          de: "Die Diagnose gelingt meist mit gezielten Lagerungsproben (z. B. Dix-Hallpike-Manöver), bei denen der typische Schwindel und Augenbewegungen (Nystagmus) ausgelöst werden. Behandelt wird mit Befreiungsmanövern (z. B. Epley- oder Sémont-Manöver), die die Kristalle aus dem Bogengang herausbefördern – oft mit rascher Besserung.",
-          en: "Diagnosis is usually made with targeted positioning tests (e.g. the Dix-Hallpike manoeuvre) that provoke the typical vertigo and eye movements (nystagmus). Treatment uses repositioning manoeuvres (e.g. the Epley or Sémont manoeuvre) that move the crystals out of the canal – often with rapid improvement." } },
+          de: "Die Diagnose gelingt meist mit gezielten Lagerungsproben (z. B. Dix-Hallpike-Manöver), bei denen der typische Schwindel und Augenbewegungen (Nystagmus) ausgelöst werden. Behandelt wird mit Befreiungsmanövern (z. B. Epley- oder Sémont-Manöver), die die Kristalle aus dem Bogengang herausbefördern. Oft bessert sich der Schwindel dadurch rasch.",
+          en: "Diagnosis is usually made with targeted positioning tests (e.g. the Dix-Hallpike manoeuvre) that provoke the typical vertigo and eye movements (nystagmus). Treatment uses repositioning manoeuvres (e.g. the Epley or Sémont manoeuvre) that move the crystals out of the canal, often with rapid improvement." } },
         { t: "p", text: {
           de: "Wichtig: Dauerhafter Schwindel, Schwindel mit Kopfschmerz, Doppelbildern, Taubheit, Lähmung oder Sprachstörung kann auf eine andere, ernste Ursache hindeuten und erfordert eine rasche ärztliche Abklärung, im Zweifel den Notruf 112.",
           en: "Important: persistent vertigo, or vertigo with headache, double vision, numbness, paralysis or speech disturbance, can indicate another, serious cause and requires prompt medical assessment, and an emergency call (112) if in doubt." } },
@@ -1334,8 +1334,8 @@ export const eyesSensoryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die Neuritis vestibularis ist eine vermutlich entzündlich bedingte Störung des Gleichgewichtsnervs, oft im Anschluss an einen Infekt. Typisch ist ein plötzlicher, über Stunden bis Tage anhaltender heftiger Drehschwindel mit Übelkeit, Erbrechen, Gang- und Standunsicherheit – ohne Hörverlust oder Ohrgeräusche. Der Schwindel bessert sich in den folgenden Tagen bis Wochen allmählich.",
-          en: "Vestibular neuritis is a presumed inflammatory disorder of the balance nerve, often following an infection. Typical is a sudden, severe rotatory vertigo lasting hours to days with nausea, vomiting and unsteadiness of gait and stance – without hearing loss or ear noises. The vertigo gradually improves over the following days to weeks." } },
+          de: "Die Neuritis vestibularis ist eine vermutlich entzündlich bedingte Störung des Gleichgewichtsnervs, oft im Anschluss an einen Infekt. Typisch ist ein plötzlicher, über Stunden bis Tage anhaltender heftiger Drehschwindel mit Übelkeit, Erbrechen, Gang- und Standunsicherheit, jedoch ohne Hörverlust oder Ohrgeräusche. Der Schwindel bessert sich in den folgenden Tagen bis Wochen allmählich.",
+          en: "Vestibular neuritis is a presumed inflammatory disorder of the balance nerve, often following an infection. Typical is a sudden, severe rotatory vertigo lasting hours to days with nausea, vomiting and unsteadiness of gait and stance, but without hearing loss or ear noises. The vertigo gradually improves over the following days to weeks." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1461,8 +1461,8 @@ export const eyesSensoryDiseases: Disease[] = [
       ],
       tcm: [
         { t: "p", text: {
-          de: "In der TCM wird Nasenbluten häufig mit Hitze im Blut oder Lungen-Hitze in Verbindung gebracht. Begleitende Maßnahmen zielen auf Kühlung und Wohlbefinden; die Erste Hilfe und – bei starker Blutung – die ärztliche Versorgung bleiben vorrangig.",
-          en: "In TCM, nosebleeds are often associated with heat in the blood or Lung-Heat. Complementary measures aim at cooling and wellbeing; first aid and – for heavy bleeding – medical care remain the priority." } },
+          de: "In der TCM wird Nasenbluten häufig mit Hitze im Blut oder Lungen-Hitze in Verbindung gebracht. Begleitende Maßnahmen zielen auf Kühlung und Wohlbefinden; die Erste Hilfe und bei starker Blutung die ärztliche Versorgung bleiben vorrangig.",
+          en: "In TCM, nosebleeds are often associated with heat in the blood or Lung-Heat. Complementary measures aim at cooling and wellbeing; first aid and, for heavy bleeding, medical care remain the priority." } },
       ],
       ayurvedic: [
         { t: "p", text: {

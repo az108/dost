@@ -31,8 +31,8 @@ export const urinaryDiseases: Disease[] = [
           en: "For typical symptoms of an uncomplicated bladder infection, clinical assessment plus a urine dipstick is often sufficient. For unclear findings, pregnancy, recurrent infections or in men, a urine culture is arranged to identify the organism and its sensitivity." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Leichte, unkomplizierte Verläufe können zunächst rein symptomatisch mit reichlich Trinken und Schmerzmitteln behandelt werden. Sind Antibiotika nötig, werden kurze, gezielte Regime nach aktuellen Leitlinien gewählt, um Wirksamkeit zu sichern und Resistenzen zu vermeiden – Reserveantibiotika bleiben schwereren Fällen vorbehalten.",
-          en: "Mild, uncomplicated cases may first be managed purely symptomatically with generous fluids and pain relief. When antibiotics are needed, short, targeted regimens are chosen according to current guidelines to ensure efficacy and avoid resistance – reserve antibiotics are kept for more serious cases." } },
+          de: "Leichte, unkomplizierte Verläufe können zunächst rein symptomatisch mit reichlich Trinken und Schmerzmitteln behandelt werden. Sind Antibiotika nötig, werden kurze, gezielte Regime nach aktuellen Leitlinien gewählt, um Wirksamkeit zu sichern und Resistenzen zu vermeiden. Reserveantibiotika bleiben schwereren Fällen vorbehalten.",
+          en: "Mild, uncomplicated cases may first be managed purely symptomatically with generous fluids and pain relief. When antibiotics are needed, short, targeted regimens are chosen according to current guidelines to ensure efficacy and avoid resistance. Reserve antibiotics are kept for more serious cases." } },
         { t: "p", text: {
           de: "Wichtig: Fieber, Flankenschmerz, Übelkeit oder ein deutliches Krankheitsgefühl können auf eine aufsteigende Nierenbeckenentzündung hindeuten und erfordern eine rasche ärztliche Abklärung.",
           en: "Important: fever, flank pain, nausea or feeling markedly unwell can indicate an ascending kidney infection and require prompt medical assessment." } },
@@ -73,8 +73,8 @@ export const urinaryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Von wiederkehrenden Harnwegsinfektionen spricht man bei mehreren Infekten innerhalb eines Jahres. Sie sind belastend und erfordern eine sorgfältige Ursachensuche – etwa hormonelle Veränderungen nach den Wechseljahren, Blasenentleerungsstörungen, Steine oder anatomische Besonderheiten.",
-          en: "Recurrent urinary tract infections are defined by several infections within a year. They are burdensome and call for a careful search for causes – such as hormonal changes after menopause, bladder-emptying problems, stones or anatomical variants." } },
+          de: "Von wiederkehrenden Harnwegsinfektionen spricht man bei mehreren Infekten innerhalb eines Jahres. Sie sind belastend und erfordern eine sorgfältige Ursachensuche. Mögliche Ursachen sind etwa hormonelle Veränderungen nach den Wechseljahren, Blasenentleerungsstörungen, Steine oder anatomische Besonderheiten.",
+          en: "Recurrent urinary tract infections are defined by several infections within a year. They are burdensome and call for a careful search for causes, such as hormonal changes after menopause, bladder-emptying problems, stones or anatomical variants." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -322,11 +322,11 @@ export const urinaryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Harnleitersteine sind Steine, die aus der Niere in den Harnleiter gewandert sind. Sie verursachen oft eine klassische Nierenkolik – plötzliche, sehr starke, wellenartige Schmerzen in Flanke und Unterbauch, die in die Leiste ausstrahlen können –, häufig begleitet von Übelkeit, Erbrechen und Blut im Urin.",
-          en: "Ureteral stones are stones that have moved from the kidney into the ureter. They often cause classic renal colic – sudden, very severe, wave-like pain in the flank and lower abdomen that can radiate to the groin – frequently with nausea, vomiting and blood in the urine." } },
+          de: "Harnleitersteine sind Steine, die aus der Niere in den Harnleiter gewandert sind. Sie verursachen oft eine klassische Nierenkolik mit plötzlichen, sehr starken, wellenartigen Schmerzen in Flanke und Unterbauch, die in die Leiste ausstrahlen können. Häufig kommen Übelkeit, Erbrechen und Blut im Urin hinzu.",
+          en: "Ureteral stones are stones that have moved from the kidney into the ureter. They often cause classic renal colic: sudden, very severe, wave-like pain in the flank and lower abdomen that can radiate to the groin. This is frequently accompanied by nausea, vomiting and blood in the urine." } },
         { t: "p", text: {
-          de: "Wichtig: Kommen Fieber, Schüttelfrost oder ein deutlich reduzierter Allgemeinzustand hinzu, besteht die Gefahr einer Infektion des gestauten Harns mit Urosepsis – dann ist eine sofortige ärztliche Behandlung erforderlich.",
-          en: "Important: if fever, chills or a markedly reduced general condition develop, there is a risk of infection of obstructed urine with urosepsis – immediate medical treatment is then required." } },
+          de: "Wichtig: Kommen Fieber, Schüttelfrost oder ein deutlich reduzierter Allgemeinzustand hinzu, besteht die Gefahr einer Infektion des gestauten Harns mit Urosepsis. Dann ist eine sofortige ärztliche Behandlung erforderlich.",
+          en: "Important: if fever, chills or a markedly reduced general condition develop, there is a risk of infection of obstructed urine with urosepsis. Immediate medical treatment is then required." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -373,8 +373,8 @@ export const urinaryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Blasensteine bilden sich in der Harnblase, häufig wenn sich die Blase nicht vollständig entleert – etwa bei vergrößerter Prostata, neurologischen Blasenstörungen oder Dauerkathetern. Beschwerden sind unterbrochener Harnstrahl, Schmerzen, häufiger Harndrang und Blut im Urin; manche Steine bleiben symptomlos.",
-          en: "Bladder stones form in the bladder, often when it does not empty completely – for example with an enlarged prostate, neurological bladder disorders or indwelling catheters. Symptoms include an interrupted stream, pain, frequent urgency and blood in the urine; some stones remain symptom-free." } },
+          de: "Blasensteine bilden sich in der Harnblase, häufig wenn sich die Blase nicht vollständig entleert, etwa bei vergrößerter Prostata, neurologischen Blasenstörungen oder Dauerkathetern. Beschwerden sind unterbrochener Harnstrahl, Schmerzen, häufiger Harndrang und Blut im Urin; manche Steine bleiben symptomlos.",
+          en: "Bladder stones form in the bladder, often when it does not empty completely, for example with an enlarged prostate, neurological bladder disorders or indwelling catheters. Symptoms include an interrupted stream, pain, frequent urgency and blood in the urine; some stones remain symptom-free." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -383,8 +383,8 @@ export const urinaryDiseases: Disease[] = [
           en: "Assessment includes urine tests, ultrasound and usually cystoscopy. Identifying the underlying cause, especially impaired bladder emptying, is important." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Blasensteine werden in der Regel endoskopisch zertrümmert und entfernt. Entscheidend ist die Behandlung der Ursache – etwa der vergrößerten Prostata oder der Entleerungsstörung –, um erneute Steinbildung zu verhindern.",
-          en: "Bladder stones are usually fragmented and removed endoscopically. Treating the cause – such as an enlarged prostate or an emptying disorder – is crucial to prevent recurrence." } },
+          de: "Blasensteine werden in der Regel endoskopisch zertrümmert und entfernt. Um erneute Steinbildung zu verhindern, ist die Behandlung der Ursache entscheidend, etwa der vergrößerten Prostata oder der Entleerungsstörung.",
+          en: "Bladder stones are usually fragmented and removed endoscopically. Treating the cause, such as an enlarged prostate or an emptying disorder, is crucial to prevent recurrence." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -415,14 +415,14 @@ export const urinaryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Harnstau (Hydronephrose)", en: "Hydronephrosis" },
     summary: {
-      de: "Erweiterung des Nierenbeckens durch gestörten Harnabfluss – mit Risiko für die Nierenfunktion.",
-      en: "Dilation of the renal pelvis from impaired urine drainage – with risk to kidney function.",
+      de: "Erweiterung des Nierenbeckens durch gestörten Harnabfluss. Sie kann die Nierenfunktion gefährden.",
+      en: "Dilation of the renal pelvis from impaired urine drainage, with risk to kidney function.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Hydronephrose staut sich der Harn zurück und weitet das Nierenbecken, weil der Abfluss behindert ist – etwa durch einen Stein, eine Engstelle, eine vergrößerte Prostata oder einen Tumor. Je nach Ursache treten Flankenschmerzen, Harnwegsinfekte oder gar keine Beschwerden auf. Ein anhaltender Stau kann die Nierenfunktion schädigen.",
-          en: "In hydronephrosis, urine backs up and dilates the renal pelvis because drainage is obstructed – for example by a stone, a narrowing, an enlarged prostate or a tumour. Depending on the cause, flank pain, urinary infections or no symptoms occur. Prolonged obstruction can damage kidney function." } },
+          de: "Bei der Hydronephrose staut sich der Harn zurück und weitet das Nierenbecken, weil der Abfluss behindert ist, etwa durch einen Stein, eine Engstelle, eine vergrößerte Prostata oder einen Tumor. Je nach Ursache treten Flankenschmerzen, Harnwegsinfekte oder gar keine Beschwerden auf. Ein anhaltender Stau kann die Nierenfunktion schädigen.",
+          en: "In hydronephrosis, urine backs up and dilates the renal pelvis because drainage is obstructed, for example by a stone, a narrowing, an enlarged prostate or a tumour. Depending on the cause, flank pain, urinary infections or no symptoms occur. Prolonged obstruction can damage kidney function." } },
       ],
       medical: [
         { t: "sub", text: { de: "Diagnose", en: "Diagnosis" } },
@@ -431,8 +431,8 @@ export const urinaryDiseases: Disease[] = [
           en: "Ultrasound reliably shows the obstruction; blood tests (kidney values), urine analysis and further imaging (e.g. CT) are added to clarify the cause and degree of the drainage problem." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Im Vordergrund steht die Beseitigung des Abflusshindernisses. Bei drohendem Nierenschaden oder infiziertem Stau muss der Harn rasch entlastet werden – etwa durch eine Harnleiterschiene oder eine Ableitung über die Haut –, gefolgt von der ursächlichen Behandlung.",
-          en: "The priority is removing the obstruction. When kidney damage is threatened or the obstruction is infected, the urine must be relieved quickly – for example with a ureteral stent or a drain through the skin – followed by treatment of the cause." } },
+          de: "Im Vordergrund steht die Beseitigung des Abflusshindernisses. Bei drohendem Nierenschaden oder infiziertem Stau muss der Harn rasch entlastet werden, etwa durch eine Harnleiterschiene oder eine Ableitung über die Haut. Danach folgt die ursächliche Behandlung.",
+          en: "The priority is removing the obstruction. When kidney damage is threatened or the obstruction is infected, the urine must be relieved quickly, for example with a ureteral stent or a drain through the skin, followed by treatment of the cause." } },
         { t: "p", text: {
           de: "Wichtig: Ein Harnstau mit Fieber ist ein Notfall (Gefahr einer Urosepsis) und erfordert eine sofortige ärztliche Behandlung.",
           en: "Important: an obstruction with fever is an emergency (risk of urosepsis) and requires immediate medical treatment." } },
@@ -518,8 +518,8 @@ export const urinaryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Akutes Nierenversagen", en: "Acute Kidney Injury" },
     summary: {
-      de: "Rasch einsetzende Verschlechterung der Nierenfunktion – ein medizinischer Notfall.",
-      en: "A rapid deterioration of kidney function – a medical emergency.",
+      de: "Rasch einsetzende Verschlechterung der Nierenfunktion. Sie ist ein medizinischer Notfall.",
+      en: "A rapid deterioration of kidney function. It is a medical emergency.",
     },
     rich: {
       definition: [
@@ -681,8 +681,8 @@ export const urinaryDiseases: Disease[] = [
           en: "Simple cysts are well assessed on ultrasound and usually need no treatment. Complex or suspicious cysts are classified by standardised criteria and, if needed, monitored with further imaging (e.g. CT or MRI)." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Eine Behandlung ist nur bei Beschwerden oder auffälligen Befunden nötig – etwa Punktion und Verödung einer großen, symptomatischen Zyste oder eine weiterführende Abklärung bei Verdacht auf einen bösartigen Prozess.",
-          en: "Treatment is needed only for symptoms or suspicious findings – such as aspiration and sclerotherapy of a large, symptomatic cyst or further evaluation when malignancy is suspected." } },
+          de: "Eine Behandlung ist nur bei Beschwerden oder auffälligen Befunden nötig, zum Beispiel eine Punktion und Verödung einer großen, symptomatischen Zyste oder eine weiterführende Abklärung bei Verdacht auf einen bösartigen Prozess.",
+          en: "Treatment is needed only for symptoms or suspicious findings, such as aspiration and sclerotherapy of a large, symptomatic cyst or further evaluation when malignancy is suspected." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -873,8 +873,8 @@ export const urinaryDiseases: Disease[] = [
           de: "Die Nebenhoden- und Hodenentzündung ist eine meist infektiöse, schmerzhafte Schwellung im Hodensack, häufig durch aufsteigende Harnwegs- oder sexuell übertragbare Erreger, seltener durch Viren (z. B. Mumps). Typisch sind zunehmende Schmerzen, Schwellung, Rötung und Überwärmung, oft mit Fieber.",
           en: "Epididymitis and orchitis are usually infectious, painful swellings in the scrotum, often from ascending urinary or sexually transmitted organisms and less often from viruses (e.g. mumps). Typical features are increasing pain, swelling, redness and warmth, often with fever." } },
         { t: "p", text: {
-          de: "Wichtig: Plötzliche, sehr starke Hodenschmerzen – besonders bei jüngeren Männern – können auf eine Hodenverdrehung (Hodentorsion) hindeuten. Das ist ein Notfall, der innerhalb weniger Stunden behandelt werden muss – sofort ärztliche Hilfe suchen, im Zweifel den Notruf 112.",
-          en: "Important: sudden, very severe testicular pain – especially in younger men – can indicate testicular torsion. This is an emergency that must be treated within a few hours – seek medical help immediately, and call 112 if in doubt." } },
+          de: "Wichtig: Plötzliche, sehr starke Hodenschmerzen können, besonders bei jüngeren Männern, auf eine Hodenverdrehung (Hodentorsion) hindeuten. Das ist ein Notfall, der innerhalb weniger Stunden behandelt werden muss. Daher sofort ärztliche Hilfe suchen und im Zweifel den Notruf 112 wählen.",
+          en: "Important: sudden, very severe testicular pain, especially in younger men, can indicate testicular torsion. This is an emergency that must be treated within a few hours. Seek medical help immediately, and call 112 if in doubt." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1166,8 +1166,8 @@ export const urinaryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Bei der Belastungsinkontinenz geht Urin ungewollt ab, wenn der Druck im Bauchraum steigt – etwa beim Husten, Niesen, Lachen, Heben oder Sport. Ursache ist ein geschwächter Beckenboden oder Verschlussmechanismus, häufig nach Schwangerschaften und Geburten, nach Prostataoperationen oder mit zunehmendem Alter.",
-          en: "In stress urinary incontinence, urine escapes involuntarily when pressure in the abdomen rises – for example when coughing, sneezing, laughing, lifting or during sport. The cause is a weakened pelvic floor or closure mechanism, often after pregnancies and births, after prostate surgery or with increasing age." } },
+          de: "Bei der Belastungsinkontinenz geht Urin ungewollt ab, wenn der Druck im Bauchraum steigt, etwa beim Husten, Niesen, Lachen, Heben oder Sport. Ursache ist ein geschwächter Beckenboden oder Verschlussmechanismus, häufig nach Schwangerschaften und Geburten, nach Prostataoperationen oder mit zunehmendem Alter.",
+          en: "In stress urinary incontinence, urine escapes involuntarily when pressure in the abdomen rises, for example when coughing, sneezing, laughing, lifting or during sport. The cause is a weakened pelvic floor or closure mechanism, often after pregnancies and births, after prostate surgery or with increasing age." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1262,8 +1262,8 @@ export const urinaryDiseases: Disease[] = [
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Harninkontinenz ist der ungewollte Verlust von Urin. Es gibt verschiedene Formen – etwa Belastungs-, Drang- und Mischinkontinenz sowie die Überlaufinkontinenz bei gestörter Entleerung. Inkontinenz ist häufig, gut behandelbar und kein unvermeidbarer Teil des Älterwerdens.",
-          en: "Urinary incontinence is the involuntary loss of urine. There are various forms – such as stress, urge and mixed incontinence and overflow incontinence with impaired emptying. Incontinence is common, treatable and not an unavoidable part of ageing." } },
+          de: "Harninkontinenz ist der ungewollte Verlust von Urin. Es gibt verschiedene Formen, etwa Belastungs-, Drang- und Mischinkontinenz sowie die Überlaufinkontinenz bei gestörter Entleerung. Inkontinenz ist häufig, gut behandelbar und kein unvermeidbarer Teil des Älterwerdens.",
+          en: "Urinary incontinence is the involuntary loss of urine. There are various forms, such as stress, urge and mixed incontinence and overflow incontinence with impaired emptying. Incontinence is common, treatable and not an unavoidable part of ageing." } },
         { t: "p", text: {
           de: "Wichtig: Eine unmögliche Blasenentleerung mit praller, schmerzhafter Blase (Harnverhalt) oder eine neu aufgetretene Inkontinenz mit Gefühls- oder Bewegungsstörungen an den Beinen erfordern eine rasche ärztliche Abklärung.",
           en: "Important: an inability to empty the bladder with a full, painful bladder (retention) or new-onset incontinence with sensory or movement problems in the legs requires prompt medical assessment." } },
@@ -1275,8 +1275,8 @@ export const urinaryDiseases: Disease[] = [
           en: "Determining the form is important, as treatment depends on it: history, voiding diary, urine analysis, physical examination and ultrasound with residual urine; further urological diagnostics if needed." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Die Behandlung wird an die Form angepasst und beginnt meist mit Beckenboden- und Blasentraining, Gewichts- und Verhaltensanpassung. Ergänzend kommen Medikamente, Hilfsmittel oder – je nach Form – operative Verfahren infrage. Oft lässt sich die Lebensqualität deutlich verbessern.",
-          en: "Treatment is tailored to the form and usually begins with pelvic-floor and bladder training, weight and behavioural adjustment. Medicines, aids or – depending on the form – surgical procedures may be added. Quality of life can often be markedly improved." } },
+          de: "Die Behandlung wird an die Form angepasst und beginnt meist mit Beckenboden- und Blasentraining, Gewichts- und Verhaltensanpassung. Ergänzend kommen Medikamente, Hilfsmittel oder je nach Form auch operative Verfahren infrage. Oft lässt sich die Lebensqualität deutlich verbessern.",
+          en: "Treatment is tailored to the form and usually begins with pelvic-floor and bladder training, weight and behavioural adjustment. Medicines, aids or, depending on the form, surgical procedures may be added. Quality of life can often be markedly improved." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1356,8 +1356,8 @@ export const urinaryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Schmerzen beim Wasserlassen (Dysurie)", en: "Dysuria" },
     summary: {
-      de: "Brennen oder Schmerzen beim Wasserlassen – ein Symptom mit mehreren möglichen Ursachen.",
-      en: "Burning or pain on urination – a symptom with several possible causes.",
+      de: "Brennen oder Schmerzen beim Wasserlassen. Das Symptom kann mehrere mögliche Ursachen haben.",
+      en: "Burning or pain on urination, a symptom with several possible causes.",
     },
     rich: {
       definition: [
@@ -1407,17 +1407,17 @@ export const urinaryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Blut im Urin (Hämaturie)", en: "Blood in the Urine (Haematuria)" },
     summary: {
-      de: "Sichtbares oder mikroskopisches Blut im Urin – immer abklärungsbedürftig.",
-      en: "Visible or microscopic blood in the urine – always warranting assessment.",
+      de: "Sichtbares oder mikroskopisches Blut im Urin. Es ist immer abklärungsbedürftig.",
+      en: "Visible or microscopic blood in the urine, which always warrants assessment.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Von Hämaturie spricht man, wenn sich Blut im Urin befindet – entweder sichtbar (roter oder bräunlicher Urin) oder nur unter dem Mikroskop nachweisbar. Ursachen reichen von harmlos (z. B. Harnwegsinfekt, Steine) bis behandlungsbedürftig (z. B. Nierenerkrankungen, Tumoren der Harnwege). Jede sichtbare Blutbeimengung ist abklärungsbedürftig.",
-          en: "Haematuria is the presence of blood in the urine – either visible (red or brownish urine) or detectable only under the microscope. Causes range from harmless (e.g. urinary infection, stones) to needing treatment (e.g. kidney disease, urinary tract tumours). Any visible blood warrants assessment." } },
+          de: "Von Hämaturie spricht man, wenn sich Blut im Urin befindet, entweder sichtbar (roter oder bräunlicher Urin) oder nur unter dem Mikroskop nachweisbar. Ursachen reichen von harmlos (z. B. Harnwegsinfekt, Steine) bis behandlungsbedürftig (z. B. Nierenerkrankungen, Tumoren der Harnwege). Jede sichtbare Blutbeimengung ist abklärungsbedürftig.",
+          en: "Haematuria is the presence of blood in the urine, either visible (red or brownish urine) or detectable only under the microscope. Causes range from harmless (e.g. urinary infection, stones) to needing treatment (e.g. kidney disease, urinary tract tumours). Any visible blood warrants assessment." } },
         { t: "p", text: {
-          de: "Wichtig: Sichtbares Blut im Urin sollte immer ärztlich abgeklärt werden – auch wenn es nur einmal auftritt und schmerzlos ist –, um ernste Ursachen nicht zu übersehen.",
-          en: "Important: visible blood in the urine should always be medically assessed – even if it occurs only once and is painless – so that serious causes are not missed." } },
+          de: "Wichtig: Sichtbares Blut im Urin sollte immer ärztlich abgeklärt werden, auch wenn es nur einmal auftritt und schmerzlos ist. So werden ernste Ursachen nicht übersehen.",
+          en: "Important: visible blood in the urine should always be medically assessed, even if it occurs only once and is painless, so that serious causes are not missed." } },
       ],
       medical: [
         { t: "sub", text: { de: "Abklärung", en: "Assessment" } },
@@ -1426,8 +1426,8 @@ export const urinaryDiseases: Disease[] = [
           en: "Assessment includes urine analysis and culture, blood tests, blood pressure and imaging of the urinary tract (ultrasound, and CT if needed) and often cystoscopy. The approach depends on age, risk factors (e.g. smoking) and accompanying symptoms." } },
         { t: "sub", text: { de: "Behandlung", en: "Treatment" } },
         { t: "p", text: {
-          de: "Die Behandlung richtet sich nach der gefundenen Ursache – etwa Antibiotika bei Infekt, Steinbehandlung, nephrologische Therapie bei Nierenerkrankung oder urologische Behandlung bei einem Tumor. Bis zur Klärung sollte die Abklärung nicht aufgeschoben werden.",
-          en: "Treatment depends on the cause found – for example antibiotics for infection, stone treatment, nephrological therapy for kidney disease or urological treatment for a tumour. The work-up should not be postponed until the cause is clarified." } },
+          de: "Die Behandlung richtet sich nach der gefundenen Ursache, etwa Antibiotika bei Infekt, Steinbehandlung, nephrologische Therapie bei Nierenerkrankung oder urologische Behandlung bei einem Tumor. Bis zur Klärung sollte die Abklärung nicht aufgeschoben werden.",
+          en: "Treatment depends on the cause found, for example antibiotics for infection, stone treatment, nephrological therapy for kidney disease or urological treatment for a tumour. The work-up should not be postponed until the cause is clarified." } },
       ],
       naturopathic: [
         { t: "p", text: {
@@ -1458,8 +1458,8 @@ export const urinaryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Eiweiß im Urin (Proteinurie)", en: "Proteinuria" },
     summary: {
-      de: "Vermehrte Eiweißausscheidung im Urin – ein wichtiger Hinweis auf Nierenerkrankungen.",
-      en: "Increased protein excretion in the urine – an important pointer to kidney disease.",
+      de: "Vermehrte Eiweißausscheidung im Urin. Sie ist ein wichtiger Hinweis auf Nierenerkrankungen.",
+      en: "Increased protein excretion in the urine, an important pointer to kidney disease.",
     },
     rich: {
       definition: [

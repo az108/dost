@@ -103,8 +103,8 @@ export const respiratoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Akute Laryngitis", en: "Acute Laryngitis" },
     summary: {
-      de: "Entzündung von Kehlkopf und Stimmlippen mit Heiserkeit – meist selbstheilend.",
-      en: "Inflammation of the larynx and vocal folds with hoarseness – usually self-healing.",
+      de: "Entzündung von Kehlkopf und Stimmlippen mit Heiserkeit, die meist von selbst abheilt.",
+      en: "Inflammation of the larynx and vocal folds with hoarseness, usually self-healing.",
     },
     rich: {
       definition: [
@@ -175,14 +175,14 @@ export const respiratoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Akute Pharyngitis", en: "Acute Pharyngitis" },
     summary: {
-      de: "Entzündung der Rachenschleimhaut mit Halsschmerzen – meist viral.",
-      en: "Inflammation of the pharyngeal mucosa with a sore throat – usually viral.",
+      de: "Entzündung der Rachenschleimhaut mit Halsschmerzen, meist viral bedingt.",
+      en: "Inflammation of the pharyngeal mucosa with a sore throat, usually viral.",
     },
     rich: {
       definition: [
         { t: "p", text: {
-          de: "Die akute Pharyngitis ist eine Entzündung der Rachenschleimhaut mit Halsschmerzen, Schluckbeschwerden und Rötung. Meist sind Viren die Ursache; eine bakterielle Infektion – insbesondere durch A-Streptokokken – ist die wichtigste Differenzialdiagnose.",
-          en: "Acute pharyngitis is an inflammation of the pharyngeal mucosa with sore throat, painful swallowing and redness. Most cases are viral; a bacterial infection – especially group A streptococcus – is the key differential diagnosis." } },
+          de: "Die akute Pharyngitis ist eine Entzündung der Rachenschleimhaut mit Halsschmerzen, Schluckbeschwerden und Rötung. Meist sind Viren die Ursache; eine bakterielle Infektion, insbesondere durch A-Streptokokken, ist die wichtigste Differenzialdiagnose.",
+          en: "Acute pharyngitis is an inflammation of the pharyngeal mucosa with sore throat, painful swallowing and redness. Most cases are viral; a bacterial infection, especially group A streptococcus, is the key differential diagnosis." } },
       ],
       medical: [
         { t: "sub", text: { de: "Symptomatische & lokale Behandlung", en: "Symptomatic & local treatment" } },
@@ -260,8 +260,8 @@ export const respiratoryDiseases: Disease[] = [
       medical: [
         { t: "sub", text: { de: "Symptomatische & nasale Behandlung", en: "Symptomatic & nasal treatment" } },
         { t: "p", text: {
-          de: "Paracetamol oder Ibuprofen bei Gesichts- und Kopfschmerz sowie Fieber; ausreichend trinken. Nasenspülungen mit Kochsalz lösen Sekret, intranasale Kortikosteroide dämpfen die Entzündung – besonders bei längerem Verlauf oder Allergie. Abschwellende Nasensprays (z. B. Xylometazolin) nur kurzzeitig verwenden.",
-          en: "Paracetamol or ibuprofen for facial and head pain and fever; keep well hydrated. Saline nasal irrigation clears secretions, intranasal corticosteroids reduce inflammation – especially in prolonged cases or allergy. Use decongestant nasal sprays (e.g. xylometazoline) only short-term." } },
+          de: "Paracetamol oder Ibuprofen bei Gesichts- und Kopfschmerz sowie Fieber; ausreichend trinken. Nasenspülungen mit Kochsalz lösen Sekret, intranasale Kortikosteroide dämpfen die Entzündung, besonders bei längerem Verlauf oder Allergie. Abschwellende Nasensprays (z. B. Xylometazolin) nur kurzzeitig verwenden.",
+          en: "Paracetamol or ibuprofen for facial and head pain and fever; keep well hydrated. Saline nasal irrigation clears secretions, intranasal corticosteroids reduce inflammation, especially in prolonged cases or allergy. Use decongestant nasal sprays (e.g. xylometazoline) only short-term." } },
         { t: "sub", text: { de: "Antibiotika", en: "Antibiotics" } },
         { t: "p", text: {
           de: "Bei unkomplizierter viraler Sinusitis sind Antibiotika nicht nötig. Sie werden nur bei klinischem Verdacht auf eine bakterielle Sinusitis oder bei Komplikationen erwogen.",
@@ -319,8 +319,8 @@ export const respiratoryDiseases: Disease[] = [
     illustration: "generic",
     title: { de: "Akute Tonsillitis", en: "Acute Tonsillitis" },
     summary: {
-      de: "Entzündung der Gaumenmandeln mit starken Halsschmerzen – viral oder bakteriell.",
-      en: "Inflammation of the palatine tonsils with severe sore throat – viral or bacterial.",
+      de: "Entzündung der Gaumenmandeln mit starken Halsschmerzen, viral oder bakteriell bedingt.",
+      en: "Inflammation of the palatine tonsils with severe sore throat, either viral or bacterial.",
     },
     rich: {
       definition: [
@@ -705,8 +705,8 @@ export const respiratoryDiseases: Disease[] = [
           en: "Fever, head and throat pain, cough and thirst: e.g. Yin Qiao San in the early stage." } },
         { t: "sub", text: { de: "Wind-Kälte", en: "Wind-Cold" } },
         { t: "p", text: {
-          de: "Starkes Frösteln, Gliederschmerz und klares Sekret: individuell mit oberflächenlösenden Rezepturen. Ausgeprägte Hitze oder Systemsymptome erfordern eine schulmedizinische Abklärung – die TCM wirkt nur begleitend.",
-          en: "Marked chills, body aches and clear secretions: individualized exterior-releasing formulas. Marked Heat or systemic symptoms need conventional assessment – TCM is only complementary." } },
+          de: "Starkes Frösteln, Gliederschmerz und klares Sekret: individuell mit oberflächenlösenden Rezepturen. Ausgeprägte Hitze oder Systemsymptome erfordern eine schulmedizinische Abklärung. Die TCM wirkt nur begleitend.",
+          en: "Marked chills, body aches and clear secretions: individualized exterior-releasing formulas. Marked Heat or systemic symptoms need conventional assessment; TCM is only complementary." } },
       ],
       ayurvedic: [
         { t: "sub", text: { de: "Pathogenese", en: "Pathogenesis" } },
