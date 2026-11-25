@@ -13,6 +13,7 @@ import Aesthetik from "@/pages/Aesthetik"
 import AesthetikDetail from "@/pages/AesthetikDetail"
 import About from "@/pages/About"
 import Contact from "@/pages/Contact"
+import Reviews from "@/pages/Reviews"
 import TopicDetail from "@/pages/TopicDetail"
 import Legal from "@/pages/Legal"
 import NotFound from "@/pages/NotFound"
@@ -38,6 +39,7 @@ export function AppRoutes() {
         <Route path="/aesthetik" element={<Aesthetik />} />
         <Route path="/aesthetik/:slug" element={<AesthetikDetail />} />
         <Route path="/ueber-uns" element={<About />} />
+        <Route path="/bewertungen" element={<Reviews />} />
         <Route path="/kontakt" element={<Contact />} />
 
         <Route

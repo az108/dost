@@ -6,7 +6,7 @@ import { Container } from "@/components/site/Container"
 import { LanguageSwitch } from "@/components/site/LanguageSwitch"
 import { praxis } from "@/content/praxis"
 import { useUi } from "@/content/ui"
-import logo from "@/assets/logo-drdost.png"
+import logo from "@/assets/wappen-drdost.webp"
 
 export function Navbar() {
   const ui = useUi()
@@ -16,6 +16,7 @@ export function Navbar() {
     { to: "/behandlungen", label: ui.nav.treatments },
     { to: "/aesthetik", label: ui.nav.aesthetic },
     { to: "/ueber-uns", label: ui.nav.about },
+    { to: "/bewertungen", label: ui.nav.reviews },
     { to: "/kontakt", label: ui.nav.contact },
   ]
 
@@ -28,11 +29,11 @@ export function Navbar() {
             onClick={() => setOpen(false)}
             className="flex shrink-0 items-center gap-2.5 whitespace-nowrap font-display text-2xl font-extrabold tracking-tight text-ink"
           >
-            <img src={logo} alt="" className="h-10 w-auto" />
+            <img src={logo} alt="" className="h-12 w-auto" />
             {praxis.brand}
           </Link>
 
-          <div className="hidden items-center gap-8 text-base font-semibold text-ink lg:flex">
+          <div className="hidden items-center gap-8 text-base font-semibold text-ink xl:flex">
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -48,7 +49,7 @@ export function Navbar() {
             <LanguageSwitch />
             <Link
               to="/kontakt"
-              className={cn(buttonVariants(), "hidden h-11 rounded-full bg-brand px-6 text-base font-semibold text-white hover:bg-brand/90 lg:inline-flex")}
+              className={cn(buttonVariants(), "hidden h-11 rounded-full bg-brand px-6 text-base font-semibold text-white hover:bg-brand/90 xl:inline-flex")}
             >
               {ui.nav.book}
             </Link>
@@ -57,7 +58,7 @@ export function Navbar() {
               onClick={() => setOpen((o) => !o)}
               aria-label={ui.nav.treatments}
               aria-expanded={open}
-              className="grid size-10 place-items-center rounded-lg text-ink hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand lg:hidden"
+              className="grid size-10 place-items-center rounded-lg text-ink hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand xl:hidden"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 {open ? (
@@ -72,7 +73,7 @@ export function Navbar() {
       </Container>
 
       {open && (
-        <div className="border-t border-neutral-200/60 bg-white lg:hidden">
+        <div className="border-t border-neutral-200/60 bg-white xl:hidden">
           <Container>
             <div className="flex flex-col gap-1 py-4">
               {links.map((l) => (

@@ -20,6 +20,7 @@ export function allRoutes(): string[] {
     "/aesthetik",
     ...aestheticTreatments.map((t) => `/aesthetik/${t.slug}`),
     "/ueber-uns",
+    "/bewertungen",
     "/kontakt",
     ...fachbereiche.map((f) => `/fachbereiche/${f.slug}`),
     "/impressum",

@@ -9,6 +9,7 @@ import { SearchBox } from "@/components/site/SearchBox"
 import { Stars } from "@/components/site/Stars"
 import { useUi } from "@/content/ui"
 import heroFoto from "@/assets/praxis-empfang.jpg"
+import wappen from "@/assets/wappen-drdost.webp"
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -24,6 +25,14 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
+            {/* The practice crest, shown large once so its details read. */}
+            <img
+              src={wappen}
+              alt="Wappen der Praxis Dr. Dost"
+              width={401}
+              height={512}
+              className="mb-7 h-28 w-auto drop-shadow-[0_12px_24px_rgba(176,124,40,0.28)] md:h-32 lg:h-36"
+            />
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-info-ink">
               {ui.hero.eyebrow}
             </p>
@@ -76,7 +85,7 @@ export function Hero() {
           >
             <img
               src={heroFoto}
-              alt="Empfangsbereich der Praxis"
+              alt="Moderner Empfangsbereich einer Arztpraxis (Symbolbild)"
               className="aspect-[4/5] w-full rotate-2 rounded-[2rem] object-cover shadow-2xl"
             />
             {/* Real 5-star patient reviews. From xl they float off the photo's
